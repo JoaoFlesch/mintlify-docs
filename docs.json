@@ -1,13 +1,16 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
-  "name": "Mintlify Starter Kit",
+  "theme": "maple",
+  "name": "Trackup",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#4f39f6",
+    "light": "#7a7aff",
+    "dark": "#3424af"
   },
-  "favicon": "/favicon.svg",
+  "favicon": {
+    "light": "/images/whitefavicon.svg",
+    "dark": "/images/whitefavicon.svg"
+  },
   "navigation": {
     "pages": [
       {
@@ -21,21 +24,126 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
           "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
+          "href": "https://trackup.me",
           "icon": "newspaper"
         }
       ]
-    }
+    },
+    "tabs": [
+      {
+        "tab": "Central de Ajuda",
+        "icon": "library-big",
+        "pages": [
+          {
+            "group": "Comece Aqui",
+            "pages": [
+              "nocoes-basicas-1",
+              "quick-start"
+            ]
+          },
+          {
+            "group": "Por Dentro do Trackup",
+            "pages": [
+              "times-projetos",
+              {
+                "group": "Gerenciador de Anúncios",
+                "icon": "chart-column",
+                "pages": [
+                  "entendendo-o-gerenciador-de-anuncios",
+                  "meta",
+                  "google",
+                  "kwai",
+                  "tiktok"
+                ]
+              },
+              "ofertas",
+              {
+                "group": "Páginas",
+                "icon": "file-text",
+                "pages": [
+                  "configurandosuas-paginas",
+                  "redirect",
+                  "builder",
+                  "upload-html",
+                  "clonar-url"
+                ]
+              },
+              {
+                "group": "Links",
+                "icon": "link-2",
+                "pages": [
+                  "como-funcionam-os-links",
+                  "generico",
+                  "anuncio",
+                  "checkout"
+                ]
+              },
+              "acionadores",
+              {
+                "group": "Filtros",
+                "icon": "shield-check",
+                "pages": [
+                  "entendendo-os-filtros",
+                  "modo-simples",
+                  "modo-avancado"
+                ]
+              },
+              {
+                "group": "Logs",
+                "icon": "scroll-text",
+                "pages": [
+                  "requisiocoes",
+                  "visitantes",
+                  "conversoes"
+                ]
+              },
+              {
+                "group": "Integrações",
+                "icon": "plug-2",
+                "pages": [
+                  "pixels",
+                  "fontes-de-trafego",
+                  {
+                    "group": "Plataforma de Vendas",
+                    "icon": "shopping-cart",
+                    "pages": [
+                      "integrando-suas-plataformas-de-venda",
+                      "upag",
+                      "perfect-pay"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Configurações",
+                "icon": "settings",
+                "pages": [
+                  "geral",
+                  "dominios"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Academy",
+        "icon": "graduation-cap"
+      },
+      {
+        "tab": "Doc",
+        "icon": "code-xml"
+      },
+      {
+        "tab": "FAQ",
+        "icon": "search"
+      }
+    ]
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/images/LogotipoPreto.svg",
+    "dark": "/images/LogotipoBranco(1).svg"
   },
   "navbar": {
     "links": [
@@ -68,5 +176,27 @@
       "github": "https://github.com/mintlify",
       "linkedin": "https://linkedin.com/company/mintlify"
     }
+  },
+  "appearance": {
+    "default": "dark"
+  },
+  "background": {
+    "decoration": "gradient",
+    "color": {
+      "light": "#f5f5ff",
+      "dark": "#020105"
+    }
+  },
+  "fonts": {
+    "family": "Inter"
+  },
+  "icons": {
+    "library": "lucide"
+  },
+  "styling": {
+    "codeblocks": "dark"
+  },
+  "thumbnails": {
+    "background": "/images/TUMBNAIL-TRACKUP.png"
   }
 }

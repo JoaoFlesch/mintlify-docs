@@ -38,12 +38,13 @@
           {
             "group": "Comece Aqui",
             "pages": [
-              "nocoes-basicas-1",
-              "quick-start"
+              "boas-vindas",
+              "quick-start",
+              "nocoes-basicas-1"
             ]
           },
           {
-            "group": "Por Dentro do Trackup",
+            "group": "Workspace",
             "pages": [
               "times-projetos",
               {
@@ -62,7 +63,7 @@
                 "group": "Páginas",
                 "icon": "file-text",
                 "pages": [
-                  "configurandosuas-paginas",
+                  "entendendo-paginas",
                   "redirect",
                   "builder",
                   "upload-html",
@@ -73,7 +74,7 @@
                 "group": "Links",
                 "icon": "link-2",
                 "pages": [
-                  "como-funcionam-os-links",
+                  "entendendo-os-links",
                   "generico",
                   "anuncio",
                   "checkout"

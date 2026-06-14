@@ -4,149 +4,515 @@ description: "Neste guia você configurará um projeto completo do zero."
 icon: "rocket"
 ---
 
-Ao final você terá:
+### Configure sua primeira operação no TrackUp em poucos minutos.
 
-- Domínio configurado
-- Página publicada
-- Pixel conectado
-- Checkout integrado
-- Conversão rastreada
+Se esta é sua primeira vez utilizando o TrackUp, este guia vai te mostrar exatamente o caminho mais rápido para configurar toda sua estrutura e preparar sua operação para receber tráfego com rastreamento completo.
 
-Tempo médio:
+Ao final deste processo, você terá:
 
-**10 a 15 minutos**
+✓ Um projeto criado\
+✓ Um domínio configurado\
+✓ Uma página publicada\
+✓ Uma oferta conectada\
+✓ Um link de rastreamento criado\
+✓ Eventos sendo enviados corretamente\
+✓ Sua primeira conversão pronta para ser atribuída
 
-## Get started
+---
 
-<Steps>
-  <Step title="Install">
-    Um Time representa sua empresa ou operação.
+## Antes de começar
 
-    Cada Time possui:
+O TrackUp funciona como uma infraestrutura completa para sua operação de tráfego pago.
 
-    - Assinatura própria
-    - Membros
-    - Projetos
+Todo o fluxo da plataforma segue uma arquitetura simples:
 
-    ### Criando um Time
+```text
+```
 
-    1. Acesse o painel principal.
-    2. Clique em "Novo Time".
-    3. Defina um nome.
-    4. Salve.npm install your-package
-  </Step>
-  <Step title="Criar um Projeto">
-    Projetos organizam seus funis.
+```text
+Campanha → Link → Página → Checkout → Conversão → Evento → Analytics
+```
 
-    Recomendamos:
+Cada etapa depende da anterior.
 
-    ```text
-    1 Projeto = 1 Produto
-    ```
+Por isso, recomendamos seguir este guia exatamente na ordem abaixo.
 
-    Exemplos:
+---
 
-    ```text
-    Time: Agência Alpha
-    
-    Projeto: Produto A
-    Projeto: Produto B
-    Projeto: Produto Cyour-cli init
-    ```
-  </Step>
-  <Step title="Configurar Domínio">
-    Acesse:
+**\[VÍDEO RECOMENDADO NO TOPO\]**
 
-    ```text
-    Configurações → Domínios
-    ```
+_(Vídeo de 3 a 5 minutos mostrando a jornada completa. Não tutorial detalhado. Mostrar a criação da estrutura inteira em velocidade acelerada enquanto alguém explica o fluxo geral.)_
 
-    Adicione seu subdomínio.
+---
 
-    Exemplo:
+# Passo 1 — Crie seu primeiro Projeto
 
-    ```text
-    oferta.seudominio.com
-    ```
+Todo projeto dentro do TrackUp representa uma operação individual.
 
-    Configure um CNAME:
+Recomendamos utilizar um projeto para cada:
 
-    ```text
-    cname.trackup-dns.dev
-    ```
+- \
+  Produto\
+- \
+  Funil\
+- \
+  Oferta\
+- \
+  Cliente\
+- \
+  Operação específica\
 
-    Aguarde a propagação.
-  </Step>
-  <Step>
-    ## Criar uma Oferta
+Exemplo:
 
-    Uma Oferta representa um checkout.
+```text
+```
 
-    Exemplos:
+```text
+Time → Agência Atlas
 
-    - Hotmart
-    - Kiwify
-    - Perfect Pay
-    - Shopify
+Projeto 1 → Produto Financeiro
+Projeto 2 → Produto Nutra
+Projeto 3 → Cliente XYZ
+```
 
-    ### Criando uma oferta
+Para criar um projeto:
 
-    1. Acesse Ofertas.
-    2. Clique em Criar Oferta.
-    3. Insira a URL do checkout.
-    4. Salve.
-  </Step>
-  <Step title="Criar uma Página">
-    Acesse:
+1. \
+   Acesse o menu lateral\
+2. \
+   Clique em criar novo projeto\
+3. \
+   Escolha o nome da operação\
+4. \
+   Salve a estrutura inicial\
 
-    Você pode:
+---
 
-    - Utilizar templates
-    - Criar com IA
-    - Construir do zero
+**\[IMAGEM RECOMENDADA\]**
 
-    Após publicar, vincule ao domínio.Give people a way to get help. This could be a link to a support page, a chat with a customer support agent, or a forum for your product.
-  </Step>
-  <Step title="Criar um Link">
-    Acesse:
+_(Screenshot da interface mostrando criação de um novo projeto dentro de um Time, destacando visualmente o botão de criação.)_
 
-    Crie um dos tipos disponíveis:
+---
 
-    ### Link Genérico
+# Passo 2 — Configure seu domínio
 
-    Redirecionamento simples.
+Agora precisamos conectar o domínio que será utilizado nas páginas e links.
 
-    ### Link de Anúncio
+O TrackUp utiliza subdomínios apontados para nossa infraestrutura DNS.
 
-    Preserva parâmetros de mídia.
+Você precisará criar um registro:
 
-    ### Link de Checkout
+```text
+```
 
-    Encaminha para uma Oferta.Example: Need help? Reach out to us at [support@yourcompany.com](mailto:support@yourcompany.com).
-  </Step>
-  <Step title="Conectar Pixels">
-    Acesse:
+```text
+CNAME → cname.trackup-dns.dev
+```
 
-    ```text
-    Integrações → Pixels
-    ```
+Exemplo:
 
-    Conecte:
+```text
+```
 
-    - Meta
-    - Google (em breve)
-    - TikTok (em breve)
-    - Kwai (em breve)\\
-  </Step>
-  <Step title="Validar Conversão">
-    Faça um teste completo.
+```text
+go.seudominio.com → cname.trackup-dns.dev
+```
 
-    Verifique:
+Após a propagação, o domínio ficará disponível dentro da plataforma.
 
-    - Eventos
-    - Conversões
-    - Logs
+---
 
-    Se tudo estiver correto seu projeto está pronto.
-  </Step>
-</Steps>
+### Recomendação
+
+Utilize subdomínios diferentes para cada operação.
+
+Exemplo:
+
+```text
+```
+
+```text
+oferta01.seudominio.com
+checkout.seudominio.com
+go.seudominio.com
+```
+
+---
+
+**\[IMAGEM RECOMENDADA\]**
+
+_(Print mostrando tela de configuração de domínio \+ exemplo visual de configuração DNS em Cloudflare.)_
+
+---
+
+# Passo 3 — Crie sua primeira página
+
+Agora vamos criar a página que receberá seus visitantes.
+
+Você possui diferentes opções.
+
+### Builder Visual
+
+Crie páginas utilizando nosso editor completo.
+
+### Upload HTML
+
+Envie arquivos HTML próprios.
+
+### Clonar URL
+
+Clone páginas existentes e publique rapidamente.
+
+### Redirect
+
+Redirecione visitantes para páginas externas mantendo o rastreamento.
+
+---
+
+### Recomendação para iniciantes
+
+Utilize o Builder Visual.
+
+---
+
+Para criar:
+
+1. \
+   Acesse Páginas\
+2. \
+   Clique em criar nova página\
+3. \
+   Escolha o método desejado\
+4. \
+   Edite ou envie seus arquivos\
+5. \
+   Publique no domínio configurado\
+
+---
+
+**\[IMAGEM RECOMENDADA\]**
+
+_(Screenshot mostrando as quatro opções de criação: Builder, Upload HTML, Clone URL e Redirect.)_
+
+---
+
+# Passo 4 — Configure sua Oferta
+
+A oferta representa o checkout final que receberá a conversão.
+
+Ela conecta o usuário que clicou no anúncio com a venda realizada posteriormente.
+
+Exemplos de plataformas suportadas:
+
+- \
+  Upag\
+- \
+  PerfectPay\
+- \
+  Hotmart\
+- \
+  Kiwify\
+- \
+  Kirvano\
+
+Para criar uma oferta:
+
+1. \
+   Acesse Ofertas\
+2. \
+   Clique em nova oferta\
+3. \
+   Escolha a plataforma de vendas\
+4. \
+   Insira a URL do checkout\
+5. \
+   Salve a configuração\
+
+---
+
+### Importante
+
+Toda atribuição de conversão depende da oferta estar configurada corretamente.
+
+---
+
+**\[IMAGEM RECOMENDADA\]**
+
+_(Print da tela de criação de oferta mostrando seleção da plataforma de checkout e campo da URL.)_
+
+---
+
+# Passo 5 — Crie seu primeiro Link de rastreamento
+
+Todo o ecossistema do TrackUp começa pelos links.
+
+Os links são responsáveis por:
+
+- \
+  Capturar parâmetros da campanha\
+- \
+  Gerar Click ID\
+- \
+  Preservar UTMs\
+- \
+  Associar conversões futuras ao clique original\
+
+Você pode criar três tipos.
+
+### Link Genérico
+
+Redirecionamento simples.
+
+### Link de Anúncio
+
+Criado especificamente para campanhas pagas.
+
+### Link de Checkout
+
+Responsável por conectar o visitante ao checkout final.
+
+---
+
+Para criar:
+
+1. \
+   Acesse Links\
+2. \
+   Clique em novo link\
+3. \
+   Escolha o tipo\
+4. \
+   Configure destino\
+5. \
+   Salve\
+
+---
+
+**\[IMAGEM RECOMENDADA\]**
+
+_(Print mostrando a interface de criação de links com os três tipos disponíveis lado a lado.)_
+
+---
+
+# Passo 6 — Integre seus Pixels
+
+Agora vamos configurar o recebimento de eventos.
+
+O TrackUp permite enviar eventos para plataformas externas.
+
+Atualmente:
+
+- \
+  Meta Ads\
+
+Em breve:
+
+- \
+  Google Ads\
+- \
+  TikTok Ads\
+- \
+  Kwai Ads\
+
+Eventos padrão disponíveis:
+
+```text
+```
+
+```text
+ad_click
+page_view
+start_checkout
+conversion
+```
+
+Para integrar:
+
+1. \
+   Acesse Integrações\
+2. \
+   Vá em Pixels\
+3. \
+   Conecte sua plataforma\
+4. \
+   Escolha os eventos que serão disparados\
+5. \
+   Salve\
+
+---
+
+**\[IMAGEM RECOMENDADA\]**
+
+_(Screenshot mostrando área de integração de pixels e tela de conexão com Meta.)_
+
+---
+
+# Passo 7 — Lance sua campanha
+
+Agora sua infraestrutura está pronta.
+
+Pegue o link criado no passo anterior e utilize-o na sua campanha.
+
+Exemplo:
+
+```text
+```
+
+```text
+Meta Ads
+↓
+Usuário clica
+↓
+TrackUp captura parâmetros
+↓
+Usuário acessa página
+↓
+Usuário vai para checkout
+↓
+Conversão é registrada
+↓
+Evento é enviado
+↓
+Dados aparecem nos logs
+```
+
+A partir daqui, o sistema começa a processar todos os dados automaticamente.
+
+---
+
+**\[IMAGEM RECOMENDADA\]**
+
+_(Diagrama visual do fluxo completo mostrando anúncio → link → landing page → checkout → conversão.)_
+
+---
+
+# Passo 8 — Valide sua primeira conversão
+
+Antes de escalar campanhas, valide se todo o fluxo está funcionando corretamente.
+
+Checklist:
+
+✓ O domínio foi conectado\
+\
+✓ A página foi publicada\
+\
+✓ A oferta foi criada\
+\
+✓ O link foi configurado\
+\
+✓ Os parâmetros estão sendo preservados\
+\
+✓ O pixel está conectado\
+\
+✓ Os eventos estão disparando corretamente
+
+Se tudo estiver certo, sua operação já está pronta.
+
+---
+
+**\[IMAGEM RECOMENDADA\]**
+
+_(Print da área de Logs mostrando um visitante entrando, eventos sendo disparados e conversão registrada.)_
+
+---
+
+# Fluxo ideal recomendado
+
+Sempre recomendamos utilizar esta estrutura.
+
+```text
+```
+
+```text
+Meta Ads
+↓
+Link de anúncio
+↓
+Landing Page
+↓
+Link de checkout
+↓
+Checkout
+↓
+Conversão
+↓
+Evento disparado
+↓
+Analytics atualizados
+```
+
+Essa é a arquitetura mais eficiente para manter atribuição precisa e preservar o máximo possível de dados.
+
+---
+
+# Próximos passos
+
+Sua infraestrutura inicial está pronta.
+
+Agora recomendamos explorar cada módulo individualmente.
+
+Continue por aqui:
+
+→ Times e Projetos\
+\
+→ Campaign Manager\
+\
+→ Pages Builder\
+\
+→ Smart Links\
+\
+→ Visitor Analytics\
+\
+→ Traffic Protection
+
+---
+
+# Recomendação extra (importante)
+
+Eu adicionaria no final um bloco tipo progresso.
+
+Algo visual.
+
+Exemplo:
+
+```text
+```
+
+```text
+Quick Start Progress
+
+✅ Projeto criado
+✅ Domínio conectado
+✅ Página criada
+✅ Oferta criada
+✅ Link criado
+✅ Pixel integrado
+✅ Primeira conversão validada
+```
+
+Isso dá sensação de avanço.
+
+Muito bom para onboarding.
+
+---
+
+Minha recomendação de vídeo para essa página:
+
+**não fazer um vídeo editado institucional como o da Welcome Page.**
+
+Aqui eu faria:
+
+- \
+  gravação real da tela\
+- \
+  mostrando setup completo\
+- \
+  sem cortes excessivos\
+- \
+  estilo Loom\
+- \
+  7 a 10 minutos\
+
+Porque essa página é operacional, não institucional.
+
+### 

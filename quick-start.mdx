@@ -27,9 +27,6 @@ O TrackUp funciona como uma infraestrutura completa para sua operação de tráf
 Todo o fluxo da plataforma segue uma arquitetura simples:
 
 ```text
-```
-
-```text
 Campanha → Link → Página → Checkout → Conversão → Evento → Analytics
 ```
 
@@ -51,40 +48,27 @@ Todo projeto dentro do TrackUp representa uma operação individual.
 
 Recomendamos utilizar um projeto para cada:
 
-- \
-  Produto\\
-- \
-  Funil\\
-- \
-  Oferta\\
-- \
-  Cliente\\
-- \
-  Operação específica\\
+- Produto
+- Funil
+- Oferta\\
+- Cliente\\
+- Operação específica
 
 Exemplo:
-
-```text
-```
 
 ```text
 Time → Agência Atlas
 
 Projeto 1 → Produto Financeiro
 Projeto 2 → Produto Nutra
-Projeto 3 → Cliente XYZ
 ```
 
 Para criar um projeto:
 
-1. \
-   Acesse o menu lateral\\
-2. \
-   Clique em criar novo projeto\\
-3. \
-   Escolha o nome da operação\\
-4. \
-   Salve a estrutura inicial\\
+1. Acesse o menu lateral\\
+2. Clique em criar novo projeto\\
+3. Escolha o nome da operação\\
+4. Salve a estrutura inicial\\
 
 ---
 
@@ -103,16 +87,10 @@ O TrackUp utiliza subdomínios apontados para nossa infraestrutura DNS.
 Você precisará criar um registro:
 
 ```text
-```
-
-```text
 CNAME → cname.trackup-dns.dev
 ```
 
 Exemplo:
-
-```text
-```
 
 ```text
 go.seudominio.com → cname.trackup-dns.dev
@@ -127,9 +105,6 @@ Após a propagação, o domínio ficará disponível dentro da plataforma.
 Utilize subdomínios diferentes para cada operação.
 
 Exemplo:
-
-```text
-```
 
 ```text
 oferta01.seudominio.com
@@ -177,16 +152,11 @@ Utilize o Builder Visual.
 
 Para criar:
 
-1. \
-   Acesse Páginas\\
-2. \
-   Clique em criar nova página\\
-3. \
-   Escolha o método desejado\\
-4. \
-   Edite ou envie seus arquivos\\
-5. \
-   Publique no domínio configurado\\
+1. Acesse Páginas\\
+2. Clique em criar nova página\\
+3. Escolha o método desejado\\
+4. Edite ou envie seus arquivos\\
+5. Publique no domínio configurado\\
 
 ---
 
@@ -204,29 +174,19 @@ Ela conecta o usuário que clicou no anúncio com a venda realizada posteriormen
 
 Exemplos de plataformas suportadas:
 
-- \
-  Upag\\
-- \
-  PerfectPay\\
-- \
-  Hotmart\\
-- \
-  Kiwify\\
-- \
-  Kirvano\\
+- Upag\\
+- PerfectPay\\
+- Hotmart\\
+- Kiwify\\
+- Kirvano\\
 
 Para criar uma oferta:
 
-1. \
-   Acesse Ofertas\\
-2. \
-   Clique em nova oferta\\
-3. \
-   Escolha a plataforma de vendas\\
-4. \
-   Insira a URL do checkout\\
-5. \
-   Salve a configuração\\
+1. Acesse Ofertas\\
+2. Clique em nova oferta\\
+3. Escolha a plataforma de vendas\\
+4. Insira a URL do checkout\\
+5. Salve a configuração\\
 
 ---
 
@@ -248,14 +208,10 @@ Todo o ecossistema do TrackUp começa pelos links.
 
 Os links são responsáveis por:
 
-- \
-  Capturar parâmetros da campanha\\
-- \
-  Gerar Click ID\\
-- \
-  Preservar UTMs\\
-- \
-  Associar conversões futuras ao clique original\\
+- Capturar parâmetros da campanha\\
+- Gerar Click ID\\
+- Preservar UTMs\\
+- Associar conversões futuras ao clique original\\
 
 Você pode criar três tipos.
 
@@ -275,16 +231,11 @@ Responsável por conectar o visitante ao checkout final.
 
 Para criar:
 
-1. \
-   Acesse Links\\
-2. \
-   Clique em novo link\\
-3. \
-   Escolha o tipo\\
-4. \
-   Configure destino\\
-5. \
-   Salve\\
+1. Acesse Links\\
+2. Clique em novo link\\
+3. Escolha o tipo\\
+4. Configure destino\\
+5. Salve\\
 
 ---
 
@@ -302,22 +253,15 @@ O TrackUp permite enviar eventos para plataformas externas.
 
 Atualmente:
 
-- \
-  Meta Ads\\
+- Meta Ads\\
 
 Em breve:
 
-- \
-  Google Ads\\
-- \
-  TikTok Ads\\
-- \
-  Kwai Ads\\
+- Google Ads\\
+- TikTok Ads\\
+- Kwai Ads\\
 
 Eventos padrão disponíveis:
-
-```text
-```
 
 ```text
 ad_click
@@ -328,16 +272,11 @@ conversion
 
 Para integrar:
 
-1. \
-   Acesse Integrações\\
-2. \
-   Vá em Pixels\\
-3. \
-   Conecte sua plataforma\\
-4. \
-   Escolha os eventos que serão disparados\\
-5. \
-   Salve\\
+1. Acesse Integrações\\
+2. Vá em Pixels\\
+3. Conecte sua plataforma\\
+4. Escolha os eventos que serão disparados\\
+5. Salve\\
 
 ---
 
@@ -354,9 +293,6 @@ Agora sua infraestrutura está pronta.
 Pegue o link criado no passo anterior e utilize-o na sua campanha.
 
 Exemplo:
-
-```text
-```
 
 ```text
 Meta Ads
@@ -393,17 +329,11 @@ Antes de escalar campanhas, valide se todo o fluxo está funcionando corretament
 Checklist:
 
 ✓ O domínio foi conectado\
-\
 ✓ A página foi publicada\
-\
 ✓ A oferta foi criada\
-\
 ✓ O link foi configurado\
-\
 ✓ Os parâmetros estão sendo preservados\
-\
 ✓ O pixel está conectado\
-\
 ✓ Os eventos estão disparando corretamente
 
 Se tudo estiver certo, sua operação já está pronta.
@@ -419,9 +349,6 @@ _(Print da área de Logs mostrando um visitante entrando, eventos sendo disparad
 # Fluxo ideal recomendado
 
 Sempre recomendamos utilizar esta estrutura.
-
-```text
-```
 
 ```text
 Meta Ads
@@ -454,15 +381,10 @@ Agora recomendamos explorar cada módulo individualmente.
 Continue por aqui:
 
 → Times e Projetos\
-\
 → Campaign Manager\
-\
 → Pages Builder\
-\
 → Smart Links\
-\
 → Visitor Analytics\
-\
 → Traffic Protection
 
 ---
@@ -474,9 +396,6 @@ Eu adicionaria no final um bloco tipo progresso.
 Algo visual.
 
 Exemplo:
-
-```text
-```
 
 ```text
 Quick Start Progress
@@ -502,17 +421,10 @@ Minha recomendação de vídeo para essa página:
 
 Aqui eu faria:
 
-- \
-  gravação real da tela\\
-- \
-  mostrando setup completo\\
-- \
-  sem cortes excessivos\\
-- \
-  estilo Loom\\
-- \
-  7 a 10 minutos\\
+- gravação real da tela\\
+- mostrando setup completo\\
+- sem cortes excessivos\\
+- estilo Loom\\
+- 7 a 10 minutos\\
 
 Porque essa página é operacional, não institucional.
-
-### 

@@ -3,16 +3,493 @@ title: "Noções Básicas"
 icon: "lightbulb"
 ---
 
-O Trackup é uma ferramenta de rastreamento de eventos que permite que você monitore e otimize a performance de seus projetos.
+### Entenda os conceitos fundamentais por trás de toda operação de tráfego pago.
 
-Aqui você vai aprender os conceitos básicos do Trackup e como utilizá-los.
+Antes de configurar campanhas, páginas, pixels e conversões, é importante entender como os dados circulam dentro de uma operação digital.
 
-#### [**O que é um projeto no Trackup?**](https://docs.trackup.me/getting-started/basic#o-que-%C3%A9-um-projeto-no-trackup)
+O TrackUp foi construído para centralizar e otimizar esse fluxo.
 
-O projeto é onde centralizamos os eventos, que são as ações que queremos rastrear. Nela, você terá o acompanhamento em tempo real de todos os eventos que estão sendo rastreados, além de poder visualizar os relatórios e métricas de conversão.
+Mas para utilizar todo o potencial da plataforma, você precisa dominar alguns conceitos fundamentais.
 
-Você também irá configurar no projeto, todas as integrações que deseja utilizar, como o [**pixel**](https://docs.trackup.me/project/pixels) do Facebook, [**acionadores**](https://docs.trackup.me/project/triggers), entre outros.
+Se você já trabalha com marketing digital, esta página vai te ajudar a conectar melhor todas as peças da operação.
 
-#### [**O que é um evento no Trackup?**](https://docs.trackup.me/getting-started/basic#o-que-%C3%A9-um-evento-no-trackup)
+Se você está começando agora, recomendamos ler esta página até o final.
 
-O evento é a ação que você deseja rastrear. Por exemplo, se você deseja rastrear quantas pessoas clicaram no botão de compra do seu site, você irá criar um evento chamado "Clique no botão de compra".
+---
+
+**\[VÍDEO RECOMENDADO NO TOPO\]**
+
+_(Vídeo estilo aula de 5 a 8 minutos explicando visualmente como funciona o ecossistema do tráfego pago moderno. Pode usar animações simples mostrando usuário clicando em anúncio, navegando pela página, indo para checkout e gerando conversão.)_
+
+---
+
+# O que acontece quando alguém clica no seu anúncio?
+
+Quando uma pessoa interage com sua campanha, uma sequência inteira de eventos começa a acontecer em segundos.
+
+Não é apenas um clique.
+
+É o início de uma jornada de dados.
+
+O fluxo normalmente acontece assim:
+
+```text
+```
+
+```text
+Anúncio → Clique → Página → Navegação → Checkout → Conversão → Evento → Plataforma recebe os dados
+```
+
+Cada etapa gera informações extremamente importantes.
+
+Esses dados ajudam plataformas como Meta e Google a entender quem converteu e otimizar futuras campanhas.
+
+---
+
+**\[IMAGEM RECOMENDADA\]**
+
+_(Criar um diagrama visual bonito mostrando o fluxo completo: Meta Ads → Usuário clica → Landing Page → Checkout → Compra → Evento enviado → Dashboard do TrackUp.)_
+
+---
+
+# O que é um Pixel?
+
+Um Pixel é um mecanismo utilizado por plataformas de mídia para registrar ações realizadas pelos usuários.
+
+Exemplo:
+
+Quando alguém acessa sua página, o pixel pode registrar:
+
+- \
+  Visualização de página\
+- \
+  Clique em botão\
+- \
+  Início de checkout\
+- \
+  Compra finalizada\
+
+Essas informações são utilizadas pelas plataformas para entender o comportamento dos usuários.
+
+Exemplos conhecidos:
+
+- \
+  Meta Pixel\
+- \
+  TikTok Pixel\
+- \
+  Google Tag\
+
+Em resumo:
+
+> O Pixel ajuda a plataforma de anúncios a aprender quem tem mais chance de converter.
+
+---
+
+# O problema do Pixel tradicional
+
+O Pixel tradicional depende do navegador do usuário.
+
+E isso gera vários problemas.
+
+Hoje muitos navegadores bloqueiam rastreamento.
+
+Exemplo:
+
+- \
+  Safari\
+- \
+  Brave\
+- \
+  Firefox\
+- \
+  Ad blockers\
+- \
+  Sistemas de privacidade do iOS\
+
+Isso significa que parte dos seus eventos pode simplesmente não chegar até a plataforma.
+
+O resultado:
+
+- \
+  Dados incompletos\
+- \
+  Otimização ruim\
+- \
+  Campanhas tomando decisões erradas\
+
+---
+
+**\[IMAGEM RECOMENDADA\]**
+
+_(Ilustração simples mostrando navegador bloqueando dados antes deles chegarem ao Meta Pixel.)_
+
+---
+
+# O que é atribuição?
+
+Atribuição é o processo de identificar qual campanha gerou determinada conversão.
+
+Exemplo:
+
+Imagine que um usuário:
+
+1. \
+   Clicou no seu anúncio no Meta Ads\
+2. \
+   Visitou sua landing page\
+3. \
+   Entrou no checkout\
+4. \
+   Comprou o produto\
+
+A atribuição responde:
+
+> Qual campanha gerou essa venda?
+
+Sem atribuição correta, você não consegue saber de onde seu resultado está vindo.
+
+---
+
+# O que são UTMs?
+
+UTMs são parâmetros adicionados na URL para identificar a origem do tráfego.
+
+Exemplo:
+
+```text
+```
+
+```text
+https://pagina.com/?utm_source=facebook&utm_campaign=teste01
+```
+
+Esses parâmetros ajudam a identificar informações como:
+
+- \
+  Origem do tráfego\
+- \
+  Nome da campanha\
+- \
+  Criativo utilizado\
+- \
+  Público utilizado\
+- \
+  Estratégia utilizada\
+
+Exemplo comum:
+
+```text
+```
+
+```text
+utm_source=facebook
+utm_campaign=escala_junho
+utm_content=criativo_video_03
+```
+
+---
+
+# O que são Click IDs?
+
+Além das UTMs, plataformas também geram identificadores únicos para cada clique.
+
+Exemplos:
+
+```text
+```
+
+```text
+fbclid
+gclid
+ttclid
+```
+
+Esses identificadores ajudam a associar um clique específico com uma futura conversão.
+
+Em outras palavras:
+
+Cada clique possui sua própria identidade.
+
+---
+
+# O que é o Click ID do TrackUp?
+
+Quando um visitante passa por um link criado dentro do TrackUp, o sistema gera um identificador único interno.
+
+Exemplo:
+
+```text
+```
+
+```text
+trk_91f8ab72d31
+```
+
+Esse identificador acompanha toda a jornada do visitante.
+
+Ele conecta:
+
+- \
+  O clique inicial\
+- \
+  A navegação nas páginas\
+- \
+  O checkout\
+- \
+  A conversão final\
+
+Isso permite manter a atribuição muito mais precisa.
+
+---
+
+**\[IMAGEM RECOMENDADA\]**
+
+_(Diagrama mostrando um clique entrando no TrackUp e recebendo um Click ID único que acompanha toda jornada até conversão.)_
+
+---
+
+# O que significa preservar parâmetros?
+
+Quando um usuário navega entre páginas e checkouts, informações importantes precisam continuar sendo transportadas.
+
+Exemplo:
+
+Se o visitante clicou em:
+
+```text
+```
+
+```text
+utm_source=facebook
+fbclid=123456
+```
+
+Essas informações precisam continuar existindo quando ele:
+
+- \
+  Navega entre páginas\
+- \
+  Vai para checkout\
+- \
+  Finaliza a compra\
+
+Se esses dados forem perdidos, a atribuição pode quebrar.
+
+Isso significa que a plataforma de anúncios pode deixar de identificar corretamente a conversão.
+
+---
+
+# O que é rastreamento?
+
+Rastreamento significa registrar toda jornada do visitante.
+
+Exemplo:
+
+```text
+```
+
+```text
+Usuário clicou no anúncio às 10:42
+↓
+Visitou landing page
+↓
+Permaneceu por 3 minutos
+↓
+Clicou no botão
+↓
+Entrou no checkout
+↓
+Finalizou a compra
+```
+
+Cada ação gera dados.
+
+Esses dados ajudam você a entender exatamente o que aconteceu.
+
+---
+
+# O que é Fingerprint?
+
+Fingerprint é uma tecnologia utilizada para identificar visitantes utilizando características do dispositivo.
+
+Exemplo de dados analisados:
+
+- \
+  Navegador\
+- \
+  Sistema operacional\
+- \
+  Resolução da tela\
+- \
+  Idioma\
+- \
+  Timezone\
+- \
+  Device type\
+- \
+  Informações do navegador\
+
+Isso ajuda o sistema a reconhecer visitantes mesmo em cenários onde cookies tradicionais podem falhar.
+
+---
+
+# O que são Eventos?
+
+Eventos representam ações importantes realizadas pelos usuários.
+
+No TrackUp, alguns eventos padrão são:
+
+```text
+```
+
+```text
+ad_click
+page_view
+start_checkout
+conversion
+```
+
+Exemplo:
+
+Quando alguém acessa sua landing page:
+
+```text
+```
+
+```text
+page_view
+```
+
+Quando alguém inicia checkout:
+
+```text
+```
+
+```text
+start_checkout
+```
+
+Quando alguém compra:
+
+```text
+```
+
+```text
+conversion
+```
+
+Esses eventos podem ser enviados para plataformas externas.
+
+---
+
+# Como o TrackUp conecta tudo isso?
+
+TrackUp foi criado para unificar toda infraestrutura necessária para operar campanhas de tráfego pago com dados confiáveis.
+
+Quando um visitante entra na sua operação:
+
+```text
+```
+
+```text
+Usuário clica no anúncio
+↓
+TrackUp captura parâmetros
+↓
+TrackUp gera Click ID
+↓
+Usuário acessa landing page
+↓
+TrackUp registra navegação
+↓
+Usuário vai para checkout
+↓
+Conversão acontece
+↓
+TrackUp recebe confirmação
+↓
+Evento é disparado
+↓
+Dados aparecem nos logs
+```
+
+Todo esse fluxo acontece em poucos segundos.
+
+---
+
+**\[IMAGEM RECOMENDADA\]**
+
+_(Imagem grande estilo arquitetura do sistema mostrando todos os módulos conectados: Campaign → Tracking Link → Landing Page → Offer → Conversion → Event → Analytics.)_
+
+---
+
+# Por que isso importa?
+
+Quanto melhores forem seus dados, melhores serão suas decisões.
+
+Quando você entende exatamente:
+
+- \
+  Quem clicou\
+- \
+  De onde veio o visitante\
+- \
+  Qual campanha converteu\
+- \
+  Qual criativo performou melhor\
+- \
+  Quanto custa cada conversão real\
+
+Você consegue escalar campanhas com muito mais segurança.
+
+---
+
+# Resumo rápido
+
+Entenda esses conceitos:
+
+✓ Pixel → registra ações\
+\
+✓ UTM → identifica origem do tráfego\
+\
+✓ Click ID → identifica cada clique\
+\
+✓ Eventos → registram ações importantes\
+\
+✓ Rastreamento → acompanha toda jornada\
+\
+✓ Atribuição → identifica qual campanha converteu\
+\
+✓ Fingerprint → ajuda identificar visitantes\
+\
+✓ Preservação de parâmetros → mantém os dados vivos durante toda navegação
+
+---
+
+# Próximo passo
+
+Agora que você entende os fundamentos por trás do ecossistema de tracking, recomendamos continuar sua jornada aprendendo a estruturar sua operação dentro da plataforma.
+
+→ **Times e Projetos**
+
+---
+
+### Minha recomendação extra
+
+Essa página merece MUITO um vídeo.
+
+Mas não um screencast.
+
+Eu faria estilo:
+
+- \
+  motion graphics\
+- \
+  diagramas animados\
+- \
+  você narrando\
+
+Porque isso educa o usuário e posiciona vocês como autoridade técnica.
+
+Esse tipo de conteúdo inclusive pode virar conteúdo para YouTube, ads e onboarding.

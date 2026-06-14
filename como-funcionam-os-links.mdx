@@ -1,0 +1,455 @@
+---
+title: "Links"
+icon: "link-2"
+---
+
+### Toda operação começa aqui.
+
+Dentro do ecossistema do TrackUp, os Links são uma das partes mais importantes de toda infraestrutura.
+
+Muito mais do que simplesmente redirecionar visitantes, os Links são responsáveis por iniciar o processo de rastreamento da jornada do usuário.
+
+É nesse momento que o sistema começa a capturar dados importantes, preservar parâmetros da origem do tráfego e conectar toda a navegação até a conversão final.
+
+Em outras palavras:
+
+> Todo o tracking da sua operação começa no momento em que alguém acessa um Link TrackUp.
+
+---
+
+**\[VÍDEO RECOMENDADO NO TOPO\]**
+
+_(Vídeo de 5 a 7 minutos mostrando um usuário criando diferentes tipos de links, explicando como o TrackUp captura parâmetros, gera Click ID, preserva dados e acompanha toda jornada até a conversão.)_
+
+---
+
+# O papel dos Links dentro do ecossistema TrackUp
+
+Toda operação dentro da plataforma começa a partir de um clique.
+
+Exemplo.
+
+```text
+Campanha
+↓
+Usuário clica no anúncio
+↓
+Link TrackUp processa o clique
+↓
+Sistema captura parâmetros
+↓
+Click ID é gerado
+↓
+Usuário continua navegando
+↓
+Conversão acontece
+↓
+TrackUp conecta toda jornada
+```
+
+Os Links são responsáveis por iniciar todo esse processo.
+
+Sem eles, não existe rastreamento completo da operação.
+
+---
+
+**\[IMAGEM RECOMENDADA\]**
+
+_(Criar um diagrama visual mostrando o fluxo completo: Campaign → TrackUp Link → Página → Checkout → Conversão → Analytics.)_
+
+---
+
+# Três tipos de Links
+
+O TrackUp oferece diferentes tipos de links para diferentes cenários operacionais.
+
+Cada um possui uma função específica dentro da jornada do usuário.
+
+Atualmente você pode trabalhar com três categorias principais.
+
+```text
+Generic Link
+
+Ad Link
+
+Checkout Link
+```
+
+Cada um resolve um problema diferente.
+
+---
+
+# 1. Generic Link 🌐
+
+O tipo mais flexível de link dentro da plataforma.
+
+Os Generic Links funcionam como links de rastreamento universais.
+
+Eles podem ser utilizados em praticamente qualquer cenário onde você deseja apenas enviar tráfego preservando dados da jornada.
+
+Ideal para:
+
+- Redirecionamento simples
+- Distribuição de tráfego
+- Links em bio
+- Operações orgânicas
+- Navegação intermediária
+
+Eles não dependem de parâmetros específicos de plataformas de mídia.
+
+---
+
+**Exemplo**
+
+```text
+trackup.io/link/landing-principal
+```
+
+→ Continue em **Generic Link**
+
+---
+
+# 2. Ad Link 📢
+
+Os Ad Links foram desenvolvidos especificamente para campanhas de mídia paga.
+
+Esse tipo de link identifica e processa parâmetros enviados pelas plataformas de anúncios.
+
+Exemplo de parâmetros capturados.
+
+```text
+utm_source
+
+utm_campaign
+
+fbclid
+
+gclid
+
+ttclid
+```
+
+Essas informações ajudam o TrackUp a entender exatamente de onde aquele visitante veio.
+
+Ideal para:
+
+- Meta Ads
+- Google Ads
+- TikTok Ads
+- Kwai Ads
+- Qualquer plataforma de mídia paga
+
+Quando performance e atribuição importam, normalmente este será o tipo de link utilizado.
+
+---
+
+**Exemplo**
+
+```text
+trackup.io/ad/produto-principal
+```
+
+→ Continue em **Ad Link**
+
+---
+
+# 3. Checkout Link 💳
+
+O Checkout Link representa o último passo da jornada do usuário antes da conversão.
+
+Esse tipo de link conecta o visitante à Oferta previamente cadastrada dentro do projeto.
+
+Ele é responsável por garantir que todos os dados coletados durante a navegação continuem sendo preservados até o momento final da compra.
+
+Ideal para:
+
+- Redirecionamento para checkout
+- Conexão com plataformas de pagamento
+- Preservação final dos parâmetros
+- Atribuição correta da conversão
+
+Importante.
+
+Antes de criar um Checkout Link, você precisa cadastrar uma Oferta.
+
+---
+
+**Fluxo**
+
+```text
+Landing Page
+↓
+Botão Comprar
+↓
+Checkout Link
+↓
+Oferta cadastrada
+↓
+Usuário vai para checkout
+↓
+Conversão
+```
+
+→ Continue em **Checkout Link**
+
+---
+
+# Preservação de parâmetros 🧬
+
+Uma das funções mais importantes dos Links do TrackUp é preservar informações importantes durante toda jornada do visitante.
+
+Quando um usuário chega através de uma campanha, diversos parâmetros acompanham esse clique.
+
+Exemplo.
+
+```text
+utm_source=facebook
+
+utm_campaign=escala_junho
+
+fbclid=123456789
+```
+
+Se esses parâmetros forem perdidos durante a navegação, a atribuição da conversão pode quebrar.
+
+O TrackUp garante que esses dados continuem existindo durante toda jornada.
+
+---
+
+**Exemplo de fluxo**
+
+```text
+Usuário clica no anúncio
+↓
+Parâmetros são capturados
+↓
+Usuário navega entre páginas
+↓
+Parâmetros continuam preservados
+↓
+Checkout recebe os dados completos
+```
+
+Essa continuidade é fundamental para manter rastreamento preciso.
+
+---
+
+**\[IMAGEM RECOMENDADA\]**
+
+_(Criar visual mostrando parâmetros entrando no sistema e sendo preservados até o checkout.)_
+
+---
+
+# O que é o Click ID do TrackUp?
+
+Sempre que alguém acessa um Link criado dentro da plataforma, o sistema gera automaticamente um identificador único interno.
+
+Chamamos isso de Click ID.
+
+Exemplo.
+
+```text
+trk_9f8ab72831
+```
+
+Esse identificador acompanha toda jornada do visitante.
+
+Ele conecta todos os eventos relacionados àquele usuário.
+
+Exemplo.
+
+```text
+Clique inicial
+
+Page View
+
+Navegação
+
+Checkout
+
+Conversão
+```
+
+Tudo fica associado ao mesmo identificador interno.
+
+---
+
+# Teste A/B integrado ⚖️
+
+O módulo de Links também permite criar testes A/B.
+
+Isso permite distribuir visitantes entre múltiplas páginas diferentes para identificar qual versão gera melhor performance.
+
+Exemplo.
+
+```text
+50% → Landing A
+
+50% → Landing B
+```
+
+Ou.
+
+```text
+70% → Landing A
+
+30% → Landing B
+```
+
+O sistema distribui automaticamente os visitantes com base na configuração definida.
+
+Ideal para:
+
+- Testar diferentes criativos
+- Testar variações de landing pages
+- Testar ofertas diferentes
+- Validar hipóteses rapidamente
+
+---
+
+**\[IMAGEM RECOMENDADA\]**
+
+_(Diagrama mostrando um único Link dividindo visitantes entre Landing A e Landing B.)_
+
+---
+
+# Por que os Links são tão importantes?
+
+Muitas operações perdem dados simplesmente porque o fluxo de navegação quebra no meio do caminho.
+
+Quando isso acontece:
+
+- Conversões deixam de ser atribuídas corretamente
+- Plataformas recebem dados incompletos
+- Pixels deixam de aprender corretamente
+- Campanhas perdem eficiência
+
+Os Links do TrackUp existem para evitar exatamente esse problema.
+
+Eles garantem que toda jornada seja mantida intacta.
+
+---
+
+# Tudo conectado ao restante da operação
+
+Os Links funcionam como ponte entre todos módulos do TrackUp.
+
+Fluxo completo.
+
+```text
+Campanha
+↓
+Link criado no TrackUp
+↓
+Sistema captura parâmetros
+↓
+Click ID é gerado
+↓
+Usuário acessa página
+↓
+Usuário navega
+↓
+Checkout Link envia para Oferta
+↓
+Conversão acontece
+↓
+Dados ficam registrados
+```
+
+Tudo conectado dentro da mesma infraestrutura.
+
+---
+
+# Boas práticas
+
+Algumas recomendações importantes.
+
+### Utilize Ad Links para campanhas pagas
+
+Especialmente quando você depende de atribuição.
+
+---
+
+### Sempre preserve a jornada completa
+
+Evite links externos fora da infraestrutura principal.
+
+---
+
+### Utilize Teste A/B constantemente
+
+Pequenas mudanças podem gerar grandes diferenças em performance.
+
+---
+
+### Organize links por função
+
+Exemplo.
+
+```text
+Link anúncio Meta
+
+Link orgânico Instagram
+
+Link checkout principal
+
+Link campanha Google
+```
+
+---
+
+### Sempre teste o fluxo completo
+
+Valide se a jornada está chegando corretamente até o checkout final.
+
+---
+
+# Resumo rápido
+
+Os Links do TrackUp fazem muito mais do que redirecionar visitantes.
+
+Eles são responsáveis por:
+
+```text
+Capturar parâmetros
+
+Preservar UTMs
+
+Preservar fbclid, gclid e ttclid
+
+Gerar Click ID interno
+
+Conectar jornada completa
+
+Distribuir tráfego em testes A/B
+
+Manter atribuição até a conversão
+```
+
+Toda operação começa aqui.
+
+---
+
+# Próximo passo
+
+Agora que você entende o ecossistema de Links, escolha o tipo ideal para sua operação.
+
+→ Generic Link\
+→ Ad Link\
+→ Checkout Link
+
+Cada tipo possui documentação específica.
+
+---
+
+### Minha recomendação
+
+Eu destacaria MUITO essa frase no topo:
+
+```text
+Todo clique importa. Todo dado começa aqui.
+```
+
+Porque essa página, junto de Logs e Filtros, provavelmente representa o núcleo técnico mais forte do TrackUp.
+
+E essa percepção de produto premium importa bastante na documentação.

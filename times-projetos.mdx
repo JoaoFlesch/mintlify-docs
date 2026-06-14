@@ -31,6 +31,12 @@ _(Vídeo de 3 a 5 minutos mostrando visualmente a arquitetura da plataforma: cri
 Toda organização dentro da plataforma segue esta lógica:
 
 ```text
+[IMAGEM RECOMENDADA]
+
+(Criar um diagrama premium mostrando um Time como bloco principal contendo 
+dois grupos internos: Membros e Projetos. Dentro de Projetos mostrar os 
+módulos do produto.)
+
 Time
  ├── Membros
  │      ├── Administrador
@@ -39,32 +45,17 @@ Time
  │
  └── Projetos
         ├── Projeto A
+		│		├── Gerenciador de Anúncios
+		│		├── Ofertas
+		│		├── Páginas
+		│		├── Links
+		│		├── Acionadores
+		│		├── Filtros
+		│		├── Logs
+		│		└── Integrações
         ├── Projeto B
         └── Projeto C
 ```
-
-Dentro de cada Projeto ficam todos os recursos operacionais.
-
-Exemplo:
-
-```text
-Projeto
-
-├── Gerenciador de Anúncios
-├── Ofertas
-├── Páginas
-├── Links
-├── Acionadores
-├── Filtros
-├── Logs
-└── Integrações
-```
-
----
-
-**\[IMAGEM RECOMENDADA\]**
-
-_(Criar um diagrama premium mostrando um Time como bloco principal contendo dois grupos internos: Membros e Projetos. Dentro de Projetos mostrar os módulos do produto.)_
 
 ---
 
@@ -82,37 +73,12 @@ Cada Time possui:
 - Seus próprios projetos
 - Sua assinatura ativa
 - Seus limites de uso
-- Suas configurações gerais
 
 Em resumo:
 
 > O Time é o ambiente principal que organiza toda sua operação.
 
----
-
-### Exemplo prático
-
-Se você possui uma agência:
-
-```text
-Time → Atlas Media
-```
-
-Se você trabalha como afiliado:
-
-```text
-Time → João Performance
-```
-
-Se você possui múltiplas operações:
-
-```text
-Time → Finance Group
-```
-
 Cada Time funciona como uma estrutura independente.
-
----
 
 **\[IMAGEM RECOMENDADA\]**
 
@@ -136,27 +102,8 @@ Dentro de um Time você pode adicionar:
 - Gestores de tráfego
 - Designers
 - Desenvolvedores
-- Analistas
-- Equipe operacional
 
 Esses membros compartilham acesso ao mesmo ambiente.
-
----
-
-### Exemplo visual
-
-```text
-Time → Atlas Media
-
-Membros
-
-• João → Administrador  
-• Pedro → Gestor de Tráfego  
-• Lucas → Designer  
-• Ana → Analista
-```
-
-Todos pertencem ao mesmo Time.
 
 ---
 
@@ -167,6 +114,8 @@ Cada membro pode possuir diferentes níveis de acesso dentro do Time.
 As permissões permitem controlar o que cada usuário pode visualizar ou alterar.
 
 Alguns exemplos:
+
+\[FAZER UMA TABELA COM CADA FUNÇÃO E OQUE CADA UM PODE FAZER\]
 
 ### Administrador
 
@@ -205,11 +154,9 @@ Pode:
 
 Pode:
 
-- Trabalhar com integrações\\
-- \
-  Configurar webhooks\\
-- \
-  Trabalhar com API\\
+- Trabalhar com integrações
+- Configurar webhooks
+- Trabalhar com API
 
 _(As permissões continuarão evoluindo conforme novas funcionalidades forem adicionadas.)_
 
@@ -229,16 +176,10 @@ Cada Projeto representa uma estrutura independente dentro daquele ambiente.
 
 Recomendamos utilizar um Projeto para cada:
 
-- \
-  Produto\\
-- \
-  Funil\\
-- \
-  Cliente\\
-- \
-  Oferta principal\\
-- \
-  Operação específica\\
+- Produto
+- Funil
+- Oferta principal
+- Operação específica
 
 O objetivo é manter cada operação organizada separadamente.
 
@@ -247,31 +188,13 @@ O objetivo é manter cada operação organizada separadamente.
 ### Exemplo
 
 ```text
-```
-
-```text
-Time → Atlas Media
+Time → Upsurge
 
 Projetos
 
-Projeto 1 → Produto Financeiro  
-Projeto 2 → Produto Nutra  
-Projeto 3 → Produto SaaS
-```
-
-Ou:
-
-```text
-```
-
-```text
-Time → Agência Scale
-
-Projetos
-
-Projeto 1 → Cliente Imobiliária  
-Projeto 2 → Cliente Clínica  
-Projeto 3 → Cliente E-commerce
+Projeto 1 → Trackup  
+Projeto 2 → Cloakup
+Projeto 3 → Upag
 ```
 
 ---
@@ -286,141 +209,29 @@ _(Screenshot mostrando lista de múltiplos projetos dentro do mesmo Time.)_
 
 Todo recurso operacional do Trackup fica vinculado a um Projeto específico.
 
-Dentro de cada Projeto você pode gerenciar:
-
-### Campaign Manager
-
-Campanhas conectadas e sincronizadas.
-
-### Pages
-
-Landing pages hospedadas.
-
-### Smart Links
-
-Links de rastreamento e distribuição.
-
-### Offers
-
-Checkouts conectados.
-
-### Event Triggers
-
-Eventos enviados para pixels.
-
-### Traffic Protection
-
-Regras de proteção de tráfego.
-
-### Analytics & Logs
-
-Dados detalhados dos visitantes.
-
-### Integrations
-
-Conexões externas da operação.
-
----
-
-Exemplo:
-
 ```text
-```
-
-```text
-Projeto → Produto Financeiro
-
-├── Campanhas
-├── Landing Pages
+Projeto
+├── Gerenciador de Anúncios
+├── Ofertas
+├── Páginas
 ├── Links
-├── Offers
+├── Acionadores
+├── Filtros
 ├── Logs
-├── Eventos
 └── Integrações
 ```
 
 ---
 
-# Como organizar corretamente sua estrutura
+**\[IMAGEM RECOMENDADA\]**
+
+_(Criar um diagrama premium mostrando um Time como bloco principal contendo dois grupos internos: Membros e Projetos. Dentro de Projetos mostrar os módulos do produto.)_
+
+---
+
+# Como recomendamos organizar sua estrutura
 
 A organização correta depende do seu modelo de operação.
-
----
-
-### Se você é afiliado
-
-Crie um Projeto para cada oferta.
-
-```text
-```
-
-```text
-Time → João Performance
-
-Projeto 1 → Produto Financeiro  
-Projeto 2 → Produto Nutra  
-Projeto 3 → Produto SaaS
-```
-
----
-
-### Se você possui agência
-
-Crie um Projeto para cada cliente.
-
-```text
-```
-
-```text
-Time → Atlas Agency
-
-Projeto 1 → Cliente A  
-Projeto 2 → Cliente B  
-Projeto 3 → Cliente C
-```
-
----
-
-### Se você é infoprodutor
-
-Crie um Projeto para cada funil.
-
-```text
-```
-
-```text
-Time → Minha Operação
-
-Projeto 1 → Frontend  
-Projeto 2 → Upsell  
-Projeto 3 → Webinar
-```
-
----
-
-# Limites por plano
-
-Cada Time possui limites definidos pelo plano contratado.
-
-Esses limites podem incluir:
-
-- \
-  Quantidade máxima de projetos\\
-- \
-  Quantidade máxima de membros\\
-- \
-  Recursos disponíveis\\
-- \
-  Limites operacionais\\
-
-Os limites variam de acordo com sua assinatura ativa.
-
----
-
-# Estrutura ideal recomendada
-
-```text
-```
 
 ```text
 Time → Sua operação principal
@@ -442,10 +253,52 @@ Uma boa organização facilita escalabilidade no longo prazo.
 
 ---
 
-# Resumo rápido
+### Se você é afiliado
+
+Crie um Projeto para cada oferta.
 
 ```text
+Time → João Performance
+
+Projeto 1 → Produto Financeiro  
+Projeto 2 → Produto Nutra  
+Projeto 3 → Produto SaaS
 ```
+
+---
+
+### Se você possui agência
+
+Crie um Projeto para cada cliente, se você for pagar a assinatura de cada cliente, caso venha a repassar os custos recomendamos que faça um time para cada cliente.
+
+```text
+Time → Atlas Agency
+
+Projeto 1 → Cliente A  
+Projeto 2 → Cliente B  
+Projeto 3 → Cliente C
+```
+
+---
+
+# Limites por plano
+
+Cada Time possui limites definidos pelo plano contratado.
+
+Esses limites podem incluir:
+
+- Quantidade máxima de projetos
+- Quantidade máxima de membros
+- Recursos disponíveis
+- Limites operacionais
+
+Os limites variam de acordo com sua assinatura ativa.
+
+---
+
+---
+
+# Resumo rápido
 
 ```text
 Time = Seu ambiente principal

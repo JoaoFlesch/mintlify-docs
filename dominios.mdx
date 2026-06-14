@@ -2,17 +2,500 @@
 title: "Domínios"
 ---
 
-Configuração de domínio
+Perfeito. Essa página de **Domínios** é uma daquelas páginas que, além de ensinar a configuração, precisa educar o usuário sobre **boas práticas**.
 
-1. Criar subdomínio
-2. Adicionar CNAME apontando para [cname.trackup-dns.dev](http://cname.trackup-dns.dev)
-3. Validar conexão
-4. Publicar páginas
+E aqui existe um ponto muito importante que eu reforçaria logo no início:
 
-Segurança
+> Sempre recomendamos utilizar um **subdomínio**, e não o domínio principal.
 
-- SSL automático
-- Isolamento por projeto
-- Proteção de reputação do domínio
+Porque normalmente o usuário vai usar:
 
-### 
+- landing pages
+- páginas de checkout
+- páginas de advertorial
+- páginas de VSL
+- páginas de redirecionamento
+
+e separar isso da estrutura principal do domínio traz muito mais flexibilidade.
+
+A sensação que essa página precisa passar é:
+
+> Aqui você conecta sua infraestrutura web ao ecossistema TrackUp.
+
+---
+
+# Domínios 🌐
+
+### Conecte seus domínios ao TrackUp e publique sua infraestrutura com máxima flexibilidade.
+
+Todo projeto dentro do TrackUp precisa de pelo menos um domínio conectado para que páginas, links, redirecionamentos e toda estrutura de tracking possam funcionar corretamente.
+
+É nesta área que você configura quais domínios serão utilizados dentro da sua operação.
+
+Ao conectar um domínio, o TrackUp passa a hospedar e responder requisições utilizando sua própria infraestrutura.
+
+Em outras palavras:
+
+> Aqui você conecta sua operação web diretamente ao ecossistema do TrackUp.
+
+---
+
+**\[VÍDEO RECOMENDADO NO TOPO\]**
+
+_(Vídeo mostrando: usuário adicionando domínio → copiando registro CNAME → configurando DNS na Cloudflare → clicando em verificar → status mudando para verificado → definindo domínio como primário.)_
+
+---
+
+# O papel dos Domínios dentro do TrackUp
+
+Sempre que você cria páginas, links, redirects ou qualquer estrutura pública dentro da plataforma, o sistema precisa saber qual domínio será utilizado para servir esse conteúdo.
+
+Os domínios conectam sua operação ao ambiente público da internet.
+
+Exemplo:
+
+```text
+Landing Pages
+
+Checkout Redirects
+
+Links de Tracking
+
+Páginas HTML
+
+Builder Pages
+
+URLs clonadas
+```
+
+Todos esses módulos dependem de pelo menos um domínio ativo.
+
+Sem domínio configurado, sua operação não pode ser publicada.
+
+---
+
+**\[IMAGEM RECOMENDADA\]**
+
+_(Diagrama mostrando Domain → TrackUp Infrastructure → Pages / Links / Redirects / Builder / Tracking.)_
+
+---
+
+# Recomendação importante: utilize subdomínios ⚠️
+
+Embora seja possível conectar qualquer domínio válido, nossa recomendação é simples:
+
+**Sempre utilize subdomínios.**
+
+Exemplo recomendado:
+
+```text
+lp.seudominio.com
+
+track.seudominio.com
+
+go.seudominio.com
+
+offer.seudominio.com
+```
+
+Evite utilizar domínio raiz.
+
+Exemplo menos recomendado:
+
+```text
+seudominio.com
+```
+
+---
+
+### Por que utilizar subdomínios?
+
+Separar sua infraestrutura oferece muito mais flexibilidade operacional.
+
+Benefícios:
+
+- organização da estrutura
+- maior facilidade para gerenciamento DNS
+- separação entre site institucional e páginas de campanha
+- facilidade para trocar infraestrutura futuramente
+- melhor isolamento técnico da operação
+
+Na maioria dos casos, subdomínios são a melhor escolha.
+
+---
+
+# Central de domínios conectados
+
+A página principal exibe todos os domínios atualmente vinculados ao seu projeto.
+
+Exemplo:
+
+```text
+lp.trackup.me
+
+trackup.trackup.cloud
+```
+
+Cada domínio exibe informações importantes como:
+
+```text
+Status da verificação
+
+Domínio primário
+
+Data de criação
+
+Ações disponíveis
+```
+
+A plataforma permite conectar múltiplos domínios simultaneamente.
+
+---
+
+**\[IMAGEM RECOMENDADA\]**
+
+_(Utilizar print mostrando tabela principal com domínios verificados e estrela indicando domínio primário.)_
+
+---
+
+# O que significa domínio primário?
+
+Quando você possui múltiplos domínios conectados ao mesmo projeto, um deles pode ser definido como domínio principal.
+
+O domínio primário será utilizado como preferência padrão em diversos módulos da plataforma.
+
+Exemplo:
+
+```text
+Links criados automaticamente
+
+Novas páginas
+
+URLs padrão do projeto
+
+Redirects internos
+```
+
+Na interface ele aparece marcado com uma estrela.
+
+Exemplo:
+
+```text
+⭐ lp.trackup.me
+```
+
+Os demais domínios continuam funcionando normalmente.
+
+---
+
+# Adicionando um novo domínio
+
+Para conectar um novo domínio basta clicar em:
+
+```text
++ Adicionar Domínio
+```
+
+O sistema abrirá uma janela solicitando o endereço que será conectado.
+
+Campo obrigatório:
+
+```text
+Hostname
+```
+
+Exemplo:
+
+```text
+track.seudominio.com
+```
+
+Após preencher, clique em:
+
+```text
+Salvar
+```
+
+Neste momento o TrackUp irá gerar as instruções técnicas de configuração.
+
+---
+
+**\[IMAGEM RECOMENDADA\]**
+
+_(Utilizar print do modal “Adicionar domínio” mostrando campo Hostname.)_
+
+---
+
+# Configuração DNS automática
+
+Após salvar o domínio, o sistema cria automaticamente a estrutura necessária para validação.
+
+Neste momento o domínio ficará com status:
+
+```text
+Pendente
+```
+
+Isso significa que o TrackUp está aguardando a configuração DNS ser concluída.
+
+---
+
+# Configurando o apontamento DNS
+
+Para que o domínio funcione corretamente, você precisará acessar o painel DNS do provedor onde seu domínio está registrado.
+
+Exemplos de provedores comuns:
+
+- Cloudflare
+- GoDaddy
+- HostGator
+
+Dentro do painel DNS você deverá criar um registro:
+
+```text
+Tipo → CNAME
+```
+
+---
+
+# Registro DNS necessário
+
+O sistema exibirá exatamente quais valores devem ser utilizados.
+
+Exemplo:
+
+```text
+Tipo → CNAME
+
+Nome → track
+
+Destino → cname.trackup-dns.com
+```
+
+Exemplo prático:
+
+```text
+track.seudominio.com
+
+↓
+
+cname.trackup-dns.com
+```
+
+O TrackUp disponibiliza botões rápidos de cópia para facilitar esse processo.
+
+---
+
+**\[IMAGEM RECOMENDADA\]**
+
+_(Utilizar print mostrando tabela DNS com Name \+ CNAME target \+ botões de copiar.)_
+
+---
+
+# O que significa status pendente?
+
+Quando um domínio foi criado mas o DNS ainda não foi validado, ele permanece em estado pendente.
+
+Exemplo:
+
+```text
+Status → Pendente
+```
+
+Isso normalmente significa uma destas situações:
+
+- DNS ainda não foi configurado
+- propagação DNS ainda não terminou
+- registro foi configurado incorretamente
+
+Enquanto estiver pendente, o domínio não poderá ser utilizado.
+
+---
+
+# Validando a configuração
+
+Após criar o registro DNS no seu provedor, retorne ao painel do TrackUp.
+
+Clique no botão:
+
+```text
+Verificar
+```
+
+O sistema fará uma consulta pública para validar se o apontamento está correto.
+
+Se tudo estiver configurado corretamente:
+
+```text
+Status muda para → Verificado
+```
+
+Exemplo:
+
+```text
+track.seudominio.com
+
+Status → Verificado ✅
+```
+
+A partir desse momento o domínio já pode ser utilizado normalmente.
+
+---
+
+**\[IMAGEM RECOMENDADA\]**
+
+_(Utilizar print mostrando domínio pendente → botão Verificar → status alterado para Verificado.)_
+
+---
+
+# Posso conectar múltiplos domínios?
+
+Sim.
+
+Você pode conectar múltiplos domínios dentro do mesmo projeto.
+
+Exemplo:
+
+```text
+lp.meusite.com
+
+go.meusite.com
+
+track.meusite.com
+
+offer.meusite.com
+```
+
+Cada domínio pode ser utilizado em diferentes módulos do TrackUp.
+
+Isso permite organizar operações maiores com muito mais flexibilidade.
+
+---
+
+# Como os domínios se conectam ao restante do TrackUp
+
+Depois de conectado, o domínio passa a ser utilizado em praticamente toda plataforma.
+
+Fluxo:
+
+```text
+Domínio conectado
+
+↓
+
+DNS validado
+
+↓
+
+TrackUp recebe tráfego no domínio
+
+↓
+
+Páginas são publicadas
+
+↓
+
+Links passam a utilizar domínio
+
+↓
+
+Redirects ficam ativos
+
+↓
+
+Visitors começam acessar infraestrutura
+```
+
+Toda camada pública depende desta configuração.
+
+---
+
+# Problemas comuns
+
+### Domínio continua pendente
+
+Possíveis causas:
+
+- registro DNS incorreto
+- CNAME apontado para destino errado
+- propagação DNS ainda em andamento
+
+---
+
+### Domínio não verifica
+
+Possíveis causas:
+
+- erro no Hostname
+- registro foi criado como A Record ao invés de CNAME
+- proxy DNS habilitado incorretamente
+
+---
+
+### Página não abre após domínio verificar
+
+Possíveis causas:
+
+- domínio ainda propagando globalmente
+- cache DNS local
+- configuração DNS externa incorreta
+
+---
+
+# Resumo rápido
+
+O módulo de Domínios conecta sua infraestrutura web ao TrackUp.
+
+```text
+Você adiciona domínio
+
+↓
+
+TrackUp gera instruções DNS
+
+↓
+
+Configura registro CNAME
+
+↓
+
+Sistema verifica apontamento
+
+↓
+
+Domínio fica ativo
+
+↓
+
+Páginas e links passam a funcionar
+```
+
+Esta é a camada que publica sua operação para o mundo.
+
+---
+
+# Próximo passo
+
+Agora que sua infraestrutura está conectada, você pode começar a publicar páginas, criar links e construir toda sua operação dentro do TrackUp.
+
+→ **Sua operação está pronta para começar 🚀**
+
+---
+
+### Minha recomendação de headline principal
+
+Eu colocaria algo assim:
+
+```text
+Seu domínio é a porta de entrada de toda operação dentro do TrackUp.
+```
+
+ou
+
+```text
+Conecte sua infraestrutura e publique sua operação com total controle.
+```
+
+Porque tecnicamente…
+
+essa página transforma o projeto em algo público e acessível na internet. 🌐🚀

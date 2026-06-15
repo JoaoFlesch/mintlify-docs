@@ -1,19 +1,14 @@
 ---
 title: "Ofertas"
 icon: "shopping-bag"
+description: "Configure suas paginas de checkout."
 ---
 
-### Configure os destinos de conversão da sua operação.
-
-Dentro do ecossistema do TrackUp, uma Oferta representa o destino final onde sua conversão acontece.
+Dentro do ecossistema do Trackup, uma Oferta representa o destino final onde sua conversão acontece.
 
 Na prática, uma Oferta funciona como o checkout responsável por receber o visitante após toda a jornada de navegação.
 
-Essa configuração é fundamental porque permite que o TrackUp conecte corretamente o clique inicial do usuário com a conversão final.
-
-Em outras palavras:
-
-> A Oferta é o ponto onde sua venda acontece.
+Essa configuração é fundamental porque permite que o Trackup conecte corretamente o clique inicial do usuário com a conversão final.
 
 ---
 
@@ -23,76 +18,15 @@ _(Vídeo de 2 a 4 minutos explicando a função das Ofertas dentro do ecossistem
 
 ---
 
-# Onde as Ofertas entram no fluxo?
-
-Dentro do TrackUp, toda operação segue uma sequência lógica.
-
-```text
-```
-
-```text
-Campanha
-↓
-Link de anúncio
-↓
-Landing Page
-↓
-Link de checkout
-↓
-Oferta
-↓
-Conversão
-↓
-Evento disparado
-```
-
-A Oferta representa exatamente o destino final dessa jornada.
-
-É nela que a venda acontece.
-
----
-
-**\[IMAGEM RECOMENDADA\]**
-
-_(Criar um diagrama horizontal mostrando o fluxo completo e destacar visualmente a etapa “Oferta” como o checkout final.)_
-
----
-
 # O que é uma Oferta?
 
 Uma Oferta é o cadastro do checkout ou página final responsável por receber a conversão do usuário.
 
-Quando você cadastra uma Oferta, você está dizendo ao TrackUp:
+Quando você cadastra uma Oferta, você está dizendo ao Trackup:
 
 > “Quando eu enviar o visitante para finalizar a compra, este é o destino final da conversão.”
 
 Cada Oferta fica vinculada ao Projeto atual.
-
----
-
-### Exemplo
-
-Se você vende um produto digital utilizando uma plataforma externa.
-
-```text
-```
-
-```text
-Produto → Curso Premium
-
-Oferta cadastrada → Checkout oficial do produto
-```
-
-Ou:
-
-```text
-```
-
-```text
-Produto → Suplemento
-
-Oferta cadastrada → Página final de pagamento
-```
 
 ---
 
@@ -108,23 +42,16 @@ Utilize um nome que identifique facilmente o checkout.
 
 Exemplo:
 
-- \
-  Checkout Principal\
-- \
-  Oferta Frontend\
-- \
-  Upsell Principal\
-- \
-  Checkout Nutra V1\
+- Checkout Principal
+- Oferta Frontend
+- Upsell Principal
+- Checkout V1
 
 ### URL de Redirecionamento
 
 Aqui você deve informar a URL final do checkout responsável por receber o visitante.
 
 Exemplo:
-
-```text
-```
 
 ```text
 https://checkout.exemplo.com
@@ -136,20 +63,19 @@ Após salvar, essa Oferta ficará disponível para ser utilizada em Links de Che
 
 **\[IMAGEM RECOMENDADA\]**
 
+FAZER UM GIF
+
 _(Utilizar exatamente o print que você me enviou. Destacar os dois campos: Nome da Oferta e URL de Redirecionamento. Talvez adicionar pequenas marcações indicando cada campo.)_
 
 ---
 
 # Por que cadastrar uma Oferta primeiro?
 
-Dentro do TrackUp, os Links de Checkout dependem de uma Oferta previamente cadastrada.
+Dentro do Trackup, os Links de Checkout dependem de uma Oferta previamente cadastrada.
 
 Isso acontece porque o sistema precisa saber para onde enviar o visitante no momento final da jornada.
 
 Fluxo:
-
-```text
-```
 
 ```text
 Primeiro você cria a Oferta
@@ -173,7 +99,7 @@ O usuário clica no anúncio.
 
 Ele passa pelo seu funil.
 
-Quando estiver pronto para comprar, você enviará esse usuário para um Link de Checkout criado no TrackUp.
+Quando estiver pronto para comprar, você enviará esse usuário para um Link de Checkout criado no Trackup.
 
 Esse Link utilizará uma Oferta previamente cadastrada.
 
@@ -186,7 +112,7 @@ Landing Page
 ↓
 Botão Comprar
 ↓
-Link de Checkout do TrackUp
+Link de Checkout do Trackup
 ↓
 Oferta cadastrada
 ↓
@@ -214,24 +140,17 @@ Recomendamos seguir algumas práticas simples.
 Evite:
 
 ```text
-```
-
-```text
 Oferta 1
-Oferta teste
+teste produto x 
 checkout novo
 ```
 
 Prefira:
 
 ```text
-```
-
-```text
-Checkout Principal
+Checkout Principal 
 Frontend Financeiro
 Upsell Nutra V2
-PerfectPay Oferta Principal
 ```
 
 ---
@@ -257,13 +176,8 @@ Se sua operação possui múltiplas etapas.
 Exemplo:
 
 ```text
-```
-
-```text
 Oferta 1 → Frontend
-
 Oferta 2 → Upsell
-
 Oferta 3 → Order Bump
 ```
 
@@ -272,10 +186,7 @@ Oferta 3 → Order Bump
 # Exemplo de estrutura recomendada
 
 ```text
-```
-
-```text
-Projeto → Produto Financeiro
+Projeto → Nome do Produto
 
 Ofertas cadastradas
 
@@ -285,43 +196,7 @@ Ofertas cadastradas
 • Oferta Order Bump
 ```
 
-Organizar corretamente facilita muito a escalabilidade futura.
+Organizar corretamente facilita muito a escalabilidade futura.\
+\\
 
----
-
-# Erros comuns
-
-Evite os seguintes erros.
-
----
-
-### Cadastrar URL incorreta
-
-Uma URL errada interrompe toda jornada do usuário.
-
----
-
-### Criar nomes genéricos demais
-
-Isso dificulta organização quando sua operação cresce.
-
----
-
-### Criar Links de Checkout sem planejar a Oferta antes
-
-Sempre cadastre primeiro o destino final.
-
----
-
-# Resumo rápido
-
-```text
-```
-
-```text
-Oferta = Destino final da conversão
-
-Você cadastra o checkout primeiro
-
-Depois utiliza essa Oferta ao criar Links de Checkout
-```
+!!!!! PROXIMOS PASSOS CRIAR UM LINK DE CHECKOUT

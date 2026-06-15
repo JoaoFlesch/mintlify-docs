@@ -1,48 +1,42 @@
 ---
 title: "Acionadores"
 icon: "zap"
+description: "Conecte seu Pixel. O Trackup faz o resto."
 ---
 
-### Transforme comportamento em ações automáticas.
+### Configure os gatilhos e execute ações automáticas.
 
-Os Acionadores são uma das partes mais importantes de toda infraestrutura do TrackUp.
+Os Acionadores são uma das partes mais importantes de toda infraestrutura do Trackup.
 
-Até este ponto da operação, o sistema está capturando dados, rastreando a jornada do visitante e preservando informações importantes sobre toda navegação.
+Até este ponto da operação, o Trackup está capturando dados, rastreando a jornada do visitante e preservando informações importantes sobre toda navegação.
 
 Os Acionadores entram exatamente no momento em que esses dados começam a gerar ações reais.
 
-Eles permitem que o TrackUp monitore comportamentos específicos e execute ações automáticas sempre que determinadas condições forem atendidas.
+Eles permitem que o Trackup monitore comportamentos específicos e execute ações automáticas sempre que determinadas condições forem atendidas.
 
 Em outras palavras:
 
-> O usuário faz algo. O TrackUp reage automaticamente.
+> O usuário faz algo. O Trackup reage automaticamente.
 
 ---
 
 **\[VÍDEO RECOMENDADO NO TOPO\]**
 
-_(Vídeo de 5 a 7 minutos mostrando o fluxo completo: conectar pixel → TrackUp cria acionadores automáticos → usuário cria um acionador customizado → pixel dispara evento via servidor.)_
+_(Vídeo de 5 a 7 minutos mostrando o fluxo completo: conectar pixel → Trackup cria acionadores automáticos → usuário cria um acionador customizado → pixel dispara evento via servidor.)_
 
 ---
 
-# O papel dos Acionadores dentro do ecossistema TrackUp
+# O papel dos Acionadores dentro do Trackup
 
 Durante toda navegação, o usuário gera eventos.
 
 Exemplos:
 
 ```text
-```
-
-```text
 Clique em anúncio
-
 Acesso à página
-
 Visualização de conteúdo
-
 Início de checkout
-
 Conversão
 ```
 
@@ -51,12 +45,9 @@ Esses eventos podem gerar ações automáticas dentro da plataforma.
 Fluxo:
 
 ```text
-```
-
-```text
 Usuário navega
 ↓
-TrackUp registra evento
+Trackup registra evento
 ↓
 Sistema analisa regras
 ↓
@@ -67,7 +58,7 @@ Ação é executada
 Evento é enviado automaticamente
 ```
 
-O sistema observa tudo que acontece e toma decisões em tempo real.
+O Trackup observa tudo que acontece e toma decisões em tempo real.
 
 ---
 
@@ -81,21 +72,21 @@ _(Diagrama: Visitor Action → Event Captured → Trigger Evaluates → Action E
 
 Na maioria dos casos, você não precisa começar configurando eventos manualmente.
 
-Sempre que um Pixel é conectado ao TrackUp, o sistema cria automaticamente uma estrutura inicial de acionadores padrão.
+Sempre que um Pixel é conectado ao Trackup, o Trackup cria automaticamente uma estrutura inicial de acionadores padrão.
 
 Isso significa que grande parte do trabalho já começa pronta.
 
 Em outras palavras:
 
-> Você conecta o Pixel e o TrackUp já prepara automaticamente a base inicial de rastreamento.
+> Você conecta o Pixel e o Trackup já prepara automaticamente a base inicial de rastreamento.
 
 Nosso objetivo é reduzir trabalho manual e acelerar implementação.
 
 ---
 
-# O que o sistema cria automaticamente?
+# O que o Trackup cria automaticamente?
 
-Ao adicionar um Pixel ao projeto, o TrackUp gera automaticamente acionadores responsáveis por registrar eventos essenciais da jornada.
+Ao adicionar um Pixel ao projeto, o Trackup gera automaticamente acionadores responsáveis por registrar eventos essenciais da jornada.
 
 Eventos padrão criados automaticamente:
 
@@ -126,7 +117,7 @@ _(Print mostrando lista de acionadores criados automaticamente após adicionar P
 
 # Quando criar acionadores manualmente?
 
-Embora o sistema prepare a base inicial automaticamente, você pode criar regras totalmente personalizadas sempre que precisar.
+Embora o Trackup prepare a base inicial automaticamente, você pode criar regras totalmente personalizadas sempre que precisar.
 
 Exemplos:
 
@@ -149,7 +140,7 @@ Ou seja:
 ```
 
 ```text
-TrackUp cuida do básico automaticamente
+Trackup cuida do básico automaticamente
 
 Você expande quando precisar de lógica avançada
 ```
@@ -201,7 +192,7 @@ Enviar evento Purchase automaticamente
 
 Você cria a lógica.
 
-O TrackUp executa.
+O Trackup executa.
 
 ---
 
@@ -287,7 +278,7 @@ _(Print mostrando campo Nome \+ toggle Ativo habilitado.)_
 
 As Condições definem quando o acionador será executado.
 
-O sistema avalia continuamente os dados coletados durante a jornada do visitante.
+O Trackup avalia continuamente os dados coletados durante a jornada do visitante.
 
 Atualmente utilizamos lógica:
 
@@ -323,7 +314,7 @@ Tipo de evento
 
 ### Operador
 
-Como o sistema fará a comparação.
+Como o Trackup fará a comparação.
 
 Exemplo:
 
@@ -497,7 +488,7 @@ Atualmente existem dois modos.
 
 ### Disparo via servidor (CAPI)
 
-Quando ativo, o evento é enviado diretamente pelos servidores do TrackUp.
+Quando ativo, o evento é enviado diretamente pelos servidores do Trackup.
 
 Fluxo:
 
@@ -505,7 +496,7 @@ Fluxo:
 ```
 
 ```text
-TrackUp Server
+Trackup Server
 ↓
 
 API da plataforma
@@ -514,13 +505,13 @@ API da plataforma
 Benefícios:
 
 - \
-  Maior confiabilidade\
+  Maior confiabilidade\\
 - \
-  Menor bloqueio por adblockers\
+  Menor bloqueio por adblockers\\
 - \
-  Melhor atribuição\
+  Melhor atribuição\\
 - \
-  Dados mais consistentes\
+  Dados mais consistentes\\
 
 Esse método é altamente recomendado.
 
@@ -552,9 +543,9 @@ _(Print mostrando toggle Server-side ativo e Browser desativado.)_
 
 ---
 
-# Eventos nativos do sistema
+# Eventos nativos do Trackup
 
-O TrackUp já trabalha com eventos internos padrão.
+O Trackup já trabalha com eventos internos padrão.
 
 Exemplos:
 
@@ -629,24 +620,24 @@ Nosso objetivo é transformar Acionadores em um verdadeiro motor de automação.
 
 A maioria das ferramentas apenas registra eventos.
 
-O TrackUp vai além.
+O Trackup vai além.
 
 Ele permite utilizar comportamento do usuário para gerar ações automáticas.
 
 Isso significa:
 
 - \
-  Menos trabalho manual\
+  Menos trabalho manual\\
 - \
-  Melhor atribuição\
+  Melhor atribuição\\
 - \
-  Mais automação\
+  Mais automação\\
 - \
-  Pixels melhor treinados\
+  Pixels melhor treinados\\
 - \
-  Implementação mais rápida\
+  Implementação mais rápida\\
 - \
-  Menos chance de erro humano\
+  Menos chance de erro humano\\
 
 ---
 
@@ -662,7 +653,7 @@ Usuário gera evento
 
 ↓
 
-TrackUp monitora condições
+Trackup monitora condições
 
 ↓
 
@@ -692,25 +683,6 @@ Você começa com a base pronta e expande quando precisar.
 
 # Próximo passo
 
-Agora que o sistema já consegue reagir automaticamente aos eventos da sua operação, o próximo módulo é responsável por decidir **quem pode ou não seguir na jornada**.
+Agora que o Trackup já consegue reagir automaticamente aos eventos da sua operação, o próximo módulo é responsável por decidir **quem pode ou não seguir na jornada**.
 
 → **Filtros**
-
----
-
-### Minha recomendação de destaque no topo
-
-Eu colocaria uma frase forte:
-
-```text
-```
-
-```text
-Conecte seu Pixel. O TrackUp faz o resto.
-```
-
-Porque isso vende exatamente o que vocês querem comunicar:
-
-**menos configuração manual \+ mais automação \+ implementação rápida**.
-
-E isso conversa muito bem com o público de tráfego pago.

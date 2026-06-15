@@ -70,7 +70,16 @@
                   "clonar-url"
                 ]
               },
-              "links",
+              {
+                "group": "Links",
+                "icon": "link-2",
+                "pages": [
+                  "entendendo-os-links",
+                  "link-generico",
+                  "link-de-anuncio",
+                  "link-de-checkout"
+                ]
+              },
               "acionadores",
               {
                 "group": "Filtros",

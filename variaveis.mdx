@@ -20,13 +20,9 @@ Você pode utilizar essas informações para segmentar tráfego, identificar cam
 
 ```text
 Se o usuário veio do Facebook
-
 E
-
 O evento for Start Checkout
-
 ↓
-
 Disparar evento Purchase no Pixel
 ```
 
@@ -39,21 +35,13 @@ Toda lógica dos acionadores funciona a partir dessas variáveis.
 Ao criar uma condição dentro de um acionador, você sempre escolhe 3 elementos:
 
 ```text
-Variável
-
-Operador
-
-Valor
+Variável -> Operador -> Valor
 ```
 
 Exemplo:
 
 ```text
-Tipo de Evento
-
-Igual
-
-purchase
+Tipo de Evento -> Igual -> purchase
 ```
 
 Neste caso:
@@ -72,8 +60,8 @@ Variáveis disponíveis:
 
 | Variável | O que representa |
 | :-- | :-- |
-| **Tipo de Evento** | Evento padrão registrado pelo sistema |
-| **Tipo Customizado** | Evento personalizado enviado manualmente |
+| **Tipo de Evento** | Evento padrão registrado pelo Trackup |
+| **Tipo Customizado** | Evento personalizado enviado pelo pixel do Trackup |
 
 ---
 
@@ -81,24 +69,16 @@ Variáveis disponíveis:
 
 ```text
 page_view
-
 ad_click
-
 start_checkout
-
 conversion
 ```
 
 Exemplo de uso:
 
 ```text
-```
-
-```text
 Se Tipo de Evento = start_checkout
-
 ↓
-
 Disparar evento InitiateCheckout
 ```
 
@@ -138,9 +118,7 @@ Exemplo de uso:
 
 ```text
 Se UTM Source = facebook
-
 ↓
-
 Executar ação
 ```
 
@@ -158,19 +136,12 @@ Variáveis disponíveis:
 
 ```text
 sub1
-
 sub2
-
 sub3
-
 sub4
-
 sub5
-
 sub6
-
 sub7
-
 sub8
 ```
 
@@ -182,7 +153,6 @@ Exemplo:
 
 ```text
 sub1 = produto-a
-
 sub2 = criativo-3
 ```
 
@@ -196,9 +166,7 @@ Exemplo de uso:
 
 ```text
 Se sub1 = produto-a
-
 ↓
-
 Executar ação específica
 ```
 
@@ -238,15 +206,13 @@ Exemplo de uso:
 
 ```text
 Se Referrer contém instagram.com
-
 ↓
-
 Executar ação
 ```
 
 ---
 
-# Exemplos práticos
+# Combinação de Variáveis
 
 As variáveis podem ser combinadas para criar regras muito mais inteligentes.
 
@@ -256,9 +222,7 @@ As variáveis podem ser combinadas para criar regras muito mais inteligentes.
 
 ```text
 Se UTM Source = facebook
-
 ↓
-
 Disparar evento
 ```
 
@@ -268,9 +232,7 @@ Disparar evento
 
 ```text
 Se Tipo de Evento = start_checkout
-
 ↓
-
 Executar ação
 ```
 
@@ -280,18 +242,13 @@ Executar ação
 
 ```text
 Se UTM Campaign = black-friday
-
 ↓
-
 Executar ação
 ```
 
 ---
 
 ### Criar regra para uma página específica
-
-```text
-```
 
 ```text
 Se URL contém /checkout
@@ -311,42 +268,10 @@ Exemplo:
 
 ```text
 UTM Source = facebook
-
 E
-
 Tipo de Evento = start_checkout
-
 E
-
 sub1 = produto-a
 ```
 
 Quanto mais específica a regra, mais preciso será o disparo.
-
----
-
-# Resumo rápido
-
-As variáveis são os dados que o TrackUp disponibiliza para construir automações.
-
-```text
-Visitante acessa página
-
-↓
-
-TrackUp captura dados
-
-↓
-
-Dados ficam disponíveis no acionador
-
-↓
-
-Sistema verifica condições
-
-↓
-
-Ação é executada
-```
-
-Todo sistema de automação do TrackUp funciona a partir dessas variáveis.

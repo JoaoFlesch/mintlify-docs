@@ -1,78 +1,55 @@
 ---
 title: "Entendendo os Filtros"
+description: "Controle quem realmente deve acessar suas páginas."
 ---
 
-### Controle quem realmente deve acessar sua operação.
+Nem todo acesso que chega até sua página é desejado.
 
-Nem todo tráfego possui o mesmo valor.
+Enquanto parte do tráfego representa usuários reais com potencial de conversão, outra parte pode significar acessos de BOTs, visitas suspeitas, públicos desqualificados, concorrentes monitorando sua estrutura.
 
-Em qualquer operação digital, diferentes tipos de visitantes chegam às suas páginas todos os dias.
+Pensando nisso, criamos o sistema de filtros do **Trackup**.
 
-Alguns são usuários reais.
+Com ele, você consegue filtrar múltiplas características de cada visita em tempo real e definir ações automáticas antes mesmo do usuário avançar na navegação.
 
-Outros podem ser acessos automatizados, tráfego de baixa qualidade, visitas indesejadas ou simplesmente públicos que não fazem sentido para determinada estratégia.
-
-Foi exatamente para resolver esse problema que criamos o sistema de **Filtros** do TrackUp.
-
-Com ele, você pode analisar características da visita em tempo real e tomar decisões automáticas antes mesmo do usuário continuar navegando.
+Isso permite ter mais controle sobre quem realmente acessa suas páginas, proteger suas operações, otimizar a qualidade do tráfego e garantir que cada campanha entregue exatamente para o público certo.
 
 Em outras palavras:
 
-> O TrackUp analisa cada acesso antes de decidir o que fazer com ele.
+> O Trackup analisa cada acesso antes de decidir o que fazer com ele.
 
 ---
 
 **\[VÍDEO RECOMENDADO NO TOPO\]**
 
-_(Vídeo de 5 a 7 minutos mostrando um visitante acessando um Link TrackUp, o sistema avaliando critérios, identificando características da visita e tomando uma decisão automaticamente.)_
+_(Vídeo de 5 a 7 minutos mostrando um visitante acessando um Link Trackup, o Trackup avaliando critérios, identificando características da visita e tomando uma decisão automaticamente.)_
 
 ---
 
-# O papel dos Filtros dentro do ecossistema TrackUp
-
-Até este ponto da jornada, o TrackUp já consegue:
-
-- capturar cliques
-- registrar eventos
-- preservar parâmetros
-- disparar pixels
-- acompanhar conversões
-
-Os Filtros adicionam uma nova camada de inteligência.
-
-Eles permitem analisar cada visitante individualmente e decidir como o sistema deve reagir.
-
-Fluxo:
-
 ```text
-Usuário acessa Link TrackUp
+Usuário acessa Link Trackup
 ↓
-Sistema analisa características da visita
+Trackup analisa características da visita
 ↓
 Filtros avaliam regras configuradas
 ↓
-TrackUp identifica perfil do acesso
+Trackup identifica perfil do acesso
 ↓
-Sistema toma uma decisão
+Trackup toma uma decisão
 ↓
 Usuário segue para o destino apropriado
 ```
-
-Tudo acontece em tempo real.
-
-Antes mesmo da navegação continuar.
 
 ---
 
 **\[IMAGEM RECOMENDADA\]**
 
-_(Diagrama mostrando: Visitor → TrackUp analyzes traffic → Filters evaluate conditions → System decides route.)_
+_(Diagrama mostrando: Visitor → Trackup analyzes traffic → Filters evaluate conditions → System decides route.)_
 
 ---
 
 # O que são Filtros?
 
-Filtros são regras inteligentes que permitem ao TrackUp analisar características específicas de cada acesso.
+Filtros são regras inteligentes que permitem ao Trackup analisar características específicas de cada acesso.
 
 Essas regras ajudam você a controlar exatamente como diferentes tipos de tráfego devem ser tratados.
 
@@ -80,65 +57,52 @@ Exemplo:
 
 ```text
 Se visitante atender determinada condição
-
 ↓
-
 Executar comportamento específico
 ```
 
 Ou seja:
 
-O sistema observa informações da visita e toma decisões automaticamente.
+O Trackup observa informações da visita e toma decisões automaticamente.
 
 ---
 
 # Por que os Filtros são importantes?
 
-Nem todo acesso possui o mesmo valor dentro de uma operação.
+Sem filtros adequados, você pode receber tráfego que impacta negativamente sua análise de dados e sua operação além de por em risco a segurança da sua oferta
 
-Sem filtros adequados, você pode receber tráfego que impacta negativamente sua análise de dados e sua operação.
+Exemplos de cenários comuns: 
 
-Exemplos de cenários comuns:
-
-- visitas automatizadas
-- acessos duplicados
-- tráfego de baixa qualidade
-- acessos fora do público desejado
-- visitantes que não deveriam seguir determinada jornada
+- acessos de BOTs
+- visitas suspeitas
+- público desqualificado
+- concorrentes / espiões
 
 Os filtros permitem criar camadas adicionais de controle.
 
 ---
 
-# O que o sistema consegue analisar?
+# O que o Trackup consegue analisar?
 
-O motor de filtros do TrackUp consegue avaliar diversas características relacionadas ao acesso.
+O motor de filtros do Trackup consegue avaliar diversas características relacionadas ao acesso.
 
 Entre elas:
 
 ```text
 Dispositivo utilizado
-
-Sistema operacional
-
+sistema operacional
 Localização geográfica
-
 Idioma do navegador
-
 Tipo de conexão
-
 Origem do tráfego
-
 Parâmetros da URL
-
 Dados da sessão
-
 User Agent
-
 Características técnicas do navegador
-
 Fingerprint do visitante
 ```
+
+Verifique todos os filtros disponíveis [em modo avançado](/modo-avancado)
 
 Cada um desses dados pode ser utilizado para criar regras específicas.
 
@@ -150,18 +114,20 @@ _(Print mostrando uma lista de variáveis disponíveis dentro da configuração 
 
 ---
 
-# Análise em tempo real ⚡
+# Análise em tempo real
 
-Uma das partes mais importantes do sistema é que toda análise acontece em tempo real.
+Uma das partes mais importantes é que toda análise acontece em tempo real de forma extremamente rápida.
 
-Isso significa que, no momento em que um visitante acessa sua operação, o TrackUp imediatamente começa a validar as regras configuradas.
+Isso significa que, no momento em que um visitante acessa sua operação, o Trackup imediatamente começa a validar as regras configuradas sem que o visitante perceba algo.
 
 Fluxo:
 
 ```text
+FAZER IMAGEM
+
 Visitante acessa link
 ↓
-Sistema identifica características
+Trackup identifica características
 ↓
 Regras são processadas
 ↓
@@ -182,7 +148,7 @@ Filtros ajudam a adicionar inteligência operacional ao seu tráfego.
 
 Exemplos de uso:
 
-### Identificar tráfego automatizado
+### Identificar tráfego de BOTs
 
 Separar acessos que apresentam características não compatíveis com comportamento humano.
 
@@ -212,43 +178,54 @@ Aplicar decisões específicas dependendo das características do acesso.
 
 ---
 
-# Integração com Links e Jornadas
-
-Os filtros trabalham diretamente conectados ao sistema de Links do TrackUp.
-
-Fluxo completo:
+# \
+**Tudo integrado ao restante do Trackup**
 
 ```text
 Usuário clica no anúncio
 ↓
-Passa por Link TrackUp
+Passa pelo Link Trackup
 ↓
-Sistema captura parâmetros
+Trackup captura dados do acesso
 ↓
-Filtros analisam o acesso
+Filtros analisam
 ↓
-TrackUp toma decisão
+Trackup toma decisão
 ↓
 Usuário segue jornada apropriada
 ↓
 Eventos continuam sendo rastreados
 ```
 
-Tudo acontece antes mesmo da navegação continuar.
+Tudo acontece antes mesmo da navegação iniciar.
 
----
+Os filtros funcionam como um mecanismo de tomada de decisão.
 
-**\[IMAGEM RECOMENDADA\]**
+O Trackup observa o acesso e decide qual comportamento seguir.
 
-_(Criar fluxo visual: Campaign → Link → Filter Engine → Decision → Destination.)_
+Exemplo conceitual:
+
+```text
+[IMAGEM RECOMENDADA]
+
+Se acesso atender critérios definidos
+↓
+Executar comportamento A
+
+Caso contrário
+↓
+Executar comportamento B
+```
+
+Isso permite criar fluxos muito mais inteligentes.
 
 ---
 
 # Dois modos de configuração
 
-O sistema de filtros foi desenvolvido para atender tanto usuários iniciantes quanto usuários avançados.
+Os filtros foram desenvolvidos para atender tanto usuários iniciantes quanto usuários avançados.
 
-Por isso, o TrackUp oferece duas formas de configuração.
+Por isso, o Trackup oferece duas formas de configuração.
 
 ---
 
@@ -261,8 +238,9 @@ Você escolhe critérios prontos e monta regras sem precisar criar lógica avan�
 Indicado para:
 
 - usuários iniciantes
-- operações rápidas
 - configurações mais comuns
+
+[Veja como configurar filtros no modo simples aqui](/modo-simples)  
 
 ---
 
@@ -275,110 +253,10 @@ Permite construir regras mais específicas utilizando múltiplas condições e m
 Indicado para:
 
 - usuários avançados
-- operações complexas
+- filtros mais complexos
 - segmentações detalhadas
 
----
-
-Cada modo possui sua própria documentação específica.
-
----
-
-# Motor de decisão inteligente 🧠
-
-Os filtros funcionam como um mecanismo de tomada de decisão.
-
-O sistema observa o acesso e decide qual comportamento seguir.
-
-Exemplo conceitual:
-
-```text
-Se acesso atender critérios definidos
-
-↓
-
-Executar comportamento A
-
-Caso contrário
-
-↓
-
-Executar comportamento B
-```
-
-Isso permite criar fluxos muito mais inteligentes.
-
----
-
-# Totalmente integrado ao restante da plataforma
-
-Os filtros não funcionam isoladamente.
-
-Eles fazem parte de toda infraestrutura do TrackUp.
-
-Eles trabalham diretamente conectados com:
-
-```text
-Links
-
-Páginas
-
-Eventos
-
-Acionadores
-
-Logs
-
-Conversões
-```
-
-Cada acesso processado continua sendo registrado normalmente dentro do ecossistema da plataforma.
-
----
-
-# Por que isso importa?
-
-Quanto maior sua operação, mais importante se torna controlar a qualidade e o comportamento do tráfego que está entrando na sua infraestrutura.
-
-Filtros permitem:
-
-- maior controle operacional
-- decisões automatizadas em tempo real
-- segmentação avançada
-- melhor qualidade dos dados
-- maior previsibilidade na jornada do usuário
-
-O sistema deixa de apenas rastrear visitantes.
-
-Ele começa a entender e reagir ao comportamento do tráfego.
-
----
-
-# Resumo rápido
-
-Os Filtros permitem analisar cada acesso antes que ele continue navegando.
-
-```text
-Usuário acessa link
-
-↓
-
-TrackUp analisa características da visita
-
-↓
-
-Sistema processa regras configuradas
-
-↓
-
-Decisão é tomada automaticamente
-
-↓
-
-Usuário segue para a jornada apropriada
-```
-
-Você deixa de tratar todo tráfego da mesma forma.
+[Veja como configurar filtros no modo avançado aqui](/modo-avancado)
 
 ---
 
@@ -388,23 +266,3 @@ Agora que você entende o conceito geral dos filtros, escolha o modo de configur
 
 → **Modo Simples**\
 → **Modo Avançado**
-
----
-
-### Minha recomendação forte para o topo da página
-
-Eu colocaria uma frase assim:
-
-```text
-Nem todo tráfego deve ser tratado da mesma forma.
-```
-
-ou
-
-```text
-Entenda seu tráfego antes mesmo da jornada começar.
-```
-
-Porque isso comunica inteligência operacional sem expor diretamente a parte mais sensível do produto.
-
-Exatamente o posicionamento que vocês querem.

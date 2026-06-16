@@ -1,0 +1,352 @@
+---
+title: "Variáveis "
+---
+
+### Entenda quais informações o TrackUp disponibiliza para criar regras e automações inteligentes.
+
+Sempre que um visitante interage com sua estrutura, o TrackUp coleta dezenas de informações sobre aquela visita.
+
+Essas informações ficam disponíveis dentro dos **acionadores** e podem ser utilizadas para definir **quando uma automação deve acontecer**.
+
+Em outras palavras:
+
+> As variáveis são os dados que o TrackUp analisa para decidir quando executar uma ação.
+
+Você pode utilizar essas informações para segmentar tráfego, identificar campanhas, separar visitantes e disparar eventos com muito mais precisão.
+
+---
+
+**Exemplo simples:**
+
+```text
+Se o usuário veio do Facebook
+
+E
+
+O evento for Start Checkout
+
+↓
+
+Disparar evento Purchase no Pixel
+```
+
+Toda lógica dos acionadores funciona a partir dessas variáveis.
+
+---
+
+# Como funcionam as variáveis?
+
+Ao criar uma condição dentro de um acionador, você sempre escolhe 3 elementos:
+
+```text
+Variável
+
+Operador
+
+Valor
+```
+
+Exemplo:
+
+```text
+Tipo de Evento
+
+Igual
+
+purchase
+```
+
+Neste caso:
+
+> O acionador só será executado quando o evento purchase acontecer.
+
+---
+
+# Variáveis de Evento
+
+Utilize estas variáveis quando quiser criar regras baseadas em ações que aconteceram dentro do funil.
+
+São as variáveis mais utilizadas para automações de pixels.
+
+Variáveis disponíveis:
+
+| Variável | O que representa |
+| :-- | :-- |
+| **Tipo de Evento** | Evento padrão registrado pelo sistema |
+| **Tipo Customizado** | Evento personalizado enviado manualmente |
+
+---
+
+### Exemplos de eventos comuns
+
+```text
+page_view
+
+ad_click
+
+start_checkout
+
+conversion
+```
+
+Exemplo de uso:
+
+```text
+```
+
+```text
+Se Tipo de Evento = start_checkout
+
+↓
+
+Disparar evento InitiateCheckout
+```
+
+---
+
+# Variáveis UTM
+
+As variáveis UTM permitem identificar **de qual campanha o visitante veio**.
+
+São usadas para segmentar automações com base na origem do tráfego.
+
+Variáveis disponíveis:
+
+| Variável | O que representa |
+| :-- | :-- |
+| **UTM Source** | Plataforma de origem |
+| **UTM Medium** | Tipo de mídia |
+| **UTM Campaign** | Nome da campanha |
+| **UTM Term** | Palavra-chave ou segmentação |
+| **UTM Content** | Criativo ou anúncio |
+
+---
+
+### Exemplo real
+
+```text
+utm_source = facebook
+```
+
+ou
+
+```text
+utm_campaign = black-friday
+```
+
+Exemplo de uso:
+
+```text
+Se UTM Source = facebook
+
+↓
+
+Executar ação
+```
+
+---
+
+# Variáveis Sub
+
+As variáveis **Sub** servem para armazenar parâmetros extras enviados através dos links.
+
+Normalmente são utilizadas para carregar dados personalizados da campanha.
+
+Você pode utilizá-las livremente da forma que preferir.
+
+Variáveis disponíveis:
+
+```text
+sub1
+
+sub2
+
+sub3
+
+sub4
+
+sub5
+
+sub6
+
+sub7
+
+sub8
+```
+
+---
+
+### Quando utilizar?
+
+Exemplo:
+
+```text
+sub1 = produto-a
+
+sub2 = criativo-3
+```
+
+ou
+
+```text
+sub1 = gestor-joao
+```
+
+Exemplo de uso:
+
+```text
+Se sub1 = produto-a
+
+↓
+
+Executar ação específica
+```
+
+---
+
+# Variáveis de Tráfego
+
+Estas variáveis analisam **como o visitante chegou até sua estrutura**.
+
+São úteis para criar regras baseadas na origem técnica do acesso.
+
+Variáveis disponíveis:
+
+| Variável | O que representa |
+| :-- | :-- |
+| **Rede** | Plataforma de tráfego utilizada |
+| **URL** | Página acessada pelo visitante |
+| **Referrer** | Página anterior de origem |
+
+---
+
+### Exemplos
+
+```text
+Rede = facebook
+```
+
+```text
+Referrer = instagram.com
+```
+
+```text
+URL = /checkout
+```
+
+Exemplo de uso:
+
+```text
+Se Referrer contém instagram.com
+
+↓
+
+Executar ação
+```
+
+---
+
+# Exemplos práticos
+
+As variáveis podem ser combinadas para criar regras muito mais inteligentes.
+
+---
+
+### Disparar evento apenas no Facebook
+
+```text
+Se UTM Source = facebook
+
+↓
+
+Disparar evento
+```
+
+---
+
+### Disparar evento apenas quando iniciar checkout
+
+```text
+Se Tipo de Evento = start_checkout
+
+↓
+
+Executar ação
+```
+
+---
+
+### Separar campanhas específicas
+
+```text
+Se UTM Campaign = black-friday
+
+↓
+
+Executar ação
+```
+
+---
+
+### Criar regra para uma página específica
+
+```text
+```
+
+```text
+Se URL contém /checkout
+
+↓
+
+Executar ação
+```
+
+---
+
+# Dica importante
+
+Você pode combinar múltiplas variáveis dentro do mesmo acionador.
+
+Exemplo:
+
+```text
+UTM Source = facebook
+
+E
+
+Tipo de Evento = start_checkout
+
+E
+
+sub1 = produto-a
+```
+
+Quanto mais específica a regra, mais preciso será o disparo.
+
+---
+
+# Resumo rápido
+
+As variáveis são os dados que o TrackUp disponibiliza para construir automações.
+
+```text
+Visitante acessa página
+
+↓
+
+TrackUp captura dados
+
+↓
+
+Dados ficam disponíveis no acionador
+
+↓
+
+Sistema verifica condições
+
+↓
+
+Ação é executada
+```
+
+Todo sistema de automação do TrackUp funciona a partir dessas variáveis.

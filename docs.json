@@ -80,7 +80,14 @@
                   "link-de-checkout"
                 ]
               },
-              "acionadores",
+              {
+                "group": "Acionadores",
+                "icon": "zap",
+                "pages": [
+                  "acionadores",
+                  "variaveis"
+                ]
+              },
               {
                 "group": "Filtros",
                 "icon": "shield-check",

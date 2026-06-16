@@ -1,7 +1,7 @@
 ---
-title: "Acionadores"
+title: "O que são os Acionadores?"
 icon: "zap"
-description: "Conecte seu Pixel. O Trackup faz o resto."
+description: "Um Acionador é uma automação baseada em condições."
 ---
 
 ### Configure os gatilhos e execute ações automáticas.
@@ -14,9 +14,29 @@ Os Acionadores entram exatamente no momento em que esses dados começam a gerar 
 
 Eles permitem que o Trackup monitore comportamentos específicos e execute ações automáticas sempre que determinadas condições forem atendidas.
 
-Em outras palavras:
+Você define:
 
-> O usuário faz algo. O Trackup reage automaticamente.
+```text
+Quando determinada condição acontecer
+↓
+Execute determinada ação automaticamente
+```
+
+Exemplo:
+
+```text
+Se o visitante iniciar checkout
+↓
+Disparar evento InitiateCheckout no Meta Pixel
+```
+
+Ou:
+
+```text
+Se o visitante converter
+↓
+Enviar evento Purchase automaticamente
+```
 
 ---
 
@@ -68,38 +88,25 @@ _(Diagrama: Visitor Action → Event Captured → Trigger Evaluates → Action E
 
 ---
 
-# Automação automática ao conectar Pixels 🤖
+# Automação automática ao conectar Pixels
 
 Na maioria dos casos, você não precisa começar configurando eventos manualmente.
 
-Sempre que um Pixel é conectado ao Trackup, o Trackup cria automaticamente uma estrutura inicial de acionadores padrão.
+Sempre que um Pixel é conectado ao Trackup, é criado automaticamente uma estrutura inicial de acionadores padrão.
 
 Isso significa que grande parte do trabalho já começa pronta.
 
-Em outras palavras:
-
-> Você conecta o Pixel e o Trackup já prepara automaticamente a base inicial de rastreamento.
-
 Nosso objetivo é reduzir trabalho manual e acelerar implementação.
 
----
-
-# O que o Trackup cria automaticamente?
+## O que o Trackup cria automaticamente?
 
 Ao adicionar um Pixel ao projeto, o Trackup gera automaticamente acionadores responsáveis por registrar eventos essenciais da jornada.
 
 Eventos padrão criados automaticamente:
 
 ```text
-```
-
-```text
-ad_click
-
 page_view
-
 start_checkout
-
 conversion
 ```
 
@@ -122,168 +129,52 @@ Embora o Trackup prepare a base inicial automaticamente, você pode criar regras
 Exemplos:
 
 ```text
-```
-
-```text
-Disparar Lead apenas em campanhas específicas
-
 Criar eventos customizados
-
 Enviar eventos condicionais
-
 Criar lógica específica para determinados funis
 ```
-
-Ou seja:
-
-```text
-```
-
-```text
-Trackup cuida do básico automaticamente
-
-Você expande quando precisar de lógica avançada
-```
-
----
-
-# O que é um Acionador?
-
-Um Acionador é uma automação baseada em condições.
-
-Você define:
-
-```text
-```
-
-```text
-Quando determinada condição acontecer
-
-↓
-
-Execute determinada ação automaticamente
-```
-
-Exemplo:
-
-```text
-```
-
-```text
-Se o visitante iniciar checkout
-
-↓
-
-Disparar evento InitiateCheckout no Meta Pixel
-```
-
-Ou:
-
-```text
-```
-
-```text
-Se o visitante converter
-
-↓
-
-Enviar evento Purchase automaticamente
-```
-
-Você cria a lógica.
-
-O Trackup executa.
 
 ---
 
 # Estrutura de um Acionador
 
-Todo acionador é construído em três partes principais.
-
 ```text
+Variável → Tipo de evento
+Operador → Igual
+Valor → start_checkout
 ```
 
+Resultado:
+
 ```text
-1. Configurações básicas
-
-2. Condições
-
-3. Ações
+Executar apenas quando start_checkout acontecer
 ```
-
-Essas três etapas definem o comportamento completo da automação.
 
 ---
 
-# 1. Configurações básicas
-
-Toda automação começa com uma configuração inicial.
-
----
-
-### Nome do acionador
+## Nome do acionador
 
 Primeiro, defina um nome interno para identificar sua automação.
 
 Exemplos:
 
 ```text
-```
-
-```text
-Disparar Lead Facebook
-
-Purchase Google Ads
-
-Conversão Principal
+Nome do Pixel - Pageview
+Nome do Pixel - Conversão Personalizada
+Assistiu 25% VSL
 ```
 
 Escolha nomes que deixem claro o objetivo da regra.
 
 ---
 
-### Status do acionador
-
-Todo acionador pode ser ativado ou pausado a qualquer momento.
-
-Quando ativo:
-
-```text
-```
-
-```text
-Sistema monitora normalmente
-```
-
-Quando desativado:
-
-```text
-```
-
-```text
-Regra fica pausada temporariamente
-```
-
-Isso permite controlar automações sem apagar configurações.
-
----
-
-**\[IMAGEM RECOMENDADA\]**
-
-_(Print mostrando campo Nome \+ toggle Ativo habilitado.)_
-
----
-
-# 2. Condições 🧠
+## Condições 
 
 As Condições definem quando o acionador será executado.
 
 O Trackup avalia continuamente os dados coletados durante a jornada do visitante.
 
 Atualmente utilizamos lógica:
-
-```text
-```
 
 ```text
 AND (E lógico)
@@ -297,78 +188,46 @@ Cada condição possui três partes.
 
 ---
 
-### Variável
+#### Variável
 
 Qual informação será analisada.
 
 Exemplo:
 
 ```text
-```
-
-```text
 Tipo de evento
 ```
 
+Existem diversas [Variáveis](/variaveis) para voce escolher, [veja mais aqui](/variaveis)
+
 ---
 
-### Operador
+#### Operador
 
 Como o Trackup fará a comparação.
 
 Exemplo:
 
 ```text
-```
-
-```text
 Igual
-
 Diferente
-
 Contém
-
-Maior que
-
-Menor que
+Não contém
 ```
 
 ---
 
-### Valor
+#### Valor
 
 O valor que será comparado.
 
 Exemplo:
 
 ```text
-```
-
-```text
 start_checkout
 ```
 
-Exemplo completo:
-
-```text
-```
-
-```text
-Variável → Tipo de evento
-
-Operador → Igual
-
-Valor → start_checkout
-```
-
-Resultado:
-
-```text
-```
-
-```text
-Executar apenas quando start_checkout acontecer
-```
+Determinadas [Variáveis](/variaveis) tem valores pré-definidos, [veja mais aqui](/variaveis)
 
 Você pode adicionar múltiplas condições.
 
@@ -380,7 +239,7 @@ _(Print mostrando a seção Conditions com dropdown Variável, Operador e campo 
 
 ---
 
-# 3. Ações 🎯
+## Ações 
 
 As ações definem o que acontece quando as condições forem atendidas.
 
@@ -388,58 +247,27 @@ Atualmente a principal ação disponível é o disparo automático de Pixels.
 
 No futuro adicionaremos novas possibilidades.
 
-Exemplo:
-
-```text
-```
-
-```text
-Webhook
-
-Integrações externas
-
-Automações avançadas
-```
-
 ---
 
-# Ação atual: Pixel
+### Pixel
 
-Hoje você pode enviar eventos automaticamente para Pixels conectados ao projeto.
-
-Exemplos:
-
-```text
-```
-
-```text
-Meta Pixel
-
-Google Tag
-
-TikTok Pixel
-```
+Você pode enviar eventos automaticamente para Pixels conectados ao projeto.
 
 Você pode selecionar um ou vários pixels simultaneamente.
 
 ---
 
-### Evento
+#### Evento
 
-Você define qual evento será enviado.
+Você define qual evento será enviado.\
+Se for um evento padrão ou personalizado
 
 Exemplo:
 
 ```text
-```
-
-```text
 Lead
-
 Purchase
-
 ViewContent
-
 InitiateCheckout
 ```
 
@@ -456,19 +284,18 @@ Esses parâmetros podem ser fixos ou dinâmicos.
 Exemplos:
 
 ```text
-```
-
-```text
+FAZER UMA IMAGEM /PRINT
 {utm_source}
-
 {utm_campaign}
-
 {click_id}
-
 {fbclid}
 ```
 
 Essas informações ajudam a enriquecer os dados enviados para a plataforma.
+
+<Warning>
+  Lembrando parâmetros adicionados junto aos acionadores podem gerar conflito com parâmetros já existentes em seu funil.
+</Warning>
 
 ---
 
@@ -478,7 +305,7 @@ _(Screenshot do card Pixel mostrando seleção múltipla \+ campo Evento \+ áre
 
 ---
 
-# Opções de disparo
+## Opções de disparo
 
 Ao configurar uma ação, você escolhe como o evento será enviado.
 
@@ -486,32 +313,24 @@ Atualmente existem dois modos.
 
 ---
 
-### Disparo via servidor (CAPI)
+#### Disparo via servidor (CAPI)
 
 Quando ativo, o evento é enviado diretamente pelos servidores do Trackup.
 
 Fluxo:
 
 ```text
-```
-
-```text
 Trackup Server
 ↓
-
 API da plataforma
 ```
 
 Benefícios:
 
-- \
-  Maior confiabilidade\\
-- \
-  Menor bloqueio por adblockers\\
-- \
-  Melhor atribuição\\
-- \
-  Dados mais consistentes\\
+- Maior confiabilidade
+- Menor bloqueio por adblockers
+- Melhor atribuição
+- Dados mais consistentes
 
 Esse método é altamente recomendado.
 
@@ -524,12 +343,8 @@ Quando ativo, o evento é enviado diretamente pelo navegador do visitante.
 Fluxo:
 
 ```text
-```
-
-```text
 Visitor Browser
 ↓
-
 Pixel Script
 ```
 
@@ -550,15 +365,9 @@ O Trackup já trabalha com eventos internos padrão.
 Exemplos:
 
 ```text
-```
-
-```text
 ad_click
-
 page_view
-
 start_checkout
-
 conversion
 ```
 
@@ -575,15 +384,9 @@ Também é possível trabalhar com eventos criados especificamente para sua oper
 Exemplos:
 
 ```text
-```
-
-```text
 button_click
-
 video_started
-
 lead_form_submitted
-
 quiz_completed
 ```
 
@@ -598,86 +401,14 @@ Estamos expandindo continuamente este módulo.
 Novos recursos planejados incluem:
 
 ```text
-```
-
-```text
 Webhooks
-
 Integrações externas
-
 Automações avançadas
-
 Execuções multi-step
-
 Regras condicionais mais complexas
 ```
 
 Nosso objetivo é transformar Acionadores em um verdadeiro motor de automação.
-
----
-
-# Por que isso é importante?
-
-A maioria das ferramentas apenas registra eventos.
-
-O Trackup vai além.
-
-Ele permite utilizar comportamento do usuário para gerar ações automáticas.
-
-Isso significa:
-
-- \
-  Menos trabalho manual\\
-- \
-  Melhor atribuição\\
-- \
-  Mais automação\\
-- \
-  Pixels melhor treinados\\
-- \
-  Implementação mais rápida\\
-- \
-  Menos chance de erro humano\\
-
----
-
-# Resumo rápido
-
-Os Acionadores permitem transformar comportamento em automação.
-
-```text
-```
-
-```text
-Usuário gera evento
-
-↓
-
-Trackup monitora condições
-
-↓
-
-Sistema valida regras
-
-↓
-
-Ação é executada automaticamente
-
-↓
-
-Plataformas recebem o evento
-```
-
-Mas o mais importante:
-
-```text
-```
-
-```text
-Grande parte dessa estrutura já é criada automaticamente assim que você conecta seus Pixels.
-```
-
-Você começa com a base pronta e expande quando precisar.
 
 ---
 

@@ -7,26 +7,6 @@ Todo projeto no Trackup recebe um domínio padrão automaticamente.
 
 Porém, recomendamos conectar um domínio próprio para utilizar toda infraestrutura da plataforma com maior controle e isolamento.
 
-Os domínios conectados serão utilizados em módulos como:
-
-```text
-Páginas
-
-Links
-
-Redirects
-
-Builder
-
-Upload HTML
-
-Clonar URL
-
-Tracking
-```
-
-Sem um domínio conectado, parte da infraestrutura pública do projeto ficará limitada.
-
 ---
 
 **\[VÍDEO RECOMENDADO NO TOPO\]**
@@ -37,7 +17,7 @@ _(Adicionar domínio → copiar CNAME → configurar DNS → verificar domínio 
 
 # Como os domínios funcionam
 
-Sempre que você publica qualquer estrutura dentro do Trackup, o Trackup precisa de um domínio para servir esse conteúdo.
+Sempre que você publica qualquer estrutura, o Trackup precisa de um domínio para servir esse conteúdo.
 
 Exemplo:
 
@@ -58,7 +38,7 @@ _(Diagrama: Domain → Trackup → Pages / Links / Redirects / Tracking)_
 
 ---
 
-# Recomendação: utilize subdomínios
+# Utilize subdomínios
 
 Recomendamos utilizar **subdomínios dedicados** para cada operação.
 
@@ -87,20 +67,6 @@ Evite utilizar o domínio principal sempre que possível.
 
 A página principal exibe todos os domínios conectados ao projeto.
 
-Cada domínio possui:
-
-- status de verificação
-- data de criação
-- definição de domínio primário
-- ações de gerenciamento
-
-Exemplo:
-
-```text
-lp.Trackup.me          Verificado ✓
-track.meudominio.com  Verificado ✓
-```
-
 Um projeto pode possuir múltiplos domínios ativos simultaneamente.
 
 ---
@@ -128,7 +94,7 @@ Exemplo:
 ⭐ lp.meudominio.com
 ```
 
-Os demais domínios continuam funcionando normalmente.
+Os demais domínios continuam funcionando normalmente, inlcusive toda estrutura do projeto é espelhada entre os domínios conectados
 
 ---
 
@@ -279,26 +245,6 @@ Status muda para verificado
 ↓
 Domínio fica disponível na plataforma
 ```
-
----
-
-# Resumo
-
-O módulo de domínios conecta sua infraestrutura ao ambiente público.
-
-```text
-Domínio
-↓
-DNS
-↓
-Validação
-↓
-Publicação
-↓
-Tracking ativo
-```
-
-Páginas, links e toda estrutura pública do projeto dependem dessa configuração.
 
 ---
 

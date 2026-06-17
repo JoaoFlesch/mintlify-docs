@@ -96,6 +96,58 @@ A primeira seção exibe as informações enviadas pela plataforma de pagamento.
 
 Esses são os dados brutos recebidos via integração.
 
+# Cada venda é automaticamente atribuída
+
+Quando uma conversão chega ao Trackup, não é apenas registrado o pagamento.
+
+Ele reconstrói toda origem daquela venda.
+
+O objetivo é responder:
+
+```text
+Quem comprou?
+
+Qual anúncio trouxe essa pessoa?
+
+Qual campanha originou a venda?
+
+Qual criativo gerou a conversão?
+```
+
+Toda venda passa por um processo automático de atribuição.
+
+Fluxo:
+
+```text
+Webhook recebido
+↓
+Trackup identifica Visitor
+↓
+Trackup localiza Click ID
+↓
+UTMs são associadas
+↓
+Campanha é identificada
+↓
+Venda recebe atribuição completa
+```
+
+---
+
+# Investigando uma venda específica
+
+Ao clicar em qualquer conversão registrada, o Trackup exibe uma análise completa daquela venda.
+
+Essa visão detalhada mostra exatamente de onde aquele dinheiro veio.
+
+---
+
+# Dados recebidos do gateway
+
+A primeira seção exibe as informações enviadas pela plataforma de pagamento.
+
+Esses são os dados brutos recebidos via integração.
+
 Exemplo:
 
 ```text
@@ -106,6 +158,17 @@ Valor líquido
 Taxas
 Dados enviados pelo webhook
 ```
+
+Exemplo:
+
+```text
+Gateway → Upag
+Amount → R$17,90
+Currency → BRL
+Transaction ID → 87362819
+```
+
+Isso permite validar a integridade dos dados.
 
 Exemplo:
 
@@ -170,11 +233,67 @@ Agora você consegue identificar qual campanha foi responsável pelo faturamento
 
 ---
 
+# Associação com o visitante
+
+Toda conversão é conectada automaticamente ao Visitante correspondente.
+
+Isso significa que a venda fica permanentemente associada ao perfil daquele usuário.
+
+Exemplo:
+
+```text
+Visitor ID
+IP do comprador
+Link utilizado
+Histórico anterior de navegação
+```
+
+Isso conecta faturamento com comportamento.
+
+Agora você sabe exatamente quem comprou.
+
+---
+
+# Atribuição de marketing precisa
+
+Essa é uma das partes mais importantes do módulo.
+
+O Trackup consegue identificar exatamente qual estrutura de marketing gerou a venda.
+
+Dados armazenados:
+
+```text
+utm_source
+utm_medium
+utm_campaign
+utm_content
+utm_term
+Click ID
+```
+
+Exemplo real:
+
+```text
+utm_source → Facebook
+utm_term → Instagram Feed
+Campaign → CAMP TESTE Trackup BID COMPRA VIDEO
+```
+
+Agora você consegue identificar qual campanha foi responsável pelo faturamento.
+
+---
+
 **\[IMAGEM RECOMENDADA\]**
 
 _(Utilizar print da conversão expandida mostrando seção Marketing Attribution com UTMs e Click ID.)_
 
+_(Utilizar print da conversão expandida mostrando seção Marketing Attribution com UTMs e Click ID.)_
+
 ---
+
+# Integração com plataformas de anúncios
+
+Além das UTMs, o Trackup também preserva os identificadores técnicos responsáveis pela atribuição.
 
 # Integração com plataformas de anúncios
 
@@ -193,6 +312,14 @@ Exemplo:
 
 ```text
 Ad Set ID → 120248366188090742
+```
+
+Isso permite localizar rapidamente a estrutura exata dentro da plataforma de anúncios.
+
+Na prática:
+
+```text
+Você descobre exatamente qual anúncio gerou a venda
 ```
 
 Isso permite localizar rapidamente a estrutura exata dentro da plataforma de anúncios.
@@ -250,11 +377,64 @@ Esse alerta ajuda a identificar falhas rapidamente.
 
 ---
 
+# Diagnóstico inteligente de problemas
+
+Nem toda conversão chega com dados perfeitos.
+
+Quando existe algum problema de rastreamento, o Trackup detecta automaticamente inconsistências.
+
+O Trackup alerta quando informações críticas estão ausentes.
+
+Exemplo comum:
+
+```text
+Venda chegou
+↓
+Pagamento confirmado
+↓
+Mas Click ID não foi encontrado
+```
+
+Nesse cenário a venda existe.
+
+Mas a atribuição fica comprometida.
+
+---
+
+# Alertas automáticos
+
+Quando o Trackup detecta problemas, um alerta visual é exibido.
+
+Exemplo:
+
+```text
+⚠️ Click ID ausente nesta conversão
+```
+
+Mensagem:
+
+```text
+Esta conversão não registrou um Click ID.
+Isso normalmente indica problemas na configuração dos Links, parâmetros ou integração com a plataforma de vendas.
+```
+
+Esse alerta ajuda a identificar falhas rapidamente.
+
+---
+
 **\[IMAGEM RECOMENDADA\]**
 
 _(Utilizar print da conversão com alerta amarelo e aviso de Click ID ausente.)_
 
+_(Utilizar print da conversão com alerta amarelo e aviso de Click ID ausente.)_
+
 ---
+
+# Por que o Click ID é tão importante?
+
+O Click ID funciona como o elo entre o clique inicial e a venda final.
+
+Exemplo:
 
 # Por que o Click ID é tão importante?
 
@@ -276,10 +456,18 @@ Conversão é enviada de volta para Fonte de tráfego
 
 Sem o Click ID:
 
+Sem o Click ID:
+
 ```text
 A venda existe
 
 Mas a plataforma de anúncios não consegue identificar qual clique gerou a conversão
+```
+
+Resultado:
+
+```text
+Campanhas perdem qualidade de otimização
 ```
 
 Resultado:

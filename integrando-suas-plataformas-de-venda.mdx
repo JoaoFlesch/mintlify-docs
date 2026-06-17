@@ -119,3 +119,117 @@ Abaixo você encontrará guias específicos mostrando como configurar cada plata
 Selecione a integração que deseja conectar.
 
 ### Plataformas disponíveis
+
+Todo o ecossistema do Trackup foi construído para acompanhar a jornada do usuário desde o primeiro clique até o momento final da venda.
+
+Mas existe uma etapa fundamental nesse processo.
+
+Quando uma compra acontece, o Trackup precisa ser avisado.
+
+É exatamente aqui que entram as **Plataformas de Venda**.
+
+Este módulo permite integrar seus checkouts, gateways e plataformas de pagamento para que o Trackup receba automaticamente os dados financeiros de cada compra realizada.
+
+Sem isso, nenhuma conversão pode ser atribuída corretamente.
+
+**\[VÍDEO RECOMENDADO NO TOPO\]**
+
+_(Vídeo mostrando: usuário criando integração → configurando parâmetros do checkout → copiando webhook → colando na plataforma externa → venda acontecendo → Trackup recebendo conversão automaticamente.)_
+
+---
+
+# Adicionando uma nova plataforma
+
+Para criar uma nova integração basta clicar em:
+
+```text
++ Adicionar Plataforma
+```
+
+Ao iniciar o processo, o Trackup abre o painel de configuração responsável por preparar a integração.
+
+Aqui você define como os dados de tracking serão enviados junto com o checkout.
+
+---
+
+# Configurando parâmetros do checkout
+
+Antes da venda acontecer, o usuário precisa chegar até o checkout levando consigo todas as informações de atribuição coletadas anteriormente.
+
+É nesta etapa que definimos quais parâmetros acompanharão o visitante durante o redirecionamento.
+
+Exemplo de parâmetros normalmente enviados:
+
+```text
+sck
+utm_source
+utm_medium
+utm_campaign
+utm_content
+click_id
+```
+
+Esses parâmetros são anexados automaticamente ao checkout.
+
+---
+
+# Como funciona o mapeamento de parâmetros?
+
+Cada plataforma possui sua própria estrutura de URL.
+
+O Trackup permite mapear quais valores serão enviados dinamicamente durante o checkout.
+
+Exemplo:
+
+```text
+sck={request.id}
+utm_source={request.utmSource}
+utm_medium={request.utmMedium}
+utm_campaign={request.utmCampaign}
+```
+
+Significado:
+
+```text
+request.id → identificador único do visitante
+request.utmSource → origem do tráfego
+request.utmCampaign → campanha responsável pelo clique
+```
+
+Esses valores serão preenchidos automaticamente em tempo real.
+
+---
+
+**\[IMAGEM RECOMENDADA\]**
+
+_(Utilizar print do formulário de integração mostrando Kiwify selecionado e a seção de parâmetros dinâmicos.)_
+
+---
+
+# Adicione parâmetros personalizados
+
+Algumas plataformas trabalham com campos proprietários ou parâmetros adicionais.
+
+Por isso o Trackup permite criar parâmetros completamente personalizados.
+
+Exemplo:
+
+```text
+affiliate_id
+offer_code
+checkout_id
+transaction_source
+partner_reference
+```
+
+Você pode adicionar quantos parâmetros forem necessários para sua operação.
+
+---
+
+# Próximo passo👇
+
+Abaixo você encontrará guias específicos mostrando como configurar cada plataforma suportada pelo Trackup.
+
+Selecione a integração que deseja conectar.
+
+### Plataformas disponíveis

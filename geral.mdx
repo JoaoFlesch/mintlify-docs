@@ -1,283 +1,88 @@
 ---
 title: "Geral"
+description: "Configurações principais do projeto."
 ---
 
-Perfeito. Essa página de **Configurações Gerais** precisa passar a sensação de que aqui ficam as **configurações fundamentais que sustentam todo o projeto**.
+A página **Geral** concentra as configurações base do seu projeto.
 
-Diferente de outras páginas, aqui eu faria algo mais “infraestrutura/core”, porque o usuário está mexendo em elementos que afetam literalmente todo o ecossistema do projeto.
-
-Eu dividiria mentalmente em 3 pilares:
-
-- identificação do projeto
-- infraestrutura técnica de tracking
-- segurança e controle do ambiente
-
-A narrativa central é:
-
-> Esta página controla a identidade, segurança e funcionamento técnico do seu projeto dentro do TrackUp.
-
----
-
-# Configurações Gerais ⚙️
-
-### Gerencie a infraestrutura principal do seu projeto dentro do TrackUp.
-
-Toda operação criada no TrackUp possui uma configuração central responsável por controlar a identidade do projeto, definir parâmetros globais e ativar a infraestrutura técnica responsável pelo rastreamento.
-
-É nesta página que você configura as informações fundamentais que sustentam todo ecossistema do seu projeto.
-
-Em outras palavras:
-
-> Aqui ficam as configurações que fazem seu projeto existir e funcionar corretamente.
-
-Alterações realizadas nesta área impactam diretamente todos os módulos da plataforma.
+Aqui você define informações globais, configura segurança de coleta de dados e acessa o script principal de rastreamento utilizado pelo TrackUp.
 
 ---
 
 **\[VÍDEO RECOMENDADO NO TOPO\]**
 
-_(Vídeo mostrando: acessando configurações → alterando nome do projeto → configurando domínios permitidos → copiando snippet → adicionando snippet ao site → mostrando projeto começando a receber eventos.)_
+_(Alterando nome do projeto → copiando snippet → adicionando domínio permitido → validando eventos chegando no painel.)_
 
 ---
 
-# O papel das Configurações Gerais dentro do TrackUp
+# Projeto
 
-Antes do sistema começar a registrar visitantes, eventos, conversões e dados de campanhas, ele precisa de uma estrutura técnica inicial.
-
-Esta página centraliza exatamente essa configuração.
-
-Ela controla:
-
-```text
-Identidade do projeto
-
-Moeda principal
-
-Domínios autorizados
-
-Script de rastreamento
-
-Segurança da coleta de dados
-
-Configurações globais da operação
-```
-
-Todos os outros módulos dependem diretamente dessas definições.
-
----
-
-**\[IMAGEM RECOMENDADA\]**
-
-_(Diagrama mostrando Project Settings → Tracking Script → Incoming Traffic → Requests → Visitors → Events → Conversions.)_
-
----
-
-# Seção 1 — Projeto
-
-A primeira seção concentra as informações principais de identificação do seu projeto.
-
-Aqui você define os parâmetros globais utilizados em toda operação.
+Informações principais utilizadas internamente pelo sistema.
 
 Campos disponíveis:
 
 ```text
-Nome do Projeto
-
-Moeda padrão
+Nome do projeto
+Moeda padrão 
 ```
 
-Essas configurações são aplicadas automaticamente em diversos módulos internos.
-
----
-
-# Nome do Projeto
-
-O nome do projeto serve para identificar sua operação dentro do ecossistema TrackUp.
-
-Exemplo:
-
-```text
-Trackup
-```
-
-Recomendamos utilizar nomes que representem claramente o produto, funil ou operação vinculada ao projeto.
-
-Exemplos:
-
-```text
-Produto Principal
-
-Funil Black Friday
-
-Campanha Lead Generation
-
-Oferta Nutra Brasil
-```
-
-Uma boa organização facilita o gerenciamento quando você trabalha com múltiplos projetos.
-
----
-
-# Moeda padrão 💰
-
-A moeda define qual unidade financeira será utilizada internamente no projeto.
-
-Exemplo:
-
-```text
-BRL — Real Brasileiro
-```
-
-Essa configuração influencia diretamente:
-
-- relatórios financeiros
-- processamento de webhooks
-- cálculo de receita
-- dashboard de faturamento
-- conversões registradas
-
-Sempre que uma plataforma de venda enviar valores monetários, o TrackUp utilizará essa moeda como referência principal.
-
----
-
-### Importante
-
-A moeda do projeto **não pode ser alterada após a criação**.
-
-Isso acontece porque toda estrutura financeira do sistema depende desta configuração.
-
-Exemplo:
-
-```text
-Webhook envia valor
-
-↓
-
-TrackUp converte valor recebido
-
-↓
-
-Sistema registra receita no dashboard
-
-↓
-
-Conversão utiliza moeda definida no projeto
-```
-
-Alterar isso posteriormente poderia comprometer a consistência dos dados financeiros.
+Essas configurações são utilizadas em módulos como conversões, webhooks e dashboard financeiro.
 
 ---
 
 **\[IMAGEM RECOMENDADA\]**
 
-_(Print mostrando a seção Projeto com Nome \+ campo de Moeda \+ aviso informando que não pode ser alterada.)_
+_(Print da seção Projeto.)_
 
 ---
 
-# Seção 2 — Segurança
+# Segurança
 
-Esta é uma das áreas mais importantes de toda plataforma.
-
-Aqui ficam as configurações responsáveis por ativar a infraestrutura técnica de rastreamento.
-
-Sem esta configuração, o TrackUp não consegue receber dados do seu site.
-
-Essa seção controla:
-
-```text
-Domínios autorizados
-
-Snippet de rastreamento
-
-Recebimento de eventos
-
-Validação de tráfego
-```
-
-Esta é basicamente a camada que conecta seu site ao ecossistema TrackUp.
+Esta seção controla quais domínios podem enviar dados para o projeto e disponibiliza o script principal de rastreamento.
 
 ---
 
-# Domínios Permitidos 🔐
+## Domínios Permitidos
 
-O campo de Domínios Permitidos funciona como uma camada extra de segurança.
-
-Seu objetivo é definir quais sites possuem autorização para enviar eventos ao projeto.
+Define quais domínios estão autorizados a enviar eventos para este projeto.
 
 Exemplo:
 
 ```text
-seudominio.com
-
-oferta.com.br
-
-landing-page.xyz
+lp.seudominio.com
+oferta.site.com
+checkout.xyz
 ```
 
-Quando configurado, o sistema aceitará eventos apenas destes domínios.
-
-Qualquer outro domínio será ignorado.
-
----
-
-### Por que isso é importante?
-
-Sem restrição de domínio, qualquer site poderia teoricamente tentar enviar dados ao seu projeto.
-
-Isso pode gerar:
-
-- eventos falsos
-- poluição de dados
-- requisições inválidas
-- problemas de segurança
-
-Ao limitar domínios autorizados, você protege toda operação.
-
----
-
-### Se o campo ficar vazio
-
-Caso nenhum domínio seja configurado:
+Quando configurado:
 
 ```text
-O sistema aceitará dados de qualquer domínio.
+Apenas estes domínios poderão enviar dados.
 ```
 
-Isso normalmente não é recomendado em operações de produção.
+Se vazio:
+
+```text
+Qualquer domínio poderá enviar eventos.
+```
+
+Recomendado utilizar em produção.
 
 ---
 
 **\[IMAGEM RECOMENDADA\]**
 
-_(Print mostrando campo “Domínios Permitidos” preenchido com alguns domínios de exemplo.)_
+_(Print do campo Domínios Permitidos.)_
 
 ---
 
-# Snippet de Rastreamento
+## Tracking Snippet
 
-O snippet é o script principal responsável por conectar seu site ao TrackUp.
+Script principal responsável por enviar dados para o TrackUp.
 
-Pense nele como o ponto inicial de toda coleta de dados.
+Sem ele, o projeto não recebe eventos.
 
-Sem ele:
-
-```text
-Nenhum visitante será identificado
-
-Nenhuma requisição será registrada
-
-Nenhum evento será enviado
-
-Nenhum tracking acontecerá
-```
-
-Este script precisa ser instalado nas páginas que fazem parte da operação.
-
----
-
-# Onde instalar o snippet?
-
-O código deve ser inserido dentro da tag:
+O snippet deve ser instalado dentro da tag:
 
 ```html
 <head>
@@ -286,281 +91,91 @@ O código deve ser inserido dentro da tag:
 Exemplo:
 
 ```html
-<html>
-
 <head>
-
-<script>
-TRACKUP SCRIPT
-</script>
-
+  <script>
+    TRACKUP SCRIPT
+  </script>
 </head>
 ```
 
-Sempre posicione o script no início do carregamento da página.
-
 ---
 
-# O que o snippet faz?
+## O que o snippet coleta?
 
-Quando instalado corretamente, o snippet começa automaticamente a coletar dados de navegação.
+Após instalado, o sistema começa capturar automaticamente:
 
-Exemplo do que ele captura:
-
-```text
-Page Views
-
-Cliques
-
-Dados de dispositivo
-
-Dados do navegador
-
-Localização aproximada
-
-Parâmetros UTM
-
-Click IDs
-
-Eventos automáticos
-```
+- page views
+- cliques
+- parâmetros UTM
+- click IDs
+- dispositivo
+- navegador
+- localização
+- eventos automáticos
 
 Fluxo:
 
 ```text
-Usuário acessa página
-
+Visitante acessa página
 ↓
-
 Snippet executa
-
 ↓
-
-TrackUp recebe requisição
-
+TrackUp recebe evento
 ↓
-
 Visitor é criado
-
-↓
-
-Dados começam a ser processados
 ```
-
-Esse é o primeiro passo de toda infraestrutura de tracking.
 
 ---
 
 **\[IMAGEM RECOMENDADA\]**
 
-_(Print mostrando área do Snippet com botão “Copiar” em destaque.)_
+_(Print da área de snippet com botão copiar.)_
 
 ---
 
-# Como saber se o snippet está funcionando?
+## Validando instalação
 
-Após instalar o código, você pode validar acessando os módulos:
+Após instalar o snippet, acesse:
 
 ```text
 Requisições
-
 ou
-
 Visitors
 ```
 
-Se tudo estiver correto, novas visitas começarão a aparecer automaticamente.
-
-Fluxo esperado:
-
-```text
-Instalar snippet
-
-↓
-
-Usuário acessa página
-
-↓
-
-Nova requisição aparece no painel
-
-↓
-
-Visitor é criado automaticamente
-```
-
-Se nenhum dado aparecer, revise a instalação.
-
----
-
-# Seção 3 — Exclusão do Projeto ⚠️
-
-Na parte inferior da página existe a área mais sensível de toda configuração.
-
-Esta seção permite remover permanentemente o projeto da plataforma.
+Se configurado corretamente, novos acessos começarão a aparecer automaticamente.
 
 ---
 
 # Excluir Projeto
 
-Ao excluir um projeto, todos dados vinculados a ele serão apagados permanentemente.
+Remove permanentemente todo o projeto e seus dados.
 
-Isso inclui:
+Serão removidos:
 
-```text
-Páginas
+- páginas
+- links
+- pixels
+- integrações
+- visitors
+- requisições
+- conversões
+- histórico financeiro
 
-Links
-
-Pixels
-
-Fontes de tráfego
-
-Integrações
-
-Logs de requisições
-
-Visitors
-
-Conversões
-
-Eventos registrados
-
-Histórico financeiro
-```
-
-Nenhuma informação poderá ser recuperada posteriormente.
-
----
-
-### Importante
+### Atenção
 
 Esta ação é irreversível.
 
-Fluxo:
-
-```text
-Excluir projeto
-
-↓
-
-Sistema remove toda infraestrutura
-
-↓
-
-Todos dados são apagados
-
-↓
-
-Operação deixa de existir permanentemente
-```
-
-Não existe restauração após a exclusão.
+Após excluir, os dados não poderão ser recuperados.
 
 ---
 
 **\[IMAGEM RECOMENDADA\]**
 
-_(Print mostrando seção vermelha “Excluir Projeto” com alerta de ação irreversível.)_
+_(Print da área Excluir Projeto.)_
 
 ---
 
-# Como essa página conecta todo o TrackUp
+**Próximo passo**
 
-Toda plataforma depende desta configuração inicial.
-
-Fluxo completo:
-
-```text
-Projeto criado
-
-↓
-
-Configurações definidas
-
-↓
-
-Snippet instalado no site
-
-↓
-
-TrackUp começa receber eventos
-
-↓
-
-Requisições são criadas
-
-↓
-
-Visitors são identificados
-
-↓
-
-Eventos são processados
-
-↓
-
-Conversões começam aparecer
-```
-
-Sem essa configuração, nenhum outro módulo funciona.
-
----
-
-# Resumo rápido
-
-A página de Configurações Gerais controla toda infraestrutura principal do projeto.
-
-```text
-Você cria projeto
-
-↓
-
-Define moeda e identidade
-
-↓
-
-Configura domínios permitidos
-
-↓
-
-Instala snippet no site
-
-↓
-
-TrackUp começa receber dados
-
-↓
-
-Sistema ativa toda infraestrutura de tracking
-```
-
-Esta é a base técnica de todo seu ecossistema dentro do TrackUp.
-
----
-
-# Próximo passo
-
-Agora que seu projeto está configurado corretamente, o próximo passo é conectar sua infraestrutura de domínio.
-
-→ **Domínios**
-
----
-
-### Minha recomendação de headline principal
-
-Eu colocaria algo assim:
-
-```text
-Sem configurar esta página, o TrackUp simplesmente não começa a funcionar.
-```
-
-ou
-
-```text
-Aqui começa toda infraestrutura técnica do seu projeto.
-```
-
-Porque tecnicamente…
-
-essa página é literalmente o ponto zero de todo o sistema. 🚀
+→ Domínios

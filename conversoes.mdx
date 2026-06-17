@@ -1,13 +1,12 @@
 ---
 title: "Conversões"
 icon: "tag"
+description: "Não basta saber que vendeu. Você precisa saber exatamente o que gerou essa venda."
 ---
 
-### Descubra exatamente de onde cada venda veio.
+O Trackup existe para responder uma pergunta fundamental:
 
-Todo o ecossistema do TrackUp existe para responder uma pergunta fundamental:
-
-> Qual campanha realmente está gerando dinheiro?
+> Qual campanha realmente está gerando Lucro?
 
 Capturar cliques, preservar parâmetros, rastrear visitantes, registrar eventos e disparar pixels são etapas fundamentais da operação.
 
@@ -19,156 +18,39 @@ O módulo de **Conversões** conecta o momento final da jornada com toda a intel
 
 Aqui você consegue identificar exatamente qual visitante, qual anúncio, qual campanha e qual estrutura geraram receita para sua operação.
 
-Em outras palavras:
-
-> O TrackUp conecta dinheiro real com a origem exata que gerou essa venda.
-
 ---
 
 **\[VÍDEO RECOMENDADO NO TOPO\]**
 
-_(Vídeo de 6 a 8 minutos mostrando: venda chegando via gateway → TrackUp processando webhook → sistema atribuindo a venda ao visitante → painel mostrando campanha, criativo, click ID e dados financeiros.)_
+_(Vídeo de 6 a 8 minutos mostrando: venda chegando via gateway → Trackup processando webhook → Trackup atribuindo a venda ao visitante → painel mostrando campanha, criativo, click ID e dados financeiros.)_
 
 ---
 
 # O que são Conversões?
 
-Sempre que uma venda acontece em uma plataforma integrada ao TrackUp, o sistema recebe automaticamente os dados daquela transação.
+Sempre que uma venda acontece em uma plataforma integrada ao Trackup, recebemos automaticamente os dados daquela transação.
 
 Normalmente isso acontece através das integrações com plataformas de venda e gateways de pagamento.
 
 Exemplos:
 
 ```text
-```
-
-```text
-PerfectPay
-
-Kiwify
-
+Stripe
 Hotmart
-
-Kirvano
-
 Upag
 ```
 
-Assim que o pagamento é processado, o TrackUp recebe as informações da venda e inicia o processo de atribuição.
-
----
-
-# O papel das Conversões dentro do ecossistema TrackUp
-
-Durante toda jornada do usuário, o sistema vai coletando dados progressivamente.
-
-Exemplo:
-
-```text
-```
-
-```text
-Clique no anúncio
-
-↓
-
-Landing Page acessada
-
-↓
-
-Visitor criado
-
-↓
-
-Eventos disparados
-
-↓
-
-Checkout iniciado
-
-↓
-
-Pagamento realizado
-
-↓
-
-TrackUp recebe conversão
-```
-
-No momento em que a venda acontece, o sistema conecta essa receita a toda jornada anterior daquele usuário.
-
-Nada fica isolado.
-
----
-
-**\[IMAGEM RECOMENDADA\]**
-
-_(Diagrama mostrando Ad Click → Landing Page → Visitor Created → Checkout → Payment Approved → Conversion Registered → Attribution Completed.)_
-
----
-
-# Feed geral de conversões 📊
-
-A tela principal mostra todas as vendas registradas dentro do período selecionado.
-
-Cada linha representa uma conversão recebida pela plataforma.
-
-Você consegue acompanhar cronologicamente todo dinheiro processado dentro da operação.
-
-Cada registro exibe informações financeiras essenciais.
-
-Exemplo:
-
-```text
-```
-
-```text
-Data e horário da venda
-
-Gateway utilizado
-
-Valor da venda
-
-ID original da transação
-
-Origem do tráfego
-```
-
-Exemplo prático:
-
-```text
-```
-
-```text
-14/06/2026 — 12:55
-
-Gateway → Upag
-
-Valor → R$17,90
-
-Source → Facebook Ads
-```
-
-Isso permite validar rapidamente o volume financeiro processado.
-
----
-
-**\[IMAGEM RECOMENDADA\]**
-
-_(Utilizar print da lista principal mostrando Date, Gateway, Amount, Transaction ID e Source.)_
+Assim que o pagamento é processado, o Trackup recebe as informações da venda e inicia o processo de atribuição.
 
 ---
 
 # Cada venda é automaticamente atribuída
 
-Quando uma conversão chega ao TrackUp, o sistema não apenas registra o pagamento.
+Quando uma conversão chega ao Trackup, não é apenas registrado o pagamento.
 
-Ele tenta reconstruir toda origem daquela venda.
+Ele reconstrói toda origem daquela venda.
 
 O objetivo é responder:
-
-```text
-```
 
 ```text
 Quem comprou?
@@ -185,36 +67,24 @@ Toda venda passa por um processo automático de atribuição.
 Fluxo:
 
 ```text
-```
-
-```text
 Webhook recebido
 ↓
-
-Sistema identifica Visitor
-
+Trackup identifica Visitor
 ↓
-
-TrackUp localiza Click ID
-
+Trackup localiza Click ID
 ↓
-
 UTMs são associadas
-
 ↓
-
 Campanha é identificada
-
 ↓
-
 Venda recebe atribuição completa
 ```
 
 ---
 
-# Investigando uma venda específica 🔍
+# Investigando uma venda específica
 
-Ao clicar em qualquer conversão registrada, o TrackUp exibe uma análise completa daquela venda.
+Ao clicar em qualquer conversão registrada, o Trackup exibe uma análise completa daquela venda.
 
 Essa visão detalhada mostra exatamente de onde aquele dinheiro veio.
 
@@ -229,59 +99,39 @@ Esses são os dados brutos recebidos via integração.
 Exemplo:
 
 ```text
-```
-
-```text
 Transaction ID
-
 Valor da venda
-
 Moeda
-
 Valor líquido
-
 Taxas
-
 Dados enviados pelo webhook
 ```
 
 Exemplo:
 
 ```text
-```
-
-```text
 Gateway → Upag
-
 Amount → R$17,90
-
 Currency → BRL
-
 Transaction ID → 87362819
 ```
 
-Isso permite validar a integridade dos dados financeiros.
+Isso permite validar a integridade dos dados.
 
 ---
 
-# Associação com o visitante 👤
+# Associação com o visitante
 
-Toda conversão é conectada automaticamente ao Visitor correspondente.
+Toda conversão é conectada automaticamente ao Visitante correspondente.
 
 Isso significa que a venda fica permanentemente associada ao perfil daquele usuário.
 
 Exemplo:
 
 ```text
-```
-
-```text
 Visitor ID
-
 IP do comprador
-
 Link utilizado
-
 Histórico anterior de navegação
 ```
 
@@ -291,42 +141,29 @@ Agora você sabe exatamente quem comprou.
 
 ---
 
-# Atribuição de marketing precisa 🎯
+# Atribuição de marketing precisa
 
 Essa é uma das partes mais importantes do módulo.
 
-O TrackUp consegue identificar exatamente qual estrutura de marketing gerou a venda.
+O Trackup consegue identificar exatamente qual estrutura de marketing gerou a venda.
 
 Dados armazenados:
 
 ```text
-```
-
-```text
 utm_source
-
 utm_medium
-
 utm_campaign
-
 utm_content
-
 utm_term
-
 Click ID
 ```
 
 Exemplo real:
 
 ```text
-```
-
-```text
 utm_source → Facebook
-
 utm_term → Instagram Feed
-
-Campaign → CAMP TESTE TRACKUP BID COMPRA VIDEO
+Campaign → CAMP TESTE Trackup BID COMPRA VIDEO
 ```
 
 Agora você consegue identificar qual campanha foi responsável pelo faturamento.
@@ -341,27 +178,18 @@ _(Utilizar print da conversão expandida mostrando seção Marketing Attribution
 
 # Integração com plataformas de anúncios
 
-Além das UTMs, o sistema também preserva os identificadores técnicos responsáveis pela atribuição.
+Além das UTMs, o Trackup também preserva os identificadores técnicos responsáveis pela atribuição.
 
 Exemplo:
 
 ```text
-```
-
-```text
 Ad Account ID
-
 Campaign ID
-
 Ad Set ID
-
 Ad ID
 ```
 
 Exemplo:
-
-```text
-```
 
 ```text
 Ad Set ID → 120248366188090742
@@ -372,36 +200,26 @@ Isso permite localizar rapidamente a estrutura exata dentro da plataforma de an�
 Na prática:
 
 ```text
-```
-
-```text
-Você descobre exatamente qual anúncio gerou o dinheiro
+Você descobre exatamente qual anúncio gerou a venda
 ```
 
 ---
 
-# Diagnóstico inteligente de problemas ⚠️
+# Diagnóstico inteligente de problemas
 
 Nem toda conversão chega com dados perfeitos.
 
-Quando existe algum problema de rastreamento, o TrackUp detecta automaticamente inconsistências.
+Quando existe algum problema de rastreamento, o Trackup detecta automaticamente inconsistências.
 
-O sistema alerta quando informações críticas estão ausentes.
+O Trackup alerta quando informações críticas estão ausentes.
 
 Exemplo comum:
 
 ```text
-```
-
-```text
 Venda chegou
-
 ↓
-
 Pagamento confirmado
-
 ↓
-
 Mas Click ID não foi encontrado
 ```
 
@@ -413,12 +231,9 @@ Mas a atribuição fica comprometida.
 
 # Alertas automáticos
 
-Quando o sistema detecta problemas na estrutura de tracking, um alerta visual é exibido.
+Quando o Trackup detecta problemas, um alerta visual é exibido.
 
 Exemplo:
-
-```text
-```
 
 ```text
 ⚠️ Click ID ausente nesta conversão
@@ -427,11 +242,7 @@ Exemplo:
 Mensagem:
 
 ```text
-```
-
-```text
 Esta conversão não registrou um Click ID.
-
 Isso normalmente indica problemas na configuração dos Links, parâmetros ou integração com a plataforma de vendas.
 ```
 
@@ -452,32 +263,18 @@ O Click ID funciona como o elo entre o clique inicial e a venda final.
 Exemplo:
 
 ```text
-```
-
-```text
-Facebook gera clique
-
+Fonte de tráfego gera clique
 ↓
-
-Usuário acessa Link TrackUp
-
+Usuário acessa Link Trackup
 ↓
-
-TrackUp preserva Click ID
-
+Trackup preserva Click ID
 ↓
-
 Usuário compra
-
 ↓
-
-Conversão é enviada de volta para Meta
+Conversão é enviada de volta para Fonte de tráfego
 ```
 
 Sem o Click ID:
-
-```text
-```
 
 ```text
 A venda existe
@@ -488,227 +285,8 @@ Mas a plataforma de anúncios não consegue identificar qual clique gerou a conv
 Resultado:
 
 ```text
-```
-
-```text
 Campanhas perdem qualidade de otimização
 ```
-
----
-
-# Auditoria completa da receita
-
-O módulo de Conversões não serve apenas para visualizar vendas.
-
-Ele também funciona como uma ferramenta de auditoria.
-
-Você consegue validar:
-
-```text
-```
-
-```text
-Se a venda foi registrada
-
-Se o gateway enviou os dados corretamente
-
-Se o Click ID foi preservado
-
-Se as UTMs chegaram corretamente
-
-Se a campanha foi identificada
-
-Se a atribuição foi concluída com sucesso
-```
-
-Tudo fica transparente.
-
----
-
-# Relação entre Visitors e Conversões
-
-Esses dois módulos trabalham juntos.
-
-### Visitors
-
-Mostra toda jornada do usuário.
-
-Exemplo:
-
-```text
-```
-
-```text
-Navegação
-
-Eventos
-
-Pageviews
-
-Start Checkout
-```
-
-### Conversões
-
-Mostra o fechamento financeiro dessa jornada.
-
-Exemplo:
-
-```text
-```
-
-```text
-Pagamento aprovado
-
-Valor vendido
-
-Gateway utilizado
-
-Campanha atribuída
-```
-
-Fluxo:
-
-```text
-```
-
-```text
-Visitor navega
-
-↓
-
-Interage com páginas
-
-↓
-
-Inicia checkout
-
-↓
-
-Realiza pagamento
-
-↓
-
-Conversão é registrada
-
-↓
-
-TrackUp conecta receita ao Visitor
-```
-
----
-
-# O ciclo completo do TrackUp
-
-Essa página fecha todo ciclo de inteligência da plataforma.
-
-Fluxo completo:
-
-```text
-```
-
-```text
-Usuário clica no anúncio
-↓
-
-TrackUp captura parâmetros
-
-↓
-
-Visitor é criado
-
-↓
-
-Eventos são registrados
-
-↓
-
-Acionadores disparam pixels
-
-↓
-
-Usuário converte
-
-↓
-
-Gateway envia webhook
-
-↓
-
-TrackUp registra conversão
-
-↓
-
-Sistema identifica campanha responsável
-```
-
-Todo caminho da receita fica visível.
-
----
-
-# Por que isso importa?
-
-Sem atribuição correta, você não consegue otimizar campanhas com precisão.
-
-O problema não é apenas saber que vendeu.
-
-O importante é saber:
-
-```text
-```
-
-```text
-Qual campanha vendeu
-
-Qual anúncio vendeu
-
-Qual criativo vendeu
-
-Quanto dinheiro cada estrutura está gerando
-```
-
-Isso permite tomar decisões muito melhores.
-
----
-
-# Resumo rápido
-
-O módulo de Conversões conecta receita com toda jornada do usuário.
-
-```text
-```
-
-```text
-Venda acontece
-
-↓
-
-TrackUp recebe webhook
-
-↓
-
-Sistema identifica Visitor
-
-↓
-
-UTMs são recuperadas
-
-↓
-
-Click ID é localizado
-
-↓
-
-Campanha responsável é identificada
-
-↓
-
-Receita fica atribuída corretamente
-```
-
-Agora você não apenas vê vendas.
-
-Você entende exatamente de onde elas vieram.
 
 ---
 
@@ -717,33 +295,3 @@ Você entende exatamente de onde elas vieram.
 Depois de entender toda jornada de tracking e atribuição, explore as integrações disponíveis para conectar ainda mais ferramentas ao seu ecossistema.
 
 → **Integrações**
-
----
-
-### Minha recomendação de frase principal
-
-Eu colocaria uma headline forte assim:
-
-```text
-```
-
-```text
-Não basta saber que vendeu. Você precisa saber exatamente o que gerou essa venda.
-```
-
-ou
-
-```text
-```
-
-```text
-Cada venda precisa voltar para a campanha que a originou.
-```
-
-Porque essa página vende exatamente o principal valor da plataforma:
-
-**atribuição precisa de receita.**
-
-E honestamente…
-
-Essa sequência que estamos construindo está ficando com cara de documentação de produto enterprise mesmo. 🚀

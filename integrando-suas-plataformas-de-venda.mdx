@@ -1,52 +1,18 @@
 ---
 title: "Integrando suas Plataformas de Venda"
 icon: "plug-zap"
+description: "Conecte seus checkouts e receba dados de conversão automaticamente."
 ---
 
-Perfeito. Essa página eu estruturaria de forma diferente das anteriores.
-
-Nos módulos anteriores (Pixels e Fontes de Tráfego), o foco era **enviar dados para plataformas externas**.
-
-Aqui, o conceito muda.
-
-Agora o TrackUp precisa **receber dados financeiros de volta**.
-
-A ideia central que o usuário precisa entender é:
-
-> Essa é a ponte entre seu checkout e toda inteligência de atribuição do TrackUp.
-
-Sem essa integração:
-
-- a venda acontece
-- o dinheiro cai na plataforma
-- mas o TrackUp nunca fica sabendo
-- nenhuma conversão é registrada
-- nenhuma campanha recebe atribuição
-- nenhum pixel recebe evento de compra
-
-Eu faria essa página muito como um **hub central**, porque depois vocês terão páginas individuais para cada integração (Hotmart, Kiwify, PerfectPay, Upag etc).
-
-Essa página deve funcionar como visão geral \+ menu de navegação.
-
----
-
-# Plataformas de Venda 🛒
-
-### Conecte seus checkouts ao TrackUp e receba dados de conversão automaticamente.
-
-Todo o ecossistema do TrackUp foi construído para acompanhar a jornada do usuário desde o primeiro clique até o momento final da venda.
+Todo o ecossistema do Trackup foi construído para acompanhar a jornada do usuário desde o primeiro clique até o momento final da venda.
 
 Mas existe uma etapa fundamental nesse processo.
 
-Quando uma compra acontece, o TrackUp precisa ser avisado.
+Quando uma compra acontece, o Trackup precisa ser avisado.
 
 É exatamente aqui que entram as **Plataformas de Venda**.
 
-Este módulo permite integrar seus checkouts, gateways e plataformas de pagamento para que o sistema receba automaticamente os dados financeiros de cada compra realizada.
-
-Em outras palavras:
-
-> Quando o cliente compra, sua plataforma precisa avisar o TrackUp imediatamente.
+Este módulo permite integrar seus checkouts, gateways e plataformas de pagamento para que o Trackup receba automaticamente os dados financeiros de cada compra realizada.
 
 Sem isso, nenhuma conversão pode ser atribuída corretamente.
 
@@ -54,179 +20,7 @@ Sem isso, nenhuma conversão pode ser atribuída corretamente.
 
 **\[VÍDEO RECOMENDADO NO TOPO\]**
 
-_(Vídeo mostrando: usuário criando integração → configurando parâmetros do checkout → copiando webhook → colando na plataforma externa → venda acontecendo → TrackUp recebendo conversão automaticamente.)_
-
----
-
-# O papel das Plataformas de Venda dentro do TrackUp
-
-Durante toda jornada do visitante, o TrackUp coleta informações sobre o comportamento do usuário.
-
-Exemplo:
-
-```text
-Clique no anúncio
-
-↓
-
-Landing page acessada
-
-↓
-
-Visitor criado
-
-↓
-
-Eventos processados
-
-↓
-
-Checkout iniciado
-```
-
-Mas quando a venda acontece, o sistema precisa receber os dados financeiros para fechar o ciclo.
-
-Fluxo final:
-
-```text
-Pagamento aprovado
-
-↓
-
-Plataforma envia webhook
-
-↓
-
-TrackUp recebe dados da venda
-
-↓
-
-Conversão é registrada
-
-↓
-
-Campanha recebe atribuição
-```
-
-Sem essa integração, o sistema não consegue registrar o faturamento.
-
----
-
-**\[IMAGEM RECOMENDADA\]**
-
-_(Diagrama mostrando Ad Click → Visitor → Checkout → Payment Platform → Webhook → TrackUp → Conversion Registered.)_
-
----
-
-# Central de plataformas conectadas
-
-A página principal exibe todas as plataformas de venda atualmente conectadas ao seu projeto.
-
-Cada integração representa uma plataforma autorizada a enviar dados financeiros para o TrackUp.
-
-Exemplo de integrações:
-
-```text
-Hotmart
-
-Braip
-
-Kiwify
-
-PerfectPay
-
-Upag
-```
-
-Cada item da lista exibe informações importantes.
-
-Exemplo:
-
-```text
-Plataforma integrada
-
-Código identificador
-
-URL de Webhook exclusiva
-
-Data de criação
-```
-
-Essa tela funciona como a central responsável pelo recebimento de conversões.
-
----
-
-**\[IMAGEM RECOMENDADA\]**
-
-_(Utilizar print da tabela principal mostrando Hotmart, Braip, Upag e colunas contendo código e URL de webhook.)_
-
----
-
-# O que é o Webhook?
-
-O Webhook é o mecanismo responsável por avisar o TrackUp quando uma venda acontece.
-
-Funciona assim:
-
-Quando o pagamento é aprovado dentro da plataforma de venda, ela envia uma notificação automática para o TrackUp contendo os dados da transação.
-
-Exemplo:
-
-```text
-Cliente realiza compra
-
-↓
-
-Pagamento aprovado
-
-↓
-
-Plataforma envia webhook
-
-↓
-
-TrackUp recebe dados financeiros
-
-↓
-
-Conversão é registrada
-```
-
-Sem esse processo, o sistema nunca saberá que uma venda aconteceu.
-
----
-
-# Cada integração gera uma URL exclusiva 🔗
-
-Sempre que você adiciona uma nova plataforma, o TrackUp gera automaticamente uma URL exclusiva de Webhook.
-
-Exemplo:
-
-```text
-https://trackup.me/api/webhook/abc123xyz
-```
-
-Essa URL deverá ser copiada e adicionada dentro da plataforma de venda correspondente.
-
-Exemplo:
-
-```text
-Hotmart → Área de Webhooks
-
-Kiwify → Configuração de integração
-
-Braip → Notificações automáticas
-
-PerfectPay → Configuração de API
-```
-
-A partir desse momento, toda venda passa a ser enviada automaticamente para o TrackUp.
-
----
-
-**\[IMAGEM RECOMENDADA\]**
-
-_(Utilizar print da tabela principal destacando coluna contendo URLs de Webhook geradas automaticamente.)_
+_(Vídeo mostrando: usuário criando integração → configurando parâmetros do checkout → copiando webhook → colando na plataforma externa → venda acontecendo → Trackup recebendo conversão automaticamente.)_
 
 ---
 
@@ -238,13 +32,13 @@ Para criar uma nova integração basta clicar em:
 + Adicionar Plataforma
 ```
 
-Ao iniciar o processo, o TrackUp abre o painel de configuração responsável por preparar a integração.
+Ao iniciar o processo, o Trackup abre o painel de configuração responsável por preparar a integração.
 
 Aqui você define como os dados de tracking serão enviados junto com o checkout.
 
 ---
 
-# Configurando parâmetros do checkout ⚙️
+# Configurando parâmetros do checkout 
 
 Antes da venda acontecer, o usuário precisa chegar até o checkout levando consigo todas as informações de atribuição coletadas anteriormente.
 
@@ -254,15 +48,10 @@ Exemplo de parâmetros normalmente enviados:
 
 ```text
 sck
-
 utm_source
-
 utm_medium
-
 utm_campaign
-
 utm_content
-
 click_id
 ```
 
@@ -274,17 +63,14 @@ Esses parâmetros são anexados automaticamente ao checkout.
 
 Cada plataforma possui sua própria estrutura de URL.
 
-O TrackUp permite mapear quais valores serão enviados dinamicamente durante o checkout.
+O Trackup permite mapear quais valores serão enviados dinamicamente durante o checkout.
 
 Exemplo:
 
 ```text
 sck={request.id}
-
 utm_source={request.utmSource}
-
 utm_medium={request.utmMedium}
-
 utm_campaign={request.utmCampaign}
 ```
 
@@ -292,9 +78,7 @@ Significado:
 
 ```text
 request.id → identificador único do visitante
-
 request.utmSource → origem do tráfego
-
 request.utmCampaign → campanha responsável pelo clique
 ```
 
@@ -312,19 +96,15 @@ _(Utilizar print do formulário de integração mostrando Kiwify selecionado e a
 
 Algumas plataformas trabalham com campos proprietários ou parâmetros adicionais.
 
-Por isso o sistema permite criar parâmetros completamente personalizados.
+Por isso o Trackup permite criar parâmetros completamente personalizados.
 
 Exemplo:
 
 ```text
 affiliate_id
-
 offer_code
-
 checkout_id
-
 transaction_source
-
 partner_reference
 ```
 
@@ -332,251 +112,10 @@ Você pode adicionar quantos parâmetros forem necessários para sua operação.
 
 ---
 
-# O fluxo completo da integração
+# Próximo passo👇
 
-Essa configuração conecta praticamente todo ecossistema do TrackUp.
-
-Fluxo completo:
-
-```text
-Usuário clica anúncio
-
-↓
-
-TrackUp registra requisição
-
-↓
-
-Visitor é criado
-
-↓
-
-Usuário acessa checkout
-
-↓
-
-Parâmetros são enviados junto ao checkout
-
-↓
-
-Cliente realiza pagamento
-
-↓
-
-Plataforma envia webhook
-
-↓
-
-TrackUp recebe dados financeiros
-
-↓
-
-Conversão é registrada
-
-↓
-
-Sistema identifica campanha responsável
-```
-
-Essa integração fecha todo ciclo de atribuição.
-
----
-
-# Plataformas atualmente suportadas
-
-Atualmente o TrackUp suporta integração com diversas plataformas de venda e gateways.
-
-Exemplos:
-
-```text
-Upag
-
-PerfectPay
-
-Kiwify
-
-Hotmart
-
-Braip
-
-Kirvano
-```
-
-Cada plataforma possui um processo específico de configuração.
-
-Por isso criamos páginas individuais explicando cada integração separadamente.
-
----
-
-# Escolha sua plataforma 👇
-
-Abaixo você encontrará guias específicos mostrando como configurar cada plataforma suportada pelo TrackUp.
+Abaixo você encontrará guias específicos mostrando como configurar cada plataforma suportada pelo Trackup.
 
 Selecione a integração que deseja conectar.
 
 ### Plataformas disponíveis
-
-→ Upag\
-→ PerfectPay\
-→ Kiwify\
-→ Hotmart\
-→ Braip\
-→ Kirvano
-
-_(Aqui você pode transformar em cards ou links internos dentro da documentação.)_
-
----
-
-# Por que essa integração é tão importante?
-
-Sem conectar sua plataforma de vendas, o TrackUp perde a etapa final do funil.
-
-Problemas comuns quando não existe integração:
-
-```text
-Venda aconteceu
-
-↓
-
-TrackUp não recebeu webhook
-
-↓
-
-Conversão não foi registrada
-
-↓
-
-Pixel de Purchase não foi enviado
-
-↓
-
-Campanha não aprende com a venda
-
-↓
-
-Relatórios ficam incompletos
-```
-
-Ou seja:
-
-Seu dinheiro entrou.
-
-Mas sua inteligência de dados morreu no checkout.
-
----
-
-# Como este módulo conecta tudo que vimos até agora
-
-Este módulo fecha todo ciclo da plataforma.
-
-Fluxo completo do ecossistema:
-
-```text
-Fonte de tráfego gera clique
-
-↓
-
-TrackUp recebe parâmetros
-
-↓
-
-Requisição é criada
-
-↓
-
-Visitor é identificado
-
-↓
-
-Eventos são processados
-
-↓
-
-Pixels recebem eventos
-
-↓
-
-Usuário vai para checkout
-
-↓
-
-Plataforma processa pagamento
-
-↓
-
-Webhook retorna para TrackUp
-
-↓
-
-Conversão é registrada
-
-↓
-
-Campanha recebe atribuição correta
-```
-
-Todo sistema se conecta aqui.
-
----
-
-# Resumo rápido
-
-O módulo de Plataformas de Venda permite receber dados financeiros automaticamente.
-
-```text
-Você conecta plataforma
-
-↓
-
-TrackUp gera webhook
-
-↓
-
-Webhook é adicionado no checkout
-
-↓
-
-Venda acontece
-
-↓
-
-Plataforma envia dados automaticamente
-
-↓
-
-Conversão é registrada
-
-↓
-
-Campanhas recebem atribuição correta
-```
-
-É essa página que fecha todo ciclo de tracking e atribuição financeira.
-
----
-
-# Próximo passo
-
-Agora escolha a plataforma que deseja integrar e siga o guia específico de configuração.
-
-→ **Selecione sua plataforma abaixo**
-
----
-
-### Minha recomendação de headline principal
-
-Eu colocaria algo forte assim:
-
-```text
-Seu checkout precisa avisar o TrackUp quando o dinheiro entrar.
-```
-
-ou
-
-```text
-Sem integrar seu checkout, nenhuma conversão pode ser atribuída corretamente.
-```
-
-Porque tecnicamente…
-
-essa página fecha todo o motor financeiro da plataforma. 🚀

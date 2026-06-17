@@ -1,57 +1,10 @@
 ---
 title: "Fontes de Tráfego"
 icon: "megaphone"
+description: "Configure como suas plataformas de anúncios enviam dados para o Trackup."
 ---
 
-Perfeito. Essa página é **muito mais estratégica do que parece**, porque ela explica uma das partes mais críticas do TrackUp:
-
-Sem configurar corretamente as **Fontes de Tráfego**, todo o restante perde valor.
-
-Se o usuário errar aqui:
-
-- requisições ficam sem contexto
-- visitors perdem atribuição
-- conversões ficam cegas
-- relatórios não conseguem identificar campanhas
-- plataformas de anúncios não recebem dados corretos
-
-A percepção que essa página precisa transmitir é:
-
-> Esta é a camada que ensina seus links a conversar corretamente com as plataformas de mídia.
-
-Eu faria uma página bem educativa porque aqui muitos usuários iniciantes podem não entender o peso da parametrização.
-
----
-
-# Fontes de Tráfego 🚦
-
-### Configure como suas plataformas de anúncios enviam dados para o TrackUp.
-
-Todo o ecossistema do TrackUp depende de uma coisa fundamental:
-
-Receber informações corretas sobre a origem de cada visitante.
-
-Sempre que alguém clica em um anúncio, a plataforma de mídia envia parâmetros na URL contendo informações sobre campanha, conjunto de anúncios, criativo, palavra-chave e outros identificadores importantes.
-
-O módulo de **Fontes de Tráfego** é responsável por definir exatamente quais parâmetros serão enviados e como o TrackUp irá interpretar essas informações.
-
-Em outras palavras:
-
-> Esta página define o idioma que seus links irão falar com as plataformas de anúncios.
-
-Se essa configuração estiver errada, toda sua atribuição fica comprometida.
-
----
-
-**\[VÍDEO RECOMENDADO NO TOPO\]**
-
-_(Vídeo mostrando: usuário criando nova fonte → escolhendo plataforma → TrackUp preenchendo parâmetros automáticos → string final sendo gerada → copiando parâmetros para o gerenciador de anúncios.)_
-
----
-
-# O papel das Fontes de Tráfego dentro do TrackUp
-
-Sempre que alguém acessa sua operação através de mídia paga, o link normalmente carrega parâmetros invisíveis na URL.
+Sempre que alguém acessa sua operação através de mídia paga, o link carrega parâmetros na URL.
 
 Exemplo:
 
@@ -65,81 +18,30 @@ fbclid=ABCD123456
 
 Esses parâmetros são extremamente importantes.
 
-Eles permitem que o TrackUp descubra:
+Eles permitem que o Trackup descubra:
 
 ```text
 Qual campanha gerou o clique
-
 Qual conjunto de anúncios originou a visita
-
 Qual anúncio foi exibido
-
 Qual criativo trouxe o usuário
-
-Qual palavra-chave gerou a visita
-
-Qual plataforma originou o tráfego
 ```
 
-Sem isso, o sistema fica sem contexto.
+Sem isso, o Trackup fica sem contexto.
 
 ---
 
 **\[IMAGEM RECOMENDADA\]**
 
-_(Diagrama mostrando Ad Platform → URL Parameters → TrackUp Receives Parameters → Request → Visitor → Conversion Attribution.)_
+_(Diagrama mostrando Ad Platform → URL Parameters → Trackup Receives Parameters → Request → Visitor → Conversion Attribution.)_
+
+**\[VÍDEO RECOMENDADO NO TOPO\]**
+
+_(Vídeo mostrando: usuário criando nova fonte → escolhendo plataforma → Trackup preenchendo parâmetros automáticos → string final sendo gerada → copiando parâmetros para o gerenciador de anúncios.)_
 
 ---
 
-# Central de gerenciamento de Fontes
-
-A página principal exibe todas as fontes de tráfego configuradas dentro do projeto.
-
-Cada fonte representa uma plataforma ou modelo de parametrização utilizado na operação.
-
-Exemplo de fontes cadastradas:
-
-```text
-Meta
-
-Google
-
-Kwai
-
-TikTok
-```
-
-Cada item da lista mostra informações como:
-
-```text
-Nome da fonte
-
-Plataforma vinculada
-
-Configuração ativa no projeto
-```
-
-Exemplo:
-
-```text
-meta
-
-google
-
-kwai xx
-```
-
-Essa área funciona como a central onde você organiza toda entrada de tráfego da operação.
-
----
-
-**\[IMAGEM RECOMENDADA\]**
-
-_(Utilizar print da tabela principal mostrando fontes Meta, Google e Kwai cadastradas.)_
-
----
-
-# Adicionando uma nova Fonte
+# Adicionando uma nova Fonte de Trafego
 
 Para configurar uma nova plataforma basta clicar em:
 
@@ -147,33 +49,28 @@ Para configurar uma nova plataforma basta clicar em:
 + Adicionar Fonte
 ```
 
-Ao abrir o editor, o TrackUp exibe um construtor dinâmico de parâmetros.
-
-O comportamento da interface muda automaticamente dependendo da plataforma selecionada.
+O Trackup exibe um construtor dinâmico de parâmetros.
 
 Cada mídia possui sua própria forma de construir URLs.
 
-O TrackUp já entende essas diferenças e adapta tudo automaticamente.
+Para facilitar o processo, o Trackup já pré-configura automaticamente os valores recomendados.
+
+Você não precisa montar manualmente.
 
 ---
 
 # O que exatamente estamos configurando?
 
-Aqui você define quais informações a plataforma irá enviar para o TrackUp sempre que um clique acontecer.
+Aqui você define quais informações a plataforma irá enviar para o Trackup sempre que um clique acontecer.
 
 Os parâmetros mais comuns são:
 
 ```text
 utm_source
-
 utm_medium
-
 utm_campaign
-
 utm_content
-
 utm_term
-
 click_id
 ```
 
@@ -181,65 +78,40 @@ Exemplo prático:
 
 ```text
 Usuário clica no anúncio
-
 ↓
-
 Plataforma adiciona parâmetros na URL
-
 ↓
-
-TrackUp recebe esses dados
-
+Trackup recebe esses dados
 ↓
-
-Sistema associa clique à campanha correta
+Trackup associa clique à campanha correta
 ```
 
-Esses parâmetros serão utilizados posteriormente nos módulos de:
-
-- Requisições
-- Visitors
-- Conversões
-- Relatórios
-- Atribuição de campanhas
-
----
-
-# Templates automáticos por plataforma 🤖
-
-Cada plataforma possui seu próprio padrão interno de parâmetros dinâmicos.
-
-Para facilitar o processo, o TrackUp já pré-configura automaticamente os valores recomendados.
-
-Você não precisa montar manualmente.
+Esses parâmetros serão utilizados posteriormente na atribuição de eventos.
 
 ---
 
 # Meta Ads
 
-Ao selecionar Meta, o TrackUp utiliza automaticamente as macros oficiais do ecossistema da Meta.
+Ao selecionar Meta, o Trackup utiliza automaticamente as macros oficiais do ecossistema da Meta.
 
 Exemplo de parâmetros utilizados:
 
 ```text
 utm_source=facebook
-
 utm_medium={{adset.name}}|{{adset.id}}
-
 utm_campaign={{campaign.name}}|{{campaign.id}}
-
 utm_content={{ad.name}}|{{ad.id}}
 ```
 
 Essas variáveis são interpretadas automaticamente pelo Gerenciador de Anúncios da Meta.
 
-Ao final, o sistema gera a URL pronta para copiar e utilizar nas campanhas.
+Ao final, o Trackup gera a URL pronta para copiar e utilizar nas campanhas.
 
 ---
 
 **\[IMAGEM RECOMENDADA\]**
 
-_(Utilizar print mostrando o formulário Meta com macros usando {{ }} e campo final “Parâmetros de URL”.)_
+_(Utilizar print mostrando o formulário Meta com macros usando_ {{ }} _e campo final “Parâmetros de URL”.)_
 
 ---
 
@@ -247,25 +119,21 @@ _(Utilizar print mostrando o formulário Meta com macros usando {{ }} e campo fi
 
 O Google utiliza uma sintaxe diferente para seus parâmetros dinâmicos.
 
-O TrackUp adapta automaticamente a estrutura para o padrão exigido pelo Google Ads.
+O Trackup adapta automaticamente a estrutura para o padrão exigido pelo Google Ads.
 
 Exemplo:
 
 ```text
 utm_source=google
-
 utm_medium=cpc
-
 utm_campaign={campaignid}
-
 utm_content={creative}
-
 utm_term={keyword}
 ```
 
 O Google utiliza tokens com chaves simples.
 
-Toda sintaxe é montada automaticamente pelo sistema.
+Toda sintaxe é montada automaticamente pelo Trackup.
 
 Nenhuma configuração manual complexa é necessária.
 
@@ -273,7 +141,7 @@ Nenhuma configuração manual complexa é necessária.
 
 **\[IMAGEM RECOMENDADA\]**
 
-_(Utilizar print mostrando formulário Google com tokens {campaignid}, {creative} e {keyword}.)_
+_(Utilizar print mostrando formulário Google com tokens_ {campaignid}_,_ {creative} _e_ {keyword}_.)_
 
 ---
 
@@ -281,21 +149,18 @@ _(Utilizar print mostrando formulário Google com tokens {campaignid}, {creative
 
 A plataforma Kwai utiliza uma nomenclatura própria para seus parâmetros dinâmicos.
 
-Ao selecionar Kwai, o sistema altera automaticamente os placeholders para o padrão correto.
+Ao selecionar Kwai, o Trackup altera automaticamente os placeholders para o padrão correto.
 
 Exemplo:
 
 ```text
 utm_source=kwai
-
 utm_campaign=__CMPN__
-
 utm_medium=__ADSET__
-
 utm_content=__AD__
 ```
 
-O TrackUp entende o formato exclusivo da plataforma e gera tudo automaticamente.
+O Trackup entende o formato exclusivo da plataforma e gera tudo automaticamente.
 
 Você apenas copia e utiliza na campanha.
 
@@ -311,17 +176,14 @@ _(Utilizar print mostrando formulário Kwai com placeholders **CMPN**, **ADSET**
 
 Assim como as demais plataformas, o TikTok possui seus próprios parâmetros internos.
 
-Ao selecionar TikTok, o sistema prepara automaticamente o modelo recomendado para rastreamento.
+Ao selecionar TikTok, o Trackup prepara automaticamente o modelo recomendado para rastreamento.
 
 Exemplo:
 
 ```text
 utm_source=tiktok
-
 utm_campaign={{campaign_name}}
-
 utm_medium={{adgroup_name}}
-
 utm_content={{ad_name}}
 ```
 
@@ -329,7 +191,7 @@ Toda lógica segue exatamente o mesmo princípio das demais integrações.
 
 O objetivo continua sendo o mesmo:
 
-Garantir que o TrackUp receba dados corretos de atribuição.
+Garantir que o Trackup receba dados corretos de atribuição.
 
 ---
 
@@ -341,19 +203,15 @@ _(Caso ainda não exista interface pronta, pode deixar sem print nesta etapa.)_
 
 Além dos templates automáticos, você também pode adicionar parâmetros completamente personalizados.
 
-Isso permite adaptar o TrackUp para operações específicas.
+Isso permite adaptar o Trackup para operações específicas.
 
 Exemplo:
 
 ```text
 affiliate_id
-
 offer_id
-
 creator_name
-
 partner_code
-
 tracking_id
 ```
 
@@ -367,141 +225,7 @@ Podendo ser utilizados em:
 - Conversões
 - Relatórios futuros
 
-Isso torna o sistema extremamente flexível.
-
----
-
-# Geração automática da URL final ⚡
-
-Conforme você configura os parâmetros, o TrackUp gera automaticamente a string final pronta para uso.
-
-Exemplo:
-
-```text
-utm_source=facebook&utm_campaign={{campaign.name}}&utm_medium={{adset.name}}&utm_content={{ad.name}}
-```
-
-Você simplesmente copia essa estrutura e cola dentro da plataforma de anúncios.
-
-Sem precisar montar manualmente.
-
-Sem risco de erro de sintaxe.
-
----
-
-# Por que essa configuração é tão importante?
-
-Se a Fonte de Tráfego estiver mal configurada, o restante do sistema perde inteligência.
-
-Problemas comuns:
-
-```text
-Campanha não identificada
-
-Criativo não identificado
-
-Conversão sem atribuição
-
-Relatórios incompletos
-
-Pixel sem contexto correto
-
-Falha no tracking financeiro
-```
-
-Exemplo:
-
-```text
-Venda registrada normalmente
-
-↓
-
-Mas utm_campaign não chegou
-
-↓
-
-TrackUp não consegue identificar qual campanha vendeu
-```
-
-Resultado:
-
-```text
-Seu relatório fica cego
-```
-
----
-
-# Como essa página afeta o restante do sistema
-
-Esta configuração impacta praticamente todo ecossistema do TrackUp.
-
-Fluxo:
-
-```text
-Usuário clica anúncio
-
-↓
-
-Parâmetros são enviados
-
-↓
-
-TrackUp recebe dados
-
-↓
-
-Requisição é criada
-
-↓
-
-Visitor é identificado
-
-↓
-
-Conversão acontece
-
-↓
-
-Sistema consegue atribuir campanha corretamente
-```
-
-Sem essa etapa, toda inteligência posterior perde precisão.
-
----
-
-# Resumo rápido
-
-O módulo de Fontes de Tráfego define como as plataformas enviam dados para o TrackUp.
-
-```text
-Você configura parâmetros
-
-↓
-
-TrackUp gera template correto
-
-↓
-
-URL é utilizada nas campanhas
-
-↓
-
-Usuário clica anúncio
-
-↓
-
-Sistema recebe dados de atribuição
-
-↓
-
-Campanhas são identificadas corretamente
-
-↓
-
-Conversões ficam conectadas à origem real
-```
-
-É esta página que conecta mídia paga com inteligência de dados.
+Isso torna o Trackup extremamente flexível.
 
 ---
 
@@ -510,23 +234,3 @@ Conversões ficam conectadas à origem real
 Agora que suas plataformas de tráfego já sabem como enviar informações corretamente, o próximo passo é conectar sua infraestrutura de vendas.
 
 → **Plataformas de Venda**
-
----
-
-### Minha recomendação de headline principal
-
-Eu colocaria uma frase forte assim:
-
-```text
-Se seus parâmetros estiverem errados, seus relatórios estarão cegos.
-```
-
-ou
-
-```text
-Esta é a página que ensina seus links a conversar com as plataformas de anúncios.
-```
-
-Porque tecnicamente…
-
-essa página controla toda inteligência de atribuição do sistema. 🚀

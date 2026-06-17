@@ -1,73 +1,54 @@
 ---
 title: "Visitantes"
 icon: "user-search"
+description: "Quanto mais o usuário navega, mais inteligente seu tracking se torna."
 ---
 
-### Transforme acessos isolados em perfis completos de usuários reais.
+Toda interação dentro do Trackup começa com uma requisição.
 
-Toda interação dentro do TrackUp começa com uma requisição.
+Sempre que alguém acessa um link, visita uma página, inicia checkout ou realiza qualquer ação dentro da sua operação, o Trackup registra aquela atividade individualmente.
 
-Sempre que alguém acessa um link, visita uma página, inicia checkout ou realiza qualquer ação dentro da sua operação, o sistema registra aquela atividade individualmente.
+Mas o verdadeiro poder do Trackup acontece no próximo passo.
 
-Mas o verdadeiro poder do TrackUp acontece no próximo passo.
+Cada requisição processada gera automaticamente um **Visitante**.
 
-Cada requisição processada gera automaticamente um **Visitor**.
+Esse Visitante representa a identidade persistente daquele usuário dentro do seu projeto.
 
-Esse Visitor representa a identidade persistente daquele usuário dentro do seu projeto.
-
-Conforme o mesmo visitante continua navegando, o sistema conecta todas as novas interações ao mesmo perfil, acumulando informações progressivamente ao longo da jornada.
+Conforme o mesmo visitante continua navegando, o Trackup conecta todas as novas interações ao mesmo perfil, acumulando informações progressivamente ao longo da jornada.
 
 Em outras palavras:
 
-> Quanto mais o usuário avança no funil, mais inteligente o TrackUp se torna sobre aquele visitante.
+> Quanto mais o usuário avança no funil, mais informações o Trackup tem sobre aquele visitante.
 
 ---
 
 **\[VÍDEO RECOMENDADO NO TOPO\]**
 
-_(Vídeo de 6 a 8 minutos mostrando: visitante acessando pela primeira vez → sistema cria Visitor → usuário navega novamente → novas requisições são agrupadas → formulário captura nome/email → perfil é enriquecido → conversão aparece no histórico.)_
+_(Vídeo de 6 a 8 minutos mostrando: visitante acessando pela primeira vez → Trackup cria Visitante → usuário navega novamente → novas requisições são agrupadas → formulário captura nome/email → perfil é enriquecido → conversão aparece no histórico.)_
 
 ---
-
-# Como funciona o sistema de Visitors?
 
 Toda jornada começa com uma requisição individual.
 
 Exemplo:
 
 ```text
-```
-
-```text
 Usuário clicou em anúncio
-
 ↓
-
-TrackUp registra requisição
-
+Trackup registra requisição
 ↓
-
-Sistema cria Visitor automaticamente
+Trackup cria Visitante automaticamente
 ```
 
 Se o mesmo usuário retornar posteriormente:
 
 ```text
-```
-
-```text
 Novo acesso detectado
-
 ↓
-
-TrackUp reconhece visitante
-
+Trackup reconhece visitante
 ↓
-
-Nova requisição é vinculada ao mesmo Visitor
-
+Nova requisição é vinculada ao mesmo Visitante
 ↓
-
 Perfil fica mais completo
 ```
 
@@ -77,20 +58,17 @@ Cada nova interação aumenta a quantidade de informações disponíveis.
 
 **\[IMAGEM RECOMENDADA\]**
 
-_(Diagrama mostrando: Request #1 → Visitor Created → Request #2 → Request #3 → Event → Conversion → Visitor Profile Becomes Richer.)_
+_(Diagrama mostrando: Request #1 → Visitante Created → Request #2 → Request #3 → Event → Conversion → Visitante Profile Becomes Richer.)_
 
 ---
 
-# Toda requisição gera um Visitor
+# Toda requisição gera um Visitante
 
-Sempre que uma nova visita passa pela infraestrutura do TrackUp, o sistema cria automaticamente um registro persistente daquele usuário.
+Sempre que uma nova visita passa pela infraestrutura do Trackup, o Trackup cria automaticamente um registro persistente daquele usuário.
 
 Inicialmente esse visitante pode possuir poucas informações.
 
 Exemplo:
-
-```text
-```
 
 ```text
 IP
@@ -113,9 +91,6 @@ Mas conforme o visitante continua navegando, novos dados começam a ser adiciona
 Exemplo:
 
 ```text
-```
-
-```text
 Nome
 
 Email
@@ -135,180 +110,9 @@ Cada etapa do funil adiciona novas camadas de informação.
 
 ---
 
-# Construção progressiva do perfil 🧠
+# Perfil completo do visitante 
 
-O TrackUp trabalha com enriquecimento progressivo de dados.
-
-Isso significa que o perfil do visitante vai evoluindo conforme ele interage com sua operação.
-
-Exemplo de evolução.
-
-Primeiro acesso:
-
-```text
-```
-
-```text
-Visitante anônimo
-
-Instagram
-
-Android Device
-
-utm_source = facebook
-```
-
-Após preencher formulário:
-
-```text
-```
-
-```text
-Nome identificado
-
-Email capturado
-
-Telefone capturado
-```
-
-Após checkout:
-
-```text
-```
-
-```text
-Start Checkout registrado
-
-Plataforma de pagamento identificada
-```
-
-Após compra:
-
-```text
-```
-
-```text
-Conversão registrada
-
-Valor da venda capturado
-
-Método de pagamento identificado
-```
-
-O mesmo Visitor vai se tornando cada vez mais completo.
-
----
-
-# Banco de dados central de visitantes
-
-A página principal de Visitors funciona como uma base central de todos os usuários que passaram pela sua operação.
-
-Diferente da página de Requisições, aqui não analisamos eventos isolados.
-
-Aqui agrupamos tudo por indivíduo.
-
-Cada linha representa uma pessoa.
-
-Não uma visita.
-
----
-
-# Identificação progressiva do visitante
-
-Nem sempre o sistema consegue identificar o usuário imediatamente.
-
-Quando o visitante ainda não forneceu dados pessoais, ele aparece como anônimo.
-
-Exemplo:
-
-```text
-```
-
-```text
-96014e5d7fa83cb29...
-```
-
-Quando o sistema consegue capturar dados adicionais, o perfil é atualizado automaticamente.
-
-Exemplo:
-
-```text
-```
-
-```text
-Gregory Anthoni
-```
-
-ou
-
-```text
-```
-
-```text
-everton@empresa.com.br
-```
-
-Isso acontece sem perder histórico anterior.
-
-Ou seja:
-
-O Visitor continua sendo o mesmo.
-
-Apenas fica mais completo.
-
----
-
-**\[IMAGEM RECOMENDADA\]**
-
-_(Utilizar o print da lista geral de visitantes mostrando usuários anônimos por hash e usuários identificados por nome ou email.)_
-
----
-
-# Métricas de engajamento 📊
-
-A tabela principal também permite medir o nível de interesse de cada visitante.
-
-Cada perfil acumula métricas importantes.
-
-Exemplos:
-
-```text
-```
-
-```text
-Quantidade de Pageviews
-
-Última atividade registrada
-
-País de origem
-
-Dispositivo utilizado
-
-Histórico de acessos
-```
-
-Exemplo prático:
-
-```text
-```
-
-```text
-Visitor A → 1 pageview
-
-Visitor B → 37 pageviews
-
-Visitor C → 159 pageviews
-```
-
-Quanto maior a quantidade de interações, maior o nível de engajamento daquele usuário.
-
-Isso ajuda a identificar visitantes altamente interessados.
-
----
-
-# Perfil completo do visitante 📋
-
-Ao clicar em qualquer visitante, o TrackUp abre uma visão completa daquela pessoa dentro do seu ecossistema.
+Ao clicar em qualquer visitante, o Trackup abre uma visão completa daquela pessoa dentro do seu ecossistema.
 
 Aqui toda jornada fica consolidada em um único lugar.
 
@@ -316,22 +120,18 @@ Aqui toda jornada fica consolidada em um único lugar.
 
 # Dados de identificação
 
-Sempre que disponíveis, o sistema exibe dados capturados ao longo da navegação.
+Sempre que disponíveis, o Trackup exibe dados capturados ao longo da navegação.
 
 Exemplo:
 
 ```text
-```
-
-```text
 Nome
-
 Email
-
 Telefone
+Endereço
 ```
 
-Esses dados ficam permanentemente associados ao Visitor.
+Esses dados ficam permanentemente associados ao Visitante.
 
 ---
 
@@ -340,9 +140,6 @@ Esses dados ficam permanentemente associados ao Visitor.
 Também é possível visualizar o resumo geral da jornada.
 
 Exemplo:
-
-```text
-```
 
 ```text
 Primeira visita registrada
@@ -360,12 +157,9 @@ Isso ajuda a entender o ciclo de vida daquele usuário.
 
 # Atribuição de marketing
 
-O sistema mantém armazenados permanentemente os dados de origem do primeiro acesso.
+O Trackup mantém armazenados permanentemente os dados de origem do primeiro acesso.
 
 Exemplo:
-
-```text
-```
 
 ```text
 utm_source
@@ -382,9 +176,6 @@ Click ID
 ```
 
 Isso permite responder perguntas como:
-
-```text
-```
 
 ```text
 Qual anúncio trouxe este visitante?
@@ -404,107 +195,40 @@ _(Utilizar print do perfil mostrando Name, Email, Phone, First Visit, Last Activ
 
 ---
 
-# Linha do tempo completa da jornada ⏳
+# Linha do tempo completa da jornada
 
-O TrackUp também registra toda sequência cronológica de eventos gerados por aquele visitante.
+O Trackup também registra toda sequência cronológica de eventos gerados por aquele visitante.
 
 Exemplo:
 
 ```text
-```
-
-```text
 ad_click
-
 ↓
-
 page_view
-
 ↓
-
 page_view
-
 ↓
-
 start_checkout
-
 ↓
-
 conversion
 ```
 
-Você consegue visualizar exatamente por onde aquela pessoa passou.
-
-Exemplo prático:
-
-```text
-```
-
-```text
-Instagram Ad Click
-
-↓
-
-Landing Page Access
-
-↓
-
-Second Page View
-
-↓
-
-Checkout Started
-
-↓
-
-Purchase Completed
-```
-
-Nada se perde entre as etapas.
-
 ---
 
-# Histórico financeiro e conversões 💰
+# Histórico financeiro e conversões
 
-Quando o visitante gera uma conversão, o sistema também associa permanentemente essa venda ao perfil daquele usuário.
+Quando o visitante gera uma conversão, o Trackup também associa permanentemente essa venda ao perfil daquele usuário.
 
 Exemplo de dados armazenados:
 
 ```text
-```
-
-```text
 Valor da venda
-
 Método de pagamento
-
 Gateway utilizado
-
 ID da transação
-
 Origem da conversão
-
 Data e horário
 ```
-
-Exemplo:
-
-```text
-```
-
-```text
-PerfectPay
-
-R$12,90
-
-PIX
-
-Transaction ID
-
-Origem Facebook Ads
-```
-
-Agora você consegue conectar comportamento com faturamento.
 
 ---
 
@@ -514,44 +238,7 @@ _(Utilizar print mostrando a tabela inferior de conversões com Value, Payment M
 
 ---
 
-# Cada etapa do funil gera mais inteligência
-
-Esse é um dos conceitos mais importantes do TrackUp.
-
-Cada nova interação deixa o Visitor mais completo.
-
-Exemplo:
-
-```text
-```
-
-```text
-Clique inicial
-
-↓
-
-Landing visitada
-
-↓
-
-Formulário preenchido
-
-↓
-
-Checkout iniciado
-
-↓
-
-Pagamento realizado
-```
-
-A cada nova etapa o sistema captura novas informações.
-
-Isso torna o tracking progressivamente mais preciso.
-
----
-
-# Relação entre Requisições e Visitors
+# Relação entre Requisições e Visitantes
 
 Esses dois módulos trabalham juntos.
 
@@ -562,9 +249,6 @@ Analisa eventos isolados.
 Exemplo:
 
 ```text
-```
-
-```text
 Uma visita específica
 
 Um clique específico
@@ -572,97 +256,18 @@ Um clique específico
 Um evento específico
 ```
 
-### Visitors
+### Visitantes
 
 Agrupa toda jornada do mesmo usuário.
 
 Exemplo:
 
 ```text
-```
-
-```text
 Todas requisições do mesmo visitante
-
 Todos eventos agrupados
-
 Histórico consolidado
-
 Conversões associadas
 ```
-
-Ou seja:
-
-```text
-```
-
-```text
-Requisições mostram eventos
-
-Visitors mostram pessoas
-```
-
----
-
-# Por que isso importa?
-
-Muitas ferramentas mostram apenas cliques isolados.
-
-O TrackUp vai além.
-
-Ele constrói um histórico completo do usuário ao longo de toda jornada.
-
-Isso significa:
-
-- \
-  mais contexto sobre cada visitante\
-- \
-  melhor atribuição\
-- \
-  visão completa do funil\
-- \
-  identificação de usuários mais engajados\
-- \
-  associação entre marketing e faturamento\
-
-Você deixa de analisar tráfego.
-
-Você começa a analisar pessoas.
-
----
-
-# Resumo rápido
-
-O módulo de Visitors transforma interações isoladas em perfis completos.
-
-```text
-```
-
-```text
-Requisição acontece
-
-↓
-
-Visitor é criado automaticamente
-
-↓
-
-Novas visitas são agrupadas
-
-↓
-
-Dados vão sendo enriquecidos
-
-↓
-
-Histórico completo é construído
-
-↓
-
-Conversões ficam associadas ao mesmo perfil
-```
-
-Quanto mais o usuário navega, mais completo fica o perfil dele.
 
 ---
 
@@ -671,31 +276,3 @@ Quanto mais o usuário navega, mais completo fica o perfil dele.
 Agora que você consegue acompanhar toda jornada consolidada de cada usuário, o próximo módulo permite visualizar o momento final dessa jornada.
 
 → **Conversões**
-
----
-
-### Minha recomendação para frase principal
-
-Eu colocaria algo forte assim:
-
-```text
-```
-
-```text
-Cada clique conta uma história. O TrackUp conecta todas elas.
-```
-
-ou
-
-```text
-```
-
-```text
-Quanto mais o usuário navega, mais inteligente seu tracking se torna.
-```
-
-Porque essa feature passa uma sensação muito forte de inteligência de dados.
-
-E honestamente:
-
-Isso é coisa de produto enterprise. 🚀

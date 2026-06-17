@@ -101,7 +101,7 @@
                 "group": "Logs",
                 "icon": "scroll-text",
                 "pages": [
-                  "requisiocoes",
+                  "requisicoes",
                   "visitantes",
                   "conversoes"
                 ]

@@ -118,7 +118,12 @@
                     "pages": [
                       "integrando-suas-plataformas-de-venda",
                       "upag",
-                      "perfect-pay"
+                      "perfect-pay",
+                      "atomo-pay",
+                      "proofpay",
+                      "tribopay",
+                      "actionpay",
+                      "stripe"
                     ]
                   }
                 ]

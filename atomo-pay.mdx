@@ -1,24 +1,8 @@
 ---
-title: "upag"
+title: "Átomo Pay"
 ---
 
-# TEMPLATE PADRÃO — Integração de Plataforma de Venda
-
-_(Substituir apenas textos específicos de cada plataforma.)_
-
----
-
-# \[Nome da Plataforma\] Integration
-
-### Aprenda a conectar sua conta da \[Plataforma\] ao TrackUp e registrar conversões automaticamente.
-
-Integrar a **\[Nome da Plataforma\]** ao TrackUp permite que nossa infraestrutura receba automaticamente os dados financeiros das vendas realizadas no seu checkout.
-
-Sempre que uma compra for aprovada, a plataforma enviará uma notificação automática para o TrackUp, permitindo registrar a conversão, atribuir a venda corretamente e alimentar seus pixels de anúncios.
-
-Em outras palavras:
-
-> Quando uma venda acontece, o TrackUp precisa receber essa informação em tempo real.
+### Conecte sua conta da Átomo Pay ao Trackup e registrar conversões automaticamente.
 
 ---
 
@@ -28,52 +12,7 @@ _(Mostrar configuração completa da integração do início ao fim.)_
 
 ---
 
-# O que essa integração permite?
-
-Ao conectar sua conta da **\[Plataforma\]**, o TrackUp poderá:
-
-- registrar vendas automaticamente
-- identificar origem da conversão
-- relacionar a venda ao visitante correto
-- identificar campanha responsável pela venda
-- enviar eventos de conversão para plataformas de mídia
-- alimentar relatórios financeiros do projeto
-
-Fluxo:
-
-```text
-Usuário acessa página
-↓
-Vai para checkout
-↓
-Compra é aprovada
-↓
-[Plataforma] envia webhook
-↓
-TrackUp recebe venda
-↓
-Conversão é registrada
-```
-
----
-
-# Antes de começar
-
-Antes de iniciar a integração, confirme que você já possui:
-
-✓ Projeto criado no TrackUp\
-\
-✓ Oferta cadastrada\
-\
-✓ Link de checkout configurado\
-\
-✓ Plataforma ativa com acesso administrativo
-
-Sem isso a integração não funcionará corretamente.
-
----
-
-# Passo 1 — Criar a integração dentro do TrackUp
+# Passo 1 — Adicionar nova Plataforma de Vendas no Trackup
 
 Acesse:
 
@@ -87,21 +26,30 @@ Clique em:
 + Adicionar Plataforma
 ```
 
-Selecione:
+---
 
-```text
-[Nome da Plataforma]
-```
+<Frame>
+  <img
+    alt="PLATAFORMA DE VENDAS"
+    title="PLATAFORMA DE VENDAS"
+    lightAlt="/images/PLATAFORMA-DE-VENDAS.png"
+    darkAlt="PLATAFORMA DE VENDAS"
+    src="/images/PLATAFORMA-DE-VENDAS.png"
+    className="dark:hidden"
+  />
+  <img
+    alt="PLATAFORMA DE VENDAS"
+    title="PLATAFORMA DE VENDAS"
+    lightAlt="/images/PLATAFORMA-DE-VENDAS.png"
+    darkAlt="PLATAFORMA DE VENDAS"
+    src="/images/PLATAFORMA-DE-VENDAS.png"
+    className="hidden dark:block"
+  />
+</Frame>
 
 ---
 
-**\[IMAGEM RECOMENDADA\]**
-
-_(Print mostrando modal “Adicionar plataforma” com a plataforma selecionada.)_
-
----
-
-# Passo 2 — Configurar parâmetros de tracking
+# Passo 2 — Selecionar Átomo Pay e configurar parâmetros de tracking
 
 Agora você precisará configurar quais informações serão enviadas junto com o checkout.
 
@@ -121,7 +69,7 @@ utm_campaign={request.utmCampaign}
 utm_content={request.utmContent}
 ```
 
-Esses valores serão preenchidos automaticamente pelo TrackUp.
+Esses valores serão preenchidos automaticamente pelo Trackup.
 
 ---
 
@@ -137,29 +85,9 @@ Esses valores serão preenchidos automaticamente pelo TrackUp.
 
 ---
 
-**\[IMAGEM RECOMENDADA\]**
-
-_(Print mostrando editor de parâmetros da integração.)_
-
----
-
-# Passo 3 — Salvar a integração
-
-Depois de configurar os parâmetros clique em:
-
-```text
-Salvar
-```
-
-Após salvar, o TrackUp irá gerar automaticamente uma URL exclusiva de Webhook.
-
-Exemplo:
-
-```text
-https://trackup.me/api/webhook/xxxxxxxxxxxx
-```
-
-Essa URL será utilizada no próximo passo.
+<Frame>
+  ![Integration Atomopay](/images/integration-atomopay.png)
+</Frame>
 
 ---
 
@@ -170,23 +98,14 @@ Toda integração gera automaticamente um endpoint exclusivo para receber notifi
 Exemplo:
 
 ```text
-```
-
-```text
 Webhook URL
 
-https://trackup.me/api/webhook/xxxxxxxxxxxx
+https://Trackup.me/api/webhook/xxxxxxxxxxxx
 ```
 
 Copie essa URL.
 
 Você precisará inseri-la dentro da plataforma.
-
----
-
-**\[IMAGEM RECOMENDADA\]**
-
-_(Print mostrando tabela principal com coluna contendo URL do webhook.)_
 
 ---
 
@@ -196,7 +115,7 @@ Agora acesse o painel da **\[Nome da Plataforma\]**.
 
 Localize a área responsável por notificações, integrações ou webhooks.
 
-Cole a URL gerada pelo TrackUp.
+Cole a URL gerada pelo Trackup.
 
 Fluxo esperado:
 
@@ -204,7 +123,7 @@ Fluxo esperado:
 ```
 
 ```text
-[Plataforma]
+Átomo Pay
 
 ↓
 
@@ -220,7 +139,7 @@ Adicionar Webhook
 
 ↓
 
-Colar URL do TrackUp
+Colar URL do Trackup
 ```
 
 ---
@@ -235,7 +154,7 @@ _(Print da área específica da plataforma onde o webhook deve ser configurado.)
 
 Após finalizar a configuração, recomendamos realizar uma compra teste.
 
-Isso permite validar se o TrackUp está recebendo corretamente os dados da venda.
+Isso permite validar se o Trackup está recebendo corretamente os dados da venda.
 
 Fluxo:
 
@@ -314,13 +233,13 @@ Status: Sucesso
 Possíveis causas:
 
 - \
-  webhook não configurado\
+  webhook não configurado
 - \
-  URL copiada incorretamente\
+  URL copiada incorretamente
 - \
-  plataforma não enviou notificação\
+  plataforma não enviou notificação
 - \
-  integração salva incorretamente\
+  integração salva incorretamente
 
 ---
 
@@ -329,11 +248,11 @@ Possíveis causas:
 Possíveis causas:
 
 - \
-  UTMs não chegaram ao checkout\
+  UTMs não chegaram ao checkout
 - \
-  parâmetros configurados incorretamente\
+  parâmetros configurados incorretamente
 - \
-  link de checkout sem parametrização\
+  link de checkout sem parametrização
 
 ---
 
@@ -342,13 +261,13 @@ Possíveis causas:
 Possíveis causas:
 
 - \
-  plataforma não enviou valor financeiro\
+  plataforma não enviou valor financeiro
 - \
-  configuração incompleta da integração\
+  configuração incompleta da integração
 
 ---
 
-# Como essa integração conversa com o restante do TrackUp
+# Como essa integração conversa com o restante do Trackup
 
 Após integração concluída:
 
@@ -360,7 +279,7 @@ Usuário clica anúncio
 
 ↓
 
-TrackUp registra visita
+Trackup registra visita
 
 ↓
 
@@ -376,11 +295,11 @@ Compra é aprovada
 
 ↓
 
-[Plataforma] envia webhook
+Átomo Pay envia webhook
 
 ↓
 
-TrackUp registra venda
+Trackup registra venda
 
 ↓
 
@@ -395,7 +314,7 @@ Pixel recebe evento Purchase
 
 # Integração concluída ✅
 
-Se tudo foi configurado corretamente, sua conta da **\[Nome da Plataforma\]** já está conectada ao ecossistema TrackUp.
+Se tudo foi configurado corretamente, sua conta da **\[Nome da Plataforma\]** já está conectada ao ecossistema Trackup.
 
 A partir deste momento, novas vendas começarão a aparecer automaticamente no painel de conversões.
 
@@ -408,13 +327,13 @@ Se a integração não estiver funcionando corretamente, nossa equipe técnica p
 Entre em contato com o suporte e envie:
 
 - \
-  nome do projeto\
+  nome do projeto
 - \
-  plataforma integrada\
+  plataforma integrada
 - \
-  horário da venda teste\
+  horário da venda teste
 - \
-  ID da transação (se disponível)\
+  ID da transação (se disponível)
 
 ---
 

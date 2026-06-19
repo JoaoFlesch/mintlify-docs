@@ -108,11 +108,7 @@ Copie essa URL.
 Você precisará inseri-la dentro da plataforma.
 
 <Frame>
-  <img
-    src="/images/copiar-webhook-atomo-pay.png"
-    alt="Copiar Webhook Atomo Pay"
-    title="Copiar Webhook Atomo Pay"
-  />
+  ![Copiar Webhook Atomo Pay](/images/copiar-webhook-atomo-pay.png)
 </Frame>
 
 ---
@@ -130,13 +126,19 @@ Fluxo esperado:
 ```text
 Átomo Pay
 ↓
-Configurações
-↓
 Integrações/Webhooks
 ↓
-Adicionar Webhook
+Adicionar
 ↓
 Colar URL do Trackup
+↓
+Selecione os Produtos
+↓
+Marque todos métodos de Pagamento
+↓
+Marque os Status de Pagamento (Pago, Reembolsado, Chargeback)
+↓
+Salve
 ```
 
 <Frame>
@@ -147,25 +149,18 @@ Colar URL do Trackup
 
 # Passo 6 — Realizar um teste de compra
 
-Após finalizar a configuração, recomendamos realizar uma compra teste.
-
+Após finalizar a configuração, recomendamos realizar uma compra teste.\
 Isso permite validar se o Trackup está recebendo corretamente os dados da venda.
 
 Fluxo:
 
 ```text
 Criar checkout teste
-
 ↓
-
 Realizar pagamento
-
 ↓
-
 Aguardar webhook
-
 ↓
-
 Verificar conversão no painel
 ```
 
@@ -176,16 +171,10 @@ Verificar conversão no painel
 Após uma venda teste, acesse:
 
 ```text
-```
-
-```text
 Projeto → Logs → Conversões
 ```
 
 Se tudo estiver correto, você verá:
-
-```text
-```
 
 ```text
 Valor da venda
@@ -204,9 +193,6 @@ Visitor associado
 Exemplo:
 
 ```text
-```
-
-```text
 R$ 47,90
 
 Facebook
@@ -218,92 +204,6 @@ Status: Sucesso
 
 ---
 
-# Problemas comuns
-
-### Conversão não apareceu
-
-Possíveis causas:
-
-- \
-  webhook não configurado
-- \
-  URL copiada incorretamente
-- \
-  plataforma não enviou notificação
-- \
-  integração salva incorretamente
-
----
-
-### Conversão apareceu sem campanha
-
-Possíveis causas:
-
-- \
-  UTMs não chegaram ao checkout
-- \
-  parâmetros configurados incorretamente
-- \
-  link de checkout sem parametrização
-
----
-
-### Conversão apareceu com valor zerado
-
-Possíveis causas:
-
-- \
-  plataforma não enviou valor financeiro
-- \
-  configuração incompleta da integração
-
----
-
-# Como essa integração conversa com o restante do Trackup
-
-Após integração concluída:
-
-```text
-```
-
-```text
-Usuário clica anúncio
-
-↓
-
-Trackup registra visita
-
-↓
-
-Visitor é criado
-
-↓
-
-Usuário vai para checkout
-
-↓
-
-Compra é aprovada
-
-↓
-
-Átomo Pay envia webhook
-
-↓
-
-Trackup registra venda
-
-↓
-
-Conversão aparece no painel
-
-↓
-
-Pixel recebe evento Purchase
-```
-
----
-
 # Integração concluída ✅
 
 Se tudo foi configurado corretamente, sua conta da **\[Nome da Plataforma\]** já está conectada ao ecossistema Trackup.
@@ -311,43 +211,3 @@ Se tudo foi configurado corretamente, sua conta da **\[Nome da Plataforma\]** j�
 A partir deste momento, novas vendas começarão a aparecer automaticamente no painel de conversões.
 
 ---
-
-# Precisa de ajuda?
-
-Se a integração não estiver funcionando corretamente, nossa equipe técnica pode ajudar.
-
-Entre em contato com o suporte e envie:
-
-- \
-  nome do projeto
-- \
-  plataforma integrada
-- \
-  horário da venda teste
-- \
-  ID da transação (se disponível)
-
----
-
-## Campos que você só altera em cada plataforma
-
-Substituir:
-
-```text
-```
-
-```text
-[Nome da Plataforma]
-
-Webhook Location
-
-Campos específicos
-
-Prints da plataforma
-
-Método de configuração interna
-
-Parâmetros extras (caso existam)
-
-Particularidades da API
-```

@@ -1,0 +1,101 @@
+---
+title: "Hotmart"
+---
+
+### Conecte sua conta da Hotmart ao Trackup e registrar conversões automaticamente.Adicionar nova Plataforma de Vendas no Trackup
+
+<Steps>
+  <Step title="Criar a integração dentro do TrackUp">
+    Acesse:
+
+    ```text
+    Projeto → Integrações → Plataformas de Venda
+    ```
+
+    Clique em:
+
+    ```text
+    + Adicionar Plataforma
+    ```
+
+    <img
+      alt="PLATAFORMA DE VENDAS"
+      title="PLATAFORMA DE VENDAS"
+      lightAlt="/images/PLATAFORMA-DE-VENDAS.png"
+      darkAlt="PLATAFORMA DE VENDAS"
+      src="/images/PLATAFORMA-DE-VENDAS.png"
+      className="dark:hidden"
+    />
+    <img
+      alt="PLATAFORMA DE VENDAS"
+      title="PLATAFORMA DE VENDAS"
+      lightAlt="/images/PLATAFORMA-DE-VENDAS.png"
+      darkAlt="PLATAFORMA DE VENDAS"
+      src="/images/PLATAFORMA-DE-VENDAS.png"
+      className="hidden dark:block"
+    />
+  </Step>
+  <Step title="Selecionar Hotmart e configurar parâmetros de tracking">
+    Os parâmetros mínimos necessários serão preenchidos automaticamente pelo Trackup, caso você queira pode personalizar.
+
+    ![Integration Hotmart](/images/integration-hotmart.png)
+  </Step>
+  <Step title="Copiar Url de Webhook gerado">
+    Toda integração gera automaticamente um endpoint exclusivo para receber notificações de venda.
+
+    Exemplo:
+
+    ```text
+    Webhook URL
+    
+    https://trackup.me/api/webhook/xxxxxxxxxxxx
+    ```
+
+    Copie essa URL.
+
+    Você precisará inseri-la dentro da plataforma.
+
+    ![Copy Link Hotmart](/images/copy-link-hotmart.png)
+  </Step>
+  <Step title="Configurar o Webhook dentro da Hotmart">
+    Agora acesse o painel da Hotmart.
+
+    Localize a área responsável por notificações, integrações ou webhooks.
+
+    Cole a URL gerada pelo Trackup, e selecione os campos necessário
+
+    ```text
+    Hotmart
+    ↓
+    Ferramentas / Ver todas
+    ↓
+    Selecione Webhook (API e notificações)
+    ↓
+    Cadastrar Webhook
+    ↓
+    Insira um nome para sua organização
+    ↓
+    Selecione os produtos que deseja disparar
+    ↓
+    Colar URL do Trackup
+    ↓
+    Selecione a versão 2.0.0
+    ↓
+    Marque os Eventos (Compra aprovada, Compra reembolsada, Chargeback)
+    ↓
+    Salve
+    ```
+
+    ![Hotmart 1](/images/hotmart-1.png)
+
+    ![Hotmart 2](/images/hotmart-2.png)
+  </Step>
+</Steps>
+
+<Check>
+  ## Integração concluída
+
+  Se tudo foi configurado corretamente, sua conta da **Hotmart** já está conectada ao ecossistema Trackup.
+
+  A partir deste momento, novas vendas começarão a aparecer automaticamente no painel de conversões.
+</Check>

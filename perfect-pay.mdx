@@ -1,21 +1,109 @@
 ---
-title: "perfect pay"
+title: "Perfect Pay"
 ---
 
-Categorias
+### Conecte sua conta da Perfect Pay ao Trackup e registrar conversões automaticamente.Adicionar nova Plataforma de Vendas no Trackup
 
-- Pixels de mídia
-- Fontes de tráfego
-- Plataformas de venda
-- Gateways e checkouts
+<Steps>
+  <Step title="Criar a integração dentro do TrackUp">
+    Acesse:
 
-Status atual
+    ```text
+    Projeto → Integrações → Plataformas de Venda
+    ```
 
-- Meta Ads integrado
-- Google Ads em desenvolvimento
-- Kwai Ads em desenvolvimento
-- TikTok Ads em desenvolvimento
+    Clique em:
 
-Recebimento de conversões
+    ```text
+    + Adicionar Plataforma
+    ```
 
-Na maioria das integrações, as conversões chegam via webhook.
+    <img
+      alt="PLATAFORMA DE VENDAS"
+      title="PLATAFORMA DE VENDAS"
+      lightAlt="/images/PLATAFORMA-DE-VENDAS.png"
+      darkAlt="PLATAFORMA DE VENDAS"
+      src="/images/PLATAFORMA-DE-VENDAS.png"
+      className="dark:hidden"
+    />
+    <img
+      alt="PLATAFORMA DE VENDAS"
+      title="PLATAFORMA DE VENDAS"
+      lightAlt="/images/PLATAFORMA-DE-VENDAS.png"
+      darkAlt="PLATAFORMA DE VENDAS"
+      src="/images/PLATAFORMA-DE-VENDAS.png"
+      className="hidden dark:block"
+    />
+  </Step>
+  <Step title="Selecionar Perfect Pay e configurar parâmetros de tracking">
+    Os parâmetros mínimos necessários serão preenchidos automaticamente pelo Trackup, caso você queira pode personalizar.
+
+    <img
+      src="/images/integration-Perfect-Pay.png"
+      alt="Integration Perfect Pay"
+      lightAlt="Integration Atomopay"
+      darkAlt="Integration Perfect Pay"
+      title="Integration Perfect Pay"
+    />
+  </Step>
+  <Step title="Copiar Url de Webhook gerado">
+    Toda integração gera automaticamente um endpoint exclusivo para receber notificações de venda.
+
+    Exemplo:
+
+    ```text
+    Webhook URL
+    
+    https://trackup.me/api/webhook/xxxxxxxxxxxx
+    ```
+
+    Copie essa URL.
+
+    Você precisará inseri-la dentro da plataforma.
+
+    <img
+      src="/images/copy-link-perfect-pay.png"
+      alt="Copy Link Perfect Pay"
+      lightAlt="Copiar Webhook Atomo Pay"
+      darkAlt="Copiar Webhook Perfect Pay"
+      title="Copy Link Perfect Pay"
+    />
+  </Step>
+  <Step title="Configurar o Webhook dentro da Perfect Pay">
+    Agora acesse o painel da Perfect Pay.
+
+    Localize a área responsável por notificações, integrações ou webhooks.
+
+    Cole a URL gerada pelo Trackup, e selecione os campos necessário
+
+    ```text
+    Perfect Pay
+    ↓
+    Ferramentas/Webhooks - Vendas
+    ↓
+    Adicionar
+    ↓
+    Selecione os Produtos
+    ↓
+    Colar URL do Trackup
+    ↓
+    Selecione as váriaveis de acordo com sua preferência
+    ↓
+    Marque os Eventos (Aprovado, Devolvido, Charge back
+    ↓
+    Salve
+    ```
+
+    ![Perfect Pay 1](/images/perfect-pay-1.png)
+
+    ![Perfectpay 2](/images/perfectpay-2-.png)
+  </Step>
+</Steps>
+
+<Check>
+  ## Integração concluída
+
+  Se tudo foi configurado corretamente, sua conta da **Perfect Pay** já está conectada ao ecossistema Trackup.
+
+  A partir deste momento, novas vendas começarão a aparecer automaticamente no painel de conversões.
+</Check>

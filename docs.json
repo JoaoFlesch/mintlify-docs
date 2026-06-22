@@ -119,12 +119,14 @@
                       "integrando-suas-plataformas-de-venda",
                       "upag",
                       "perfect-pay",
+                      "stripe",
+                      "paradise",
+                      "actionpay",
                       "atomo-pay",
                       "proofpay",
                       "tribopay",
-                      "actionpay",
-                      "stripe",
-                      "paradise"
+                      "goat-pay",
+                      "inova-pag"
                     ]
                   }
                 ]

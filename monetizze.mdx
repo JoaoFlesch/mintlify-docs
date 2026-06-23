@@ -1,0 +1,97 @@
+---
+title: "Monetizze"
+---
+
+### Conecte sua conta da Monetizze ao Trackup e registrar conversões automaticamente.Adicionar nova Plataforma de Vendas no Trackup
+
+<Steps>
+  <Step title="Criar a integração dentro do TrackUp">
+    Acesse:
+
+    ```text
+    Projeto → Integrações → Plataformas de Venda
+    ```
+
+    Clique em:
+
+    ```text
+    + Adicionar Plataforma
+    ```
+
+    <img
+      alt="PLATAFORMA DE VENDAS"
+      title="PLATAFORMA DE VENDAS"
+      lightAlt="/images/PLATAFORMA-DE-VENDAS.png"
+      darkAlt="PLATAFORMA DE VENDAS"
+      src="/images/PLATAFORMA-DE-VENDAS.png"
+      className="dark:hidden"
+    />
+    <img
+      alt="PLATAFORMA DE VENDAS"
+      title="PLATAFORMA DE VENDAS"
+      lightAlt="/images/PLATAFORMA-DE-VENDAS.png"
+      darkAlt="PLATAFORMA DE VENDAS"
+      src="/images/PLATAFORMA-DE-VENDAS.png"
+      className="hidden dark:block"
+    />
+  </Step>
+  <Step title="Selecionar Monetizze e configurar parâmetros de tracking">
+    Os parâmetros mínimos necessários serão preenchidos automaticamente pelo Trackup, caso você queira pode personalizar.
+
+    ![Monetizze Integration](/images/monetizze-integration.png)
+  </Step>
+  <Step title="Copiar Url de Webhook gerado">
+    Toda integração gera automaticamente um endpoint exclusivo para receber notificações de venda.
+
+    Exemplo:
+
+    ```text
+    Webhook URL
+    
+    https://trackup.me/api/webhook/xxxxxxxxxxxx
+    ```
+
+    Copie essa URL.
+
+    Você precisará inseri-la dentro da plataforma.
+
+    ![Monetizze Copy Link](/images/monetizze-copy-link.png)
+  </Step>
+  <Step title="Configurar o Webhook dentro da Monetizze">
+    Agora acesse o painel da Monetizze.
+
+    Localize a área responsável por notificações, integrações ou webhooks.
+
+    Cole a URL gerada pelo Trackup, e selecione os campos necessário
+
+    ```text
+    Monetizze
+    ↓
+    Ferramentas / Postback - Webhook
+    ↓
+    Selecione os Produtos
+    ↓
+    Selecione as vendas que deseja trackear
+    ↓
+    Tipo : Webhook (server to server)
+    ↓
+    Formato JSON
+    ↓
+    Cole a Url do Trackup
+    ↓
+    Marque as Vendas (Cancelada, Completa, Desevolvida(Reembolso)
+    ↓
+    Salvar
+    ```
+
+    ![Monetizze Plataforma](/images/monetizze-plataforma.png)
+  </Step>
+</Steps>
+
+<Check>
+  ## Integração concluída
+
+  Se tudo foi configurado corretamente, sua conta da **Monetizze** já está conectada ao ecossistema Trackup.
+
+  A partir deste momento, novas vendas começarão a aparecer automaticamente no painel de conversões.
+</Check>

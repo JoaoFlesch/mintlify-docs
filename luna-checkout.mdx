@@ -1,0 +1,84 @@
+---
+title: "Luna Checkout"
+---
+
+### Conecte sua conta da Luna Checkout ao Trackup e registrar conversões automaticamente.Adicionar nova Plataforma de Vendas no Trackup
+
+<Steps>
+  <Step title="Criar a integração dentro do TrackUp">
+    Acesse:
+
+    ```text
+    Projeto → Integrações → Plataformas de Venda
+    ```
+
+    Clique em:
+
+    ```text
+    + Adicionar Plataforma
+    ```
+
+    ![PLATAFORMA DE VENDAS](/images/PLATAFORMA-DE-VENDAS.webp)
+  </Step>
+  <Step title="Selecionar Luna Checkout e configurar parâmetros de tracking">
+    Os parâmetros mínimos necessários serão preenchidos automaticamente pelo Trackup, caso você queira pode personalizar.
+
+    ![Luna Integration](/images/Luna-integration.png)
+  </Step>
+  <Step title="Copiar Url de Webhook gerado">
+    Toda integração gera automaticamente um endpoint exclusivo para receber notificações de venda.
+
+    Exemplo:
+
+    ```text
+    Webhook URL
+    
+    https://trackup.me/api/webhook/xxxxxxxxxxxx
+    ```
+
+    Copie essa URL.
+
+    Você precisará inseri-la dentro da plataforma.
+
+    ![Luna Copy 1](/images/Luna-copy-1.png)
+  </Step>
+  <Step title="Configurar o Webhook dentro da Luna Checkout">
+    Agora acesse o painel da Luna Checkout.
+
+    Localize a área responsável por notificações, integrações ou webhooks.
+
+    Cole a URL gerada pelo Trackup, e selecione os campos necessário
+
+    ```text
+    Luna Checkout
+    ↓
+    Desenvolvedores/Webhooks
+    ↓
+    Nova integração
+    ↓
+    Adicionar um nome para a integração
+    ↓
+    Colar URL do Trackup
+    ↓
+    Marque os Eventos (Venda Aprovada, Venda Chargeback, Venda Estornada)
+    ↓
+    Restrinja produtos caso necessário
+    ↓
+    Salve
+    ```
+
+    ![Luna 1 1](/images/luna-1-1.png)
+
+    ![Luna 2](/images/luna-2.png)
+
+    ![Luna 3](/images/luna-3.png)
+  </Step>
+</Steps>
+
+<Check>
+  ## Integração concluída
+
+  Se tudo foi configurado corretamente, sua conta da **Luna Checkout** já está conectada ao ecossistema Trackup.
+
+  A partir deste momento, novas vendas começarão a aparecer automaticamente no painel de conversões.
+</Check>

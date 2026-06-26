@@ -133,7 +133,8 @@
                       "braip",
                       "kirvano",
                       "payt",
-                      "vega-checkout"
+                      "vega-checkout",
+                      "luna-checkout"
                     ]
                   }
                 ]

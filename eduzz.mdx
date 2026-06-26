@@ -1,0 +1,97 @@
+---
+title: "Eduzz"
+---
+
+### Conecte sua conta da Eduzz ao Trackup e registrar conversões automaticamente.Adicionar nova Plataforma de Vendas no Trackup
+
+<Steps>
+  <Step title="Criar a integração dentro do TrackUp">
+    Acesse:
+
+    ```text
+    Projeto → Integrações → Plataformas de Venda
+    ```
+
+    Clique em:
+
+    ```text
+    + Adicionar Plataforma
+    ```
+
+    <img
+      alt="PLATAFORMA DE VENDAS"
+      title="PLATAFORMA DE VENDAS"
+      lightAlt="/images/PLATAFORMA-DE-VENDAS.png"
+      darkAlt="PLATAFORMA DE VENDAS"
+      src="/images/PLATAFORMA-DE-VENDAS.png"
+      className="dark:hidden"
+    />
+    <img
+      alt="PLATAFORMA DE VENDAS"
+      title="PLATAFORMA DE VENDAS"
+      lightAlt="/images/PLATAFORMA-DE-VENDAS.png"
+      darkAlt="PLATAFORMA DE VENDAS"
+      src="/images/PLATAFORMA-DE-VENDAS.png"
+      className="hidden dark:block"
+    />
+  </Step>
+  <Step title="Selecionar Eduzz e configurar parâmetros de tracking">
+    Os parâmetros mínimos necessários serão preenchidos automaticamente pelo Trackup, caso você queira pode personalizar.
+
+    ![Eduzz Integration](/images/eduzz-integration.png)
+  </Step>
+  <Step title="Copiar Url de Webhook gerado">
+    Toda integração gera automaticamente um endpoint exclusivo para receber notificações de venda.
+
+    Exemplo:
+
+    ```text
+    Webhook URL
+    
+    https://trackup.me/api/webhook/xxxxxxxxxxxx
+    ```
+
+    Copie essa URL.
+
+    Você precisará inseri-la dentro da plataforma.
+
+    ![Eduzz Copy Link](/images/eduzz-copy-link.png)
+  </Step>
+  <Step title="Configurar o Webhook dentro da Eduzz">
+    Agora acesse o painel da Eduzz.
+
+    Localize a área responsável por notificações, integrações ou webhooks.
+
+    Cole a URL gerada pelo Trackup, e selecione os campos necessário
+
+    ```text
+    Eduzz
+    ↓
+    Developer Hub / Integrações
+    ↓
+    Configurações / Nova Configuração
+    ↓
+    Insira um nome para a integração
+    ↓
+    Cole a Url do Trackup
+    ↓
+    Marque as Vendas (myeduzz.invoice_chargeback, myeduzz.invoice_paid, myeduzz.invoice_refunded)
+    ↓
+    Criar Configuração
+    ```
+
+    ![Eduzz 1](/images/eduzz-1.png)
+
+    ![Eduzz 2](/images/eduzz-2.png)
+
+    ![Eduzz 3](/images/eduzz-3.png)
+  </Step>
+</Steps>
+
+<Check>
+  ## Integração concluída
+
+  Se tudo foi configurado corretamente, sua conta da **Eduzz** já está conectada ao ecossistema Trackup.
+
+  A partir deste momento, novas vendas começarão a aparecer automaticamente no painel de conversões.
+</Check>

@@ -1,0 +1,105 @@
+---
+title: "CartPanda"
+---
+
+### Conecte sua conta da CartPanda ao Trackup e registrar conversões automaticamente.Adicionar nova Plataforma de Vendas no Trackup
+
+<Steps>
+  <Step title="Criar a integração dentro do TrackUp">
+    Acesse:
+
+    ```text
+    Projeto → Integrações → Plataformas de Venda
+    ```
+
+    Clique em:
+
+    ```text
+    + Adicionar Plataforma
+    ```
+
+    <img
+      alt="PLATAFORMA DE VENDAS"
+      title="PLATAFORMA DE VENDAS"
+      lightAlt="/images/PLATAFORMA-DE-VENDAS.png"
+      darkAlt="PLATAFORMA DE VENDAS"
+      src="/images/PLATAFORMA-DE-VENDAS.png"
+      className="dark:hidden"
+    />
+    <img
+      alt="PLATAFORMA DE VENDAS"
+      title="PLATAFORMA DE VENDAS"
+      lightAlt="/images/PLATAFORMA-DE-VENDAS.png"
+      darkAlt="PLATAFORMA DE VENDAS"
+      src="/images/PLATAFORMA-DE-VENDAS.png"
+      className="hidden dark:block"
+    />
+  </Step>
+  <Step title="Selecionar CartPanda e configurar parâmetros de tracking">
+    Os parâmetros mínimos necessários serão preenchidos automaticamente pelo Trackup, caso você queira pode personalizar.
+
+    ![Cartpanda Integration](/images/cartpanda-integration.png)
+  </Step>
+  <Step title="Copiar Url de Webhook gerado">
+    Toda integração gera automaticamente um endpoint exclusivo para receber notificações de venda.
+
+    Exemplo:
+
+    ```text
+    Webhook URL
+    
+    https://trackup.me/api/webhook/xxxxxxxxxxxx
+    ```
+
+    Copie essa URL.
+
+    Você precisará inseri-la dentro da plataforma.
+
+    ![Cartpanda Copy](/images/cartpanda-copy.png)
+  </Step>
+  <Step title="Configurar o Webhook dentro da CartPanda">
+    Agora acesse o painel da CartPanda.
+
+    Localize a área responsável por notificações, integrações ou webhooks.
+
+    Cole a URL gerada pelo Trackup, e selecione os campos necessário
+
+    ```text
+    CartPanda
+    ↓
+    Admin / Notificações
+    ↓
+    Webhooks / Configurar Webhooks 
+    ↓
+    Criar Webhook
+    ↓
+    Insira um nome para a integração
+    ↓
+    Selecione os Eventos (Pedido Pago, Pedido Reembolsado, Pedido Chargeback)
+    ↓
+    Cole a Url do Trackup
+    ↓
+    Selecione os produtos desejados
+    ↓
+    Salvar Webhook
+    ```
+
+    ![Cartpanda 1](/images/cartpanda-1.png)
+
+    ![Cartpanda 2](/images/cartpanda-2.png)
+
+    ![Cartpanda 3](/images/cartpanda-3.png)
+
+    <Frame>
+      ![Cartpanda 4](/images/cartpanda-4.png)
+    </Frame>
+  </Step>
+</Steps>
+
+<Check>
+  ## Integração concluída
+
+  Se tudo foi configurado corretamente, sua conta da **CartPanda** já está conectada ao ecossistema Trackup.
+
+  A partir deste momento, novas vendas começarão a aparecer automaticamente no painel de conversões.
+</Check>

@@ -135,7 +135,8 @@
                       "payt",
                       "vega-checkout",
                       "luna-checkout",
-                      "eduzz"
+                      "eduzz",
+                      "cart-panda"
                     ]
                   }
                 ]

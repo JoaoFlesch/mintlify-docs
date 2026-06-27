@@ -1,0 +1,101 @@
+---
+title: "DigiPag"
+---
+
+### Conecte sua conta da DigiPag ao Trackup e registrar conversões automaticamente.Adicionar nova Plataforma de Vendas no Trackup
+
+<Steps>
+  <Step title="Criar a integração dentro do TrackUp">
+    Acesse:
+
+    ```text
+    Projeto → Integrações → Plataformas de Venda
+    ```
+
+    Clique em:
+
+    ```text
+    + Adicionar Plataforma
+    ```
+
+    <img
+      alt="PLATAFORMA DE VENDAS"
+      title="PLATAFORMA DE VENDAS"
+      lightAlt="/images/PLATAFORMA-DE-VENDAS.png"
+      darkAlt="PLATAFORMA DE VENDAS"
+      src="/images/PLATAFORMA-DE-VENDAS.png"
+      className="dark:hidden"
+    />
+    <img
+      alt="PLATAFORMA DE VENDAS"
+      title="PLATAFORMA DE VENDAS"
+      lightAlt="/images/PLATAFORMA-DE-VENDAS.png"
+      darkAlt="PLATAFORMA DE VENDAS"
+      src="/images/PLATAFORMA-DE-VENDAS.png"
+      className="hidden dark:block"
+    />
+  </Step>
+  <Step title="Selecionar DigiPag e configurar parâmetros de tracking">
+    Os parâmetros mínimos necessários serão preenchidos automaticamente pelo Trackup, caso você queira pode personalizar.
+
+    <Frame>
+      ![DigiPag Integration](/images/DigiPag-integration.png)
+    </Frame>
+  </Step>
+  <Step title="Copiar Url de Webhook gerado">
+    Toda integração gera automaticamente um endpoint exclusivo para receber notificações de venda.
+
+    Exemplo:
+
+    ```text
+    Webhook URL
+    
+    https://trackup.me/api/webhook/xxxxxxxxxxxx
+    ```
+
+    Copie essa URL.
+
+    Você precisará inseri-la dentro da plataforma.
+
+    <Frame>
+      ![DigiPag Copy](/images/DigiPag-copy.png)
+    </Frame>
+  </Step>
+  <Step title="Configurar o Webhook dentro da DigiPag">
+    Agora acesse o painel da DigiPag.
+
+    Localize a área responsável por notificações, integrações ou webhooks.
+
+    Cole a URL gerada pelo Trackup, e selecione os campos necessário
+
+    ```text
+    DigiPag
+    ↓
+    Integrações/Webhooks
+    ↓
+    Adicionar
+    ↓
+    Colar URL do Trackup
+    ↓
+    Selecione os Produtos
+    ↓
+    Marque todos métodos de Pagamento
+    ↓
+    Marque os Status de Pagamento (Pago, Reembolsado, Chargeback)
+    ↓
+    Salve
+    ```
+  </Step>
+</Steps>
+
+<Check>
+  ## Integração concluída
+
+  Se tudo foi configurado corretamente, sua conta da **DigiPag** já está conectada ao ecossistema Trackup.
+
+  A partir deste momento, novas vendas começarão a aparecer automaticamente no painel de conversões.
+</Check>
+
+<Frame>
+  ![DigiPag 1](/images/DigiPag-1.png)
+</Frame>

@@ -1,29 +1,12 @@
 ---
 title: "Pixels"
 icon: "code-xml"
+description: "Conecte suas plataformas de tráfego e atribua todos eventos com precisão."
 ---
-
-### Conecte suas plataformas de tráfego e atribua todos eventos com precisão.
 
 Os Pixels são responsáveis por conectar o Trackup às plataformas de mídia utilizadas na sua operação.
 
 Sempre que um evento acontece dentro da jornada do usuário, o Trackup pode enviar essas informações diretamente para a plataforma correspondente.
-
-Exemplo:
-
-```text
-Usuário clicou no anúncio
-↓
-Trackup registrou acesso
-↓
-Evento foi processado
-↓
-Acionador foi executado
-↓
-Pixel recebeu o evento
-↓
-Plataforma aprende com aquele comportamento
-```
 
 ---
 
@@ -34,40 +17,6 @@ _(Diagrama mostrando Visitor Journey → Trigger Executes → Pixel Sends Event 
 **\[VÍDEO RECOMENDADO NO TOPO\]**
 
 _(Vídeo curto mostrando: usuário adicionando um Pixel → configurando credenciais → ativando integração → Trackup criando acionadores automáticos → eventos começando a ser enviados.)_
-
----
-
-# Gerenciamento de Pixels
-
-A página principal exibe todos os Pixels conectados ao seu projeto.
-
-Cada integração cadastrada aparece em uma lista central com informações essenciais.
-
-Exemplo de dados exibidos:
-
-```text
-Nome do Pixel
-Plataforma vinculada
-Status da integração
-Data de criação
-```
-
-Exemplo:
-
-```text
-PIXEL_META_Trackup
-Plataforma → Meta
-Status → Ativo
-Criado em → 23/04/2026
-```
-
-Aqui você consegue gerenciar todas as integrações ativas do projeto.
-
----
-
-**\[IMAGEM RECOMENDADA\]**
-
-_(Utilizar print da tela principal mostrando a lista de Pixels já cadastrados.)_
 
 ---
 
@@ -91,127 +40,51 @@ O processo fica muito mais simples.
 
 # Plataformas suportadas
 
-Atualmente o Trackup suporta integração com múltiplas plataformas de mídia.
-
-Todas funcionam dentro da mesma lógica central.
-
+Atualmente o Trackup suporta integração com múltiplas plataformas de mídia.\
+Todas funcionam dentro da mesma lógica central.\
 Cada uma possui parâmetros específicos de autenticação.
 
----
-
-# Meta Ads
+## Meta
 
 Integração com o ecossistema da Meta para envio de eventos através da API de Conversões.
 
-Campos normalmente utilizados:
-
 ```text
 Pixel ID
-
 Access Token
-
 Test Event Code (opcional)
 ```
 
-O Trackup utiliza esses dados para enviar eventos diretamente para os servidores da Meta.
+## Google
 
-Ideal para melhorar atribuição e alimentar campanhas de conversão.
-
----
-
-**\[IMAGEM RECOMENDADA\]**
-
-_(Utilizar print do formulário Meta mostrando Pixel ID \+ Access Token \+ Test Event Code.)_
-
----
-
-# Google Ads
-
-Integração com o ecossistema Google para registrar conversões diretamente nas campanhas.
-
-Campos normalmente utilizados:
+Integração com o ecossistema da Google para envio de eventos através da API de Conversões.
 
 ```text
 Conversion ID
-
-Moeda padrão (ISO 4217)
-
-Valor padrão da conversão
+Moeda padrão
+Valor padrão
 ```
 
-Exemplo:
+## Kwai
 
-```text
-AW-123456789
-
-Currency → BRL
-
-Default Value → 0.00
-```
-
-Esses dados permitem registrar conversões corretamente dentro da conta Google Ads.
-
----
-
-**\[IMAGEM RECOMENDADA\]**
-
-_(Utilizar print do formulário Google Ads mostrando Conversion ID \+ Currency \+ Default Value.)_
-
----
-
-# Kwai Ads
-
-Integração com a plataforma de anúncios do Kwai.
-
-Assim como outras plataformas, permite envio direto de eventos para campanhas.
-
-Campos normalmente utilizados:
+Integração com o ecossistema da Kwai para envio de eventos através da API de Conversões.
 
 ```text
 Pixel ID
-
 Access Token
-
 Test Event Code
 ```
 
-No ecossistema Kwai, o código de teste possui papel importante durante validação de eventos.
+## TikTok
 
-Especialmente em cenários onde identificadores adicionais não estão disponíveis.
-
----
-
-**\[IMAGEM RECOMENDADA\]**
-
-_(Utilizar print do formulário Kwai mostrando Pixel ID \+ Token \+ Test Event Code obrigatório.)_
-
----
-
-# TikTok Ads
-
-Integração com o ecossistema de anúncios do TikTok.
-
-Permite enviar eventos relacionados ao comportamento do visitante e conversões geradas dentro da operação.
-
-Campos normalmente utilizados:
-
-```text
-Pixel ID
-
-Access Token
-
-Event configuration parameters
-```
-
-A lógica de funcionamento segue o mesmo padrão das demais integrações.
-
-Trackup envia os eventos automaticamente conforme a jornada acontece.
+<Info>
+  EM BREVE
+</Info>
 
 ---
 
 # Integração total com Acionadores
 
-Pixels trabalham diretamente conectados ao módulo de Acionadores.
+Pixels trabalham diretamente conectados ao módulo de [Acionadores](/acionadores).
 
 Fluxo:
 
@@ -225,15 +98,15 @@ Ação é executada
 Pixel envia evento para plataforma
 ```
 
-Sem Acionadores, os Pixels ficam sem função.
+Sem [Acionadores](/acionadores), os Pixels ficam sem função.
 
-Com Acionadores, eles começam a trabalhar.
+Com [Acionadores](/acionadores), eles começam a trabalhar.
 
 Esses dois módulos funcionam juntos.
 
 ---
 
-# Server-side por padrão ⚡
+# Server-side por padrão
 
 Sempre que possível, o Trackup prioriza envio server-side.
 
@@ -248,11 +121,3 @@ Benefícios:
 - dados mais consistentes
 
 A plataforma foi construída priorizando esse modelo.
-
----
-
-# Próximo passo
-
-Agora que suas plataformas de anúncios estão conectadas, o próximo passo é integrar as fontes responsáveis por gerar tráfego para sua operação.
-
-→ **Fontes de Tráfego**

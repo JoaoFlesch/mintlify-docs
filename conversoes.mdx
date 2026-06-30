@@ -1,22 +1,15 @@
 ---
 title: "Conversões"
 icon: "tag"
-description: "Não basta saber que vendeu. Você precisa saber exatamente o que gerou essa venda."
+description: "Acompanhe todas as conversões registradas dentro do seu projeto em tempo real.
+"
 ---
 
-O Trackup existe para responder uma pergunta fundamental:
+Sempre que uma integração envia uma confirmação de pagamento para o TrackUp, todos os dados relacionados àquela conversão são processados e armazenados. 
 
-> Qual campanha realmente está gerando Lucro?
+Isso inclui informações da transação, origem do tráfego, parâmetros de marketing, identificadores de rastreamento, dados da campanha e toda a jornada de atribuição associada à venda.
 
-Capturar cliques, preservar parâmetros, rastrear visitantes, registrar eventos e disparar pixels são etapas fundamentais da operação.
-
-Mas o verdadeiro objetivo sempre será o mesmo.
-
-Medir resultados financeiros.
-
-O módulo de **Conversões** conecta o momento final da jornada com toda a inteligência coletada anteriormente.
-
-Aqui você consegue identificar exatamente qual visitante, qual anúncio, qual campanha e qual estrutura geraram receita para sua operação.
+Esse módulo funciona como a camada final do tracking, permitindo entender exatamente qual caminho levou um visitante até a conversão.
 
 ---
 
@@ -26,460 +19,393 @@ _(Vídeo de 6 a 8 minutos mostrando: venda chegando via gateway → Trackup proc
 
 ---
 
-# O que são Conversões?
+# Visão geral da página
 
-Sempre que uma venda acontece em uma plataforma integrada ao Trackup, recebemos automaticamente os dados daquela transação.
+No módulo de Conversões você encontra uma lista com todas as vendas registradas dentro do projeto.
 
-Normalmente isso acontece através das integrações com plataformas de venda e gateways de pagamento.
+Cada linha representa uma conversão recebida através de alguma integração.
 
-Exemplos:
-
-```text
-Stripe
-Hotmart
-Upag
-```
-
-Assim que o pagamento é processado, o Trackup recebe as informações da venda e inicia o processo de atribuição.
+Ao expandir uma conversão, informações adicionais ficam disponíveis.\
+\
+\[IMAGEM SUGERIDA\]\
+um exemplo de lista bonitinha com varias vendas
 
 ---
 
-# Cada venda é automaticamente atribuída
+# Status da conversão
 
-Quando uma conversão chega ao Trackup, não é apenas registrado o pagamento.
+Cada conversão possui um status associado ao pagamento recebido.
 
-Ele reconstrói toda origem daquela venda.
+## Pago ✅ 
 
-O objetivo é responder:
+## Reembolsado ↩️
 
-```text
-Quem comprou?
-
-Qual anúncio trouxe essa pessoa?
-
-Qual campanha originou a venda?
-
-Qual criativo gerou a conversão?
-```
-
-Toda venda passa por um processo automático de atribuição.
-
-Fluxo:
-
-```text
-Webhook recebido
-↓
-Trackup identifica Visitor
-↓
-Trackup localiza Click ID
-↓
-UTMs são associadas
-↓
-Campanha é identificada
-↓
-Venda recebe atribuição completa
-```
+## Chargeback ⚠️
 
 ---
 
-# Investigando uma venda específica
+# Dados da venda
 
-Ao clicar em qualquer conversão registrada, o Trackup exibe uma análise completa daquela venda.
+Esta seção contém informações financeiras da transação.
 
-Essa visão detalhada mostra exatamente de onde aquele dinheiro veio.
+Campos disponíveis:
 
----
-
-# Dados recebidos do gateway
-
-A primeira seção exibe as informações enviadas pela plataforma de pagamento.
-
-Esses são os dados brutos recebidos via integração.
-
-# Cada venda é automaticamente atribuída
-
-Quando uma conversão chega ao Trackup, não é apenas registrado o pagamento.
-
-Ele reconstrói toda origem daquela venda.
-
-O objetivo é responder:
-
-```text
-Quem comprou?
-
-Qual anúncio trouxe essa pessoa?
-
-Qual campanha originou a venda?
-
-Qual criativo gerou a conversão?
-```
-
-Toda venda passa por um processo automático de atribuição.
-
-Fluxo:
-
-```text
-Webhook recebido
-↓
-Trackup identifica Visitor
-↓
-Trackup localiza Click ID
-↓
-UTMs são associadas
-↓
-Campanha é identificada
-↓
-Venda recebe atribuição completa
-```
-
----
-
-# Investigando uma venda específica
-
-Ao clicar em qualquer conversão registrada, o Trackup exibe uma análise completa daquela venda.
-
-Essa visão detalhada mostra exatamente de onde aquele dinheiro veio.
-
----
-
-# Dados recebidos do gateway
-
-A primeira seção exibe as informações enviadas pela plataforma de pagamento.
-
-Esses são os dados brutos recebidos via integração.
+| Campo | Descrição |
+| :-- | :-- |
+| ID | Identificador interno da conversão |
+| ID da transação | ID retornado pela plataforma de venda |
+| Valor original | Valor bruto recebido |
+| Data | Momento em que a conversão foi registrada |
+| Plataforma | Plataforma responsável pela venda |
+| Moeda | Moeda utilizada |
+| Método de pagamento | Forma de pagamento utilizada |
+| Câmbio utilizado | Conversão de moeda aplicada |
+| Status | Estado atual da transação |
 
 Exemplo:
 
 ```text
-Transaction ID
-Valor da venda
-Moeda
-Valor líquido
-Taxas
-Dados enviados pelo webhook
+Plataforma: Hotmart
+Valor: R$1350.50
+Pagamento: Cartão de Crédito
+Status: Pago
 ```
-
-Exemplo:
-
-```text
-Gateway → Upag
-Amount → R$17,90
-Currency → BRL
-Transaction ID → 87362819
-```
-
-Isso permite validar a integridade dos dados.
-
-Exemplo:
-
-```text
-Gateway → Upag
-Amount → R$17,90
-Currency → BRL
-Transaction ID → 87362819
-```
-
-Isso permite validar a integridade dos dados.
 
 ---
 
-# Associação com o visitante
+# Atribuição
 
-Toda conversão é conectada automaticamente ao Visitante correspondente.
+A seção de atribuição é responsável por conectar a venda ao clique original que gerou a conversão.
 
-Isso significa que a venda fica permanentemente associada ao perfil daquele usuário.
+Se a atribuição for bem sucedida, o sistema identifica exatamente qual visitante realizou a compra.
+
+Dados disponíveis:
+
+| Campo | Descrição |
+| :-- | :-- |
+| IP | IP identificado no momento da venda |
+| Link ID | Link utilizado pelo visitante |
+| Visitor ID | Identificador único do visitante |
+| Request ID | Identificador da requisição original |
+| URL ID | Página associada ao acesso |
+
+---
+
+# O que acontece durante a atribuição
+
+Quando uma venda chega ao TrackUp, o sistema procura identificar:
+
+```text
+Qual anúncio gerou o clique?
+↓
+Qual visitante realizou o acesso?
+↓
+Qual página foi visitada?
+↓
+Qual checkout foi acessado?
+↓
+Qual venda pertence àquele usuário?
+```
+
+Se essa correlação for encontrada, a conversão será atribuída corretamente.
+
+---
+
+# Aviso de Click ID ausente
+
+Em alguns casos você verá o seguinte alerta:
+
+```text
+Click ID ausente nesta conversão
+```
+
+Isso significa que a plataforma de venda não conseguiu enviar o identificador de rastreamento necessário para relacionar a venda ao clique original.
+
+Normalmente isso acontece por problemas de configuração.
 
 Exemplo:
 
 ```text
-Visitor ID
-IP do comprador
-Link utilizado
-Histórico anterior de navegação
+Esta conversão não registrou um Click ID
 ```
-
-Isso conecta faturamento com comportamento.
-
-Agora você sabe exatamente quem comprou.
 
 ---
 
-# Atribuição de marketing precisa
+## Principais causas
 
-Essa é uma das partes mais importantes do módulo.
+### Link incorreto
 
-O Trackup consegue identificar exatamente qual estrutura de marketing gerou a venda.
+O usuário foi direcionado para um checkout sem passar por um Link do TrackUp.
 
-Dados armazenados:
+---
+
+### Integração mal configurada
+
+A plataforma de venda não recebeu corretamente os parâmetros necessários.
+
+---
+
+### Checkout sem parâmetros preservados
+
+Durante o redirecionamento, parâmetros foram perdidos.
+
+Exemplo:
+
+```text
+```
 
 ```text
 utm_source
-utm_medium
-utm_campaign
-utm_content
-utm_term
-Click ID
+click_id
+fbclid
+gclid
+ttclid
 ```
-
-Exemplo real:
-
-```text
-utm_source → Facebook
-utm_term → Instagram Feed
-Campaign → CAMP TESTE Trackup BID COMPRA VIDEO
-```
-
-Agora você consegue identificar qual campanha foi responsável pelo faturamento.
 
 ---
 
-# Associação com o visitante
+### Webhook incompleto
 
-Toda conversão é conectada automaticamente ao Visitante correspondente.
+A integração enviou dados insuficientes ao TrackUp.
 
-Isso significa que a venda fica permanentemente associada ao perfil daquele usuário.
+---
+
+# Marketing & UTMs
+
+Esta seção mostra os parâmetros capturados durante a jornada do visitante.
+
+Campos disponíveis:
+
+| Campo | Descrição |
+| :-- | :-- |
+| Fonte de tráfego | Plataforma que originou o acesso |
+| UTM Source | Origem da campanha |
+| UTM Medium | Tipo de tráfego |
+| UTM Campaign | Nome da campanha |
+| UTM Term | Palavra chave ou segmentação |
+| UTM Content | Criativo utilizado |
+| Click ID | Identificador do clique |
 
 Exemplo:
 
 ```text
-Visitor ID
-IP do comprador
-Link utilizado
-Histórico anterior de navegação
 ```
-
-Isso conecta faturamento com comportamento.
-
-Agora você sabe exatamente quem comprou.
-
----
-
-# Atribuição de marketing precisa
-
-Essa é uma das partes mais importantes do módulo.
-
-O Trackup consegue identificar exatamente qual estrutura de marketing gerou a venda.
-
-Dados armazenados:
 
 ```text
-utm_source
-utm_medium
-utm_campaign
-utm_content
-utm_term
-Click ID
+utm_source=meta
+utm_campaign=escala_junho
+utm_medium=cpc
+fbclid=xxxxxxxx
+click_id=track_93847
 ```
 
-Exemplo real:
+Esses dados são fundamentais para atribuição correta.
+
+---
+
+# Sub parâmetros
+
+Sub parâmetros permitem enviar dados adicionais durante o tracking.
+
+Campos suportados:
 
 ```text
-utm_source → Facebook
-utm_term → Instagram Feed
-Campaign → CAMP TESTE Trackup BID COMPRA VIDEO
 ```
 
-Agora você consegue identificar qual campanha foi responsável pelo faturamento.
+```text
+sub1
+sub2
+sub3
+sub4
+sub5
+sub6
+sub7
+sub8
+```
 
----
+Esses parâmetros podem ser usados para:
 
-**\[IMAGEM RECOMENDADA\]**
-
-_(Utilizar print da conversão expandida mostrando seção Marketing Attribution com UTMs e Click ID.)_
-
-_(Utilizar print da conversão expandida mostrando seção Marketing Attribution com UTMs e Click ID.)_
-
----
-
-# Integração com plataformas de anúncios
-
-Além das UTMs, o Trackup também preserva os identificadores técnicos responsáveis pela atribuição.
-
-# Integração com plataformas de anúncios
-
-Além das UTMs, o Trackup também preserva os identificadores técnicos responsáveis pela atribuição.
+- \
+  Segmentação\
+- \
+  IDs internos\
+- \
+  Identificação de afiliados\
+- \
+  Tracking personalizado\
 
 Exemplo:
 
 ```text
-Ad Account ID
-Campaign ID
-Ad Set ID
-Ad ID
 ```
+
+```text
+sub1=affiliate_22
+sub2=campaign_7
+sub3=creative_b
+```
+
+---
+
+# Dados dos anúncios
+
+Se a origem do tráfego for identificada, o sistema também associa informações da campanha.
+
+Campos possíveis:
+
+| Campo | Descrição |
+| :-- | :-- |
+| Plataforma de anúncio | Plataforma utilizada |
+| Conta de anúncio | Conta conectada |
+| Campanha ID | ID da campanha |
+| Conjunto ID | ID do adset |
+| Anúncio ID | ID do anúncio |
 
 Exemplo:
 
 ```text
-Ad Set ID → 120248366188090742
 ```
 
-Isso permite localizar rapidamente a estrutura exata dentro da plataforma de anúncios.
-
-Na prática:
-
 ```text
-Você descobre exatamente qual anúncio gerou a venda
-```
-
-Isso permite localizar rapidamente a estrutura exata dentro da plataforma de anúncios.
-
-Na prática:
-
-```text
-Você descobre exatamente qual anúncio gerou a venda
+Plataforma: Meta Ads
+Campanha ID: 23847298374
+Adset ID: 23847298375
+Ad ID: 23847298376
 ```
 
 ---
 
-# Diagnóstico inteligente de problemas
+# Boas práticas
 
-Nem toda conversão chega com dados perfeitos.
+Para garantir atribuição correta:
 
-Quando existe algum problema de rastreamento, o Trackup detecta automaticamente inconsistências.
+### Utilize Links do TrackUp em todas as campanhas
 
-O Trackup alerta quando informações críticas estão ausentes.
-
-Exemplo comum:
-
-```text
-Venda chegou
-↓
-Pagamento confirmado
-↓
-Mas Click ID não foi encontrado
-```
-
-Nesse cenário a venda existe.
-
-Mas a atribuição fica comprometida.
+Nunca envie tráfego diretamente para páginas externas.
 
 ---
 
-# Alertas automáticos
+### Preserve parâmetros durante redirecionamentos
 
-Quando o Trackup detecta problemas, um alerta visual é exibido.
-
-Exemplo:
+Verifique sempre:
 
 ```text
-⚠️ Click ID ausente nesta conversão
 ```
 
-Mensagem:
-
 ```text
-Esta conversão não registrou um Click ID.
-Isso normalmente indica problemas na configuração dos Links, parâmetros ou integração com a plataforma de vendas.
-```
-
-Esse alerta ajuda a identificar falhas rapidamente.
-
----
-
-# Diagnóstico inteligente de problemas
-
-Nem toda conversão chega com dados perfeitos.
-
-Quando existe algum problema de rastreamento, o Trackup detecta automaticamente inconsistências.
-
-O Trackup alerta quando informações críticas estão ausentes.
-
-Exemplo comum:
-
-```text
-Venda chegou
-↓
-Pagamento confirmado
-↓
-Mas Click ID não foi encontrado
-```
-
-Nesse cenário a venda existe.
-
-Mas a atribuição fica comprometida.
-
----
-
-# Alertas automáticos
-
-Quando o Trackup detecta problemas, um alerta visual é exibido.
-
-Exemplo:
-
-```text
-⚠️ Click ID ausente nesta conversão
-```
-
-Mensagem:
-
-```text
-Esta conversão não registrou um Click ID.
-Isso normalmente indica problemas na configuração dos Links, parâmetros ou integração com a plataforma de vendas.
-```
-
-Esse alerta ajuda a identificar falhas rapidamente.
-
----
-
-**\[IMAGEM RECOMENDADA\]**
-
-_(Utilizar print da conversão com alerta amarelo e aviso de Click ID ausente.)_
-
-_(Utilizar print da conversão com alerta amarelo e aviso de Click ID ausente.)_
-
----
-
-# Por que o Click ID é tão importante?
-
-O Click ID funciona como o elo entre o clique inicial e a venda final.
-
-Exemplo:
-
-# Por que o Click ID é tão importante?
-
-O Click ID funciona como o elo entre o clique inicial e a venda final.
-
-Exemplo:
-
-```text
-Fonte de tráfego gera clique
-↓
-Usuário acessa Link Trackup
-↓
-Trackup preserva Click ID
-↓
-Usuário compra
-↓
-Conversão é enviada de volta para Fonte de tráfego
-```
-
-Sem o Click ID:
-
-Sem o Click ID:
-
-```text
-A venda existe
-
-Mas a plataforma de anúncios não consegue identificar qual clique gerou a conversão
-```
-
-Resultado:
-
-```text
-Campanhas perdem qualidade de otimização
-```
-
-Resultado:
-
-```text
-Campanhas perdem qualidade de otimização
+UTMs
+fbclid
+gclid
+ttclid
+click_id
 ```
 
 ---
 
-# Próximo passo
+### Configure corretamente sua plataforma de venda
 
-Depois de entender toda jornada de tracking e atribuição, explore as integrações disponíveis para conectar ainda mais ferramentas ao seu ecossistema.
+Uma integração incompleta pode quebrar a atribuição.
 
-→ **Integrações**
+---
+
+### Sempre teste seu fluxo antes de escalar campanhas
+
+Faça uma compra teste e valide:
+
+- \
+  Conversão registrada\
+- \
+  Click ID presente\
+- \
+  UTMs preservadas\
+- \
+  Plataforma identificada\
+
+---
+
+# Problemas comuns
+
+## Conversão apareceu mas sem atribuição
+
+Possíveis causas:
+
+- \
+  Checkout sem parâmetros\
+- \
+  Click ID perdido\
+- \
+  Redirecionamento incorreto\
+
+---
+
+## Conversão não apareceu
+
+Possíveis causas:
+
+- \
+  Webhook falhou\
+- \
+  Integração desconectada\
+- \
+  Plataforma não enviou confirmação\
+
+---
+
+## Conversão duplicada
+
+Possíveis causas:
+
+- \
+  Webhook disparado múltiplas vezes\
+- \
+  Plataforma enviando eventos duplicados\
+
+---
+
+# FAQ
+
+## O TrackUp recebe conversões automaticamente?
+
+Sim. As conversões são recebidas através das integrações configuradas em seu projeto.
+
+---
+
+## Toda conversão terá atribuição?
+
+Não necessariamente.
+
+Se o Click ID não chegar corretamente, a venda pode ser registrada sem atribuição.
+
+---
+
+## Posso registrar conversões manualmente?
+
+Atualmente não.
+
+As conversões dependem das integrações ativas.
+
+---
+
+## Posso rastrear reembolsos?
+
+Sim.
+
+O sistema recebe atualizações de status da transação.
+
+---
+
+## Posso rastrear chargebacks?
+
+Sim.
+
+Sempre que a integração suportar esse evento, o status será atualizado automaticamente.
+
+---
+
+**Próximo artigo recomendado**
+
+→ Logs → Visitantes\
+\
+→ Logs → Requisições\
+\
+→ Integrações → Plataformas de Venda

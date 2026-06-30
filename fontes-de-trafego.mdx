@@ -39,31 +39,6 @@ _(Diagrama mostrando Ad Platform → URL Parameters → Trackup Receives Paramet
 
 _(Vídeo mostrando: usuário criando nova fonte → escolhendo plataforma → Trackup preenchendo parâmetros automáticos → string final sendo gerada → copiando parâmetros para o gerenciador de anúncios.)_
 
-Sempre que alguém acessa sua operação através de mídia paga, o link carrega parâmetros na URL.
-
-Exemplo:
-
-```text
-utm_source=facebook
-utm_campaign=campanha_teste
-utm_medium=conjunto_01
-utm_content=criativo_video_03
-fbclid=ABCD123456
-```
-
-Esses parâmetros são extremamente importantes.
-
-Eles permitem que o Trackup descubra:
-
-```text
-Qual campanha gerou o clique
-Qual conjunto de anúncios originou a visita
-Qual anúncio foi exibido
-Qual criativo trouxe o usuário
-```
-
-Sem isso, o Trackup fica sem contexto.
-
 ---
 
 # Adicionando uma nova Fonte de Trafego
@@ -86,299 +61,70 @@ Você não precisa montar manualmente.
 
 _(Diagrama mostrando Ad Platform → URL Parameters → Trackup Receives Parameters → Request → Visitor → Conversion Attribution.)_
 
-**\[VÍDEO RECOMENDADO NO TOPO\]**
-
-_(Vídeo mostrando: usuário criando nova fonte → escolhendo plataforma → Trackup preenchendo parâmetros automáticos → string final sendo gerada → copiando parâmetros para o gerenciador de anúncios.)_
-
 ---
 
-# O que exatamente estamos configurando?
-
-Aqui você define quais informações a plataforma irá enviar para o Trackup sempre que um clique acontecer.
-
-Os parâmetros mais comuns são:
-
-```text
-utm_source
-utm_medium
-utm_campaign
-utm_content
-utm_term
-click_id
-```
-
-Exemplo prático:
-
-```text
-Usuário clica no anúncio
-↓
-Plataforma adiciona parâmetros na URL
-↓
-Trackup recebe esses dados
-↓
-Trackup associa clique à campanha correta
-```
-
-Esses parâmetros serão utilizados posteriormente na atribuição de eventos.
-
-# Adicionando uma nova Fonte de Trafego
-
-Para configurar uma nova plataforma basta clicar em:
-
-```text
-+ Adicionar Fonte
-```
-
-O Trackup exibe um construtor dinâmico de parâmetros.
-
-Cada mídia possui sua própria forma de construir URLs.
-
-Para facilitar o processo, o Trackup já pré-configura automaticamente os valores recomendados.
-
-Você não precisa montar manualmente.
-
----
-
-# Meta Ads
+## Meta
 
 Ao selecionar Meta, o Trackup utiliza automaticamente as macros oficiais do ecossistema da Meta.
 
-Exemplo de parâmetros utilizados:
-
 ```text
-utm_source=facebook
-utm_medium={{adset.name}}|{{adset.id}}
-utm_campaign={{campaign.name}}|{{campaign.id}}
-utm_content={{ad.name}}|{{ad.id}}
+Parâmetro -> Placeholder ou valor
+utm_source = meta
+utm_medium = {{adset.name}}|{{adset.id}}
+utm_campaign = {{campaign.name}}|{{campaign.id}}
+utm_content = {{ad.name}}|{{ad.id}}
+utm_term = {{placement}}
+trk_cmpid = {{campaign.id}}
+trk_asid = {{adset.id}}
+trk_aid = {{ad.id}}
 ```
-
-Essas variáveis são interpretadas automaticamente pelo Gerenciador de Anúncios da Meta.
-
-Ao final, o Trackup gera a URL pronta para copiar e utilizar nas campanhas.
 
 ---
 
-**\[IMAGEM RECOMENDADA\]**
+## Google
 
-_(Utilizar print mostrando o formulário Meta com macros usando_ {{ }} _e campo final “Parâmetros de URL”.)_
+Ao selecionar Google, o Trackup utiliza automaticamente as macros oficiais do ecossistema da Google.
+
+```text
+Parâmetro -> Placeholder ou valor
+utm_source = google
+utm_medium = cpc
+utm_campaign = {campaignid}
+utm_content = {creative}
+utm_term = {keyword}
+trk_cmpid = {campaignid}
+trk_asid = {adgroupid}
+trk_aid = {creative}
+```
 
 ---
 
-# Google Ads
+## Kwai
 
-O Google utiliza uma sintaxe diferente para seus parâmetros dinâmicos.
-
-O Trackup adapta automaticamente a estrutura para o padrão exigido pelo Google Ads.
-
-# O que exatamente estamos configurando?
-
-Aqui você define quais informações a plataforma irá enviar para o Trackup sempre que um clique acontecer.
-
-Os parâmetros mais comuns são:
+Ao selecionar Kwai, o Trackup utiliza automaticamente as macros oficiais do ecossistema da Kwai.
 
 ```text
-utm_source
-utm_medium
-utm_campaign
-utm_content
-utm_term
-click_id
+Parâmetro -> Placeholder ou valor
+utm_source = kwai
+utm_medium = cpc
+utm_campaign = __CMPN__
+utm_term = __ADSET__
+utm_content = __AD__
+trk_cmpid = __CMPNID__
+trk_asid = __ADSETID__
+trk_aid = __ADID__
 ```
 
-Exemplo prático:
+## TikTok
 
-```text
-Usuário clica no anúncio
-↓
-Plataforma adiciona parâmetros na URL
-↓
-Trackup recebe esses dados
-↓
-Trackup associa clique à campanha correta
-```
-
-Esses parâmetros serão utilizados posteriormente na atribuição de eventos.
-
----
-
-# Meta Ads
-
-Ao selecionar Meta, o Trackup utiliza automaticamente as macros oficiais do ecossistema da Meta.
-
-Exemplo de parâmetros utilizados:
-
-```text
-utm_source=facebook
-utm_medium={{adset.name}}|{{adset.id}}
-utm_campaign={{campaign.name}}|{{campaign.id}}
-utm_content={{ad.name}}|{{ad.id}}
-```
-
-Essas variáveis são interpretadas automaticamente pelo Gerenciador de Anúncios da Meta.
-
-Ao final, o Trackup gera a URL pronta para copiar e utilizar nas campanhas.
-
----
-
-**\[IMAGEM RECOMENDADA\]**
-
-_(Utilizar print mostrando o formulário Meta com macros usando_ {{ }} _e campo final “Parâmetros de URL”.)_
-
----
-
-# Google Ads
-
-O Google utiliza uma sintaxe diferente para seus parâmetros dinâmicos.
-
-O Trackup adapta automaticamente a estrutura para o padrão exigido pelo Google Ads.
-
-Exemplo:
-
-```text
-utm_source=google
-utm_medium=cpc
-utm_campaign={campaignid}
-utm_content={creative}
-utm_term={keyword}
-```
-
-O Google utiliza tokens com chaves simples.
-
-Toda sintaxe é montada automaticamente pelo Trackup.
-
-Nenhuma configuração manual complexa é necessária.
-
-```text
-utm_source=google
-utm_medium=cpc
-utm_campaign={campaignid}
-utm_content={creative}
-utm_term={keyword}
-```
-
-O Google utiliza tokens com chaves simples.
-
-Toda sintaxe é montada automaticamente pelo Trackup.
-
-Nenhuma configuração manual complexa é necessária.
-
----
-
-**\[IMAGEM RECOMENDADA\]**
-
-_(Utilizar print mostrando formulário Google com tokens_ {campaignid}_,_ {creative} _e_ {keyword}_.)_
-
-_(Utilizar print mostrando formulário Google com tokens_ {campaignid}_,_ {creative} _e_ {keyword}_.)_
-
----
-
-# Kwai Ads
-
-A plataforma Kwai utiliza uma nomenclatura própria para seus parâmetros dinâmicos.
-
-Ao selecionar Kwai, o Trackup altera automaticamente os placeholders para o padrão correto.
-
-# Kwai Ads
-
-A plataforma Kwai utiliza uma nomenclatura própria para seus parâmetros dinâmicos.
-
-Ao selecionar Kwai, o Trackup altera automaticamente os placeholders para o padrão correto.
-
-Exemplo:
-
-```text
-utm_source=kwai
-utm_campaign=__CMPN__
-utm_medium=__ADSET__
-utm_content=__AD__
-```
-
-O Trackup entende o formato exclusivo da plataforma e gera tudo automaticamente.
-
-Você apenas copia e utiliza na campanha.
-
-```text
-utm_source=kwai
-utm_campaign=__CMPN__
-utm_medium=__ADSET__
-utm_content=__AD__
-```
-
-O Trackup entende o formato exclusivo da plataforma e gera tudo automaticamente.
-
-Você apenas copia e utiliza na campanha.
-
----
-
-**\[IMAGEM RECOMENDADA\]**
-
-_(Utilizar print mostrando formulário Kwai com placeholders **CMPN**, **ADSET** e **AD**.)_
-
-_(Utilizar print mostrando formulário Kwai com placeholders **CMPN**, **ADSET** e **AD**.)_
-
----
-
-# TikTok Ads
-
-Assim como as demais plataformas, o TikTok possui seus próprios parâmetros internos.
-
-Ao selecionar TikTok, o Trackup prepara automaticamente o modelo recomendado para rastreamento.
-
-Exemplo:
-
-```text
-utm_source=tiktok
-utm_campaign={{campaign_name}}
-utm_medium={{adgroup_name}}
-utm_content={{ad_name}}
-```
-
-Toda lógica segue exatamente o mesmo princípio das demais integrações.
-
-O objetivo continua sendo o mesmo:
-
-Garantir que o Trackup receba dados corretos de atribuição.
-
-# TikTok Ads
-
-Assim como as demais plataformas, o TikTok possui seus próprios parâmetros internos.
-
-Ao selecionar TikTok, o Trackup prepara automaticamente o modelo recomendado para rastreamento.
-
-Exemplo:
-
-```text
-utm_source=tiktok
-utm_campaign={{campaign_name}}
-utm_medium={{adgroup_name}}
-utm_content={{ad_name}}
-```
-
-Toda lógica segue exatamente o mesmo princípio das demais integrações.
-
-O objetivo continua sendo o mesmo:
-
-Garantir que o Trackup receba dados corretos de atribuição.
-
----
-
-_(Caso ainda não exista interface pronta, pode deixar sem print nesta etapa.)_
+<Card title="EM BREVE" type="info">
+</Card>
 
 ---
 
 # Crie parâmetros personalizados
 
-Além dos templates automáticos, você também pode adicionar parâmetros completamente personalizados.
-
-Isso permite adaptar o Trackup para operações específicas.
-
-_(Caso ainda não exista interface pronta, pode deixar sem print nesta etapa.)_
-
----
-
-# Crie parâmetros personalizados
-
-Além dos templates automáticos, você também pode adicionar parâmetros completamente personalizados.
+Além dos templates padrões, você também pode adicionar parâmetros completamente personalizados.
 
 Isso permite adaptar o Trackup para operações específicas.
 
@@ -396,38 +142,14 @@ Esses parâmetros personalizados também ficam disponíveis em todo ecossistema 
 
 Podendo ser utilizados em:
 
-- Links
-- Acionadores
-- Logs
-- Conversões
-- Relatórios futuros
+<Badge color="purple">Links</Badge>
+
+<Badge color="purple">Acionadores</Badge>
+
+<Badge color="purple">Logs</Badge>
+
+<Badge color="purple">Conversões</Badge>
+
+<Badge color="purple">Relatórios futuros</Badge>
 
 Isso torna o Trackup extremamente flexível.
-
-```text
-affiliate_id
-offer_id
-creator_name
-partner_code
-tracking_id
-```
-
-Esses parâmetros personalizados também ficam disponíveis em todo ecossistema da plataforma.
-
-Podendo ser utilizados em:
-
-- Links
-- Acionadores
-- Logs
-- Conversões
-- Relatórios futuros
-
-Isso torna o Trackup extremamente flexível.
-
----
-
-# Próximo passo
-
-Agora que suas plataformas de tráfego já sabem como enviar informações corretamente, o próximo passo é conectar sua infraestrutura de vendas.
-
-→ **Plataformas de Venda**

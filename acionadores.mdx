@@ -65,6 +65,11 @@ Esses eventos podem gerar ações automáticas dentro da plataforma.
 Fluxo:
 
 ```text
+[IMAGEM RECOMENDADA]
+
+(Diagrama: Visitor Action → Event Captured 
+→ Trigger Evaluates → Action Executes → Pixel Receives Event.)
+
 Usuário navega
 ↓
 Trackup registra evento
@@ -82,13 +87,7 @@ O Trackup observa tudo que acontece e toma decisões em tempo real.
 
 ---
 
-**\[IMAGEM RECOMENDADA\]**
-
-_(Diagrama: Visitor Action → Event Captured → Trigger Evaluates → Action Executes → Pixel Receives Event.)_
-
----
-
-# Automação automática ao conectar Pixels
+# Acionadores padrões ao conectar Pixels
 
 Na maioria dos casos, você não precisa começar configurando eventos manualmente.
 
@@ -138,17 +137,7 @@ Criar lógica específica para determinados funis
 
 # Estrutura de um Acionador
 
-```text
-Variável → Tipo de evento
-Operador → Igual
-Valor → start_checkout
-```
-
-Resultado:
-
-```text
-Executar apenas quando start_checkout acontecer
-```
+\[IMAGEM DA TELA DE ACIONADORES\]
 
 ---
 
@@ -161,7 +150,6 @@ Exemplos:
 ```text
 Nome do Pixel - Pageview
 Nome do Pixel - Conversão Personalizada
-Assistiu 25% VSL
 ```
 
 Escolha nomes que deixem claro o objetivo da regra.
@@ -198,7 +186,7 @@ Exemplo:
 Tipo de evento
 ```
 
-Existem diversas [Variáveis](/variaveis) para voce escolher, [veja mais aqui](/variaveis)
+Existem diversas [Variáveis](/variaveis) para você escolher, [veja mais aqui](/variaveis)
 
 ---
 
@@ -297,36 +285,6 @@ Essas informações ajudam a enriquecer os dados enviados para a plataforma.
   Lembrando parâmetros adicionados junto aos acionadores podem gerar conflito com parâmetros já existentes em seu funil.
 </Warning>
 
-Você define:
-
-```text
-Quando determinada condição acontecer
-↓
-Execute determinada ação automaticamente
-```
-
-Exemplo:
-
-```text
-Se o visitante iniciar checkout
-↓
-Disparar evento InitiateCheckout no Meta Pixel
-```
-
-Ou:
-
-```text
-Se o visitante converter
-↓
-Enviar evento Purchase automaticamente
-```
-
----
-
-**\[IMAGEM RECOMENDADA\]**
-
-_(Screenshot do card Pixel mostrando seleção múltipla \+ campo Evento \+ área de parâmetros.)_
-
 ---
 
 ## Opções de disparo
@@ -418,10 +376,6 @@ Isso permite criar automações muito mais específicas.
 
 ---
 
-# Automação automática ao conectar Pixels
-
-Sempre que um Pixel é conectado ao Trackup, é criado automaticamente uma estrutura inicial de acionadores padrão.
-
 # O futuro dos Acionadores 🚀
 
 Estamos expandindo continuamente este módulo.
@@ -437,317 +391,3 @@ Regras condicionais mais complexas
 ```
 
 Nosso objetivo é transformar Acionadores em um verdadeiro motor de automação.
-
-## O que o Trackup cria automaticamente?
-
-Ao adicionar um Pixel ao projeto, o Trackup gera automaticamente acionadores responsáveis por registrar eventos essenciais da jornada.
-
-Eventos padrão criados automaticamente:
-
-```text
-page_view
-start_checkout
-conversion
-```
-
-Esses acionadores começam a funcionar imediatamente após a integração.
-
-Sem necessidade de configuração manual inicial.
-
----
-
-**\[IMAGEM RECOMENDADA\]**
-
-_(Print mostrando lista de acionadores criados automaticamente após adicionar Pixel.)_
-
----
-
-# Quando criar acionadores manualmente?
-
-Embora o Trackup prepare a base inicial automaticamente, você pode criar regras totalmente personalizadas sempre que precisar.
-
-Exemplos:
-
-```text
-Criar eventos customizados
-Enviar eventos condicionais
-Criar lógica específica para determinados funis
-```
-
----
-
-# Estrutura de um Acionador
-
-```text
-Variável → Tipo de evento
-Operador → Igual
-Valor → start_checkout
-```
-
-Resultado:
-
-```text
-Executar apenas quando start_checkout acontecer
-```
-
----
-
-## Nome do acionador
-
-Primeiro, defina um nome interno para identificar sua automação.
-
-Exemplos:
-
-```text
-Nome do Pixel - Pageview
-Nome do Pixel - Conversão Personalizada
-Assistiu 25% VSL
-```
-
-Escolha nomes que deixem claro o objetivo da regra.
-
----
-
-## Condições
-
-As Condições definem quando o acionador será executado.
-
-O Trackup avalia continuamente os dados coletados durante a jornada do visitante.
-
-Atualmente utilizamos lógica:
-
-```text
-AND (E lógico)
-```
-
-Ou seja:
-
-> Todas as condições precisam ser verdadeiras para o acionador ser executado.
-
-Cada condição possui três partes.
-
----
-
-#### Variável
-
-Qual informação será analisada.
-
-Exemplo:
-
-```text
-Tipo de evento
-```
-
-Existem diversas [Variáveis](/variaveis) para voce escolher, [veja mais aqui](/variaveis)
-
----
-
-#### Operador
-
-Como o Trackup fará a comparação.
-
-Exemplo:
-
-```text
-Igual
-Diferente
-Contém
-Não contém
-```
-
----
-
-#### Valor
-
-O valor que será comparado.
-
-Exemplo:
-
-```text
-start_checkout
-```
-
-Determinadas [Variáveis](/variaveis) tem valores pré-definidos, [veja mais aqui](/variaveis)
-
-Você pode adicionar múltiplas condições.
-
----
-
-**\[IMAGEM RECOMENDADA\]**
-
-_(Print mostrando a seção Conditions com dropdown Variável, Operador e campo Valor.)_
-
----
-
-## Ações
-
-As ações definem o que acontece quando as condições forem atendidas.
-
-Atualmente a principal ação disponível é o disparo automático de Pixels.
-
-No futuro adicionaremos novas possibilidades.
-
----
-
-### Pixel
-
-Você pode enviar eventos automaticamente para Pixels conectados ao projeto.
-
-Você pode selecionar um ou vários pixels simultaneamente.
-
----
-
-#### Evento
-
-Você define qual evento será enviado.\
-Se for um evento padrão ou personalizado
-
-Exemplo:
-
-```text
-Lead
-Purchase
-ViewContent
-InitiateCheckout
-```
-
-Esse evento será enviado quando a regra for executada.
-
----
-
-### Parâmetros do evento
-
-Também é possível enviar dados adicionais junto do evento.
-
-Esses parâmetros podem ser fixos ou dinâmicos.
-
-Exemplos:
-
-```text
-FAZER UMA IMAGEM /PRINT
-{utm_source}
-{utm_campaign}
-{click_id}
-{fbclid}
-```
-
-Essas informações ajudam a enriquecer os dados enviados para a plataforma.
-
-<Warning>
-  Lembrando parâmetros adicionados junto aos acionadores podem gerar conflito com parâmetros já existentes em seu funil.
-</Warning>
-
----
-
-**\[IMAGEM RECOMENDADA\]**
-
-_(Screenshot do card Pixel mostrando seleção múltipla \+ campo Evento \+ área de parâmetros.)_
-
----
-
-## Opções de disparo
-
-Ao configurar uma ação, você escolhe como o evento será enviado.
-
-Atualmente existem dois modos.
-
----
-
-#### Disparo via servidor (CAPI)
-
-Quando ativo, o evento é enviado diretamente pelos servidores do Trackup.
-
-Fluxo:
-
-```text
-Trackup Server
-↓
-API da plataforma
-```
-
-Benefícios:
-
-- Maior confiabilidade
-- Menor bloqueio por adblockers
-- Melhor atribuição
-- Dados mais consistentes
-
-Esse método é altamente recomendado.
-
----
-
-### Disparo via navegador
-
-Quando ativo, o evento é enviado diretamente pelo navegador do visitante.
-
-Fluxo:
-
-```text
-Visitor Browser
-↓
-Pixel Script
-```
-
-Pode ser útil em cenários específicos onde a plataforma exige execução client-side.
-
----
-
-**\[IMAGEM RECOMENDADA\]**
-
-_(Print mostrando toggle Server-side ativo e Browser desativado.)_
-
----
-
-# Eventos nativos do Trackup
-
-O Trackup já trabalha com eventos internos padrão.
-
-Exemplos:
-
-```text
-ad_click
-page_view
-start_checkout
-conversion
-```
-
-Esses eventos podem ser utilizados diretamente em condições.
-
-Além disso, você pode criar eventos customizados.
-
-# Eventos customizados
-
-Também é possível trabalhar com eventos criados especificamente para sua operação.
-
-Exemplos:
-
-```text
-button_click
-video_started
-lead_form_submitted
-quiz_completed
-```
-
-Isso permite criar automações muito mais específicas.
-
-# O futuro dos Acionadores 🚀
-
-Estamos expandindo continuamente este módulo.
-
-Novos recursos planejados incluem:
-
-```text
-Webhooks
-Integrações externas
-Automações avançadas
-Execuções multi-step
-Regras condicionais mais complexas
-```
-
-Nosso objetivo é transformar Acionadores em um verdadeiro motor de automação.
-
-# Próximo passo
-
-Agora que o Trackup já consegue reagir automaticamente aos eventos da sua operação, o próximo módulo é responsável por decidir **quem pode ou não seguir na jornada**.
-
-→ **Filtros**

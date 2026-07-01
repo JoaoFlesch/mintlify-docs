@@ -233,3 +233,213 @@ HTTP 200
 ```
 
 Isso confirma que o evento foi processado corretamente.
+
+# Aba Resumo
+
+A visão geral reúne todos os dados técnicos e relacionados ao visitante.
+
+Aqui você entende exatamente quem acessou sua operação e como aquela visita aconteceu.
+
+\[IMAGEM RECOMENDADA\]\
+PRINT OU ARTE MOSTRANDO A ABA RESUMO
+
+## Identificação do visitante
+
+Cada visitante recebe uma identificação única.
+
+Dados registrados:
+
+- Visitor ID
+- IP
+- País
+- Cidade
+- Geolocalização
+- Timezone
+
+Essas informações ajudam em auditorias e analises.
+
+Veja mais sobre [Visitantes aqui](/visitantes)
+
+## Informações do dispositivo
+
+O Trackup registra o ambiente completo utilizado no acesso.
+
+Exemplo:
+
+- Modelo do aparelho
+- Sistema operacional
+- Navegador utilizado
+- Tipo de dispositivo
+- Ambiente de execução
+
+Exemplo:
+
+```text
+Samsung Galaxy S23
+Android 14
+Instagram Browser
+Mobile Device
+```
+
+## Dados de marketing e UTMs
+
+Toda campanha gera parâmetros importantes para rastreamento.
+
+O Trackup captura automaticamente esses dados durante o clique.
+
+Exemplos:
+
+- utm\_source
+- utm\_medium
+- utm\_campaign
+- utm\_content
+- utm\_term
+- fbclid
+- gclid
+- ttclid
+
+Isso permite identificar exatamente qual campanha originou cada visitante.
+
+```text
+Instagram → Reel 03 → Campanha Escala 
+```
+
+---
+
+## Informações do dispositivo
+
+# Logs técnicos
+
+Além das informações da visita, você também pode visualizar toda comunicação técnica gerada pelo Trackup.
+
+A aba Logs permite visualizar exatamente como foi processada cada requisição.
+
+O Trackup registra o ambiente completo utilizado no acesso.
+
+Exemplo:
+
+- Modelo do aparelho
+- Sistema operacional
+- Navegador utilizado
+- Tipo de dispositivo
+- Ambiente de execução
+
+Exemplo:
+
+```text
+Samsung Galaxy S23
+Android 14
+Instagram Browser
+Mobile Device
+```
+
+---
+
+## Logs de disparo Server-Side
+
+Sempre que um evento é enviado para plataformas externas, toda comunicação fica registrada.
+
+**\[IMAGEM RECOMENDADA ABA LOGS\]**
+
+## Dados de marketing e UTMs
+
+Toda campanha gera parâmetros importantes para rastreamento.
+
+O Trackup captura automaticamente esses dados durante o clique.
+
+Exemplos:
+
+- Eventos enviados para Meta API
+- Eventos enviados para Google Ads
+- Acionadores executados
+- Webhooks disparados
+- Chamadas internas do Trackup
+
+Isso permite validar se toda a infraestrutura está funcionando corretamente.
+
+---
+
+## Request enviado
+
+O Trackup exibe o payload completo enviado para integrações externas.
+
+```json
+{
+  "event_name": "PageView",
+  "event_time": 1781458231,
+  "external_id": "visitor_7a92f",
+  "ip_address": "***"
+}
+```
+
+Aqui você consegue visualizar exatamente quais dados foram enviados.
+
+## Response recebida
+
+Após o envio, o Trackup também registra a resposta retornada pela API.
+
+- utm\_source
+- utm\_medium
+- utm\_campaign
+- utm\_content
+- utm\_term
+- fbclid
+- gclid
+- ttclid
+
+Isso permite identificar exatamente qual campanha originou cada visitante.
+
+Exemplo:
+
+```text
+Instagram → Reel 03 → Campanha Escala 
+```
+
+---
+
+# Logs técnicos
+
+Além das informações da visita, você também pode visualizar toda comunicação técnica gerada pelo Trackup.
+
+A aba Logs permite visualizar exatamente como foi processada cada requisição.
+
+---
+
+## Logs de disparo Server-Side
+
+Sempre que um evento é enviado para plataformas externas, toda comunicação fica registrada.
+
+**\[IMAGEM RECOMENDADA ABA LOGS\]**
+
+Exemplos:
+
+- Eventos enviados para Meta API
+- Eventos enviados para Google Ads
+- Acionadores executados
+- Webhooks disparados
+- Chamadas internas do Trackup
+
+Isso permite validar se toda a infraestrutura está funcionando corretamente.
+
+---
+
+## Request enviado
+
+O Trackup exibe o payload completo enviado para integrações externas.
+
+```json
+{
+  "event_name": "PageView",
+  "event_time": 1781458231,
+  "external_id": "visitor_7a92f",
+  "ip_address": "***"
+}
+```
+
+Aqui você consegue visualizar exatamente quais dados foram enviados.
+
+## Response recebida
+
+Após o envio, o Trackup também registra a resposta retornada pela API.
+
+Exemplo:

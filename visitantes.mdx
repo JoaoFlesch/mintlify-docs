@@ -4,21 +4,15 @@ icon: "user-search"
 description: "Quanto mais o usuário navega, mais inteligente seu tracking se torna."
 ---
 
-Toda interação dentro do Trackup começa com uma requisição.
+Toda interação dentro do Trackup começa com uma [requisição](/requisicoes).
 
 Sempre que alguém acessa um link, visita uma página, inicia checkout ou realiza qualquer ação dentro da sua operação, o Trackup registra aquela atividade individualmente.
 
-Mas o verdadeiro poder do Trackup acontece no próximo passo.
-
-Cada requisição processada gera automaticamente um **Visitante**.
+Cada [requisição](/requisicoes) processada gera automaticamente um **Visitante**.
 
 Esse Visitante representa a identidade persistente daquele usuário dentro do seu projeto.
 
 Conforme o mesmo visitante continua navegando, o Trackup conecta todas as novas interações ao mesmo perfil, acumulando informações progressivamente ao longo da jornada.
-
-Em outras palavras:
-
-> Quanto mais o usuário avança no funil, mais informações o Trackup tem sobre aquele visitante.
 
 ---
 
@@ -64,7 +58,7 @@ _(Diagrama mostrando: Request #1 → Visitante Created → Request #2 → Reques
 
 # Toda requisição gera um Visitante
 
-Sempre que uma nova visita passa pela infraestrutura do Trackup, o Trackup cria automaticamente um registro persistente daquele usuário.
+Sempre que uma nova visita passa pela infraestrutura do Trackup, é criado automaticamente um registro persistente daquele usuário.
 
 Inicialmente esse visitante pode possuir poucas informações.
 
@@ -72,17 +66,11 @@ Exemplo:
 
 ```text
 IP
-
 Dispositivo
-
 Sistema operacional
-
 Localização
-
 Browser
-
 UTMs
-
 Click ID
 ```
 
@@ -92,17 +80,11 @@ Exemplo:
 
 ```text
 Nome
-
 Email
-
 Telefone
-
 Histórico de navegação
-
 Eventos gerados
-
 Conversões realizadas
-
 Plataforma de pagamento utilizada
 ```
 
@@ -143,11 +125,8 @@ Exemplo:
 
 ```text
 Primeira visita registrada
-
 Última atividade registrada
-
 Quantidade total de pageviews
-
 Total de interações
 ```
 
@@ -163,15 +142,10 @@ Exemplo:
 
 ```text
 utm_source
-
 utm_medium
-
 utm_campaign
-
 utm_content
-
 fbclid
-
 Click ID
 ```
 
@@ -179,9 +153,7 @@ Isso permite responder perguntas como:
 
 ```text
 Qual anúncio trouxe este visitante?
-
 Qual campanha originou esta conversão?
-
 Qual criativo gerou este lead?
 ```
 
@@ -197,7 +169,7 @@ _(Utilizar print do perfil mostrando Name, Email, Phone, First Visit, Last Activ
 
 # Linha do tempo completa da jornada
 
-O Trackup também registra toda sequência cronológica de eventos gerados por aquele visitante.
+O Trackup também registra toda sequência cronológica de [requisições](/requisicoes) gerados por aquele visitante.
 
 Exemplo:
 
@@ -215,9 +187,9 @@ conversion
 
 ---
 
-# Histórico financeiro e conversões
+# Histórico dee conversões
 
-Quando o visitante gera uma conversão, o Trackup também associa permanentemente essa venda ao perfil daquele usuário.
+Quando o visitante gera uma [conversão](/conversoes), o Trackup também associa permanentemente essa venda ao perfil daquele usuário.
 
 Exemplo de dados armazenados:
 
@@ -250,9 +222,7 @@ Exemplo:
 
 ```text
 Uma visita específica
-
 Um clique específico
-
 Um evento específico
 ```
 
@@ -268,11 +238,3 @@ Todos eventos agrupados
 Histórico consolidado
 Conversões associadas
 ```
-
----
-
-# Próximo passo
-
-Agora que você consegue acompanhar toda jornada consolidada de cada usuário, o próximo módulo permite visualizar o momento final dessa jornada.
-
-→ **Conversões**

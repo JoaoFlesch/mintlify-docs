@@ -48,7 +48,7 @@ Você consegue acompanhar todo o comportamento do tráfego de forma cronológica
 
 Informações disponíveis:
 
-- **\[PRINT DA TABELA PRINCIPAL\]**
+- **\[IMAGEM EXEMPLIFICANDO A TABELA PRINCIPAL\]**
 - Domínio acessado
 - Página visitada
 - Evento executado
@@ -78,7 +78,7 @@ Filtre por:
 - País
 - Dispositivo
 - Tipo de visitante
-- Decisão do Trackup
+- Decisão dos [filtros](/entendendo-os-filtros)
 
 Exemplos:
 
@@ -86,15 +86,8 @@ Exemplos:
 
 → Visualizar somente acessos bloqueados de determinado país
 
----
-
-# Investigando uma requisição
-
-Cada registro pode ser aberto individualmente para análise completa.
-
-Ao acessar uma requisição específica, você visualiza todos os dados relacionados àquela interação.
-
-A análise é dividida em diferentes camadas.
+\[IMAGEM RECOMENDADA\]\
+da pra fazer um print bonitinho ou um exemplo dos filtros
 
 ---
 
@@ -103,6 +96,9 @@ A análise é dividida em diferentes camadas.
 A visão geral reúne todos os dados técnicos e relacionados ao visitante.
 
 Aqui você entende exatamente quem acessou sua operação e como aquela visita aconteceu.
+
+\[IMAGEM RECOMENDADA\]\
+PRINT OU ARTE MOSTRANDO A ABA RESUMO
 
 ## Identificação do visitante
 
@@ -117,7 +113,7 @@ Dados registrados:
 - Geolocalização
 - Timezone
 
-Essas informações ajudam em auditorias e investigações.
+Essas informações ajudam em auditorias e analises.
 
 Veja mais sobre [Visitantes aqui](/visitantes)
 
@@ -171,21 +167,21 @@ Exemplo:
 Instagram → Reel 03 → Campanha Escala 
 ```
 
-**\[PRINT DA ABA RESUMO\]**
-
 ---
 
 # Logs técnicos
 
 Além das informações da visita, você também pode visualizar toda comunicação técnica gerada pelo Trackup.
 
-A aba Logs permite auditar exatamente como a infraestrutura processou e enviou dados para integrações externas.
+A aba Logs permite visualizar exatamente como foi processada cada requisição.
 
 ---
 
 ## Logs de disparo Server-Side
 
 Sempre que um evento é enviado para plataformas externas, toda comunicação fica registrada.
+
+**\[IMAGEM RECOMENDADA ABA LOGS\]**
 
 Exemplos:
 
@@ -237,31 +233,3 @@ HTTP 200
 ```
 
 Isso confirma que o evento foi processado corretamente.
-
-**\[PRINT ABA LOGS\]**
-
----
-
-# Por que isso importa?
-
-Em operações digitais, pequenos erros técnicos podem gerar grandes prejuízos.
-
-Exemplos:
-
-- Eventos rejeitados
-- Pixels não disparando
-- Perda de parâmetros
-- Conversões não atribuídas
-- Dados incorretos enviados para plataformas
-
-Com o módulo de Requisições, você identifica rapidamente qualquer falha operacional.
-
----
-
-# Próximo passo
-
-Agora que você consegue investigar cada interação individualmente, o próximo módulo permite acompanhar usuários agrupados em jornadas completas.
-
-**→ Visitantes**
-
----

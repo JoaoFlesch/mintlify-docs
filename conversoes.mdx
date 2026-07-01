@@ -1,8 +1,7 @@
 ---
 title: "Conversões"
 icon: "tag"
-description: "Acompanhe todas as conversões registradas dentro do seu projeto em tempo real.
-"
+description: "Acompanhe todas as conversões registradas dentro do seu projeto em tempo real. "
 ---
 
 Sempre que uma integração envia uma confirmação de pagamento para o TrackUp, todos os dados relacionados àquela conversão são processados e armazenados. 
@@ -36,11 +35,11 @@ um exemplo de lista bonitinha com varias vendas
 
 Cada conversão possui um status associado ao pagamento recebido.
 
-## Pago ✅ 
+<Badge color="green">✅ Pago</Badge>
 
-## Reembolsado ↩️
+## <Badge color="yellow">↩️ Reembolsado</Badge>
 
-## Chargeback ⚠️
+## <Badge color="yellow">⚠️ Chargeback</Badge>
 
 ---
 
@@ -131,45 +130,6 @@ Esta conversão não registrou um Click ID
 
 ---
 
-## Principais causas
-
-### Link incorreto
-
-O usuário foi direcionado para um checkout sem passar por um Link do TrackUp.
-
----
-
-### Integração mal configurada
-
-A plataforma de venda não recebeu corretamente os parâmetros necessários.
-
----
-
-### Checkout sem parâmetros preservados
-
-Durante o redirecionamento, parâmetros foram perdidos.
-
-Exemplo:
-
-```text
-```
-
-```text
-utm_source
-click_id
-fbclid
-gclid
-ttclid
-```
-
----
-
-### Webhook incompleto
-
-A integração enviou dados insuficientes ao TrackUp.
-
----
-
 # Marketing & UTMs
 
 Esta seção mostra os parâmetros capturados durante a jornada do visitante.
@@ -187,9 +147,6 @@ Campos disponíveis:
 | Click ID | Identificador do clique |
 
 Exemplo:
-
-```text
-```
 
 ```text
 utm_source=meta
@@ -210,9 +167,6 @@ Sub parâmetros permitem enviar dados adicionais durante o tracking.
 Campos suportados:
 
 ```text
-```
-
-```text
 sub1
 sub2
 sub3
@@ -225,19 +179,12 @@ sub8
 
 Esses parâmetros podem ser usados para:
 
-- \
-  Segmentação\
-- \
-  IDs internos\
-- \
-  Identificação de afiliados\
-- \
-  Tracking personalizado\
+- Segmentação
+- IDs internos
+- Identificação de afiliados
+- Tracking personalizado\
 
 Exemplo:
-
-```text
-```
 
 ```text
 sub1=affiliate_22
@@ -264,148 +211,8 @@ Campos possíveis:
 Exemplo:
 
 ```text
-```
-
-```text
 Plataforma: Meta Ads
 Campanha ID: 23847298374
 Adset ID: 23847298375
 Ad ID: 23847298376
 ```
-
----
-
-# Boas práticas
-
-Para garantir atribuição correta:
-
-### Utilize Links do TrackUp em todas as campanhas
-
-Nunca envie tráfego diretamente para páginas externas.
-
----
-
-### Preserve parâmetros durante redirecionamentos
-
-Verifique sempre:
-
-```text
-```
-
-```text
-UTMs
-fbclid
-gclid
-ttclid
-click_id
-```
-
----
-
-### Configure corretamente sua plataforma de venda
-
-Uma integração incompleta pode quebrar a atribuição.
-
----
-
-### Sempre teste seu fluxo antes de escalar campanhas
-
-Faça uma compra teste e valide:
-
-- \
-  Conversão registrada\
-- \
-  Click ID presente\
-- \
-  UTMs preservadas\
-- \
-  Plataforma identificada\
-
----
-
-# Problemas comuns
-
-## Conversão apareceu mas sem atribuição
-
-Possíveis causas:
-
-- \
-  Checkout sem parâmetros\
-- \
-  Click ID perdido\
-- \
-  Redirecionamento incorreto\
-
----
-
-## Conversão não apareceu
-
-Possíveis causas:
-
-- \
-  Webhook falhou\
-- \
-  Integração desconectada\
-- \
-  Plataforma não enviou confirmação\
-
----
-
-## Conversão duplicada
-
-Possíveis causas:
-
-- \
-  Webhook disparado múltiplas vezes\
-- \
-  Plataforma enviando eventos duplicados\
-
----
-
-# FAQ
-
-## O TrackUp recebe conversões automaticamente?
-
-Sim. As conversões são recebidas através das integrações configuradas em seu projeto.
-
----
-
-## Toda conversão terá atribuição?
-
-Não necessariamente.
-
-Se o Click ID não chegar corretamente, a venda pode ser registrada sem atribuição.
-
----
-
-## Posso registrar conversões manualmente?
-
-Atualmente não.
-
-As conversões dependem das integrações ativas.
-
----
-
-## Posso rastrear reembolsos?
-
-Sim.
-
-O sistema recebe atualizações de status da transação.
-
----
-
-## Posso rastrear chargebacks?
-
-Sim.
-
-Sempre que a integração suportar esse evento, o status será atualizado automaticamente.
-
----
-
-**Próximo artigo recomendado**
-
-→ Logs → Visitantes\
-\
-→ Logs → Requisições\
-\
-→ Integrações → Plataformas de Venda

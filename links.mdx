@@ -24,6 +24,10 @@ _(Vídeo de 5 a 7 minutos mostrando um usuário criando diferentes tipos de link
 
 ---
 
+# Como criar um link
+
+.....
+
 # 1. Link Genérico
 
 O tipo mais flexível de link dentro da plataforma.
@@ -40,9 +44,7 @@ Ideal para:
 
 Eles não dependem de parâmetros específicos de plataformas de mídia.
 
-Todo acesso  de um link genérico dispara um evento de page\_view
-
-→ Entenda melhor como criar e o funcionamento de um **Link Genérico** 
+Todo acesso de um link genérico dispara um evento de <Badge color="purple">page_view</Badge>
 
 ---
 
@@ -54,32 +56,23 @@ Esse tipo de link identifica e processa parâmetros enviados pelas plataformas d
 
 Essas informações ajudam o Trackup a entender exatamente de onde aquele visitante veio e atribuir cada evento com o máximo de detalhes em uma futura conversão
 
-Ideal para:
-
-- Meta Ads
-- Google Ads
-- TikTok Ads
-- Kwai Ads
-
-Quando performance e atribuição importam, normalmente este será o tipo de link utilizado.
-
-→ Entenda melhor como criar e o funcionamento de um **Link de Anúncio** 
+Todo acesso de um Link de Anúncio dispara um evento de <Badge color="purple">ad_click</Badge>
 
 ---
 
-# 3. Checkout Link
+# 3. Link de Checkout 
 
-O Checkout Link representa o último passo da jornada do usuário antes da conversão.
+O Link de Checkout representa o último passo da jornada do usuário antes da conversão.
 
 Esse tipo de link conecta o visitante à Oferta previamente cadastrada dentro do projeto.
 
 Ele é responsável por garantir que todos os dados coletados durante a navegação continuem sendo preservados até o momento final da compra.
 
-Importante.
+<Note>
+  Antes de criar um Link de Checkout , você precisa cadastrar uma Oferta.
+</Note>
 
-Antes de criar um Checkout Link, você precisa cadastrar uma Oferta.
-
-→ Entenda melhor como criar e o funcionamento de um **Link de Checkout**
+Todo acesso de um Link de Checkout dispara um evento de<Badge color="purple">start_checkout</Badge>
 
 ---
 
@@ -123,13 +116,9 @@ Exemplo.
 
 ```text
 Clique inicial
-
 Page View
-
 Navegação
-
 Checkout
-
 Conversão
 ```
 
@@ -172,15 +161,3 @@ Ideal para:
 **\[IMAGEM RECOMENDADA\]**
 
 _(Diagrama mostrando um único Link dividindo visitantes entre Landing A e Landing B.)_
-
----
-
-# Próximo passo
-
-Agora que você entende o ecossistema de Links, escolha o tipo ideal para sua operação.
-
-→ Generic Link\
-→ Ad Link\
-→ Checkout Link
-
-Cada tipo possui documentação específica.

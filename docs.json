@@ -70,16 +70,7 @@
                   "clonar-url"
                 ]
               },
-              {
-                "group": "Links",
-                "icon": "link-2",
-                "pages": [
-                  "entendendo-os-links",
-                  "link-generico",
-                  "link-de-anuncio",
-                  "link-de-checkout"
-                ]
-              },
+              "links",
               {
                 "group": "Acionadores",
                 "icon": "zap",

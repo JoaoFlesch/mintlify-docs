@@ -54,9 +54,13 @@ _(Gravação real da tela mostrando toda criação da estrutura em sequência, e
       </Step>
       <Step title="Defina o nome do projeto">
       </Step>
+      <Step title="Selecione a moeda padrão do seu projeto">
+      </Step>
       <Step title="Salve">
       </Step>
     </Steps>
+
+    ![New Project](/images/new-project.png)
 
     <Tip>
       [Clique aqui e veja mais sobre times, projetos e membros](/times-projetos)
@@ -65,17 +69,34 @@ _(Gravação real da tela mostrando toda criação da estrutura em sequência, e
   <Step title="Configure seu Domínio" titleSize="h2">
     Todo projeto recebe um domínio padrão, mas recomendamos conectar seu próprio domínio, através de um subdominio
 
-    ```text
-    lp.seudominio.com
-    go.seudominio.com
-    track.seudominio.com
-    ```
+    <Steps>
+      <Step title="Vá em Configurações">
+      </Step>
+      <Step title="Domínios">
+      </Step>
+      <Step title="+ Adicionar Domínio">
+      </Step>
+      <Step title="Insira o Hostname">
+      </Step>
+      <Step title="Salve">
+      </Step>
+    </Steps>
+
+    ![Add Domain](/images/add-domain.png)
 
     Após adicionar o domínio, configure o DNS e valide a conexão.
 
-    **\[IMAGEM RECOMENDADA\]**\
-    \
-    _(Tela de domínios \+ exemplo de configuração DNS na Cloudflare.)_
+    <Steps>
+      <Step title="Adicione o registro CNAME na sua hospedagem de domínio">
+      </Step>
+      <Step title="Aguarde até propagar e clique em Verificar">
+      </Step>
+      <Step title="Quando o status alterar para Verificado, estará tudo certo">
+        Você pode definir ele como domínio primário caso desejar
+      </Step>
+    </Steps>
+
+    ![config Domain](/images/config-domain.png)
 
     <Tip>
       [Clique aqui e veja mais sobre domínios](/dominios)

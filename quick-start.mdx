@@ -79,6 +79,12 @@ Os domínios serão utilizados em:
 - Builder
 - Estrutura pública do projeto\
 
+- Páginas
+- Links
+- Redirects
+- Builder
+- Estrutura pública do projeto\\
+
 Recomendação:
 
 ```text
@@ -106,6 +112,11 @@ Atualmente suportamos:
 - TikTok Ads
 - Kwai Ads\
 
+- Meta Ads
+- Google Ads
+- TikTok Ads
+- Kwai Ads\\
+
 Ao conectar um pixel, o Trackup cria automaticamente os acionadores padrões responsáveis pelos disparos automáticos.
 
 Eventos padrão:
@@ -125,6 +136,12 @@ Para configurar:
 - Insira as credenciais necessárias
 - Salve\
 
+- Vá em **Integrações → Pixels**
+- Clique em **Adicionar Pixel**
+- Escolha a plataforma
+- Insira as credenciais necessárias
+- Salve\\
+
 **\[IMAGEM RECOMENDADA\]**\
 \
 _(Tela de integração de pixel Meta.)_
@@ -140,12 +157,20 @@ Essa integração possui duas funções:
 - Gerar parâmetros de checkout
 - Receber webhooks de conversão\
 
+- Gerar parâmetros de checkout
+- Receber webhooks de conversão\\
+
 Para configurar:
 
 - Vá em **Integrações → Plataforma de Venda**
 - Escolha sua plataforma
 - Configure parâmetros necessários
 - Copie a URL de webhook\
+
+- Vá em **Integrações → Plataforma de Venda**
+- Escolha sua plataforma
+- Configure parâmetros necessários
+- Copie a URL de webhook\\
 
 **\[IMAGEM RECOMENDADA\]**\
 \
@@ -164,6 +189,10 @@ Você irá informar:
 - Nome da oferta
 - Plataforma utilizada
 - URL do checkout\
+
+- Nome da oferta
+- Plataforma utilizada
+- URL do checkout\\
 
 Exemplo:
 
@@ -191,6 +220,11 @@ Esse link preserva:
 - Session ID
 - Dados de atribuição\
 
+- UTMs
+- Click ID
+- Session ID
+- Dados de atribuição\\
+
 Fluxo:
 
 ```text
@@ -209,6 +243,11 @@ Para criar:
 - Clique em **Novo Link**
 - Escolha **Checkout**
 - Vincule a oferta criada\
+
+- Vá em **Links**
+- Clique em **Novo Link**
+- Escolha **Checkout**
+- Vincule a oferta criada\\
 
 **\[IMAGEM RECOMENDADA\]**\
 \
@@ -229,6 +268,13 @@ Métodos disponíveis:
 - Clonar URL
 - Redirect\
 
+- Builder
+- Templates
+- IA por Prompt
+- Upload HTML
+- Clonar URL
+- Redirect\\
+
 Recomendação inicial:
 
 ```text
@@ -242,6 +288,10 @@ Para criar:
 - Vá em **Páginas**
 - Clique em **Nova Página**
 - Escolha o método desejado\
+
+- Vá em **Páginas**
+- Clique em **Nova Página**
+- Escolha o método desejado\\
 
 **\[IMAGEM RECOMENDADA\]**\
 \
@@ -294,6 +344,11 @@ Esse link é responsável por capturar:
 - Dados da campanha
 - Origem do tráfego\
 
+- UTMs
+- Click IDs
+- Dados da campanha
+- Origem do tráfego\\
+
 Fluxo:
 
 ```text
@@ -310,6 +365,11 @@ Para criar:
 - Clique em **Novo Link**
 - Escolha **Link de Anúncio**
 - Selecione a página criada anteriormente\
+
+- Vá em **Links**
+- Clique em **Novo Link**
+- Escolha **Link de Anúncio**
+- Selecione a página criada anteriormente\\
 
 **\[IMAGEM RECOMENDADA\]**\
 \
@@ -371,6 +431,10 @@ Verifique principalmente os módulos:
 - Visitors
 - Conversões\
 
+- Requisições
+- Visitors
+- Conversões\\
+
 Se tudo estiver aparecendo corretamente, sua operação está pronta.
 
 **\[IMAGEM RECOMENDADA\]**\
@@ -380,6 +444,28 @@ _(Painel mostrando conversão registrada com visitor e eventos processados.)_
 ---
 
 # Fluxo completo da operação
+
+```text
+Campanha
+↓
+Link de anúncio
+↓
+Landing Page
+↓
+Botão de compra
+↓
+Link de checkout
+↓
+Checkout
+↓
+Webhook recebido
+↓
+Conversão registrada
+↓
+Evento enviado para pixel
+↓
+Dados aparecem nos relatórios
+```
 
 ```text
 Campanha

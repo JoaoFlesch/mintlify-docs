@@ -22,10 +22,6 @@ _(Vídeo de 2 a 4 minutos explicando a função das Ofertas dentro do ecossistem
 
 Uma Oferta é o cadastro do checkout ou página final responsável por receber a conversão do usuário.
 
-Quando você cadastra uma Oferta, você está dizendo ao Trackup:
-
-> “Quando eu enviar o visitante para finalizar a compra, este é o destino final da conversão.”
-
 Cada Oferta fica vinculada ao Projeto atual.
 
 ---
@@ -62,8 +58,6 @@ Após salvar, essa Oferta ficará disponível para ser utilizada em Links de Che
 ---
 
 **\[IMAGEM RECOMENDADA\]**
-
-FAZER UM GIF
 
 _(Utilizar exatamente o print que você me enviou. Destacar os dois campos: Nome da Oferta e URL de Redirecionamento. Talvez adicionar pequenas marcações indicando cada campo.)_
 
@@ -105,7 +99,10 @@ Esse Link utilizará uma Oferta previamente cadastrada.
 
 Exemplo:
 
-```text
+```text wrap
+[IMAGEM RECOMENDADA]
+
+(Diagrama simples mostrando botão da landing page levando para um Link de Checkout que referencia uma Oferta cadastrada.)
 Meta Ads
 ↓
 Landing Page
@@ -116,7 +113,7 @@ Link de Checkout do Trackup
 ↓
 Oferta cadastrada
 ↓
-Usuário vai para checkout
+Usuário vai para checkout 
 ↓
 Conversão acontece
 ```
@@ -124,79 +121,5 @@ Conversão acontece
 Toda essa estrutura ajuda o sistema a preservar os dados da jornada corretamente.
 
 ---
-
-**\[IMAGEM RECOMENDADA\]**
-
-_(Diagrama simples mostrando botão da landing page levando para um Link de Checkout que referencia uma Oferta cadastrada.)_
-
----
-
-# Boas práticas ao criar Ofertas
-
-Recomendamos seguir algumas práticas simples.
-
-### Utilize nomes descritivos
-
-Evite:
-
-```text
-Oferta 1
-teste produto x 
-checkout novo
-```
-
-Prefira:
-
-```text
-Checkout Principal 
-Frontend Financeiro
-Upsell Nutra V2
-```
-
----
-
-### Crie ofertas separadas para operações diferentes
-
-Não reutilize o mesmo checkout em operações completamente diferentes.
-
-Separar facilita organização.
-
----
-
-### Sempre valide a URL final
-
-Certifique-se que a URL cadastrada está funcionando corretamente antes de utilizar nos Links de Checkout.
-
----
-
-### Organize por funil
-
-Se sua operação possui múltiplas etapas.
-
-Exemplo:
-
-```text
-Oferta 1 → Frontend
-Oferta 2 → Upsell
-Oferta 3 → Order Bump
-```
-
----
-
-# Exemplo de estrutura recomendada
-
-```text
-Projeto → Nome do Produto
-
-Ofertas cadastradas
-
-• Checkout Principal
-• Upsell VSL
-• Oferta Recorrente
-• Oferta Order Bump
-```
-
-Organizar corretamente facilita muito a escalabilidade futura.\
-\\
 
 !!!!! PROXIMOS PASSOS CRIAR UM LINK DE CHECKOUT

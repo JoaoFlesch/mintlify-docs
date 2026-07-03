@@ -105,298 +105,272 @@ _(Gravação real da tela mostrando toda criação da estrutura em sequência, e
     </Steps>
 
     \
-    \
-    \
     **\[IMAGEM RECOMENDADA\]**\
     \
     _(Tela de integração de pixel Meta.)_
+
+    <Tip>
+      [Clique aqui e veja mais sobre Pixels](/pixels)
+    </Tip>
+  </Step>
+  <Step title="Cadastre sua Plataforma de Venda">
+    Agora configure a plataforma responsável por processar seus pagamentos.
+
+    Essa integração possui duas funções:
+
+    - Gerar parâmetros de checkout
+    - Receber webhooks de conversão\\
+    - Gerar parâmetros de checkout
+    - Receber webhooks de conversão\\
+
+    Para configurar:
+
+    - Vá em **Integrações → Plataforma de Venda**
+    - Escolha sua plataforma
+    - Configure parâmetros necessários
+    - Copie a URL de webhook\\
+    - Vá em **Integrações → Plataforma de Venda**
+    - Escolha sua plataforma
+    - Configure parâmetros necessários
+    - Copie a URL de webhook\\
+
+    **\[IMAGEM RECOMENDADA\]**\
+    \
+    _(Tela de criação de integração com plataforma de vendas.)_
+  </Step>
+  <Step title="Crie sua oferta">
+    A oferta representa o checkout final para onde o usuário será enviado.
+
+    Ela conecta o Trackup ao pagamento.
+
+    Você irá informar:
+
+    - Nome da oferta
+    - Plataforma utilizada
+    - URL do checkout\\
+    - Nome da oferta
+    - Plataforma utilizada
+    - URL do checkout\\
+
+    Exemplo:
+
+    ```text
+    Oferta → Produto Financeiro
+    Checkout → checkout.produto.com
+    ```
+
+    Sem uma oferta, não é possível criar links de checkout.
+
+    **\[IMAGEM RECOMENDADA\]**\
+    \
+    _(Tela de criação de oferta.)_
+  </Step>
+  <Step title="Crie o Link de Checkout">
+    Agora vamos criar o link responsável por enviar o usuário ao checkout mantendo todos os parâmetros de rastreamento.
+
+    Esse link preserva:
+
+    - UTMs
+    - Click ID
+    - Session ID
+    - Dados de atribuição\\
+    - UTMs
+    - Click ID
+    - Session ID
+    - Dados de atribuição\\
+
+    Fluxo:
+
+    ```text
+    Landing Page
+    ↓
+    Botão de compra
+    ↓
+    Link de Checkout
+    ↓
+    Checkout
+    ```
+
+    Para criar:
+
+    - Vá em **Links**
+    - Clique em **Novo Link**
+    - Escolha **Checkout**
+    - Vincule a oferta criada\\
+    - Vá em **Links**
+    - Clique em **Novo Link**
+    - Escolha **Checkout**
+    - Vincule a oferta criada\\
+
+    **\[IMAGEM RECOMENDADA\]**\
+    \
+    _(Tela criando link do tipo Checkout.)_
+  </Step>
+  <Step title="Crie sua Página">
+    Agora crie a página que receberá seus visitantes.
+
+    Métodos disponíveis:
+
+    - Builder
+    - Templates
+    - IA por Prompt
+    - Upload HTML
+    - Clonar URL
+    - Redirect\\
+    - Builder
+    - Templates
+    - IA por Prompt
+    - Upload HTML
+    - Clonar URL
+    - Redirect\\
+
+    Recomendação inicial:
+
+    ```text
+    Builder + Templates
+    ou
+    Builder com IA
+    ```
+
+    Para criar:
+
+    - Vá em **Páginas**
+    - Clique em **Nova Página**
+    - Escolha o método desejado\\
+    - Vá em **Páginas**
+    - Clique em **Nova Página**
+    - Escolha o método desejado\\
+
+    **\[IMAGEM RECOMENDADA\]**\
+    \
+    _(Tela mostrando todas as opções de criação de página.)_
+  </Step>
+  <Step title="Adicione o Link de Checkout no Botão de Compra">
+    Sua página precisa enviar o usuário corretamente para o checkout.
+
+    No botão principal da página:
+
+    ```text
+    Comprar Agora
+    ```
+
+    Configure como destino o **Link de Checkout** criado anteriormente.
+
+    Fluxo:
+
+    ```text
+    Usuário acessa página
+    ↓
+    Clica no botão
+    ↓
+    Trackup preserva parâmetros
+    ↓
+    Usuário chega no checkout
+    ```
+
+    Nunca utilize diretamente o link original do checkout.
+
+    Sempre utilize o link gerado pelo Trackup.
+
+    **\[IMAGEM RECOMENDADA\]**\
+    \
+    _(Editor da página mostrando botão configurado com link de checkout.)_
+  </Step>
+  <Step title="Crie um Link de Anúncio">
+    Agora precisamos criar o link que será utilizado dentro da plataforma de tráfego.
+
+    Esse link é responsável por capturar:
+
+    - UTMs
+    - Click IDs
+    - Dados da campanha
+    - Origem do tráfego\\
+    - UTMs
+    - Click IDs
+    - Dados da campanha
+    - Origem do tráfego\\
+
+    Fluxo:
+
+    ```text
+    Anúncio
+    ↓
+    Link de anúncio
+    ↓
+    Página
+    ```
+
+    Para criar:
+
+    - Vá em **Links**
+    - Clique em **Novo Link**
+    - Escolha **Link de Anúncio**
+    - Selecione a página criada anteriormente\\
+    - Vá em **Links**
+    - Clique em **Novo Link**
+    - Escolha **Link de Anúncio**
+    - Selecione a página criada anteriormente\\
+
+    **\[IMAGEM RECOMENDADA\]**\
+    \
+    _(Tela criando link do tipo Anúncio.)_
+  </Step>
+  <Step title="Lance suas Campanhas">
+    Agora toda infraestrutura está pronta.
+
+    Pegue o link de anúncio criado e utilize na sua campanha.
+
+    Exemplo:
+
+    ```text
+    Meta Ads
+    ↓
+    Usuário clica
+    ↓
+    Trackup registra acesso
+    ↓
+    Página carrega
+    ↓
+    Usuário vai para checkout
+    ↓
+    Conversão acontece
+    ```
+
+    A partir daqui o sistema começa a registrar todos os eventos automaticamente.
+
+    **\[IMAGEM RECOMENDADA\]**\
+    \
+    _(Diagrama mostrando anúncio → link → página → checkout.)_
+  </Step>
+  <Step title="Valide suas Conversões">
+    Antes de escalar campanhas, valide se toda estrutura está funcionando corretamente.
+
+    Checklist:
+
+    ```text
+    ✓ Domínio conectado
+    ✓ Pixel ativo
+    ✓ Plataforma de venda integrada
+    ✓ Oferta criada
+    ✓ Link de checkout funcionando
+    ✓ Página publicada
+    ✓ Link de anúncio criado
+    ✓ Eventos sendo enviados
+    ✓ Conversões sendo registradas
+    ```
+
+    Verifique principalmente os módulos:
+
+    - Requisições
+    - Visitors
+    - Conversões\\
+    - Requisições
+    - Visitors
+    - Conversões\\
+
+    Se tudo estiver aparecendo corretamente, sua operação está pronta.
   </Step>
 </Steps>
-
----
-
-# Passo 4 — Cadastre sua Plataforma de Venda
-
-Agora configure a plataforma responsável por processar seus pagamentos.
-
-Essa integração possui duas funções:
-
-- Gerar parâmetros de checkout
-- Receber webhooks de conversão\\
-- Gerar parâmetros de checkout
-- Receber webhooks de conversão\\
-
-Para configurar:
-
-- Vá em **Integrações → Plataforma de Venda**
-- Escolha sua plataforma
-- Configure parâmetros necessários
-- Copie a URL de webhook\\
-- Vá em **Integrações → Plataforma de Venda**
-- Escolha sua plataforma
-- Configure parâmetros necessários
-- Copie a URL de webhook\\
-
-**\[IMAGEM RECOMENDADA\]**\
-\
-_(Tela de criação de integração com plataforma de vendas.)_
-
----
-
-# Passo 5 — Crie sua Oferta
-
-A oferta representa o checkout final para onde o usuário será enviado.
-
-Ela conecta o Trackup ao pagamento.
-
-Você irá informar:
-
-- Nome da oferta
-- Plataforma utilizada
-- URL do checkout\\
-- Nome da oferta
-- Plataforma utilizada
-- URL do checkout\\
-
-Exemplo:
-
-```text
-Oferta → Produto Financeiro
-Checkout → checkout.produto.com
-```
-
-Sem uma oferta, não é possível criar links de checkout.
-
-**\[IMAGEM RECOMENDADA\]**\
-\
-_(Tela de criação de oferta.)_
-
----
-
-# Passo 6 — Crie o Link de Checkout
-
-Agora vamos criar o link responsável por enviar o usuário ao checkout mantendo todos os parâmetros de rastreamento.
-
-Esse link preserva:
-
-- UTMs
-- Click ID
-- Session ID
-- Dados de atribuição\\
-- UTMs
-- Click ID
-- Session ID
-- Dados de atribuição\\
-
-Fluxo:
-
-```text
-Landing Page
-↓
-Botão de compra
-↓
-Link de Checkout
-↓
-Checkout
-```
-
-Para criar:
-
-- Vá em **Links**
-- Clique em **Novo Link**
-- Escolha **Checkout**
-- Vincule a oferta criada\\
-- Vá em **Links**
-- Clique em **Novo Link**
-- Escolha **Checkout**
-- Vincule a oferta criada\\
-
-**\[IMAGEM RECOMENDADA\]**\
-\
-_(Tela criando link do tipo Checkout.)_
-
----
-
-# Passo 7 — Crie sua Página
-
-Agora crie a página que receberá seus visitantes.
-
-Métodos disponíveis:
-
-- Builder
-- Templates
-- IA por Prompt
-- Upload HTML
-- Clonar URL
-- Redirect\\
-- Builder
-- Templates
-- IA por Prompt
-- Upload HTML
-- Clonar URL
-- Redirect\\
-
-Recomendação inicial:
-
-```text
-Builder + Templates
-ou
-Builder com IA
-```
-
-Para criar:
-
-- Vá em **Páginas**
-- Clique em **Nova Página**
-- Escolha o método desejado\\
-- Vá em **Páginas**
-- Clique em **Nova Página**
-- Escolha o método desejado\\
-
-**\[IMAGEM RECOMENDADA\]**\
-\
-_(Tela mostrando todas as opções de criação de página.)_
-
----
-
-# Passo 8 — Adicione o Link de Checkout no Botão de Compra
-
-Sua página precisa enviar o usuário corretamente para o checkout.
-
-No botão principal da página:
-
-```text
-Comprar Agora
-```
-
-Configure como destino o **Link de Checkout** criado anteriormente.
-
-Fluxo:
-
-```text
-Usuário acessa página
-↓
-Clica no botão
-↓
-Trackup preserva parâmetros
-↓
-Usuário chega no checkout
-```
-
-Nunca utilize diretamente o link original do checkout.
-
-Sempre utilize o link gerado pelo Trackup.
-
-**\[IMAGEM RECOMENDADA\]**\
-\
-_(Editor da página mostrando botão configurado com link de checkout.)_
-
----
-
-# Passo 9 — Crie um Link de Anúncio
-
-Agora precisamos criar o link que será utilizado dentro da plataforma de tráfego.
-
-Esse link é responsável por capturar:
-
-- UTMs
-- Click IDs
-- Dados da campanha
-- Origem do tráfego\\
-- UTMs
-- Click IDs
-- Dados da campanha
-- Origem do tráfego\\
-
-Fluxo:
-
-```text
-Anúncio
-↓
-Link de anúncio
-↓
-Página
-```
-
-Para criar:
-
-- Vá em **Links**
-- Clique em **Novo Link**
-- Escolha **Link de Anúncio**
-- Selecione a página criada anteriormente\\
-- Vá em **Links**
-- Clique em **Novo Link**
-- Escolha **Link de Anúncio**
-- Selecione a página criada anteriormente\\
-
-**\[IMAGEM RECOMENDADA\]**\
-\
-_(Tela criando link do tipo Anúncio.)_
-
----
-
-# Passo 10 — Lance suas Campanhas
-
-Agora toda infraestrutura está pronta.
-
-Pegue o link de anúncio criado e utilize na sua campanha.
-
-Exemplo:
-
-```text
-Meta Ads
-↓
-Usuário clica
-↓
-Trackup registra acesso
-↓
-Página carrega
-↓
-Usuário vai para checkout
-↓
-Conversão acontece
-```
-
-A partir daqui o sistema começa a registrar todos os eventos automaticamente.
-
-**\[IMAGEM RECOMENDADA\]**\
-\
-_(Diagrama mostrando anúncio → link → página → checkout.)_
-
----
-
-# Passo 11 — Valide suas Conversões
-
-Antes de escalar campanhas, valide se toda estrutura está funcionando corretamente.
-
-Checklist:
-
-```text
-✓ Domínio conectado
-✓ Pixel ativo
-✓ Plataforma de venda integrada
-✓ Oferta criada
-✓ Link de checkout funcionando
-✓ Página publicada
-✓ Link de anúncio criado
-✓ Eventos sendo enviados
-✓ Conversões sendo registradas
-```
-
-Verifique principalmente os módulos:
-
-- Requisições
-- Visitors
-- Conversões\\
-- Requisições
-- Visitors
-- Conversões\\
-
-Se tudo estiver aparecendo corretamente, sua operação está pronta.
-
-**\[IMAGEM RECOMENDADA\]**\
-\
-_(Painel mostrando conversão registrada com visitor e eventos processados.)_
 
 ---
 

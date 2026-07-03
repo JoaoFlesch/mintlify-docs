@@ -113,15 +113,29 @@ _(Gravação real da tela mostrando toda criação da estrutura em sequência, e
     Para configurar:
 
     <Steps>
-      <Step title="Vá em Integrações → Plataforma de Venda">
+      <Step title="Vá em Integrações">
       </Step>
+      <Step title="Plataforma de vendas">
+      </Step>
+      <Step title="+ Adicionar plataforma">
+      </Step>
+    </Steps>
+
+    ![Plataforma De Vendas 01](/images/plataforma-de-vendas-01.png)
+
+    <Steps>
       <Step title="Escolha sua plataforma">
       </Step>
-      <Step title="Configure parâmetros necessários">
+      <Step title="Configure parâmetros adicionais caso necessários">
       </Step>
+      <Step title="Salvar">
+      </Step>
+    </Steps>
+
+    ![Plataforma De Vendas 02](/images/plataforma-de-vendas-02.png)
+
+    <Steps>
       <Step title="Copie a URL de webhook">
-      </Step>
-      <Step title="Salve">
       </Step>
       <Step title="Siga o restante da integração conforme sua Plataforma de Vendas">
         <Info>
@@ -130,9 +144,7 @@ _(Gravação real da tela mostrando toda criação da estrutura em sequência, e
       </Step>
     </Steps>
 
-    **\[IMAGEM RECOMENDADA\]**\
-    \
-    _(Tela de criação de integração com plataforma de vendas.)_
+    ![Plataforma De Vendas 03](/images/plataforma-de-vendas-03.png)
 
     <Tip>
       [Clique aqui e veja mais sobre Plataformas de Venda](/integrando-suas-plataformas-de-venda)
@@ -143,56 +155,67 @@ _(Gravação real da tela mostrando toda criação da estrutura em sequência, e
 
     Ela conecta o Trackup ao pagamento.
 
-    Você irá informar:
+    <Steps>
+      <Step title="Vá em Ofertas">
+      </Step>
+      <Step title="+ Adicionar oferta">
+      </Step>
+    </Steps>
 
-    - Nome da oferta
-    - URL do checkout
+    ![Offer 01](/images/offer-01.png)
+
+    <Steps>
+      <Step title="Insira um nome para sua Oferta">
+        Ex: **Checkout Product 01**
+      </Step>
+      <Step title="Informe a URL do seu checkout">
+      </Step>
+      <Step title="Salvar">
+      </Step>
+    </Steps>
+
+    <Frame>
+      ![Offer 02](/images/offer-02.png)
+    </Frame>
 
     Sem uma oferta, não é possível criar links de checkout.
-
-    **\[IMAGEM RECOMENDADA\]**\
-    \
-    _(Tela de criação de oferta.)_
 
     <Tip>
       [Clique aqui e veja mais sobre Ofertas](/ofertas)
     </Tip>
   </Step>
   <Step title="Crie o Link de Checkout">
-    Agora vamos criar o link responsável por enviar o usuário ao checkout mantendo todos os parâmetros de rastreamento e registrando um evento de <Badge>start_checkout</Badge>
+    Agora vamos criar o link responsável por enviar o usuário ao checkout mantendo todos os parâmetros de rastreamento e registrando um evento de <Badge>start_checkout</Badge> dentro do Trackup
 
     Esse link preserva: <Badge>UTMs</Badge>  <Badge>Click ID</Badge>  <Badge>Session ID</Badge>  <Badge>Dados de atribuição</Badge>
-
-    Fluxo:
-
-    ```text
-    Landing Page
-    ↓
-    Botão de compra
-    ↓
-    Link de Checkout
-    ↓
-    Checkout
-    ```
-
-    Para criar:
 
     <Steps>
       <Step title="Vá em Links">
       </Step>
-      <Step title="Clique em NovoLink">
-      </Step>
-      <Step title="Escolha tipo de link checkout">
-      </Step>
-      <Step title="Vincule a oferta criada">
-      </Step>
-      <Step title="Salve">
+      <Step title="+ Adicionar Link">
       </Step>
     </Steps>
 
-    **\[IMAGEM RECOMENDADA\]**\
-    \
-    _(Tela criando link do tipo Checkout.)_
+    <Frame>
+      ![Create Link](/images/create-link.png)
+    </Frame>
+
+    <Steps>
+      <Step title="Insira um nome para sua organização">
+      </Step>
+      <Step title="Em Tipo, selecione Checkout">
+      </Step>
+      <Step title="Escolha a oferta criada anteriormente">
+      </Step>
+      <Step title="Escolha a plataforma de vendas criada anteriormente">
+      </Step>
+      <Step title="Salvar">
+      </Step>
+    </Steps>
+
+    <Frame>
+      ![Link De Checkout](/images/link-de-checkout.png)
+    </Frame>
 
     <Tip>
       [Clique aqui e veja mais sobre Links](/links)
@@ -220,19 +243,47 @@ _(Gravação real da tela mostrando toda criação da estrutura em sequência, e
       </Column>
     </Columns>
 
-    Para criar:
-
     <Steps>
       <Step title="Vá em Páginas">
       </Step>
       <Step title="Clique em Nova Página">
       </Step>
+    </Steps>
+
+    ![Create Pages](/images/create-pages.png)
+
+    <Steps>
       <Step title="Escolha o método desejado">
         Se você já tiver uma página a opção de [Redirect](/redirect) é a mais rápida de iniciar
+
+        Neste exemplos usaremos um template do Page Builder
+      </Step>
+      <Step title="Informe um nome para a página">
+      </Step>
+      <Step title="Salvar">
       </Step>
     </Steps>
 
-    **\[IMAGEM RECOMENDADA\]**\
+    ![Builder 01 1](/images/builder-01-1.png)
+
+    <Steps>
+      <Step title="Clique em editar no builder">
+      </Step>
+    </Steps>
+
+    <Frame>
+      ![Builder 2](/images/builder-2.png)
+    </Frame>
+
+    <Steps>
+      <Step>
+      </Step>
+    </Steps>
+
+    fewefw
+
+    dsfs
+
     \
     _(Tela mostrando todas as opções de criação de página.)_
 

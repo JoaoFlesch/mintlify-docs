@@ -27,7 +27,7 @@ _(Gravação real da tela mostrando toda criação da estrutura em sequência, e
 ---
 
 <Steps>
-  <Step title="Configure seu Workspace">
+  <Step title="Configure seu Workspace" titleSize="h2">
     Comece criando seu time e projeto
 
     Todo projeto representa uma operação independente dentro do Trackup.
@@ -60,7 +60,7 @@ _(Gravação real da tela mostrando toda criação da estrutura em sequência, e
       [Clique aqui e veja mais sobre times, projetos e membros](/times-projetos)
     </Tip>
   </Step>
-  <Step title="Configure seu Domínio">
+  <Step title="Configure seu Domínio" titleSize="h2">
     Todo projeto recebe um domínio padrão, mas recomendamos conectar seu próprio domínio, através de um subdominio
 
     ```text
@@ -79,7 +79,7 @@ _(Gravação real da tela mostrando toda criação da estrutura em sequência, e
       [Clique aqui e veja mais sobre domínios](/dominios)
     </Tip>
   </Step>
-  <Step title="Conecte seu Pixel">
+  <Step title="Conecte seu Pixel" titleSize="h2">
     Agora conecte a plataforma onde seus eventos serão enviados.
 
     Atualmente suportamos:\
@@ -113,30 +113,41 @@ _(Gravação real da tela mostrando toda criação da estrutura em sequência, e
       [Clique aqui e veja mais sobre Pixels](/pixels)
     </Tip>
   </Step>
-  <Step title="Cadastre sua Plataforma de Venda">
+  <Step title="Cadastre sua Plataforma de Venda" titleSize="h2">
     Agora configure a plataforma responsável por processar seus pagamentos.
 
     Essa integração possui duas funções:
 
     - Gerar parâmetros de checkout
-    - Receber webhooks de conversão\\
-    - Gerar parâmetros de checkout
-    - Receber webhooks de conversão\\
+    - Receber webhooks de conversão
 
     Para configurar:
 
-    - Vá em **Integrações → Plataforma de Venda**
-    - Escolha sua plataforma
-    - Configure parâmetros necessários
-    - Copie a URL de webhook\\
-    - Vá em **Integrações → Plataforma de Venda**
-    - Escolha sua plataforma
-    - Configure parâmetros necessários
-    - Copie a URL de webhook\\
+    <Steps>
+      <Step title="Vá em Integrações → Plataforma de Venda">
+      </Step>
+      <Step title="Escolha sua plataforma">
+      </Step>
+      <Step title="Configure parâmetros necessários">
+      </Step>
+      <Step title="Copie a URL de webhook">
+      </Step>
+      <Step title="Salve">
+      </Step>
+      <Step title="Siga o restante da integração conforme sua Plataforma de Vendas">
+        <Info>
+          [Integre com sua Plataformas de Venda](/integrando-suas-plataformas-de-venda)
+        </Info>
+      </Step>
+    </Steps>
 
     **\[IMAGEM RECOMENDADA\]**\
     \
     _(Tela de criação de integração com plataforma de vendas.)_
+
+    <Tip>
+      [Clique aqui e veja mais sobre Plataformas de Venda](/integrando-suas-plataformas-de-venda)
+    </Tip>
   </Step>
   <Step title="Crie sua oferta">
     A oferta representa o checkout final para onde o usuário será enviado.
@@ -146,38 +157,22 @@ _(Gravação real da tela mostrando toda criação da estrutura em sequência, e
     Você irá informar:
 
     - Nome da oferta
-    - Plataforma utilizada
-    - URL do checkout\\
-    - Nome da oferta
-    - Plataforma utilizada
-    - URL do checkout\\
-
-    Exemplo:
-
-    ```text
-    Oferta → Produto Financeiro
-    Checkout → checkout.produto.com
-    ```
+    - URL do checkout
 
     Sem uma oferta, não é possível criar links de checkout.
 
     **\[IMAGEM RECOMENDADA\]**\
     \
     _(Tela de criação de oferta.)_
+
+    <Tip>
+      [Clique aqui e veja mais sobre Ofertas](/ofertas)
+    </Tip>
   </Step>
   <Step title="Crie o Link de Checkout">
-    Agora vamos criar o link responsável por enviar o usuário ao checkout mantendo todos os parâmetros de rastreamento.
+    Agora vamos criar o link responsável por enviar o usuário ao checkout mantendo todos os parâmetros de rastreamento e registrando um evento de <Badge>start_checkout</Badge>
 
-    Esse link preserva:
-
-    - UTMs
-    - Click ID
-    - Session ID
-    - Dados de atribuição\\
-    - UTMs
-    - Click ID
-    - Session ID
-    - Dados de atribuição\\
+    Esse link preserva: <Badge>UTMs</Badge>  <Badge>Click ID</Badge>  <Badge>Session ID</Badge>  <Badge>Dados de atribuição</Badge>
 
     Fluxo:
 
@@ -193,84 +188,77 @@ _(Gravação real da tela mostrando toda criação da estrutura em sequência, e
 
     Para criar:
 
-    - Vá em **Links**
-    - Clique em **Novo Link**
-    - Escolha **Checkout**
-    - Vincule a oferta criada\\
-    - Vá em **Links**
-    - Clique em **Novo Link**
-    - Escolha **Checkout**
-    - Vincule a oferta criada\\
+    <Steps>
+      <Step title="Vá em Links">
+      </Step>
+      <Step title="Clique em NovoLink">
+      </Step>
+      <Step title="Escolha tipo de link checkout">
+      </Step>
+      <Step title="Vincule a oferta criada">
+      </Step>
+      <Step title="Salve">
+      </Step>
+    </Steps>
 
     **\[IMAGEM RECOMENDADA\]**\
     \
     _(Tela criando link do tipo Checkout.)_
+
+    <Tip>
+      [Clique aqui e veja mais sobre Links](/links)
+    </Tip>
   </Step>
   <Step title="Crie sua Página">
     Agora crie a página que receberá seus visitantes.
 
     Métodos disponíveis:
 
-    - Builder
-    - Templates
-    - IA por Prompt
-    - Upload HTML
-    - Clonar URL
-    - Redirect\\
-    - Builder
-    - Templates
-    - IA por Prompt
-    - Upload HTML
-    - Clonar URL
-    - Redirect\\
+    <Columns cols={2}>
+      <Column>
+        <Card title="Redirect" icon="external-link" href="/redirect" cta="Veja mais">
+        </Card>
 
-    Recomendação inicial:
+        <Card title="Upload HTML" icon="cloud-upload" href="/upload-html" cta="Veja mais">
+        </Card>
+      </Column>
+      <Column>
+        <Card title="Builder" icon="layout-template" href="/builder" cta="Veja mais">
+        </Card>
 
-    ```text
-    Builder + Templates
-    ou
-    Builder com IA
-    ```
+        <Card title="Clonar URL" icon="copy" href="clonar-url" cta="Veja mais">
+        </Card>
+      </Column>
+    </Columns>
 
     Para criar:
 
-    - Vá em **Páginas**
-    - Clique em **Nova Página**
-    - Escolha o método desejado\\
-    - Vá em **Páginas**
-    - Clique em **Nova Página**
-    - Escolha o método desejado\\
+    <Steps>
+      <Step title="Vá em Páginas">
+      </Step>
+      <Step title="Clique em Nova Página">
+      </Step>
+      <Step title="Escolha o método desejado">
+        Se você já tiver uma página a opção de [Redirect](/redirect) é a mais rápida de iniciar
+      </Step>
+    </Steps>
 
     **\[IMAGEM RECOMENDADA\]**\
     \
     _(Tela mostrando todas as opções de criação de página.)_
+
+    <Tip>
+      [Clique aqui e veja mais sobre Páginas](/entendendo-paginas)
+    </Tip>
   </Step>
   <Step title="Adicione o Link de Checkout no Botão de Compra">
     Sua página precisa enviar o usuário corretamente para o checkout.
 
-    No botão principal da página:
-
-    ```text
-    Comprar Agora
-    ```
-
     Configure como destino o **Link de Checkout** criado anteriormente.
 
-    Fluxo:
+    Evite utilizar diretamente o link original do checkout, pois assim o rastreamento pode ser comprometido 
 
-    ```text
-    Usuário acessa página
-    ↓
-    Clica no botão
-    ↓
-    Trackup preserva parâmetros
-    ↓
-    Usuário chega no checkout
-    ```
-
-    Nunca utilize diretamente o link original do checkout.
-
-    Sempre utilize o link gerado pelo Trackup.
+    Prefira utilizar o link gerado pelo Trackup.
 
     **\[IMAGEM RECOMENDADA\]**\
     \
@@ -281,60 +269,35 @@ _(Gravação real da tela mostrando toda criação da estrutura em sequência, e
 
     Esse link é responsável por capturar:
 
-    - UTMs
-    - Click IDs
-    - Dados da campanha
-    - Origem do tráfego\\
-    - UTMs
-    - Click IDs
-    - Dados da campanha
-    - Origem do tráfego\\
-
-    Fluxo:
-
-    ```text
-    Anúncio
-    ↓
-    Link de anúncio
-    ↓
-    Página
-    ```
+    <Badge>page_view</Badge>  <Badge>ad_click</Badge>  <Badge>start_checkout</Badge>  <Badge>conversion</Badge>
 
     Para criar:
 
-    - Vá em **Links**
-    - Clique em **Novo Link**
-    - Escolha **Link de Anúncio**
-    - Selecione a página criada anteriormente\\
-    - Vá em **Links**
-    - Clique em **Novo Link**
-    - Escolha **Link de Anúncio**
-    - Selecione a página criada anteriormente\\
+    <Steps>
+      <Step title="Vá em Links">
+      </Step>
+      <Step title="Clique em Novo Link">
+      </Step>
+      <Step title="Escolha Link de Anúncio">
+      </Step>
+      <Step title="Selecione a página criada anteriormente">
+      </Step>
+      <Step title="Salve">
+      </Step>
+    </Steps>
 
     **\[IMAGEM RECOMENDADA\]**\
     \
     _(Tela criando link do tipo Anúncio.)_
+
+    <Tip>
+      [Clique aqui e veja mais sobre Links](/links)
+    </Tip>
   </Step>
   <Step title="Lance suas Campanhas">
     Agora toda infraestrutura está pronta.
 
-    Pegue o link de anúncio criado e utilize na sua campanha.
-
-    Exemplo:
-
-    ```text
-    Meta Ads
-    ↓
-    Usuário clica
-    ↓
-    Trackup registra acesso
-    ↓
-    Página carrega
-    ↓
-    Usuário vai para checkout
-    ↓
-    Conversão acontece
-    ```
+    Pegue o link de anúncio criado juntamente com os parâmetros fornecidos pelo Trackup e utilize na sua campanha.
 
     A partir daqui o sistema começa a registrar todos os eventos automaticamente.
 
@@ -361,12 +324,20 @@ _(Gravação real da tela mostrando toda criação da estrutura em sequência, e
 
     Verifique principalmente os módulos:
 
-    - Requisições
-    - Visitors
-    - Conversões\\
-    - Requisições
-    - Visitors
-    - Conversões\\
+    <Columns cols={3}>
+      <Column>
+        <Card title="Requisições" icon="code" href="/requisicoes" cta="Veja mais">
+        </Card>
+      </Column>
+      <Column>
+        <Card title="Visitantes" icon="user-round-search" href="/visitantes" cta="Veja mais">
+        </Card>
+      </Column>
+      <Column>
+        <Card title="Conversões" icon="tag" href="/conversoes" cta="Veja mais">
+        </Card>
+      </Column>
+    </Columns>
 
     Se tudo estiver aparecendo corretamente, sua operação está pronta.
   </Step>
@@ -398,50 +369,6 @@ Evento enviado para pixel
 Dados aparecem nos relatórios
 ```
 
-```text
-Campanha
-↓
-Link de anúncio
-↓
-Landing Page
-↓
-Botão de compra
-↓
-Link de checkout
-↓
-Checkout
-↓
-Webhook recebido
-↓
-Conversão registrada
-↓
-Evento enviado para pixel
-↓
-Dados aparecem nos relatórios
-```
-
 Essa é a arquitetura padrão utilizada pela maioria das operações dentro do Trackup.
 
----
-
-# Próximos passos
-
-Sua infraestrutura inicial está pronta.
-
-Agora recomendamos explorar cada módulo individualmente.
-
-Continue por aqui:
-
-→ Times e Projetos\
-\
-→ Páginas\
-\
-→ Links\
-\
-→ Acionadores\
-\
-→ Visitors\
-\
-→ Conversões\
-\
-→ Integrações
+Caso você tenha uma operação diferente ou ficou com alguma dúvida, entre em contato com nosso suporte.

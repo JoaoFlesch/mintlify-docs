@@ -5,11 +5,27 @@ description: "Conecte qualquer plataforma de vendas ao Trackup utilizando um web
 
 Utilize esta integração quando sua plataforma de checkout ou vendas **não possui integração nativa com o Trackup**.
 
-Após configurar o webhook, toda venda, reembolso ou chargeback poderá ser enviado automaticamente para o Trackup, permitindo registrar conversões, disparar pixels e alimentar seus relatórios.
+Após configurar o webhook conversões, reembolso e chargebacks poderem ser enviado para o Trackup, via POST JSON, permitindo registrar conversões, disparar pixels e alimentar seus relatórios.
+
+## Referência rápida
+
+```text
+POST https://{dominio}/api/webhook/{code}
+Content-Type: application/json
+
+{
+  "event": "paid",
+  "transaction_id": "order_123",
+  "value": 99.9,
+  "currency": "BRL",
+  "request_id": "550e8400-e29b-41d4-a716-446655440000",
+  "payment_method": "credit_card"
+}
+```
 
 <Steps>
   <Step title="Criar a integração dentro do TrackUp" titleSize="h2">
-     Acesse:
+    Acesse:
 
     ```text
     Projeto → Integrações → Plataformas de Venda
@@ -26,6 +42,8 @@ Após configurar o webhook, toda venda, reembolso ou chargeback poderá ser envi
     ```text
     Webhook Genérico
     ```
+
+    ![Plataforma De Vendas 01](/images/plataforma-de-vendas-01.png)
   </Step>
   <Step title="Configurar os parâmetros do Checkout" titleSize="h2">
     Ao selecionar **Webhook Genérico**, o Trackup irá sugerir automaticamente os principais parâmetros de rastreamento.
@@ -40,17 +58,51 @@ Após configurar o webhook, toda venda, reembolso ou chargeback poderá ser envi
 
     Você também pode enviar outros parâmetros para utilização dentro do checkout, como:
 
-    - UTM Source
-    - UTM Medium
-    - UTM Campaign
-    - UTM Content
-    - UTM Term
-    - Click ID
-    - Subs
-    - IDs de campanha
-    - Dados do visitante
+    ### Preset padrão de parâmetros de checkout
+
+    Ao selecionar a plataforma **Genérico** no dashboard, os seguintes parâmetros são sugeridos automaticamente:
+
+    | Parâmetro na URL de checkout | Macro (valor) |
+    | :-- | :-- |
+    | `request_id` | `{request.id}` |
+    | `utm_source` | `{request.utmSource}` |
+    | `utm_medium` | `{request.utmMedium}` |
+    | `utm_campaign` | `{request.utmCampaign}` |
+    | `utm_term` | `{request.utmTerm}` |
+    | `utm_content` | `{request.utmContent}` |
 
     Esses parâmetros são opcionais e servem apenas para utilização dentro da sua plataforma.
+
+    ### Macros adicionais disponíveis na URL de checkout
+
+    Além das UTMs, é possível usar qualquer macro `{request.<campo>}` na configuração de parâmetros do checkout:
+
+    | Campo | Descrição |
+    | :-- | :-- |
+    | `id` | Request ID (mesmo valor de `request_id`) |
+    | `linkId` | ID do link |
+    | `clickId` | Click ID |
+    | `trafficSource` | Origem do tráfego |
+    | `sub1` – `sub8` | Sub IDs 1 a 8 |
+    | `adPlatform` | Plataforma de anúncios |
+    | `adAccountId` | ID da conta de anúncios |
+    | `campaignId` | ID da campanha |
+    | `adsetId` | ID do conjunto de anúncios |
+    | `adId` | ID do criativo |
+    | `visitorId` | ID do visitante |
+    | `country` | País |
+    | `city` | Cidade |
+    | `state` | Estado |
+    | `browser` | Navegador |
+    | `os` | Sistema operacional |
+    | `device` | Tipo de dispositivo |
+    | `browserLanguage` | Idioma do navegador |
+    | `host` | Host da requisição |
+    | `path` | Path da requisição |
+
+    Formato: `{request.<campo>}` — exemplo: `{request.clickId}`, `{request.sub1}`.
+
+    > Esses campos são injetados na URL de checkout, **não** no body do webhook. O webhook precisa apenas devolver o `request_id` para que a atribuição seja resolvida.
   </Step>
   <Step title="Copiar a URL do Webhook" titleSize="h2">
     Após salvar a integração, o Trackup irá gerar automaticamente uma URL exclusiva.
@@ -70,91 +122,149 @@ Após configurar o webhook, toda venda, reembolso ou chargeback poderá ser envi
   <Step title="Enviar o webhook após cada venda" titleSize="h2">
     Sempre que ocorrer um evento de pagamento, sua plataforma deverá realizar um POST para a URL gerada pelo Trackup.
 
-    Recomendamos utilizar:
-
-    ```text
-    POST
-    Content-Type: application/json
-    ```
-
-    Payload mínimo:
-
-    ```text
-    {
-      "event": "paid",
-      "transaction_id": "pedido_123",
-      "value": 99.90,
-      "currency": "BRL",
-      "request_id": "550e8400-e29b-41d4-a716-446655440000"
-    }
-    ```
-
-    O campo **request\_id** deve ser exatamente o mesmo recebido quando o usuário acessou o checkout.
-
-    É através dele que o Trackup identifica:
-
-    - campanha
-    - anúncio
-    - UTM's
-    - Click ID
-    - Subs
-    - plataforma de tráfego
-    - geolocalização
-    - dispositivo
-    - e todos os demais dados da conversão.
-  </Step>
-  <Step title="Enviar eventos futuros" titleSize="h2">
-    Além da venda aprovada, você também pode informar alterações no status da transação.
-
-    Os eventos aceitos atualmente são:
-
-    | Evento | Resultado |
+    | Propriedade | Valor |
     | :-- | :-- |
-    | `paid` | Registra uma venda |
-    | `refunded` | Marca a venda como reembolsada |
-    | `chargeback` | Marca a venda como chargeback |
+    | **URL** | `https://{dominio-primario}/api/webhook/{code}` |
+    | **Método recomendado** | `POST` |
+    | **Content-Type recomendado** | `application/json` |
 
-    Sempre utilize o mesmo **transaction\_id** da venda original.
-  </Step>
-  <Step title="Estrutura do Payload" titleSize="h2">
-    O Trackup espera receber um JSON semelhante ao exemplo abaixo.
+    - `{dominio-primario}` — domínio primário configurado no projeto.
+    - `{code}` — código único de 16 caracteres gerado ao criar a plataforma de vendas no dashboard.
 
-    ```text
+    > **Nota:** a rota aceita qualquer método HTTP. Também é possível enviar `application/x-www-form-urlencoded`, mas o contrato documentado é JSON via POST.
+
+    A URL completa é exibida no dashboard após salvar a plataforma de vendas do tipo **Generic**.
+
+    ## Payload 
+
+    Todos os campos são enviados no corpo da requisição (body).
+
+    ### Campos principais
+
+    | Campo | Tipo | Obrigatório | Descrição |
+    | --- | --- | --- | --- |
+    | `event` | string | Sim | Evento da transação. Valores reconhecidos: `paid`, `refunded`, `chargeback`. |
+    | `transaction_id` | string | Recomendado | ID único do pedido/transação. Usado para deduplicação. |
+    | `value` | number | Recomendado | Valor da transação. Arredondado para 2 casas decimais. Default: `0`. |
+    | `currency` | string | Opcional | Código da moeda (ex: `BRL`, `USD`). Convertido para uppercase. Vazio → `null`. |
+    | `request_id` | string | Recomendado | ID do clique original para atribuição de UTMs e dados de campanha. |
+    | `payment_method` | string | Opcional | Método de pagamento utilizado. Ver [valores aceitos](#payment_method--valores-aceitos). |
+
+    ### Objeto `customer` (opcional)
+
+    | Campo | Tipo | Descrição |
+    | --- | --- | --- |
+    | `customer.name` | string | Nome do comprador |
+    | `customer.email` | string | E-mail do comprador |
+    | `customer.phone` | string | Telefone do comprador |
+    | `customer.address.street` | string | Logradouro |
+    | `customer.address.city` | string | Cidade |
+    | `customer.address.state` | string | Estado |
+    | `customer.address.zip` | string | CEP |
+    | `customer.address.country` | string | País |
+
+    ### Exemplo completo
+
+    ```json
     {
       "event": "paid",
       "transaction_id": "order_123",
-      "value": 99.90,
+      "value": 99.9,
       "currency": "BRL",
       "request_id": "550e8400-e29b-41d4-a716-446655440000",
       "payment_method": "credit_card",
       "customer": {
-        "name": "João Silva",
-        "email": "joao@email.com",
-        "phone": "+5511999999999"
+        "name": "Jane Doe",
+        "email": "jane@example.com",
+        "phone": "+5511999999999",
+        "address": {
+          "street": "Rua Example 1",
+          "city": "São Paulo",
+          "state": "SP",
+          "zip": "01000-000",
+          "country": "BR"
+        }
       }
     }
     ```
 
-    ### Campos obrigatórios
+    ---
 
-    | Campo | Descrição |
-    | :-- | :-- |
-    | `event` | Evento enviado (`paid`, `refunded` ou `chargeback`) |
-    | `request_id` | Identificador do clique original |
-    | `transaction_id` | ID único da transação |
+    ## Eventos e status
 
-    ### Campos recomendados
+    | `event` | Status gravado | Comportamento |
+    | --- | --- | --- |
+    | `paid` | `paid` | Conversão registrada. Dispara triggers e pixels configurados. |
+    | `refunded` | `refunded` | Conversão registrada com status de reembolso. |
+    | `chargeback` | `chargeback` | Conversão registrada com status de chargeback. |
+    | Qualquer outro (`pending`, `cancelled`, etc.) | — | Evento ignorado. Nenhuma conversão é gravada. |
 
-    | Campo | Descrição |
-    | :-- | :-- |
-    | `value` | Valor da venda |
-    | `currency` | Moeda da transação |
-    | `payment_method` | Método de pagamento |
-    | `customer` | Dados do comprador |
+    ### Respostas de sucesso (HTTP 200)
+
+    **Pagamento confirmado:**
+
+    ```json
+    {
+      "ok": true,
+      "id": "<conversion-id>"
+    }
+    ```
+
+    **Reembolso ou chargeback:**
+
+    ```json
+    {
+      "ok": true,
+      "id": "<conversion-id>",
+      "status": "refunded"
+    }
+    ```
+
+    ```json
+    {
+      "ok": true,
+      "id": "<conversion-id>",
+      "status": "chargeback"
+    }
+    ```
+
+    **Evento não reconhecido (ignorado):**
+
+    ```json
+    {
+      "ok": true,
+      "ignored": true
+    }
+    ```
+
+    ### Desduplicação
+
+    Se a mesma combinação de `(projectId, webhookId, transactionId, status)` já foi registrada, a API retorna **HTTP 409**:
+
+    ```json
+    {
+      "error": "DUPLICATE_CONVERSION",
+      "transactionId": "order_123"
+    }
+    ```
+
+    Recomenda-se sempre enviar `transaction_id` para evitar registros duplicados e permitir reenvio seguro.
+
+    ---
+
+    ## `payment_method` — valores aceitos
+
+    | Valor enviado | Valor armazenado |
+    | --- | --- |
+    | `credit_card` | `credit_card` |
+    | `pix` | `pix` |
+    | `boleto` | `boleto` |
+    | `paypal` | `paypal` |
+    | `apple_pay` | `apple_pay` |
+    | `other` | `other` |
+    | ausente ou desconhecido | `null` |
   </Step>
 </Steps>
-
-\
 
 ---
 
@@ -164,12 +274,12 @@ O Webhook Genérico utiliza o **request\_id** como chave principal de rastreamen
 
 O fluxo funciona da seguinte forma:
 
-1. O visitante clica em um link do Trackup.\
-2. O Trackup gera um **request\_id** exclusivo.\
-3. Esse **request\_id** chega até o checkout através dos parâmetros da URL.\
-4. Sua plataforma salva esse identificador junto ao pedido.\
-5. Quando a venda acontece, o webhook devolve o mesmo **request\_id**.\
-6. O Trackup recupera automaticamente todas as informações da campanha e registra a conversão.\
+1. O visitante clica em um link do Trackup.\\
+2. O Trackup gera um **request\_id** exclusivo.\\
+3. Esse **request\_id** chega até o checkout através dos parâmetros da URL.\\
+4. Sua plataforma salva esse identificador junto ao pedido.\\
+5. Quando a venda acontece, o webhook devolve o mesmo **request\_id**.\\
+6. O Trackup recupera automaticamente todas as informações da campanha e registra a conversão.\\
 
 Dessa forma **não é necessário enviar UTMs no webhook**, pois elas já são recuperadas automaticamente pelo sistema.
 
@@ -181,9 +291,20 @@ Dessa forma **não é necessário enviar UTMs no webhook**, pois elas já são r
 - Sempre envie um `transaction_id` único.
 - Utilize `Content-Type: application/json`.
 - Reutilize o mesmo `transaction_id` para reembolsos e chargebacks.
-- Em caso de falha temporária, implemente novas tentativas de envio (retry).\
+- Em caso de falha temporária, implemente novas tentativas de envio (retry).
 
-\
+## Erros HTTP
+
+| Status | `error` | Quando ocorre |
+| :-- | :-- | :-- |
+| 404 | `SALES_PLATFORM_NOT_FOUND` | Código do webhook inválido ou plataforma não encontrada |
+| 404 | `PROJECT_NOT_FOUND` | Projeto associado não encontrado |
+| 404 | `TEAM_NOT_FOUND` | Time associado não encontrado |
+| 404 | `CONFIG_NOT_FOUND` | Configuração do projeto não encontrada |
+| 400 | `UNKNOWN_NETWORK` | Tipo de plataforma desconhecido |
+| 400 | `PARSE_ERROR` | Erro ao processar dados da conversão |
+| 409 | `DUPLICATE_CONVERSION` | Transação com mesmo ID e status já registrada |
+| 502 | `CURRENCY_CONVERSION_FAILED` | Falha ao converter moeda estrangeira para a moeda do projeto |
 
 <Check>
   ## Integração concluída

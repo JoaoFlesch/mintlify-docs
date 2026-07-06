@@ -1,0 +1,194 @@
+---
+title: "Webhook Genérico"
+description: "Conecte qualquer plataforma de vendas ao Trackup utilizando um webhook personalizado."
+---
+
+Utilize esta integração quando sua plataforma de checkout ou vendas **não possui integração nativa com o Trackup**.
+
+Após configurar o webhook, toda venda, reembolso ou chargeback poderá ser enviado automaticamente para o Trackup, permitindo registrar conversões, disparar pixels e alimentar seus relatórios.
+
+<Steps>
+  <Step title="Criar a integração dentro do TrackUp" titleSize="h2">
+     Acesse:
+
+    ```text
+    Projeto → Integrações → Plataformas de Venda
+    ```
+
+    Clique em:
+
+    ```text
+    + Adicionar Plataforma
+    ```
+
+    Selecione:
+
+    ```text
+    Webhook Genérico
+    ```
+  </Step>
+  <Step title="Configurar os parâmetros do Checkout" titleSize="h2">
+    Ao selecionar **Webhook Genérico**, o Trackup irá sugerir automaticamente os principais parâmetros de rastreamento.
+
+    O único parâmetro realmente obrigatório é:
+
+    ```text
+    request_id = {request.id}
+    ```
+
+    Ele será responsável por identificar o clique original e realizar toda a atribuição da conversão.
+
+    Você também pode enviar outros parâmetros para utilização dentro do checkout, como:
+
+    - UTM Source
+    - UTM Medium
+    - UTM Campaign
+    - UTM Content
+    - UTM Term
+    - Click ID
+    - Subs
+    - IDs de campanha
+    - Dados do visitante
+
+    Esses parâmetros são opcionais e servem apenas para utilização dentro da sua plataforma.
+  </Step>
+  <Step title="Copiar a URL do Webhook" titleSize="h2">
+    Após salvar a integração, o Trackup irá gerar automaticamente uma URL exclusiva.
+
+    Exemplo:
+
+    ```text
+    Webhook URL
+    
+    https://trackup.me/api/webhook/xxxxxxxxxxxxxxxx
+    ```
+
+    Copie essa URL.
+
+    Ela será utilizada pela sua plataforma para enviar as notificações de venda.
+  </Step>
+  <Step title="Enviar o webhook após cada venda" titleSize="h2">
+    Sempre que ocorrer um evento de pagamento, sua plataforma deverá realizar um POST para a URL gerada pelo Trackup.
+
+    Recomendamos utilizar:
+
+    ```text
+    POST
+    Content-Type: application/json
+    ```
+
+    Payload mínimo:
+
+    ```text
+    {
+      "event": "paid",
+      "transaction_id": "pedido_123",
+      "value": 99.90,
+      "currency": "BRL",
+      "request_id": "550e8400-e29b-41d4-a716-446655440000"
+    }
+    ```
+
+    O campo **request\_id** deve ser exatamente o mesmo recebido quando o usuário acessou o checkout.
+
+    É através dele que o Trackup identifica:
+
+    - campanha
+    - anúncio
+    - UTM's
+    - Click ID
+    - Subs
+    - plataforma de tráfego
+    - geolocalização
+    - dispositivo
+    - e todos os demais dados da conversão.
+  </Step>
+  <Step title="Enviar eventos futuros" titleSize="h2">
+    Além da venda aprovada, você também pode informar alterações no status da transação.
+
+    Os eventos aceitos atualmente são:
+
+    | Evento | Resultado |
+    | :-- | :-- |
+    | `paid` | Registra uma venda |
+    | `refunded` | Marca a venda como reembolsada |
+    | `chargeback` | Marca a venda como chargeback |
+
+    Sempre utilize o mesmo **transaction\_id** da venda original.
+  </Step>
+  <Step title="Estrutura do Payload" titleSize="h2">
+    O Trackup espera receber um JSON semelhante ao exemplo abaixo.
+
+    ```text
+    {
+      "event": "paid",
+      "transaction_id": "order_123",
+      "value": 99.90,
+      "currency": "BRL",
+      "request_id": "550e8400-e29b-41d4-a716-446655440000",
+      "payment_method": "credit_card",
+      "customer": {
+        "name": "João Silva",
+        "email": "joao@email.com",
+        "phone": "+5511999999999"
+      }
+    }
+    ```
+
+    ### Campos obrigatórios
+
+    | Campo | Descrição |
+    | :-- | :-- |
+    | `event` | Evento enviado (`paid`, `refunded` ou `chargeback`) |
+    | `request_id` | Identificador do clique original |
+    | `transaction_id` | ID único da transação |
+
+    ### Campos recomendados
+
+    | Campo | Descrição |
+    | :-- | :-- |
+    | `value` | Valor da venda |
+    | `currency` | Moeda da transação |
+    | `payment_method` | Método de pagamento |
+    | `customer` | Dados do comprador |
+  </Step>
+</Steps>
+
+\
+
+---
+
+## Como funciona a atribuição
+
+O Webhook Genérico utiliza o **request\_id** como chave principal de rastreamento.
+
+O fluxo funciona da seguinte forma:
+
+1. O visitante clica em um link do Trackup.\
+2. O Trackup gera um **request\_id** exclusivo.\
+3. Esse **request\_id** chega até o checkout através dos parâmetros da URL.\
+4. Sua plataforma salva esse identificador junto ao pedido.\
+5. Quando a venda acontece, o webhook devolve o mesmo **request\_id**.\
+6. O Trackup recupera automaticamente todas as informações da campanha e registra a conversão.\
+
+Dessa forma **não é necessário enviar UTMs no webhook**, pois elas já são recuperadas automaticamente pelo sistema.
+
+---
+
+## Boas práticas
+
+- Sempre envie o `request_id`.
+- Sempre envie um `transaction_id` único.
+- Utilize `Content-Type: application/json`.
+- Reutilize o mesmo `transaction_id` para reembolsos e chargebacks.
+- Em caso de falha temporária, implemente novas tentativas de envio (retry).\
+
+\
+
+<Check>
+  ## Integração concluída
+
+  Se o webhook estiver configurado corretamente, todas as novas vendas começarão a aparecer automaticamente no painel de **Conversões** do Trackup.
+
+  O sistema fará toda a atribuição da venda utilizando o **request\_id**, preenchendo automaticamente UTMs, campanhas, anúncios, click IDs e demais informações de rastreamento.
+</Check>

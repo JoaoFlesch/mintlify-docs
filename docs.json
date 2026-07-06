@@ -109,6 +109,7 @@
                     "icon": "shopping-cart",
                     "pages": [
                       "integrando-suas-plataformas-de-venda",
+                      "generico",
                       "upag",
                       "monetizze",
                       "perfect-pay",
@@ -130,8 +131,7 @@
                       "eduzz",
                       "cart-panda",
                       "yampi",
-                      "digipag",
-                      "webhook-generico"
+                      "digipag"
                     ]
                   }
                 ]

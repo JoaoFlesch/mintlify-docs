@@ -99,32 +99,32 @@ _(Gravação real da tela mostrando toda criação da estrutura em sequência, e
     ![config Domain](/images/config-domain.png)
 
     <Tip>
-      [Clique aqui e veja mais sobre domínios](/dominios)
+      [Clique aqui e veja mais sobre Domínios](/dominios)
     </Tip>
   </Step>
   <Step title="Conecte seu Pixel" titleSize="h2">
-        Agora conecte a plataforma onde seus eventos serão enviados.
+    Agora conecte a plataforma onde seus eventos serão enviados.
 
-        Atualmente suportamos:\\
+    Atualmente suportamos:\\
 
     <Badge color="blue">Meta</Badge> <Badge color="green">Google</Badge> <Badge>Tiktok</Badge> <Badge color="orange">Kwai</Badge>
 
-        Ao conectar um pixel, o Trackup cria automaticamente os [Acionadores](/acionadores) padrões responsáveis pelos disparos automáticos.
+    Ao conectar um pixel, o Trackup cria automaticamente os [Acionadores](/acionadores) padrões responsáveis pelos disparos automáticos.
 
     <Badge>page_view</Badge> <Badge>ad_click</Badge> <Badge>start_checkout</Badge> <Badge>conversion</Badge>
 
     Para configurar:
 
     <Steps>
-      <Step title="Vá em Integrações → Pixels">
+      <Step title="Vá em Integrações ">
+      </Step>
+      <Step title=" Pixels">
       </Step>
       <Step title="Clique em adicionar Pixel">
       </Step>
     </Steps>
 
-    <Frame>
-      ![Pixel Create](/images/pixel-create.png)
-    </Frame>
+    ![Pixel Create](/images/pixel-create.png)
 
     <Steps>
       <Step title="De um nome ao seu pixel">
@@ -137,60 +137,50 @@ _(Gravação real da tela mostrando toda criação da estrutura em sequência, e
       </Step>
     </Steps>
 
-    <Frame>
-      ![Pixel Infos](/images/pixel-infos.png)
-    </Frame>
+    ![Pixel Infos](/images/pixel-infos.png)
 
     <Tip>
       [Clique aqui e veja mais sobre Pixels](/pixels)
     </Tip>
   </Step>
-  <Step title="Cadastre sua Plataforma de Venda" titleSize="h2">
-    Agora configure a plataforma responsável por processar seus pagamentos.
+  <Step title="Conecte sua Fonte de Trafego" titleSize="h2">
+    Agora vamos configurar a fonte de tráfego responsável por enviar os parâmetros de atribuição para suas campanhas.\
+    \
+     As fontes de tráfego definem quais informações serão capturadas e preservadas ao longo da jornada do usuário.
 
-    Essa integração possui duas funções:
+    <Badge color="blue">Meta</Badge> <Badge color="green">Google</Badge> <Badge>Tiktok</Badge> <Badge color="orange">Kwai</Badge>
 
-    - Gerar parâmetros de checkout
-    - Receber webhooks de conversão
-
-    Para configurar:
+    Cada plataforma possui seu próprio padrão de macros e parâmetros dinâmicos.<Badge />\
+    O Trackup gera automaticamente o template correto para cada uma delas.\
+    \
+     Para configurar:
 
     <Steps>
       <Step title="Vá em Integrações">
       </Step>
-      <Step title="Plataforma de vendas">
+      <Step title="Fontes de Tráfego">
       </Step>
-      <Step title="+ Adicionar plataforma">
+      <Step title="Clique em adicionar fonte">
       </Step>
     </Steps>
 
-    ![Plataforma De Vendas 01](/images/plataforma-de-vendas-01.png)
+    ![Fontes De Tráfego Create](/images/fontes-de-tráfego-create.png)
 
     <Steps>
-      <Step title="Escolha sua plataforma">
+      <Step title="De um nome ao seu pixel">
       </Step>
-      <Step title="Configure parâmetros adicionais caso necessários">
+      <Step title="Escolha a plataforma">
       </Step>
-      <Step title="Salvar">
+      <Step title="Insira as informações necessárias">
       </Step>
-    </Steps>
-
-    ![Plataforma De Vendas 02](/images/plataforma-de-vendas-02.png)
-
-    <Steps>
-      <Step title="Copie a URL de webhook">
-      </Step>
-      <Step title="Siga o restante da integração conforme sua Plataforma de Vendas">
-        <Info>
-          [Integre com sua Plataformas de Venda](/integrando-suas-plataformas-de-venda)
-        </Info>
+      <Step title="Salve">
       </Step>
     </Steps>
 
-    ![Plataforma De Vendas 03](/images/plataforma-de-vendas-03.png)
+    ![Fontes De Tráfego Infos](/images/fontes-de-tráfego-infos.png)
 
     <Tip>
-      [Clique aqui e veja mais sobre Plataformas de Venda](/integrando-suas-plataformas-de-venda)
+      [Clique aqui e veja mais sobre Fontes de Tráfego](/fontes-de-trafego)
     </Tip>
   </Step>
   <Step title="Cadastre sua Plataforma de Venda" titleSize="h2">
@@ -241,7 +231,7 @@ _(Gravação real da tela mostrando toda criação da estrutura em sequência, e
       [Clique aqui e veja mais sobre Plataformas de Venda](/integrando-suas-plataformas-de-venda)
     </Tip>
   </Step>
-  <Step title="Crie sua oferta">
+  <Step title="Crie sua oferta" titleSize="h2">
     A oferta representa o checkout final para onde o usuário será enviado.
 
     Ela conecta o Trackup ao pagamento.
@@ -275,7 +265,7 @@ _(Gravação real da tela mostrando toda criação da estrutura em sequência, e
       [Clique aqui e veja mais sobre Ofertas](/ofertas)
     </Tip>
   </Step>
-  <Step title="Crie o Link de Checkout">
+  <Step title="Crie o Link de Checkout" titleSize="h2">
     Agora vamos criar o link responsável por enviar o usuário ao checkout mantendo todos os parâmetros de rastreamento e registrando um evento de <Badge>start_checkout</Badge> dentro do Trackup
 
     Esse link preserva: <Badge>UTMs</Badge>  <Badge>Click ID</Badge>  <Badge>Session ID</Badge>  <Badge>Dados de atribuição</Badge>
@@ -312,7 +302,7 @@ _(Gravação real da tela mostrando toda criação da estrutura em sequência, e
       [Clique aqui e veja mais sobre Links](/links)
     </Tip>
   </Step>
-  <Step title="Crie sua Página">
+  <Step title="Crie sua Página" titleSize="h2">
     Agora crie a página que receberá seus visitantes.
 
     Métodos disponíveis:
@@ -372,7 +362,7 @@ _(Gravação real da tela mostrando toda criação da estrutura em sequência, e
       [Clique aqui e veja mais sobre Páginas](/entendendo-paginas)
     </Tip>
   </Step>
-  <Step title="Adicione o Link de Checkout no Botão de Compra">
+  <Step title="Adicione o Link de Checkout no Botão de Compra" titleSize="h2">
     Sua página precisa enviar o usuário corretamente para o checkout.
 
     Configure como destino o **Link de Checkout** criado anteriormente.
@@ -402,7 +392,7 @@ _(Gravação real da tela mostrando toda criação da estrutura em sequência, e
 
     ![Edit Button Page Builder](/images/edit-button-page-builder.png)
   </Step>
-  <Step title="Crie um Link de Anúncio">
+  <Step title="Crie um Link de Anúncio" titleSize="h2">
     Agora precisamos criar o link que será utilizado dentro da plataforma de tráfego.
 
     Esse link é responsável por capturar <Badge>ad_click</Badge>
@@ -418,24 +408,49 @@ _(Gravação real da tela mostrando toda criação da estrutura em sequência, e
 
     ![Create Link](/images/create-link.png)
 
-    kk
+    <Steps>
+      <Step title="Insira um nome para sua organização">
+      </Step>
+      <Step title="Em Tipo, selecione Checkout">
+      </Step>
+      <Step title="Escolha a fonte de tráfego criada anteriormente">
+      </Step>
+      <Step title="Escolha a página criada anteriormente">
+      </Step>
+      <Step title="Salvar">
+      </Step>
+    </Steps>
 
-    kk
-
-    kk
-
-    \
-    \
-    _(Tela criando link do tipo Anúncio.)_
+    ![Ad Link](/images/ad-link.png)
 
     <Tip>
       [Clique aqui e veja mais sobre Links](/links)
     </Tip>
   </Step>
-  <Step title="Lance suas Campanhas">
+  <Step title="Lance suas Campanhas" titleSize="h2">
     Agora toda infraestrutura está pronta.
 
-    Pegue o link de anúncio criado juntamente com os parâmetros fornecidos pelo Trackup e utilize na sua campanha.
+    Ainda em links , copie o link criado juntamente com os parâmetros fornecidos pelo Trackup e utilize na sua campanha.
+
+    <Steps>
+      <Step title="Clique em ver URL">
+      </Step>
+    </Steps>
+
+    ![Link Ver Url](/images/link-ver-url.png)
+
+    <Steps>
+      <Step title="Copie a URL base e cole no seu gerenciador de anúncios">
+      </Step>
+      <Step title="Copie os parâmetros e cole no seu gerenciador de anúncios">
+      </Step>
+      <Step title="A URL final, é a junção da URL base + parâmetros ">
+      </Step>
+    </Steps>
+
+    <Frame>
+      ![Link Urls](/images/link-urls.png)
+    </Frame>
 
     A partir daqui o sistema começa a registrar todos os eventos automaticamente.
 
@@ -443,7 +458,7 @@ _(Gravação real da tela mostrando toda criação da estrutura em sequência, e
     \
     _(Diagrama mostrando anúncio → link → página → checkout.)_
   </Step>
-  <Step title="Valide suas Conversões">
+  <Step title="Valide suas Conversões" titleSize="h2">
     Antes de escalar campanhas, valide se toda estrutura está funcionando corretamente.
 
     Checklist:

@@ -4,7 +4,7 @@ icon: "briefcase-business"
 description: "Estrutura organizacional do Trackup."
 ---
 
-### Entenda como organizar suas operações dentro do Trackup.
+###  Entenda como organizar suas operações dentro do Trackup.
 
 Toda a estrutura do Trackup foi criada para permitir que você organize sua operação de forma escalável, colaborativa e bem estruturada.
 
@@ -12,9 +12,7 @@ Antes de começar a criar páginas, campanhas ou links, é importante entender c
 
 No Trackup, tudo funciona a partir de uma estrutura central composta por:
 
-- Times
-- Projetos
-- Membros
+<Badge color="purple">Produto</Badge><Badge color="purple"> Oferta</Badge><Badge color="purple"> Cliente</Badge>
 
 Essa arquitetura foi pensada para permitir que múltiplas pessoas trabalhem na mesma operação de forma organizada.
 
@@ -69,10 +67,10 @@ Pense nele como sua empresa, sua operação ou seu workspace principal.
 
 Cada Time possui:
 
-- Seus próprios membros
-- Seus próprios projetos
-- Sua assinatura ativa
-- Seus limites de uso
+1. Seus próprios membros
+2. Seus próprios projetos
+3. Sua assinatura
+4. Seus limites de uso
 
 Em resumo:
 
@@ -80,9 +78,24 @@ Em resumo:
 
 Cada Time funciona como uma estrutura independente.
 
-**\[IMAGEM RECOMENDADA\]**
+![Team Menu](/images/team-menu.png)
 
-_(Screenshot mostrando o seletor de Times na interface lateral.)_
+---
+
+# Como criar um novo time?
+
+<Steps>
+  <Step title="Clique no menu canto superior esquerdo">
+  </Step>
+  <Step title="+ Adicionar time">
+  </Step>
+  <Step title="Informe o nome do novo time">
+  </Step>
+  <Step title="Criar time">
+  </Step>
+</Steps>
+
+![New Team](/images/new-team.png)
 
 ---
 
@@ -94,17 +107,19 @@ Todo membro pertence ao Time.
 
 Isso significa que ele poderá colaborar em toda estrutura existente dentro daquele ambiente.
 
-Exemplo:
-
 Dentro de um Time você pode adicionar:
 
-- Sócios
-- Gestores de tráfego
-- Designers
-- Desenvolvedores
-- Clientes
+<Badge>Sócios</Badge>
 
-Esses membros compartilham acesso ao mesmo ambiente.
+<Badge>Gestores de tráfego</Badge>
+
+<Badge>Designer</Badge>
+
+<Badge>Desenvolvedores</Badge>
+
+<Badge>Clientes</Badge>
+
+ Esses membros compartilham acesso ao mesmo ambiente.
 
 ---
 
@@ -114,58 +129,44 @@ Cada membro pode possuir diferentes níveis de acesso dentro do Time.
 
 As permissões permitem controlar o que cada usuário pode visualizar ou alterar.
 
-Alguns exemplos:
-
-\[FAZER UMA TABELA COM CADA FUNÇÃO E OQUE CADA UM PODE FAZER\]
-
 ### Administrador
 
-Pode:
+Acesso total dentro do time
 
-- Criar projetos
-- Convidar membros
-- Alterar configurações
-- Gerenciar domínio
-- Gerenciar integrações
+### Membro
 
----
-
-### Operador
-
-Pode:
-
-- Criar páginas
-- Criar links
-- Criar ofertas
-- Gerenciar campanhas
-
----
-
-### Analista
-
-Pode:
-
-- Visualizar relatórios
-- Acompanhar métricas
-- Visualizar logs
-
----
-
-### Desenvolvedor
-
-Pode:
-
-- Trabalhar com integrações
-- Configurar webhooks
-- Trabalhar com API
+Acesso total, porém nao pode apagar nada dentro do time
 
 _(As permissões continuarão evoluindo conforme novas funcionalidades forem adicionadas.)_
 
 ---
 
-**\[IMAGEM RECOMENDADA\]**
+# Como adicionar um novo membro?
 
-_(Print da tela de gerenciamento de membros mostrando convite e níveis de permissão.)_
+<Steps>
+  <Step title="Clique no seu perfil, canto inferior esquerdo">
+  </Step>
+  <Step title="Configurações">
+  </Step>
+</Steps>
+
+![Config](/images/config-.png)
+
+<Steps>
+  <Step title="Membros">
+  </Step>
+  <Step title="+ Convidar membro">
+  </Step>
+  <Step title="Insira o email de quem você deseja convidar">
+    O convidado precisa ter uma conta cadastrada no Trackup
+  </Step>
+  <Step title="Selecione a Função ">
+  </Step>
+  <Step title="Convidar">
+  </Step>
+</Steps>
+
+![New Member](/images/new-member.png)
 
 ---
 
@@ -177,30 +178,32 @@ Cada Projeto representa uma estrutura independente dentro daquele ambiente.
 
 Recomendamos utilizar um Projeto para cada:
 
-- Produto
-- Funil
+<Badge color="purple">Produto</Badge>
+
+<Badge color="purple">Funil</Badge>
+
+<Badge color="purple">Cliente</Badge>
 
 O objetivo é manter cada operação organizada separadamente.
 
 ---
 
-### Exemplo
+# Como criar um novo projeto?
 
-```text
-Time → Marketing Enterprise
+<Steps>
+  <Step title="Clique no menu canto superior esquerdo">
+  </Step>
+  <Step title="Clique no sinal de + ao lado do nome do time que deseja criar o novo projeto">
+  </Step>
+  <Step title="Defina o nome do projeto ">
+  </Step>
+  <Step title="Selecione a moeda padrão do seu projeto">
+  </Step>
+  <Step title="Salvar">
+  </Step>
+</Steps>
 
-Projetos
-
-Projeto 1 → Nutra Emagrecimento  
-Projeto 2 → Info Receitas
-Projeto 3 → Drop Shipping 
-```
-
----
-
-**\[IMAGEM RECOMENDADA\]**
-
-_(Screenshot mostrando lista de múltiplos projetos dentro do mesmo Time.)_
+![New Project](/images/new-project.png)
 
 ---
 
@@ -274,7 +277,7 @@ Crie um Projeto para cada cliente, se você for pagar a assinatura de cada clien
 
 # Limites por plano
 
-Cada Time possui limites definidos pelo plano contratado.
+Cada Time pode possuir limites definidos pelo plano contratado.
 
 Esses limites podem incluir:
 

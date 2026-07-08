@@ -249,13 +249,232 @@ Os **Componentes** são os elementos fundamentais utilizados para construir uma 
 
 Ao contrário dos **Blocos**, que adicionam seções completas, os Componentes permitem criar cada parte da página individualmente, oferecendo total liberdade para desenvolver layouts do zero.
 
-Para adicionar um componente, basta selecioná-lo na barra lateral e arrastá-lo para o Canvas. Depois de inserido, ele pode ser reposicionado, personalizado e configurado através do **Inspector**.
+Para adicionar um componente, basta selecioná-lo na barra lateral e arrastá-lo para o Canvas. Depois de inserido, ele pode ser reposicionado, personalizado.
 
 ![Componentes](/images/componentes.png)
 
-### Construindo páginas com Componentes
+<AccordionGroup>
+  <Accordion title="Badge" icon="tag">
+    O **Badge** é utilizado para destacar pequenas informações, categorias ou etiquetas dentro da página.
 
-Os Componentes oferecem liberdade total para criar layouts personalizados, permitindo montar cada seção exatamente da forma desejada. Embora seja possível construir toda a página utilizando apenas Componentes, o ideal é combiná-los com os **Blocos**, acelerando a criação das estruturas principais e utilizando Componentes para realizar ajustes e personalizações específicas.
+    É muito comum utilizá-lo para exibir informações 
+
+    Além do texto, é possível personalizar suas cores, bordas, espaçamentos e estilo.
+
+    <Frame>
+      ![Badge](/images/Badge.png)
+    </Frame>
+  </Accordion>
+
+  <Accordion title="Botão" icon="mouse-pointer-click">
+    O componente **Botão** cria elementos clicáveis que direcionam o visitante para outra página ou executam uma ação.
+
+    Os botões podem ser utilizados para:
+
+    - Comprar agora
+    - Fazer cadastro
+    - Baixar um material
+    - Entrar em contato
+    - Ir para outra seção da página
+
+    É possível personalizar:
+
+    - Texto
+    - Ícone
+    - Link de destino
+    - Cores
+    - Bordas
+    - Espaçamento
+    - Tamanho
+    - Estado ao passar o mouse (Hover)
+
+    O botão é um dos componentes mais importantes de qualquer Landing Page, sendo normalmente utilizado como chamada para ação (CTA).
+  </Accordion>
+
+  <Accordion title="Container" icon="container">
+    O **Container** funciona como a estrutura principal para organizar os componentes da página.
+
+    Ele permite agrupar diversos elementos dentro de uma mesma área, facilitando a criação de seções organizadas e layouts responsivos.
+
+    Dentro de um Container é possível adicionar praticamente qualquer outro componente, como textos, imagens, botões, vídeos e até outros Containers.
+
+    Suas principais configurações incluem:
+
+    - Direção dos elementos
+    - Alinhamento horizontal
+    - Alinhamento vertical
+    - Espaçamento interno (Padding)
+    - Espaçamento entre elementos (Gap)
+    - Margens
+    - Largura
+    - Altura
+    - Fundo
+    - Bordas
+    - Sombras
+
+    Na maioria das páginas, praticamente toda a estrutura é construída utilizando Containers.
+  </Accordion>
+
+  <Accordion title="Divisor" icon="minus">
+    O **Divider** adiciona uma linha divisória entre seções ou componentes.
+
+    Ele é utilizado para melhorar a organização visual da página e separar conteúdos relacionados.
+
+    É possível configurar:
+
+    - Espessura
+    - Cor
+    - Comprimento
+    - Margens
+  </Accordion>
+
+  <Accordion title="Linha com ícone" icon="list-video">
+    O componente **Feature** cria uma linha composta por um ícone acompanhado de um texto.
+
+    É muito utilizado para apresentar:
+
+    - Benefícios
+    - Recursos
+    - Garantias
+    - Diferenciais
+    - Características do produto
+
+    Exemplo:
+
+    ✔ Acesso imediato
+
+    ✔ Suporte especializado
+
+    ✔ Atualizações gratuitas
+
+    Cada Feature pode ter seu ícone, cor e texto personalizados.
+  </Accordion>
+
+  <Accordion title="Grid" icon="grid-2x2">
+    O componente **Grid** organiza automaticamente os elementos em linhas e colunas.
+
+    Ele facilita a criação de layouts mais complexos sem precisar posicionar cada elemento manualmente.
+
+    É ideal para:
+
+    - Galerias
+    - Cards
+    - Listagem de benefícios
+    - Depoimentos
+    - Produtos
+    - Equipes
+
+    As principais configurações incluem:
+
+    - Número de colunas
+    - Espaçamento entre itens
+    - Alinhamento
+    - Responsividade
+  </Accordion>
+
+  <Accordion title="Título" icon="text-initial">
+    O componente **Heading** é utilizado para adicionar títulos e subtítulos à página.
+
+    Além de definir a aparência visual, ele também possui importância para SEO e acessibilidade.
+
+    É possível configurar:
+
+    - Nível do título (H1 ao H6)
+    - Fonte
+    - Peso
+    - Cor
+    - Alinhamento
+    - Espaçamento
+    - Tamanho
+
+    Uma boa hierarquia de títulos melhora tanto a leitura quanto a indexação da página pelos mecanismos de busca.
+  </Accordion>
+
+  <Accordion title="Ícone" icon="star">
+    O componente **Ícone** permite inserir elementos gráficos para complementar informações e tornar a interface mais intuitiva.
+
+    Os ícones podem ser utilizados para representar ações, recursos ou categorias, além de enriquecer visualmente a página.
+
+    É possível alterar:
+
+    - Biblioteca de ícones
+    - Cor
+    - Tamanho
+    - Rotação
+    - Espaçamento
+  </Accordion>
+
+  <Accordion title="Imagem" icon="image">
+    O componente **Imagem** permite adicionar imagens ao projeto.
+
+    Ele pode ser utilizado para:
+
+    - Banners
+    - Produtos
+    - Logos
+    - Ilustrações
+    - Fotos
+    - Mockups
+
+    Além da imagem, também é possível configurar:
+
+    - Largura
+    - Altura
+    - Arredondamento
+    - Bordas
+    - Sombras
+    - Ajuste de preenchimento
+    - Texto alternativo (Alt Text)
+
+    Utilizar textos alternativos melhora a acessibilidade e o SEO da página.
+  </Accordion>
+
+  <Accordion title="Espaço" icon="arrows-up-from-line">
+    O **Spacer** adiciona um espaço vazio entre componentes.
+
+    Ele é utilizado para controlar o espaçamento vertical ou horizontal sem alterar as configurações dos demais elementos.
+
+    Seu uso facilita pequenos ajustes de layout durante a construção da página.
+  </Accordion>
+
+  <Accordion title="Texto" icon="text-cursor">
+    O componente **Texto** permite inserir parágrafos, descrições e qualquer conteúdo textual da página.
+
+    É indicado para:
+
+    - Descrições
+    - Conteúdo institucional
+    - Informações adicionais
+    - Explicações
+    - Artigos
+
+    Suas opções de personalização incluem:
+
+    - Fonte
+    - Cor
+    - Tamanho
+    - Peso
+    - Altura da linha
+    - Espaçamento
+    - Alinhamento
+  </Accordion>
+
+  <Accordion title="Vídeo" icon="video">
+    O componente **Vídeo** permite incorporar vídeos diretamente na página.
+
+    Atualmente é possível adicionar vídeos através de plataformas suportadas, como o YouTube, utilizando apenas o link do vídeo.
+
+    Esse componente é ideal para:
+
+    - VSLs (Video Sales Letter)
+    - Demonstrações
+    - Tutoriais
+    - Depoimentos
+    - Apresentações
+
+    Também é possível configurar propriedades relacionadas ao comportamento e à exibição do vídeo.
+  </Accordion>
+</AccordionGroup>
 
 > **Dica:** organize sua página utilizando **Containers** como base da estrutura. Em seguida, adicione títulos, textos, imagens, botões e demais componentes dentro deles. Essa abordagem torna o layout mais organizado, facilita a manutenção e melhora a responsividade da página.
 

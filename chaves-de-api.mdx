@@ -5,6 +5,18 @@ description: "Endpoints autenticados por API Key para visitantes, conversões e 
 
 Todas as rotas exigem autenticação via API Key. O corpo das requisições é JSON. Respostas de sucesso retornam status `201`.
 
+## URL base
+
+**Produção:** `https://dash-api.trackup.me/v1`
+
+Monte a URL completa concatenando o endpoint ao base. Exemplo: `https://dash-api.trackup.me/v1/visitors`.
+
+| Método | Endpoint |
+| --- | --- |
+| `POST` | `/visitors` |
+| `POST` | `/conversions` |
+| `POST` | `/requests` |
+
 ## Autenticação
 
 Envie a chave no header `X-Api-Key` em cada requisição.
@@ -16,7 +28,7 @@ Envie a chave no header `X-Api-Key` em cada requisição.
 
 ---
 
-## POST /v1/visitors
+## POST /visitors
 
 Cria um visitante no projeto vinculado à API Key.
 
@@ -64,7 +76,7 @@ Todos os campos são opcionais.
 ### Exemplo
 
 ```bash
-curl -X POST '{baseUrl}/v1/visitors' \
+curl -X POST 'https://dash-api.trackup.me/v1/visitors' \
   -H 'Content-Type: application/json' \
   -H 'X-Api-Key: YOUR_API_KEY' \
   -d '{
@@ -77,7 +89,7 @@ curl -X POST '{baseUrl}/v1/visitors' \
 
 ---
 
-## POST /v1/conversions
+## POST /conversions
 
 Registra uma conversão no projeto vinculado à API Key.
 
@@ -109,12 +121,15 @@ O campo `value` é convertido para a moeda configurada no projeto.
 | `sub6` | string | não | Sub ID 6 |
 | `sub7` | string | não | Sub ID 7 |
 | `sub8` | string | não | Sub ID 8 |
-| `adPlatform` | string | não | Plataforma de anúncio |
-| `adAccountId` | string | não | ID da conta de anúncio |
-| `campaignId` | string | não | ID da campanha |
-| `adsetId` | string | não | ID do conjunto de anúncios |
-| `adId` | string | não | ID do anúncio |
-| `status` | string | não | Status (padrão: `"paid"`) |
+| `status` | string | não | Status da conversão (padrão: `"paid"`) — ver valores abaixo |
+
+Valores aceitos para `status`:
+
+| Valor | Descrição |
+| --- | --- |
+| `paid` | Pagamento confirmado (padrão) |
+| `refunded` | Reembolso |
+| `chargeback` | Chargeback |
 
 ### Resposta
 
@@ -125,9 +140,6 @@ O campo `value` é convertido para a moeda configurada no projeto.
 | `transactionId` | string | ID da transação |
 | `value` | number | Valor convertido |
 | `currency` | string | Moeda do projeto |
-| `originalValue` | number | Valor original enviado |
-| `originalCurrency` | string | Moeda original enviada |
-| `exchangeRate` | number | Taxa de câmbio aplicada |
 | `paymentMethod` | string | Método de pagamento |
 | `status` | string | Status da conversão |
 | `visitorId` | string | ID do visitante |
@@ -135,7 +147,7 @@ O campo `value` é convertido para a moeda configurada no projeto.
 ### Exemplo
 
 ```bash
-curl -X POST '{baseUrl}/v1/conversions' \
+curl -X POST 'https://dash-api.trackup.me/v1/conversions' \
   -H 'Content-Type: application/json' \
   -H 'X-Api-Key: YOUR_API_KEY' \
   -d '{
@@ -148,7 +160,7 @@ curl -X POST '{baseUrl}/v1/conversions' \
 
 ---
 
-## POST /v1/requests
+## POST /requests
 
 Registra um evento ou requisição no projeto vinculado à API Key.
 
@@ -174,11 +186,6 @@ Todos os campos são opcionais.
 | `utmContent` | string | não | Conteúdo UTM |
 | `clickId` | string | não | ID de clique |
 | `sub1`–`sub8` | string | não | Sub IDs 1 a 8 |
-| `adPlatform` | string | não | Plataforma de anúncio |
-| `adAccountId` | string | não | ID da conta de anúncio |
-| `campaignId` | string | não | ID da campanha |
-| `adsetId` | string | não | ID do conjunto de anúncios |
-| `adId` | string | não | ID do anúncio |
 | `customData` | object | não | Dados customizados (ver abaixo) |
 
 ### customData
@@ -216,7 +223,7 @@ Valores aninhados são permitidos. Se omitido, armazena `{}`.
 ### Exemplo
 
 ```bash
-curl -X POST '{baseUrl}/v1/requests' \
+curl -X POST 'https://dash-api.trackup.me/v1/requests' \
   -H 'Content-Type: application/json' \
   -H 'X-Api-Key: YOUR_API_KEY' \
   -d '{
@@ -242,4 +249,4 @@ curl -X POST '{baseUrl}/v1/requests' \
 | `403` | API Key revogada ou expirada |
 | `404` | Projeto não encontrado |
 | `500` | Falha ao persistir o registro |
-| `502` | Falha na conversão de moeda (`POST /v1/conversions`) |
+| `502` | Falha na conversão de moeda (`POST /conversions`) |

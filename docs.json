@@ -141,7 +141,9 @@
                 "icon": "settings",
                 "pages": [
                   "geral",
-                  "dominios"
+                  "dominios",
+                  "chaves-de-api",
+                  "script"
                 ]
               }
             ],

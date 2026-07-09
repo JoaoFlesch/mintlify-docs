@@ -1,5 +1,5 @@
 ---
-title: "Chave de API"
+title: "API externa"
 description: "Endpoints autenticados por API Key para visitantes, conversões e requisições."
 ---
 
@@ -46,10 +46,7 @@ Todos os campos são opcionais.
 | Campo | Tipo | Descrição |
 | --- | --- | --- |
 | `id` | string | ID do visitante |
-| `projectId` | string | ID do projeto |
-| `teamId` | string | ID do time |
 | `createdAt` | string | Data de criação (ISO 8601) |
-| `updatedAt` | string | Data de atualização (ISO 8601) |
 | `name` | string \| null | Nome |
 | `email` | string \| null | E-mail |
 | `phone` | string \| null | Telefone |
@@ -59,16 +56,10 @@ Todos os campos são opcionais.
 | `address.state` | string \| null | Estado |
 | `address.zip` | string \| null | CEP |
 | `address.country` | string \| null | País |
-| `pageViews` | number | Total de page views |
-| `firstCountry` | string | País da primeira visita |
-| `lastCountry` | string | País da última visita |
 | `utmSource` | string | Origem UTM |
 | `utmMedium` | string | Meio UTM |
 | `utmCampaign` | string | Campanha UTM |
 | `clickId` | string | ID de clique |
-| `lastDecision` | string | Última decisão de firewall |
-| `lastScore` | number | Último score |
-| `lastScoreLevel` | string | Nível do último score |
 
 ### Exemplo
 
@@ -90,7 +81,7 @@ curl -X POST '{baseUrl}/v1/visitors' \
 
 Registra uma conversão no projeto vinculado à API Key.
 
-O campo `value` é convertido para a moeda configurada no projeto. O campo `network` na resposta é sempre `"api"`.
+O campo `value` é convertido para a moeda configurada no projeto.
 
 ### Corpo da requisição
 
@@ -131,7 +122,6 @@ O campo `value` é convertido para a moeda configurada no projeto. O campo `netw
 | --- | --- | --- |
 | `id` | string | ID da conversão |
 | `timestamp` | string | Data/hora (ISO 8601) |
-| `network` | string | Rede de origem (sempre `"api"`) |
 | `transactionId` | string | ID da transação |
 | `value` | number | Valor convertido |
 | `currency` | string | Moeda do projeto |
@@ -139,27 +129,8 @@ O campo `value` é convertido para a moeda configurada no projeto. O campo `netw
 | `originalCurrency` | string | Moeda original enviada |
 | `exchangeRate` | number | Taxa de câmbio aplicada |
 | `paymentMethod` | string | Método de pagamento |
-| `ip` | string | Endereço IP |
-| `userAgent` | string | User agent |
-| `requestId` | string | ID da requisição associada |
-| `linkId` | string | ID do link |
-| `pageId` | string | ID da página |
-| `urlId` | string | ID da URL |
-| `visitorId` | string | ID do visitante |
-| `trafficSource` | string | Fonte de tráfego |
-| `utmSource` | string | Origem UTM |
-| `utmMedium` | string | Meio UTM |
-| `utmCampaign` | string | Campanha UTM |
-| `utmTerm` | string | Termo UTM |
-| `utmContent` | string | Conteúdo UTM |
-| `clickId` | string | ID de clique |
-| `sub1`–`sub8` | string | Sub IDs 1 a 8 |
-| `adPlatform` | string | Plataforma de anúncio |
-| `adAccountId` | string | ID da conta de anúncio |
-| `campaignId` | string | ID da campanha |
-| `adsetId` | string | ID do conjunto de anúncios |
-| `adId` | string | ID do anúncio |
 | `status` | string | Status da conversão |
+| `visitorId` | string | ID do visitante |
 
 ### Exemplo
 
@@ -231,45 +202,16 @@ Valores aninhados são permitidos. Se omitido, armazena `{}`.
 | `host` | string | Host |
 | `path` | string | Caminho |
 | `event` | string | Nome do evento |
-| `ip` | string | Endereço IP |
-| `ipHash` | string | Hash do IP |
-| `userAgent` | string | User agent |
-| `referer` | string | Referer |
-| `country` | string | País |
-| `city` | string | Cidade |
-| `region` | string | Região |
-| `lat` | number \| null | Latitude |
-| `lon` | number \| null | Longitude |
-| `proxy` | boolean | Indica proxy |
-| `isp` | string | ISP |
-| `timezone` | string | Fuso horário |
-| `browserLanguage` | string | Idioma do navegador |
 | `visitorId` | string | ID do visitante |
-| `browser` | string | Navegador |
-| `browserVersion` | string | Versão do navegador |
-| `os` | string | Sistema operacional |
-| `osVersion` | string | Versão do SO |
-| `device` | string | Tipo de dispositivo |
-| `deviceVendor` | string | Fabricante |
-| `deviceModel` | string | Modelo |
-| `isReturningVisitor` | boolean | Visitante recorrente |
-| `hasPassedChallenge` | boolean | Passou challenge |
-| `score` | number | Score de risco |
-| `scoreLevel` | string | Nível do score |
-| `bot` | boolean | Detectado como bot |
-| `decision` | string | Decisão do firewall |
-| `reasons` | string\[\] | Motivos da decisão |
+| `trafficSource` | string | Fonte de tráfego |
 | `utmSource` | string | Origem UTM |
 | `utmMedium` | string | Meio UTM |
 | `utmCampaign` | string | Campanha UTM |
 | `utmTerm` | string | Termo UTM |
 | `utmContent` | string | Conteúdo UTM |
 | `clickId` | string | ID de clique |
-| `trafficSource` | string | Fonte de tráfego |
 | `sub1`–`sub8` | string | Sub IDs 1 a 8 |
 | `customData` | object \| null | Dados customizados |
-
-Os campos `adPlatform`, `adAccountId`, `campaignId`, `adsetId` e `adId` são aceitos no corpo da requisição, mas não aparecem na resposta.
 
 ### Exemplo
 

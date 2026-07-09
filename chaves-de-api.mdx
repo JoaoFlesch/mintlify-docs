@@ -1,3 +1,303 @@
 ---
-title: "Chaves de API"
+title: "Chave de API"
+description: "Endpoints autenticados por API Key para visitantes, conversões e requisições."
 ---
+
+Todas as rotas exigem autenticação via API Key. O corpo das requisições é JSON. Respostas de sucesso retornam status `201`.
+
+## Autenticação
+
+Envie a chave no header `X-Api-Key` em cada requisição.
+
+| Status | Condição |
+| --- | --- |
+| `401` | Header ausente ou chave inválida |
+| `403` | Chave revogada ou expirada |
+
+---
+
+## POST /v1/visitors
+
+Cria um visitante no projeto vinculado à API Key.
+
+### Corpo da requisição
+
+Todos os campos são opcionais.
+
+| Campo | Tipo | Obrigatório | Descrição |
+| --- | --- | --- | --- |
+| `utmSource` | string | não | Origem UTM |
+| `utmMedium` | string | não | Meio UTM |
+| `utmCampaign` | string | não | Campanha UTM |
+| `utmTerm` | string | não | Termo UTM |
+| `utmContent` | string | não | Conteúdo UTM |
+| `clickId` | string | não | ID de clique |
+| `name` | string | não | Nome |
+| `email` | string | não | E-mail |
+| `phone` | string | não | Telefone |
+| `addressStreet` | string | não | Rua |
+| `addressCity` | string | não | Cidade |
+| `addressState` | string | não | Estado |
+| `addressZip` | string | não | CEP |
+| `addressCountry` | string | não | País |
+
+### Resposta
+
+| Campo | Tipo | Descrição |
+| --- | --- | --- |
+| `id` | string | ID do visitante |
+| `projectId` | string | ID do projeto |
+| `teamId` | string | ID do time |
+| `createdAt` | string | Data de criação (ISO 8601) |
+| `updatedAt` | string | Data de atualização (ISO 8601) |
+| `name` | string \| null | Nome |
+| `email` | string \| null | E-mail |
+| `phone` | string \| null | Telefone |
+| `address` | object | Endereço |
+| `address.street` | string \| null | Rua |
+| `address.city` | string \| null | Cidade |
+| `address.state` | string \| null | Estado |
+| `address.zip` | string \| null | CEP |
+| `address.country` | string \| null | País |
+| `pageViews` | number | Total de page views |
+| `firstCountry` | string | País da primeira visita |
+| `lastCountry` | string | País da última visita |
+| `utmSource` | string | Origem UTM |
+| `utmMedium` | string | Meio UTM |
+| `utmCampaign` | string | Campanha UTM |
+| `clickId` | string | ID de clique |
+| `lastDecision` | string | Última decisão de firewall |
+| `lastScore` | number | Último score |
+| `lastScoreLevel` | string | Nível do último score |
+
+### Exemplo
+
+```bash
+curl -X POST '{baseUrl}/v1/visitors' \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: YOUR_API_KEY' \
+  -d '{
+    "name": "Maria Silva",
+    "email": "maria@example.com",
+    "utmSource": "google",
+    "utmCampaign": "black-friday"
+  }'
+```
+
+---
+
+## POST /v1/conversions
+
+Registra uma conversão no projeto vinculado à API Key.
+
+O campo `value` é convertido para a moeda configurada no projeto. O campo `network` na resposta é sempre `"api"`.
+
+### Corpo da requisição
+
+| Campo | Tipo | Obrigatório | Descrição |
+| --- | --- | --- | --- |
+| `value` | number | **sim** | Valor da conversão |
+| `transactionId` | string | não | ID da transação |
+| `currency` | string | não | Moeda de origem (ex.: `BRL`, `USD`) |
+| `paymentMethod` | string | não | Método de pagamento |
+| `ip` | string | não | Endereço IP |
+| `userAgent` | string | não | User agent |
+| `visitorId` | string | não | ID do visitante |
+| `trafficSource` | string | não | Fonte de tráfego |
+| `utmSource` | string | não | Origem UTM |
+| `utmMedium` | string | não | Meio UTM |
+| `utmCampaign` | string | não | Campanha UTM |
+| `utmTerm` | string | não | Termo UTM |
+| `utmContent` | string | não | Conteúdo UTM |
+| `clickId` | string | não | ID de clique |
+| `sub1` | string | não | Sub ID 1 |
+| `sub2` | string | não | Sub ID 2 |
+| `sub3` | string | não | Sub ID 3 |
+| `sub4` | string | não | Sub ID 4 |
+| `sub5` | string | não | Sub ID 5 |
+| `sub6` | string | não | Sub ID 6 |
+| `sub7` | string | não | Sub ID 7 |
+| `sub8` | string | não | Sub ID 8 |
+| `adPlatform` | string | não | Plataforma de anúncio |
+| `adAccountId` | string | não | ID da conta de anúncio |
+| `campaignId` | string | não | ID da campanha |
+| `adsetId` | string | não | ID do conjunto de anúncios |
+| `adId` | string | não | ID do anúncio |
+| `status` | string | não | Status (padrão: `"paid"`) |
+
+### Resposta
+
+| Campo | Tipo | Descrição |
+| --- | --- | --- |
+| `id` | string | ID da conversão |
+| `timestamp` | string | Data/hora (ISO 8601) |
+| `network` | string | Rede de origem (sempre `"api"`) |
+| `transactionId` | string | ID da transação |
+| `value` | number | Valor convertido |
+| `currency` | string | Moeda do projeto |
+| `originalValue` | number | Valor original enviado |
+| `originalCurrency` | string | Moeda original enviada |
+| `exchangeRate` | number | Taxa de câmbio aplicada |
+| `paymentMethod` | string | Método de pagamento |
+| `ip` | string | Endereço IP |
+| `userAgent` | string | User agent |
+| `requestId` | string | ID da requisição associada |
+| `linkId` | string | ID do link |
+| `pageId` | string | ID da página |
+| `urlId` | string | ID da URL |
+| `visitorId` | string | ID do visitante |
+| `trafficSource` | string | Fonte de tráfego |
+| `utmSource` | string | Origem UTM |
+| `utmMedium` | string | Meio UTM |
+| `utmCampaign` | string | Campanha UTM |
+| `utmTerm` | string | Termo UTM |
+| `utmContent` | string | Conteúdo UTM |
+| `clickId` | string | ID de clique |
+| `sub1`–`sub8` | string | Sub IDs 1 a 8 |
+| `adPlatform` | string | Plataforma de anúncio |
+| `adAccountId` | string | ID da conta de anúncio |
+| `campaignId` | string | ID da campanha |
+| `adsetId` | string | ID do conjunto de anúncios |
+| `adId` | string | ID do anúncio |
+| `status` | string | Status da conversão |
+
+### Exemplo
+
+```bash
+curl -X POST '{baseUrl}/v1/conversions' \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: YOUR_API_KEY' \
+  -d '{
+    "value": 199.90,
+    "currency": "BRL",
+    "transactionId": "txn_abc123",
+    "visitorId": "aaaaaaaa-bbbb-4ccc-8ddd-eeeeeeeeeeee"
+  }'
+```
+
+---
+
+## POST /v1/requests
+
+Registra um evento ou requisição no projeto vinculado à API Key.
+
+Requisições criadas via API Key não disparam triggers ou pixels — apenas persistem o registro.
+
+### Corpo da requisição
+
+Todos os campos são opcionais.
+
+| Campo | Tipo | Obrigatório | Descrição |
+| --- | --- | --- | --- |
+| `host` | string | não | Host da requisição (padrão: `""`) |
+| `path` | string | não | Caminho da requisição (padrão: `""`) |
+| `event` | string | não | Nome do evento (padrão: `""`) |
+| `ip` | string | não | Endereço IP |
+| `userAgent` | string | não | User agent |
+| `visitorId` | string | não | ID do visitante |
+| `trafficSource` | string | não | Fonte de tráfego (padrão: `"direct"`) |
+| `utmSource` | string | não | Origem UTM |
+| `utmMedium` | string | não | Meio UTM |
+| `utmCampaign` | string | não | Campanha UTM |
+| `utmTerm` | string | não | Termo UTM |
+| `utmContent` | string | não | Conteúdo UTM |
+| `clickId` | string | não | ID de clique |
+| `sub1`–`sub8` | string | não | Sub IDs 1 a 8 |
+| `adPlatform` | string | não | Plataforma de anúncio |
+| `adAccountId` | string | não | ID da conta de anúncio |
+| `campaignId` | string | não | ID da campanha |
+| `adsetId` | string | não | ID do conjunto de anúncios |
+| `adId` | string | não | ID do anúncio |
+| `customData` | object | não | Dados customizados (ver abaixo) |
+
+### customData
+
+Objeto plano com pares chave-valor.
+
+| Regra | Valor |
+| --- | --- |
+| Máximo de chaves | 15 |
+| Tamanho máximo | 8 KB (JSON serializado) |
+| Violação | Resposta `400` |
+
+Valores aninhados são permitidos. Se omitido, armazena `{}`.
+
+### Resposta
+
+| Campo | Tipo | Descrição |
+| --- | --- | --- |
+| `id` | string | ID da requisição |
+| `timestamp` | string | Data/hora (ISO 8601) |
+| `host` | string | Host |
+| `path` | string | Caminho |
+| `event` | string | Nome do evento |
+| `ip` | string | Endereço IP |
+| `ipHash` | string | Hash do IP |
+| `userAgent` | string | User agent |
+| `referer` | string | Referer |
+| `country` | string | País |
+| `city` | string | Cidade |
+| `region` | string | Região |
+| `lat` | number \| null | Latitude |
+| `lon` | number \| null | Longitude |
+| `proxy` | boolean | Indica proxy |
+| `isp` | string | ISP |
+| `timezone` | string | Fuso horário |
+| `browserLanguage` | string | Idioma do navegador |
+| `visitorId` | string | ID do visitante |
+| `browser` | string | Navegador |
+| `browserVersion` | string | Versão do navegador |
+| `os` | string | Sistema operacional |
+| `osVersion` | string | Versão do SO |
+| `device` | string | Tipo de dispositivo |
+| `deviceVendor` | string | Fabricante |
+| `deviceModel` | string | Modelo |
+| `isReturningVisitor` | boolean | Visitante recorrente |
+| `hasPassedChallenge` | boolean | Passou challenge |
+| `score` | number | Score de risco |
+| `scoreLevel` | string | Nível do score |
+| `bot` | boolean | Detectado como bot |
+| `decision` | string | Decisão do firewall |
+| `reasons` | string\[\] | Motivos da decisão |
+| `utmSource` | string | Origem UTM |
+| `utmMedium` | string | Meio UTM |
+| `utmCampaign` | string | Campanha UTM |
+| `utmTerm` | string | Termo UTM |
+| `utmContent` | string | Conteúdo UTM |
+| `clickId` | string | ID de clique |
+| `trafficSource` | string | Fonte de tráfego |
+| `sub1`–`sub8` | string | Sub IDs 1 a 8 |
+| `customData` | object \| null | Dados customizados |
+
+Os campos `adPlatform`, `adAccountId`, `campaignId`, `adsetId` e `adId` são aceitos no corpo da requisição, mas não aparecem na resposta.
+
+### Exemplo
+
+```bash
+curl -X POST '{baseUrl}/v1/requests' \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: YOUR_API_KEY' \
+  -d '{
+    "event": "purchase",
+    "host": "loja.example.com",
+    "path": "/checkout/success",
+    "visitorId": "aaaaaaaa-bbbb-4ccc-8ddd-eeeeeeeeeeee",
+    "customData": {
+      "orderId": "ord_123",
+      "value": 299.90
+    }
+  }'
+```
+
+---
+
+## Erros
+
+| Status | Causa |
+| --- | --- |
+| `400` | Corpo inválido ou `customData` fora dos limites |
+| `401` | API Key ausente ou inválida |
+| `403` | API Key revogada ou expirada |
+| `404` | Projeto não encontrado |
+| `500` | Falha ao persistir o registro |
+| `502` | Falha na conversão de moeda (`POST /v1/conversions`) |

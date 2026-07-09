@@ -1,3 +1,149 @@
 ---
-title: "Script"
+title: "Script trackup"
+description: "Instalação e uso do script de rastreamento — init, identify, eventos customizados e customData."
 ---
+
+O script expõe a função global `trackup` com três comandos: `init`, `track` e `identify`. Chamadas feitas antes do script carregar são enfileiradas em `trackup.q` e executadas após o `init`.
+
+## Instalação
+
+Cole o snippet antes do `</head>` da página. Substitua `{hostname}` pelo domínio configurado no projeto e `{projectId}` pelo ID do projeto.
+
+```html
+<script>
+!function(t,r,a,c,k,u,p){
+t[k]=t[k]||function(){(t[k].q=t[k].q||[]).push(arguments)};
+u=r.createElement(a),a=r.getElementsByTagName(a)[0];
+u.async=!0;u.src=c;a.parentNode.insertBefore(u,a);}(window,document,
+'script','https://{hostname}/__t/e.js','trackup');
+trackup('init','{projectId}');
+trackup('track','page_view');
+</script>
+```
+
+O script carrega de `https://{hostname}/__t/e.js` e envia eventos para `POST /__t/events` no mesmo host.
+
+### Opções de init
+
+```javascript
+trackup('init', '{projectId}', {
+  passthrough: true,    // repassa query string em links decorados (padrão: true)
+  registrable: 'example.com'  // domínio registrável para lógica de _vid em links cross-site
+});
+```
+
+---
+
+## identify
+
+Associa dados do visitante ao perfil. Envia internamente o evento `$identify`.
+
+```javascript
+trackup('identify', {
+  name: 'Maria Silva',
+  email: 'maria@example.com',
+  phone: '+5511999990000',
+  addr_street: 'Rua das Flores, 100',
+  addr_city: 'São Paulo',
+  addr_state: 'SP',
+  addr_zip: '01000-000',
+  addr_country: 'BR'
+});
+```
+
+### Campos aceitos
+
+Todos os campos são opcionais e ficam no nível raiz do objeto, em snake\_case.
+
+| Campo | Tipo | Descrição |
+| --- | --- | --- |
+| `name` | string | Nome |
+| `email` | string | E-mail |
+| `phone` | string | Telefone |
+| `addr_street` | string | Rua |
+| `addr_city` | string | Cidade |
+| `addr_state` | string | Estado |
+| `addr_zip` | string | CEP |
+| `addr_country` | string | País |
+
+Atualização parcial: campos omitidos não sobrescrevem valores já gravados no visitante.
+
+---
+
+## Evento customizado
+
+Use `track` para enviar qualquer nome de evento. O evento padrão de página é `page_view`.
+
+O servidor persiste o nome do evento (`event`) e os campos de rastreamento automáticos (URL, UTM, subs, etc.). Propriedades soltas no terceiro argumento **não** são gravadas — use `customData` para dados extras ou `identify` para PII do visitante.
+
+```javascript
+// Page view (já disparado no snippet de instalação)
+trackup('track', 'page_view');
+
+// Só o nome do evento é persistido
+trackup('track', 'sign_in');
+
+// Dados extras vão em customData
+trackup('track', 'add_to_cart', {
+  customData: {
+    productId: 'sku_42',
+    quantity: 2
+  }
+});
+```
+
+Eventos com nome diferente de `page_view` são registrados como `custom_type` no servidor e podem ser usados em triggers.
+
+### Fila antes do carregamento
+
+Chamadas feitas antes do script carregar são enfileiradas automaticamente:
+
+```javascript
+trackup('track', 'early_event');
+// executado após trackup('init', ...)
+```
+
+---
+
+## customData em eventos
+
+Passe `customData` no terceiro argumento de `track`:
+
+```javascript
+trackup('track', 'purchase', {
+  customData: {
+    orderId: 'ord_abc123',
+    value: 299.90,
+    items: 3
+  }
+});
+```
+
+### Limites
+
+| Regra | Valor |
+| --- | --- |
+| Máximo de chaves | 15 |
+| Tamanho máximo | 8 KB (JSON serializado) |
+| Formato | Objeto plano (não array) |
+
+No script, payloads inválidos ou fora dos limites são descartados silenciosamente — o evento é enviado com `customData` vazio. Na API externa, a mesma violação retorna `400`.
+
+### Exemplo completo
+
+```javascript
+trackup('init', '{projectId}');
+
+trackup('identify', {
+  email: 'cliente@example.com',
+  name: 'João Santos'
+});
+
+trackup('track', 'purchase', {
+  customData: {
+    orderId: 'ord_abc123',
+    value: 199.90,
+    paymentMethod: 'pix'
+  }
+});
+```

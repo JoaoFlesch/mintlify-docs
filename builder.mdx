@@ -762,14 +762,145 @@ A aba **Configuração** reúne todas as definições gerais da página. É nela
 
 ## Inspector
 
+O **Inspector** é o painel onde você personaliza cada componente da sua página. Sempre que um elemento é selecionado no Canvas ou na aba **Camadas**, o Inspector exibe todas as opções de edição disponíveis para aquele componente.
+
+Enquanto a aba **Conteúdo** varia de acordo com o componente selecionado, as abas **Design**, **Ação** e **HTML** possuem a mesma estrutura para todos os componentes.
+
 <Frame>
-  ![Builder Inspector](/images/Builder-inspector.png)
+  ![Inspector](/images/Inspector.png)
 </Frame>
+
+<AccordionGroup>
+  <Accordion title="Conteúdo">
+    A aba **Conteúdo** reúne as configurações relacionadas à função do componente selecionado.
+
+    Como cada componente possui uma finalidade diferente, os campos exibidos nessa aba variam conforme o elemento escolhido.
+
+    Alguns exemplos:
+
+    - **Texto:** edição do conteúdo textual.
+    - **Título:** definição do texto e nível do cabeçalho.
+    - **Botão:** texto exibido no botão.
+    - **Imagem:** seleção da imagem e texto alternativo.
+    - **Vídeo:** plataforma e URL do vídeo.
+    - **Ícone:** escolha do ícone exibido.
+
+    Sempre que precisar alterar o conteúdo principal de um componente, essa será a aba utilizada.
+  </Accordion>
+
+  <Accordion title="Design">
+    A aba **Design** concentra todas as opções de aparência e posicionamento do componente.
+
+    É nela que você personaliza desde o tamanho até detalhes visuais como cores, bordas, tipografia e transformações.
+
+    > **Importante:** as alterações realizadas na aba **Design** afetam apenas o componente selecionado e não modificam as configurações globais definidas na aba **Estilo**.
+
+    Entre as principais configurações disponíveis estão:
+
+    | Seções | Campos Personalizáveis |
+    | --- | --- |
+    | Tamanho | Controle propriedades como: <ul><li>Largura</li><li>Altura</li><li>Largura mínima</li><li>Altura mínima</li><li>Altura máxima</li><li>Padding</li><li>Margem</li><li>Box Sizing</li></ul> |
+    | Layout | Configure o comportamento do componente dentro da página. As opções incluem: <ul><li>Display</li><li>Posição</li><li>Espaçamento entre elementos (Gap)</li><li>Direção do Flex</li><li>Alinhamento horizontal</li><li>Alinhamento vertical</li></ul> |
+    | Estilos | Personalize a aparência visual do componente. É possível alterar: <ul><li>Opacidade</li><li>Cor de fundo</li><li>Overflow</li><li>Raio da borda</li><li>Cor da borda</li><li>Espessura</li><li>Estilo da borda</li></ul> |
+    | Transformação | Permite aplicar transformações visuais ao componente. Inclui: <ul><li>Posição X</li><li>Posição Y</li><li>Rotação</li><li>Escala Horizontal</li><li>Escala Vertical</li></ul> |
+    | Texto | Quando o componente possui conteúdo textual, essa seção permite configurar: <ul><li>Fonte</li><li>Tamanho</li><li>Cor</li><li>Peso da fonte</li><li>Espaçamento entre letras</li><li>Altura da linha</li><li>Alinhamento</li><li>Transformação do texto</li></ul> |
+    | Outras propriedades | Para configurações mais avançadas, também é possível adicionar propriedades CSS personalizadas ao componente, oferecendo maior flexibilidade para ajustes específicos. |
+  </Accordion>
+
+  <Accordion title="Ação">
+    A aba **Ação** define o comportamento do componente quando o visitante interage com ele.
+
+    Atualmente, é possível configurar eventos como:
+
+    - **Nenhum:** o componente não executa nenhuma ação.
+    - **Abrir URL:** direciona o usuário para um link informado.
+    - **Copiar para área de transferência:** copia automaticamente um texto para o clipboard do visitante.
+
+    Ao utilizar a ação **Abrir URL**, você também pode definir:
+
+    - A URL de destino.
+    - Se o link será aberto na mesma aba ou em uma nova aba.
+
+    Esse recurso é bastante utilizado em botões, imagens, ícones e outros componentes interativos.
+  </Accordion>
+
+  <Accordion title="HTML">
+    A aba **HTML** reúne configurações relacionadas à estrutura HTML do componente.
+
+    Nela é possível definir:
+
+    - **Tag HTML:** escolha qual elemento HTML será utilizado na renderização do componente (como `div`, `section`, `span`, entre outros).
+    - **Atributos personalizados:** adicione atributos HTML como `id`, `class` e quaisquer outros atributos necessários para integrações ou personalizações avançadas.
+  </Accordion>
+</AccordionGroup>
+
+Essas configurações são úteis para organização da página, estilizações específicas com CSS, scripts personalizados e integrações com bibliotecas externas.
+
+> **Dica:** na maioria dos casos, você utilizará principalmente as abas **Conteúdo** e **Design**. As abas **Ação** e **HTML** são recursos mais avançados, indicados para adicionar interatividade e realizar personalizações técnicas quando necessário.
 
 ---
 
 ## IA
 
+O **Assistente IA** foi desenvolvido para acelerar a criação e edição de páginas utilizando linguagem natural. Em vez de realizar alterações manualmente, basta descrever o que deseja fazer e a inteligência artificial executará as modificações automaticamente.
+
+A IA pode atuar tanto em componentes específicos quanto na página inteira, auxiliando desde pequenos ajustes até a criação de novas seções.
+
 <Frame>
-  ![Builder IA](/images/Builder-IA.png)
+  ![IA](/images/IA.png)
 </Frame>
+
+### Como utilizar
+
+Para utilizar o Assistente IA, basta selecionar um componente ou deixar nenhum elemento selecionado e descrever a alteração desejada no campo de texto.
+
+Após enviar a solicitação, a IA analisará o contexto da página e realizará as modificações automaticamente.
+
+Você também pode utilizar os exemplos sugeridos pelo próprio assistente para iniciar rapidamente uma edição.
+
+### Editando um componente
+
+Ao selecionar um componente antes de utilizar a IA, as alterações serão aplicadas apenas ao elemento escolhido.
+
+Isso permite realizar ajustes específicos sem afetar o restante da página.
+
+Exemplos de comandos:
+
+- Altere este título para um tom mais persuasivo.
+- Deixe este botão mais chamativo.
+- Altere a cor deste botão para a cor primária.
+
+### O que a IA pode fazer
+
+O Assistente IA pode auxiliar em diversas tarefas, como:
+
+- Criar novas seções da página.
+- Reescrever títulos e textos.
+- Ajustar o tom da comunicação.
+- Alterar cores e estilos.
+- Organizar layouts.
+- Melhorar chamadas para ação (CTAs).
+- Criar descrições e conteúdos.
+- Realizar pequenas alterações estruturais.
+
+Quanto mais clara for a solicitação, melhores tendem a ser os resultados.
+
+### Boas práticas
+
+Para obter respostas mais precisas, descreva exatamente o que deseja alterar e, sempre que possível, informe o objetivo da mudança.
+
+Em vez de utilizar comandos genéricos como:
+
+> "Melhore isso."
+
+Prefira instruções mais específicas, como:
+
+> "Reescreva este título para aumentar a taxa de conversão."
+
+ou
+
+> "Crie uma seção de benefícios utilizando quatro cards com ícones."
+
+Essas informações ajudam a IA a compreender melhor sua intenção e produzir resultados mais próximos do esperado.
+
+> **Dica:** selecione um componente antes de utilizar o Assistente IA quando desejar editar apenas um elemento específico. Caso queira modificar toda a página, basta deixar nenhum componente selecionado e descrever a alteração desejada.

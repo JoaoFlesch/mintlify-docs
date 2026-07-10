@@ -644,12 +644,12 @@ Mesmo utilizando configurações globais, cada componente continua podendo receb
     Essa configuração é uma maneira rápida de alterar a aparência geral da página sem precisar editar cada componente individualmente.
   </Accordion>
 
-  <Accordion title="Cores (Tokens)">
+  <Accordion title="Cores">
     O Builder utiliza um sistema baseado em **tokens de design**, onde cada cor possui uma função específica dentro da interface.
 
     Em vez de configurar a cor de cada elemento manualmente, os componentes utilizam esses tokens como referência.
 
-    | Campo | Descrição |
+    | Token | Descrição |
     | --- | --- |
     | Background | Define a cor de fundo principal da página. |
     | Foreground | Cor padrão utilizada para textos e elementos sobre o fundo principal. |
@@ -671,40 +671,28 @@ Mesmo utilizando configurações globais, cada componente continua podendo receb
     | Input | Cor aplicada aos campos de entrada, formulários e elementos de preenchimento. |
     | Ring | Cor utilizada no indicador de foco dos componentes interativos, como campos de formulário e botões. |
   </Accordion>
+
+  <Accordion title="Números">
+    Além das cores, o Builder permite definir algumas propriedades globais relacionadas ao layout.
+
+    #### Radius
+
+    Define o arredondamento padrão utilizado em componentes como:
+
+    - Botões;
+    - Cards
+    - Inputs
+    - Containers
+
+    Alterar esse valor modifica automaticamente o nível de arredondamento dos componentes que utilizam o estilo global.
+
+    #### Largura máxima da página
+
+    Permite definir a largura máxima utilizada pelos principais Containers da página.
+
+    Essa configuração ajuda a manter o conteúdo centralizado e garante uma leitura mais confortável em telas maiores.
+  </Accordion>
 </AccordionGroup>
-
-## Números
-
-Além das cores, o Builder permite definir algumas propriedades globais relacionadas ao layout.
-
-### Radius
-
-Define o arredondamento padrão utilizado em componentes como:
-
-- Botões;
-- Cards;
-- Inputs;
-- Containers.
-
-Alterar esse valor modifica automaticamente o nível de arredondamento dos componentes que utilizam o estilo global.
-
----
-
-### Largura máxima da página
-
-Permite definir a largura máxima utilizada pelos principais Containers da página.
-
-Essa configuração ajuda a manter o conteúdo centralizado e garante uma leitura mais confortável em telas maiores.
-
----
-
-## Personalização por componente
-
-Embora a aba **Estilo** defina a identidade visual global da página, cada componente pode ser personalizado individualmente através do **Inspector**.
-
-Isso significa que é possível criar exceções sem alterar o restante da página. Por exemplo, você pode utilizar uma cor diferente em um botão específico, alterar a fonte de um título ou aplicar um fundo exclusivo em uma seção, enquanto todos os demais elementos continuam seguindo o padrão definido nas configurações globais.
-
-Essa combinação entre estilos globais e personalizações individuais oferece flexibilidade para criar layouts consistentes sem abrir mão da liberdade de design.
 
 > **Dica:** configure primeiro a identidade visual da página na aba **Estilo** e deixe as personalizações individuais apenas para casos específicos. Essa abordagem facilita futuras alterações e mantém todo o projeto visualmente consistente.
 

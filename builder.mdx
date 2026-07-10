@@ -700,9 +700,63 @@ Mesmo utilizando configurações globais, cada componente continua podendo receb
 
 ## Config
 
+A aba **Configuração** reúne todas as definições gerais da página. É nela que você configura informações de SEO, compartilhamento em redes sociais, scripts personalizados, recursos de performance e outras opções que afetam o comportamento da página.
+
 <Frame>
-  ![Builder Config](/images/Builder-config.png)
+  ![Config](/images/config.png)
 </Frame>
+
+<AccordionGroup>
+  <Accordion title="SEO">
+    Configure as informações utilizadas pelos mecanismos de busca.
+
+    - **Título:** título da página exibido nos resultados de pesquisa.
+    - **Descrição:** resumo utilizado por buscadores e redes sociais.
+    - **URL Canônica:** informa a URL oficial da página, evitando conteúdo duplicado.
+    - **Robots:** define como os mecanismos de busca devem tratar a página (indexar, seguir links, etc.).
+  </Accordion>
+
+  <Accordion title="Social (Open Graph)">
+    Define como a página será exibida quando compartilhada em redes sociais.
+
+    Você pode configurar:
+
+    - Título
+    - Descrição
+    - Imagem de compartilhamento
+  </Accordion>
+
+  <Accordion title="Twitter Card">
+    Escolha o formato utilizado ao compartilhar a página no X (Twitter).
+  </Accordion>
+
+  <Accordion title="Página">
+    Configura informações básicas da página.
+
+    - **Favicon:** ícone exibido na aba do navegador.
+    - **Idioma:** idioma principal da página.
+  </Accordion>
+
+  <Accordion title="Scripts">
+    Permite adicionar códigos personalizados em pontos específicos da página.
+
+    - **Scripts no** `<head>`**:** carregados antes do conteúdo da página.
+    - **Scripts no final do** `<body>`**:** executados após o carregamento do conteúdo.
+
+    Ideal para integrações como Google Tag Manager, pixels de rastreamento e outras ferramentas externas.
+  </Accordion>
+
+  <Accordion title="CSS Customizado">
+    Adicione regras CSS para personalizações avançadas que não possam ser realizadas pelas opções visuais do Builder.
+  </Accordion>
+
+  <Accordion title="Performance">
+    Configura recursos que ajudam a otimizar o carregamento da página.
+
+    - **Preconnect URLs:** estabelece conexões antecipadas com serviços externos.
+    - **Preload Assets:** prioriza o carregamento de arquivos importantes, como fontes, imagens e estilos.
+  </Accordion>
+</AccordionGroup>
 
 ---
 

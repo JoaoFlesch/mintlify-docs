@@ -87,14 +87,144 @@ Ao expandir uma requisição, o Trackup exibe todas as informações coletadas n
 
 Os dados são organizados por categorias para facilitar a leitura.
 
-## Risco e decisão
+<AccordionGroup>
+  <Accordion title="Risco e decisão">
+    Mostra o resultado da análise realizada pelos filtros.
 
-Mostra o resultado da análise realizada pelos filtros.
+    Você pode visualizar informações como:
 
-Você pode visualizar informações como:
+    - Score de risco
+    - Decisão aplicada
+    - Motivos da decisão
+    - Identificação de bots
+    - Resultado do Challenge
 
-- Score de risco
-- Decisão aplicada
-- Motivos da decisão
-- Identificação de bots
-- Resultado do Challenge
+    <Frame>
+      ![Risco E Decisao](/images/risco-e-decisao.png)
+    </Frame>
+  </Accordion>
+
+  <Accordion title="Identificação">
+    Reúne os identificadores internos utilizados pelo Trackup.
+
+    Inclui:
+
+    - ID da requisição
+    - Visitor ID
+    - Hash do IP
+    - Data e hora
+    - Endereço IP
+
+    Esses identificadores facilitam auditorias e integrações.
+
+    <Frame>
+      ![Screenshot 2026 07 13 At 16 42 40](/images/Screenshot-2026-07-13-at-16-42-40.png)
+    </Frame>
+  </Accordion>
+
+  <Accordion title="Localização">
+    Exibe as informações geográficas detectadas durante o acesso.
+
+    Como por exemplo:
+
+    - País
+    - Estado
+    - Cidade
+    - Latitude
+    - Longitude
+    - ISP
+    - Fuso horário
+    - Uso de Proxy
+
+    <Frame>
+      ![Screenshot 2026 07 13 At 16 45 20](/images/Screenshot-2026-07-13-at-16-45-20.png)
+    </Frame>
+  </Accordion>
+
+  <Accordion title="Tecnologia">
+    Apresenta detalhes técnicos do dispositivo utilizado pelo visitante.
+
+    Incluindo:
+
+    - Navegador
+    - Versão
+    - Sistema operacional
+    - Idioma
+    - Modelo do dispositivo
+    - User-Agent
+
+    Essas informações auxiliam na identificação de incompatibilidades ou padrões de acesso.
+
+    <Frame>
+      ![Screenshot 2026 07 13 At 16 45 46](/images/Screenshot-2026-07-13-at-16-45-46.png)
+    </Frame>
+  </Accordion>
+
+  <Accordion title="Marketing & UTMs">
+    Nesta seção ficam armazenados todos os dados relacionados à origem do tráfego.
+
+    Como:
+
+    - UTM Source
+    - UTM Medium
+    - UTM Campaign
+    - UTM Content
+    - UTM Term
+    - Click ID
+    - Origem de tráfego
+
+    Esses dados são preservados automaticamente durante toda a navegação do visitante.
+
+    <Frame>
+      ![Screenshot 2026 07 13 At 16 52 22](/images/Screenshot-2026-07-13-at-16-52-22.png)
+    </Frame>
+  </Accordion>
+
+  <Accordion title="Parâmetros Sub">
+    Caso sua operação utilize parâmetros personalizados (Sub IDs), eles também serão exibidos na requisição.
+
+    O Trackup suporta até oito parâmetros Sub
+
+    <Frame>
+      ![Screenshot 2026 07 13 At 16 46 15](/images/Screenshot-2026-07-13-at-16-46-15.png)
+    </Frame>
+  </Accordion>
+
+  <Accordion title="Dados customizados">
+    Caso sua aplicação envie informações adicionais através do Tracker, elas aparecerão nesta seção.
+
+    Isso permite enriquecer cada requisição com dados específicos da sua operação.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+# Logs dos acionadores
+
+Além dos dados da requisição, cada acesso também mantém um histórico completo de todos os **acionadores executados**.
+
+Sempre que uma requisição atende às condições de um acionador, sua execução é registrada nesta aba, permitindo acompanhar exatamente o que aconteceu após aquele acesso.
+
+Para cada acionador executado, o Trackup registra informações como:
+
+- Acionador responsável
+- Plataforma de destino (Meta, Google, TikTok, Webhook, etc.)
+- Evento enviado
+- Método HTTP
+- Status da requisição
+- Tempo de resposta
+- URL de destino
+
+Ao expandir um log, é possível visualizar todos os detalhes da execução, incluindo:
+
+- Payload enviado (Request)
+- Resposta retornada pela plataforma (Response)
+- Pixel ou integração utilizada
+- Acionador responsável pelo envio
+- URL completa da requisição
+
+Esse histórico facilita a validação de integrações, permitindo confirmar se um acionador foi executado corretamente, quais dados foram enviados e qual foi a resposta recebida da plataforma de destino.
+
+Caso um evento não seja registrado em uma plataforma externa, a aba **Logs** é o local ideal para identificar rapidamente a causa do problema e verificar se houve falha no envio, erro de configuração ou rejeição da API.
+
+---

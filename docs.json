@@ -30,13 +30,138 @@
         }
       ]
     },
-    "groups": [
+    "tabs": [
       {
-        "group": "Getting Started",
+        "tab": "Central de Ajuda",
+        "icon": "library-big",
         "pages": [
-          "index",
-          "quickstart"
+          {
+            "group": "Comece Aqui",
+            "pages": [
+              "boas-vindas",
+              "quick-start",
+              "nocoes-basicas-1"
+            ],
+            "icon": "coffee"
+          },
+          {
+            "group": "Workspace",
+            "pages": [
+              "times-projetos",
+              {
+                "group": "Gerenciador de Anúncios",
+                "icon": "chart-column",
+                "pages": [
+                  "entendendo-o-gerenciador-de-anuncios",
+                  "meta",
+                  "google",
+                  "kwai",
+                  "tiktok"
+                ]
+              },
+              "ofertas",
+              {
+                "group": "Páginas",
+                "icon": "file-text",
+                "pages": [
+                  "entendendo-paginas",
+                  "redirect",
+                  "builder",
+                  "upload-html",
+                  "clonar-url"
+                ]
+              },
+              "links",
+              {
+                "group": "Acionadores",
+                "icon": "zap",
+                "pages": [
+                  "acionadores",
+                  "variaveis"
+                ]
+              },
+              {
+                "group": "Filtros",
+                "icon": "shield-check",
+                "pages": [
+                  "entendendo-os-filtros",
+                  "modo-simples",
+                  "modo-avancado"
+                ]
+              },
+              {
+                "group": "Logs",
+                "icon": "scroll-text",
+                "pages": [
+                  "requisicoes",
+                  "visitantes",
+                  "conversoes"
+                ]
+              },
+              {
+                "group": "Integrações",
+                "icon": "plug-2",
+                "pages": [
+                  "pixels",
+                  "fontes-de-trafego",
+                  {
+                    "group": "Plataforma de Vendas",
+                    "icon": "shopping-cart",
+                    "pages": [
+                      "integrando-suas-plataformas-de-venda",
+                      "generico",
+                      "upag",
+                      "monetizze",
+                      "perfect-pay",
+                      "hotmart",
+                      "kiwify",
+                      "stripe",
+                      "paradise",
+                      "actionpay",
+                      "atomo-pay",
+                      "proofpay",
+                      "tribopay",
+                      "goat-pay",
+                      "inova-pag",
+                      "braip",
+                      "kirvano",
+                      "payt",
+                      "vega-checkout",
+                      "luna-checkout",
+                      "eduzz",
+                      "cart-panda",
+                      "yampi",
+                      "digipag"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Configurações",
+                "icon": "settings",
+                "pages": [
+                  "geral",
+                  "dominios",
+                  "chaves-de-api",
+                  "script"
+                ]
+              }
+            ],
+            "icon": "tool-case"
+          }
         ]
+      },
+      {
+        "tab": "Academy",
+        "icon": "graduation-cap"
+      },
+      {
+        "tab": "Doc",
+        "icon": "code-xml"
+      },
+      {
+        "tab": "FAQ",
+        "icon": "search"
       }
     ]
   },

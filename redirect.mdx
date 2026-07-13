@@ -4,6 +4,12 @@ icon: "external-link"
 description: "Utilize páginas externas dentro da sua operação sem precisar migrar sua infraestrutura."
 ---
 
+O **Redirect** é o tipo de página mais simples do Page Builder. Em vez de exibir um conteúdo para o visitante, ele tem como objetivo **redirecionar automaticamente o acesso para outra URL**.
+
+Esse recurso é ideal quando você precisa encaminhar usuários para outra página, domínio ou oferta, mantendo todo o rastreamento.
+
+> **Dica:** sempre utilize Redirects através dos [**Links**](/links) do Trackup. Assim, você aproveita todos os recursos de rastreamento, preservação de parâmetros e integrações disponíveis na plataforma.
+
 ---
 
 **\[VÍDEO RECOMENDADO NO TOPO\]**
@@ -16,16 +22,7 @@ _(Vídeo curto de 2 a 4 minutos mostrando a criação de uma página via Redirec
 
 O modo Redirect é ideal quando sua página já está publicada em outro lugar e você não deseja reconstruí-la dentro do Trackup.
 
-Exemplos comuns.
-
-Você possui uma landing page hospedada em:
-
-- VPS própria
-- WordPress
-- Cloudflare Pages
-- Vercel
-- Hospedagem tradicional
-- Qualquer outra infraestrutura externa
+<Badge color="purple">VPS própria</Badge>  <Badge color="purple">WordPress</Badge>   <Badge color="purple">Vercel</Badge>  <Badge color="purple">Hospedagem Externa</Badge>  <Badge color="purple">Shopify</Badge>
 
 Em vez de migrar essa página, você simplesmente conecta ela ao seu projeto.
 
@@ -35,33 +32,54 @@ Em vez de migrar essa página, você simplesmente conecta ela ao seu projeto.
 
 Criar uma página via Redirect leva apenas alguns segundos.
 
-Você precisará informar duas informações.
+<Steps>
+  <Step title="Vá em Páginas">
+  </Step>
+  <Step title="+ Adicionar página">
+  </Step>
+</Steps>
 
-**\[IMAGEM RECOMENDADA\]**
+<Frame>
+  ![Create Pages](/images/create-pages.png)
+</Frame>
 
-_(Mesmo print do modal, mas agora com pequenas marcações ou zoom destacando cada campo individualmente.)_
+<Steps>
+  <Step title="Selecione Redirect">
+  </Step>
+  <Step title="Defina um nome para a página">
+  </Step>
+  <Step title="Insira a URL que deseja redirecionar">
+  </Step>
+  <Step title="Salvar">
+  </Step>
+</Steps>
 
-### Nome
-
-Utilize um nome fácil de identificar dentro do projeto.
-
-Exemplos:
-
-- Landing Principal
-- VSL Principal
-- Página de Captura
-- Pré Checkout
+<Frame>
+  ![Redirect](/images/redirect.png)
+</Frame>
 
 ---
 
-### URL de Redirecionamento
+# Preservação de parâmetros
 
-Aqui você informará a URL da página externa que receberá o visitante.
+Quando utilizada em conjunto com um **Link** do Trackup, a página Redirect pode preservar automaticamente parâmetros importantes da navegação, como UTMs e outros identificadores.
 
-Exemplo:
+Isso permite que informações da campanha acompanhem o visitante até o destino final, facilitando a atribuição das conversões e a análise dos resultados.
 
-```text
-https://meusite.com
-```
+---
 
-Após salvar, a página ficará disponível dentro do seu projeto.
+# Integração com o Trackup
+
+Mesmo sendo uma página de redirecionamento, o Redirect continua integrado.
+
+Isso significa que você pode utilizar normalmente recursos como:
+
+- Pixels;
+- Acionadores;
+- Conversões;
+- Requisições;
+- Visitor;
+- Fontes de Tráfego;
+- Plataformas de Venda.
+
+Todo o fluxo continua sendo registrado antes que o visitante seja enviado ao destino.

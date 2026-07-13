@@ -67,8 +67,8 @@
                   "entendendo-paginas",
                   "redirect",
                   "builder",
-                  "upload-html",
-                  "clonar-url"
+                  "clonar-url",
+                  "upload-html"
                 ]
               },
               "links",

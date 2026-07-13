@@ -1,14 +1,12 @@
 ---
 title: "Requisições"
 icon: "code"
-description: "Veja exatamente o que aconteceu em cada clique."
+description: "Visualize, investigue e entenda cada acesso que passa pelo seu funil"
 ---
 
-Visualize, investigue e audite tudo o que acontece dentro da sua operação.
+Sempre que um usuário acessa uma página, clica em um link, inicia um checkout ou dispara qualquer evento, o Trackup registra todas as informações técnicas desse acesso.
 
-Sempre que um visitante interage com qualquer parte da sua infraestrutura, o Trackup gera uma requisição contendo todos os dados relacionados àquela ação.
-
-Cliques, acessos, eventos, parâmetros, redirecionamentos, integrações externas e respostas de APIs ficam registrados em tempo real, permitindo analisar exatamente o que aconteceu em cada visita.
+O módulo de **Requisições** funciona como uma central completa de analise, permitindo acompanhar todos visitantes em tempo real ou consultar acessos antigos para auditoria, depuração e análise.
 
 ---
 
@@ -40,45 +38,40 @@ Nada passa despercebido.
 
 ---
 
-# Visão geral do tráfego
+# Lista de requisições
 
-Tenha o registro de todas as interações.
+Ao acessar o módulo, você visualizará uma tabela com todas as requisições registradas pelo projeto.
 
-Você consegue acompanhar todo o comportamento do tráfego de forma cronológica.
+Cada linha representa um acesso realizado por um visitante.
 
-Informações disponíveis:
+Entre as principais informações exibidas estão:
 
-- **\[IMAGEM EXEMPLIFICANDO A TABELA PRINCIPAL\]**
-- Domínio acessado
-- Página visitada
-- Evento executado
-- Dispositivo
-- Sistema operacional
-- Localização
-- Origem do tráfego
-- Data e horário
+<Badge color="purple">Data e horário</Badge>  <Badge color="purple">Host acessado</Badge>  <Badge color="purple">Caminho (Path)</Badge>  <Badge color="purple">Localização</Badge>  <Badge color="purple">Evento registrado</Badge>  <Badge color="purple">Navegador e dispositivo</Badge>  <Badge color="purple">Origem do tráfego</Badge>
+
+A lista é atualizada constantemente e permite navegar pelo histórico completo de acessos do projeto.
+
+<Steps>
+  <Step title="Vá em Logs">
+  </Step>
+  <Step title="Requisições">
+  </Step>
+</Steps>
+
+<Frame>
+  ![Requisições](/images/requisições.png)
+</Frame>
 
 Isso permite monitorar toda atividade da operação em tempo real.
 
----
-
-# Filtros avançados
+## Filtros avançados
 
 Operações maiores geram milhares de registros diariamente.
 
 Por isso, o módulo conta com filtros avançados para facilitar investigações específicas.
 
-Filtre por:
-
-- Período
-- Evento
-- Host (domínio)
-- Path (URL)
-- IP
-- País
-- Dispositivo
-- Tipo de visitante
-- Decisão dos [filtros](/entendendo-os-filtros)
+<Frame>
+  ![Filtros](/images/filtros.png)
+</Frame>
 
 Exemplos:
 
@@ -86,360 +79,22 @@ Exemplos:
 
 → Visualizar somente acessos bloqueados de determinado país
 
-\[IMAGEM RECOMENDADA\]\
-da pra fazer um print bonitinho ou um exemplo dos filtros
-
 ---
 
-# Aba Resumo
+# Detalhes da requisição
 
-A visão geral reúne todos os dados técnicos e relacionados ao visitante.
+Ao expandir uma requisição, o Trackup exibe todas as informações coletadas naquele acesso.
 
-Aqui você entende exatamente quem acessou sua operação e como aquela visita aconteceu.
+Os dados são organizados por categorias para facilitar a leitura.
 
-\[IMAGEM RECOMENDADA\]\
-PRINT OU ARTE MOSTRANDO A ABA RESUMO
+## Risco e decisão
 
-## Identificação do visitante
+Mostra o resultado da análise realizada pelos filtros.
 
-Cada visitante recebe uma identificação única.
+Você pode visualizar informações como:
 
-Dados registrados:
-
-- Visitor ID
-- IP
-- País
-- Cidade
-- Geolocalização
-- Timezone
-
-Essas informações ajudam em auditorias e analises.
-
-Veja mais sobre [Visitantes aqui](/visitantes)
-
----
-
-## Informações do dispositivo
-
-O Trackup registra o ambiente completo utilizado no acesso.
-
-Exemplo:
-
-- Modelo do aparelho
-- Sistema operacional
-- Navegador utilizado
-- Tipo de dispositivo
-- Ambiente de execução
-
-Exemplo:
-
-```text
-Samsung Galaxy S23
-Android 14
-Instagram Browser
-Mobile Device
-```
-
----
-
-## Dados de marketing e UTMs
-
-Toda campanha gera parâmetros importantes para rastreamento.
-
-O Trackup captura automaticamente esses dados durante o clique.
-
-Exemplos:
-
-- utm\_source
-- utm\_medium
-- utm\_campaign
-- utm\_content
-- utm\_term
-- fbclid
-- gclid
-- ttclid
-
-Isso permite identificar exatamente qual campanha originou cada visitante.
-
-Exemplo:
-
-```text
-Instagram → Reel 03 → Campanha Escala 
-```
-
----
-
-# Logs técnicos
-
-Além das informações da visita, você também pode visualizar toda comunicação técnica gerada pelo Trackup.
-
-A aba Logs permite visualizar exatamente como foi processada cada requisição.
-
----
-
-## Logs de disparo Server-Side
-
-Sempre que um evento é enviado para plataformas externas, toda comunicação fica registrada.
-
-**\[IMAGEM RECOMENDADA ABA LOGS\]**
-
-Exemplos:
-
-- Eventos enviados para Meta API
-- Eventos enviados para Google Ads
-- Acionadores executados
-- Webhooks disparados
-- Chamadas internas do Trackup
-
-Isso permite validar se toda a infraestrutura está funcionando corretamente.
-
----
-
-## Request enviado
-
-O Trackup exibe o payload completo enviado para integrações externas.
-
-Exemplo:
-
-```json
-{
-  "event_name": "PageView",
-  "event_time": 1781458231,
-  "external_id": "visitor_7a92f",
-  "ip_address": "***"
-}
-```
-
-Aqui você consegue visualizar exatamente quais dados foram enviados.
-
----
-
-## Response recebida
-
-Após o envio, o Trackup também registra a resposta retornada pela API.
-
-Exemplo:
-
-```json
-{
-  "events_received": 1
-}
-```
-
-Status:
-
-```text
-HTTP 200
-```
-
-Isso confirma que o evento foi processado corretamente.
-
-# Aba Resumo
-
-A visão geral reúne todos os dados técnicos e relacionados ao visitante.
-
-Aqui você entende exatamente quem acessou sua operação e como aquela visita aconteceu.
-
-\[IMAGEM RECOMENDADA\]\
-PRINT OU ARTE MOSTRANDO A ABA RESUMO
-
-## Identificação do visitante
-
-Cada visitante recebe uma identificação única.
-
-Dados registrados:
-
-- Visitor ID
-- IP
-- País
-- Cidade
-- Geolocalização
-- Timezone
-
-Essas informações ajudam em auditorias e analises.
-
-Veja mais sobre [Visitantes aqui](/visitantes)
-
-## Informações do dispositivo
-
-O Trackup registra o ambiente completo utilizado no acesso.
-
-Exemplo:
-
-- Modelo do aparelho
-- Sistema operacional
-- Navegador utilizado
-- Tipo de dispositivo
-- Ambiente de execução
-
-Exemplo:
-
-```text
-Samsung Galaxy S23
-Android 14
-Instagram Browser
-Mobile Device
-```
-
-## Dados de marketing e UTMs
-
-Toda campanha gera parâmetros importantes para rastreamento.
-
-O Trackup captura automaticamente esses dados durante o clique.
-
-Exemplos:
-
-- utm\_source
-- utm\_medium
-- utm\_campaign
-- utm\_content
-- utm\_term
-- fbclid
-- gclid
-- ttclid
-
-Isso permite identificar exatamente qual campanha originou cada visitante.
-
-```text
-Instagram → Reel 03 → Campanha Escala 
-```
-
----
-
-## Informações do dispositivo
-
-# Logs técnicos
-
-Além das informações da visita, você também pode visualizar toda comunicação técnica gerada pelo Trackup.
-
-A aba Logs permite visualizar exatamente como foi processada cada requisição.
-
-O Trackup registra o ambiente completo utilizado no acesso.
-
-Exemplo:
-
-- Modelo do aparelho
-- Sistema operacional
-- Navegador utilizado
-- Tipo de dispositivo
-- Ambiente de execução
-
-Exemplo:
-
-```text
-Samsung Galaxy S23
-Android 14
-Instagram Browser
-Mobile Device
-```
-
----
-
-## Logs de disparo Server-Side
-
-Sempre que um evento é enviado para plataformas externas, toda comunicação fica registrada.
-
-**\[IMAGEM RECOMENDADA ABA LOGS\]**
-
-## Dados de marketing e UTMs
-
-Toda campanha gera parâmetros importantes para rastreamento.
-
-O Trackup captura automaticamente esses dados durante o clique.
-
-Exemplos:
-
-- Eventos enviados para Meta API
-- Eventos enviados para Google Ads
-- Acionadores executados
-- Webhooks disparados
-- Chamadas internas do Trackup
-
-Isso permite validar se toda a infraestrutura está funcionando corretamente.
-
----
-
-## Request enviado
-
-O Trackup exibe o payload completo enviado para integrações externas.
-
-```json
-{
-  "event_name": "PageView",
-  "event_time": 1781458231,
-  "external_id": "visitor_7a92f",
-  "ip_address": "***"
-}
-```
-
-Aqui você consegue visualizar exatamente quais dados foram enviados.
-
-## Response recebida
-
-Após o envio, o Trackup também registra a resposta retornada pela API.
-
-- utm\_source
-- utm\_medium
-- utm\_campaign
-- utm\_content
-- utm\_term
-- fbclid
-- gclid
-- ttclid
-
-Isso permite identificar exatamente qual campanha originou cada visitante.
-
-Exemplo:
-
-```text
-Instagram → Reel 03 → Campanha Escala 
-```
-
----
-
-# Logs técnicos
-
-Além das informações da visita, você também pode visualizar toda comunicação técnica gerada pelo Trackup.
-
-A aba Logs permite visualizar exatamente como foi processada cada requisição.
-
----
-
-## Logs de disparo Server-Side
-
-Sempre que um evento é enviado para plataformas externas, toda comunicação fica registrada.
-
-**\[IMAGEM RECOMENDADA ABA LOGS\]**
-
-Exemplos:
-
-- Eventos enviados para Meta API
-- Eventos enviados para Google Ads
-- Acionadores executados
-- Webhooks disparados
-- Chamadas internas do Trackup
-
-Isso permite validar se toda a infraestrutura está funcionando corretamente.
-
----
-
-## Request enviado
-
-O Trackup exibe o payload completo enviado para integrações externas.
-
-```json
-{
-  "event_name": "PageView",
-  "event_time": 1781458231,
-  "external_id": "visitor_7a92f",
-  "ip_address": "***"
-}
-```
-
-Aqui você consegue visualizar exatamente quais dados foram enviados.
-
-## Response recebida
-
-Após o envio, o Trackup também registra a resposta retornada pela API.
-
-Exemplo:
+- Score de risco
+- Decisão aplicada
+- Motivos da decisão
+- Identificação de bots
+- Resultado do Challenge

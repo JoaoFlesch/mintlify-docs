@@ -1,20 +1,14 @@
 ---
 title: "Links"
-description: "Todo clique importa. Todo dado começa aqui."
 icon: "link"
+description: "O ponto de entrada de toda a infraestrutura do Trackup."
 ---
 
-# **Por que os links são tão importantes no Trackup**?
+É através deles que a plataforma identifica um novo visitante, inicia o rastreamento da sessão, preserva os parâmetros recebidos da origem do tráfego e acompanha toda a jornada até a conversão.
 
-Dentro do ecossistema do Trackup, os Links são uma das partes mais importantes de toda infraestrutura.
+Independentemente da origem do acesso, todo visitante deve entrar no seu funil preferencialmente por um Link criado dentro do Trackup para que os dados possam ser registrados corretamente.
 
-Muito mais do que simplesmente redirecionar ou exibir páginas, os Links são responsáveis por iniciar o processo de rastreamento da jornada do usuário.
-
-É nesse momento que o Trackup começa a capturar dados importantes, preservar parâmetros da origem do tráfego e conectar toda a navegação até a conversão final.
-
-O Trackup oferece diferentes tipos de links para diferentes cenários operacionais.
-
-Cada um possui uma função específica e dispara um tipo de evento interno do Trackup e posteriormente será utilizado nos [acionadores](/acionadores).
+> Os Links são a base do sistema de rastreamento. Sem eles, o TrackUp não consegue acompanhar a jornada completa do visitante.
 
 ---
 
@@ -24,55 +18,232 @@ _(Vídeo de 5 a 7 minutos mostrando um usuário criando diferentes tipos de link
 
 ---
 
-# Como criar um link
+# Tipos de Links
 
-.....
+O Trackup possui diferentes tipos de Links, cada um desenvolvido para um momento específico da jornada do usuário.
 
-# 1. Link Genérico
+<Card title="Link Genérico" icon="link-2">
+  O tipo mais flexível de link dentro da plataforma.
 
-O tipo mais flexível de link dentro da plataforma.
+  Os Links Genéricos funcionam como links de rastreamento universais.
 
-Os Links Genéricos funcionam como links de rastreamento universais.
+  Eles podem ser utilizados em praticamente qualquer cenário onde você deseja apenas enviar tráfego preservando dados da jornada.
 
-Eles podem ser utilizados em praticamente qualquer cenário onde você deseja apenas enviar tráfego preservando dados da jornada.
+  Ideal para:
 
-Ideal para:
+  - Redirecionamento dentro do seu Funil
+  - Links em bio
+  - Operações orgânicas
 
-- Redirecionamento dentro do seu Funil
-- Links em bio
-- Operações orgânicas
+  Eles não dependem de parâmetros específicos de plataformas de mídia.
 
-Eles não dependem de parâmetros específicos de plataformas de mídia.
+  <Note>
+    [Antes de criar um Link de Anúncio , você precisa cadastrar uma Página.](/entendendo-paginas)
+  </Note>
 
-Todo acesso de um link genérico dispara um evento de <Badge color="purple">page_view</Badge>
+  Todo acesso de um link genérico dispara um evento de <Badge color="purple">page_view</Badge>
+</Card>
+
+<Card title="Link de Anúncio" icon="megaphone">
+  Os Links de Anúncio foram desenvolvidos especificamente para campanhas de mídia paga.
+
+  Esse tipo de link identifica e processa parâmetros enviados pelas plataformas de anúncios e é personalizado para cada fonte de tráfego
+
+  Essas informações ajudam o Trackup a entender exatamente de onde aquele visitante veio e atribuir cada evento com o máximo de detalhes em uma futura conversão
+
+  <Note>
+    [Antes de criar um Link de Anúncio , você precisa cadastrar uma Página.](/entendendo-paginas)
+  </Note>
+
+  Todo acesso de um Link de Anúncio dispara um evento de <Badge color="purple">ad_click</Badge>
+</Card>
+
+<Card title="Link de Checkout" icon="shopping-cart">
+  O Link de Checkout representa o último passo da jornada do usuário antes da conversão.
+
+  Esse tipo de link conecta o visitante à Oferta previamente cadastrada dentro do projeto.
+
+  Ele é responsável por garantir que todos os dados coletados durante a navegação continuem sendo preservados até o momento final da compra.
+
+  <Note>
+    [Antes de criar um Link de Checkout , você precisa cadastrar uma Oferta.](/ofertas)
+  </Note>
+
+  Todo acesso de um Link de Checkout dispara um evento de<Badge color="purple">start_checkout</Badge>
+</Card>
 
 ---
 
-# 2. Link de Anúncio
+# Como criar uma página através do Page Builder do Trackup
 
-Os Links de Anúncio foram desenvolvidos especificamente para campanhas de mídia paga.
+<Steps>
+  <Step title="Vá em Páginas">
+  </Step>
+  <Step title="+ Adicionar página">
+  </Step>
+</Steps>
 
-Esse tipo de link identifica e processa parâmetros enviados pelas plataformas de anúncios e é personalizado para cada fonte de tráfego
+<Frame>
+  ![Create Link](/images/create-link.png)
+</Frame>
 
-Essas informações ajudam o Trackup a entender exatamente de onde aquele visitante veio e atribuir cada evento com o máximo de detalhes em uma futura conversão
+<Steps>
+  <Step title="Insira um nome para sua organização">
+  </Step>
+  <Step title="Personalize sua Slug se desejar">
+    Por padrão o Trackup gera Slugs únicos e aleatórios.
+  </Step>
+  <Step title="Selecione o tipo de Link que deseja Criar">
+  </Step>
+  <Step title="Selecione uma fonte de tráfego">
+    Caso o tipo do link seja Anúncio
+  </Step>
+  <Step title="Defina a página para onde o link envia o visitante.">
+  </Step>
+  <Step title="Caso o tipo do link seja Checkout, você deve selecionar a Plataforma de Vendas">
+  </Step>
+  <Step title="Habilite o teste A/B se desejado">
+    Veja abaixo como funciona o teste A/B dos link no Trackup
+  </Step>
+  <Step title="Salvar">
+  </Step>
+</Steps>
 
-Todo acesso de um Link de Anúncio dispara um evento de <Badge color="purple">ad_click</Badge>
+<Frame>
+  ![Link](/images/link.png)
+</Frame>
+
+<Frame>
+  ![Link 2](/images/link-2.png)
+</Frame>
+
+## Após criar um link
+
+Na página de link, você terá acesso a todos os link criados em seu projeto:
+
+<Steps>
+  <Step title="Filtre por tipo de link">
+  </Step>
+  <Step title="Edite, Delete ou acesse os Relatórios de cada link">
+  </Step>
+  <Step title="Ver URL">
+    Visualize a URL Base, Parâmetros e filtros de cada link
+  </Step>
+  <Step title="Acesse seu link em uma nova aba do navegador">
+  </Step>
+</Steps>
+
+<Frame>
+  ![Link Menu](/images/link-menu.png)
+</Frame>
 
 ---
 
-# 3. Link de Checkout
+# Ver URL
 
-O Link de Checkout representa o último passo da jornada do usuário antes da conversão.
+Clicando em Ver URLo Trackup disponibiliza automaticamente todas as informações necessárias para utilizá-lo nas suas campanhas.
 
-Esse tipo de link conecta o visitante à Oferta previamente cadastrada dentro do projeto.
+<AccordionGroup>
+  <Accordion title="1. URL Base">
+    A **URL Base** é o endereço principal do Link, sem nenhum parâmetro adicional.
 
-Ele é responsável por garantir que todos os dados coletados durante a navegação continuem sendo preservados até o momento final da compra.
+    Ela é utilizada como ponto de partida para a montagem da URL final e pode ser utilizada em integrações ou configurações personalizadas.
+  </Accordion>
 
-<Note>
-  Antes de criar um Link de Checkout , você precisa cadastrar uma Oferta.
-</Note>
+  <Accordion title="2. Parâmetros (Query String)">
+    Nesta seção são exibidos todos os parâmetros configurados para a **Fonte de Tráfego** selecionada.
 
-Todo acesso de um Link de Checkout dispara um evento de<Badge color="purple">start_checkout</Badge>
+    Esses parâmetros serão substituídos automaticamente pela plataforma de anúncios no momento do clique.
+  </Accordion>
+
+  <Accordion title="3. Parâmetros do Filtro">
+    Se o Link possuir **Filtros** configurados, o Trackup exibirá automaticamente os parâmetros necessários para liberar o acesso.
+
+    Esses parâmetros são adicionados à URL final e garantem que as regras de filtragem sejam executadas corretamente.
+
+    <Warning>
+      Não remova esses parâmetros caso o Link utilize Filtros, pois isso poderá impedir o funcionamento esperado da página.
+    </Warning>
+  </Accordion>
+
+  <Accordion title="4.URL Final">
+    A **URL Final** já combina automaticamente:
+
+    - URL Base;
+    - Parâmetros da Fonte de Tráfego;
+    - Parâmetros dos Filtros (quando existirem).
+
+    Na maioria dos casos, esta é a URL que deve ser utilizada diretamente nas campanhas, pois já contém toda a configuração necessária para o rastreamento completo.
+  </Accordion>
+
+  <Accordion title="5. QR Code">
+    O Trackup também gera automaticamente um **QR Code** apontando para o mesmo Link.
+
+    Ele pode ser utilizado em materiais impressos, apresentações, eventos ou qualquer outro canal offline.
+
+    É possível:
+
+    - Copiar a URL do QR Code.
+    - Abrir a imagem em uma nova aba.
+    - Compartilhar o QR Code diretamente.
+  </Accordion>
+</AccordionGroup>
+
+<Frame>
+  ![Ver Url](/images/ver-url.png)
+</Frame>
+
+---
+
+# Teste A/B
+
+O **Teste A/B** permite distribuir automaticamente os visitantes entre duas ou mais páginas utilizando um único Link.
+
+Essa funcionalidade é ideal para comparar diferentes versões de uma Landing Page, VSL, Checkout ou qualquer outra etapa do funil, identificando qual delas apresenta melhor desempenho.
+
+Toda a distribuição é realizada automaticamente pelo Trackup, enquanto o rastreamento da jornada permanece intacto.
+
+---
+
+**\[IMAGEM RECOMENDADA\]**
+
+_(Diagrama mostrando um único Link dividindo visitantes entre Landing A e Landing B.)_
+
+---
+
+## Configurando um Teste A/B
+
+Os Links também permitem distribuir automaticamente o tráfego entre diferentes páginas.
+
+Essa funcionalidade é ideal para comparar variações de Landing Pages, VSLs, ofertas ou checkouts sem precisar alterar seus anúncios.
+
+Você define a porcentagem de distribuição e o TrackUp envia os visitantes automaticamente.
+
+<Steps>
+  <Step title="Clique em Habilitar teste A/B">
+  </Step>
+  <Step title="+ Adicionar página">
+  </Step>
+  <Step title="Selecione a página que deseja testar">
+  </Step>
+  <Step title="Escolha a proporção de tráfego que vai para cada página">
+    50% → Landing A <br />50% → Landing B
+
+    ou
+
+    70% → Landing A <br />30% → Landing B
+
+    <Info>
+      Você pode distribuir o tráfego como quiser, desde que a soma final seja 100
+    </Info>
+  </Step>
+  <Step title="Salvar">
+  </Step>
+</Steps>
+
+<Frame>
+  ![Teste Ab](/images/teste-ab.png)
+</Frame>
 
 ---
 
@@ -82,12 +253,11 @@ Uma das funções mais importantes dos Links do Trackup é preservar informaçõ
 
 Quando um usuário chega através de uma campanha, diversos parâmetros acompanham esse clique.
 
-Exemplo.
-
 ```text
 utm_source=facebook
-utm_campaign=escala_junho
-fbclid=123456789
+utm_medium=cpc
+utm_campaign=escala_julho
+fbclid=xxxxxxxx
 ```
 
 Se esses parâmetros forem perdidos durante a navegação, a atribuição da conversão pode quebrar.
@@ -112,52 +282,6 @@ Esse identificador acompanha toda jornada do visitante.
 
 Ele conecta todos os eventos relacionados àquele usuário.
 
-Exemplo.
-
-```text
-Clique inicial
-Page View
-Navegação
-Checkout
-Conversão
-```
+<Badge color="purple">Clique inicial</Badge>   <Badge color="purple">Page View</Badge>   <Badge color="purple">Navegação</Badge>   <Badge color="purple">Checkout</Badge>   <Badge color="purple">Conversão</Badge>
 
 Tudo fica associado ao mesmo identificador interno.
-
----
-
-# Teste A/B integrado ⚖️
-
-O módulo de Links também permite criar testes A/B.
-
-Isso permite distribuir visitantes entre múltiplas páginas diferentes para identificar qual versão gera melhor performance.
-
-Exemplo.
-
-```text
-50% → Landing A
-
-50% → Landing B
-```
-
-Ou.
-
-```text
-70% → Landing A
-
-30% → Landing B
-```
-
-O Trackup distribui automaticamente os visitantes com base na configuração definida.
-
-Ideal para:
-
-- Testar variações de Landing Pages ou VSLs
-- Testar diferentes Gateways ou Checkouts
-- Testar otimizações no funil
-
----
-
-**\[IMAGEM RECOMENDADA\]**
-
-_(Diagrama mostrando um único Link dividindo visitantes entre Landing A e Landing B.)_

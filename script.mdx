@@ -105,6 +105,38 @@ trackup('track', 'early_event');
 
 ---
 
+## Evento via atributo HTML
+
+Dispare eventos em cliques sem JavaScript extra. Adicione `data-trackup-event` em qualquer elemento clicável (botão, link, etc.):
+
+```html
+<button data-trackup-event="initiate_checkout">Finalizar Compra</button>
+
+<a href="/checkout" data-trackup-event="initiate_checkout">
+  Ir para checkout
+</a>
+```
+
+Para enviar `customData`, use `data-trackup-props` com um objeto JSON:
+
+```html
+<a
+  href="/checkout"
+  data-trackup-event="add_to_cart"
+  data-trackup-props='{"productId":"sku_42","quantity":2}'
+>
+  Comprar agora
+</a>
+```
+
+O script escuta cliques via delegação no `document`, então elementos adicionados depois (SPAs, modais) também funcionam.
+
+<Warning>
+  Eventos via `data-trackup-event` **não disparam triggers client-side**. Se precisar desse comportamento, use `trackup('track', ...)`.
+</Warning>
+
+---
+
 ## customData em eventos
 
 Passe `customData` no terceiro argumento de `track`:

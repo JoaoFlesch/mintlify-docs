@@ -103,6 +103,41 @@ trackup('track', 'early_event');
 // executado após trackup('init', ...)
 ```
 
+### Callback
+
+Passe uma função como **quarto argumento** de `trackup('track', ...)` para receber a resposta do servidor após o evento ser aceito. O callback é útil quando você precisa aguardar o rastreamento antes de navegar — por exemplo, redirecionar ao checkout só depois que `vid` e `sid` foram confirmados.
+
+```html
+<a id="link" href="https://checkout.exemplo.com">Ir para o checkout</a>
+
+<script>
+  document.getElementById('link').addEventListener('click', function (e) {
+    e.preventDefault()
+    const destino = this.href
+
+    trackup('track', 'start_checkout', { value: '100', currency: 'BRL' }, function (event) {
+      console.log(event.vid, event.sid)
+      window.location.href = destino
+    })
+  })
+</script>
+```
+
+O objeto `event` contém os IDs retornados por `POST /__t/events`:
+
+| Campo | Tipo | Descrição |
+| --- | --- | --- |
+| `vid` | string | ID do visitante (UUID). O script também persiste em cookie/localStorage. |
+| `sid` | string | ID de atribuição da sessão. Usado para decorar links de rastreamento com `sid`. |
+
+<Note>
+  O callback só é chamado quando o servidor responde com sucesso (`200`). Em falha de rede ou após retentativas sem sucesso, a função **não** é invocada. Se a navegação depende do callback, considere um timeout de fallback.
+</Note>
+
+<Warning>
+  Callbacks não estão disponíveis em eventos via `data-trackup-event` — esses eventos são enviados via beacon e não retornam resposta.
+</Warning>
+
 ---
 
 ## Evento via atributo HTML

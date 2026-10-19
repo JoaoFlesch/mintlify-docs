@@ -1,9 +1,9 @@
 ---
 title: "API externa"
-description: "Endpoints autenticados por API Key para visitantes, conversões e requisições."
+description: "Endpoints autenticados por API Key para integrar sistemas e agentes com o Trackup."
 ---
 
-Todas as rotas exigem autenticação via API Key. O corpo das requisições é JSON. Respostas de sucesso retornam status `201`.
+Todas as rotas desta página aceitam autenticação via API Key. O corpo das requisições é JSON.
 
 ## URL base
 
@@ -11,33 +11,81 @@ Todas as rotas exigem autenticação via API Key. O corpo das requisições é J
 
 Monte a URL completa concatenando o endpoint ao base. Exemplo: `https://dash-api.trackup.me/v1/visitors`.
 
-| Método | Endpoint |
-| --- | --- |
-| `POST` | `/visitors` |
-| `POST` | `/conversions` |
-| `POST` | `/requests` |
-
 ## Autenticação
 
-Envie a chave no header `X-Api-Key` em cada requisição.
+Envie a chave no header `X-Api-Key` em cada requisição. A chave pertence ao time e é criada em **Configurações → Chaves de API**.
 
 | Status | Condição |
 | --- | --- |
 | `401` | Header ausente ou chave inválida |
-| `403` | Chave revogada ou expirada |
+| `403` | Chave revogada, expirada, sem a permissão exigida pela rota, ou rota indisponível por chave |
+
+Não é necessário enviar `X-Team-Id`: o time é o da chave. Se o header for enviado com outro time, a resposta é `403`.
+
+## Permissões
+
+Cada chave recebe uma lista de permissões no formato `recurso.acao` (por exemplo `pixel.create`, `domain.list`). A rota só é executada se a chave tiver a permissão exigida **e** o usuário que criou a chave ainda tiver essa permissão no time. As permissões de ingestão (`visitor.create`, `conversion.create`, `request.create`) são exclusivas de chaves: qualquer membro pode concedê-las e elas não são verificadas no criador. Se o criador deixar o time, a chave passa a responder `403`.
+
+Permissões disponíveis para chaves: todas as de recursos de projeto (`project`, `domain`, `pixel`, `trigger`, `page`, `link`, `url`, `traffic-source`, `sales-platform`, `firewall-rule`, `ads-manager`, `analytics`, `visitor`, `conversion`, `request`, `request-log`, `asset`) mais as de ingestão `visitor.create`, `conversion.create` e `request.create`, que só existem em chaves. Não existem por chave: time, membros, assinatura, faturas, formas de pagamento, gestão de chaves, exclusão de projeto, OAuth (Nuvemshop, Meta) e os endpoints de IA.
+
+## Escopo de projetos
+
+A chave pode ser global (acessa todos os projetos do time) ou restrita a uma lista de projetos. Projetos fora da lista respondem `404`.
+
+Nas rotas de ingestão (`/visitors`, `/conversions`, `/refunds`, `/chargebacks`, `/requests`) o projeto é definido assim:
+
+| Chave | Campo `projectId` no corpo |
+| --- | --- |
+| Restrita a exatamente um projeto | Opcional (padrão: esse projeto) |
+| Global ou restrita a vários projetos | Obrigatório (`400` se ausente) |
+
+## Rotas de gestão
+
+As mesmas rotas usadas pelo painel ficam disponíveis por chave, com a permissão indicada. `:id` é o ID do projeto.
+
+| Método | Endpoint | Permissão |
+| --- | --- | --- |
+| `GET` | `/projects` | `project.list` (lista só os projetos acessíveis pela chave) |
+| `POST` | `/projects` | `project.create` |
+| `GET` | `/projects/:id` | `project.read` |
+| `PUT` | `/projects/:id` | `project.update` |
+| `POST` | `/projects/:id/publish` | `project.update` |
+| `GET` `POST` | `/projects/:id/domains` | `domain.list` / `domain.create` |
+| `GET` `PUT` `DELETE` | `/projects/:id/domains/:domainId` | `domain.read` / `domain.update` / `domain.delete` |
+| `GET` `POST` | `/projects/:id/pixels` | `pixel.list` / `pixel.create` |
+| `GET` `PUT` `DELETE` | `/projects/:id/pixels/:pixelId` | `pixel.read` / `pixel.update` / `pixel.delete` |
+| `GET` `POST` | `/projects/:id/triggers` | `trigger.list` / `trigger.create` |
+| `GET` `POST` | `/projects/:id/pages` | `page.list` / `page.create` |
+| `GET` `POST` | `/projects/:id/links` | `link.list` / `link.create` |
+| `GET` `POST` | `/projects/:id/traffic-sources` | `traffic-source.list` / `traffic-source.create` |
+| `GET` `POST` | `/projects/:id/sales-platforms` | `sales-platform.list` / `sales-platform.create` |
+| `GET` `POST` | `/projects/:id/firewall-rules` | `firewall-rule.read` / `firewall-rule.create` |
+| `GET` | `/projects/:id/visitors` | `visitor.list` |
+| `GET` | `/projects/:id/conversions` | `conversion.list` |
+| `GET` | `/projects/:id/requests` | `request.list` |
+| `GET` | `/projects/:id/analytics/overview` | `analytics.read` (os demais relatórios de analytics exigem `dashboard.read`, indisponível por chave) |
+| `GET` `POST` | `/assets` | `asset.list` / `asset.create` |
+| `GET` `POST` | `/urls` | `url.list` / `url.create` |
+| `GET` | `/ads-manager/:projectId/*` | `ads-manager.read` |
+| `POST` `PATCH` `DELETE` | `/ads-manager/:projectId/*` | `ads-manager.update` (exceto OAuth Meta: `auth-url` e `callback`) |
+
+Os corpos e respostas dessas rotas são os mesmos usados pelo painel. As rotas de ingestão abaixo retornam `201` em caso de sucesso.
+
+## Log de requisições
+
+Toda requisição feita com chave fica registrada (método, caminho, status, duração, IP, corpo da requisição e da resposta com segredos mascarados) e pode ser consultada em **Configurações → Chaves de API → histórico**.
 
 ---
 
 ## POST /visitors
 
-Cria um visitante no projeto vinculado à API Key.
+Cria um visitante no projeto. Permissão: `visitor.create`.
 
 ### Corpo da requisição
 
-Todos os campos são opcionais.
-
 | Campo | Tipo | Obrigatório | Descrição |
 | --- | --- | --- | --- |
+| `projectId` | string | ver [Escopo de projetos](#escopo-de-projetos) | ID do projeto |
 | `utmSource` | string | não | Origem UTM |
 | `utmMedium` | string | não | Meio UTM |
 | `utmCampaign` | string | não | Campanha UTM |
@@ -91,14 +139,19 @@ curl -X POST 'https://dash-api.trackup.me/v1/visitors' \
 
 ## POST /conversions
 
-Registra uma conversão no projeto vinculado à API Key.
+Registra uma conversão no projeto. Permissão: `conversion.create`.
 
 O campo `value` é convertido para a moeda configurada no projeto.
+
+Se `transactionId` já existir com o mesmo status, a resposta é `409` e nada é duplicado. Envie sempre o `transactionId` para que reenvios sejam seguros.
+
+`POST /refunds` e `POST /chargebacks` aceitam o mesmo corpo e registram, respectivamente, um reembolso e um chargeback (mesma permissão).
 
 ### Corpo da requisição
 
 | Campo | Tipo | Obrigatório | Descrição |
 | --- | --- | --- | --- |
+| `projectId` | string | ver [Escopo de projetos](#escopo-de-projetos) | ID do projeto |
 | `value` | number | **sim** | Valor da conversão |
 | `transactionId` | string | não | ID da transação |
 | `currency` | string | não | Moeda de origem (ex.: `BRL`, `USD`) |
@@ -162,16 +215,15 @@ curl -X POST 'https://dash-api.trackup.me/v1/conversions' \
 
 ## POST /requests
 
-Registra um evento ou requisição no projeto vinculado à API Key.
+Registra um evento ou requisição no projeto. Permissão: `request.create`.
 
 Requisições criadas via API Key não disparam triggers ou pixels — apenas persistem o registro.
 
 ### Corpo da requisição
 
-Todos os campos são opcionais.
-
 | Campo | Tipo | Obrigatório | Descrição |
 | --- | --- | --- | --- |
+| `projectId` | string | ver [Escopo de projetos](#escopo-de-projetos) | ID do projeto |
 | `host` | string | não | Host da requisição (padrão: `""`) |
 | `path` | string | não | Caminho da requisição (padrão: `""`) |
 | `event` | string | não | Nome do evento (padrão: `""`) |
@@ -196,7 +248,7 @@ Objeto plano com pares chave-valor.
 | --- | --- |
 | Máximo de chaves | 15 |
 | Tamanho máximo | 8 KB (JSON serializado) |
-| Violação | Resposta `400` |
+| Violação | Resposta `422` |
 
 Valores aninhados são permitidos. Se omitido, armazena `{}`.
 
@@ -244,9 +296,11 @@ curl -X POST 'https://dash-api.trackup.me/v1/requests' \
 
 | Status | Causa |
 | --- | --- |
-| `400` | Corpo inválido ou `customData` fora dos limites |
+| `400` | `projectId` ausente quando obrigatório |
 | `401` | API Key ausente ou inválida |
-| `403` | API Key revogada ou expirada |
-| `404` | Projeto não encontrado |
+| `403` | API Key revogada, expirada ou sem a permissão da rota |
+| `404` | Projeto não encontrado ou fora do escopo da chave |
+| `409` | `transactionId` já registrado com o mesmo status (`POST /conversions`, `/refunds`, `/chargebacks`) |
+| `422` | Corpo inválido ou `customData` fora dos limites |
 | `500` | Falha ao persistir o registro |
 | `502` | Falha na conversão de moeda (`POST /conversions`) |

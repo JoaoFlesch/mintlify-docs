@@ -1,0 +1,184 @@
+---
+title: "Agentes de IA"
+icon: "bot"
+description: "Conecte agentes de IA ao Trackup e deixe que eles operem sua estrutura com segurança."
+---
+
+Agentes de IA, assistentes com acesso a ferramentas e automações com LLM usam o Trackup pela mesma API externa que qualquer integração: uma **Chave de API do Time**, enviada no header `X-Api-Key`.
+
+Você decide o que o agente enxerga e o que ele pode alterar. Tudo que ele fizer fica registrado.
+
+<Badge color="purple">Registrar vendas</Badge> <Badge color="purple">Consultar dados</Badge> <Badge color="purple">Operar campanhas</Badge> <Badge color="purple">Configurar projetos</Badge>
+
+---
+
+# O que um agente pode fazer
+
+| Objetivo | Rotas | Permissões |
+| :- | :- | :- |
+| Registrar conversões, reembolsos e chargebacks vindos de um CRM, ERP ou checkout | `POST /conversions`, `/refunds`, `/chargebacks` | `conversion.create` |
+| Criar visitantes e eventos | `POST /visitors`, `/requests` | `visitor.create`, `request.create` |
+| Ler métricas e listas | `GET /projects/:id/analytics/overview`, `/conversions`, `/visitors`, `/requests` | `analytics.read`, `conversion.list`, `visitor.list`, `request.list` |
+| Acompanhar e ajustar campanhas Meta | `GET /ads-manager/:projectId/summary`, `/table`; `PATCH .../entities/:entityId/status`, `/budget` | `ads-manager.read`, `ads-manager.update` |
+| Configurar o projeto | pixels, domínios, links, páginas, fontes de tráfego, plataformas de venda | `pixel.*`, `domain.*`, `link.*`, `page.*`, `traffic-source.*`, `sales-platform.*` |
+
+O agente nunca acessa cobrança, membros, gestão de chaves, exclusão de projeto, conexões OAuth (Meta, Nuvemshop) nem os endpoints de IA do painel. Essas rotas respondem `403` para qualquer chave.
+
+<Tip>
+  A lista completa de rotas, corpos e permissões está em [API externa](/chaves-de-api).
+</Tip>
+
+---
+
+# Como o acesso funciona
+
+Cada chave pertence ao Time e carrega três limites:
+
+1. **Permissões** — o agente só executa as rotas cujas permissões a chave tem.
+2. **Projetos** — a chave acessa todos os projetos do Time ou apenas os que você listar. Projetos fora da lista respondem `404`.
+3. **Expiração** — opcional. Depois da data, a chave responde `403`.
+
+<Note>
+  A chave age em nome de quem a criou. Se essa pessoa sair do Time ou perder uma permissão, o agente perde o acesso junto. Crie chaves de agentes a partir de uma conta estável da operação.
+</Note>
+
+Toda requisição feita pelo agente fica no histórico da chave: método, caminho, status, duração e os corpos de requisição e resposta com segredos mascarados.
+
+---
+
+# Configurando o acesso do agente
+
+<Steps>
+  <Step title="Defina o que o agente vai fazer" titleSize="h2">
+    Liste as rotas que o agente precisa e anote as permissões correspondentes na tabela acima.
+
+    Conceda só o necessário. Um agente que registra vendas precisa apenas de `conversion.create`; um agente de relatórios só lê.
+  </Step>
+
+  <Step title="Crie uma chave exclusiva para o agente" titleSize="h2">
+    <Steps>
+      <Step title="Clique no seu perfil, canto inferior esquerdo">
+      </Step>
+
+      <Step title="Configurações">
+      </Step>
+
+      <Step title="Chaves de API">
+      </Step>
+
+      <Step title="+ Nova chave">
+      </Step>
+
+      <Step title="Nome">
+        Identifique o agente. Ex.: Agente de vendas CRM
+      </Step>
+
+      <Step title="Projetos">
+        Selecione só os projetos que o agente vai operar.
+      </Step>
+
+      <Step title="Permissões">
+        Marque apenas as permissões anotadas no passo anterior.
+      </Step>
+
+      <Step title="Criar">
+      </Step>
+    </Steps>
+
+    <Tip>
+      [Veja o passo a passo completo em Times, Projetos e Membros](/times-projetos#como-criar-uma-chave-de-api)
+    </Tip>
+  </Step>
+
+  <Step title="Guarde a chave no cofre do agente" titleSize="h2">
+    A chave completa aparece uma única vez. Salve em uma variável de ambiente ou no gerenciador de segredos da sua plataforma de agentes.
+
+    A chave fica na camada de ferramentas (o código que faz a requisição), nunca no prompt, na memória do modelo ou em logs.
+  </Step>
+
+  <Step title="Teste o acesso" titleSize="h2">
+    ```bash
+    curl 'https://dash-api.trackup.me/v1/projects' \
+      -H 'X-Api-Key: YOUR_API_KEY'
+    ```
+
+    A resposta lista os projetos que a chave pode acessar:
+
+    ```json
+    {
+      "data": [
+        { "id": "0f7c6a1e-…", "name": "Produto Financeiro", "slug": "produto-financeiro", "currency": "BRL" }
+      ],
+      "count": 1
+    }
+    ```
+
+    | Resposta | Significado |
+    | :- | :- |
+    | `401` | Header ausente ou chave inválida |
+    | `403` | Chave revogada, expirada ou sem `project.list` |
+  </Step>
+
+  <Step title="Acompanhe o histórico" titleSize="h2">
+    Em **Configurações → Chaves de API → Ver histórico** você vê cada chamada do agente. Clique em uma linha para abrir o corpo enviado e a resposta recebida.
+
+    Use o histórico para depurar o agente e para auditar o que ele fez.
+  </Step>
+</Steps>
+
+---
+
+# Como o agente descobre a documentação
+
+Esta documentação é publicada também em Markdown, pronta para ser lida por modelos:
+
+| Recurso | URL |
+| :- | :- |
+| Índice de todas as páginas | `https://docs.trackup.me/llms.txt` |
+| Referência da API | `https://docs.trackup.me/chaves-de-api.md` |
+| Qualquer página | `https://docs.trackup.me/<slug>.md` |
+
+Aponte o agente para o índice ou inclua a referência da API no contexto da tarefa.
+
+---
+
+# Contexto para o agente
+
+Cole este bloco nas instruções do agente e substitua a chave pela variável do seu cofre.
+
+```text
+Você opera o Trackup pela API REST.
+
+Base: https://dash-api.trackup.me/v1
+Autenticação: header X-Api-Key. Não envie X-Team-Id.
+Corpo e respostas em JSON. Listagens retornam { "data": [...], "count": n } e aceitam page e limit.
+
+Projetos: GET /projects lista os projetos acessíveis; use o id em /projects/:id/...
+Ingestão (POST /visitors, /conversions, /refunds, /chargebacks, /requests): envie projectId no corpo,
+exceto quando a chave estiver restrita a um único projeto.
+Conversões: value é obrigatório. Envie transactionId para evitar duplicidade; 409 significa que a
+transação já foi registrada com esse status, não tente de novo.
+
+Erros: 400 projectId ausente; 401 chave inválida; 403 sem permissão, chave revogada/expirada ou rota
+indisponível; 404 projeto fora do escopo; 409 conversão duplicada; 422 corpo inválido.
+
+Nunca tente: cobrança, membros, chaves de API, exclusão de projeto, OAuth ou /ai.
+Referência completa: https://docs.trackup.me/chaves-de-api.md
+```
+
+---
+
+# Boas práticas
+
+- **Uma chave por agente.** Facilita revogar, auditar e entender o histórico.
+- **Projetos restritos.** Um agente de um cliente não deve enxergar os outros.
+- **Expiração em testes.** Chaves de experimento morrem sozinhas.
+- **Aprovação humana para ações destrutivas.** Pausar campanhas, alterar orçamentos e apagar recursos merecem confirmação de uma pessoa antes da chamada.
+- **Revogue ao desligar o agente.** A chave para de funcionar na hora e o histórico continua disponível.
+- **Trate `409` e `4xx` como resposta, não como falha.** O agente deve ler a mensagem e ajustar a chamada em vez de repetir.
+
+---
+
+**Próximo passo**
+
+→ [Casos de uso para agentes](/agentes-de-ia-casos-de-uso)

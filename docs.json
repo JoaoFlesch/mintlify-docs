@@ -145,6 +145,14 @@
                   "chaves-de-api",
                   "script"
                 ]
+              },
+              {
+                "group": "Agentes de IA",
+                "icon": "bot",
+                "pages": [
+                  "agentes-de-ia",
+                  "agentes-de-ia-casos-de-uso"
+                ]
               }
             ],
             "icon": "tool-case"

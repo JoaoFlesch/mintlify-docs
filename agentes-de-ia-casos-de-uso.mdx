@@ -1,0 +1,244 @@
+---
+title: "Casos de uso para agentes"
+icon: "sparkles"
+description: "Fluxos prontos para agentes: registrar vendas, gerar relatórios, acompanhar campanhas e auditar tráfego."
+---
+
+Cada fluxo abaixo mostra o objetivo, as permissões que a chave precisa, as chamadas na ordem e o que o agente faz com a resposta. Os exemplos usam a URL base `https://dash-api.trackup.me/v1` e o header `X-Api-Key`.
+
+| Fluxo | Permissões da chave |
+| :- | :- |
+| Registrar vendas de um CRM ou checkout | `conversion.create` |
+| Relatório diário de performance | `project.list`, `analytics.read`, `conversion.list` |
+| Acompanhar e pausar campanhas Meta | `ads-manager.read`, `ads-manager.update` |
+| Auditar tráfego e investigar um visitante | `request.list`, `request-log.list`, `visitor.list`, `visitor.read` |
+
+<Tip>
+  Antes de começar, configure a chave do agente seguindo [Agentes de IA](/agentes-de-ia).
+</Tip>
+
+---
+
+# Registrar vendas de um CRM ou checkout
+
+**Objetivo:** cada venda confirmada no seu sistema vira uma conversão no Trackup, atribuída ao visitante certo.
+
+**Permissões:** `conversion.create`
+
+<Steps>
+  <Step title="Identifique o visitante" titleSize="h2">
+    Para atribuir a venda, envie o `visitorId` que o Trackup gerou quando a pessoa passou pelo seu link ou página. Guarde esse ID no seu CRM junto com o lead.
+
+    Sem `visitorId`, envie o que tiver: `clickId`, UTMs ou `trafficSource`.
+  </Step>
+
+  <Step title="Registre a conversão" titleSize="h2">
+    ```bash
+    curl -X POST 'https://dash-api.trackup.me/v1/conversions' \
+      -H 'Content-Type: application/json' \
+      -H 'X-Api-Key: YOUR_API_KEY' \
+      -d '{
+        "projectId": "0f7c6a1e-…",
+        "value": 497.00,
+        "currency": "BRL",
+        "transactionId": "crm-98213",
+        "paymentMethod": "pix",
+        "visitorId": "aaaaaaaa-bbbb-4ccc-8ddd-eeeeeeeeeeee"
+      }'
+    ```
+
+    Resposta `201` com o `id` da conversão e o `value` já na moeda do projeto.
+
+    Sempre envie `transactionId`. Se o agente repetir a chamada para a mesma transação, o Trackup responde `409` e não duplica a venda.
+  </Step>
+
+  <Step title="Registre reembolsos e chargebacks" titleSize="h2">
+    Mesmo corpo, mesmo `transactionId`, rota diferente:
+
+    ```bash
+    curl -X POST 'https://dash-api.trackup.me/v1/refunds' \
+      -H 'Content-Type: application/json' \
+      -H 'X-Api-Key: YOUR_API_KEY' \
+      -d '{ "projectId": "0f7c6a1e-…", "value": 497.00, "currency": "BRL", "transactionId": "crm-98213" }'
+    ```
+
+    `POST /chargebacks` funciona da mesma forma.
+  </Step>
+</Steps>
+
+<Note>
+  Se a chave estiver restrita a um único projeto, o campo `projectId` pode ser omitido.
+</Note>
+
+---
+
+# Relatório diário de performance
+
+**Objetivo:** todo dia o agente resume requisições, visitantes, conversões e receita de cada projeto e envia para o time.
+
+**Permissões:** `project.list`, `analytics.read`, `conversion.list`
+
+<Steps>
+  <Step title="Liste os projetos" titleSize="h2">
+    ```bash
+    curl 'https://dash-api.trackup.me/v1/projects' \
+      -H 'X-Api-Key: YOUR_API_KEY'
+    ```
+
+    Use o `id` de cada item de `data` nos passos seguintes.
+  </Step>
+
+  <Step title="Busque o resumo do período" titleSize="h2">
+    `startDate` e `endDate` são obrigatórios, em ISO 8601. `granularity` aceita `hour` ou `day`.
+
+    ```bash
+    curl 'https://dash-api.trackup.me/v1/projects/0f7c6a1e-…/analytics/overview?startDate=2026-10-18T00:00:00.000Z&endDate=2026-10-18T23:59:59.999Z&granularity=day' \
+      -H 'X-Api-Key: YOUR_API_KEY'
+    ```
+
+    Campos da resposta:
+
+    | Campo | Descrição |
+    | :- | :- |
+    | `totalRequests`, `uniqueVisitors` | Volume de tráfego |
+    | `totalConversions`, `totalRevenue`, `averageOrderValue` | Resultado |
+    | `requestsOverTime`, `revenueOverTime` | Séries por `granularity` |
+    | `topCountries`, `trafficSources` | De onde veio o tráfego |
+    | `revenueByNetwork`, `revenueByTrafficSource` | Receita por plataforma e por fonte |
+  </Step>
+
+  <Step title="Liste as conversões do dia" titleSize="h2">
+    ```bash
+    curl 'https://dash-api.trackup.me/v1/projects/0f7c6a1e-…/conversions?startDate=2026-10-18T00:00:00.000Z&endDate=2026-10-18T23:59:59.999Z&limit=100' \
+      -H 'X-Api-Key: YOUR_API_KEY'
+    ```
+
+    `limit` vai até `100`; use `page` para as demais páginas até somar `count`. Cada item traz valor, moeda, plataforma (`network`), fonte de tráfego, UTMs e o `visitorId`.
+  </Step>
+
+  <Step title="Monte o relatório" titleSize="h2">
+    O agente escreve o resumo a partir dos números e envia por e-mail, chat ou planilha. Exemplo de saída:
+
+    ```text
+    Produto Financeiro — 18/10
+    Requisições: 12.480 | Visitantes únicos: 9.912
+    Conversões: 143 | Receita: R$ 71.051,00 | Ticket médio: R$ 496,86
+    Principal fonte: meta (61% da receita)
+    ```
+  </Step>
+</Steps>
+
+---
+
+# Acompanhar e pausar campanhas Meta
+
+**Objetivo:** o agente monitora gasto, vendas e ROAS das campanhas e pausa as que estourarem o limite combinado.
+
+**Permissões:** `ads-manager.read`, `ads-manager.update`
+
+**Pré-requisito:** conta Meta conectada e sincronizada no [Gerenciador de Anúncios](/meta). A conexão OAuth é feita por uma pessoa no painel; o agente não consegue fazê-la.
+
+<Steps>
+  <Step title="Descubra as contas de anúncio" titleSize="h2">
+    ```bash
+    curl 'https://dash-api.trackup.me/v1/ads-manager/0f7c6a1e-…/accounts' \
+      -H 'X-Api-Key: YOUR_API_KEY'
+    ```
+
+    A resposta traz `accounts`, cada uma com `id`, `name`, `currency` e `status`. Use o `id` nos próximos passos. Contas combinadas na mesma chamada precisam ter a mesma moeda, senão a resposta é `422`.
+  </Step>
+
+  <Step title="Leia o resumo do período" titleSize="h2">
+    ```bash
+    curl 'https://dash-api.trackup.me/v1/ads-manager/0f7c6a1e-…/summary?accountIds=ACC_1,ACC_2&startDate=2026-10-18T00:00:00.000Z&endDate=2026-10-18T23:59:59.999Z' \
+      -H 'X-Api-Key: YOUR_API_KEY'
+    ```
+
+    Campos: `spend`, `impressions`, `clicks`, `reach`, `trackedClicks`, `uniqueVisitors`, `sales`, `revenue`, `roas`, `cpa`.
+  </Step>
+
+  <Step title="Liste as campanhas" titleSize="h2">
+    ```bash
+    curl 'https://dash-api.trackup.me/v1/ads-manager/0f7c6a1e-…/table?accountIds=ACC_1&level=campaign&startDate=2026-10-18T00:00:00.000Z&endDate=2026-10-18T23:59:59.999Z' \
+      -H 'X-Api-Key: YOUR_API_KEY'
+    ```
+
+    Cada linha traz `entityId`, `name`, `status`, `dailyBudget`, `lifetimeBudget` e as mesmas métricas do resumo. `level` aceita `campaign`, `adset` ou `ad`.
+  </Step>
+
+  <Step title="Pause ou ajuste o orçamento" titleSize="h2">
+    Pausar uma campanha:
+
+    ```bash
+    curl -X PATCH 'https://dash-api.trackup.me/v1/ads-manager/0f7c6a1e-…/entities/ENTITY_ID/status' \
+      -H 'Content-Type: application/json' \
+      -H 'X-Api-Key: YOUR_API_KEY' \
+      -d '{ "entityType": "campaign", "status": "PAUSED" }'
+    ```
+
+    Alterar o orçamento diário:
+
+    ```bash
+    curl -X PATCH 'https://dash-api.trackup.me/v1/ads-manager/0f7c6a1e-…/entities/ENTITY_ID/budget' \
+      -H 'Content-Type: application/json' \
+      -H 'X-Api-Key: YOUR_API_KEY' \
+      -d '{ "entityType": "campaign", "dailyBudget": 150 }'
+    ```
+
+    `entityType` aceita `campaign`, `adset` ou `ad` para status, e `campaign` ou `adset` para orçamento. `status` aceita `ACTIVE` ou `PAUSED`.
+  </Step>
+</Steps>
+
+<Note>
+  Pausar campanhas e mexer em orçamento afeta dinheiro real. Configure o agente para pedir confirmação de uma pessoa antes dessas chamadas, ou limite-o a `ads-manager.read` e deixe a ação para o time.
+</Note>
+
+---
+
+# Auditar tráfego e investigar um visitante
+
+**Objetivo:** o agente encontra acessos suspeitos, confere o que o Trackup fez com cada requisição e reconstrói a jornada de um visitante.
+
+**Permissões:** `request.list`, `request-log.list`, `visitor.list`, `visitor.read`
+
+<Steps>
+  <Step title="Filtre as requisições" titleSize="h2">
+    `filters` é um array JSON na query string, codificado para URL. Filtros disponíveis: `country` (`equals`, `not_equals`) e `decision` (`equals`).
+
+    ```bash
+    curl -G 'https://dash-api.trackup.me/v1/projects/0f7c6a1e-…/requests' \
+      -H 'X-Api-Key: YOUR_API_KEY' \
+      --data-urlencode 'startDate=2026-10-18T00:00:00.000Z' \
+      --data-urlencode 'endDate=2026-10-18T23:59:59.999Z' \
+      --data-urlencode 'limit=100' \
+      --data-urlencode 'filters=[{"field":"country","operator":"not_equals","value":"BR"}]'
+    ```
+
+    Cada item traz host, caminho, fonte de tráfego, UTMs, país, dispositivo, a decisão dos filtros e o `visitorId`.
+  </Step>
+
+  <Step title="Veja os disparos de uma requisição" titleSize="h2">
+    ```bash
+    curl 'https://dash-api.trackup.me/v1/projects/0f7c6a1e-…/requests/REQUEST_ID/logs' \
+      -H 'X-Api-Key: YOUR_API_KEY'
+    ```
+
+    Lista o que os acionadores enviaram para pixels e APIs externas a partir daquela requisição, com status de cada disparo.
+  </Step>
+
+  <Step title="Reconstrua a jornada do visitante" titleSize="h2">
+    ```bash
+    curl 'https://dash-api.trackup.me/v1/projects/0f7c6a1e-…/visitors/VISITOR_ID' \
+      -H 'X-Api-Key: YOUR_API_KEY'
+
+    curl 'https://dash-api.trackup.me/v1/projects/0f7c6a1e-…/visitors/VISITOR_ID/events' \
+      -H 'X-Api-Key: YOUR_API_KEY'
+    ```
+
+    O perfil traz os dados de identificação e atribuição; `events` lista cada acesso e evento em ordem cronológica.
+  </Step>
+</Steps>
+
+<Tip>
+  Para entender os campos de cada tela, veja [Requisições](/requisicoes), [Visitantes](/visitantes) e [Conversões](/conversoes).
+</Tip>

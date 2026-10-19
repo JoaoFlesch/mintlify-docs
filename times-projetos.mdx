@@ -160,13 +160,79 @@ _(As permissões continuarão evoluindo conforme novas funcionalidades forem adi
   <Step title="Insira o email de quem você deseja convidar">
     O convidado precisa ter uma conta cadastrada no Trackup
   </Step>
-  <Step title="Selecione a Função ">
+  <Step title="Selecione a Função">
   </Step>
   <Step title="Convidar">
   </Step>
 </Steps>
 
 ![New Member](/images/new-member.png)
+
+---
+
+# O que são Chaves de API?
+
+Chaves de API permitem que sistemas externos, automações e agentes usem a API do Trackup em nome do Time, sem login.
+
+Cada chave pertence ao Time e possui:
+
+1. **Permissões** — no mesmo formato dos membros (`pixel.create`, `domain.list`...). A chave só executa o que você também pode executar no Time.
+2. **Projetos** — todos os projetos do Time ou apenas uma lista específica.
+3. **Expiração** opcional.
+
+As permissões de ingestão (`visitor.create`, `conversion.create`, `request.create`) existem apenas em chaves e qualquer membro que gerencia chaves pode concedê-las.
+
+<Note>
+  A chave age em nome de quem a criou. Se essa pessoa for removida do Time ou perder uma permissão, a chave deixa de funcionar nessas rotas.
+</Note>
+
+---
+
+# Como criar uma Chave de API?
+
+<Steps>
+  <Step title="Clique no seu perfil, canto inferior esquerdo">
+  </Step>
+  <Step title="Configurações">
+  </Step>
+  <Step title="Chaves de API">
+    A seção mostra a URL base da API, a ser usada com a chave no header `X-Api-Key`.
+  </Step>
+  <Step title="+ Nova chave">
+  </Step>
+  <Step title="Informe o Nome">
+    Ex.: Integração CRM
+  </Step>
+  <Step title="Expira em (opcional)">
+  </Step>
+  <Step title="Selecione os Projetos">
+    Deixe vazio para a chave acessar todos os projetos do Time.
+  </Step>
+  <Step title="Selecione as Permissões">
+    Ao salvar, o Trackup recusa permissões que você não possui no Time. As de ingestão são sempre permitidas.
+  </Step>
+  <Step title="Criar">
+  </Step>
+  <Step title="Copie sua chave agora">
+    A chave completa é exibida uma única vez. Depois disso, só os últimos caracteres ficam visíveis na lista.
+  </Step>
+</Steps>
+
+---
+
+# Gerenciando chaves
+
+Na lista de chaves cada linha mostra nome, chave mascarada, quantidade de permissões, projetos, expiração, último uso e status.
+
+Ações disponíveis em cada chave:
+
+- **Editar** — altera nome, permissões e projetos. A chave em si não muda.
+- **Ver histórico** — lista todas as requisições feitas com a chave: método, caminho, status HTTP, IP, duração e erro. Ao clicar em uma linha, o Trackup mostra o corpo da requisição e da resposta com segredos mascarados.
+- **Revogar** — a chave deixa de funcionar imediatamente. Esta ação não pode ser desfeita e exige a permissão de exclusão de chaves (a função Membro padrão não a inclui).
+
+Chaves revogadas continuam na lista, marcadas como **Revogada**, e o histórico delas permanece disponível.
+
+Os endpoints, permissões por rota e o escopo de projetos estão em [API externa](/chaves-de-api).
 
 ---
 
@@ -195,7 +261,7 @@ O objetivo é manter cada operação organizada separadamente.
   </Step>
   <Step title="Clique no sinal de + ao lado do nome do time que deseja criar o novo projeto">
   </Step>
-  <Step title="Defina o nome do projeto ">
+  <Step title="Defina o nome do projeto">
   </Step>
   <Step title="Selecione a moeda padrão do seu projeto">
   </Step>

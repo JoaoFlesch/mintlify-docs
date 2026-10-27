@@ -1,0 +1,249 @@
+---
+title: "Conectar via MCP"
+icon: "plug-zap"
+description: "Conecte Claude, ChatGPT, Cursor e outros assistentes ao Trackup e opere sua estrutura conversando."
+---
+
+O **MCP** (Model Context Protocol) é o padrão que permite a um assistente de IA usar ferramentas externas. Com o servidor MCP do Trackup, o assistente lista projetos, cria páginas e links, lê métricas e ajusta campanhas por conta própria, **dentro das permissões que você der**.
+
+Sem código e sem copiar rotas da API: você pede em linguagem natural e o assistente escolhe a ferramenta certa.
+
+<Badge color="purple">Sem código</Badge> <Badge color="purple">OAuth ou chave de API</Badge> <Badge color="purple">Mesmas permissões da API</Badge>
+
+<CodeGroup>
+
+```text URL do servidor
+https://api.trackup.me/mcp
+```
+
+</CodeGroup>
+
+<Card title="Deixe seu agente configurar tudo" icon="wand-sparkles">
+  Cole este prompt no Claude, ChatGPT, Cursor ou Claude Code. Ele adiciona o servidor MCP do Trackup e te guia na autorização.
+
+  ```text
+  Conecte-se ao servidor MCP do Trackup em https://api.trackup.me/mcp (transporte HTTP). Adicione-o à configuração de MCP do cliente que estou usando e me diga como concluir a autorização.
+  ```
+</Card>
+
+---
+
+# Escolha seu assistente
+
+<CardGroup cols={3}>
+  <Card title="Claude" icon="/icons/claude.svg" href="#claude-ai-e-claude-desktop">
+    Claude.ai e Claude Desktop, com OAuth.
+  </Card>
+  <Card title="ChatGPT" icon="/icons/chatgpt.svg" href="#chatgpt">
+    Conector personalizado, com OAuth.
+  </Card>
+  <Card title="Claude Code" icon="terminal" href="#claude-code">
+    Terminal, com OAuth ou chave de API.
+  </Card>
+  <Card title="Cursor" icon="/icons/cursor.svg" href="#cursor">
+    Instalação em um clique, com chave de API.
+  </Card>
+  <Card title="VS Code" icon="/icons/vscode.svg" href="#vs-code">
+    Instalação em um clique, com chave de API.
+  </Card>
+  <Card title="Outros clientes" icon="plug" href="#outros-clientes">
+    Qualquer cliente MCP via HTTP.
+  </Card>
+</CardGroup>
+
+<Tip>
+  O caminho mais rápido é abrir **Configurações → MCP** no Trackup. A tela já mostra a URL, gera a chave e entrega o comando pronto para o seu cliente.
+</Tip>
+
+---
+
+# Dois jeitos de autenticar
+
+| | OAuth | Chave de API |
+| :- | :- | :- |
+| Como funciona | Você adiciona a URL no assistente e aprova o acesso no Trackup | Você cria uma chave e cola na configuração do cliente |
+| Ideal para | Claude.ai, Claude Desktop e ChatGPT, que só aceitam OAuth | Cursor, VS Code, automações e ferramentas de desenvolvimento |
+| O que é criado | Uma chave chamada "MCP · nome do cliente", ao aprovar | A chave que você criou |
+| Como desconectar | Revogue a chave em **Configurações → Chaves de API** | Revogue a chave em **Configurações → Chaves de API** |
+
+Nos dois casos o assistente age com uma **Chave de API do Time**. Ele só executa o que as permissões e os projetos da chave permitem; o resto volta como erro.
+
+---
+
+# Conectando
+
+## Claude.ai e Claude Desktop
+
+<Frame>
+  <img src="/icons/claude.svg" alt="Claude" width="40" />
+</Frame>
+
+<Steps>
+  <Step title="Abra os conectores">
+    Vá em **Configurações → Conectores** e clique em **Adicionar**.
+  </Step>
+
+  <Step title="Conector personalizado">
+    Escolha **Adicionar conector personalizado**.
+  </Step>
+
+  <Step title="Informe a URL">
+    Dê um nome (ex.: Trackup), cole `https://api.trackup.me/mcp` e clique em **Continuar**.
+  </Step>
+
+  <Step title="Aprove no Trackup">
+    O Claude abre o Trackup no navegador. Entre na conta, confira o **time**, as **permissões** e os **projetos** e clique em **Autorizar**. Você volta ao Claude já conectado.
+  </Step>
+</Steps>
+
+## ChatGPT
+
+<Frame>
+  <img src="/icons/chatgpt.svg" alt="ChatGPT" width="40" />
+</Frame>
+
+<Steps>
+  <Step title="Adicione um conector MCP personalizado">
+    Nas configurações de conectores do ChatGPT, crie um conector e informe `https://api.trackup.me/mcp`.
+  </Step>
+
+  <Step title="Aprove no Trackup">
+    Entre na conta, confira time, permissões e projetos e clique em **Autorizar**.
+  </Step>
+</Steps>
+
+<Note>
+  Conectores personalizados dependem do plano e do modo de desenvolvedor do ChatGPT. Se a opção não aparecer, verifique a disponibilidade no seu plano.
+</Note>
+
+## Claude Code
+
+<Tabs>
+  <Tab title="OAuth">
+    ```bash
+    claude mcp add --transport http trackup https://api.trackup.me/mcp
+    ```
+
+    Dentro do Claude Code, rode `/mcp` e escolha **Authenticate** para aprovar o acesso no navegador.
+  </Tab>
+
+  <Tab title="Chave de API">
+    ```bash
+    claude mcp add --transport http trackup https://api.trackup.me/mcp \
+      --header "X-Api-Key: YOUR_API_KEY"
+    ```
+  </Tab>
+</Tabs>
+
+## Cursor
+
+Em **Configurações → MCP** no Trackup há o botão **Instalar no Cursor**, que já leva a chave. Para configurar manualmente, edite `~/.cursor/mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "trackup": {
+      "url": "https://api.trackup.me/mcp",
+      "headers": { "X-Api-Key": "YOUR_API_KEY" }
+    }
+  }
+}
+```
+
+## VS Code
+
+Em **Configurações → MCP** no Trackup há o botão **Instalar no VS Code**. Para configurar manualmente, edite `.vscode/mcp.json`:
+
+```json
+{
+  "servers": {
+    "trackup": {
+      "type": "http",
+      "url": "https://api.trackup.me/mcp",
+      "headers": { "X-Api-Key": "YOUR_API_KEY" }
+    }
+  }
+}
+```
+
+## Outros clientes
+
+Qualquer cliente MCP que fale **Streamable HTTP** funciona. Aponte para `https://api.trackup.me/mcp` e envie `X-Api-Key` (ou `Authorization: Bearer`, com um token OAuth). Para testar a chave e listar as ferramentas:
+
+```bash
+curl -X POST 'https://api.trackup.me/mcp' \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json, text/event-stream' \
+  -H 'X-Api-Key: YOUR_API_KEY' \
+  -d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}'
+```
+
+---
+
+# O que o assistente consegue fazer
+
+Cada ferramenta MCP corresponde a uma operação da [Referência da API](/api-reference/projects/list-projects), então o assistente tem o mesmo alcance de uma integração por chave.
+
+<CardGroup cols={2}>
+  <Card title="Projetos e analytics" icon="chart-column">
+    Listar projetos, ler visão geral, conversões, visitantes e requisições.
+  </Card>
+  <Card title="Páginas e links" icon="file-text">
+    Criar, clonar, duplicar, editar no Builder e publicar páginas; criar links e URLs.
+  </Card>
+  <Card title="Pixels e acionadores" icon="zap">
+    Criar pixels, acionadores e funis de eventos.
+  </Card>
+  <Card title="Campanhas Meta" icon="megaphone">
+    Consultar o Gerenciador de Anúncios, pausar entidades e ajustar orçamentos.
+  </Card>
+  <Card title="Domínios e filtros" icon="shield-check">
+    Cadastrar e verificar domínios, criar regras de firewall.
+  </Card>
+  <Card title="Vendas" icon="shopping-cart">
+    Plataformas de venda, conversões, reembolsos e chargebacks.
+  </Card>
+</CardGroup>
+
+O assistente nunca acessa cobrança, membros, gestão de chaves, exclusão de projeto, conexões OAuth (Meta, Nuvemshop) nem os endpoints de IA do painel.
+
+---
+
+# Exemplos de pedidos
+
+<AccordionGroup>
+  <Accordion title="Liste meus projetos no Trackup." icon="folder">
+    O assistente chama `listProjects` e pergunta em qual projeto trabalhar.
+  </Accordion>
+
+  <Accordion title="Quantas conversões o projeto Loja teve nesta semana, por fonte de tráfego?" icon="chart-line">
+    Lê as conversões e a visão geral do projeto e resume por fonte.
+  </Accordion>
+
+  <Accordion title="Crie um link /oferta-natal apontando para a página Oferta de Natal." icon="link">
+    Localiza a página, cria o link e confirma o endereço final.
+  </Accordion>
+
+  <Accordion title="Clone o site https://exemplo.com e publique." icon="copy">
+    Inicia o clone, aguarda ficar pronto e publica a página.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+# Segurança
+
+- **Revise as permissões na aprovação.** Dê só o necessário e restrinja os projetos.
+- **Publicar muda o que está no ar.** O assistente pede confirmação antes de republicar uma página editada e antes de publicar o projeto.
+- **Tudo fica no histórico.** Cada chamada aparece em **Configurações → Chaves de API → Ver histórico**.
+- **Desconectar é revogar a chave.** O acesso termina na hora.
+
+<Warning>
+  A chave age em nome de quem a criou. Se essa pessoa sair do Time ou perder uma permissão, o assistente perde o acesso junto.
+</Warning>
+
+---
+
+**Próximos passos**
+
+→ [Agentes de IA](/agentes-de-ia) · [Casos de uso](/agentes-de-ia-casos-de-uso) · [Referência da API](/api-reference/projects/list-projects)

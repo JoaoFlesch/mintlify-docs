@@ -6,6 +6,10 @@ description: "Conecte agentes de IA ao Trackup e deixe que eles operem sua estru
 
 Agentes de IA, assistentes com acesso a ferramentas e automações com LLM usam o Trackup pela mesma API externa que qualquer integração: uma **Chave de API do Time**, enviada no header `X-Api-Key`.
 
+<Info>
+  Usa Claude, ChatGPT, Cursor ou VS Code? O jeito mais rápido é o [servidor MCP do Trackup](/conectar-mcp): sem código e com a configuração guiada.
+</Info>
+
 Você decide o que o agente enxerga e o que ele pode alterar. Tudo que ele fizer fica registrado.
 
 <Badge color="purple">Registrar vendas</Badge> <Badge color="purple">Consultar dados</Badge> <Badge color="purple">Operar campanhas</Badge> <Badge color="purple">Configurar projetos</Badge>
@@ -98,7 +102,7 @@ Toda requisição feita pelo agente fica no histórico da chave: método, caminh
 
   <Step title="Teste o acesso" titleSize="h2">
     ```bash
-    curl 'https://dash-api.trackup.me/v1/projects' \
+    curl 'https://api.trackup.me/v1/projects' \
       -H 'X-Api-Key: YOUR_API_KEY'
     ```
 
@@ -149,7 +153,7 @@ Cole este bloco nas instruções do agente e substitua a chave pela variável do
 ```text
 Você opera o Trackup pela API REST.
 
-Base: https://dash-api.trackup.me/v1
+Base: https://api.trackup.me/v1
 Autenticação: header X-Api-Key. Não envie X-Team-Id.
 Corpo e respostas em JSON. Listagens retornam { "data": [...], "count": n } e aceitam page e limit.
 

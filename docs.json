@@ -145,17 +145,24 @@
                   "chaves-de-api",
                   "script"
                 ]
-              },
-              {
-                "group": "Agentes de IA",
-                "icon": "bot",
-                "pages": [
-                  "agentes-de-ia",
-                  "agentes-de-ia-casos-de-uso"
-                ]
               }
             ],
             "icon": "tool-case"
+          }
+        ]
+      },
+      {
+        "tab": "MCP e Agentes",
+        "icon": "plug-zap",
+        "pages": [
+          {
+            "group": "Conecte sua IA",
+            "icon": "sparkles",
+            "pages": [
+              "conectar-mcp",
+              "agentes-de-ia",
+              "agentes-de-ia-casos-de-uso"
+            ]
           }
         ]
       },
@@ -164,8 +171,9 @@
         "icon": "graduation-cap"
       },
       {
-        "tab": "Doc",
-        "icon": "code-xml"
+        "tab": "API",
+        "icon": "code-xml",
+        "openapi": "https://api.trackup.me/openapi.json"
       },
       {
         "tab": "FAQ",
@@ -179,6 +187,11 @@
   },
   "navbar": {
     "links": [
+      {
+        "label": "Conectar MCP",
+        "href": "/conectar-mcp",
+        "icon": "plug-zap"
+      },
       {
         "label": "Support",
         "href": "mailto:hi@mintlify.com"

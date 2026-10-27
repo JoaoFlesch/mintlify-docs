@@ -4,7 +4,7 @@ icon: "sparkles"
 description: "Fluxos prontos para agentes: registrar vendas, gerar relatórios, acompanhar campanhas e auditar tráfego."
 ---
 
-Cada fluxo abaixo mostra o objetivo, as permissões que a chave precisa, as chamadas na ordem e o que o agente faz com a resposta. Os exemplos usam a URL base `https://dash-api.trackup.me/v1` e o header `X-Api-Key`.
+Cada fluxo abaixo mostra o objetivo, as permissões que a chave precisa, as chamadas na ordem e o que o agente faz com a resposta. Os exemplos usam a URL base `https://api.trackup.me/v1` e o header `X-Api-Key`.
 
 | Fluxo | Permissões da chave |
 | :- | :- |
@@ -34,7 +34,7 @@ Cada fluxo abaixo mostra o objetivo, as permissões que a chave precisa, as cham
 
   <Step title="Registre a conversão" titleSize="h2">
     ```bash
-    curl -X POST 'https://dash-api.trackup.me/v1/conversions' \
+    curl -X POST 'https://api.trackup.me/v1/conversions' \
       -H 'Content-Type: application/json' \
       -H 'X-Api-Key: YOUR_API_KEY' \
       -d '{
@@ -56,7 +56,7 @@ Cada fluxo abaixo mostra o objetivo, as permissões que a chave precisa, as cham
     Mesmo corpo, mesmo `transactionId`, rota diferente:
 
     ```bash
-    curl -X POST 'https://dash-api.trackup.me/v1/refunds' \
+    curl -X POST 'https://api.trackup.me/v1/refunds' \
       -H 'Content-Type: application/json' \
       -H 'X-Api-Key: YOUR_API_KEY' \
       -d '{ "projectId": "0f7c6a1e-…", "value": 497.00, "currency": "BRL", "transactionId": "crm-98213" }'
@@ -81,7 +81,7 @@ Cada fluxo abaixo mostra o objetivo, as permissões que a chave precisa, as cham
 <Steps>
   <Step title="Liste os projetos" titleSize="h2">
     ```bash
-    curl 'https://dash-api.trackup.me/v1/projects' \
+    curl 'https://api.trackup.me/v1/projects' \
       -H 'X-Api-Key: YOUR_API_KEY'
     ```
 
@@ -92,7 +92,7 @@ Cada fluxo abaixo mostra o objetivo, as permissões que a chave precisa, as cham
     `startDate` e `endDate` são obrigatórios, em ISO 8601. `granularity` aceita `hour` ou `day`.
 
     ```bash
-    curl 'https://dash-api.trackup.me/v1/projects/0f7c6a1e-…/analytics/overview?startDate=2026-10-18T00:00:00.000Z&endDate=2026-10-18T23:59:59.999Z&granularity=day' \
+    curl 'https://api.trackup.me/v1/projects/0f7c6a1e-…/analytics/overview?startDate=2026-10-18T00:00:00.000Z&endDate=2026-10-18T23:59:59.999Z&granularity=day' \
       -H 'X-Api-Key: YOUR_API_KEY'
     ```
 
@@ -109,7 +109,7 @@ Cada fluxo abaixo mostra o objetivo, as permissões que a chave precisa, as cham
 
   <Step title="Liste as conversões do dia" titleSize="h2">
     ```bash
-    curl 'https://dash-api.trackup.me/v1/projects/0f7c6a1e-…/conversions?startDate=2026-10-18T00:00:00.000Z&endDate=2026-10-18T23:59:59.999Z&limit=100' \
+    curl 'https://api.trackup.me/v1/projects/0f7c6a1e-…/conversions?startDate=2026-10-18T00:00:00.000Z&endDate=2026-10-18T23:59:59.999Z&limit=100' \
       -H 'X-Api-Key: YOUR_API_KEY'
     ```
 
@@ -141,7 +141,7 @@ Cada fluxo abaixo mostra o objetivo, as permissões que a chave precisa, as cham
 <Steps>
   <Step title="Descubra as contas de anúncio" titleSize="h2">
     ```bash
-    curl 'https://dash-api.trackup.me/v1/ads-manager/0f7c6a1e-…/accounts' \
+    curl 'https://api.trackup.me/v1/ads-manager/0f7c6a1e-…/accounts' \
       -H 'X-Api-Key: YOUR_API_KEY'
     ```
 
@@ -150,7 +150,7 @@ Cada fluxo abaixo mostra o objetivo, as permissões que a chave precisa, as cham
 
   <Step title="Leia o resumo do período" titleSize="h2">
     ```bash
-    curl 'https://dash-api.trackup.me/v1/ads-manager/0f7c6a1e-…/summary?accountIds=ACC_1,ACC_2&startDate=2026-10-18T00:00:00.000Z&endDate=2026-10-18T23:59:59.999Z' \
+    curl 'https://api.trackup.me/v1/ads-manager/0f7c6a1e-…/summary?accountIds=ACC_1,ACC_2&startDate=2026-10-18T00:00:00.000Z&endDate=2026-10-18T23:59:59.999Z' \
       -H 'X-Api-Key: YOUR_API_KEY'
     ```
 
@@ -159,7 +159,7 @@ Cada fluxo abaixo mostra o objetivo, as permissões que a chave precisa, as cham
 
   <Step title="Liste as campanhas" titleSize="h2">
     ```bash
-    curl 'https://dash-api.trackup.me/v1/ads-manager/0f7c6a1e-…/table?accountIds=ACC_1&level=campaign&startDate=2026-10-18T00:00:00.000Z&endDate=2026-10-18T23:59:59.999Z' \
+    curl 'https://api.trackup.me/v1/ads-manager/0f7c6a1e-…/table?accountIds=ACC_1&level=campaign&startDate=2026-10-18T00:00:00.000Z&endDate=2026-10-18T23:59:59.999Z' \
       -H 'X-Api-Key: YOUR_API_KEY'
     ```
 
@@ -170,7 +170,7 @@ Cada fluxo abaixo mostra o objetivo, as permissões que a chave precisa, as cham
     Pausar uma campanha:
 
     ```bash
-    curl -X PATCH 'https://dash-api.trackup.me/v1/ads-manager/0f7c6a1e-…/entities/ENTITY_ID/status' \
+    curl -X PATCH 'https://api.trackup.me/v1/ads-manager/0f7c6a1e-…/entities/ENTITY_ID/status' \
       -H 'Content-Type: application/json' \
       -H 'X-Api-Key: YOUR_API_KEY' \
       -d '{ "entityType": "campaign", "status": "PAUSED" }'
@@ -179,7 +179,7 @@ Cada fluxo abaixo mostra o objetivo, as permissões que a chave precisa, as cham
     Alterar o orçamento diário:
 
     ```bash
-    curl -X PATCH 'https://dash-api.trackup.me/v1/ads-manager/0f7c6a1e-…/entities/ENTITY_ID/budget' \
+    curl -X PATCH 'https://api.trackup.me/v1/ads-manager/0f7c6a1e-…/entities/ENTITY_ID/budget' \
       -H 'Content-Type: application/json' \
       -H 'X-Api-Key: YOUR_API_KEY' \
       -d '{ "entityType": "campaign", "dailyBudget": 150 }'
@@ -206,7 +206,7 @@ Cada fluxo abaixo mostra o objetivo, as permissões que a chave precisa, as cham
     `filters` é um array JSON na query string, codificado para URL. Filtros disponíveis: `country` (`equals`, `not_equals`) e `decision` (`equals`).
 
     ```bash
-    curl -G 'https://dash-api.trackup.me/v1/projects/0f7c6a1e-…/requests' \
+    curl -G 'https://api.trackup.me/v1/projects/0f7c6a1e-…/requests' \
       -H 'X-Api-Key: YOUR_API_KEY' \
       --data-urlencode 'startDate=2026-10-18T00:00:00.000Z' \
       --data-urlencode 'endDate=2026-10-18T23:59:59.999Z' \
@@ -219,7 +219,7 @@ Cada fluxo abaixo mostra o objetivo, as permissões que a chave precisa, as cham
 
   <Step title="Veja os disparos de uma requisição" titleSize="h2">
     ```bash
-    curl 'https://dash-api.trackup.me/v1/projects/0f7c6a1e-…/requests/REQUEST_ID/logs' \
+    curl 'https://api.trackup.me/v1/projects/0f7c6a1e-…/requests/REQUEST_ID/logs' \
       -H 'X-Api-Key: YOUR_API_KEY'
     ```
 
@@ -228,10 +228,10 @@ Cada fluxo abaixo mostra o objetivo, as permissões que a chave precisa, as cham
 
   <Step title="Reconstrua a jornada do visitante" titleSize="h2">
     ```bash
-    curl 'https://dash-api.trackup.me/v1/projects/0f7c6a1e-…/visitors/VISITOR_ID' \
+    curl 'https://api.trackup.me/v1/projects/0f7c6a1e-…/visitors/VISITOR_ID' \
       -H 'X-Api-Key: YOUR_API_KEY'
 
-    curl 'https://dash-api.trackup.me/v1/projects/0f7c6a1e-…/visitors/VISITOR_ID/events' \
+    curl 'https://api.trackup.me/v1/projects/0f7c6a1e-…/visitors/VISITOR_ID/events' \
       -H 'X-Api-Key: YOUR_API_KEY'
     ```
 

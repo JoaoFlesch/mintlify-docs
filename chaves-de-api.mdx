@@ -7,9 +7,9 @@ Todas as rotas desta página aceitam autenticação via API Key. O corpo das req
 
 ## URL base
 
-**Produção:** `https://dash-api.trackup.me/v1`
+**Produção:** `https://api.trackup.me/v1`
 
-Monte a URL completa concatenando o endpoint ao base. Exemplo: `https://dash-api.trackup.me/v1/visitors`.
+Monte a URL completa concatenando o endpoint ao base. Exemplo: `https://api.trackup.me/v1/visitors`.
 
 ## Autenticação
 
@@ -124,7 +124,7 @@ Cria um visitante no projeto. Permissão: `visitor.create`.
 ### Exemplo
 
 ```bash
-curl -X POST 'https://dash-api.trackup.me/v1/visitors' \
+curl -X POST 'https://api.trackup.me/v1/visitors' \
   -H 'Content-Type: application/json' \
   -H 'X-Api-Key: YOUR_API_KEY' \
   -d '{
@@ -200,7 +200,7 @@ Valores aceitos para `status`:
 ### Exemplo
 
 ```bash
-curl -X POST 'https://dash-api.trackup.me/v1/conversions' \
+curl -X POST 'https://api.trackup.me/v1/conversions' \
   -H 'Content-Type: application/json' \
   -H 'X-Api-Key: YOUR_API_KEY' \
   -d '{
@@ -275,7 +275,7 @@ Valores aninhados são permitidos. Se omitido, armazena `{}`.
 ### Exemplo
 
 ```bash
-curl -X POST 'https://dash-api.trackup.me/v1/requests' \
+curl -X POST 'https://api.trackup.me/v1/requests' \
   -H 'Content-Type: application/json' \
   -H 'X-Api-Key: YOUR_API_KEY' \
   -d '{

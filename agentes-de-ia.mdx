@@ -29,7 +29,7 @@ Você decide o que o agente enxerga e o que ele pode alterar. Tudo que ele fizer
 O agente nunca acessa cobrança, membros, gestão de chaves, exclusão de projeto, conexões OAuth (Meta, Nuvemshop) nem os endpoints de IA do painel. Essas rotas respondem `403` para qualquer chave.
 
 <Tip>
-  A lista completa de rotas, corpos e permissões está em [API externa](/chaves-de-api).
+  A lista completa de rotas, corpos e permissões está em [Referência da API](/api-reference/projects/list-projects).
 </Tip>
 
 ---
@@ -139,7 +139,7 @@ Esta documentação é publicada também em Markdown, pronta para ser lida por m
 | Recurso | URL |
 | :- | :- |
 | Índice de todas as páginas | `https://docs.trackup.me/llms.txt` |
-| Referência da API | `https://docs.trackup.me/chaves-de-api.md` |
+| OpenAPI (JSON) | `https://api.trackup.me/openapi.json` |
 | Qualquer página | `https://docs.trackup.me/<slug>.md` |
 
 Aponte o agente para o índice ou inclua a referência da API no contexto da tarefa.
@@ -167,7 +167,7 @@ Erros: 400 projectId ausente; 401 chave inválida; 403 sem permissão, chave rev
 indisponível; 404 projeto fora do escopo; 409 conversão duplicada; 422 corpo inválido.
 
 Nunca tente: cobrança, membros, chaves de API, exclusão de projeto, OAuth ou /ai.
-Referência completa: https://docs.trackup.me/chaves-de-api.md
+Referência completa (OpenAPI): https://api.trackup.me/openapi.json
 ```
 
 ---

@@ -1,0 +1,109 @@
+---
+title: Webhook genérico
+icon: code
+eyebrow: Plataformas de venda
+description: Envie vendas, reembolsos e chargebacks de qualquer checkout ou sistema próprio para o Trackup.
+---
+<p>Use o webhook genérico quando sua plataforma não tem integração nativa. Seu sistema faz um <code>POST</code> JSON a cada venda, devolvendo o <code>request_id</code> que o Trackup enviou ao checkout.</p>
+
+<code-block title="Referência rápida" lang="http">
+POST https://{dominio-primario}/api/webhook/{code}
+Content-Type: application/json
+
+{
+  "event": "paid",
+  "transaction_id": "order_123",
+  "value": 99.9,
+  "currency": "BRL",
+  "request_id": "550e8400-e29b-41d4-a716-446655440000",
+  "payment_method": "credit_card"
+}
+</code-block>
+
+<h2>Configurar</h2>
+<steps>
+	<step title="Crie a plataforma">
+		<p>Vá em <strong>Integração › Plataformas de vendas › Adicionar plataforma</strong> e escolha <strong>Genérico</strong>.</p>
+	</step>
+	<step title="Confira os parâmetros do checkout">
+		<p>O Trackup adiciona estes parâmetros à URL do checkout. O único obrigatório é <code>request_id</code>.</p>
+		<table>
+			<thead><tr><th>Parâmetro</th><th>Valor</th></tr></thead>
+			<tbody>
+				<tr><td><code>request_id</code></td><td><code>{request.id}</code></td></tr>
+				<tr><td><code>utm_source</code> … <code>utm_content</code></td><td><code>{request.utmSource}</code> … <code>{request.utmContent}</code></td></tr>
+			</tbody>
+		</table>
+		<p>Seu checkout precisa ler o <code>request_id</code> da URL e guardar junto com o pedido.</p>
+	</step>
+	<step title="Copie a URL do webhook">
+		<p>Salve e copie a <strong>URL</strong> na lista de plataformas. O formato é <code>https://{dominio-primario}/api/webhook/{code}</code>, em que <code>{code}</code> é um código de 16 caracteres.</p>
+	</step>
+	<step title="Envie um POST a cada evento">
+		<p>Envie o JSON abaixo quando um pagamento for aprovado, reembolsado ou contestado. A rota aceita qualquer método e também <code>application/x-www-form-urlencoded</code>, mas o formato recomendado é <code>POST</code> com JSON.</p>
+	</step>
+</steps>
+
+<h2>Payload</h2>
+<table>
+	<thead><tr><th>Campo</th><th>Tipo</th><th>Descrição</th></tr></thead>
+	<tbody>
+		<tr><td><code>event</code> <span class="param-req">obrigatório</span></td><td>string</td><td><code>paid</code>, <code>refunded</code> ou <code>chargeback</code>.</td></tr>
+		<tr><td><code>transaction_id</code></td><td>string</td><td>ID único do pedido. Usado para evitar duplicidade. Reutilize o mesmo ID no reembolso e no chargeback.</td></tr>
+		<tr><td><code>value</code></td><td>number</td><td>Valor da transação, arredondado para 2 casas. Padrão: <code>0</code>.</td></tr>
+		<tr><td><code>currency</code></td><td>string</td><td>Código da moeda, como <code>BRL</code> ou <code>USD</code>. Convertido para a moeda do projeto.</td></tr>
+		<tr><td><code>request_id</code></td><td>string</td><td>ID recebido na URL do checkout. É ele que liga a venda à campanha.</td></tr>
+		<tr><td><code>payment_method</code></td><td>string</td><td><code>credit_card</code>, <code>pix</code>, <code>boleto</code>, <code>paypal</code>, <code>apple_pay</code> ou <code>other</code>.</td></tr>
+		<tr><td><code>customer</code></td><td>object</td><td><code>name</code>, <code>email</code>, <code>phone</code> e <code>address</code> (<code>street</code>, <code>city</code>, <code>state</code>, <code>zip</code>, <code>country</code>).</td></tr>
+	</tbody>
+</table>
+<code-block title="Exemplo completo" lang="json">
+{
+  "event": "paid",
+  "transaction_id": "order_123",
+  "value": 99.9,
+  "currency": "BRL",
+  "request_id": "550e8400-e29b-41d4-a716-446655440000",
+  "payment_method": "credit_card",
+  "customer": {
+    "name": "Maria Silva",
+    "email": "maria@exemplo.com",
+    "phone": "+5511999999999",
+    "address": { "city": "São Paulo", "state": "SP", "country": "BR" }
+  }
+}
+</code-block>
+
+<h2>Eventos</h2>
+<table>
+	<thead><tr><th><code>event</code></th><th>Resultado</th></tr></thead>
+	<tbody>
+		<tr><td><code>paid</code></td><td>Registra a conversão e dispara os acionadores de <code>conversion</code>.</td></tr>
+		<tr><td><code>refunded</code></td><td>Registra o reembolso da transação.</td></tr>
+		<tr><td><code>chargeback</code></td><td>Registra o chargeback da transação.</td></tr>
+		<tr><td>outros</td><td>Ignorado. Resposta <code>{"ok": true, "ignored": true}</code>.</td></tr>
+	</tbody>
+</table>
+
+<h2>Respostas</h2>
+<code-block title="200 · sucesso" lang="json">
+{ "ok": true, "id": "<conversion-id>" }
+</code-block>
+<table>
+	<thead><tr><th>Status</th><th><code>error</code></th><th>Quando</th></tr></thead>
+	<tbody>
+		<tr><td>409</td><td><code>DUPLICATE_CONVERSION</code></td><td>Mesmo <code>transaction_id</code> e status já registrados. Pode ignorar em reenvios.</td></tr>
+		<tr><td>404</td><td><code>SALES_PLATFORM_NOT_FOUND</code></td><td>Código do webhook inválido.</td></tr>
+		<tr><td>404</td><td><code>PROJECT_NOT_FOUND</code>, <code>TEAM_NOT_FOUND</code>, <code>CONFIG_NOT_FOUND</code></td><td>Projeto, time ou configuração não encontrados.</td></tr>
+		<tr><td>400</td><td><code>UNKNOWN_NETWORK</code></td><td>Tipo de plataforma desconhecido.</td></tr>
+		<tr><td>400</td><td><code>PARSE_ERROR</code></td><td>Corpo inválido.</td></tr>
+		<tr><td>502</td><td><code>CURRENCY_CONVERSION_FAILED</code></td><td>Falha ao converter a moeda. Tente de novo.</td></tr>
+	</tbody>
+</table>
+
+<h2>Boas práticas</h2>
+<ul>
+	<li>Sempre envie <code>request_id</code> e um <code>transaction_id</code> único.</li>
+	<li>Não precisa enviar UTMs no webhook: o Trackup recupera tudo pelo <code>request_id</code>.</li>
+	<li>Em erros 5xx ou falha de rede, tente de novo com o mesmo <code>transaction_id</code>.</li>
+</ul>

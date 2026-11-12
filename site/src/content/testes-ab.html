@@ -1,0 +1,64 @@
+---
+title: Testes A/B
+icon: split
+description: Divida o tráfego entre páginas ou checkouts, compare as vendas e envie tudo para a variante vencedora.
+---
+<p>Um teste A/B é um link que distribui os visitantes entre duas ou mais variantes, conforme os pesos que você define. O Trackup mede requisições, visitantes, conversões e receita de cada variante e diz quando já dá para escolher uma vencedora.</p>
+
+<h2>Tipos de teste</h2>
+<table>
+	<thead><tr><th>Tipo</th><th>Variantes</th><th>Evento</th><th>Exemplo</th></tr></thead>
+	<tbody>
+		<tr><td>Página</td><td>Páginas de destino (landing)</td><td><code>page_view</code></td><td>VSL longa contra VSL curta.</td></tr>
+		<tr><td>Checkout</td><td>Ofertas (páginas de checkout)</td><td><code>start_checkout</code></td><td>Preço de R$ 197 contra R$ 247, ou Kiwify contra Hotmart.</td></tr>
+	</tbody>
+</table>
+<callout type="note"><p>Testes do tipo <em>Anúncio</em> são de uma versão anterior. Os que existem continuam funcionando e podem ser editados, mas não é possível criar novos.</p></callout>
+
+<h2>Criar um teste</h2>
+<steps>
+	<step title="Prepare as variantes">
+		<p>Crie as páginas ou ofertas que vão competir. Para testar uma alteração, <strong>Duplique</strong> a página original e mude só o que quer testar.</p>
+	</step>
+	<step title="Crie o teste">
+		<p>No menu lateral, clique em <strong>Testes A/B</strong> e em <strong>Criar teste A/B</strong>. Dê um nome, escolha o <strong>Slug</strong> (o caminho do link, como <code>/vsl</code>) e o <strong>Tipo de teste</strong>.</p>
+	</step>
+	<step title="Escolha as variantes e os pesos">
+		<p>O teste começa com duas variantes em 50/50. Para cada uma, escolha a <strong>Página</strong> e o <strong>Tráfego</strong> em porcentagem. Use <strong>Adicionar variante</strong> para mais opções e <strong>Balancear pesos</strong> para dividir por igual.</p>
+		<shot src="img/testes-ab-criar.png" caption="Variantes e pesos de um teste A/B" todo="Tela Criar teste A/B com Nome, Slug /vsl, Tipo de teste = Página e duas variantes (VSL longa 50%, VSL curta 50%) com o switch Ativo e o botão Balancear pesos."></shot>
+		<callout type="warning"><p>Os pesos das variantes ativas precisam somar 100%.</p></callout>
+	</step>
+	<step title="Use o link do teste no anúncio">
+		<p>Salve e use o link do teste no lugar do link da página, com os parâmetros da <a href="/fontes-de-trafego">fonte de tráfego</a>.</p>
+	</step>
+</steps>
+
+<h2>Acompanhar o resultado</h2>
+<p>Na lista, abra o menu do teste e clique em <strong>Relatórios</strong>. A aba <strong>Teste A/B</strong> mostra, por variante:</p>
+<ul>
+	<li>peso, requisições, visitantes, conversões e receita;</li>
+	<li>taxa de conversão e receita por visitante;</li>
+	<li>confiança estatística e o gráfico de conversão acumulada por dia.</li>
+</ul>
+<shot src="img/testes-ab-relatorio.png" caption="Relatório de um teste A/B com variante vencedora" todo="Aba Teste A/B do relatório com duas variantes, uma marcada como Vencedora, a frase de conclusão com o percentual de confiança, o gráfico de conversão acumulada e o botão Enviar 100% para a variante."></shot>
+<p>No topo, o Trackup resume o resultado em uma frase:</p>
+<table>
+	<thead><tr><th>Situação</th><th>O que fazer</th></tr></thead>
+	<tbody>
+		<tr><td>Ainda não há vendas suficientes</td><td>Deixe rodando.</td></tr>
+		<tr><td><span class="badge amber">Liderando</span> com confiança baixa</td><td>Ainda é cedo. Deixe rodar mais.</td></tr>
+		<tr><td><span class="badge green">Vencedora</span></td><td>A diferença é confiável. Já dá para enviar todo o tráfego para ela.</td></tr>
+	</tbody>
+</table>
+<p>A aba <strong>Requests</strong> lista os acessos do teste, e a aba <strong>Editar</strong> muda variantes e pesos.</p>
+
+<h2>Encerrar o teste</h2>
+<p>Clique em <strong>Enviar 100% para</strong> a variante vencedora e confirme. As outras ficam com peso 0 e continuam no relatório. A mudança vale na hora, sem trocar o link do anúncio.</p>
+
+<h2>Boas práticas</h2>
+<ul>
+	<li>Teste uma mudança por vez para saber o que causou a diferença.</li>
+	<li>Espere a variante ser marcada como vencedora antes de decidir. Poucas vendas enganam.</li>
+	<li>Rode o teste por ao menos uma semana para cobrir dias fracos e fortes.</li>
+	<li>Acompanhe o teste em um card de <a href="/dashboards">dashboard</a>.</li>
+</ul>

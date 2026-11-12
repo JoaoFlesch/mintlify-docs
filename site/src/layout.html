@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+<link rel="canonical" href="{{canonical}}">
+<meta property="og:title" content="{{title}}">
+<meta property="og:description" content="{{description}}">
+<meta property="og:type" content="article">
+<meta name="theme-color" content="#4f39f6">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234f39f6'/%3E%3Cpath d='M9 10h14M16 10v13' stroke='white' stroke-width='3.2' stroke-linecap='round'/%3E%3C/svg%3E">
+<script>
+(function(){try{var t=localStorage.getItem('tu-theme');if(!t)t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+<style>{{css}}</style>
+</head>
+<body>
+<header class="header">
+	<div class="header-row">
+		<button class="icon-btn menu-btn" type="button" data-menu-toggle aria-label="Abrir menu">{{icon:menu}}</button>
+		<a class="logo" href="/" aria-label="Trackup Docs">{{logoLight}}{{logoDark}}<span class="logo-tag">Docs</span></a>
+		<button class="search-btn" type="button" data-search-open aria-label="Buscar">{{icon:search}}<span class="search-label">Buscar na documentação</span><kbd>Ctrl K</kbd></button>
+		<div class="header-actions">
+			<button class="icon-btn" type="button" data-theme-toggle aria-label="Alternar tema claro e escuro">{{icon:moon}}</button>
+			<a class="btn-primary" href="{{appUrl}}" target="_blank" rel="noopener"><span>Abrir o Trackup</span>{{icon:arrow}}</a>
+		</div>
+	</div>
+	<nav class="tabs-bar" aria-label="Seções"><div class="tabs-row">{{tabs}}</div></nav>
+</header>
+
+<div class="{{layoutClass}}">
+	<aside class="sidebar" aria-label="Navegação">{{sidebar}}</aside>
+	<main>
+		<article class="content">
+			<div class="eyebrow">{{eyebrow}}</div>
+			<h1 class="page-title">{{pageTitle}}</h1>
+			{{pageDesc}}
+			{{pageActions}}
+			{{content}}
+			{{pager}}
+			<footer class="site-footer">
+				<span>© {{year}} Trackup</span>
+				<a href="{{homeUrl}}" target="_blank" rel="noopener">trackup.me</a>
+				<a href="{{appUrl}}" target="_blank" rel="noopener">Painel</a>
+				<a href="/llms.txt">llms.txt</a>
+			</footer>
+		</article>
+	</main>
+	{{toc}}
+</div>
+
+<div class="search-modal" role="dialog" aria-modal="true" aria-label="Buscar">
+	<div class="search-box">
+		<div class="search-input-row">{{icon:search}}<input type="search" placeholder="Buscar páginas, recursos, integrações…" autocomplete="off"><kbd>Esc</kbd></div>
+		<div class="search-results"></div>
+	</div>
+</div>
+<script>{{js}}</script>
+</body>
+</html>

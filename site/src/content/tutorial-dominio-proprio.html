@@ -1,0 +1,94 @@
+---
+title: Configurar um domínio próprio
+sidebarTitle: Domínio próprio
+icon: globe
+eyebrow: Tutorial
+description: Conecte um subdomínio seu ao Trackup pela Cloudflare ou pelo Registro.br e deixe como domínio primário.
+---
+<p>Neste tutorial você conecta <code>lp.seudominio.com</code> ao Trackup. Todas as páginas, ofertas e URLs de webhook passam a usar esse endereço.</p>
+
+<h2>O que você vai precisar</h2>
+<ul>
+	<li>Um domínio registrado, como <code>seudominio.com</code>.</li>
+	<li>Acesso ao painel onde o DNS do domínio é gerenciado. Normalmente é a Cloudflare, o Registro.br, a GoDaddy ou a Hostinger.</li>
+</ul>
+<callout type="tip"><p>Não sabe onde está o DNS? Consulte os <em>nameservers</em> do domínio em um site de <em>whois</em>. Se terminam em <code>cloudflare.com</code>, o DNS está na Cloudflare.</p></callout>
+
+<h2>1. Escolha o subdomínio</h2>
+<p>Use um subdomínio dedicado, como <code>lp</code>, <code>go</code> ou <code>oferta</code>. Assim o site principal continua onde está, e a reputação das páginas de anúncio fica separada.</p>
+
+<h2>2. Adicione no Trackup</h2>
+<steps>
+	<step title="Abra Domínios">
+		<p>No menu lateral, vá em <strong>Ajustes › Domínios</strong> e clique em <strong>Adicionar domínio</strong>.</p>
+	</step>
+	<step title="Digite o hostname">
+		<p>Digite <code>lp.seudominio.com</code>, sem <code>https://</code> e sem barra no fim, e salve. O domínio entra com o status <strong>Pendente</strong>.</p>
+	</step>
+	<step title="Copie o registro">
+		<p>Abra o domínio na lista. Anote o <strong>Type</strong> (CNAME), o <strong>Name</strong> e o <strong>Value</strong>.</p>
+		<shot src="img/tut-dominio-registro.png" caption="Registro CNAME a criar no DNS" todo="Detalhe do domínio lp.seudominio.com com status Pendente e a tabela Type CNAME, Name lp, Value com o destino do Trackup e botões de copiar."></shot>
+	</step>
+</steps>
+
+<h2>3. Crie o registro no DNS</h2>
+<tabs>
+	<tab title="Cloudflare">
+		<steps>
+			<step title="Abra o DNS">
+				<p>Na Cloudflare, selecione o domínio e vá em <strong>DNS › Records</strong>. Clique em <strong>Add record</strong>.</p>
+			</step>
+			<step title="Preencha">
+				<p><strong>Type</strong>: CNAME. <strong>Name</strong>: <code>lp</code>. <strong>Target</strong>: o Value do Trackup.</p>
+			</step>
+			<step title="Desligue o proxy">
+				<p>Clique na nuvem laranja para deixar cinza (<strong>DNS only</strong>) e salve.</p>
+				<shot src="img/tut-dominio-cloudflare.png" caption="Registro na Cloudflare com proxy desligado" todo="Formulário Add record da Cloudflare com Type CNAME, Name lp, Target com o destino do Trackup e Proxy status DNS only (nuvem cinza)."></shot>
+				<callout type="warning"><p>Com a nuvem laranja, a verificação falha.</p></callout>
+			</step>
+		</steps>
+	</tab>
+	<tab title="Registro.br">
+		<steps>
+			<step title="Abra a zona">
+				<p>No Registro.br, abra o domínio e clique em <strong>Editar zona</strong>. Se aparecer a opção de usar o DNS do Registro.br, ative.</p>
+			</step>
+			<step title="Crie a entrada">
+				<p>Clique em <strong>Nova entrada</strong>. Tipo <strong>CNAME</strong>, nome <code>lp</code> e dados com o Value do Trackup. Salve as alterações.</p>
+			</step>
+		</steps>
+	</tab>
+	<tab title="Outros">
+		<p>Em qualquer provedor, crie um registro do tipo <strong>CNAME</strong> com o nome do subdomínio (<code>lp</code>) apontando para o Value exibido no Trackup. Remova antes qualquer registro A ou CNAME que já exista com o mesmo nome.</p>
+	</tab>
+</tabs>
+
+<h2>4. Verifique e defina como primário</h2>
+<steps>
+	<step title="Verifique">
+		<p>Volte ao Trackup e clique em <strong>Verificar</strong>. Costuma levar poucos minutos. Se ainda estiver <strong>Pendente</strong>, espere e tente de novo. A propagação pode levar algumas horas.</p>
+	</step>
+	<step title="Defina como primário">
+		<p>Com o status <strong>Verificado</strong>, abra o menu do domínio e clique em <strong>Definir como primário</strong>.</p>
+	</step>
+	<step title="Teste">
+		<p>Abra <code>https://lp.seudominio.com/</code> no navegador. O certificado HTTPS é emitido automaticamente.</p>
+	</step>
+</steps>
+
+<h2>Depois de trocar o domínio primário</h2>
+<ul>
+	<li>Novos links de páginas e ofertas, as URLs de webhook e o snippet passam a usar o novo domínio.</li>
+	<li>Links divulgados no domínio anterior continuam funcionando enquanto ele estiver no projeto. Mesmo assim, atualize anúncios, botões e webhooks para manter tudo em um domínio só.</li>
+</ul>
+
+<h2>Problemas comuns</h2>
+<accordion title="Verificação falha na Cloudflare">
+	<p>O proxy está ligado. Deixe o registro como <strong>DNS only</strong>.</p>
+</accordion>
+<accordion title="Já existe um registro com esse nome">
+	<p>Remova ou renomeie o registro antigo. Um nome só pode ter um CNAME.</p>
+</accordion>
+<accordion title="Quero usar o domínio raiz">
+	<p>Funciona só em provedores com CNAME flattening, como a Cloudflare. Veja <a href="/dominios">Domínios</a>.</p>
+</accordion>

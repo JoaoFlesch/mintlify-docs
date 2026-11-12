@@ -1,0 +1,50 @@
+---
+title: Upload HTML
+icon: file
+description: Hospede no Trackup uma página que você já tem em HTML.
+---
+<p>Envie um arquivo <code>.html</code> ou um <code>.zip</code> com a página e os arquivos dela. O Trackup hospeda tudo no seu domínio e a página já sai rastreada.</p>
+
+<h2>Preparar o arquivo</h2>
+<ul>
+	<li>Um único <code>.html</code> ou <code>.htm</code>, ou</li>
+	<li>um <code>.zip</code> com <code>index.html</code> na raiz e os arquivos usados por ela (CSS, JS, imagens, fontes).</li>
+	<li>Tamanho máximo: 5 MB.</li>
+</ul>
+<code-block title="Estrutura do .zip">
+pagina.zip
+├── index.html
+├── css/
+│   └── style.css
+├── js/
+│   └── main.js
+└── img/
+    └── hero.webp
+</code-block>
+<callout type="tip"><p>Use caminhos relativos (<code>css/style.css</code>, <code>img/hero.webp</code>). O Trackup reescreve as referências para servir os arquivos pelo CDN.</p></callout>
+
+<h2>Enviar</h2>
+<steps>
+	<step title="Abra a aba Upload HTML">
+		<p>Em <strong>Páginas › Adicionar página</strong>, escolha <strong>Upload HTML</strong>.</p>
+	</step>
+	<step title="Preencha e envie">
+		<p>Informe o nome, o caminho (opcional), escolha o arquivo e clique em <strong>Enviar arquivo</strong>.</p>
+		<shot src="img/upload-html.png" caption="Envio de uma página em .zip" todo="Aba Upload HTML com Nome, Caminho e um arquivo pagina.zip selecionado, mostrando o texto HTML, HTM ou ZIP (máx. 5MB)."></shot>
+	</step>
+	<step title="Confira">
+		<p>Copie o link na lista de páginas e abra no navegador.</p>
+	</step>
+</steps>
+
+<h2>Editar depois</h2>
+<p>Para ajustes pontuais, use <strong>Editar arquivos</strong> no menu da página. Veja <a href="/versoes-e-arquivos">Versões e arquivos</a>.</p>
+<p>Para trocar a página inteira, edite a página e envie um novo arquivo em <strong>Substituir HTML</strong>.</p>
+<callout type="warning"><p>Substituir o HTML apaga todos os arquivos atuais, inclusive as alterações feitas no editor de arquivos.</p></callout>
+
+<h2>Checklist</h2>
+<ul>
+	<li>Os botões de compra apontam para o link da <a href="/ofertas">oferta</a>.</li>
+	<li>Não há outro script de rastreamento ou pixel duplicando eventos que o Trackup já envia pelo servidor.</li>
+	<li>As imagens estão comprimidas.</li>
+</ul>

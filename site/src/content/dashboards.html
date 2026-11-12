@@ -1,0 +1,59 @@
+---
+title: Dashboards
+icon: chart
+description: Monte painéis com os números que importam para você. Lucro, funil, origem das vendas e qualidade do tráfego.
+---
+<p>Cada projeto pode ter vários dashboards, cada um com seus cards e seu layout. Todos os cards de um dashboard usam o mesmo período, escolhido no topo da tela.</p>
+<shot src="img/dashboard-padrao.png" caption="Dashboard padrão de um projeto" todo="Dashboard Padrão com dados de exemplo: card Lucro (faturamento, despesas, ROAS), Vendas, Funil, Venda por plataforma e Acessos por dispositivo, com o seletor de período no topo e a lista de dashboards na lateral."></shot>
+
+<h2>Gerenciar dashboards</h2>
+<ul>
+	<li><strong>Novo dashboard</strong>: cria um dashboard com o layout inicial.</li>
+	<li><strong>Renomear</strong> e <strong>Excluir</strong>: pelo menu do dashboard na lista. O último dashboard do projeto não pode ser excluído.</li>
+</ul>
+
+<h2>Editar o layout</h2>
+<steps>
+	<step title="Entre no modo de edição">
+		<p>Clique em <strong>Editar layout</strong>.</p>
+	</step>
+	<step title="Adicione cards">
+		<p>Clique em <strong>Adicionar card</strong>, escolha um ou mais cards no catálogo e confirme. As prévias usam dados de exemplo.</p>
+		<shot src="img/dashboard-adicionar-cards.png" caption="Catálogo de cards" todo="Modal Adicionar cards com as categorias Vendas, Tráfego e Clientes, dois cards marcados e o botão Adicionar 2 cards."></shot>
+	</step>
+	<step title="Organize">
+		<p>Arraste os cards pela alça para mudar a ordem. Use a engrenagem para configurar e o ícone de lixeira para remover.</p>
+	</step>
+	<step title="Salve">
+		<p>Salve o layout. Se sair sem salvar, o Trackup pergunta se você quer descartar as alterações.</p>
+	</step>
+</steps>
+
+<h2>Cards disponíveis</h2>
+<table>
+	<thead><tr><th>Categoria</th><th>Cards</th></tr></thead>
+	<tbody>
+		<tr><td>Vendas</td><td>Lucro, Vendas, Conquista, Funil, Venda por método de pagamento, Status de pagamentos, Venda por plataforma, Venda por fonte de tráfego, Vendas por UTM, Teste A/B</td></tr>
+		<tr><td>Tráfego</td><td>Clientes globais (mapa), Acessos totais, Acessos únicos, Acessos reais, Acessos de bots, Páginas mais acessadas, Acessos por link, Acessos e vendas por horário, Filtro</td></tr>
+		<tr><td>Clientes</td><td>Acessos por dispositivo, por navegador, por sistema operacional, por UTM e por referrer</td></tr>
+	</tbody>
+</table>
+
+<h3>Lucro</h3>
+<p>Mostra faturamento, despesas, lucro, ROAS e número de pedidos. As despesas são o investimento das contas de anúncio conectadas no <a href="/gerenciador-de-anuncios">Gerenciador de anúncios</a>. Sem conta conectada, as despesas ficam zeradas.</p>
+
+<h3>Funil</h3>
+<p>Mostra quantas pessoas chegaram a cada etapa. Clique em <strong>Personalizar funil</strong> para escolher as etapas e a ordem. Além das etapas padrão (impressões, alcance, ad click, page view, add to cart, initiate checkout e purchase), você pode adicionar eventos customizados enviados pelo <a href="/script">script</a>, usando letras minúsculas, números e <code>_</code>.</p>
+
+<h3>Acessos totais, únicos, reais e de bots</h3>
+<ul>
+	<li><strong>Totais</strong>: todas as requisições.</li>
+	<li><strong>Únicos</strong>: visitantes diferentes.</li>
+	<li><strong>Reais</strong>: acessos que não foram identificados como bot.</li>
+	<li><strong>Bots</strong>: acessos identificados como bot.</li>
+</ul>
+
+<h3>Teste A/B</h3>
+<p>Acompanha um <a href="/testes-ab">teste A/B</a> específico. No modo de edição, use a engrenagem do card para escolher o teste.</p>
+
+<callout type="tip"><p>Crie um dashboard por objetivo, como um de <em>Lucro diário</em> para acompanhar campanhas e outro de <em>Qualidade do tráfego</em> com os cards de acessos e de filtro. Veja o tutorial <a href="/tutorial-dashboard-lucro">Montar um dashboard de lucro</a>.</p></callout>

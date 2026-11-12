@@ -1,0 +1,32 @@
+---
+title: Conversões
+icon: dollar
+description: Todas as vendas recebidas das plataformas de venda, com a atribuição de campanha, conjunto e anúncio.
+---
+<p>Em <strong>Logs › Conversões</strong>, a aba <strong>Conversões</strong> lista cada venda recebida pelo webhook das <a href="/plataformas-de-venda">plataformas de venda</a>.</p>
+<shot src="img/conversoes-lista.png" caption="Lista de conversões" todo="Aba Conversões com 6 vendas fictícias (Data, Plataforma, Valor, Pagamento, Status), uma delas com o aviso Configuração incompleta, e uma linha expandida mostrando Venda, Atribuição, Marketing e Anúncios. IDs de transação borrados."></shot>
+
+<h2>Filtrar</h2>
+<p>Filtre por plataforma, fonte de tráfego, ID da transação e status: <strong>Pago</strong>, <strong>Pendente</strong>, <strong>Reembolsado</strong>, <strong>Chargeback</strong> ou <strong>Desconhecido</strong>.</p>
+
+<h2>Detalhes de uma conversão</h2>
+<table>
+	<thead><tr><th>Grupo</th><th>Campos</th></tr></thead>
+	<tbody>
+		<tr><td>Venda</td><td>Plataforma, ID da transação, valor em reais, moeda e valor originais, câmbio, método de pagamento, status</td></tr>
+		<tr><td>Atribuição</td><td>Request, link, página, URL e visitante que originaram a venda</td></tr>
+		<tr><td>Marketing</td><td>Fonte de tráfego, UTMs, click ID e <code>sub1</code> a <code>sub8</code></td></tr>
+		<tr><td>Anúncios</td><td>Plataforma de anúncio, conta, campanha, conjunto e anúncio</td></tr>
+	</tbody>
+</table>
+<p>Vendas em outra moeda são convertidas para reais pelo câmbio do dia, e o valor original fica registrado.</p>
+
+<h2>Aviso de configuração incompleta</h2>
+<p>Uma conversão marcada com <span class="badge amber">Configuração incompleta</span> chegou sem click ID. Sem ele, o Trackup não sabe de qual clique a venda veio e não consegue atribuí-la ao anúncio.</p>
+<p>Causas comuns:</p>
+<ul>
+	<li>O botão de compra aponta direto para o checkout, sem passar pelo <a href="/ofertas">link da oferta</a>.</li>
+	<li>A página de vendas não tem o <a href="/script">script</a> instalado.</li>
+	<li>A plataforma de venda não repassa o parâmetro de rastreamento. Confira o guia da sua <a href="/integracoes">plataforma</a>.</li>
+	<li>A venda foi feita por um link manual, fora do funil (por exemplo, enviado pelo WhatsApp).</li>
+</ul>

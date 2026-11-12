@@ -1,0 +1,79 @@
+---
+title: Acionadores
+icon: zap
+description: Envie eventos para pixels e webhooks quando o tráfego atender às condições que você define.
+---
+<p>Um acionador observa os eventos do projeto. Quando um evento atende a todas as condições, ele executa as ações: enviar o evento para um ou mais <a href="/pixels">pixels</a> ou chamar um webhook.</p>
+
+<h2>Acionadores criados automaticamente</h2>
+<p>Ao adicionar um pixel da Meta, TikTok ou Kwai, o Trackup cria três acionadores para ele:</p>
+<table>
+	<thead><tr><th>Acionador</th><th>Condição</th></tr></thead>
+	<tbody>
+		<tr><td>Pageview</td><td>Tipo de evento igual a <code>page_view</code></td></tr>
+		<tr><td>Start checkout</td><td>Tipo de evento igual a <code>start_checkout</code></td></tr>
+		<tr><td>Conversão</td><td>Tipo de evento igual a <code>conversion</code></td></tr>
+	</tbody>
+</table>
+<p>No Google Ads, crie os acionadores você mesmo, porque cada etapa precisa da conversion label da ação de conversão.</p>
+
+<h2>Criar um acionador</h2>
+<steps>
+	<step title="Abra Acionadores">
+		<p>No menu lateral, clique em <strong>Acionadores</strong> e em <strong>Criar acionador</strong>.</p>
+	</step>
+	<step title="Defina as condições">
+		<p>Clique em <strong>Adicionar condição</strong> e escolha a variável, o operador e o valor. O acionador dispara quando <strong>todas</strong> as condições são verdadeiras. Veja as <a href="/variaveis">variáveis disponíveis</a>.</p>
+		<shot src="img/acionadores-condicoes.png" caption="Condições de um acionador" todo="Formulário Criar acionador com duas condições: Tipo de evento Igual conversion e UTM Source Contém meta."></shot>
+	</step>
+	<step title="Adicione as ações">
+		<p>Clique em <strong>Adicionar ação</strong> e escolha <strong>Pixel</strong> ou <strong>Webhook</strong> (detalhes abaixo).</p>
+	</step>
+	<step title="Ative e salve">
+		<p>Deixe <strong>Ativo</strong> ligado e salve. Você pode desligar um acionador a qualquer momento sem apagá-lo.</p>
+	</step>
+</steps>
+
+<h2>Ação: Pixel</h2>
+<table>
+	<thead><tr><th>Campo</th><th>Descrição</th></tr></thead>
+	<tbody>
+		<tr><td>Pixels</td><td>Um ou mais pixels que vão receber o evento.</td></tr>
+		<tr><td>Evento</td><td>Na Meta, o nome do evento padrão, como <code>PageView</code>, <code>InitiateCheckout</code> ou <code>Purchase</code>. No Google Ads, a <strong>Conversion Label</strong>. No TikTok e no Kwai, o evento da plataforma.</td></tr>
+		<tr><td>Parâmetros do evento</td><td>Valores fixos ou tokens, como <code>{utm_source}</code>, enviados junto com o evento.</td></tr>
+		<tr><td>Disparar via servidor (CAPI)</td><td>Envia pela API de Conversões. Recomendado.</td></tr>
+		<tr><td>Disparar via navegador</td><td>Dispara também no navegador. Só Meta e TikTok.</td></tr>
+	</tbody>
+</table>
+<shot src="img/acionadores-acao-pixel.png" caption="Ação de pixel com evento e modo de disparo" todo="Bloco Ação Pixel com um pixel Meta selecionado, Evento Purchase, um parâmetro de evento e os switches Disparar via servidor (ligado) e Disparar via navegador (desligado)."></shot>
+<callout type="note"><p>Em conversões, valor, moeda e dados do comprador são enviados automaticamente a partir do webhook da plataforma de venda.</p></callout>
+
+<h2>Ação: Webhook</h2>
+<p>Envia os dados do evento para uma URL sua, por exemplo um CRM, um bot de mensagens ou uma planilha.</p>
+<ul>
+	<li><strong>Método</strong>: <code>POST</code> (parâmetros em JSON) ou <code>GET</code> (parâmetros na query string).</li>
+	<li><strong>URL</strong> e <strong>Parâmetros</strong>: valores fixos ou tokens.</li>
+</ul>
+<p>Tokens disponíveis: <code>transaction_id</code>, <code>value</code>, <code>currency</code>, <code>visitor_id</code>, <code>email</code>, <code>phone</code>, <code>first_name</code>, <code>last_name</code>, <code>city</code>, <code>state</code>, <code>zip</code>, <code>country</code>, <code>utm_source</code>, <code>utm_medium</code>, <code>utm_campaign</code>, <code>utm_term</code>, <code>utm_content</code>, <code>sub1</code> a <code>sub8</code>, <code>network</code>, <code>url</code>, <code>referrer</code>, <code>type</code> e <code>custom_type</code>.</p>
+<code-block title="Exemplo: avisar o CRM a cada venda" lang="json">
+{
+  "email": "{email}",
+  "valor": "{value}",
+  "campanha": "{utm_campaign}"
+}
+</code-block>
+
+<h2>Exemplos</h2>
+<accordion title="Enviar Purchase só de vendas vindas da Meta">
+	<p>Condições: <strong>Tipo de evento</strong> igual a <code>conversion</code> e <strong>Rede</strong> igual a <code>facebook</code> (ou <code>instagram</code>). Ação: pixel Meta, evento <code>Purchase</code>.</p>
+</accordion>
+<accordion title="Enviar um evento customizado do script">
+	<p>Condições: <strong>Tipo customizado</strong> igual a <code>lead_form_submitted</code>. Ação: pixel Meta, evento <code>Lead</code>. O evento é enviado pela página com o <a href="/script">script</a>.</p>
+</accordion>
+<accordion title="Separar uma campanha">
+	<p>Condições: <strong>Tipo de evento</strong> igual a <code>conversion</code> e <strong>UTM Campaign</strong> contém <code>black-friday</code>. Ação: webhook para o seu CRM.</p>
+</accordion>
+
+<h2>Conferir os disparos</h2>
+<p>Cada envio fica registrado em <a href="/logs-de-acionadores">Logs › Acionadores</a>, com o status, o corpo enviado e a resposta da plataforma.</p>
+<callout type="warning"><p>Se você também tem o pixel instalado no navegador pela própria plataforma, os eventos podem duplicar. Use o deduplicador da plataforma ou deixe o envio só pelo Trackup.</p></callout>

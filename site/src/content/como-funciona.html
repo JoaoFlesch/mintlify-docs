@@ -1,0 +1,64 @@
+---
+title: Como o Trackup rastreia
+sidebarTitle: Como funciona
+icon: compass
+eyebrow: Comece aqui
+description: O caminho de um clique até a venda, e os conceitos que você vai encontrar em todo o painel.
+---
+<p>Toda visita passa pelo seu domínio no Trackup antes de chegar à página. Nesse ponto o Trackup registra quem é o visitante e de onde ele veio, aplica o filtro, dispara os eventos para os pixels e guarda um ID que acompanha a pessoa até a venda.</p>
+
+<h2>O caminho de uma venda</h2>
+<div class="flow">
+	<div class="flow-step"><b>1. Clique</b><span>no anúncio, com UTMs e Click ID</span></div><div class="flow-arrow">{{icon:arrow}}</div>
+	<div class="flow-step"><b>2. Requisição</b><span>registrada e filtrada no seu domínio</span></div><div class="flow-arrow">{{icon:arrow}}</div>
+	<div class="flow-step"><b>3. Página</b><span>evento page_view</span></div><div class="flow-arrow">{{icon:arrow}}</div>
+	<div class="flow-step"><b>4. Checkout</b><span>evento start_checkout</span></div><div class="flow-arrow">{{icon:arrow}}</div>
+	<div class="flow-step"><b>5. Venda</b><span>webhook com o ID do clique</span></div>
+</div>
+<ol>
+	<li><strong>Clique.</strong> A pessoa clica no anúncio. A URL leva os parâmetros de UTM da <a href="/fontes-de-trafego">fonte de tráfego</a> e o Click ID da plataforma (<code>fbclid</code>, <code>gclid</code>, <code>ttclid</code>).</li>
+	<li><strong>Requisição.</strong> O acesso chega ao seu domínio. O Trackup cria uma <a href="/requisicoes">requisição</a> com origem, UTMs, dispositivo, país e pontuação de bot, e aplica as regras do <a href="/filtro">Filtro</a>.</li>
+	<li><strong>Página.</strong> A página é servida e o evento <code>page_view</code> é gerado. Os <a href="/acionadores">acionadores</a> enviam o evento para os pixels pelo servidor.</li>
+	<li><strong>Checkout.</strong> O visitante clica no botão de compra, que aponta para o link da <a href="/ofertas">oferta</a>. O Trackup gera <code>start_checkout</code> e repassa ao checkout o ID da requisição e as UTMs.</li>
+	<li><strong>Venda.</strong> A <a href="/plataformas-de-venda">plataforma de venda</a> envia o webhook de compra com o ID de volta. O Trackup liga a venda ao clique, gera o evento <code>conversion</code> e envia para os pixels.</li>
+</ol>
+
+<h2>Conceitos</h2>
+
+<h3>Projeto</h3>
+<p>Agrupa tudo de uma operação: domínios, pixels, páginas, testes, regras de filtro e relatórios. Cada projeto tem uma moeda fixa. Um time pode ter vários projetos.</p>
+
+<h3>Página e link</h3>
+<p>Toda <a href="/paginas">página</a> tem um link próprio no seu domínio, como <code>lp.seudominio.com/oferta</code>. Esse é o endereço que você divulga. Páginas com finalidade <em>Landing</em> ficam em <strong>Páginas</strong>; páginas com finalidade <em>Checkout</em> são as <strong>Ofertas</strong>.</p>
+<p>Um <a href="/testes-ab">Teste A/B</a> é um link extra que divide o tráfego entre duas ou mais páginas.</p>
+
+<h3>Requisição e visitante</h3>
+<p>Uma <strong>requisição</strong> é cada acesso a um link. Um <strong>visitante</strong> é a pessoa por trás das requisições, reconhecida entre visitas. Um visitante pode ter várias requisições, eventos e conversões.</p>
+
+<h3>Evento</h3>
+<p>Uma ação no funil. Os eventos nativos são <code>ad_click</code>, <code>page_view</code>, <code>start_checkout</code> e <code>conversion</code>. Você também pode enviar eventos customizados, como <code>video_started</code> ou <code>lead_form_submitted</code>, com o <a href="/script">script</a>.</p>
+
+<h3>Pixel e acionador</h3>
+<p>O <a href="/pixels">pixel</a> guarda as credenciais da plataforma de anúncios. O <a href="/acionadores">acionador</a> define quando enviar um evento para esse pixel, por exemplo "toda conversão vinda da Meta".</p>
+
+<h3>Atribuição e Click ID</h3>
+<p>Atribuição é descobrir qual campanha gerou cada venda. O Trackup faz isso guardando o ID de cada requisição e repassando esse ID ao checkout em um parâmetro que a plataforma de venda devolve no webhook (por exemplo <code>sck</code> na Kiwify ou <code>src</code> na Monetizze). Quando o ID não volta, a venda aparece como <em>Click ID ausente</em> e fica sem campanha.</p>
+
+<h3>UTMs</h3>
+<p>Parâmetros na URL que descrevem a origem do clique: <code>utm_source</code>, <code>utm_medium</code>, <code>utm_campaign</code>, <code>utm_content</code> e <code>utm_term</code>. O Trackup preserva as UTMs entre páginas e as envia ao checkout.</p>
+
+<h3>Server-side</h3>
+<p>Os eventos são enviados do servidor do Trackup direto para a API de conversões de cada plataforma. Bloqueadores de anúncio e restrições do navegador não impedem o envio.</p>
+
+<h2>Por que o domínio importa</h2>
+<p>O rastreamento acontece no domínio do projeto. Por isso:</p>
+<ul>
+	<li>todo tráfego pago deve entrar por um link do Trackup;</li>
+	<li>os botões de compra devem apontar para o link da oferta, nunca para o checkout original;</li>
+	<li>páginas hospedadas fora do Trackup precisam do <a href="/script">script de rastreamento</a>.</li>
+</ul>
+
+<cards>
+	<card title="Quick Start" icon="rocket" href="/quick-start">Coloque esse fluxo para funcionar na prática.</card>
+	<card title="Requisições" icon="scroll" href="/requisicoes">Veja cada etapa registrada nos logs.</card>
+</cards>

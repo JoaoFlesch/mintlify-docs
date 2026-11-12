@@ -1,0 +1,82 @@
+---
+title: Proteger páginas de bots e curiosos
+sidebarTitle: Proteger páginas
+icon: shield
+eyebrow: Tutorial
+description: Monte uma proteção em camadas com o Filtro: bloqueio de bots, país, parâmetro secreto e safe page.
+---
+<p>Neste tutorial você monta, em ordem, quatro regras de filtro para uma página de oferta. Robôs são bloqueados, o tráfego de fora do Brasil vê uma página neutra, e quem tenta abrir a página sem vir do anúncio também.</p>
+<table>
+	<thead><tr><th>Peso</th><th>Regra</th><th>Ação</th></tr></thead>
+	<tbody>
+		<tr><td>1</td><td>Liberar o seu IP</td><td>Permitir</td></tr>
+		<tr><td>10</td><td>Bloquear bots</td><td>Bloquear</td></tr>
+		<tr><td>20</td><td>Fora do Brasil</td><td>Exibir página (safe page)</td></tr>
+		<tr><td>30</td><td>Sem parâmetro secreto</td><td>Exibir página (safe page)</td></tr>
+	</tbody>
+</table>
+
+<h2>O que você vai precisar</h2>
+<ul>
+	<li>A página da oferta publicada.</li>
+	<li>Uma <em>safe page</em>: uma página neutra e verdadeira, como um artigo sobre o tema do produto, criada no mesmo projeto.</li>
+	<li>O seu IP público. Busque "qual é meu IP" no navegador.</li>
+</ul>
+
+<h2>1. Libere o seu acesso</h2>
+<p>Assim você consegue revisar a página sem cair nas regras.</p>
+<steps>
+	<step title="Crie a regra">
+		<p>Em <strong>Filtro</strong>, clique em <strong>Criar regra</strong> e escolha o modo <strong>Avançado</strong>. Nome: <em>Meu IP</em>. Peso: <code>1</code>.</p>
+	</step>
+	<step title="Condição e ação">
+		<p>Condição: <strong>IP de origem</strong>, <strong>Igual</strong>, o seu IP. Ação: <strong>Permitir</strong>. Salve.</p>
+	</step>
+</steps>
+
+<h2>2. Bloqueie bots</h2>
+<p>Em <strong>Regras sugeridas</strong>, clique em <strong>Usar template</strong> em <em>Bloquear bots (proteção geral)</em>. Defina o peso <code>10</code> e salve.</p>
+
+<h2>3. Mostre a safe page fora do Brasil</h2>
+<steps>
+	<step title="Crie a regra no modo básico">
+		<p><strong>Criar regra</strong>, modo <strong>Básico</strong>. Nome: <em>Fora do Brasil</em>. Peso: <code>20</code>.</p>
+	</step>
+	<step title="Filtro de país">
+		<p>Em <strong>Países</strong>, escolha <strong>Não na lista</strong> e selecione Brasil.</p>
+	</step>
+	<step title="Limite à oferta">
+		<p>Em <strong>Links</strong>, selecione a página da oferta. As outras páginas do projeto não são afetadas.</p>
+	</step>
+	<step title="Ação">
+		<p>Escolha <strong>Exibir página</strong> e selecione a safe page.</p>
+		<shot src="img/tut-filtro-pais.png" caption="Regra de país com safe page" todo="Formulário de regra no modo Básico com nome Fora do Brasil, peso 20, Países Não na lista Brasil, Links com a página da oferta e ação Exibir página com a safe page selecionada."></shot>
+	</step>
+</steps>
+
+<h2>4. Exija o parâmetro secreto</h2>
+<steps>
+	<step title="Crie a regra">
+		<p><strong>Criar regra</strong>, modo <strong>Básico</strong>. Nome: <em>Anti-plágio</em>. Peso: <code>30</code>.</p>
+	</step>
+	<step title="Ligue o anti-plágio">
+		<p>Ligue <strong>Filtro anti-plágio</strong>. O Trackup gera um parâmetro, como <code>k3j9x=82mqa</code>. Em <strong>Links</strong>, selecione a oferta. Ação: <strong>Exibir página</strong>, safe page.</p>
+	</step>
+	<step title="Coloque o parâmetro no anúncio">
+		<p>Na lista de páginas, use o botão de copiar link da oferta e abra <strong>Ver URL</strong>. A <strong>URL final</strong> já inclui os <strong>Parâmetros do filtro</strong>. Use essa URL no anúncio, junto com os parâmetros da fonte de tráfego.</p>
+		<shot src="img/tut-filtro-url.png" caption="URL de rastreio com parâmetros do filtro" todo="Modal URL de rastreio de uma página com URL base, Parâmetros do filtro (k3j9x=82mqa) e URL final, com botões de copiar e o QR Code."></shot>
+	</step>
+</steps>
+<callout type="danger"><p>Anúncio sem o parâmetro manda todo o tráfego para a safe page. Confira a URL antes de publicar.</p></callout>
+
+<h2>5. Teste com Registrar antes de valer</h2>
+<p>Se a página já recebe tráfego, crie as regras 3 e 4 primeiro com a ação <strong>Registrar</strong>. Depois de um dia, olhe a coluna <strong>Acessos</strong> e confira em <strong>Logs › Requisições</strong> quem cairia em cada regra. Se estiver certo, troque para <strong>Exibir página</strong>.</p>
+
+<h2>6. Valide</h2>
+<ul>
+	<li>Do seu computador, a oferta abre normalmente (regra 1).</li>
+	<li>Do celular, fora do Wi-Fi e sem o parâmetro, você vê a safe page.</li>
+	<li>Com o parâmetro, a oferta abre.</li>
+	<li>Em <strong>Logs › Requisições</strong>, cada acesso mostra a <strong>Regra do firewall</strong> que decidiu.</li>
+</ul>
+<p>Acompanhe o resultado no topo da tela <strong>Filtro</strong> ou adicione o card <strong>Filtro</strong> a um <a href="/dashboards">dashboard</a>.</p>

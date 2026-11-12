@@ -1,0 +1,69 @@
+---
+title: Agentes de IA
+icon: bot
+description: Dê a agentes e automações acesso controlado ao Trackup pela API, com permissões, projetos e histórico.
+---
+<p>Agentes de IA e automações com LLM usam o Trackup pela mesma API de qualquer integração, com uma <a href="/chaves-de-api">chave de API</a> no header <code>X-Api-Key</code>. Se você usa Claude, ChatGPT, Cursor ou VS Code, o caminho mais simples é o <a href="/conectar-mcp">servidor MCP</a>.</p>
+
+<h2>O que um agente pode fazer</h2>
+<table>
+	<thead><tr><th>Objetivo</th><th>Endpoints</th><th>Permissões</th></tr></thead>
+	<tbody>
+		<tr><td>Registrar vendas, reembolsos e chargebacks de um CRM ou checkout</td><td><code>POST /v1/conversions</code>, <code>/refunds</code>, <code>/chargebacks</code></td><td><code>conversion.create</code></td></tr>
+		<tr><td>Criar visitantes e eventos</td><td><code>POST /v1/visitors</code>, <code>/requests</code></td><td><code>visitor.create</code>, <code>request.create</code></td></tr>
+		<tr><td>Ler métricas e listas</td><td><code>GET /v1/projects/{id}/analytics/overview</code>, <code>/conversions</code>, <code>/visitors</code>, <code>/requests</code></td><td><code>analytics.read</code>, <code>conversion.list</code>, <code>visitor.list</code>, <code>request.list</code></td></tr>
+		<tr><td>Acompanhar e ajustar campanhas da Meta</td><td><code>/v1/ads-manager/{projectId}/summary</code>, <code>/table</code>, <code>/entities/{id}/status</code>, <code>/budget</code></td><td><code>ads-manager.read</code>, <code>ads-manager.update</code></td></tr>
+		<tr><td>Configurar projetos</td><td>Pixels, acionadores, domínios, links, páginas, fontes de tráfego, plataformas de venda, filtro</td><td>As do recurso, como <code>page.create</code></td></tr>
+	</tbody>
+</table>
+<p>Cobrança, membros, gestão de chaves, exclusão de projeto e conexões OAuth não estão disponíveis para chaves.</p>
+
+<h2>Configurar o acesso</h2>
+<steps>
+	<step title="Liste o que o agente vai fazer">
+		<p>Anote os endpoints e as permissões da tabela acima. Um agente que registra vendas precisa só de <code>conversion.create</code>. Um agente de relatórios só lê.</p>
+	</step>
+	<step title="Crie uma chave só para ele">
+		<p>Em <strong>Configurações › Chaves de API › Nova chave</strong>, dê um nome como <em>Agente de relatórios</em>, escolha só os projetos necessários e marque só as permissões anotadas.</p>
+	</step>
+	<step title="Guarde a chave fora do prompt">
+		<p>Salve em uma variável de ambiente ou no cofre de segredos da plataforma do agente. A chave fica no código que faz a requisição, nunca no prompt, na memória do modelo ou em logs.</p>
+	</step>
+	<step title="Teste">
+		<code-block lang="bash">
+curl https://api.trackup.me/v1/projects \
+  -H "X-Api-Key: $TRACKUP_API_KEY"
+</code-block>
+		<p>A resposta lista os projetos que a chave acessa. <code>401</code> indica chave ausente ou inválida; <code>403</code>, chave revogada, expirada ou sem permissão.</p>
+	</step>
+	<step title="Acompanhe">
+		<p>Em <strong>Chaves de API › Ver histórico</strong>, veja cada chamada do agente com o corpo enviado e a resposta.</p>
+	</step>
+</steps>
+
+<h2>Instruções para o agente</h2>
+<p>Cole este bloco nas instruções do agente:</p>
+<code-block title="Contexto do agente" lang="text">
+Você opera o Trackup pela API REST.
+Base: https://api.trackup.me/v1. Autenticação: header X-Api-Key.
+Corpos e respostas em JSON. Listagens retornam { "data": [...], "count": n } e aceitam page e limit.
+Datas de consultas: YYYY-MM-DD, dias no fuso do time.
+Projetos: GET /projects lista os projetos acessíveis; use o id em /projects/{id}/...
+Ingestão (POST /visitors, /conversions, /refunds, /chargebacks, /requests): envie projectId no corpo,
+exceto quando a chave tiver um único projeto.
+Conversões: value é obrigatório. Envie transactionId; 409 significa que a transação já foi registrada.
+Erros: 401 chave inválida; 403 sem permissão ou chave revogada; 404 recurso fora do escopo;
+409 conflito; 422 corpo inválido (veja o objeto errors).
+Peça confirmação a uma pessoa antes de pausar campanhas, mudar orçamento, publicar ou apagar.
+Referência: https://docs.trackup.me/api
+</code-block>
+
+<h2>Boas práticas</h2>
+<ul>
+	<li><strong>Uma chave por agente</strong>, para revogar e auditar separado.</li>
+	<li><strong>Projetos restritos</strong>: um agente de um cliente não enxerga os outros.</li>
+	<li><strong>Validade em testes</strong>: chaves de experimento expiram sozinhas.</li>
+	<li><strong>Aprovação humana</strong> para ações que mexem em dinheiro ou no que está no ar.</li>
+	<li><strong>Trate 4xx como resposta</strong>: o agente deve ler a mensagem e corrigir a chamada, não repetir.</li>
+</ul>
+<p>Veja fluxos prontos em <a href="/agentes-de-ia-casos-de-uso">Casos de uso</a>.</p>

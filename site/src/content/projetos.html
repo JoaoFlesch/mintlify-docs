@@ -1,0 +1,42 @@
+---
+title: Projetos
+icon: layers
+description: Um projeto reúne domínios, páginas, pixels, regras e relatórios de uma operação.
+---
+<p>Crie um projeto para cada produto, oferta ou cliente. Os dados de um projeto não se misturam com os de outro: cada um tem seus domínios, suas páginas, seus pixels e seus dashboards.</p>
+
+<h2>Criar um projeto</h2>
+<steps>
+	<step title="Abra o seletor de projetos">
+		<p>No topo do menu lateral, clique no projeto atual e em <strong>Criar projeto</strong>.</p>
+	</step>
+	<step title="Preencha os campos">
+		<table>
+			<thead><tr><th>Campo</th><th>Descrição</th></tr></thead>
+			<tbody>
+				<tr><td>Nome</td><td>Como o projeto aparece no painel.</td></tr>
+				<tr><td>Moeda</td><td>Moeda dos relatórios. Vendas em outra moeda são convertidas pelo câmbio do dia. <strong>Não pode ser alterada depois.</strong></td></tr>
+			</tbody>
+		</table>
+	</step>
+	<step title="Salve">
+		<p>O projeto é criado com um domínio padrão do Trackup, que já serve páginas e links. Configure um <a href="/dominios">domínio próprio</a> antes de anunciar.</p>
+	</step>
+</steps>
+
+<h2>Configurações do projeto</h2>
+<p>Em <strong>Ajustes › Geral</strong> você encontra:</p>
+<table>
+	<thead><tr><th>Seção</th><th>O que faz</th></tr></thead>
+	<tbody>
+		<tr><td>Projeto</td><td>Altera o nome e a URL do projeto, usada em links e scripts.</td></tr>
+		<tr><td>Segurança › Domínios permitidos</td><td>Lista os sites autorizados a enviar eventos pelo <a href="/script">script</a>. <code>exemplo.com</code> libera só o domínio raiz; <code>*.exemplo.com</code>, só os subdomínios. Vazia, libera todos.</td></tr>
+		<tr><td>Segurança › Snippet de rastreamento</td><td>Código para instalar em páginas fora do Trackup.</td></tr>
+		<tr><td>Excluir projeto</td><td>Remove o projeto e todos os dados dele.</td></tr>
+	</tbody>
+</table>
+<shot src="img/projeto-ajustes-geral.png" caption="Ajustes › Geral" todo="Tela Ajustes › Geral com as seções Projeto (nome e URL), Segurança (domínios permitidos e snippet) e Excluir projeto visíveis. Nome do projeto fictício."></shot>
+<callout type="danger"><p>Excluir um projeto apaga páginas, links, regras, logs e conversões de forma permanente. Não há como desfazer.</p></callout>
+
+<h2>Alternar entre projetos</h2>
+<p>Use o seletor no topo do menu lateral. Tudo que aparece no menu (dashboards, páginas, logs, integrações) se refere ao projeto selecionado.</p>

@@ -1,0 +1,34 @@
+---
+title: Redirect
+icon: external
+description: Passe o tráfego pelo Trackup e redirecione para uma página hospedada em outro lugar.
+---
+<p>Uma página Redirect registra o acesso, aplica o filtro, dispara os eventos e manda o visitante para outra URL. Use quando a página precisa continuar em outro servidor, ou para criar uma <a href="/ofertas">oferta</a> que leva ao checkout.</p>
+
+<h2>Criar</h2>
+<steps>
+	<step title="Abra a aba Redirect">
+		<p>Em <strong>Páginas › Adicionar página</strong> (ou <strong>Ofertas › Adicionar oferta</strong>), mantenha a aba <strong>Redirect</strong>.</p>
+	</step>
+	<step title="Preencha os campos">
+		<table>
+			<thead><tr><th>Campo</th><th>Descrição</th></tr></thead>
+			<tbody>
+				<tr><td>Nome</td><td>Identificação no painel.</td></tr>
+				<tr><td>URL de redirecionamento</td><td>Para onde o visitante vai.</td></tr>
+				<tr><td>Status Code</td><td><code>302</code> (padrão, temporário), <code>301</code> (permanente), <code>307</code> ou <code>308</code>.</td></tr>
+				<tr><td>Caminho</td><td>Endereço no seu domínio, como <code>/promo</code>.</td></tr>
+			</tbody>
+		</table>
+		<shot src="img/redirect-criar.png" caption="Criação de uma página Redirect" todo="Aba Redirect com Nome, URL de redirecionamento externa fictícia, Status Code 302 e o aviso de Parâmetros na URL de destino visível."></shot>
+	</step>
+	<step title="Instale o script no destino">
+		<p>Se o destino é uma landing page sua, instale o <a href="/script">script de rastreamento</a> nela para registrar eventos e manter a atribuição até o checkout.</p>
+	</step>
+</steps>
+
+<h2>Parâmetros</h2>
+<p>Os parâmetros da URL do visitante, como <code>utm_source</code> e <code>fbclid</code>, são repassados ao destino. Se o mesmo parâmetro já existir fixo na URL de redirecionamento, vale o valor do visitante.</p>
+
+<h2>Qual status usar</h2>
+<p>Use <code>302</code>, o padrão. Navegadores guardam em cache redirecionamentos <code>301</code> e <code>308</code>, então uma troca de destino pode demorar a valer para quem já acessou.</p>

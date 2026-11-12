@@ -1,0 +1,66 @@
+---
+title: Domínios
+icon: globe
+description: Sirva páginas e links no seu próprio domínio ou subdomínio.
+---
+<p>Todo projeto nasce com um domínio padrão do Trackup. Para anunciar, use um domínio seu: ele passa mais confiança, protege a reputação da sua marca nas plataformas de anúncio e mantém cookies e atribuição no mesmo endereço.</p>
+
+<h2>Subdomínio ou domínio raiz</h2>
+<table>
+	<thead><tr><th>Tipo</th><th>Exemplo</th><th>Quando usar</th></tr></thead>
+	<tbody>
+		<tr><td>Subdomínio <span class="badge">Recomendado</span></td><td><code>lp.seudominio.com</code></td><td>Sempre que possível. Funciona em qualquer provedor de DNS e não interfere no seu site principal.</td></tr>
+		<tr><td>Domínio raiz</td><td><code>seudominio.com</code></td><td>Quando o domínio é só da operação. Exige um provedor com CNAME flattening, como a Cloudflare.</td></tr>
+	</tbody>
+</table>
+<p>Prefixos comuns: <code>lp.</code>, <code>go.</code>, <code>track.</code>, <code>offer.</code>.</p>
+
+<h2>Adicionar um domínio</h2>
+<steps>
+	<step title="Adicione o hostname">
+		<p>Vá em <strong>Ajustes › Domínios</strong>, clique em <strong>Adicionar domínio</strong>, informe o hostname (por exemplo <code>lp.seudominio.com</code>) e salve.</p>
+	</step>
+	<step title="Copie o registro CNAME">
+		<p>Abra o domínio na lista. O Trackup mostra o registro a criar, com <strong>Type</strong>, <strong>Name</strong> e <strong>Value</strong>.</p>
+		<shot src="img/dominios-cname.png" caption="Registro CNAME exibido para o domínio" todo="Lista Ajustes › Domínios com um domínio fictício expandido em status Pendente, mostrando a tabela Type / Name / Value e o botão Verificar."></shot>
+	</step>
+	<step title="Crie o registro no seu DNS">
+		<p>No painel do provedor de DNS, crie um registro <code>CNAME</code> com os mesmos valores.</p>
+		<tabs>
+			<tab title="Cloudflare">
+				<p>Em <strong>DNS › Records › Add record</strong>, escolha <code>CNAME</code>, preencha <strong>Name</strong> e <strong>Target</strong> e deixe <strong>Proxy status</strong> em <em>DNS only</em> (nuvem cinza).</p>
+			</tab>
+			<tab title="Registro.br">
+				<p>Em <strong>Editar zona</strong>, clique em <strong>Nova entrada</strong>, escolha o tipo <code>CNAME</code>, preencha o nome do subdomínio e o valor, e salve a zona.</p>
+			</tab>
+			<tab title="Outros">
+				<p>Procure a área de DNS ou zona DNS, crie uma entrada do tipo <code>CNAME</code> com o nome e o valor exibidos no Trackup e remova registros <code>A</code> ou <code>CNAME</code> antigos para o mesmo nome.</p>
+			</tab>
+		</tabs>
+	</step>
+	<step title="Verifique">
+		<p>Volte ao Trackup e clique em <strong>Verificar</strong>. Quando o status mudar para <span class="badge green">Verificado</span>, o domínio está ativo. A propagação costuma levar minutos, mas pode chegar a 24 horas.</p>
+	</step>
+</steps>
+
+<h2>Status</h2>
+<table>
+	<thead><tr><th>Status</th><th>Significado</th></tr></thead>
+	<tbody>
+		<tr><td><span class="badge amber">Pendente</span></td><td>O registro ainda não foi encontrado. O domínio não serve páginas nem links.</td></tr>
+		<tr><td><span class="badge green">Verificado</span></td><td>Tudo certo. O domínio já pode ser usado.</td></tr>
+		<tr><td><span class="badge gray">Falhou</span></td><td>O registro está diferente do esperado. Confira nome, valor e proxy.</td></tr>
+	</tbody>
+</table>
+
+<h2>Domínio primário</h2>
+<p>O domínio primário é usado nos links das páginas, nas URLs de webhook das plataformas de venda e no snippet de rastreamento. Para trocar, abra o menu do domínio e clique em <strong>Definir como primário</strong>.</p>
+<callout type="warning"><p>Trocar o primário muda os links e as URLs de webhook gerados a partir dali. Links já divulgados no domínio antigo continuam funcionando enquanto ele estiver no projeto.</p></callout>
+
+<h2>Problemas comuns</h2>
+<accordion title="A verificação não passa">
+	<p>Confira se o nome do registro está certo (alguns provedores completam o domínio sozinhos, então use só <code>lp</code> em vez de <code>lp.seudominio.com</code>), se não existe outro registro para o mesmo nome e se o proxy da Cloudflare está desligado.</p>
+</accordion>
+<accordion title="Quero usar o domínio raiz">
+	<p>O domínio raiz só aceita CNAME em provedores com CNAME flattening. Transfira o DNS para a Cloudflare e crie o registro em <code>@</code>.</p>
+</accordion>

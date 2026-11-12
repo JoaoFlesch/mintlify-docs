@@ -1,0 +1,48 @@
+---
+title: Ofertas
+icon: bag
+description: A oferta é a página de checkout do seu produto. É por ela que a venda volta atribuída ao anúncio.
+---
+<p>Uma oferta é uma página com finalidade <em>Checkout</em>, ligada a uma <a href="/plataformas-de-venda">plataforma de venda</a>. Na maioria dos casos ela redireciona para o checkout da plataforma, levando junto o ID do clique e as UTMs. Quando a venda acontece, a plataforma devolve esse ID no webhook e o Trackup liga a venda à campanha.</p>
+
+<div class="flow">
+	<div class="flow-step"><b>Botão de compra</b><span>na landing page</span></div><div class="flow-arrow">{{icon:arrow}}</div>
+	<div class="flow-step"><b>Oferta</b><span>lp.seudominio.com/checkout</span></div><div class="flow-arrow">{{icon:arrow}}</div>
+	<div class="flow-step"><b>Checkout</b><span>com ID do clique e UTMs</span></div><div class="flow-arrow">{{icon:arrow}}</div>
+	<div class="flow-step"><b>Webhook</b><span>venda atribuída</span></div>
+</div>
+
+<h2>Criar uma oferta</h2>
+<steps>
+	<step title="Tenha uma plataforma de venda">
+		<p>A oferta precisa de uma plataforma de venda integrada. Se ainda não tem, crie em <strong>Integração › Plataformas de vendas</strong> ou pelo atalho <strong>Adicionar plataforma</strong> dentro do formulário.</p>
+	</step>
+	<step title="Adicione a oferta">
+		<p>No menu lateral, clique em <strong>Ofertas</strong> e em <strong>Adicionar oferta</strong>. Na aba <strong>Redirect</strong>, preencha:</p>
+		<table>
+			<thead><tr><th>Campo</th><th>Descrição</th></tr></thead>
+			<tbody>
+				<tr><td>Nome</td><td>Por exemplo <code>Checkout Produto X</code>.</td></tr>
+				<tr><td>Plataforma de vendas</td><td>A plataforma que processa o pagamento.</td></tr>
+				<tr><td>URL de redirecionamento</td><td>O link do checkout na plataforma.</td></tr>
+				<tr><td>Status Code</td><td><code>302</code> por padrão. Também aceita <code>301</code>, <code>307</code> e <code>308</code>.</td></tr>
+				<tr><td>Caminho</td><td>Opcional, como <code>/checkout</code>.</td></tr>
+			</tbody>
+		</table>
+		<shot src="img/ofertas-criar.png" caption="Criação de uma oferta" todo="Diálogo Adicionar oferta na aba Redirect com Nome, Plataforma de vendas selecionada, URL de redirecionamento de checkout fictício, Status Code 302 e Caminho /checkout."></shot>
+	</step>
+	<step title="Use o link da oferta nos botões">
+		<p>Copie o <strong>Link</strong> da oferta na lista e use em todos os botões de compra das suas páginas.</p>
+	</step>
+</steps>
+
+<h2>Parâmetros repassados ao checkout</h2>
+<p>Os parâmetros que o visitante trouxe (como <code>utm_source</code>) são repassados para a URL de destino. Se o mesmo parâmetro já existir fixo na URL de redirecionamento, o valor do visitante prevalece. Os parâmetros da plataforma de venda, como o ID do clique, são adicionados automaticamente.</p>
+
+<h2>Oferta com página própria</h2>
+<p>Além de Redirect, uma oferta pode ser criada com Builder, Upload HTML ou Clonar URL, por exemplo para um pré-checkout. Nesse caso, o botão dessa página deve levar ao checkout da plataforma.</p>
+
+<h2>Testar ofertas</h2>
+<p>Para comparar dois checkouts (preços, plataformas ou páginas de pagamento diferentes), crie um <a href="/testes-ab">teste A/B</a> do tipo <strong>Checkout</strong> com as ofertas como variantes.</p>
+
+<callout type="warning"><p>Se um botão apontar direto para o checkout da plataforma, a venda chega sem o ID do clique e aparece como <em>Click ID ausente</em> em <a href="/conversoes">Conversões</a>.</p></callout>

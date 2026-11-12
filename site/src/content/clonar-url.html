@@ -1,0 +1,32 @@
+---
+title: Clonar URL
+icon: copy
+description: Copie uma página que já está no ar para o seu domínio no Trackup.
+---
+<p>Informe a URL de uma página e o Trackup captura o HTML e os arquivos do mesmo domínio (CSS, JS, imagens). O resultado vira uma página HTML que você edita como um upload.</p>
+
+<h2>Clonar</h2>
+<steps>
+	<step title="Abra a aba Clonar URL">
+		<p>Em <strong>Páginas › Adicionar página</strong>, escolha <strong>Clonar URL</strong>.</p>
+	</step>
+	<step title="Informe a URL de origem">
+		<p>Cole o endereço completo, com <code>https://</code>, dê um nome e clique em <strong>Clonar página</strong>.</p>
+		<shot src="img/clonar-url.png" caption="Clonagem de uma página" todo="Aba Clonar URL com Nome e URL de origem (site fictício) preenchidos e o botão Clonar página."></shot>
+	</step>
+	<step title="Aguarde a captura">
+		<p>A página aparece na lista como <em>Aguardando clone</em> e depois <em>Clonando…</em>. Em geral leva alguns segundos.</p>
+	</step>
+	<step title="Revise e ajuste">
+		<p>Abra <strong>Editar arquivos</strong>, troque os links dos botões pelo link da sua <a href="/ofertas">oferta</a> e publique.</p>
+	</step>
+</steps>
+
+<h2>Limitações</h2>
+<ul>
+	<li>Só arquivos do mesmo domínio são copiados. Imagens e scripts de outros domínios continuam vindo da origem.</li>
+	<li>Páginas que dependem muito de JavaScript para montar o conteúdo (algumas feitas em React ou Vue, por exemplo) podem não ficar iguais.</li>
+	<li>Formulários e integrações da página original podem parar de funcionar fora do domínio de origem.</li>
+</ul>
+<callout type="warning"><p>Clone apenas páginas que você tem direito de usar.</p></callout>
+<p>Se a clonagem falhar, a página aparece como <em>Falha no clone</em>. Nesse caso, salve a página pelo navegador e use o <a href="/upload-html">Upload HTML</a>.</p>

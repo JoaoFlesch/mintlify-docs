@@ -1,0 +1,118 @@
+---
+title: Script de rastreamento
+sidebarTitle: Script de rastreamento
+icon: code
+description: Rastreie páginas hospedadas fora do Trackup, identifique visitantes e envie eventos customizados.
+---
+<p>Páginas criadas no Trackup já são rastreadas. Instale o script quando a página estiver em outro servidor (WordPress, Shopify, seu próprio site) ou quando quiser enviar eventos além do <code>page_view</code>.</p>
+
+<h2>Instalação</h2>
+<steps>
+	<step title="Copie o snippet do projeto">
+		<p>No painel, vá em <strong>Ajustes › Geral</strong> e, na seção <strong>Segurança</strong>, copie o <strong>Snippet de rastreamento</strong>. Ele já vem com o domínio e o ID do seu projeto.</p>
+		<shot src="img/script-snippet.png" caption="Snippet de rastreamento em Ajustes › Geral" todo="Tela Ajustes › Geral rolada até a seção Segurança, com Domínios permitidos e o bloco Snippet de rastreamento com o botão Copiar. ID do projeto borrado."></shot>
+	</step>
+	<step title="Cole antes do fechamento do head">
+		<p>Cole o snippet antes de <code>&lt;/head&gt;</code> em todas as páginas que você quer rastrear.</p>
+		<code-block title="index.html" lang="html">
+<script>
+!function(t,r,a,c,k,u,p){
+t[k]=t[k]||function(){(t[k].q=t[k].q||[]).push(arguments)};
+u=r.createElement(a),a=r.getElementsByTagName(a)[0];
+u.async=!0;u.src=c;a.parentNode.insertBefore(u,a);}(window,document,
+'script','https://{hostname}/__t/e.js','trackup');
+trackup('init','{projectId}');
+trackup('track','page_view');
+</script>
+		</code-block>
+	</step>
+	<step title="Libere o domínio do site">
+		<p>Ainda em <strong>Ajustes › Geral › Segurança</strong>, adicione o domínio do site em <strong>Domínios permitidos</strong>. Use <code>exemplo.com</code> para o domínio raiz e <code>*.exemplo.com</code> para os subdomínios. Com a lista vazia, qualquer domínio pode enviar eventos.</p>
+	</step>
+	<step title="Valide">
+		<p>Abra a página e confira a visita em <strong>Logs › Requisições</strong>.</p>
+	</step>
+</steps>
+<p>O script carrega de <code>https://{hostname}/__t/e.js</code> e envia os eventos para <code>POST /__t/events</code> no mesmo domínio. Ele expõe a função global <code>trackup</code> com três comandos: <code>init</code>, <code>track</code> e <code>identify</code>. Chamadas feitas antes do carregamento ficam em fila e rodam depois do <code>init</code>.</p>
+
+<h3>Opções do init</h3>
+<code-block lang="javascript">
+trackup('init', '{projectId}', {
+  passthrough: true,          // repassa a query string para links decorados (padrão: true)
+  registrable: 'exemplo.com'  // domínio registrável, usado em links entre domínios
+});
+</code-block>
+
+<h2>Eventos customizados</h2>
+<p>Use <code>track</code> com qualquer nome de evento. Eventos diferentes de <code>page_view</code> são gravados como <em>tipo customizado</em> e podem ser usados como condição em <a href="/acionadores">acionadores</a>.</p>
+<code-block lang="javascript">
+trackup('track', 'sign_in');
+
+trackup('track', 'add_to_cart', {
+  customData: { productId: 'sku_42', quantity: 2 }
+});
+</code-block>
+<callout type="note"><p>Só o nome do evento e os dados de rastreamento automáticos (URL, UTMs, subs) são gravados. Propriedades soltas no terceiro argumento são ignoradas: use <code>customData</code>.</p></callout>
+
+<h3>Pelo HTML, sem JavaScript</h3>
+<p>Adicione <code>data-trackup-event</code> a qualquer elemento clicável. Para enviar dados, use <code>data-trackup-props</code> com um JSON.</p>
+<code-block lang="html">
+<button data-trackup-event="lead_form_submitted">Quero receber</button>
+
+<a href="/checkout" data-trackup-event="add_to_cart"
+   data-trackup-props='{"productId":"sku_42","quantity":2}'>Comprar agora</a>
+</code-block>
+<callout type="warning"><p>Eventos enviados por atributo usam <em>beacon</em>: não aceitam callback e não disparam acionadores no navegador. Para isso, use <code>trackup('track', …)</code>.</p></callout>
+
+<h3>Callback</h3>
+<p>Passe uma função como quarto argumento para esperar a confirmação do servidor, por exemplo antes de redirecionar ao checkout.</p>
+<code-block lang="javascript">
+document.getElementById('comprar').addEventListener('click', function (e) {
+  e.preventDefault();
+  var destino = this.href;
+  trackup('track', 'start_checkout', { value: '100', currency: 'BRL' }, function (event) {
+    window.location.href = destino; // event.vid e event.sid disponíveis
+  });
+});
+</code-block>
+<table>
+	<thead><tr><th>Campo</th><th>Descrição</th></tr></thead>
+	<tbody>
+		<tr><td><code>vid</code></td><td>ID do visitante (UUID), também salvo em cookie e localStorage.</td></tr>
+		<tr><td><code>sid</code></td><td>ID de atribuição da sessão, usado para decorar links.</td></tr>
+	</tbody>
+</table>
+<callout type="note"><p>O callback só roda quando o servidor responde <code>200</code>. Se a navegação depende dele, use um timeout de segurança.</p></callout>
+
+<h2>Identificar o visitante</h2>
+<p><code>identify</code> grava dados de contato no perfil do visitante. Campos omitidos não apagam valores existentes.</p>
+<code-block lang="javascript">
+trackup('identify', {
+  name: 'Maria Silva',
+  email: 'maria@exemplo.com',
+  phone: '+5511999990000',
+  addr_city: 'São Paulo',
+  addr_state: 'SP',
+  addr_country: 'BR'
+});
+</code-block>
+<table>
+	<thead><tr><th>Campo</th><th>Descrição</th></tr></thead>
+	<tbody>
+		<tr><td><code>name</code></td><td>Nome</td></tr>
+		<tr><td><code>email</code></td><td>E-mail</td></tr>
+		<tr><td><code>phone</code></td><td>Telefone</td></tr>
+		<tr><td><code>addr_street</code>, <code>addr_city</code>, <code>addr_state</code>, <code>addr_zip</code>, <code>addr_country</code></td><td>Endereço</td></tr>
+	</tbody>
+</table>
+
+<h2>Limites do customData</h2>
+<table>
+	<thead><tr><th>Regra</th><th>Valor</th></tr></thead>
+	<tbody>
+		<tr><td>Chaves</td><td>até 15</td></tr>
+		<tr><td>Tamanho</td><td>até 8 KB em JSON</td></tr>
+		<tr><td>Formato</td><td>objeto plano (não array)</td></tr>
+	</tbody>
+</table>
+<p>No script, um <code>customData</code> inválido é descartado e o evento segue sem ele. Na API, a mesma violação retorna <code>400</code>.</p>

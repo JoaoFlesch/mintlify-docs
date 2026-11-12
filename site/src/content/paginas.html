@@ -1,0 +1,72 @@
+---
+title: Páginas
+icon: file
+description: Crie, hospede e publique landing pages e checkouts no seu domínio, já com rastreamento.
+---
+<p>Uma página é qualquer endereço do seu domínio no Trackup: uma landing page, uma pré-venda, uma VSL ou o redirecionamento para um checkout. Toda página nasce com um link próprio e já é rastreada, sem instalar nada.</p>
+
+<h2>Finalidade</h2>
+<table>
+	<thead><tr><th>Finalidade</th><th>Onde aparece</th><th>Uso</th></tr></thead>
+	<tbody>
+		<tr><td>Landing</td><td>Menu <strong>Páginas</strong></td><td>Páginas que recebem o tráfego do anúncio. Geram <code>page_view</code>.</td></tr>
+		<tr><td>Checkout</td><td>Menu <strong>Ofertas</strong></td><td>Levam ao checkout da plataforma de venda. Geram <code>start_checkout</code>. Veja <a href="/ofertas">Ofertas</a>.</td></tr>
+	</tbody>
+</table>
+
+<h2>Quatro formas de criar</h2>
+<cards>
+	<card title="Builder" icon="layers" href="/builder">Editor visual com blocos e templates. Sem código.</card>
+	<card title="Upload HTML" icon="file" href="/upload-html">Envie um <code>.html</code> ou um <code>.zip</code> com os arquivos da página.</card>
+	<card title="Clonar URL" icon="copy" href="/clonar-url">Capture uma página que já está no ar e edite os arquivos.</card>
+	<card title="Redirect" icon="external" href="/redirect">Mantenha a página onde está e passe o tráfego pelo Trackup.</card>
+</cards>
+<table>
+	<thead><tr><th>Se você…</th><th>Use</th></tr></thead>
+	<tbody>
+		<tr><td>vai criar a página agora e não programa</td><td>Builder</td></tr>
+		<tr><td>já tem o HTML ou recebeu de um designer</td><td>Upload HTML</td></tr>
+		<tr><td>quer migrar uma página que está em outro servidor</td><td>Clonar URL</td></tr>
+		<tr><td>precisa manter a página em outro servidor (WordPress, Shopify)</td><td>Redirect + <a href="/script">script</a></td></tr>
+	</tbody>
+</table>
+
+<h2>Criar uma página</h2>
+<steps>
+	<step title="Abra Páginas">
+		<p>No menu lateral, clique em <strong>Páginas</strong> e em <strong>Adicionar página</strong>.</p>
+	</step>
+	<step title="Escolha a aba">
+		<p>Selecione <strong>Redirect</strong>, <strong>Builder</strong>, <strong>Upload HTML</strong> ou <strong>Clonar URL</strong> e preencha o formulário.</p>
+		<shot src="img/paginas-adicionar.png" caption="Adicionar página com as quatro abas" todo="Diálogo Adicionar página com as abas Redirect, Builder, Upload HTML e Clonar URL visíveis, aba Upload HTML selecionada mostrando Nome, Caminho e o campo de arquivo."></shot>
+	</step>
+	<step title="Defina o caminho">
+		<p>O <strong>Caminho</strong> é o endereço da página no domínio. Use <code>/</code> para a raiz (<code>seudominio.com</code>) ou algo como <code>/oferta</code>. Em branco, o Trackup gera a partir do nome. Letras, números, <code>-</code>, <code>.</code>, <code>_</code>, <code>~</code> e <code>/</code> são aceitos.</p>
+	</step>
+</steps>
+
+<h2>Lista de páginas</h2>
+<p>A tabela mostra o tipo, o status e o <strong>Link</strong> de cada página, com botão para copiar. Pelo menu de cada linha você pode:</p>
+<table>
+	<thead><tr><th>Ação</th><th>O que faz</th></tr></thead>
+	<tbody>
+		<tr><td>Editar no builder</td><td>Abre o editor visual (páginas Builder).</td></tr>
+		<tr><td>Editar arquivos</td><td>Abre o editor de arquivos (páginas HTML).</td></tr>
+		<tr><td>Histórico</td><td>Mostra as versões e permite restaurar uma anterior. Veja <a href="/versoes-e-arquivos">Versões e arquivos</a>.</td></tr>
+		<tr><td>Duplicar</td><td>Cria uma cópia, útil para montar a variante de um <a href="/testes-ab">teste A/B</a>.</td></tr>
+		<tr><td>Deletar</td><td>Remove a página para sempre.</td></tr>
+	</tbody>
+</table>
+<shot src="img/paginas-lista.png" caption="Lista de páginas com tipo, status e link" todo="Menu Páginas com 3 a 4 páginas fictícias (Builder, HTML, Redirect), status Publicada/Rascunho, coluna Link com botão copiar e o menu de ações de uma linha aberto."></shot>
+
+<h2>Rascunho e publicada</h2>
+<p>Páginas novas são publicadas na criação. Depois, toda alteração de arquivo deixa a página em <span class="badge amber">Rascunho</span> até você publicar de novo. Enquanto isso, quem acessa o link continua vendo a versão publicada.</p>
+
+<callout type="danger"><p>Deletar uma página quebra todos os anúncios e testes A/B que apontam para ela. Confira antes se ela não está em uso.</p></callout>
+
+<h2>Boas práticas</h2>
+<ul>
+	<li>Use nomes que digam a função: <code>Landing Principal</code>, <code>VSL Produto X</code>, <code>Pré-checkout</code>.</li>
+	<li>Mantenha um projeto por produto ou cliente, para não misturar páginas e relatórios.</li>
+	<li>Os botões de compra devem apontar para o link da <a href="/ofertas">oferta</a>, nunca para o checkout original.</li>
+</ul>

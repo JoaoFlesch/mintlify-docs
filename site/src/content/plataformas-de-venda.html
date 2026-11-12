@@ -1,0 +1,53 @@
+---
+title: Plataformas de venda
+icon: cart
+description: Receba vendas, reembolsos e chargebacks por webhook e ligue cada venda ao anúncio de origem.
+---
+<p>A plataforma de venda é onde o cliente paga: Hotmart, Kiwify, Shopify, Stripe e outras. Integrada ao Trackup, ela envia um webhook a cada venda, reembolso ou chargeback, e o Trackup registra a conversão com a campanha que gerou o clique.</p>
+
+<h2>Como a atribuição funciona</h2>
+<ol>
+	<li>O visitante clica no botão de compra, que aponta para o link da <a href="/ofertas">oferta</a>.</li>
+	<li>O Trackup redireciona para o checkout adicionando o ID do clique e as UTMs na URL, no parâmetro que a plataforma aceita (por exemplo <code>sck</code> na Kiwify).</li>
+	<li>A plataforma guarda esse ID no pedido e devolve no webhook.</li>
+	<li>O Trackup encontra o clique, registra a <a href="/conversoes">conversão</a> e dispara os <a href="/acionadores">acionadores</a> de <code>conversion</code>.</li>
+</ol>
+
+<h2>Integrar uma plataforma</h2>
+<steps>
+	<step title="Adicione a plataforma">
+		<p>Vá em <strong>Integração › Plataformas de vendas</strong> e clique em <strong>Adicionar plataforma</strong>. Pesquise e selecione a sua.</p>
+		<shot src="img/plataformas-adicionar.png" caption="Seleção da plataforma de vendas" todo="Diálogo Adicionar plataforma com a busca de plataformas aberta mostrando a lista (Hotmart 2.0, Kiwify, Eduzz…)."></shot>
+	</step>
+	<step title="Confira os parâmetros">
+		<p>Os parâmetros do checkout vêm preenchidos para cada plataforma. Use <strong>Personalizar parâmetros</strong> só se precisar enviar dados extras, como <code>{request.sub1}</code>.</p>
+	</step>
+	<step title="Copie a URL e cadastre na plataforma">
+		<p>Salve, copie a <strong>URL</strong> na lista e cadastre na área de webhooks da plataforma. Algumas plataformas pedem cuidados específicos: veja a página de cada uma em <a href="/integracoes">Integrações</a>.</p>
+	</step>
+</steps>
+<callout type="note"><p>A URL do webhook usa o <a href="/dominios">domínio primário</a> do projeto. Configure o domínio antes de integrar, para não precisar trocar a URL depois.</p></callout>
+
+<h2>Macros do checkout</h2>
+<p>Os parâmetros aceitam valores fixos ou macros no formato <code>{request.campo}</code>:</p>
+<table>
+	<thead><tr><th>Macro</th><th>Valor</th></tr></thead>
+	<tbody>
+		<tr><td><code>{request.id}</code></td><td>ID do clique (request ID). Obrigatório para atribuição.</td></tr>
+		<tr><td><code>{request.utmSource}</code> … <code>{request.utmContent}</code></td><td>UTMs do clique.</td></tr>
+		<tr><td><code>{request.clickId}</code></td><td>Click ID da plataforma de anúncios.</td></tr>
+		<tr><td><code>{request.sub1}</code> … <code>{request.sub8}</code></td><td>Sub IDs.</td></tr>
+		<tr><td><code>{request.campaignId}</code>, <code>{request.adsetId}</code>, <code>{request.adId}</code></td><td>IDs de campanha, conjunto e anúncio.</td></tr>
+		<tr><td><code>{request.visitorId}</code></td><td>ID do visitante.</td></tr>
+		<tr><td><code>{request.country}</code>, <code>{request.city}</code>, <code>{request.state}</code></td><td>Localização.</td></tr>
+		<tr><td><code>{request.device}</code>, <code>{request.browser}</code>, <code>{request.os}</code></td><td>Dispositivo.</td></tr>
+	</tbody>
+</table>
+
+<h2>Excluir uma plataforma</h2>
+<p>Só é possível excluir uma plataforma que não está em nenhuma oferta nem teste A/B. Remova esses vínculos antes.</p>
+
+<cards>
+	<card title="Todas as integrações" icon="plug" href="/integracoes">Passo a passo de cada uma das 34 plataformas.</card>
+	<card title="Webhook genérico" icon="code" href="/webhook-generico">Para checkouts sem integração nativa.</card>
+</cards>

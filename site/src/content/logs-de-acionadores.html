@@ -1,0 +1,27 @@
+---
+title: Logs de acionadores
+icon: scroll
+description: Confira cada evento enviado aos pixels e cada chamada de webhook, com a resposta da plataforma.
+---
+<p>Em <strong>Logs › Acionadores</strong> fica o histórico de tudo o que os <a href="/acionadores">acionadores</a> executaram: disparos de pixel e chamadas de webhook.</p>
+<shot src="img/logs-acionadores.png" caption="Histórico de disparos dos acionadores" todo="Tela Logs de acionadores com filtro por acionador e status, lista com disparos Sucesso e um Erro, e o painel de detalhe aberto mostrando Request e Response. Pixel IDs e tokens borrados."></shot>
+
+<h2>Filtrar</h2>
+<ul>
+	<li><strong>Acionador</strong>: um acionador específico ou todos.</li>
+	<li><strong>Status</strong>: <strong>Sucesso</strong> ou <strong>Erro</strong>.</li>
+</ul>
+
+<h2>Ler um disparo</h2>
+<p>Abra um disparo para ver o acionador, o pixel, a URL chamada, o corpo enviado (<strong>Request</strong>) e o que a plataforma respondeu (<strong>Response</strong>).</p>
+
+<h2>Erros comuns</h2>
+<table>
+	<thead><tr><th>Sintoma</th><th>O que verificar</th></tr></thead>
+	<tbody>
+		<tr><td>Erro de autenticação na Meta</td><td>O token de acesso do pixel expirou ou foi gerado em outro Business Manager. Gere outro e atualize o <a href="/pixels">pixel</a>.</td></tr>
+		<tr><td>Erro de conversion label no Google</td><td>A label do acionador não corresponde a uma ação de conversão da conta.</td></tr>
+		<tr><td>Webhook com erro 4xx ou 5xx</td><td>A URL de destino está fora do ar ou espera outro formato. Veja o corpo da resposta.</td></tr>
+		<tr><td>Nenhum log aparece</td><td>O acionador está inativo, ou as condições não correspondem aos eventos. Confira em <a href="/requisicoes">Requisições</a> se o evento chegou.</td></tr>
+	</tbody>
+</table>

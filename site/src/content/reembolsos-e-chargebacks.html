@@ -1,0 +1,9 @@
+---
+title: Reembolsos e chargebacks
+icon: dollar
+description: Acompanhe as vendas desfeitas e de onde elas vieram.
+---
+<p>Quando a plataforma de venda avisa um reembolso ou chargeback pelo webhook, o Trackup registra o evento e liga ele à conversão original. Veja em <strong>Logs › Conversões</strong>, nas abas <strong>Reembolsos</strong> e <strong>Chargebacks</strong>.</p>
+<p>Cada linha mostra a <strong>Conversão</strong> de origem e os mesmos dados de atribuição dela, incluindo campanha, conjunto e anúncio. Assim você descobre quais anúncios trazem compradores que pedem reembolso.</p>
+<callout type="note"><p>Nem todas as plataformas enviam esses eventos. A Stripe, por exemplo, envia só pagamentos aprovados. Veja o guia de cada <a href="/integracoes">plataforma</a>.</p></callout>
+<p>A conversão original muda para o status <strong>Reembolsado</strong> ou <strong>Chargeback</strong>, e o card <a href="/dashboards">Status de pagamentos</a> passa a contar a mudança.</p>

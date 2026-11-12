@@ -1,0 +1,46 @@
+---
+title: Chaves de API
+icon: key
+description: Crie chaves para integrar sistemas e agentes de IA ao Trackup, com permissões e projetos limitados.
+---
+<p>Uma chave de API dá acesso à <a href="/api">API do Trackup</a> e ao <a href="/conectar-mcp">servidor MCP</a> em nome do time. Cada chave tem suas permissões, seus projetos e, se quiser, uma data de validade.</p>
+
+<h2>Criar uma chave</h2>
+<steps>
+	<step title="Abra Chaves de API">
+		<p>Em <strong>Configurações › Chaves de API</strong>, clique em <strong>Nova chave</strong>.</p>
+	</step>
+	<step title="Configure">
+		<table>
+			<thead><tr><th>Campo</th><th>Descrição</th></tr></thead>
+			<tbody>
+				<tr><td>Nome</td><td>Onde a chave será usada, como <em>n8n produção</em>.</td></tr>
+				<tr><td>Expira em</td><td>Opcional. Depois da data, a chave para de funcionar.</td></tr>
+				<tr><td>Projetos</td><td>Vazio dá acesso a todos os projetos do time. Escolha só os necessários.</td></tr>
+				<tr><td>Permissões</td><td>O que a chave pode fazer, por recurso: listar, ler, criar, atualizar e deletar.</td></tr>
+			</tbody>
+		</table>
+		<shot src="img/chaves-criar.png" caption="Criação de uma chave de API" todo="Modal Criar chave de API com Nome n8n produção, Expira em vazio, um projeto selecionado e a lista de permissões com Páginas e Links marcados."></shot>
+	</step>
+	<step title="Copie a chave">
+		<p>A chave completa aparece uma única vez. Copie e guarde em um gerenciador de senhas ou nas variáveis de ambiente do seu sistema.</p>
+	</step>
+</steps>
+<callout type="note"><p>Uma chave nunca pode mais do que quem a criou. Se o criador perder uma permissão ou sair do time, a chave perde junto. A exceção são as permissões de ingestão (<code>visitor.create</code>, <code>conversion.create</code> e <code>request.create</code>), que são exclusivas de chaves.</p></callout>
+
+<h2>Usar a chave</h2>
+<p>Envie a chave no header <code>X-Api-Key</code>. A URL base aparece na própria tela, em <strong>URL da API</strong>.</p>
+<code-block title="Exemplo" lang="bash">
+curl https://api.trackup.me/v1/projects \
+  -H "X-Api-Key: $TRACKUP_API_KEY"
+</code-block>
+
+<h2>Histórico de uso</h2>
+<p>No menu da chave, clique em <strong>Ver histórico</strong>. Você vê cada requisição feita com ela: método, caminho, status HTTP, IP, duração e a origem (<strong>API</strong> ou <strong>MCP</strong>, com o nome da ferramenta). Os corpos aparecem com os segredos mascarados.</p>
+
+<h2>Editar e revogar</h2>
+<ul>
+	<li><strong>Editar</strong> muda nome, permissões e projetos sem trocar a chave.</li>
+	<li><strong>Revogar</strong> desativa a chave na hora. Não dá para desfazer.</li>
+</ul>
+<callout type="warning"><p>Se uma chave vazar, revogue e crie outra. Não compartilhe chaves em prints, repositórios ou mensagens.</p></callout>

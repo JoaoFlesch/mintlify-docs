@@ -1,0 +1,50 @@
+---
+title: Fontes de tráfego
+icon: megaphone
+description: Gere os parâmetros de UTM que identificam campanha, conjunto e anúncio de cada clique.
+---
+<p>Uma fonte de tráfego representa uma plataforma onde você anuncia. Ela gera o bloco de <strong>Parâmetros de URL</strong> que você cola no anúncio. Esses parâmetros usam as macros da própria plataforma para preencher, a cada clique, o nome e o ID da campanha, do conjunto e do anúncio.</p>
+
+<h2>Plataformas disponíveis</h2>
+<p>Meta, Google, TikTok e Kwai. Crie uma fonte para cada plataforma em que você anuncia.</p>
+
+<h2>Criar uma fonte</h2>
+<steps>
+	<step title="Abra Fontes de tráfego">
+		<p>Vá em <strong>Integração › Fontes de tráfego</strong> e clique em <strong>Adicionar fonte</strong>.</p>
+	</step>
+	<step title="Escolha a plataforma">
+		<p>Dê um nome, como <code>Meta Ads</code>, e selecione a plataforma. O template padrão é preenchido sozinho.</p>
+	</step>
+	<step title="Copie os parâmetros">
+		<p>Salve e copie o bloco <strong>Parâmetros de URL</strong>.</p>
+		<shot src="img/fontes-parametros.png" caption="Parâmetros de URL de uma fonte Meta" todo="Tela de edição da fonte Meta Ads com o bloco Parâmetros de URL e o botão de copiar, e o link Personalizar parâmetros fechado."></shot>
+	</step>
+</steps>
+
+<h2>Usar no anúncio</h2>
+<p>A URL de destino do anúncio é o link da página seguido dos parâmetros:</p>
+<code-block title="URL do anúncio">
+https://lp.seudominio.com/oferta?utm_source=…&utm_campaign=…&utm_content=…
+</code-block>
+<tabs>
+	<tab title="Meta">
+		<p>No nível do anúncio, cole o link da página em <strong>URL do site</strong> e o bloco em <strong>Parâmetros de URL</strong>.</p>
+	</tab>
+	<tab title="Google">
+		<p>Cole o bloco no <strong>Modelo de rastreamento</strong> ou no <strong>Sufixo do URL final</strong> da campanha.</p>
+	</tab>
+	<tab title="TikTok">
+		<p>No anúncio, cole a URL completa (link + parâmetros) em <strong>URL de destino</strong>.</p>
+	</tab>
+	<tab title="Kwai">
+		<p>No anúncio, cole a URL completa (link + parâmetros) no campo de URL de destino.</p>
+	</tab>
+</tabs>
+<callout type="tip"><p>O Trackup também reconhece os Click IDs das plataformas (<code>fbclid</code>, <code>gclid</code>, <code>ttclid</code>, <code>click_id</code>) e identifica a origem pelo referrer, mesmo sem UTMs.</p></callout>
+
+<h2>Personalizar parâmetros</h2>
+<p>Clique em <strong>Personalizar parâmetros</strong> para editar os pares chave e valor. Os valores podem ser fixos ou tokens da plataforma, como <code>{{campaign.id}}</code>. Use <strong>Inserir token</strong> para ver os tokens disponíveis para a plataforma escolhida.</p>
+<p>Os valores ficam disponíveis nos relatórios, nos <a href="/acionadores">acionadores</a> (como <code>utm_source</code>, <code>sub1</code> etc.) e são repassados ao checkout.</p>
+
+<callout type="note"><p>Links do tipo <em>Anúncio</em>, criados antes dos testes A/B, continuam funcionando mas não podem mais ser criados. Hoje a URL do anúncio é sempre o link da página com os parâmetros da fonte.</p></callout>

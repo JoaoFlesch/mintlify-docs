@@ -1,0 +1,95 @@
+---
+title: Montar uma landing page no Builder
+sidebarTitle: Landing page no Builder
+icon: layers
+eyebrow: Tutorial
+description: Crie e publique uma página de vendas no editor visual, com botões ligados à oferta e pronta para mobile.
+---
+<p>Neste tutorial você monta uma página de vendas com VSL no Builder, liga os botões ao checkout e publica no seu domínio. Nenhum código é necessário, e o rastreamento já vem embutido.</p>
+
+<h2>O que você vai precisar</h2>
+<ul>
+	<li>Uma <a href="/ofertas">oferta</a> criada, com o link do checkout. Se ainda não tem, siga a Parte 3 de <a href="/tutorial-campanha-meta">Rastrear uma campanha da Meta</a>.</li>
+	<li>Textos, imagens comprimidas (WebP ou JPG até 300 KB) e o link do vídeo da VSL.</li>
+</ul>
+
+<h2>1. Crie a página</h2>
+<steps>
+	<step title="Adicione a página">
+		<p>Em <strong>Páginas</strong>, clique em <strong>Adicionar página</strong> e escolha a aba <strong>Builder</strong>. Nome: <em>VSL Curso</em>. Caminho: <code>/curso</code>. Salve.</p>
+	</step>
+	<step title="Abra o editor">
+		<p>Na lista, abra o menu da página e clique em <strong>Editar no builder</strong>.</p>
+	</step>
+	<step title="Escolha um ponto de partida">
+		<p>Escolha um template de VSL para ganhar tempo, ou comece com o canvas vazio.</p>
+		<shot src="img/tut-builder-templates.png" caption="Escolha de template no Builder" todo="Galeria de templates do Builder com as opções pré-venda, VSL e captura, e a opção de começar do zero."></shot>
+	</step>
+</steps>
+
+<h2>2. Monte as seções</h2>
+<p>Uma estrutura que funciona para VSL:</p>
+<table>
+	<thead><tr><th>Ordem</th><th>Bloco</th><th>O que colocar</th></tr></thead>
+	<tbody>
+		<tr><td>1</td><td>Primeira dobra e VSL</td><td>Título com a promessa, o vídeo e um botão logo abaixo.</td></tr>
+		<tr><td>2</td><td>Benefícios</td><td>3 a 6 resultados que o cliente terá.</td></tr>
+		<tr><td>3</td><td>Prova social</td><td>Depoimentos com foto e nome.</td></tr>
+		<tr><td>4</td><td>Oferta e preço</td><td>O que está incluso, preço e garantia.</td></tr>
+		<tr><td>5</td><td>Perguntas frequentes</td><td>As objeções mais comuns.</td></tr>
+		<tr><td>6</td><td>Rodapé</td><td>Links de termos e privacidade.</td></tr>
+	</tbody>
+</table>
+<steps>
+	<step title="Insira os blocos">
+		<p>No painel lateral, abra a aba <strong>Blocos</strong> e arraste cada seção para o canvas, na ordem acima.</p>
+		<shot src="img/tut-builder-blocos.png" caption="Inserindo blocos no canvas" todo="Editor do Builder com a aba Blocos aberta, a categoria Prova social expandida e um bloco sendo arrastado para o canvas abaixo da primeira dobra."></shot>
+	</step>
+	<step title="Edite os textos">
+		<p>Clique duas vezes em um texto para editar. Use a aba <strong>Camadas</strong> para achar elementos difíceis de clicar.</p>
+	</step>
+	<step title="Troque imagens e vídeo">
+		<p>Selecione a imagem e, em <strong>Config</strong>, abra a <strong>Biblioteca de imagens</strong> para enviar a sua. No vídeo, cole a URL em <strong>Config</strong>.</p>
+	</step>
+	<step title="Ajuste o visual">
+		<p>Na aba <strong>Estilo</strong>, ajuste cores, fontes e espaçamentos. Para voltar ao padrão do tema, use o botão ao lado do campo.</p>
+	</step>
+</steps>
+
+<h2>3. Ligue os botões à oferta</h2>
+<steps>
+	<step title="Selecione o botão">
+		<p>Clique no botão de compra da primeira dobra.</p>
+	</step>
+	<step title="Configure o clique">
+		<p>Na aba <strong>Config</strong>, em <strong>Evento de clique</strong>, cole o link da oferta (por exemplo <code>https://lp.seudominio.com/checkout</code>) em <strong>Destino</strong>.</p>
+		<shot src="img/tut-builder-botao.png" caption="Botão apontando para a oferta" todo="Inspetor do Builder na aba Config com um botão selecionado, Evento de clique configurado e Destino https://lp.seudominio.com/checkout."></shot>
+	</step>
+	<step title="Repita em todos os botões">
+		<p>Faça o mesmo em cada botão de compra da página. Use <strong>Camadas</strong> para conferir que nenhum ficou de fora.</p>
+	</step>
+</steps>
+<callout type="danger"><p>Nunca use o link direto do checkout da plataforma. As vendas chegam sem o click ID e não são atribuídas ao anúncio.</p></callout>
+
+<h2>4. Revise no celular</h2>
+<p>Na barra superior, alterne para <strong>Mobile</strong>. Confira tamanhos de fonte, imagens cortadas e se o botão aparece sem precisar rolar muito. Ajuste em <strong>Estilo</strong> com a visualização Mobile ativa.</p>
+<shot src="img/tut-builder-mobile.png" caption="Revisão na visualização Mobile" todo="Builder na visualização Mobile mostrando a primeira dobra com título, vídeo e botão, com o seletor Desktop/Tablet/Mobile em destaque."></shot>
+
+<h2>5. Publique</h2>
+<steps>
+	<step title="Salve e publique">
+		<p>Clique em <strong>Salvar</strong> e depois em <strong>Publicar</strong>.</p>
+	</step>
+	<step title="Teste a página no ar">
+		<p>Volte para <strong>Páginas</strong>, copie o <strong>Link</strong> e abra no celular. Clique no botão e confira se abre o checkout.</p>
+	</step>
+	<step title="Confira o rastreamento">
+		<p>Em <strong>Logs › Requisições</strong>, sua visita e o clique no checkout aparecem em poucos segundos.</p>
+	</step>
+</steps>
+
+<h2>Próximos passos</h2>
+<ul>
+	<li>Use o link da página no anúncio, com os parâmetros da <a href="/fontes-de-trafego">fonte de tráfego</a>.</li>
+	<li>Duplique a página, mude o título e compare as duas com um <a href="/tutorial-teste-ab">teste A/B</a>.</li>
+</ul>

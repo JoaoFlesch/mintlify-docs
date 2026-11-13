@@ -235,6 +235,8 @@ for (const f of ['og.jpg', 'favicon.svg']) copyFileSync(join(SRC, 'assets', f), 
 writeFileSync(join(DIST, 'assets', 'search.js'), `window.__SEARCH__=${JSON.stringify(searchIndex)};`);
 writeFileSync(join(DIST, 'assets', 'style.css'), css);
 writeFileSync(join(DIST, 'assets', 'shell.js'), shellOut);
+// Página-hospedeira dos arquivos compartilhados: publicada no Trackup em /assets, faz o clonador baixar cada arquivo.
+writeFileSync(join(DIST, 'assets', 'index.html'), `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="robots" content="noindex"><title>Trackup Docs: arquivos</title><link rel="icon" href="favicon.svg"><link rel="stylesheet" href="style.css"><script src="shell.js" defer></script><script src="search.js" defer></script></head><body><img src="og.jpg" alt="" width="1" height="1"></body></html>`);
 for (const { entry, page } of rendered) {
 	const { meta, toc, html } = page;
 	const showToc = meta.toc !== 'false' && toc.length > 1;

@@ -201,6 +201,7 @@ rmSync(DIST, { recursive: true, force: true });
 mkdirSync(DIST, { recursive: true });
 const sitemap = [];
 mkdirSync(join(DIST, 'assets'), { recursive: true });
+for (const f of ['og.jpg', 'favicon.svg']) copyFileSync(join(SRC, 'assets', f), join(DIST, 'assets', f));
 writeFileSync(join(DIST, 'assets', 'search.js'), searchJs);
 for (const { entry, page, i } of rendered) {
 	const { meta, toc, html } = page;
@@ -210,6 +211,7 @@ for (const { entry, page, i } of rendered) {
 		.replaceAll('{{title}}', esc(meta.title === 'Trackup Docs' ? meta.title : `${meta.title} | ${SITE.name}`))
 		.replaceAll('{{description}}', esc(meta.description || ''))
 		.replaceAll('{{canonical}}', SITE.url + urlOf(entry.slug))
+		.replaceAll('{{ogImage}}', SITE.url + '/assets/og.jpg')
 		.replace('{{css}}', () => css)
 		.replace('{{js}}', () => js)
 		.replace('{{searchScript}}', () => `<script src="${'../'.repeat(entry.slug === 'index' ? 0 : entry.slug.split('/').length)}assets/search.js"></script>`)

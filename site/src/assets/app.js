@@ -138,10 +138,24 @@
 	var modal = document.querySelector('.search-modal');
 	var input = modal && modal.querySelector('input');
 	var results = modal && modal.querySelector('.search-results');
-	var index = window.__SEARCH__ || [];
+	var index = [];
 	var sel = 0;
 	function norm(s) { return (s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''); }
-	index.forEach(function (doc) { doc._t = norm(doc.t); doc._h = norm(doc.h.join(' ')); doc._x = norm(doc.x); });
+	function prepare() {
+		index = window.__SEARCH__ || [];
+		index.forEach(function (doc) { doc._t = norm(doc.t); doc._h = norm(doc.h.join(' ')); doc._x = norm(doc.x); });
+	}
+	// O índice de busca é um arquivo compartilhado, carregado só quando a busca abre pela primeira vez
+	var loading = false;
+	function loadIndex() {
+		if (window.__SEARCH__ || loading) return;
+		loading = true;
+		var s = document.createElement('script');
+		s.src = (window.TU && TU.A ? TU.A : '/assets') + '/search.js';
+		s.onload = function () { prepare(); if (modal.classList.contains('open')) render(); };
+		document.head.appendChild(s);
+	}
+	if (window.__SEARCH__) prepare();
 	function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
 	function highlight(text, terms) {
 		var out = esc(text);
@@ -182,13 +196,14 @@
 		var q = input.value.trim();
 		var list = search(q);
 		sel = 0;
+		if (!index.length && !window.__SEARCH__) { results.innerHTML = '<div class="search-empty">Carregando…</div>'; return; }
 		if (!q) { results.innerHTML = '<div class="search-empty">Digite para buscar em toda a documentação.</div>'; return; }
 		if (!list.length) { results.innerHTML = '<div class="search-empty">Nada encontrado para “' + esc(q) + '”.</div>'; return; }
 		results.innerHTML = list.map(function (r, i) {
 			return '<a href="' + r.doc.u + '"' + (i === 0 ? ' class="sel"' : '') + '><div class="r-path">' + esc(r.doc.p) + '</div><div class="r-title">' + highlight(r.doc.t, r.terms) + '</div><div class="r-text">' + highlight(snippet(r.doc, r.terms), r.terms) + '</div></a>';
 		}).join('');
 	}
-	function openSearch() { modal.classList.add('open'); input.value = ''; render(); setTimeout(function () { input.focus(); }, 10); }
+	function openSearch() { loadIndex(); modal.classList.add('open'); input.value = ''; render(); setTimeout(function () { input.focus(); }, 10); }
 	function closeSearch() { modal.classList.remove('open'); }
 	if (modal) {
 		document.querySelectorAll('[data-search-open]').forEach(function (b) { b.addEventListener('click', openSearch); });

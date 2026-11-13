@@ -2,6 +2,8 @@
 
 > Documentação oficial do Trackup: rastreamento, páginas, testes A/B, filtro, integrações e API.
 
+Documentação completa em um só arquivo: https://docs.trackup.me/llms-full.txt
+
 ## Guias › Comece aqui
 
 - [Introdução](https://docs.trackup.me/): Rastreie cada clique, hospede suas páginas, proteja seu tráfego e saiba de onde vem cada venda. Tudo em uma plataforma.

@@ -42,11 +42,43 @@ Um `<shot>` sem a imagem em `src/img` aparece como "Print pendente" e entra em `
 
 Baixe `https://api.trackup.me/openapi.json` para `src/openapi.json` (ou leia o recurso `trackup://openapi.json` do MCP) e rode o build.
 
+## Como o site é montado
+
+Cada página tem só o próprio conteúdo e os metadados de SEO. Tudo que se repete fica em arquivos compartilhados:
+
+| Arquivo | O quê |
+| :- | :- |
+| `assets/style.css` | Todo o visual. |
+| `assets/shell.js` | Cabeçalho, abas, menu lateral, paginação, rodapé, busca, tema e interações. Leva o `nav.json` embutido. |
+| `assets/search.js` | Índice de busca. Só é baixado quando alguém abre a busca. |
+| `assets/favicon.svg`, `assets/og.jpg` | Favicon e imagem de compartilhamento. |
+
+Mudou o menu, o cabeçalho, o rodapé ou o estilo? Reenvie só esses arquivos. As páginas não mudam.
+
+A base dos arquivos compartilhados é `/assets` (raiz do domínio). Para outro endereço, use `node site/build.mjs --assets=https://...`. Mudar a base exige reenviar todas as páginas uma vez.
+
+## SEO e GEO
+
+- `title`, `description`, canonical, Open Graph, Twitter Card e `article:modified_time` em toda página.
+- Dados estruturados (JSON-LD): `TechArticle` e `BreadcrumbList` em cada página, `WebSite` na home.
+- Breadcrumb visível com link para a aba.
+- `sitemap.xml` com a data da última alteração de cada página (do git).
+- `robots.txt` liberando buscadores e assistentes de IA (GPTBot, ClaudeBot, PerplexityBot, Google-Extended e outros).
+- `llms.txt` (índice) e `llms-full.txt` (a documentação inteira em texto) para assistentes de IA.
+- O conteúdo de cada página está no HTML, sem depender de JavaScript para ser lido.
+
+## Publicar só o que mudou
+
+```bash
+node site/build.mjs
+node site/changed.mjs          # lista arquivos compartilhados, páginas alteradas, novas e removidas
+node site/changed.mjs --mark   # depois de publicar, registra o estado em site/published.json
+```
+
 ## Hospedar no Trackup
 
-O build gera um `index.html` por página em `dist/<slug>/`, com CSS e JS embutidos. Para hospedar em um projeto do Trackup:
-
-1. Cada página vira uma página **Upload HTML** com o caminho igual ao slug (`dist/pages.json` lista slug, caminho e arquivo). A home usa o caminho `/`.
-2. As imagens vão no zip de cada página, junto do `index.html`, para o Trackup reescrever os caminhos para a CDN.
-3. Cada entrada de `dist/redirects.json` vira uma página **Redirect** com status 301.
-4. Por último, o domínio `docs.trackup.me` aponta para o projeto.
+1. Os arquivos compartilhados ficam em um só lugar, servidos em `/assets/...` no domínio da documentação.
+2. Cada página vira uma página **Upload HTML** com o caminho igual ao slug (`dist/pages.json` lista slug, caminho e arquivo). A home usa o caminho `/`. As imagens vão junto do `index.html` da página que as usa.
+3. `llms.txt`, `llms-full.txt`, `robots.txt` e `sitemap.xml` ficam na raiz do domínio.
+4. Cada entrada de `dist/redirects.json` vira uma página **Redirect** com status 301.
+5. Por último, o domínio `docs.trackup.me` aponta para o projeto.

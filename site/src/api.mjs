@@ -59,17 +59,15 @@ export function buildApiPages(spec, { esc, slugify }) {
 		return { string: 'string', integer: 0, number: 0, boolean: true }[Array.isArray(s.type) ? s.type[0] : s.type] ?? null;
 	}
 
+	const TAGS_PT = { 'Projects': 'Projetos', 'Pages': 'Páginas', 'Links': 'Testes A/B e links', 'URLs': 'URLs', 'Domains': 'Domínios', 'Pixels': 'Pixels', 'Triggers': 'Acionadores', 'Trigger logs': 'Logs de acionadores', 'Firewall rules': 'Filtro', 'Traffic sources': 'Fontes de tráfego', 'Sales platforms': 'Plataformas de venda', 'Dashboards': 'Dashboards', 'Analytics': 'Analytics', 'Ads manager': 'Gerenciador de anúncios', 'Conversions': 'Conversões', 'Refunds': 'Reembolsos', 'Chargebacks': 'Chargebacks', 'Visitors': 'Visitantes', 'Requests': 'Requisições', 'Products': 'Produtos', 'Assets': 'Arquivos', 'Ingest': 'Ingestão' };
 	const groups = new Map();
-	const pages = [];
-	const used = new Set();
 	for (const [path, item] of Object.entries(spec.paths || {})) {
 		for (const method of ['get', 'post', 'put', 'patch', 'delete']) {
 			const op = item[method];
 			if (!op) continue;
-			const tag = op.tags?.[0] || 'Outros';
-			let slug = 'api/' + slugify(op.operationId || `${method}-${path}`);
-			while (used.has(slug)) slug += '-2';
-			used.add(slug);
+			const tagEn = op.tags?.[0] || 'Outros';
+			const tag = TAGS_PT[tagEn] || tagEn;
+			const id = slugify(op.operationId || `${method}-${path}`);
 			const params = [...(item.parameters || []), ...(op.parameters || [])].map(resolve);
 			const pathParams = params.filter(p => p.in === 'path');
 			const queryParams = params.filter(p => p.in === 'query');
@@ -82,25 +80,31 @@ export function buildApiPages(spec, { esc, slugify }) {
 				const sch = resolve(r?.content?.['application/json']?.schema);
 				return `<div class="param"><div class="param-head"><span class="param-name">${esc(code)}</span><span class="param-type">${esc(typeOf(sch))}</span></div>${r?.description ? `<div class="param-desc"><p>${md(r.description)}</p></div>` : ''}${code.startsWith('2') ? schemaRows(sch?.type === 'array' ? sch.items : sch) : ''}</div>`;
 			}).join('');
-			let body = `<div class="endpoint"><span class="method ${method}">${method}</span><span>${esc(path)}</span></div>`;
+			const title = op.summary || op.operationId || path;
+			let body = `<h2 id="${id}">${esc(title)}</h2><div class="endpoint"><span class="method ${method}">${method}</span><span>${esc(path)}</span></div>`;
 			if (op.description) body += `<p>${md(op.description)}</p>`;
-			body += `<h2>Autenticação</h2><p>Envie sua chave no cabeçalho <code>X-Api-Key</code>. Crie a chave em <strong>Configurações › Chaves de API</strong>.</p>`;
-			if (pathParams.length) body += `<h2>Parâmetros de caminho</h2><div class="params">${pathParams.map(p => paramRow(p.name, p.schema, p.required, p.description)).join('')}</div>`;
-			if (queryParams.length) body += `<h2>Parâmetros de consulta</h2><div class="params">${queryParams.map(p => paramRow(p.name, p.schema, p.required, p.description)).join('')}</div>`;
-			if (bodySchema) body += `<h2>Corpo da requisição</h2>${schemaRows(bodySchema) || `<p><code>${esc(typeOf(bodySchema))}</code></p>`}`;
-			if (multipart) body += `<h2>Corpo da requisição (multipart/form-data)</h2>${schemaRows(multipart)}`;
-			body += `<h2>Exemplo</h2><code-block title="cURL" lang="bash">\n${curl}\n</code-block>`;
-			if (responses) body += `<h2>Respostas</h2><div class="params">${responses}</div>`;
-			pages.push({ slug, meta: { title: op.summary || op.operationId || path, description: '', method, toc: 'false', eyebrow: tag }, body });
+			if (pathParams.length) body += `<h4>Parâmetros de caminho</h4><div class="params">${pathParams.map(p => paramRow(p.name, p.schema, p.required, p.description)).join('')}</div>`;
+			if (queryParams.length) body += `<h4>Parâmetros de consulta</h4><div class="params">${queryParams.map(p => paramRow(p.name, p.schema, p.required, p.description)).join('')}</div>`;
+			if (bodySchema) body += `<h4>Corpo da requisição</h4>${schemaRows(bodySchema) || `<p><code>${esc(typeOf(bodySchema))}</code></p>`}`;
+			if (multipart) body += `<h4>Corpo da requisição (multipart/form-data)</h4>${schemaRows(multipart)}`;
+			body += `<code-block title="Exemplo" lang="bash">\n${curl}\n</code-block>`;
+			if (responses) body += `<accordion title="Respostas"><div class="params">${responses}</div></accordion>`;
 			if (!groups.has(tag)) groups.set(tag, []);
-			groups.get(tag).push({ slug, method, title: op.summary || op.operationId, path });
+			groups.get(tag).push({ id, method, title, path, body });
 		}
 	}
-
-	// Índice com todos os endpoints
-	const index = [...groups.entries()].map(([tag, ops]) => `<h2>${esc(tag)}</h2><ul class="op-list">${ops.map(o => `<li><span class="method ${o.method}">${o.method}</span><a href="/${o.slug}">${esc(o.title)}</a></li>`).join('')}</ul>`).join('');
-	pages.push({ slug: 'api/endpoints', meta: { title: 'Todos os endpoints', description: `${pages.length} operações da API REST v1, agrupadas por área.`, icon: 'list' }, body: index });
-
-	const navGroups = [{ name: 'Visão geral', pages: ['api/endpoints'] }, ...[...groups.entries()].map(([tag, ops]) => ({ name: tag, pages: ops.map(o => o.slug) }))];
+	const pages = [];
+	let total = 0;
+	for (const [tag, ops] of groups) {
+		total += ops.length;
+		const slug = 'api/' + slugify(tag);
+		const list = `<ul class="op-list">${ops.map(o => `<li><span class="method ${o.method}">${o.method}</span><a href="#${o.id}">${esc(o.title)}</a></li>`).join('')}</ul>`;
+		const auth = `<p>Todos os endpoints usam a chave no cabeçalho <code>X-Api-Key</code>. Veja <a href="/api-autenticacao">Autenticação</a>.</p>`;
+		pages.push({ slug, meta: { title: tag, description: `${ops.length} ${ops.length === 1 ? 'endpoint' : 'endpoints'} da API REST v1.`, icon: 'code', eyebrow: 'Referência da API' }, body: auth + list + ops.map(o => o.body).join('<hr>') });
+		for (const o of ops) o.slug = slug;
+	}
+	const index = [...groups.entries()].map(([tag, ops]) => `<h2>${esc(tag)}</h2><ul class="op-list">${ops.map(o => `<li><span class="method ${o.method}">${o.method}</span><a href="/${o.slug}#${o.id}">${esc(o.title)}</a></li>`).join('')}</ul>`).join('');
+	pages.push({ slug: 'api/endpoints', meta: { title: 'Todos os endpoints', description: `${total} operações da API REST v1, agrupadas por área.`, icon: 'list' }, body: index });
+	const navGroups = [{ name: 'Referência', pages: ['api/endpoints', ...[...groups.keys()].map(t => 'api/' + slugify(t))] }];
 	return { groups: navGroups, pages };
 }

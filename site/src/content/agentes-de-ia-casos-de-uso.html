@@ -94,7 +94,7 @@ curl -X PATCH https://api.trackup.me/v1/ads-manager/PROJECT_ID/entities/ENTITY_I
   -H "X-Api-Key: $TRACKUP_API_KEY" \
   -d '{ "entityType": "campaign", "status": "PAUSED" }'
 </code-block>
-		<p>Para orçamento, use <code>/entities/ENTITY_ID/budget</code>. Veja os campos em <a href="/api/updateadentitybudget">Atualizar orçamento</a>.</p>
+		<p>Para orçamento, use <code>/entities/ENTITY_ID/budget</code>. Veja os campos em <a href="/api/gerenciador-de-anuncios#updateadentitybudget">Atualizar orçamento</a>.</p>
 		<callout type="warning"><p>Pausar e mudar orçamento mexe em dinheiro real. Faça o agente pedir confirmação a uma pessoa, ou dê só <code>ads-manager.read</code>.</p></callout>
 	</step>
 </steps>

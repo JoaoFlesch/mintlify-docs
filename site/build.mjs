@@ -200,6 +200,8 @@ function aiLinks(slug) {
 rmSync(DIST, { recursive: true, force: true });
 mkdirSync(DIST, { recursive: true });
 const sitemap = [];
+mkdirSync(join(DIST, 'assets'), { recursive: true });
+writeFileSync(join(DIST, 'assets', 'search.js'), searchJs);
 for (const { entry, page, i } of rendered) {
 	const { meta, toc, html } = page;
 	const showToc = meta.toc !== 'false' && toc.length > 1;
@@ -209,7 +211,8 @@ for (const { entry, page, i } of rendered) {
 		.replaceAll('{{description}}', esc(meta.description || ''))
 		.replaceAll('{{canonical}}', SITE.url + urlOf(entry.slug))
 		.replace('{{css}}', () => css)
-		.replace('{{js}}', () => searchJs + '\n' + js)
+		.replace('{{js}}', () => js)
+		.replace('{{searchScript}}', () => `<script src="${'../'.repeat(entry.slug === 'index' ? 0 : entry.slug.split('/').length)}assets/search.js"></script>`)
 		.replace('{{logoLight}}', () => logoLight)
 		.replace('{{logoDark}}', () => logoDark)
 		.replace('{{tabs}}', () => tabsBar(entry.tab))
@@ -225,9 +228,11 @@ for (const { entry, page, i } of rendered) {
 		.replace('{{year}}', String(new Date().getFullYear()))
 		.replace('{{appUrl}}', SITE.app).replace('{{homeUrl}}', SITE.home)
 		.replace(/\{\{icon:([a-z-]+)\}\}/g, (_, n) => icon(n));
+	const depth = entry.slug === 'index' ? 0 : entry.slug.split('/').length;
+	const final = out.replace(/(src|href)="img\//g, (_, a) => `${a}="${'../'.repeat(depth)}img/`);
 	const dir = entry.slug === 'index' ? DIST : join(DIST, entry.slug);
 	mkdirSync(dir, { recursive: true });
-	writeFileSync(join(dir, 'index.html'), out);
+	writeFileSync(join(dir, 'index.html'), final);
 	sitemap.push(SITE.url + urlOf(entry.slug));
 }
 

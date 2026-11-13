@@ -244,6 +244,14 @@ TU.init=function(){
 		document.head.appendChild(s);
 	}
 	if (window.__SEARCH__) prepare();
+	// Pré-carrega o índice quando o navegador fica ocioso, para a busca abrir já pronta
+	function preload() { loadIndex(); }
+	if ('requestIdleCallback' in window) requestIdleCallback(preload, { timeout: 3000 });
+	else setTimeout(preload, 1500);
+	document.querySelectorAll('[data-search-open]').forEach(function (b) {
+		b.addEventListener('pointerenter', preload, { once: true });
+		b.addEventListener('focus', preload, { once: true });
+	});
 	function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
 	function highlight(text, terms) {
 		var out = esc(text);

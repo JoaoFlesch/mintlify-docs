@@ -3,16 +3,17 @@ title: Assinatura
 icon: dollar
 description: Escolha, troque ou cancele o plano do time e gerencie faturas e cartões.
 ---
-<p>A assinatura é do time. Gerencie em <strong>Configurações › Assinatura</strong>. Só quem tem permissão de assinatura (normalmente o proprietário) vê esta área.</p>
+<p>A assinatura é do time. Gerencie em <strong>Configurações › Assinatura</strong>, no menu do usuário. Só o proprietário escolhe o plano. Enquanto não houver assinatura, o painel mostra <em>O time ainda não tem uma assinatura ativa</em>.</p>
 <shot src="img/assinatura.png" caption="Tela de assinatura" todo="Configurações › Assinatura com o card Assinatura atual (plano, status Ativo, Próxima cobrança), Histórico de faturas com 3 faturas pagas e Métodos de pagamento com um cartão Padrão (número mascarado)."></shot>
 
 <h2>Assinar um plano</h2>
 <steps>
 	<step title="Veja os planos">
-		<p>Clique em <strong>Ver planos</strong>. Cada plano mostra o limite de domínios, membros e conversões, e o que está incluso.</p>
+		<p>Clique em <strong>Ver planos</strong>. Cada card mostra o tipo (assinatura recorrente), os limites de <strong>Domínios</strong>, <strong>Membros</strong> e <strong>Conversões</strong>, e se inclui <strong>Filtro de tráfego</strong>. O plano de melhor custo-benefício traz o selo <strong>Mais popular</strong>.</p>
+		<shot src="img/assinatura-planos.png" caption="Planos disponíveis" todo="Tela de planos com os cards, limites, selo Mais popular e o botão Assinar plano."></shot>
 	</step>
 	<step title="Assine">
-		<p>Clique em <strong>Assinar plano</strong>. O pagamento é feito no checkout da Upag, por cartão ou PIX.</p>
+		<p>Clique em <strong>Assinar plano</strong> no plano escolhido. O pagamento é feito no checkout de pagamento, por cartão ou PIX. Você pode cancelar a qualquer momento.</p>
 	</step>
 	<step title="Aguarde a confirmação">
 		<p>No cartão, o acesso é liberado em segundos. No PIX, assim que o pagamento é confirmado.</p>
@@ -23,10 +24,12 @@ description: Escolha, troque ou cancele o plano do time e gerencie faturas e car
 <table>
 	<thead><tr><th>Tipo</th><th>Quando vale</th><th>Cobrança</th></tr></thead>
 	<tbody>
-		<tr><td>Upgrade</td><td>Na hora, depois do pagamento.</td><td>Só a diferença proporcional aos dias restantes do ciclo.</td></tr>
-		<tr><td>Downgrade</td><td>Na próxima renovação.</td><td>O novo valor a partir do próximo ciclo. Dá para cancelar a troca até lá.</td></tr>
+		<tr><td>Upgrade (<strong>Fazer upgrade</strong>)</td><td>Na hora, depois do pagamento.</td><td>Só a diferença proporcional aos dias restantes do ciclo.</td></tr>
+		<tr><td>Downgrade (<strong>Mudar para este plano</strong>)</td><td>Na próxima renovação.</td><td>O novo valor a partir do próximo ciclo. Dá para cancelar a troca até lá.</td></tr>
 	</tbody>
 </table>
+
+<p>Planos que não podem ser escolhidos no momento aparecem como <strong>Indisponível</strong>. O plano em uso mostra <strong>Plano atual</strong>.</p>
 
 <h2>Cancelar e reativar</h2>
 <p>Clique em <strong>Cancelar assinatura</strong> e escolha o motivo. O time mantém o acesso até o fim do ciclo atual e a assinatura não é renovada. Antes dessa data, use <strong>Reativar assinatura</strong> para desfazer.</p>

@@ -4,16 +4,16 @@ sidebarTitle: Script de rastreamento
 icon: code
 description: Rastreie páginas hospedadas fora do Trackup, identifique visitantes e envie eventos customizados.
 ---
-<p>Páginas criadas no Trackup já são rastreadas. Instale o script quando a página estiver em outro servidor (WordPress, Shopify, seu próprio site) ou quando quiser enviar eventos além do <code>page_view</code>.</p>
+<p>Páginas criadas no Trackup já são rastreadas. Instale o script quando a página estiver em outro servidor (CMS, loja virtual ou o seu próprio site) ou quando quiser enviar eventos além do <code>page_view</code>.</p>
 
 <h2>Instalação</h2>
 <steps>
 	<step title="Copie o snippet do projeto">
-		<p>No painel, vá em <strong>Ajustes › Geral</strong> e, na seção <strong>Segurança</strong>, copie o <strong>Snippet de rastreamento</strong>. Ele já vem com o domínio e o ID do seu projeto.</p>
+		<p>No painel, vá em <strong>Ajustes › Geral</strong> e, na seção <strong>Segurança</strong>, escolha o <strong>Domínio</strong> e copie o <strong>Snippet de rastreamento</strong>. Ele já vem com o domínio e o ID do seu projeto.</p>
 		<shot src="img/script-snippet.png" caption="Snippet de rastreamento em Ajustes › Geral" todo="Tela Ajustes › Geral rolada até a seção Segurança, com Domínios permitidos e o bloco Snippet de rastreamento com o botão Copiar. ID do projeto borrado."></shot>
 	</step>
 	<step title="Cole antes do fechamento do head">
-		<p>Cole o snippet antes de <code>&lt;/head&gt;</code> em todas as páginas que você quer rastrear.</p>
+		<p>Cole o snippet antes de <code>&lt;/head&gt;</code> em todas as páginas que você quer rastrear. Em CMS e construtores, use o campo de código do cabeçalho (header).</p>
 		<code-block title="index.html" lang="html">
 <script>
 !function(t,r,a,c,k,u,p){
@@ -27,10 +27,10 @@ trackup('track','page_view');
 		</code-block>
 	</step>
 	<step title="Libere o domínio do site">
-		<p>Ainda em <strong>Ajustes › Geral › Segurança</strong>, adicione o domínio do site em <strong>Domínios permitidos</strong>. Use <code>exemplo.com</code> para o domínio raiz e <code>*.exemplo.com</code> para os subdomínios. Com a lista vazia, qualquer domínio pode enviar eventos.</p>
+		<p>Ainda em <strong>Ajustes › Geral › Segurança</strong>, adicione o domínio do site em <strong>Domínios permitidos</strong>. Use <code>yourdomain.com</code> para o domínio raiz e <code>*.yourdomain.com</code> para os subdomínios. Com a lista vazia, qualquer domínio pode enviar eventos.</p>
 	</step>
 	<step title="Valide">
-		<p>Abra a página e confira a visita em <strong>Logs › Requisições</strong>.</p>
+		<p>Abra a página no navegador e confira a visita em <strong>Logs › Requisições</strong>. Se a visita não aparecer, confirme se o domínio do site está em <strong>Domínios permitidos</strong> e se o snippet está dentro do <code>&lt;head&gt;</code>.</p>
 	</step>
 </steps>
 <p>O script carrega de <code>https://{hostname}/__t/e.js</code> e envia os eventos para <code>POST /__t/events</code> no mesmo domínio. Ele expõe a função global <code>trackup</code> com três comandos: <code>init</code>, <code>track</code> e <code>identify</code>. Chamadas feitas antes do carregamento ficam em fila e rodam depois do <code>init</code>.</p>
@@ -39,7 +39,7 @@ trackup('track','page_view');
 <code-block lang="javascript">
 trackup('init', '{projectId}', {
   passthrough: true,          // repassa a query string para links decorados (padrão: true)
-  registrable: 'exemplo.com'  // domínio registrável, usado em links entre domínios
+  registrable: 'yourdomain.com'  // domínio registrável, usado em links entre domínios
 });
 </code-block>
 
@@ -89,7 +89,7 @@ document.getElementById('comprar').addEventListener('click', function (e) {
 <code-block lang="javascript">
 trackup('identify', {
   name: 'Maria Silva',
-  email: 'maria@exemplo.com',
+  email: 'maria@yourdomain.com',
   phone: '+5511999990000',
   addr_city: 'São Paulo',
   addr_state: 'SP',

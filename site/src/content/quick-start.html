@@ -21,7 +21,21 @@ description: Configure um projeto do zero, publique suas páginas e registre a p
 	<li>Acesso de administrador à sua plataforma de venda, para cadastrar o webhook.</li>
 </ul>
 
-<h2>1. Crie o projeto</h2>
+<h2>1. Crie o time e assine um plano</h2>
+<p>O time é a conta que reúne projetos, membros e a assinatura. Quem cria o time se torna o dono.</p>
+<steps>
+	<step title="Crie sua conta e o time">
+		<p>Acesse o painel, entre na sua conta e informe o nome do time. Use o nome da sua empresa ou operação.</p>
+		<shot src="img/quick-start-criar-time.png" caption="Criação do time" todo="Tela de criação do time com o campo Nome preenchido. Sem dados sensíveis."></shot>
+	</step>
+	<step title="Escolha o plano">
+		<p>Na tela <strong>Planos</strong>, compare os limites de domínios, membros, conversões e filtro de tráfego e clique em <strong>Assinar plano</strong>. O pagamento é por cartão ou PIX e você cancela quando quiser.</p>
+		<shot src="img/quick-start-planos.png" caption="Tela de planos" todo="Tela Planos com os cards de plano lado a lado e o botão Assinar plano visível."></shot>
+		<callout type="note"><p>Só o dono do time escolhe o plano. Sem assinatura ativa, os demais membros veem o aviso para pedir ao dono.</p></callout>
+	</step>
+</steps>
+
+<h2>2. Crie o projeto</h2>
 <p>Um projeto reúne páginas, pixels, domínios e relatórios de uma operação. Crie um projeto para cada produto, oferta ou cliente.</p>
 <steps>
 	<step title="Abra o seletor de projetos">
@@ -36,9 +50,13 @@ description: Configure um projeto do zero, publique suas páginas e registre a p
 		<p>Clique em <strong>Salvar</strong>. O projeto já nasce com um domínio padrão do Trackup, então você pode testar tudo antes de configurar o seu.</p>
 		<shot src="img/quick-start-form-projeto.png" caption="Formulário de criação de projeto" todo="Diálogo Criar projeto preenchido com Nome = Curso de Fotografia e Moeda = Real brasileiro (BRL), com o aviso de que a moeda não pode ser alterada visível."></shot>
 	</step>
+	<step title="Adicione membros (opcional)">
+		<p>Em <strong>Time › Membros</strong>, clique em <strong>Convidar membro</strong>, informe o e-mail e a função. Veja <a href="/times-e-membros">Times e membros</a>.</p>
+		<shot src="img/quick-start-membros.png" caption="Convite de membro" todo="Diálogo de convite com o e-mail joao@ e o domínio do e-mail borrado."></shot>
+	</step>
 </steps>
 
-<h2>2. Conecte seu domínio</h2>
+<h2>3. Conecte seu domínio</h2>
 <p>Páginas em domínio próprio passam mais confiança, preservam a reputação do seu domínio nas plataformas de anúncio e evitam bloqueios. Recomendamos um subdomínio dedicado, como <code>lp.seudominio.com</code> ou <code>go.seudominio.com</code>.</p>
 <steps>
 	<step title="Abra Domínios">
@@ -61,7 +79,7 @@ description: Configure um projeto do zero, publique suas páginas e registre a p
 </steps>
 <callout type="note"><p>Quer usar o domínio raiz (<code>seudominio.com</code>)? Funciona, mas só em provedores de DNS com CNAME flattening, como a Cloudflare. Veja <a href="/dominios">Domínios</a>.</p></callout>
 
-<h2>3. Conecte seu pixel</h2>
+<h2>4. Conecte seu pixel</h2>
 <p>O Trackup envia os eventos do funil para a plataforma de anúncios pelo servidor (server-side), o que evita perdas por bloqueadores de anúncio e restrições de navegador.</p>
 <steps>
 	<step title="Abra Pixels">
@@ -86,7 +104,7 @@ description: Configure um projeto do zero, publique suas páginas e registre a p
 	</step>
 </steps>
 
-<h2>4. Adicione a fonte de tráfego</h2>
+<h2>5. Adicione a fonte de tráfego</h2>
 <p>A fonte de tráfego gera os parâmetros de UTM que você cola na URL do anúncio. Eles identificam a campanha, o conjunto e o anúncio de cada clique.</p>
 <steps>
 	<step title="Abra Fontes de tráfego">
@@ -96,12 +114,12 @@ description: Configure um projeto do zero, publique suas páginas e registre a p
 		<p>Dê um nome, como <code>Meta Ads</code>, e selecione a plataforma: Meta, Google, TikTok ou Kwai. O template padrão já cobre a maioria dos casos.</p>
 	</step>
 	<step title="Copie os parâmetros de URL">
-		<p>Salve e copie o bloco <strong>Parâmetros de URL</strong>. Você vai usar no passo 9.</p>
+		<p>Salve e copie o bloco <strong>Parâmetros de URL</strong>. Você vai usar no passo 10.</p>
 		<shot src="img/quick-start-fonte-parametros.webp" caption="Parâmetros de URL gerados para a Meta"></shot>
 	</step>
 </steps>
 
-<h2>5. Integre sua plataforma de venda</h2>
+<h2>6. Integre sua plataforma de venda</h2>
 <p>A plataforma de venda avisa o Trackup por webhook a cada venda, reembolso ou chargeback. É assim que a venda é ligada ao clique que a originou.</p>
 <steps>
 	<step title="Adicione a plataforma">
@@ -116,7 +134,7 @@ description: Configure um projeto do zero, publique suas páginas e registre a p
 	</step>
 </steps>
 
-<h2>6. Crie a oferta</h2>
+<h2>7. Crie a oferta</h2>
 <p>A oferta é a página de checkout do seu produto. No Trackup ela é uma página com finalidade <em>Checkout</em> que normalmente redireciona para o checkout da sua plataforma de venda.</p>
 <steps>
 	<step title="Adicione a oferta">
@@ -125,7 +143,7 @@ description: Configure um projeto do zero, publique suas páginas e registre a p
 	<step title="Preencha os campos">
 		<ul>
 			<li><strong>Nome</strong>: algo como <code>Checkout Curso de Fotografia</code>.</li>
-			<li><strong>Plataforma de vendas</strong>: a que você integrou no passo 5.</li>
+			<li><strong>Plataforma de vendas</strong>: a que você integrou no passo 6.</li>
 			<li><strong>URL de redirecionamento</strong>: o link do checkout na sua plataforma.</li>
 			<li><strong>Caminho</strong>: opcional, por exemplo <code>/checkout</code>. Em branco, o Trackup gera a partir do nome.</li>
 		</ul>
@@ -137,7 +155,7 @@ description: Configure um projeto do zero, publique suas páginas e registre a p
 </steps>
 <callout type="note"><p>O link do checkout repassa os parâmetros do visitante e o ID do clique para a plataforma de venda. Por isso a venda volta atribuída ao anúncio certo.</p></callout>
 
-<h2>7. Publique a landing page</h2>
+<h2>8. Publique a landing page</h2>
 <p>Escolha a forma de criar a página em <strong>Páginas › Adicionar página</strong>:</p>
 <table>
 	<thead><tr><th>Aba</th><th>Quando usar</th></tr></thead>
@@ -151,21 +169,21 @@ description: Configure um projeto do zero, publique suas páginas e registre a p
 <p>Use nomes que digam a função da página, como <code>Landing Principal</code> ou <code>VSL Curso de Fotografia</code>. A página nasce com um link próprio, exibido na coluna <strong>Link</strong>.</p>
 <callout type="warning"><p>Se a página ficar hospedada fora do Trackup (Redirect), instale o <a href="/script">script de rastreamento</a> no <code>&lt;head&gt;</code> dela. Sem o script, eventos e cliques não são registrados.</p></callout>
 
-<h2>8. Aponte os botões para a oferta</h2>
-<p>Todos os botões de compra da landing page precisam apontar para o <strong>link do checkout</strong> do passo 6, nunca para o checkout original da plataforma.</p>
+<h2>9. Aponte os botões para a oferta</h2>
+<p>Todos os botões de compra da landing page precisam apontar para o <strong>link do checkout</strong> do passo 7, nunca para o checkout original da plataforma.</p>
 <code-block title="Exemplo de botão">
 <a href="https://lp.seudominio.com/checkout">Quero me inscrever</a>
 </code-block>
 <callout type="danger"><p>Um botão que leva direto ao checkout da plataforma quebra o rastreamento: a venda chega sem o ID do clique e aparece como <em>Click ID ausente</em>.</p></callout>
 
-<h2>9. Monte a URL do anúncio</h2>
-<p>A URL que vai no anúncio é o link da landing page seguido dos parâmetros de URL da fonte de tráfego (passo 4):</p>
+<h2>10. Monte a URL do anúncio</h2>
+<p>A URL que vai no anúncio é o link da landing page seguido dos parâmetros de URL da fonte de tráfego (passo 5):</p>
 <code-block title="URL do anúncio">
 https://lp.seudominio.com/curso-fotografia?utm_source=meta&utm_campaign={{campaign.name}}&…
 </code-block>
 <p>Cole a URL completa no campo de destino do anúncio. Na Meta, você pode colar o link no campo <strong>URL do site</strong> e os parâmetros em <strong>Parâmetros de URL</strong>.</p>
 
-<h2>10. Valide antes de anunciar</h2>
+<h2>11. Valide antes de anunciar</h2>
 <p>Abra a URL do anúncio em uma aba anônima, clique no botão de compra e confira no painel:</p>
 <ul>
 	<li><strong>Ajustes › Domínios</strong>: domínio <span class="badge green">Verificado</span>.</li>

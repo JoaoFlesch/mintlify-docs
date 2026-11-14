@@ -3,13 +3,13 @@ title: Páginas
 icon: file
 description: Crie, hospede e publique landing pages e checkouts no seu domínio, já com rastreamento.
 ---
-<p>Uma página é qualquer endereço do seu domínio no Trackup: uma landing page, uma pré-venda, uma VSL ou o redirecionamento para um checkout. Toda página nasce com um link próprio e já é rastreada, sem instalar nada.</p>
+<p>Uma página é qualquer endereço do seu domínio no Trackup: landing page, pré-venda, VSL ou redirecionamento para um checkout. Toda página tem link próprio e já é rastreada, sem instalar nada. Antes de criar a primeira, <a href="/dominios">conecte um domínio</a>.</p>
 
 <h2>Finalidade</h2>
 <table>
 	<thead><tr><th>Finalidade</th><th>Onde aparece</th><th>Uso</th></tr></thead>
 	<tbody>
-		<tr><td>Landing</td><td>Menu <strong>Páginas</strong></td><td>Páginas que recebem o tráfego do anúncio. Geram <code>page_view</code>.</td></tr>
+		<tr><td>Landing</td><td>Menu <strong>Páginas</strong></td><td>Recebe o tráfego do anúncio. Gera <code>page_view</code>.</td></tr>
 		<tr><td>Checkout</td><td>Menu <strong>Ofertas</strong></td><td>Levam ao checkout da plataforma de venda. Geram <code>start_checkout</code>. Veja <a href="/ofertas">Ofertas</a>.</td></tr>
 	</tbody>
 </table>
@@ -37,11 +37,17 @@ description: Crie, hospede e publique landing pages e checkouts no seu domínio,
 		<p>No menu lateral, clique em <strong>Páginas</strong> e em <strong>Adicionar página</strong>.</p>
 	</step>
 	<step title="Escolha a aba">
-		<p>Selecione <strong>Redirect</strong>, <strong>Builder</strong>, <strong>Upload HTML</strong> ou <strong>Clonar URL</strong> e preencha o formulário.</p>
-		<shot src="img/paginas-adicionar.webp" caption="Adicionar página com as quatro abas"></shot>
+		<p>Selecione <strong>Redirect</strong>, <strong>Builder</strong>, <strong>Upload HTML</strong> ou <strong>Clonar URL</strong>. Cada aba tem seu formulário, descrito na página correspondente.</p>
+		<shot src="img/paginas-adicionar.png" caption="Adicionar página com as quatro abas" todo="Diálogo Adicionar página aberto com as abas Redirect, Builder, Upload HTML e Clonar URL visíveis, aba Builder selecionada, Nome preenchido e Caminho /."></shot>
 	</step>
 	<step title="Defina o caminho">
 		<p>O <strong>Caminho</strong> é o endereço da página no domínio. Use <code>/</code> para a raiz (<code>seudominio.com</code>) ou algo como <code>/oferta</code>. Em branco, o Trackup gera a partir do nome. Letras, números, <code>-</code>, <code>.</code>, <code>_</code>, <code>~</code> e <code>/</code> são aceitos.</p>
+	</step>
+	<step title="Confirme a finalidade">
+		<p>Em <strong>Finalidade</strong>, mantenha <strong>Landing</strong> para páginas que recebem o anúncio. Para páginas de checkout, crie em <strong>Ofertas</strong> (veja <a href="/ofertas">Ofertas</a>).</p>
+	</step>
+	<step title="Salve e copie o link">
+		<p>Clique em salvar. A página aparece na lista, já publicada. Use o botão de copiar na coluna <strong>Link</strong> para pegar o endereço.</p>
 	</step>
 </steps>
 
@@ -57,7 +63,7 @@ description: Crie, hospede e publique landing pages e checkouts no seu domínio,
 		<tr><td>Deletar</td><td>Remove a página para sempre.</td></tr>
 	</tbody>
 </table>
-<shot src="img/paginas-lista.webp" caption="Lista de páginas com tipo, status e link"></shot>
+<shot src="img/paginas-lista.png" caption="Lista de páginas com tipo, status e link" todo="Lista de Páginas com uma página Builder, uma Redirect e uma HTML, colunas Tipo, Nome, Link e Destino (Publicada e Rascunho) e o menu de ações de uma linha aberto."></shot>
 
 <h2>Rascunho e publicada</h2>
 <p>Páginas novas são publicadas na criação. Depois, toda alteração de arquivo deixa a página em <span class="badge amber">Rascunho</span> até você publicar de novo. Enquanto isso, quem acessa o link continua vendo a versão publicada.</p>

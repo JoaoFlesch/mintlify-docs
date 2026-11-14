@@ -5,6 +5,21 @@ description: Acompanhe a jornada de cada visitante, do primeiro clique às compr
 ---
 <p>O Trackup agrupa as requisições e conversões de uma mesma pessoa em um visitante. Em <strong>Logs › Visitantes</strong>, você pode buscar por e-mail ou telefone e ver tudo o que aquela pessoa fez.</p>
 
+<h2>Do ID ao lead completo</h2>
+<p>Todo visitante nasce só com um <strong>ID</strong>, gerado no primeiro acesso. A partir daí o perfil é preenchido à medida que a pessoa avança no funil.</p>
+<table>
+	<thead><tr><th>Etapa</th><th>O que passa a existir no perfil</th></tr></thead>
+	<tbody>
+		<tr><td>1. Primeiro acesso</td><td>ID do visitante, primeira visita, país, dispositivo, navegador, UTMs e click ID.</td></tr>
+		<tr><td>2. Novos acessos</td><td>Requisições e eventos (page view, add to cart, start checkout) na linha do tempo. Aparece como visitante recorrente.</td></tr>
+		<tr><td>3. Identificação</td><td>Nome, e-mail e telefone, enviados por <code>trackup('identify', …)</code> no <a href="/script">script</a> (por exemplo, ao enviar um formulário).</td></tr>
+		<tr><td>4. Compra</td><td>A plataforma de venda envia os dados do comprador pelo webhook: nome, e-mail, telefone e endereço. A conversão fica ligada ao visitante.</td></tr>
+		<tr><td>5. Pós-venda</td><td>Reembolsos e chargebacks entram nas abas do perfil.</td></tr>
+	</tbody>
+</table>
+<shot src="img/visitante-id-inicial.png" caption="Visitante recém-criado" todo="Perfil de um visitante novo, só com ID, primeira visita, país e UTMs; campos de nome, e-mail e telefone vazios."></shot>
+<shot src="img/visitante-lead-completo.png" caption="Lead completo" todo="O mesmo visitante após a compra, com nome, e-mail (domínio borrado), telefone, endereço (borrado) e a conversão em Atividades recentes."></shot>
+
 <h2>Perfil do visitante</h2>
 <p>Clique em um visitante para abrir o perfil:</p>
 <table>
@@ -16,7 +31,7 @@ description: Acompanhe a jornada de cada visitante, do primeiro clique às compr
 	</tbody>
 </table>
 <shot src="img/visitante-perfil.png" caption="Perfil de um visitante" todo="Perfil de visitante fictício na aba Geral: identificação com nome e e-mail fictícios, primeira visita, país, UTMs da primeira visita e a linha do tempo Atividades recentes com requisições e uma conversão."></shot>
-<callout type="note"><p>Nome, e-mail e telefone são preenchidos pelos dados que a plataforma de venda envia no webhook da compra.</p></callout>
+<callout type="note"><p>Se o mesmo e-mail ou telefone aparecer em outro acesso, o Trackup reconhece a pessoa. Use a busca por <strong>E-mail</strong> ou <strong>Telefone</strong> para achar um lead.</p></callout>
 
 <h2>Usos comuns</h2>
 <ul>

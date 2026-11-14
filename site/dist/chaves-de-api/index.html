@@ -15,21 +15,21 @@
 <meta property="og:title" content="Chaves de API">
 <meta property="og:description" content="Crie chaves para integrar sistemas e agentes de IA ao Trackup, com permissões e projetos limitados.">
 <meta property="og:url" content="https://docs.trackup.me/chaves-de-api">
-<meta property="og:image" content="https://assets.trackup.cloud/assets/pages/79c6dd09-808f-4a9d-b4d9-a079c67f77ae/og.jpg">
+<meta property="og:image" content="https://docs.trackup.me/assets/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Trackup Docs">
-<meta property="article:modified_time" content="2026-11-12T20:34:17+00:00">
+<meta property="article:modified_time" content="2026-11-14T05:43:30+00:00">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Chaves de API">
 <meta name="twitter:description" content="Crie chaves para integrar sistemas e agentes de IA ao Trackup, com permissões e projetos limitados.">
-<meta name="twitter:image" content="https://assets.trackup.cloud/assets/pages/79c6dd09-808f-4a9d-b4d9-a079c67f77ae/og.jpg">
+<meta name="twitter:image" content="https://docs.trackup.me/assets/og.jpg">
 <meta name="theme-color" content="#4f39f6">
-<link rel="icon" type="image/svg+xml" href="https://assets.trackup.cloud/assets/pages/79c6dd09-808f-4a9d-b4d9-a079c67f77ae/favicon.svg">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <script>(function(){try{var t=localStorage.getItem('tu-theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
-<link rel="stylesheet" href="https://assets.trackup.cloud/assets/pages/79c6dd09-808f-4a9d-b4d9-a079c67f77ae/style.css">
-<script src="https://assets.trackup.cloud/assets/pages/79c6dd09-808f-4a9d-b4d9-a079c67f77ae/shell.js"></script>
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","headline":"Chaves de API","description":"Crie chaves para integrar sistemas e agentes de IA ao Trackup, com permissões e projetos limitados.","url":"https://docs.trackup.me/chaves-de-api","inLanguage":"pt-BR","dateModified":"2026-11-12T20:34:17+00:00","image":"https://assets.trackup.cloud/assets/pages/79c6dd09-808f-4a9d-b4d9-a079c67f77ae/og.jpg","isPartOf":{"@type":"WebSite","name":"Trackup Docs","url":"https://docs.trackup.me/"},"publisher":{"@type":"Organization","name":"Trackup","url":"https://trackup.me","logo":"https://assets.trackup.cloud/assets/pages/79c6dd09-808f-4a9d-b4d9-a079c67f77ae/favicon.svg"},"about":{"@type":"SoftwareApplication","name":"Trackup","applicationCategory":"BusinessApplication","url":"https://trackup.me"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Trackup Docs","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":2,"name":"Guias","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":3,"name":"Chaves de API","item":"https://docs.trackup.me/chaves-de-api"}]}]</script>
+<link rel="stylesheet" href="/assets/style.css">
+<script src="/assets/shell.js"></script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","headline":"Chaves de API","description":"Crie chaves para integrar sistemas e agentes de IA ao Trackup, com permissões e projetos limitados.","url":"https://docs.trackup.me/chaves-de-api","inLanguage":"pt-BR","dateModified":"2026-11-14T05:43:30+00:00","image":"https://docs.trackup.me/assets/og.jpg","isPartOf":{"@type":"WebSite","name":"Trackup Docs","url":"https://docs.trackup.me/"},"publisher":{"@type":"Organization","name":"Trackup","url":"https://trackup.me","logo":"https://docs.trackup.me/assets/favicon.svg"},"about":{"@type":"SoftwareApplication","name":"Trackup","applicationCategory":"BusinessApplication","url":"https://trackup.me"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Trackup Docs","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":2,"name":"Guias","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":3,"name":"Chaves de API","item":"https://docs.trackup.me/chaves-de-api"}]}]</script>
 </head>
 <body>
 <script>TU.header()</script>
@@ -46,28 +46,38 @@
 <h2 id="criar-uma-chave">Criar uma chave<a class="anchor" href="#criar-uma-chave" aria-label="Link para esta seção">#</a></h2>
 <ol class="steps">
 	<li><span class="step-title">Abra Chaves de API</span>
-		<p>Em <strong>Configurações › Chaves de API</strong>, clique em <strong>Nova chave</strong>.</p>
+		<p>Clique no seu nome, no canto inferior esquerdo, e abra <strong>Configurações</strong>. Em <strong>Meu Time</strong>, selecione <strong>Chaves de API</strong> e clique em <strong>Nova chave</strong>. Você precisa da permissão <strong>Criar</strong> em <strong>API Keys</strong>; sem ela, peça ao proprietário do time.</p>
 	</li>
 	<li><span class="step-title">Configure</span>
 		<table>
 			<thead><tr><th>Campo</th><th>Descrição</th></tr></thead>
 			<tbody>
-				<tr><td>Nome</td><td>Onde a chave será usada, como <em>n8n produção</em>.</td></tr>
+				<tr><td>Nome</td><td>Onde a chave será usada, como <em>Automação produção</em>.</td></tr>
 				<tr><td>Expira em</td><td>Opcional. Depois da data, a chave para de funcionar.</td></tr>
 				<tr><td>Projetos</td><td>Vazio dá acesso a todos os projetos do time. Escolha só os necessários.</td></tr>
 				<tr><td>Permissões</td><td>O que a chave pode fazer, por recurso: listar, ler, criar, atualizar e deletar.</td></tr>
 			</tbody>
 		</table>
-		<figure class="shot shot-todo"><div class="shot-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><div><strong>Print pendente · <code>img/chaves-criar.png</code></strong><p>Modal Criar chave de API com Nome n8n produção, Expira em vazio, um projeto selecionado e a lista de permissões com Páginas e Links marcados.</p></div></div><figcaption>Criação de uma chave de API</figcaption></figure></shot>
+		<figure class="shot shot-todo"><div class="shot-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><div><strong>Print pendente · <code>img/chaves-criar.png</code></strong><p>Modal Criar chave de API com Nome Automação produção, Expira em vazio, um projeto selecionado e a lista de permissões com Páginas e Links marcados.</p></div></div><figcaption>Criação de uma chave de API</figcaption></figure></shot>
 	</li>
 	<li><span class="step-title">Copie a chave</span>
-		<p>A chave completa aparece uma única vez. Copie e guarde em um gerenciador de senhas ou nas variáveis de ambiente do seu sistema.</p>
+		<p>Clique em <strong>Criar</strong>. A chave completa aparece uma única vez. Copie e guarde em um gerenciador de senhas ou nas variáveis de ambiente do seu sistema.</p>
 	</li>
 </ol>
 <div class="callout note"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><div><p>Uma chave nunca pode mais do que quem a criou. Se o criador perder uma permissão ou sair do time, a chave perde junto. A exceção são as permissões de ingestão (<code>visitor.create</code>, <code>conversion.create</code> e <code>request.create</code>), que são exclusivas de chaves.</p></div></div>
 
+<h2 id="exemplos-de-permissoes">Exemplos de permissões<a class="anchor" href="#exemplos-de-permissoes" aria-label="Link para esta seção">#</a></h2>
+<table>
+	<thead><tr><th>Uso</th><th>Permissões mínimas</th></tr></thead>
+	<tbody>
+		<tr><td>Enviar vendas de um CRM ou checkout</td><td><code>conversion.create</code></td></tr>
+		<tr><td>Relatórios</td><td><code>project.list</code>, <code>analytics.read</code>, <code>conversion.list</code></td></tr>
+		<tr><td>Assistente de IA que monta páginas e links</td><td>Permissões de <code>page</code> e <code>link</code> (listar, ler, criar, atualizar)</td></tr>
+	</tbody>
+</table>
+
 <h2 id="usar-a-chave">Usar a chave<a class="anchor" href="#usar-a-chave" aria-label="Link para esta seção">#</a></h2>
-<p>Envie a chave no header <code>X-Api-Key</code>. A URL base aparece na própria tela, em <strong>URL da API</strong>.</p>
+<p>Envie a chave no header <code>X-Api-Key</code>. A URL base aparece na própria tela, em <strong>URL da API</strong>. Chave ausente, inválida, revogada ou expirada retorna <code>403</code> na API REST e <code>401</code> no MCP.</p>
 <div class="code"><div class="code-head"><span>Exemplo</span></div><pre><code class="lang-bash">curl https://api.trackup.me/v1/projects \
   -H &quot;X-Api-Key: $TRACKUP_API_KEY&quot;</code></pre></div>
 
@@ -76,8 +86,8 @@
 
 <h2 id="editar-e-revogar">Editar e revogar<a class="anchor" href="#editar-e-revogar" aria-label="Link para esta seção">#</a></h2>
 <ul>
-	<li><strong>Editar</strong> muda nome, permissões e projetos sem trocar a chave.</li>
-	<li><strong>Revogar</strong> desativa a chave na hora. Não dá para desfazer.</li>
+	<li><strong>Editar</strong>, no menu da chave, muda nome, permissões e projetos sem trocar a chave.</li>
+	<li><strong>Revogar</strong>, no menu da chave, desativa a chave na hora. Não dá para desfazer.</li>
 </ul>
 <div class="callout warning"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg><div><p>Se uma chave vazar, revogue e crie outra. Não compartilhe chaves em prints, repositórios ou mensagens.</p></div></div>
 
@@ -85,7 +95,7 @@
 			<noscript><p class="site-footer"><a href="/">Início</a> · <a href="/llms.txt">Índice completo</a> · <a href="/sitemap.xml">Mapa do site</a></p></noscript>
 		</article>
 	</main>
-	<aside class="toc"><div class="toc-title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg> Nesta página</div><ul><li class="lvl-2"><a href="#criar-uma-chave">Criar uma chave</a></li><li class="lvl-2"><a href="#usar-a-chave">Usar a chave</a></li><li class="lvl-2"><a href="#historico-de-uso">Histórico de uso</a></li><li class="lvl-2"><a href="#editar-e-revogar">Editar e revogar</a></li></ul></aside>
+	<aside class="toc"><div class="toc-title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg> Nesta página</div><ul><li class="lvl-2"><a href="#criar-uma-chave">Criar uma chave</a></li><li class="lvl-2"><a href="#exemplos-de-permissoes">Exemplos de permissões</a></li><li class="lvl-2"><a href="#usar-a-chave">Usar a chave</a></li><li class="lvl-2"><a href="#historico-de-uso">Histórico de uso</a></li><li class="lvl-2"><a href="#editar-e-revogar">Editar e revogar</a></li></ul></aside>
 </div>
 <script>TU.end()</script>
 </body>

@@ -66,7 +66,27 @@ Neste guia você monta uma operação completa: um projeto com domínio próprio
 
 - Acesso de administrador à sua plataforma de venda, para cadastrar o webhook.
 
-## 1. Crie o projeto
+## 1. Crie o time e assine um plano
+
+O time é a conta que reúne projetos, membros e a assinatura. Quem cria o time se torna o dono.
+
+- **Crie sua conta e o time**
+		Acesse o painel, entre na sua conta e informe o nome do time. Use o nome da sua empresa ou operação.
+
+		**Print pendente · `img/quick-start-criar-time.png`**Tela de criação do time com o campo Nome preenchido. Sem dados sensíveis.
+
+Criação do time
+
+- **Escolha o plano**
+		Na tela **Planos**, compare os limites de domínios, membros, conversões e filtro de tráfego e clique em **Assinar plano**. O pagamento é por cartão ou PIX e você cancela quando quiser.
+
+		**Print pendente · `img/quick-start-planos.png`**Tela Planos com os cards de plano lado a lado e o botão Assinar plano visível.
+
+Tela de planos
+
+		Só o dono do time escolhe o plano. Sem assinatura ativa, os demais membros veem o aviso para pedir ao dono.
+
+## 2. Crie o projeto
 
 Um projeto reúne páginas, pixels, domínios e relatórios de uma operação. Crie um projeto para cada produto, oferta ou cliente.
 
@@ -78,26 +98,33 @@ Um projeto reúne páginas, pixels, domínios e relatórios de uma operação. C
 Seletor de projetos com a opção Criar projeto
 
 - **Preencha nome e moeda**
-		Dê um nome descritivo, como `Curso de Fotografia`, e escolha a **Moeda** em que você vende.
+		Dê um nome descritivo, como `Online Store`, e escolha a **Moeda** em que você vende.
 
 		A moeda não pode ser alterada depois. Ela é usada para converter os valores recebidos dos webhooks e exibir receita e lucro nos dashboards.
 
 - **Salve**
 		Clique em **Salvar**. O projeto já nasce com um domínio padrão do Trackup, então você pode testar tudo antes de configurar o seu.
 
-		**Print pendente · `img/quick-start-form-projeto.png`**Diálogo Criar projeto preenchido com Nome = Curso de Fotografia e Moeda = Real brasileiro (BRL), com o aviso de que a moeda não pode ser alterada visível.
+		**Print pendente · `img/quick-start-form-projeto.png`**Diálogo Criar projeto preenchido com Nome = Online Store e Moeda = Real brasileiro (BRL), com o aviso de que a moeda não pode ser alterada visível.
 
 Formulário de criação de projeto
 
-## 2. Conecte seu domínio
+- **Adicione membros (opcional)**
+		Em **Time › Membros**, clique em **Convidar membro**, informe o e-mail e a função. Veja [Times e membros](https://docs.trackup.me/times-e-membros).
 
-Páginas em domínio próprio passam mais confiança, preservam a reputação do seu domínio nas plataformas de anúncio e evitam bloqueios. Recomendamos um subdomínio dedicado, como `lp.seudominio.com` ou `go.seudominio.com`.
+		**Print pendente · `img/quick-start-membros.png`**Diálogo de convite com o e-mail joao@ e o domínio do e-mail borrado.
+
+Convite de membro
+
+## 3. Conecte seu domínio
+
+Páginas em domínio próprio passam mais confiança, preservam a reputação do seu domínio nas plataformas de anúncio e evitam bloqueios. Recomendamos um subdomínio dedicado, como `go.yourdomain.com` ou `go.seudominio.com`.
 
 - **Abra Domínios**
 		No menu lateral, vá em **Ajustes › Domínios** e clique em **Adicionar domínio**.
 
 - **Informe o hostname**
-		Digite o subdomínio completo, por exemplo `lp.seudominio.com`, e salve. O domínio aparece na lista com o status Pendente.
+		Digite o subdomínio completo, por exemplo `go.yourdomain.com`, e salve. O domínio aparece na lista com o status Pendente.
 
 - **Crie o registro CNAME no seu DNS**
 		Abra o domínio na lista para ver o registro. No painel do seu provedor de DNS, crie um registro com os valores de **Type**, **Name** e **Value** exibidos.
@@ -116,7 +143,7 @@ Registro CNAME que deve ser criado no DNS
 
 Quer usar o domínio raiz (`seudominio.com`)? Funciona, mas só em provedores de DNS com CNAME flattening, como a Cloudflare. Veja [Domínios](https://docs.trackup.me/dominios).
 
-## 3. Conecte seu pixel
+## 4. Conecte seu pixel
 
 O Trackup envia os eventos do funil para a plataforma de anúncios pelo servidor (server-side), o que evita perdas por bloqueadores de anúncio e restrições de navegador.
 
@@ -143,7 +170,7 @@ O Trackup envia os eventos do funil para a plataforma de anúncios pelo servidor
 - **Salve**
 		Para Meta, TikTok e Kwai, o Trackup cria na hora os acionadores do funil: **page_view**, **start_checkout** e **conversion**. No Google Ads, cada etapa precisa de uma conversion label, então você cria os acionadores em [Acionadores](https://docs.trackup.me/acionadores).
 
-## 4. Adicione a fonte de tráfego
+## 5. Adicione a fonte de tráfego
 
 A fonte de tráfego gera os parâmetros de UTM que você cola na URL do anúncio. Eles identificam a campanha, o conjunto e o anúncio de cada clique.
 
@@ -154,11 +181,11 @@ A fonte de tráfego gera os parâmetros de UTM que você cola na URL do anúncio
 		Dê um nome, como `Meta Ads`, e selecione a plataforma: Meta, Google, TikTok ou Kwai. O template padrão já cobre a maioria dos casos.
 
 - **Copie os parâmetros de URL**
-		Salve e copie o bloco **Parâmetros de URL**. Você vai usar no passo 9.
+		Salve e copie o bloco **Parâmetros de URL**. Você vai usar no passo 10.
 
 		Parâmetros de URL gerados para a Meta
 
-## 5. Integre sua plataforma de venda
+## 6. Integre sua plataforma de venda
 
 A plataforma de venda avisa o Trackup por webhook a cada venda, reembolso ou chargeback. É assim que a venda é ligada ao clique que a originou.
 
@@ -175,7 +202,7 @@ URL de webhook pronta para copiar
 - **Cadastre o webhook na plataforma**
 		No painel da sua plataforma, cole a URL na área de webhooks ou postback e ative os eventos de compra aprovada, reembolso e chargeback. O passo a passo de cada uma está em [Plataformas de venda](https://docs.trackup.me/plataformas-de-venda).
 
-## 6. Crie a oferta
+## 7. Crie a oferta
 
 A oferta é a página de checkout do seu produto. No Trackup ela é uma página com finalidade Checkout que normalmente redireciona para o checkout da sua plataforma de venda.
 
@@ -184,9 +211,9 @@ A oferta é a página de checkout do seu produto. No Trackup ela é uma página 
 
 - **Preencha os campos**
 
-- **Nome**: algo como `Checkout Curso de Fotografia`.
+- **Nome**: algo como `Excel Basics - Checkout 1`.
 
-- **Plataforma de vendas**: a que você integrou no passo 5.
+- **Plataforma de vendas**: a que você integrou no passo 6.
 
 - **URL de redirecionamento**: o link do checkout na sua plataforma.
 
@@ -197,11 +224,11 @@ A oferta é a página de checkout do seu produto. No Trackup ela é uma página 
 Criação de uma oferta do tipo Redirect
 
 - **Copie o link da oferta**
-		Salve. Na lista de ofertas, a coluna **Link** mostra o endereço da oferta no seu domínio, como `https://lp.seudominio.com/checkout`. Esse é o **link do checkout**.
+		Salve. Na lista de ofertas, a coluna **Link** mostra o endereço da oferta no seu domínio, como `https://go.yourdomain.com/checkout`. Esse é o **link do checkout**.
 
 O link do checkout repassa os parâmetros do visitante e o ID do clique para a plataforma de venda. Por isso a venda volta atribuída ao anúncio certo.
 
-## 7. Publique a landing page
+## 8. Publique a landing page
 
 Escolha a forma de criar a página em **Páginas › Adicionar página**:
 
@@ -215,35 +242,35 @@ Escolha a forma de criar a página em **Páginas › Adicionar página**:
 
 		[Redirect](https://docs.trackup.me/redirect) | A página fica hospedada fora do Trackup. |
 
-Use nomes que digam a função da página, como `Landing Principal` ou `VSL Curso de Fotografia`. A página nasce com um link próprio, exibido na coluna **Link**.
+Use nomes que digam a função da página, como `Landing Principal` ou `Excel Basics Landing`. A página nasce com um link próprio, exibido na coluna **Link**.
 
 Se a página ficar hospedada fora do Trackup (Redirect), instale o [script de rastreamento](https://docs.trackup.me/script) no `<head>` dela. Sem o script, eventos e cliques não são registrados.
 
-## 8. Aponte os botões para a oferta
+## 9. Aponte os botões para a oferta
 
-Todos os botões de compra da landing page precisam apontar para o **link do checkout** do passo 6, nunca para o checkout original da plataforma.
+Todos os botões de compra da landing page precisam apontar para o **link do checkout** do passo 7, nunca para o checkout original da plataforma.
 
 Exemplo de botão
 
 ```
-<a href="https://lp.seudominio.com/checkout">Quero me inscrever</a>
+<a href="https://go.yourdomain.com/checkout">Quero me inscrever</a>
 ```
 
 Um botão que leva direto ao checkout da plataforma quebra o rastreamento: a venda chega sem o ID do clique e aparece como Click ID ausente.
 
-## 9. Monte a URL do anúncio
+## 10. Monte a URL do anúncio
 
-A URL que vai no anúncio é o link da landing page seguido dos parâmetros de URL da fonte de tráfego (passo 4):
+A URL que vai no anúncio é o link da landing page seguido dos parâmetros de URL da fonte de tráfego (passo 5):
 
 URL do anúncio
 
 ```
-https://lp.seudominio.com/curso-fotografia?utm_source=meta&utm_campaign={{campaign.name}}&…
+https://go.yourdomain.com/excel-basics?utm_source=meta&utm_campaign={{campaign.name}}&…
 ```
 
 Cole a URL completa no campo de destino do anúncio. Na Meta, você pode colar o link no campo **URL do site** e os parâmetros em **Parâmetros de URL**.
 
-## 10. Valide antes de anunciar
+## 11. Valide antes de anunciar
 
 Abra a URL do anúncio em uma aba anônima, clique no botão de compra e confira no painel:
 
@@ -361,7 +388,7 @@ URL: https://docs.trackup.me/times-e-membros
 
 > Organize sua operação em times, convide pessoas e defina o que cada uma pode fazer.
 
-O **time** é a conta da sua empresa ou agência no Trackup. Ele tem a assinatura, os membros, as chaves de API e todos os projetos. Cada pessoa pode participar de vários times.
+O **time** é a conta da sua empresa ou agência no Trackup. Ele concentra a [assinatura](https://docs.trackup.me/assinatura), os membros, as chaves de API e todos os projetos. Uma pessoa pode participar de vários times e alternar entre eles pelo seletor de times.
 
 ## Estrutura
 
@@ -375,9 +402,43 @@ O **time** é a conta da sua empresa ou agência no Trackup. Ele tem a assinatur
 
 ## Criar um time
 
-O primeiro time é criado no cadastro, na tela **Configurar time**: informe o nome e, se quiser, envie a logo (PNG ou JPG até 2 MB). Em seguida o painel pede o primeiro projeto.
+- **Faça o cadastro**
+		O primeiro time é criado junto com a sua conta. Depois do cadastro, o painel abre a tela **Configurar time**.
 
-Para editar os dados depois, abra o menu do usuário no rodapé do menu lateral e vá em **Configurações › Meu Time › Configurações**. Ali ficam nome, logo, telefone, e-mail de contato, documento (CNPJ ou CPF), endereço e **fuso horário**, que define como todas as datas aparecem no painel e nos relatórios.
+		**Print pendente · `img/times-criar.png`**Tela Configurar time com o nome do time preenchido (Online Store) e a área de upload da logo.
+
+Tela Configurar time
+
+- **Informe o nome do time**
+		Use o nome da empresa ou da agência. Você pode alterá-lo depois.
+
+- **Envie a logo (opcional)**
+		Aceita PNG ou JPG de até 2 MB. A logo aparece no seletor de times e no menu lateral.
+
+- **Continue**
+		Salve. Se o time ainda não tem assinatura, o próximo passo é [escolher um plano](https://docs.trackup.me/assinatura). Depois, crie o primeiro [projeto](https://docs.trackup.me/projetos).
+
+## Editar os dados do time
+
+Abra o menu do usuário no rodapé do menu lateral e vá em **Configurações › Meu Time › Configurações**.
+
+	Campo | Descrição |
+
+		Nome e logo | Identificação do time no painel. |
+
+		Telefone e e-mail de contato | Usados para comunicações sobre a conta e a cobrança. |
+
+		Documento | CNPJ ou CPF do titular. |
+
+		Endereço | Endereço de cobrança. |
+
+		Fuso horário | Define como todas as datas e horas aparecem no painel e nos relatórios. Ajuste antes de analisar resultados por dia. |
+
+		Excluir time | Disponível só para o proprietário. Remove o time e todos os projetos dele. |
+
+**Print pendente · `img/times-configuracoes.png`**Modal Configurações aberto em Meu Time › Configurações, com nome, logo, contato, documento (borrado), endereço (borrado) e fuso horário.
+
+Configurações › Meu Time › Configurações
 
 ## Convidar membros
 
@@ -385,17 +446,17 @@ Para editar os dados depois, abra o menu do usuário no rodapé do menu lateral 
 		Vá em **Configurações › Meu Time › Membros** e clique em **Convidar membro**.
 
 - **Informe o e-mail**
-		A pessoa precisa já ter uma conta no Trackup com esse e-mail.
+		Digite o e-mail da pessoa. Ela precisa ter uma conta no Trackup com esse e-mail para ver o time.
 
 - **Escolha as permissões**
 		Marque o que o membro pode fazer, área por área, ou use **Selecionar todas**.
 
-		**Print pendente · `img/membros-convite.png`**Diálogo Convidar membro com e-mail fictício preenchido e a lista de permissões por área (Projetos, Páginas, Links, Pixels, Filtro etc.) parcialmente marcada.
+		**Print pendente · `img/membros-convite.png`**Diálogo Convidar membro com o e-mail de exemplo joao@upsurge.com.br (domínio borrado) e a lista de permissões por área (Projetos, Páginas, Links, Pixels, Filtro etc.) parcialmente marcada.
 
 Convite de membro com permissões por área
 
 - **Convide**
-		Clique em **Convidar**. O time aparece para a pessoa no seletor de times.
+		Clique em **Convidar**. O time aparece para a pessoa no seletor de times e ela passa a ver só as áreas liberadas.
 
 ## Funções e permissões
 
@@ -406,6 +467,8 @@ Convite de membro com permissões por área
 		Membro | Só o que estiver marcado nas permissões dele. Itens do menu sem permissão ficam ocultos. |
 
 Para mudar as permissões de alguém, abra o membro na lista e clique em **Salvar alterações** depois de ajustar. Para tirar o acesso, use **Remover**.
+
+O número de membros é limitado pelo [plano](https://docs.trackup.me/assinatura) do time.
 
 Para dar acesso a um cliente só ao projeto dele, crie uma [chave de API](https://docs.trackup.me/chaves-de-api) restrita a esse projeto ou mantenha cada cliente em um time separado.
 
@@ -424,21 +487,33 @@ URL: https://docs.trackup.me/projetos
 
 Crie um projeto para cada produto, oferta ou cliente. Os dados de um projeto não se misturam com os de outro: cada um tem seus domínios, suas páginas, seus pixels e seus dashboards.
 
+Um projeto novo, sem dados, mostra o guia **Crie seu primeiro projeto** com quatro etapas: criar o projeto, conectar as fontes (pixels, fontes de tráfego e plataformas de venda), proteger as páginas (domínio próprio e filtro) e acompanhar os resultados.
+
 ## Criar um projeto
 
 - **Abra o seletor de projetos**
-		No topo do menu lateral, clique no projeto atual e em **Criar projeto**.
+		No topo do menu lateral, clique no projeto atual e em **Criar projeto**. No primeiro acesso, use o botão do estado vazio.
+
+		**Print pendente · `img/projetos-seletor.png`**Menu lateral com o seletor de projetos aberto e o botão Criar projeto em destaque.
+
+Seletor de projetos
 
 - **Preencha os campos**
 
 			Campo | Descrição |
 
-				Nome | Como o projeto aparece no painel. |
+				Nome | Como o projeto aparece no painel, por exemplo `Online Store`. |
 
-				Moeda | Moeda dos relatórios. Vendas em outra moeda são convertidas pelo câmbio do dia. **Não pode ser alterada depois.** |
+				URL | Identificador inicial do projeto (slug), usado em links e scripts. Use letras minúsculas, números e hífen. |
+
+				Moeda | Moeda dos relatórios. Vendas em outra moeda são convertidas pelo câmbio do dia nos webhooks. **Não pode ser alterada depois.** |
 
 - **Salve**
 		O projeto é criado com um domínio padrão do Trackup, que já serve páginas e links. Configure um [domínio próprio](https://docs.trackup.me/dominios) antes de anunciar.
+
+		**Print pendente · `img/projetos-criar.png`**Diálogo Criar projeto preenchido com Nome = Online Store, URL e Moeda = Real brasileiro (BRL), com o aviso de que a moeda não pode ser alterada visível.
+
+Diálogo Criar projeto
 
 ## Configurações do projeto
 
@@ -448,15 +523,19 @@ Em **Ajustes › Geral** você encontra:
 
 		Projeto | Altera o nome e a URL do projeto, usada em links e scripts. |
 
-		Segurança › Domínios permitidos | Lista os sites autorizados a enviar eventos pelo [script](https://docs.trackup.me/script). `exemplo.com` libera só o domínio raiz; `*.exemplo.com`, só os subdomínios. Vazia, libera todos. |
+		Segurança › Domínios permitidos | Lista os sites autorizados a enviar eventos pelo [script](https://docs.trackup.me/script). `yourdomain.com` libera só o domínio raiz; `*.yourdomain.com`, só os subdomínios. Para liberar os dois, adicione as duas entradas. Vazia, libera todos. |
 
-		Segurança › Snippet de rastreamento | Código para instalar em páginas fora do Trackup. |
+		Segurança › Snippet de rastreamento | Código para instalar em páginas fora do Trackup, com um snippet por domínio. Veja [Script de rastreamento](https://docs.trackup.me/script). |
 
 		Excluir projeto | Remove o projeto e todos os dados dele. |
 
 Ajustes › Geral
 
 Excluir um projeto apaga páginas, links, regras, logs e conversões de forma permanente. Não há como desfazer.
+
+## Dashboard do projeto
+
+A tela inicial do projeto é o dashboard. Ele mostra lucro (faturamento, despesas e ROAS), vendas do período atual contra o anterior, funil, status de pagamentos, acessos por origem, dispositivo e horário, e visitantes reais contra bots. Veja como montar o seu em [Dashboards](https://docs.trackup.me/dashboards).
 
 ## Alternar entre projetos
 
@@ -476,21 +555,27 @@ Todo projeto nasce com um domínio padrão do Trackup. Para anunciar, use um dom
 
 	Tipo | Exemplo | Quando usar |
 
-		Subdomínio Recomendado | `lp.seudominio.com` | Sempre que possível. Funciona em qualquer provedor de DNS e não interfere no seu site principal. |
+		Subdomínio Recomendado | `lp.yourdomain.com` | Sempre que possível. Funciona em qualquer provedor de DNS e não interfere no seu site principal. |
 
-		Domínio raiz | `seudominio.com` | Quando o domínio é só da operação. Exige um provedor com CNAME flattening, como a Cloudflare. |
+		Domínio raiz | `yourdomain.com` | Quando o domínio é só da operação. Exige um provedor com CNAME flattening, como a Cloudflare. |
 
 Prefixos comuns: `lp.`, `go.`, `track.`, `offer.`.
+
+Prefira um subdomínio dedicado, como `go.yourdomain.com`. Se algo der errado no DNS, o site principal não é afetado.
 
 ## Adicionar um domínio
 
 - **Adicione o hostname**
-		Vá em **Ajustes › Domínios**, clique em **Adicionar domínio**, informe o hostname (por exemplo `lp.seudominio.com`) e salve.
+		Vá em **Ajustes › Domínios**, clique em **Adicionar domínio**, informe o hostname (por exemplo `go.yourdomain.com`, sem `https://` e sem barra no final) e salve. O número de domínios depende do [plano](https://docs.trackup.me/assinatura).
+
+		**Print pendente · `img/dominios-adicionar.png`**Diálogo Adicionar domínio com o hostname go.yourdomain.com preenchido.
+
+Diálogo Adicionar domínio
 
 - **Copie o registro CNAME**
-		Abra o domínio na lista. O Trackup mostra o registro a criar, com **Type**, **Name** e **Value**.
+		Abra o domínio na lista. O Trackup mostra o registro a criar, com **Type** (`CNAME`), **Name** (o subdomínio) e **Value** (o destino). Use o botão de copiar ao lado de cada campo.
 
-		**Print pendente · `img/dominios-cname.png`**Lista Ajustes › Domínios com um domínio fictício expandido em status Pendente, mostrando a tabela Type / Name / Value e o botão Verificar.
+		**Print pendente · `img/dominios-cname.png`**Lista Ajustes › Domínios com go.yourdomain.com expandido em status Pendente, mostrando a tabela Type / Name / Value e o botão Verificar.
 
 Registro CNAME exibido para o domínio
 
@@ -506,6 +591,13 @@ Registro CNAME exibido para o domínio
 - **Verifique**
 		Volte ao Trackup e clique em **Verificar**. Quando o status mudar para Verificado, o domínio está ativo. A propagação costuma levar minutos, mas pode chegar a 24 horas.
 
+		**Print pendente · `img/dominios-verificado.png`**Lista de domínios com go.yourdomain.com em status Verificado e o selo de primário.
+
+Domínio com status Verificado
+
+- **Defina como primário**
+		No menu do domínio, clique em **Definir como primário**. Faça isso antes de cadastrar webhooks nas [plataformas de venda](https://docs.trackup.me/plataformas-de-venda), porque a URL deles usa o domínio primário.
+
 ## Status
 
 	Status | Significado |
@@ -518,7 +610,7 @@ Registro CNAME exibido para o domínio
 
 ## Domínio primário
 
-O domínio primário é usado nos links das páginas, nas URLs de webhook das plataformas de venda e no snippet de rastreamento. Para trocar, abra o menu do domínio e clique em **Definir como primário**.
+O domínio primário é o hostname usado nos links de rastreamento, nas URLs de webhook das plataformas de venda e nos novos snippets de rastreamento. Para trocar, abra o menu do domínio e clique em **Definir como primário**.
 
 Trocar o primário muda os links e as URLs de webhook gerados a partir dali. Links já divulgados no domínio antigo continuam funcionando enquanto ele estiver no projeto.
 
@@ -526,7 +618,7 @@ Trocar o primário muda os links e as URLs de webhook gerados a partir dali. Lin
 
 **A verificação não passa**
 
-	Confira se o nome do registro está certo (alguns provedores completam o domínio sozinhos, então use só `lp` em vez de `lp.seudominio.com`), se não existe outro registro para o mesmo nome e se o proxy da Cloudflare está desligado.
+	Confira se o nome do registro está certo (alguns provedores completam o domínio sozinhos, então use só `lp` em vez de `lp.yourdomain.com`), se não existe outro registro para o mesmo nome e se o proxy da Cloudflare está desligado.
 
 **Quero usar o domínio raiz**
 
@@ -538,20 +630,32 @@ Trocar o primário muda os links e as URLs de webhook gerados a partir dali. Lin
 
 URL: https://docs.trackup.me/pixels
 
-> Conecte Meta, Google Ads, TikTok e Kwai para enviar os eventos do funil pelo servidor.
+> Conecte sua conta de anúncios para enviar os eventos do funil pelo servidor (API de conversões).
 
-Um pixel guarda as credenciais da API de conversões de uma plataforma de anúncios. Os [acionadores](https://docs.trackup.me/acionadores) usam o pixel para enviar eventos como `page_view`, `start_checkout` e `conversion`.
+Um pixel guarda as credenciais da API de conversões de uma plataforma de anúncios. Os [acionadores](https://docs.trackup.me/acionadores) usam o pixel para enviar eventos do funil, como `page_view`, `start_checkout` e `conversion`, direto do servidor do Trackup. Isso evita perdas por bloqueadores de anúncio e navegadores com restrição de cookies.
+
+Tipos disponíveis: Meta, Google Ads, TikTok e Kwai. O exemplo abaixo usa Meta; os outros tipos seguem o mesmo fluxo e mudam só os campos.
 
 ## Adicionar um pixel
 
 - **Abra Pixels**
 		Vá em **Integração › Pixels** e clique em **Adicionar pixel**.
 
-- **Escolha o tipo e preencha as credenciais**
-		Dê um nome que identifique a conta, como `Meta · BM Principal`, e preencha os campos da plataforma (veja abaixo).
+		**Print pendente · `img/pixels-adicionar.png`**Diálogo Adicionar pixel com Tipo = Meta, Nome, Pixel ID e Access Token (borrado). Credenciais do pixel de demonstração, token sempre borrado.
+
+Diálogo Adicionar pixel
+
+- **Escolha o tipo e dê um nome**
+		Selecione o **Tipo** e dê um **Nome** que identifique a conta, como `Meta · Online Store`.
+
+- **Preencha as credenciais**
+		Copie os campos da plataforma de anúncios (veja a tabela por plataforma abaixo) e cole no Trackup. Mantenha **Ativo** ligado.
 
 - **Salve**
-		Em Meta, TikTok e Kwai o Trackup cria automaticamente os acionadores **Pageview**, **Start checkout** e **Conversão**. No Google Ads você cria os acionadores com a conversion label de cada etapa.
+		Clique em salvar. Para Meta, TikTok e Kwai o Trackup cria junto os acionadores **Pageview**, **Start checkout** e **Conversão** e mostra a notificação Pixel e acionadores criados. No Google Ads, crie os acionadores com a conversion label de cada etapa.
+
+- **Confira na lista**
+		O pixel aparece em **Integração › Pixels**. Se houver Test Event Code, o pixel é marcado como modo teste.
 
 ## Campos por plataforma
 
@@ -579,7 +683,9 @@ Um pixel guarda as credenciais da API de conversões de uma plataforma de anúnc
 
 				Pixel Code | TikTok Ads Manager › Ferramentas › Eventos › Web. |
 
-				Access Token | Configurações do pixel › Gerar token de acesso. |
+				Access Token | Configurações do pixel › Gerar token de acesso (Events API). |
+
+				Test Event Code | Obrigatório no TikTok. |
 
 			Campo | Onde encontrar |
 
@@ -588,6 +694,18 @@ Um pixel guarda as credenciais da API de conversões de uma plataforma de anúnc
 				Test Event Code | Obrigatório no Kwai. Valida eventos de teste quando não há `click_id` na URL. |
 
 Lista de pixels do projeto
+
+## Testar a conexão
+
+- Preencha o **Test Event Code** do Meta e salve.
+
+- Acesse uma página do projeto com `?utm_source=facebook` na URL.
+
+- No Gerenciador de Eventos, abra **Testar eventos** e confirme o `PageView` recebido pelo servidor.
+
+- Em **Logs › Logs de acionadores**, filtre por **Status** Sucesso e abra o disparo para ver o request e o response.
+
+- Apague o Test Event Code e salve para enviar eventos de produção.
 
 ## Servidor ou navegador
 
@@ -613,13 +731,13 @@ Edite o pixel e desligue **Ativo**. Os acionadores param de enviar eventos para 
 
 URL: https://docs.trackup.me/fontes-de-trafego
 
-> Gere os parâmetros de UTM que identificam campanha, conjunto e anúncio de cada clique.
+> Gere os parâmetros de URL que identificam campanha, conjunto e anúncio de cada clique.
 
-Uma fonte de tráfego representa uma plataforma onde você anuncia. Ela gera o bloco de **Parâmetros de URL** que você cola no anúncio. Esses parâmetros usam as macros da própria plataforma para preencher, a cada clique, o nome e o ID da campanha, do conjunto e do anúncio.
+Uma fonte de tráfego representa uma plataforma onde você anuncia. Ela gera o bloco de **Parâmetros de URL** que você cola no anúncio. Esses parâmetros usam as macros da própria plataforma para preencher, a cada clique, o nome e o ID da campanha, do conjunto e do anúncio. É isso que permite ao Trackup ligar cada venda ao anúncio de origem.
 
 ## Plataformas disponíveis
 
-Meta, Google, TikTok e Kwai. Crie uma fonte para cada plataforma em que você anuncia.
+Meta, Google, TikTok e Kwai. Crie uma fonte para cada plataforma em que você anuncia. Cada tipo já vem com um template de UTM padrão.
 
 ## Criar uma fonte
 
@@ -629,19 +747,28 @@ Meta, Google, TikTok e Kwai. Crie uma fonte para cada plataforma em que você an
 - **Escolha a plataforma**
 		Dê um nome, como `Meta Ads`, e selecione a plataforma. O template padrão é preenchido sozinho.
 
-- **Copie os parâmetros**
+		**Print pendente · `img/fontes-adicionar.png`**Diálogo Adicionar fonte com o nome Meta Ads e o tipo Meta selecionado.
+
+Diálogo de nova fonte de tráfego
+
+- **Revise os parâmetros**
+		Confira os pares chave e valor do template. Para alterar, use **Personalizar parâmetros** (veja abaixo).
+
+- **Salve e copie os parâmetros**
 		Salve e copie o bloco **Parâmetros de URL**.
 
-		Parâmetros de URL de uma fonte Meta
+		**Print pendente · `img/fontes-parametros.png`**Fonte Meta salva com o bloco Parâmetros de URL e o botão de copiar em destaque.
+
+Parâmetros de URL de uma fonte Meta
 
 ## Usar no anúncio
 
-A URL de destino do anúncio é o link da página seguido dos parâmetros:
+A URL de destino do anúncio é a URL da página (copiada da lista de [páginas](https://docs.trackup.me/paginas)) seguida dos parâmetros da fonte:
 
 URL do anúncio
 
 ```
-https://lp.seudominio.com/oferta?utm_source=…&utm_campaign=…&utm_content=…
+https://go.yourdomain.com/offer?utm_source=…&utm_campaign=…&utm_content=…
 ```
 
 		No nível do anúncio, cole o link da página em **URL do site** e o bloco em **Parâmetros de URL**.
@@ -656,11 +783,15 @@ O Trackup também reconhece os Click IDs das plataformas (`fbclid`, `gclid`, `tt
 
 ## Personalizar parâmetros
 
-Clique em **Personalizar parâmetros** para editar os pares chave e valor. Os valores podem ser fixos ou tokens da plataforma, como `{{campaign.id}}`. Use **Inserir token** para ver os tokens disponíveis para a plataforma escolhida.
+Clique em **Personalizar parâmetros** para abrir duas áreas:
+
+- **Parâmetros de UTM**: pares de chave e valor. O valor pode ser um texto fixo ou um token da plataforma, como `{{campaign.id}}`. Use **Inserir token** para ver os tokens disponíveis e **Adicionar parâmetro** para incluir mais um par.
+
+- **Parâmetros de URL**: o resultado final, pronto para copiar e colar na URL da campanha na plataforma de anúncios.
 
 Os valores ficam disponíveis nos relatórios, nos [acionadores](https://docs.trackup.me/acionadores) (como `utm_source`, `sub1` etc.) e são repassados ao checkout.
 
-Links do tipo Anúncio, criados antes dos testes A/B, continuam funcionando mas não podem mais ser criados. Hoje a URL do anúncio é sempre o link da página com os parâmetros da fonte.
+Links do tipo Anúncio, criados antes dos testes A/B, continuam funcionando mas não podem mais ser criados. Hoje a URL do anúncio é sempre a URL da página com os parâmetros da fonte.
 
 ---
 
@@ -670,13 +801,13 @@ URL: https://docs.trackup.me/plataformas-de-venda
 
 > Receba vendas, reembolsos e chargebacks por webhook e ligue cada venda ao anúncio de origem.
 
-A plataforma de venda é onde o cliente paga: Hotmart, Kiwify, Shopify, Stripe e outras. Integrada ao Trackup, ela envia um webhook a cada venda, reembolso ou chargeback, e o Trackup registra a conversão com a campanha que gerou o clique.
+A plataforma de venda é onde o cliente paga: um gateway de pagamento, uma plataforma de infoprodutos ou uma loja virtual. Integrada ao Trackup, ela envia um webhook a cada venda, reembolso ou chargeback, e o Trackup registra a conversão com a campanha que gerou o clique.
 
 ## Como a atribuição funciona
 
 - O visitante clica no botão de compra, que aponta para o link da [oferta](https://docs.trackup.me/ofertas).
 
-- O Trackup redireciona para o checkout adicionando o ID do clique e as UTMs na URL, no parâmetro que a plataforma aceita (por exemplo `sck` na Kiwify).
+- O Trackup redireciona para o checkout adicionando o ID do clique e as UTMs na URL, no parâmetro que a plataforma aceita (em muitas é `sck` ou `src`; os parâmetros já vêm preenchidos para cada plataforma).
 
 - A plataforma guarda esse ID no pedido e devolve no webhook.
 
@@ -685,15 +816,34 @@ A plataforma de venda é onde o cliente paga: Hotmart, Kiwify, Shopify, Stripe e
 ## Integrar uma plataforma
 
 - **Adicione a plataforma**
-		Vá em **Integração › Plataformas de vendas** e clique em **Adicionar plataforma**. Pesquise e selecione a sua.
+		Vá em **Integração › Plataformas de vendas** e clique em **Adicionar plataforma**. Pesquise e selecione a sua no campo **Plataforma**.
 
-		Seleção da plataforma de vendas
+		**Print pendente · `img/plataformas-adicionar.png`**Diálogo Adicionar plataforma com o seletor Plataforma aberto, mostrando a lista pesquisável.
+
+Seleção da plataforma de vendas
+
+- **Dê um nome**
+		Use um nome que identifique a conta, por exemplo `Gateway · Online Store`.
 
 - **Confira os parâmetros**
-		Os parâmetros do checkout vêm preenchidos para cada plataforma. Use **Personalizar parâmetros** só se precisar enviar dados extras, como `{request.sub1}`.
+		Os parâmetros do checkout vêm preenchidos para cada plataforma. Em **Parâmetros avançados › Personalizar parâmetros** você adiciona parâmetros extras à URL do checkout, como `{request.sub1}`. Use **Inserir macro** para ver a lista completa.
 
-- **Copie a URL e cadastre na plataforma**
-		Salve, copie a **URL** na lista e cadastre na área de webhooks da plataforma. Algumas plataformas pedem cuidados específicos: veja a página de cada uma em [Integrações](https://docs.trackup.me/integracoes).
+		**Print pendente · `img/plataformas-parametros.png`**Seção Parâmetros avançados aberta com um parâmetro personalizado e o botão Inserir macro.
+
+Parâmetros avançados
+
+- **Salve e copie a URL**
+		Salve e, na lista, copie a **URL** do webhook com **Copiar URL**. Se aparecer Configure um domínio, defina antes um [domínio primário](https://docs.trackup.me/dominios).
+
+		**Print pendente · `img/plataformas-lista.png`**Lista com as colunas Plataforma, Código e URL, e o botão Copiar URL em destaque. Parte da URL borrada.
+
+Lista de plataformas de vendas
+
+- **Cadastre o webhook na plataforma**
+		Na área de webhooks da plataforma de venda, cole a URL e habilite os eventos de pagamento confirmado, reembolso e chargeback. Algumas plataformas exigem um evento específico para trazer os itens da compra: confira a página de cada uma em [Integrações](https://docs.trackup.me/integracoes).
+
+- **Valide**
+		Faça uma compra de teste pelo fluxo completo (anúncio, página, checkout, compra aprovada) e confira a venda em **Logs › Conversões**. Se aparecer o aviso Click ID ausente nesta conversão, a atribuição está incompleta: revise o link, o pixel e os parâmetros da plataforma.
 
 A URL do webhook usa o [domínio primário](https://docs.trackup.me/dominios) do projeto. Configure o domínio antes de integrar, para não precisar trocar a URL depois.
 
@@ -719,11 +869,13 @@ Os parâmetros aceitam valores fixos ou macros no formato `{request.campo}`:
 
 		`{request.device}`, `{request.browser}`, `{request.os}` | Dispositivo. |
 
+Há mais macros, como origem do tráfego, IDs da conta, do conjunto e do criativo, idioma e host. Use **Inserir macro** para ver todas.
+
 ## Excluir uma plataforma
 
-Só é possível excluir uma plataforma que não está em nenhuma oferta nem teste A/B. Remova esses vínculos antes.
+Só é possível excluir uma plataforma que não está em nenhum link, página de checkout ou teste A/B. Remova esses vínculos antes.
 
-	[Todas as integraçõesPasso a passo de cada uma das 34 plataformas.](https://docs.trackup.me/integracoes)
+	[Todas as integraçõesPasso a passo de cada plataforma.](https://docs.trackup.me/integracoes)
 	[Webhook genéricoPara checkouts sem integração nativa.](https://docs.trackup.me/webhook-generico)
 
 ---
@@ -734,19 +886,19 @@ URL: https://docs.trackup.me/script
 
 > Rastreie páginas hospedadas fora do Trackup, identifique visitantes e envie eventos customizados.
 
-Páginas criadas no Trackup já são rastreadas. Instale o script quando a página estiver em outro servidor (WordPress, Shopify, seu próprio site) ou quando quiser enviar eventos além do `page_view`.
+Páginas criadas no Trackup já são rastreadas. Instale o script quando a página estiver em outro servidor (CMS, loja virtual ou o seu próprio site) ou quando quiser enviar eventos além do `page_view`.
 
 ## Instalação
 
 - **Copie o snippet do projeto**
-		No painel, vá em **Ajustes › Geral** e, na seção **Segurança**, copie o **Snippet de rastreamento**. Ele já vem com o domínio e o ID do seu projeto.
+		No painel, vá em **Ajustes › Geral** e, na seção **Segurança**, escolha o **Domínio** e copie o **Snippet de rastreamento**. Ele já vem com o domínio e o ID do seu projeto.
 
 		**Print pendente · `img/script-snippet.png`**Tela Ajustes › Geral rolada até a seção Segurança, com Domínios permitidos e o bloco Snippet de rastreamento com o botão Copiar. ID do projeto borrado.
 
 Snippet de rastreamento em Ajustes › Geral
 
 - **Cole antes do fechamento do head**
-		Cole o snippet antes de `</head>` em todas as páginas que você quer rastrear.
+		Cole o snippet antes de `</head>` em todas as páginas que você quer rastrear. Em CMS e construtores, use o campo de código do cabeçalho (header).
 
 		index.html
 
@@ -764,10 +916,10 @@ trackup('track','page_view');
 ```
 
 - **Libere o domínio do site**
-		Ainda em **Ajustes › Geral › Segurança**, adicione o domínio do site em **Domínios permitidos**. Use `exemplo.com` para o domínio raiz e `*.exemplo.com` para os subdomínios. Com a lista vazia, qualquer domínio pode enviar eventos.
+		Ainda em **Ajustes › Geral › Segurança**, adicione o domínio do site em **Domínios permitidos**. Use `yourdomain.com` para o domínio raiz e `*.yourdomain.com` para os subdomínios. Com a lista vazia, qualquer domínio pode enviar eventos.
 
 - **Valide**
-		Abra a página e confira a visita em **Logs › Requisições**.
+		Abra a página no navegador e confira a visita em **Logs › Requisições**. Se a visita não aparecer, confirme se o domínio do site está em **Domínios permitidos** e se o snippet está dentro do `<head>`.
 
 O script carrega de `https://{hostname}/__t/e.js` e envia os eventos para `POST /__t/events` no mesmo domínio. Ele expõe a função global `trackup` com três comandos: `init`, `track` e `identify`. Chamadas feitas antes do carregamento ficam em fila e rodam depois do `init`.
 
@@ -776,7 +928,7 @@ O script carrega de `https://{hostname}/__t/e.js` e envia os eventos para `POST 
 ```
 trackup('init', '{projectId}', {
   passthrough: true,          // repassa a query string para links decorados (padrão: true)
-  registrable: 'exemplo.com'  // domínio registrável, usado em links entre domínios
+  registrable: 'yourdomain.com'  // domínio registrável, usado em links entre domínios
 });
 ```
 
@@ -836,7 +988,7 @@ O callback só roda quando o servidor responde `200`. Se a navegação depende d
 ```
 trackup('identify', {
   name: 'Maria Silva',
-  email: 'maria@exemplo.com',
+  email: 'maria@yourdomain.com',
   phone: '+5511999990000',
   addr_city: 'São Paulo',
   addr_state: 'SP',
@@ -874,13 +1026,13 @@ URL: https://docs.trackup.me/paginas
 
 > Crie, hospede e publique landing pages e checkouts no seu domínio, já com rastreamento.
 
-Uma página é qualquer endereço do seu domínio no Trackup: uma landing page, uma pré-venda, uma VSL ou o redirecionamento para um checkout. Toda página nasce com um link próprio e já é rastreada, sem instalar nada.
+Uma página é qualquer endereço do seu domínio no Trackup: landing page, pré-venda, VSL ou redirecionamento para um checkout. Toda página tem link próprio e já é rastreada, sem instalar nada. Antes de criar a primeira, [conecte um domínio](https://docs.trackup.me/dominios).
 
 ## Finalidade
 
 	Finalidade | Onde aparece | Uso |
 
-		Landing | Menu **Páginas** | Páginas que recebem o tráfego do anúncio. Geram `page_view`. |
+		Landing | Menu **Páginas** | Recebe o tráfego do anúncio. Gera `page_view`. |
 
 		Checkout | Menu **Ofertas** | Levam ao checkout da plataforma de venda. Geram `start_checkout`. Veja [Ofertas](https://docs.trackup.me/ofertas). |
 
@@ -907,12 +1059,20 @@ Uma página é qualquer endereço do seu domínio no Trackup: uma landing page, 
 		No menu lateral, clique em **Páginas** e em **Adicionar página**.
 
 - **Escolha a aba**
-		Selecione **Redirect**, **Builder**, **Upload HTML** ou **Clonar URL** e preencha o formulário.
+		Selecione **Redirect**, **Builder**, **Upload HTML** ou **Clonar URL**. Cada aba tem seu formulário, descrito na página correspondente.
 
-		Adicionar página com as quatro abas
+		**Print pendente · `img/paginas-adicionar.png`**Diálogo Adicionar página aberto com as abas Redirect, Builder, Upload HTML e Clonar URL visíveis, aba Builder selecionada, Nome preenchido e Caminho /.
+
+Adicionar página com as quatro abas
 
 - **Defina o caminho**
 		O **Caminho** é o endereço da página no domínio. Use `/` para a raiz (`seudominio.com`) ou algo como `/oferta`. Em branco, o Trackup gera a partir do nome. Letras, números, `-`, `.`, `_`, `~` e `/` são aceitos.
+
+- **Confirme a finalidade**
+		Em **Finalidade**, mantenha **Landing** para páginas que recebem o anúncio. Para páginas de checkout, crie em **Ofertas** (veja [Ofertas](https://docs.trackup.me/ofertas)).
+
+- **Salve e copie o link**
+		Clique em salvar. A página aparece na lista, já publicada. Use o botão de copiar na coluna **Link** para pegar o endereço.
 
 ## Lista de páginas
 
@@ -929,6 +1089,8 @@ A tabela mostra o tipo, o status e o **Link** de cada página, com botão para c
 		Duplicar | Cria uma cópia, útil para montar a variante de um [teste A/B](https://docs.trackup.me/testes-ab). |
 
 		Deletar | Remove a página para sempre. |
+
+**Print pendente · `img/paginas-lista.png`**Lista de Páginas com uma página Builder, uma Redirect e uma HTML, colunas Tipo, Nome, Link e Destino (Publicada e Rascunho) e o menu de ações de uma linha aberto.
 
 Lista de páginas com tipo, status e link
 
@@ -970,7 +1132,7 @@ Uma oferta é uma página com finalidade Checkout, ligada a uma [plataforma de v
 ## Criar uma oferta
 
 - **Tenha uma plataforma de venda**
-		A oferta precisa de uma plataforma de venda integrada. Se ainda não tem, crie em **Integração › Plataformas de vendas** ou pelo atalho **Adicionar plataforma** dentro do formulário.
+		A oferta precisa de uma [plataforma de venda](https://docs.trackup.me/plataformas-de-venda) integrada. Se ainda não tem, crie em **Integração › Plataformas de vendas** ou pelo atalho **Criar plataforma de vendas** dentro do formulário.
 
 - **Adicione a oferta**
 		No menu lateral, clique em **Ofertas** e em **Adicionar oferta**. Na aba **Redirect**, preencha:
@@ -987,16 +1149,27 @@ Uma oferta é uma página com finalidade Checkout, ligada a uma [plataforma de v
 
 				Caminho | Opcional, como `/checkout`. |
 
-		**Print pendente · `img/ofertas-criar.png`**Diálogo Adicionar oferta na aba Redirect com Nome, Plataforma de vendas selecionada, URL de redirecionamento de checkout fictício, Status Code 302 e Caminho /checkout.
+		**Print pendente · `img/ofertas-criar.png`**Diálogo Adicionar oferta na aba Redirect com Nome (ex.: Product A - Checkout 1), Plataforma de vendas Upag selecionada, URL de redirecionamento de checkout, Status Code 302 e Caminho /checkout-1.
 
 Criação de uma oferta
 
-- **Use o link da oferta nos botões**
-		Copie o **Link** da oferta na lista e use em todos os botões de compra das suas páginas.
+- **Copie o link da oferta**
+		Na lista de **Ofertas**, clique no botão de copiar da coluna **Link**.
+
+- **Use o link nos botões de compra**
+		Cole o link como destino de todos os botões de compra das suas páginas. No Builder, é o campo **Destino** do evento de clique do botão.
 
 ## Parâmetros repassados ao checkout
 
 Os parâmetros que o visitante trouxe (como `utm_source`) são repassados para a URL de destino. Se o mesmo parâmetro já existir fixo na URL de redirecionamento, o valor do visitante prevalece. Os parâmetros da plataforma de venda, como o ID do clique, são adicionados automaticamente.
+
+## Vários checkouts para o mesmo produto
+
+Crie uma oferta para cada checkout. Um produto pode ter, por exemplo, `Product A - Checkout 1` (preço cheio) e `Product A - Checkout 2` (preço com desconto, outra cor). Cada oferta tem seu link e seu caminho, e todas aparecem na lista de **Ofertas**.
+
+**Print pendente · `img/ofertas-lista.png`**Lista de Ofertas com 2 produtos e 3 ofertas (Product A - Checkout 1, Product A - Checkout 2, Product B - Checkout), coluna Link com botão de copiar e Destino Publicada.
+
+Lista de ofertas
 
 ## Oferta com página própria
 
@@ -1004,7 +1177,7 @@ Além de Redirect, uma oferta pode ser criada com Builder, Upload HTML ou Clonar
 
 ## Testar ofertas
 
-Para comparar dois checkouts (preços, plataformas ou páginas de pagamento diferentes), crie um [teste A/B](https://docs.trackup.me/testes-ab) do tipo **Checkout** com as ofertas como variantes.
+Para comparar dois checkouts (preços, cores, plataformas ou páginas de pagamento diferentes), crie um [teste A/B](https://docs.trackup.me/testes-ab) do tipo **Checkout** com as ofertas como variantes. O botão de compra aponta para o link do teste.
 
 Se um botão apontar direto para o checkout da plataforma, a venda chega sem o ID do clique e aparece como Click ID ausente em [Conversões](https://docs.trackup.me/conversoes).
 
@@ -1016,24 +1189,38 @@ URL: https://docs.trackup.me/builder
 
 > Monte páginas no editor visual com componentes, blocos prontos e templates, sem escrever código.
 
-O Builder é o editor visual do Trackup. Você arrasta componentes e blocos para o canvas, ajusta textos, imagens e estilos e publica no seu domínio. A página já sai com rastreamento.
+O Builder é o editor visual do Trackup. Você arrasta componentes e blocos para o canvas, ajusta textos, imagens e estilos e publica no seu domínio. A página já sai com rastreamento. Para um passo a passo completo, veja o [tutorial de landing page](https://docs.trackup.me/tutorial-landing-builder).
 
 ## Criar uma página no Builder
 
 - **Crie a página**
-		Em **Páginas › Adicionar página**, escolha a aba **Builder**, dê um nome e, se quiser, um caminho. Salve.
+		Em **Páginas › Adicionar página**, escolha a aba **Builder**, dê um nome (como `Landing Product A`) e, se quiser, um caminho. Salve.
 
 - **Abra o editor**
 		Na lista, abra o menu da página e clique em **Editar no builder**. O editor abre em uma nova aba.
 
 - **Comece de um template ou do zero**
-		Escolha um template pronto (pré-venda, VSL, captura e outros) ou comece com o canvas vazio.
+		Escolha um template pronto (pré-venda, VSL, captura e outros) ou comece com o canvas vazio. Um hero com botão e um depoimento já formam uma página funcional.
 
-		Templates disponíveis ao abrir o Builder
+		**Print pendente · `img/builder-templates.png`**Seletor de templates do Builder com os templates disponíveis lado a lado e a opção de canvas vazio.
+
+Templates disponíveis ao abrir o Builder
+
+- **Troque os textos e o botão**
+		Clique no título, edite o texto e repita para o botão e o depoimento. Selecione o botão, abra a aba **Config** do inspetor e, em **Evento de clique**, preencha o **Destino** com o link da [oferta](https://docs.trackup.me/ofertas).
+
+- **Salve e publique**
+		Clique em **Salvar** e depois em **Publicar**. Copie o link da página na lista de **Páginas** e abra no navegador para conferir.
 
 ## O editor
 
+**Print pendente · `img/builder-editor.png`**Editor aberto com uma página de exemplo (hero com título e botão de compra, depois um depoimento), botão selecionado, painel lateral com as abas Componentes, Blocos e Camadas, e inspetor com as abas Estilo e Config. Anotar as quatro áreas.
+
 Barra superior, painel lateral, canvas e inspetor
+
+**Print pendente · `img/builder-botao-destino.png`**Aba Config do botão selecionado, com Evento de clique e Destino preenchido com o link de uma oferta.
+
+Evento de clique do botão com o link da oferta
 
 	Área | O que tem |
 
@@ -1070,6 +1257,10 @@ Nos botões de compra, use como destino o link da sua [oferta](https://docs.trac
 ## Responsivo
 
 Alterne entre Desktop, Tablet e Mobile na barra superior para ver e ajustar a página em cada tamanho antes de publicar.
+
+**Print pendente · `img/builder-responsivo.png`**Editor com a visualização Mobile ativa na barra superior e a página de exemplo no formato do celular.
+
+Visualização Mobile
 
 ## Salvar e publicar
 
@@ -1124,12 +1315,38 @@ Use caminhos relativos (`css/style.css`, `img/hero.webp`). O Trackup reescreve a
 		Em **Páginas › Adicionar página**, escolha **Upload HTML**.
 
 - **Preencha e envie**
-		Informe o nome, o caminho (opcional), escolha o arquivo e clique em **Enviar arquivo**.
+		Informe o nome, o caminho (opcional), clique na área de envio para escolher o arquivo (ou arraste-o até ela) e clique em **Enviar arquivo**.
 
-		Envio de uma página em .zip
+		**Print pendente · `img/upload-html.png`**Aba Upload HTML do diálogo Adicionar página com Nome, Caminho /lp-html, arquivo pagina.html selecionado e o botão Enviar arquivo.
+
+Envio de uma página HTML
 
 - **Confira**
-		Copie o link na lista de páginas e abra no navegador.
+		Na lista de páginas, copie o link da nova página e abra no navegador. Confira o visual e clique no botão de compra para ver se ele leva à [oferta](https://docs.trackup.me/ofertas).
+
+## Exemplo mínimo
+
+Uma landing básica já funciona. Salve como `index.html` (ou `pagina.html`) e envie:
+
+pagina.html
+
+```
+&lt;!doctype html&gt;
+&lt;html lang="pt-BR"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  &lt;title&gt;Product A&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Product A&lt;/h1&gt;
+  &lt;p&gt;Short description of the offer.&lt;/p&gt;
+  &lt;a href="https://yourdomain.com/checkout-1"&gt;Buy now&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+```
+
+Troque o `href` pelo link da sua oferta.
 
 ## Editar depois
 
@@ -1165,13 +1382,15 @@ Informe a URL de uma página e o Trackup captura o HTML e os arquivos do mesmo d
 - **Informe a URL de origem**
 		Cole o endereço completo, com `https://`, dê um nome e clique em **Clonar página**.
 
-		Clonagem de uma página
+		**Print pendente · `img/clonar-url.png`**Aba Clonar URL do diálogo Adicionar página com Nome, Caminho e a URL de origem preenchida (a página HTML criada antes), com o botão Clonar página.
+
+Clonagem de uma página
 
 - **Aguarde a captura**
 		A página aparece na lista como Aguardando clone e depois Clonando…. Em geral leva alguns segundos.
 
 - **Revise e ajuste**
-		Abra **Editar arquivos**, troque os links dos botões pelo link da sua [oferta](https://docs.trackup.me/ofertas) e publique.
+		Abra **Editar arquivos** no menu da página, localize o `index.html`, troque os links dos botões pelo link da sua [oferta](https://docs.trackup.me/ofertas), salve e clique em **Publicar**. Detalhes em [Versões e arquivos](https://docs.trackup.me/versoes-e-arquivos).
 
 ## Limitações
 
@@ -1212,10 +1431,15 @@ Uma página Redirect registra o acesso, aplica o filtro, dispara os eventos e ma
 
 				Caminho | Endereço no seu domínio, como `/promo`. |
 
-		Criação de uma página Redirect
+		**Print pendente · `img/redirect-criar.png`**Aba Redirect do diálogo Adicionar página com Nome, URL de redirecionamento apontando para a página criada no Builder, Status Code 302 e Caminho /promo.
+
+Criação de uma página Redirect
+
+- **Salve e teste**
+		Salve, copie o link da página na lista e abra no navegador. Você deve cair na URL de destino.
 
 - **Instale o script no destino**
-		Se o destino é uma landing page sua, instale o [script de rastreamento](https://docs.trackup.me/script) nela para registrar eventos e manter a atribuição até o checkout.
+		Se o destino é uma landing page hospedada fora do Trackup, instale o [script de rastreamento](https://docs.trackup.me/script) nela. Se o destino é uma página do [Builder](https://docs.trackup.me/builder) ou HTML do próprio Trackup, não precisa de script.
 
 ## Parâmetros
 
@@ -1239,6 +1463,8 @@ Páginas criadas por [Upload HTML](https://docs.trackup.me/upload-html) ou [Clon
 
 Na lista de páginas, abra o menu da página e clique em **Editar arquivos**.
 
+**Print pendente · `img/arquivos-editor.png`**Editor de arquivos de uma página HTML com index.html aberto, árvore à esquerda, código no centro e Preview à direita, com os botões Novo arquivo, Nova pasta, Fazer upload e Publicar visíveis.
+
 Editor de arquivos com árvore, código e preview
 
 	Ação | Como |
@@ -1259,7 +1485,7 @@ Qualquer alteração de arquivo deixa a página em rascunho. O link continua mos
 
 ## Histórico de versões
 
-No menu da página, clique em **Histórico**. Cada versão mostra o número, o autor, a data e as marcas Atual e Publicada.
+No menu da página, clique em **Histórico**. Cada versão mostra o número, o tipo (Versão inicial, Envio da página, Clonagem, Duplicação, Edição, Envio de arquivo, Renomeação, Exclusão, Substituição dos arquivos ou Restauração), o autor, a data e as marcas Atual e Publicada. Use o ícone de edição para dar nome e descrição a uma versão.
 
 **Print pendente · `img/versoes-historico.png`**Painel Histórico de uma página HTML com 4 versões, a mais recente marcada como Atual, outra como Publicada, e o botão Restaurar visível em uma versão antiga.
 
@@ -1294,7 +1520,7 @@ Um teste A/B é um link que distribui os visitantes entre duas ou mais variantes
 
 		Página | Páginas de destino (landing) | `page_view` | VSL longa contra VSL curta. |
 
-		Checkout | Ofertas (páginas de checkout) | `start_checkout` | Preço de R$ 197 contra R$ 247, ou Kiwify contra Hotmart. |
+		Checkout | Ofertas (páginas de checkout) | `start_checkout` | Checkout 1 (preço cheio) contra Checkout 2 (preço com desconto e outra cor). |
 
 Testes do tipo Anúncio são de uma versão anterior. Os que existem continuam funcionando e podem ser editados, mas não é possível criar novos.
 
@@ -1309,12 +1535,36 @@ Testes do tipo Anúncio são de uma versão anterior. Os que existem continuam f
 - **Escolha as variantes e os pesos**
 		O teste começa com duas variantes em 50/50. Para cada uma, escolha a **Página** e o **Tráfego** em porcentagem. Use **Adicionar variante** para mais opções e **Balancear pesos** para dividir por igual.
 
-		Variantes e pesos de um teste A/B
+		**Print pendente · `img/testes-ab-criar.png`**Diálogo Criar teste A/B com Nome, Slug /lp-teste, Tipo de teste Página e duas variantes em 50% (Página LP Builder e Página LP HTML), com Adicionar variante e Balancear pesos visíveis.
+
+Variantes e pesos de um teste A/B
 
 		Os pesos das variantes ativas precisam somar 100%.
 
 - **Use o link do teste no anúncio**
-		Salve e use o link do teste no lugar do link da página, com os parâmetros da [fonte de tráfego](https://docs.trackup.me/fontes-de-trafego).
+		Salve e copie o link do teste na lista. Use esse link no lugar do link da página, com os parâmetros da [fonte de tráfego](https://docs.trackup.me/fontes-de-trafego).
+
+## Exemplos
+
+### Testar ofertas (checkouts)
+
+- Crie uma [oferta](https://docs.trackup.me/ofertas) para cada checkout (`Product A - Checkout 1` e `Product A - Checkout 2`).
+
+- Crie um teste do tipo **Checkout** com as duas ofertas como variantes e o slug `/comprar`.
+
+- Nos botões de compra da landing, use o link do teste (`yourdomain.com/comprar`) como destino, no lugar do link de uma oferta.
+
+### Testar botões
+
+O teste A/B divide visitantes entre páginas, então para comparar botões (texto, cor ou posição) crie duas versões da mesma landing que só diferem no botão. No Builder, **Duplique** a página e altere o botão na cópia. Depois crie um teste do tipo **Página** com as duas variantes.
+
+### Testar landing pages (Builder e HTML)
+
+As variantes podem ser de tipos diferentes. Por exemplo, uma página do [Builder](https://docs.trackup.me/builder) contra uma página [HTML](https://docs.trackup.me/upload-html). Crie um teste do tipo **Página**, escolha cada uma como variante e use o link do teste no anúncio.
+
+**Print pendente · `img/testes-ab-lista.png`**Lista de Testes A/B com um teste de Checkout (ofertas) e um teste de Página (LP Builder contra LP HTML), mostrando nome, link e tipo.
+
+Lista de testes A/B
 
 ## Acompanhar o resultado
 
@@ -1366,9 +1616,11 @@ URL: https://docs.trackup.me/acionadores
 
 Um acionador observa os eventos do projeto. Quando um evento atende a todas as condições, ele executa as ações: enviar o evento para um ou mais [pixels](https://docs.trackup.me/pixels) ou chamar um webhook.
 
+Fluxo: o evento chega, o Trackup avalia as condições de cada acionador ativo, executa as ações dos que correspondem e registra cada envio nos [logs](https://docs.trackup.me/logs-de-acionadores).
+
 ## Acionadores criados automaticamente
 
-Ao adicionar um pixel da Meta, TikTok ou Kwai, o Trackup cria três acionadores para ele:
+Ao adicionar um pixel da Meta, TikTok ou Kwai, o Trackup cria acionadores padrão para ele:
 
 	Acionador | Condição |
 
@@ -1378,7 +1630,9 @@ Ao adicionar um pixel da Meta, TikTok ou Kwai, o Trackup cria três acionadores 
 
 		Conversão | Tipo de evento igual a `conversion` |
 
-No Google Ads, crie os acionadores você mesmo, porque cada etapa precisa da conversion label da ação de conversão.
+		Add to cart | Tipo de evento igual a `add_to_cart` |
+
+Você pode editar ou desativar qualquer um deles. No Google Ads, crie os acionadores você mesmo, porque cada etapa precisa da conversion label da ação de conversão.
 
 ## Criar um acionador
 
@@ -1388,13 +1642,51 @@ No Google Ads, crie os acionadores você mesmo, porque cada etapa precisa da con
 - **Defina as condições**
 		Clique em **Adicionar condição** e escolha a variável, o operador e o valor. O acionador dispara quando **todas** as condições são verdadeiras. Veja as [variáveis disponíveis](https://docs.trackup.me/variaveis).
 
-		Condições de um acionador
+		**Print pendente · `img/acionadores-condicoes.png`**Formulário Criar acionador com duas condições: Tipo de evento Igual a conversion e UTM Campaign Contém black-friday, e o botão Adicionar condição visível.
+
+Condições de um acionador
 
 - **Adicione as ações**
 		Clique em **Adicionar ação** e escolha **Pixel** ou **Webhook** (detalhes abaixo).
 
 - **Ative e salve**
 		Deixe **Ativo** ligado e salve. Você pode desligar um acionador a qualquer momento sem apagá-lo.
+
+## Condições extras
+
+O tipo de evento é só a primeira condição. Combine outras para enviar o evento apenas quando fizer sentido. Todas precisam ser verdadeiras (E lógico).
+
+	Quero disparar só quando... | Condições |
+
+		A venda veio de uma campanha | Tipo de evento = `conversion` E UTM Campaign contém `black-friday` |
+
+		O tráfego veio de uma rede | Rede = `instagram` |
+
+		O visitante veio de um criativo | Sub 1 = `criativo-07` |
+
+		O evento ocorreu em uma página | URL contém `/oferta` |
+
+		O visitante veio de outro site | Referrer contém `yourdomain.com` |
+
+Para ações diferentes no mesmo evento, crie um acionador para cada caso. Todos os que corresponderem disparam.
+
+## Eventos personalizados
+
+Além dos eventos padrão, você pode enviar eventos próprios pelo [script](https://docs.trackup.me/script), como `lead_form_submitted` ou `video_50`. Eles chegam com **Tipo customizado** preenchido e servem como condição em acionadores e como etapa extra do funil nos [dashboards](https://docs.trackup.me/dashboards).
+
+Enviar um evento personalizado
+
+```
+trackup('track', 'lead_form_submitted');
+```
+
+Depois, crie o acionador com **Tipo customizado** igual ao nome do evento e escolha a ação, por exemplo o evento `Lead` de um pixel.
+
+Eventos enviados por atributo HTML (`data-trackup-event`) não disparam acionadores no navegador. Veja os detalhes no [script](https://docs.trackup.me/script).
+
+**Print pendente · `img/acionadores-evento-personalizado.png`**Acionador com a condição Tipo customizado Igual a lead_form_submitted e ação Pixel Meta com o evento Lead. Nome e ID do pixel borrados.
+
+Acionador de evento personalizado
 
 ## Ação: Pixel
 
@@ -1436,15 +1728,19 @@ Exemplo: avisar o CRM a cada venda
 }
 ```
 
+**Print pendente · `img/acionadores-acao-webhook.png`**Bloco Ação Webhook com método POST, URL yourdomain.com/hook e parâmetros email, valor e campanha preenchidos com tokens.
+
+Ação de webhook
+
 ## Exemplos
 
 **Enviar Purchase só de vendas vindas da Meta**
 
 	Condições: **Tipo de evento** igual a `conversion` e **Rede** igual a `facebook` (ou `instagram`). Ação: pixel Meta, evento `Purchase`.
 
-**Enviar um evento customizado do script**
+**Enviar um evento personalizado do script**
 
-	Condições: **Tipo customizado** igual a `lead_form_submitted`. Ação: pixel Meta, evento `Lead`. O evento é enviado pela página com o [script](https://docs.trackup.me/script).
+	Condições: **Tipo customizado** igual a `lead_form_submitted`. Ação: pixel Meta, evento `Lead`.
 
 **Separar uma campanha**
 
@@ -1472,7 +1768,7 @@ As condições de um [acionador](https://docs.trackup.me/acionadores) comparam u
 
 		Tipo de evento (`type`) | `page_view`, `ad_click`, `add_to_cart`, `start_checkout`, `conversion`. |
 
-		Tipo customizado (`custom_type`) | Nome do evento enviado pelo [script](https://docs.trackup.me/script), como `lead_form_submitted`. Em conversões, é a plataforma de venda, como `hotmart` ou `shopify`. |
+		Tipo customizado (`custom_type`) | Nome do evento enviado pelo [script](https://docs.trackup.me/script), como `lead_form_submitted`. Em conversões, é a plataforma de venda que enviou a venda. |
 
 ## UTM
 
@@ -1545,7 +1841,37 @@ Em **Filtro**, clique em **Criar regra** e escolha o modo:
 	[BásicoBots, anti-plágio, países, idiomas e dispositivos, sem montar expressões.](https://docs.trackup.me/filtro-basico)
 	[AvançadoQualquer campo da requisição, com grupos E/OU e regex.](https://docs.trackup.me/filtro-avancado)
 
-Também dá para começar por uma das **Regras sugeridas**: bloquear bots, bloquear um país específico ou permitir só quando a URL tem um parâmetro secreto.
+### Modo básico x avançado
+
+	 | Básico | Avançado |
+
+		Critérios | Bots, anti-plágio, países, idiomas, dispositivos | Qualquer campo da requisição (IP, URL, user agent, cookie, navegador, SO...) |
+
+		Combinação | Só E | Grupos com E dentro e OU entre eles |
+
+		Regex | Não | Sim |
+
+		Escopo por link | Sim | Pela condição de host e caminho |
+
+		Indicado para | Proteção do dia a dia | Casos específicos |
+
+### Regras sugeridas
+
+No formulário de nova regra, clique em **Usar template** para começar de um modelo já montado. Todos podem ser editados antes de salvar.
+
+	Regra sugerida | O que faz |
+
+		Bloquear bots (proteção geral) | Bloqueia todo acesso identificado como bot (`detection.bot_protection` igual a `true`). |
+
+		Bloquear país específico | Bloqueia acessos dos países que você escolher (`ip.geoip.country` na lista). |
+
+		Permitir somente se a query string contém um valor específico | Gera um par aleatório, como `abc=xyz`, e bloqueia quem chega sem ele. A URL de rastreamento da página já leva o parâmetro. |
+
+**Print pendente · `img/filtro-templates.png`**Formulário Criar regra com o seletor Usar template aberto, mostrando as 3 regras sugeridas.
+
+Regras sugeridas
+
+**Print pendente · `img/filtro-lista.png`**Tela Filtro com os cards Total de requests, Página de oferta, Safe page e Bots, o gráfico Requests por decisão e a tabela de regras (Nome, Peso, Expressão, Ação, Acessos, Ativo) com 3 regras.
 
 Lista de regras e métricas do Filtro
 
@@ -1733,6 +2059,8 @@ URL: https://docs.trackup.me/dashboards
 
 Cada projeto pode ter vários dashboards, cada um com seus cards e seu layout. Todos os cards de um dashboard usam o mesmo período, escolhido no topo da tela.
 
+**Print pendente · `img/dashboard-padrao.png`**Dashboard Padrão com período selecionado e os cards Lucro, Vendas, Funil, Acessos totais e Status de pagamentos preenchidos com dados de exemplo.
+
 Dashboard padrão de um projeto
 
 ## Gerenciar dashboards
@@ -1775,7 +2103,7 @@ Mostra faturamento, despesas, lucro, ROAS e número de pedidos. As despesas são
 
 ### Funil
 
-Mostra quantas pessoas chegaram a cada etapa. Clique em **Personalizar funil** para escolher as etapas e a ordem. Além das etapas padrão (impressões, alcance, ad click, page view, add to cart, initiate checkout e purchase), você pode adicionar eventos customizados enviados pelo [script](https://docs.trackup.me/script), usando letras minúsculas, números e `_`.
+Mostra quantas pessoas chegaram a cada etapa. Eventos personalizados entram como etapas extras. Clique em **Personalizar funil** para escolher as etapas e a ordem; **Restaurar padrão** volta ao original. Além das etapas padrão (impressões, alcance, ad click, page view, add to cart, initiate checkout e purchase), você pode adicionar eventos customizados enviados pelo [script](https://docs.trackup.me/script), usando letras minúsculas, números e `_`.
 
 ### Acessos totais, únicos, reais e de bots
 
@@ -1873,7 +2201,7 @@ Lista de requisições com filtros
 
 ## Filtrar
 
-Filtre por host, caminho, IP, evento, decisão (**Permitida** ou **Bloqueada**), dispositivo, visitante, país e tipo de tráfego (**Real** ou **Bot**).
+Filtre por host, caminho, IP, evento, decisão (**Permitida** ou **Bloqueada**), dispositivo, país e visitante (**Real** ou **Bot**).
 
 ## Detalhes de uma requisição
 
@@ -1883,15 +2211,17 @@ Expanda uma linha para ver duas abas.
 
 	Grupo | Campos |
 
-		Risco e decisão | Bot, score, decisão, motivos, regra do filtro que decidiu e se passou no desafio |
+		Risco e decisão | Score, nível do score, bot, decisão, motivos, regra do filtro (nome e ID) e se passou no desafio |
 
-		Identificação | Data, host, caminho, evento, IP, visitor ID, visitante recorrente |
+		Identificação | ID, data e hora, host, caminho, evento, IP, hash do IP, visitor ID, referer, user agent |
 
-		Localização | País, estado, cidade, fuso, ISP, proxy |
+		Localização | País, estado, cidade, latitude, longitude, fuso, ISP, proxy, idioma do navegador |
 
-		Tecnologia | Navegador, sistema, dispositivo, fabricante, modelo, idioma, user agent, referer |
+		Tecnologia | Navegador e versão, sistema e versão, dispositivo, fabricante, modelo |
 
-		Marketing | UTMs, click ID, origem de tráfego e `sub1` a `sub8` |
+		Marketing e UTMs | UTMs, click ID e origem de tráfego |
+
+		Parâmetros Sub | `sub1` a `sub8` |
 
 		Dados customizados | Dados enviados pelo [script](https://docs.trackup.me/script) com o evento |
 
@@ -1915,6 +2245,30 @@ URL: https://docs.trackup.me/visitantes
 
 O Trackup agrupa as requisições e conversões de uma mesma pessoa em um visitante. Em **Logs › Visitantes**, você pode buscar por e-mail ou telefone e ver tudo o que aquela pessoa fez.
 
+## Do ID ao lead completo
+
+Todo visitante nasce só com um **ID**, gerado no primeiro acesso. A partir daí o perfil é preenchido à medida que a pessoa avança no funil.
+
+	Etapa | O que passa a existir no perfil |
+
+		1. Primeiro acesso | ID do visitante, primeira visita, país, dispositivo, navegador, UTMs e click ID. |
+
+		2. Novos acessos | Requisições e eventos (page view, add to cart, start checkout) na linha do tempo. Aparece como visitante recorrente. |
+
+		3. Identificação | Nome, e-mail e telefone, enviados por `trackup('identify', …)` no [script](https://docs.trackup.me/script) (por exemplo, ao enviar um formulário). |
+
+		4. Compra | A plataforma de venda envia os dados do comprador pelo webhook: nome, e-mail, telefone e endereço. A conversão fica ligada ao visitante. |
+
+		5. Pós-venda | Reembolsos e chargebacks entram nas abas do perfil. |
+
+**Print pendente · `img/visitante-id-inicial.png`**Perfil de um visitante novo, só com ID, primeira visita, país e UTMs; campos de nome, e-mail e telefone vazios.
+
+Visitante recém-criado
+
+**Print pendente · `img/visitante-lead-completo.png`**O mesmo visitante após a compra, com nome, e-mail (domínio borrado), telefone, endereço (borrado) e a conversão em Atividades recentes.
+
+Lead completo
+
 ## Perfil do visitante
 
 Clique em um visitante para abrir o perfil:
@@ -1931,7 +2285,7 @@ Clique em um visitante para abrir o perfil:
 
 Perfil de um visitante
 
-Nome, e-mail e telefone são preenchidos pelos dados que a plataforma de venda envia no webhook da compra.
+Se o mesmo e-mail ou telefone aparecer em outro acesso, o Trackup reconhece a pessoa. Use a busca por **E-mail** ou **Telefone** para achar um lead.
 
 ## Usos comuns
 
@@ -1951,6 +2305,8 @@ URL: https://docs.trackup.me/conversoes
 
 Em **Logs › Conversões**, a aba **Conversões** lista cada venda recebida pelo webhook das [plataformas de venda](https://docs.trackup.me/plataformas-de-venda).
 
+**Print pendente · `img/conversoes-lista.png`**Logs › Conversões com filtros e uma lista de vendas (plataforma, valor, status Pago, fonte de tráfego), uma delas com o selo Configuração incompleta.
+
 Lista de conversões
 
 ## Filtrar
@@ -1968,6 +2324,10 @@ Filtre por plataforma, fonte de tráfego, ID da transação e status: **Pago**, 
 		Marketing | Fonte de tráfego, UTMs, click ID e `sub1` a `sub8` |
 
 		Anúncios | Plataforma de anúncio, conta, campanha, conjunto e anúncio |
+
+**Print pendente · `img/conversoes-detalhe.png`**Conversão expandida mostrando os grupos Venda, Atribuição, Marketing e Anúncios com dados de exemplo; IP borrado.
+
+Detalhe de uma conversão
 
 Vendas em outra moeda são convertidas para reais pelo câmbio do dia, e o valor original fica registrado.
 
@@ -1997,7 +2357,11 @@ Quando a plataforma de venda avisa um reembolso ou chargeback pelo webhook, o Tr
 
 Cada linha mostra a **Conversão** de origem e os mesmos dados de atribuição dela, incluindo campanha, conjunto e anúncio. Assim você descobre quais anúncios trazem compradores que pedem reembolso.
 
-Nem todas as plataformas enviam esses eventos. A Stripe, por exemplo, envia só pagamentos aprovados. Veja o guia de cada [plataforma](https://docs.trackup.me/integracoes).
+Nem todas as plataformas de venda enviam esses eventos. Algumas enviam só pagamentos aprovados. Veja o guia de cada [plataforma](https://docs.trackup.me/integracoes).
+
+**Print pendente · `img/reembolsos-lista.png`**Logs › Conversões na aba Reembolsos com um reembolso listado, mostrando a conversão de origem e a atribuição (campanha, conjunto, anúncio).
+
+Aba Reembolsos
 
 A conversão original muda para o status **Reembolsado** ou **Chargeback**, e o card [Status de pagamentos](https://docs.trackup.me/dashboards) passa a contar a mudança.
 
@@ -2047,6 +2411,8 @@ URL: https://docs.trackup.me/produtos
 
 A tela **Produtos** lista os produtos vendidos nas suas plataformas de venda. Você não precisa cadastrá-los: cada produto aparece quando a primeira venda dele chega pelo webhook.
 
+**Print pendente · `img/produtos.png`**Tela Produtos com o filtro Plataforma de venda e dois produtos de exemplo, um deles expandido mostrando duas ofertas e a coluna Primeira venda.
+
 Produtos registrados a partir das vendas
 
 - Filtre por **Plataforma de venda**.
@@ -2093,6 +2459,17 @@ Modal de configurações
 
 		Assinatura | Plano, faturas e cartões. Veja [Assinatura](https://docs.trackup.me/assinatura). |
 
+## Passo a passo
+
+- **Abra as configurações**
+		Clique no seu nome, no canto inferior esquerdo, e em **Configurações**.
+
+- **Altere seus dados**
+		Em **Conta › Perfil**, edite nome e telefone e clique em **Salvar**. Em **Conta › Senha**, informe a senha atual e a nova.
+
+- **Ajuste o time**
+		Em **Meu Time › Configurações**, preencha nome, logo, telefone e e-mail de contato, documento e endereço, e escolha o fuso horário. Salve cada seção. Esses dados aparecem nas faturas.
+
 ## Fuso horário
 
 O fuso do time define como datas e horários aparecem em todo o painel e como os dias são fechados nos dashboards e relatórios. Ajuste antes de começar a analisar dados.
@@ -2114,13 +2491,13 @@ Uma chave de API dá acesso à [API do Trackup](https://docs.trackup.me/api) e a
 ## Criar uma chave
 
 - **Abra Chaves de API**
-		Em **Configurações › Chaves de API**, clique em **Nova chave**.
+		Clique no seu nome, no canto inferior esquerdo, e abra **Configurações**. Em **Meu Time**, selecione **Chaves de API** e clique em **Nova chave**. Você precisa da permissão **Criar** em **API Keys**; sem ela, peça ao proprietário do time.
 
 - **Configure**
 
 			Campo | Descrição |
 
-				Nome | Onde a chave será usada, como n8n produção. |
+				Nome | Onde a chave será usada, como Automação produção. |
 
 				Expira em | Opcional. Depois da data, a chave para de funcionar. |
 
@@ -2128,18 +2505,28 @@ Uma chave de API dá acesso à [API do Trackup](https://docs.trackup.me/api) e a
 
 				Permissões | O que a chave pode fazer, por recurso: listar, ler, criar, atualizar e deletar. |
 
-		**Print pendente · `img/chaves-criar.png`**Modal Criar chave de API com Nome n8n produção, Expira em vazio, um projeto selecionado e a lista de permissões com Páginas e Links marcados.
+		**Print pendente · `img/chaves-criar.png`**Modal Criar chave de API com Nome Automação produção, Expira em vazio, um projeto selecionado e a lista de permissões com Páginas e Links marcados.
 
 Criação de uma chave de API
 
 - **Copie a chave**
-		A chave completa aparece uma única vez. Copie e guarde em um gerenciador de senhas ou nas variáveis de ambiente do seu sistema.
+		Clique em **Criar**. A chave completa aparece uma única vez. Copie e guarde em um gerenciador de senhas ou nas variáveis de ambiente do seu sistema.
 
 Uma chave nunca pode mais do que quem a criou. Se o criador perder uma permissão ou sair do time, a chave perde junto. A exceção são as permissões de ingestão (`visitor.create`, `conversion.create` e `request.create`), que são exclusivas de chaves.
 
+## Exemplos de permissões
+
+	Uso | Permissões mínimas |
+
+		Enviar vendas de um CRM ou checkout | `conversion.create` |
+
+		Relatórios | `project.list`, `analytics.read`, `conversion.list` |
+
+		Assistente de IA que monta páginas e links | Permissões de `page` e `link` (listar, ler, criar, atualizar) |
+
 ## Usar a chave
 
-Envie a chave no header `X-Api-Key`. A URL base aparece na própria tela, em **URL da API**.
+Envie a chave no header `X-Api-Key`. A URL base aparece na própria tela, em **URL da API**. Chave ausente, inválida, revogada ou expirada retorna `403` na API REST e `401` no MCP.
 
 Exemplo
 
@@ -2154,9 +2541,9 @@ No menu da chave, clique em **Ver histórico**. Você vê cada requisição feit
 
 ## Editar e revogar
 
-- **Editar** muda nome, permissões e projetos sem trocar a chave.
+- **Editar**, no menu da chave, muda nome, permissões e projetos sem trocar a chave.
 
-- **Revogar** desativa a chave na hora. Não dá para desfazer.
+- **Revogar**, no menu da chave, desativa a chave na hora. Não dá para desfazer.
 
 Se uma chave vazar, revogue e crie outra. Não compartilhe chaves em prints, repositórios ou mensagens.
 
@@ -2168,7 +2555,7 @@ URL: https://docs.trackup.me/assinatura
 
 > Escolha, troque ou cancele o plano do time e gerencie faturas e cartões.
 
-A assinatura é do time. Gerencie em **Configurações › Assinatura**. Só quem tem permissão de assinatura (normalmente o proprietário) vê esta área.
+A assinatura é do time. Gerencie em **Configurações › Assinatura**, no menu do usuário. Só o proprietário escolhe o plano. Enquanto não houver assinatura, o painel mostra O time ainda não tem uma assinatura ativa.
 
 **Print pendente · `img/assinatura.png`**Configurações › Assinatura com o card Assinatura atual (plano, status Ativo, Próxima cobrança), Histórico de faturas com 3 faturas pagas e Métodos de pagamento com um cartão Padrão (número mascarado).
 
@@ -2177,10 +2564,14 @@ Tela de assinatura
 ## Assinar um plano
 
 - **Veja os planos**
-		Clique em **Ver planos**. Cada plano mostra o limite de domínios, membros e conversões, e o que está incluso.
+		Clique em **Ver planos**. Cada card mostra o tipo (assinatura recorrente), os limites de **Domínios**, **Membros** e **Conversões**, e se inclui **Filtro de tráfego**. O plano de melhor custo-benefício traz o selo **Mais popular**.
+
+		**Print pendente · `img/assinatura-planos.png`**Tela de planos com os cards, limites, selo Mais popular e o botão Assinar plano.
+
+Planos disponíveis
 
 - **Assine**
-		Clique em **Assinar plano**. O pagamento é feito no checkout da Upag, por cartão ou PIX.
+		Clique em **Assinar plano** no plano escolhido. O pagamento é feito no checkout de pagamento, por cartão ou PIX. Você pode cancelar a qualquer momento.
 
 - **Aguarde a confirmação**
 		No cartão, o acesso é liberado em segundos. No PIX, assim que o pagamento é confirmado.
@@ -2189,9 +2580,11 @@ Tela de assinatura
 
 	Tipo | Quando vale | Cobrança |
 
-		Upgrade | Na hora, depois do pagamento. | Só a diferença proporcional aos dias restantes do ciclo. |
+		Upgrade (**Fazer upgrade**) | Na hora, depois do pagamento. | Só a diferença proporcional aos dias restantes do ciclo. |
 
-		Downgrade | Na próxima renovação. | O novo valor a partir do próximo ciclo. Dá para cancelar a troca até lá. |
+		Downgrade (**Mudar para este plano**) | Na próxima renovação. | O novo valor a partir do próximo ciclo. Dá para cancelar a troca até lá. |
+
+Planos que não podem ser escolhidos no momento aparecem como **Indisponível**. O plano em uso mostra **Plano atual**.
 
 ## Cancelar e reativar
 
@@ -2224,7 +2617,7 @@ Painel de afiliados
 ## Como funciona
 
 - **Compartilhe o link**
-		Copie o **Seu link de indicação** e divulgue.
+		Clique no seu nome, no canto inferior esquerdo, e abra **Afiliados**. Clique em copiar ao lado de **Seu link de indicação** e divulgue.
 
 - **Indicado assina**
 		Quando alguém se cadastra pelo link e paga uma fatura, a comissão é registrada. A sua taxa aparece em **Sua comissão**, com o bônus do primeiro pagamento, quando houver.
@@ -2234,6 +2627,8 @@ Painel de afiliados
 
 - **Saque**
 		Clique em **Solicitar saque**, informe a chave PIX e o valor (respeitando o mínimo exibido). O pagamento é manual, por PIX, depois da aprovação.
+
+Se a sua conta for desativada, as comissões e os saques ficam pausados.
 
 ## Acompanhamento
 
@@ -4834,11 +5229,11 @@ URL: https://docs.trackup.me/conectar-mcp
 
 > Conecte Claude, ChatGPT, Cursor e outros assistentes ao Trackup e opere seus projetos conversando.
 
-O MCP (Model Context Protocol) é o padrão que deixa um assistente de IA usar ferramentas externas. Com o servidor MCP do Trackup, o assistente lista projetos, cria páginas e links, lê métricas e ajusta campanhas, sempre dentro das permissões que você der.
+O MCP (Model Context Protocol) é o padrão que deixa um assistente de IA usar ferramentas externas. Com ele, você configura o Trackup conversando. Com o servidor MCP do Trackup, o assistente lista projetos, cria páginas e links, lê métricas e ajusta campanhas, sempre dentro das permissões que você der.
 
 ## URL do servidor
 
-Cada time tem a sua URL. Copie a do seu time em **Configurações › MCP**. O formato é:
+Cada time tem a sua URL, com o ID do time no caminho. Não precisa descobrir o ID: abra **Configurações › MCP** e copie a URL pronta. O formato é:
 
 URL do servidor MCP
 
@@ -4851,6 +5246,8 @@ https://api.trackup.me/SEU_TEAM_ID/mcp
 Tela de configuração do MCP
 
 Atalho: em **Configurações › MCP**, clique em **Copiar prompt para o agente** e cole no seu assistente. Ele adiciona o servidor sozinho e explica como autorizar.
+
+Para autenticar, o servidor aceita `X-Api-Key` ou `Authorization: Bearer <token>` (token OAuth). Os dois são uma chave de API do time.
 
 ## OAuth ou chave de API
 
@@ -4947,9 +5344,21 @@ curl -X POST "https://api.trackup.me/SEU_TEAM_ID/mcp" \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}'
 ```
 
+## Testar a conexão
+
+Depois de autorizar, peça: "Liste meus projetos no Trackup." Se a lista aparecer, está conectado.
+
+	Sintoma | Causa e solução |
+
+		`401` ao conectar ou chamar | Chave ausente, inválida, revogada, expirada ou de outro time. Reautorize o conector ou crie outra chave. |
+
+		Ferramenta ou projeto não aparece | A chave não tem a permissão ou o projeto. Edite a chave em [Chaves de API](https://docs.trackup.me/chaves-de-api) e reconecte o assistente para atualizar a lista. |
+
+		Não consigo autorizar | Falta a permissão **Criar** em **API Keys (MCP)**. |
+
 ## O que o assistente consegue fazer
 
-Cada ferramenta corresponde a uma operação da [API](https://docs.trackup.me/api). Projetos, analytics, páginas e links aparecem como ferramentas diretas. Pixels, acionadores, domínios, dashboards, gerenciador de anúncios, plataformas de venda, fontes de tráfego e filtro são acessados por ferramentas de busca de operações.
+Cada ferramenta corresponde a uma operação da [API](https://docs.trackup.me/api). Projetos, analytics, páginas e links aparecem como ferramentas diretas, junto com `search` e `fetch` (busca e leitura de projetos, páginas e links) e as ferramentas do construtor de páginas (`listPageBlocks`, `composeBuilderPage`, `editBuilderPage`). Pixels, acionadores, domínios, dashboards, gerenciador de anúncios, plataformas de venda, fontes de tráfego e filtro são acessados em três passos: `findOperations` (encontrar), `describeOperation` (ver os campos) e `runReadOperation` ou `runOperation` (executar).
 
 	AnalisarVisão geral do projeto, conversões, visitantes, requisições e dashboards.
 
@@ -4957,7 +5366,7 @@ Cada ferramenta corresponde a uma operação da [API](https://docs.trackup.me/ap
 
 	Configurar o funilPixels com acionadores, links, testes A/B, domínios e regras de filtro.
 
-	Operar campanhasLer o Gerenciador de anúncios, pausar e ajustar orçamentos.
+	Operar campanhasLer o Gerenciador de anúncios, pausar campanhas e ajustar orçamentos.
 
 O assistente não acessa cobrança, membros, gestão de chaves, exclusão de projeto nem conexões OAuth (Meta, Nuvemshop).
 
@@ -4973,11 +5382,13 @@ O assistente não acessa cobrança, membros, gestão de chaves, exclusão de pro
 
 - "Quais anúncios gastaram mais de R$ 200 ontem sem vender?"
 
+- "Crie um pixel com acionadores de pageview, início de checkout e conversão."
+
 ## Segurança
 
 - **Dê só o necessário.** Restrinja permissões e projetos na autorização.
 
-- **Publicar muda o que está no ar.** O assistente pede confirmação antes de republicar uma página editada ou publicar o projeto.
+- **Publicar muda o que está no ar.** Uma página recém-criada é publicada direto. O assistente pede confirmação antes de republicar uma página editada ou publicar o projeto.
 
 - **Tudo fica registrado.** Cada chamada aparece em **Chaves de API › Ver histórico**, marcada como MCP.
 
@@ -4991,7 +5402,7 @@ URL: https://docs.trackup.me/agentes-de-ia
 
 > Dê a agentes e automações acesso controlado ao Trackup pela API, com permissões, projetos e histórico.
 
-Agentes de IA e automações com LLM usam o Trackup pela mesma API de qualquer integração, com uma [chave de API](https://docs.trackup.me/chaves-de-api) no header `X-Api-Key`. Se você usa Claude, ChatGPT, Cursor ou VS Code, o caminho mais simples é o [servidor MCP](https://docs.trackup.me/conectar-mcp).
+Agentes de IA e automações com LLM usam o Trackup pela mesma API de qualquer integração, com uma [chave de API](https://docs.trackup.me/chaves-de-api) no header `X-Api-Key`. Se o seu assistente de IA ou editor de código suporta MCP, o caminho mais simples é o [servidor MCP](https://docs.trackup.me/conectar-mcp): você conecta uma vez e conversa, sem escrever requisições.
 
 ## O que um agente pode fazer
 
@@ -5003,7 +5414,7 @@ Agentes de IA e automações com LLM usam o Trackup pela mesma API de qualquer i
 
 		Ler métricas e listas | `GET /v1/projects/{id}/analytics/overview`, `/conversions`, `/visitors`, `/requests` | `analytics.read`, `conversion.list`, `visitor.list`, `request.list` |
 
-		Acompanhar e ajustar campanhas da Meta | `/v1/ads-manager/{projectId}/summary`, `/table`, `/entities/{id}/status`, `/budget` | `ads-manager.read`, `ads-manager.update` |
+		Acompanhar e ajustar campanhas de anúncios | `/v1/ads-manager/{projectId}/summary`, `/table`, `/entities/{id}/status`, `/budget` | `ads-manager.read`, `ads-manager.update` |
 
 		Configurar projetos | Pixels, acionadores, domínios, links, páginas, fontes de tráfego, plataformas de venda, filtro | As do recurso, como `page.create` |
 
@@ -5015,7 +5426,7 @@ Cobrança, membros, gestão de chaves, exclusão de projeto e conexões OAuth n�
 		Anote os endpoints e as permissões da tabela acima. Um agente que registra vendas precisa só de `conversion.create`. Um agente de relatórios só lê.
 
 - **Crie uma chave só para ele**
-		Em **Configurações › Chaves de API › Nova chave**, dê um nome como Agente de relatórios, escolha só os projetos necessários e marque só as permissões anotadas.
+		Abra o menu do usuário, clique em **Configurações › Chaves de API** e em **Nova chave**. Dê um nome como Agente de relatórios, escolha só os projetos necessários e marque só as permissões anotadas. Veja o passo a passo em [Chaves de API](https://docs.trackup.me/chaves-de-api).
 
 - **Guarde a chave fora do prompt**
 		Salve em uma variável de ambiente ou no cofre de segredos da plataforma do agente. A chave fica no código que faz a requisição, nunca no prompt, na memória do modelo ou em logs.
@@ -5083,7 +5494,7 @@ Cada fluxo mostra as permissões, as chamadas em ordem e o que fazer com a respo
 
 		Relatório diário | `project.list`, `analytics.read`, `conversion.list` |
 
-		Controlar campanhas da Meta | `ads-manager.read`, `ads-manager.update` |
+		Controlar campanhas de anúncios | `ads-manager.read`, `ads-manager.update` |
 
 		Auditar tráfego | `request.list`, `request-log.list`, `visitor.list`, `visitor.read` |
 
@@ -5149,9 +5560,9 @@ Visitantes únicos: 9.912 · Conversões: 143 · Receita: R$ 71.051,00
 Principal fonte: meta (61% da receita)
 ```
 
-## Controlar campanhas da Meta
+## Controlar campanhas de anúncios
 
-Pré-requisito: conta conectada no [Gerenciador de anúncios](https://docs.trackup.me/gerenciador-de-anuncios). A conexão com o Facebook é feita por uma pessoa no painel.
+Pré-requisito: conta de anúncios conectada no [Gerenciador de anúncios](https://docs.trackup.me/gerenciador-de-anuncios). A conexão é feita por uma pessoa no painel; chaves de API não conectam contas.
 
 - **Descubra as contas**
 

@@ -15,8 +15,8 @@ Documentação completa em um só arquivo: https://docs.trackup.me/llms-full.txt
 - [Times e membros](https://docs.trackup.me/times-e-membros): Organize sua operação em times, convide pessoas e defina o que cada uma pode fazer.
 - [Projetos](https://docs.trackup.me/projetos): Um projeto reúne domínios, páginas, pixels, regras e relatórios de uma operação.
 - [Domínios](https://docs.trackup.me/dominios): Sirva páginas e links no seu próprio domínio ou subdomínio.
-- [Pixels](https://docs.trackup.me/pixels): Conecte Meta, Google Ads, TikTok e Kwai para enviar os eventos do funil pelo servidor.
-- [Fontes de tráfego](https://docs.trackup.me/fontes-de-trafego): Gere os parâmetros de UTM que identificam campanha, conjunto e anúncio de cada clique.
+- [Pixels](https://docs.trackup.me/pixels): Conecte sua conta de anúncios para enviar os eventos do funil pelo servidor (API de conversões).
+- [Fontes de tráfego](https://docs.trackup.me/fontes-de-trafego): Gere os parâmetros de URL que identificam campanha, conjunto e anúncio de cada clique.
 - [Plataformas de venda](https://docs.trackup.me/plataformas-de-venda): Receba vendas, reembolsos e chargebacks por webhook e ligue cada venda ao anúncio de origem.
 - [Script de rastreamento](https://docs.trackup.me/script): Rastreie páginas hospedadas fora do Trackup, identifique visitantes e envie eventos customizados.
 

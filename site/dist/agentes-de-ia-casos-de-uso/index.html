@@ -15,21 +15,21 @@
 <meta property="og:title" content="Casos de uso para agentes">
 <meta property="og:description" content="Fluxos prontos para registrar vendas, gerar relatórios, controlar campanhas e auditar tráfego pela API.">
 <meta property="og:url" content="https://docs.trackup.me/agentes-de-ia-casos-de-uso">
-<meta property="og:image" content="https://assets.trackup.cloud/assets/pages/79c6dd09-808f-4a9d-b4d9-a079c67f77ae/og.jpg">
+<meta property="og:image" content="https://docs.trackup.me/assets/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Trackup Docs">
-<meta property="article:modified_time" content="2026-11-13T12:16:59+00:00">
+<meta property="article:modified_time" content="2026-11-14T05:43:30+00:00">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Casos de uso para agentes">
 <meta name="twitter:description" content="Fluxos prontos para registrar vendas, gerar relatórios, controlar campanhas e auditar tráfego pela API.">
-<meta name="twitter:image" content="https://assets.trackup.cloud/assets/pages/79c6dd09-808f-4a9d-b4d9-a079c67f77ae/og.jpg">
+<meta name="twitter:image" content="https://docs.trackup.me/assets/og.jpg">
 <meta name="theme-color" content="#4f39f6">
-<link rel="icon" type="image/svg+xml" href="https://assets.trackup.cloud/assets/pages/79c6dd09-808f-4a9d-b4d9-a079c67f77ae/favicon.svg">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <script>(function(){try{var t=localStorage.getItem('tu-theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
-<link rel="stylesheet" href="https://assets.trackup.cloud/assets/pages/79c6dd09-808f-4a9d-b4d9-a079c67f77ae/style.css">
-<script src="https://assets.trackup.cloud/assets/pages/79c6dd09-808f-4a9d-b4d9-a079c67f77ae/shell.js"></script>
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","headline":"Casos de uso para agentes","description":"Fluxos prontos para registrar vendas, gerar relatórios, controlar campanhas e auditar tráfego pela API.","url":"https://docs.trackup.me/agentes-de-ia-casos-de-uso","inLanguage":"pt-BR","dateModified":"2026-11-13T12:16:59+00:00","image":"https://assets.trackup.cloud/assets/pages/79c6dd09-808f-4a9d-b4d9-a079c67f77ae/og.jpg","isPartOf":{"@type":"WebSite","name":"Trackup Docs","url":"https://docs.trackup.me/"},"publisher":{"@type":"Organization","name":"Trackup","url":"https://trackup.me","logo":"https://assets.trackup.cloud/assets/pages/79c6dd09-808f-4a9d-b4d9-a079c67f77ae/favicon.svg"},"about":{"@type":"SoftwareApplication","name":"Trackup","applicationCategory":"BusinessApplication","url":"https://trackup.me"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Trackup Docs","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":2,"name":"IA e MCP","item":"https://docs.trackup.me/conectar-mcp"},{"@type":"ListItem","position":3,"name":"Casos de uso para agentes","item":"https://docs.trackup.me/agentes-de-ia-casos-de-uso"}]}]</script>
+<link rel="stylesheet" href="/assets/style.css">
+<script src="/assets/shell.js"></script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","headline":"Casos de uso para agentes","description":"Fluxos prontos para registrar vendas, gerar relatórios, controlar campanhas e auditar tráfego pela API.","url":"https://docs.trackup.me/agentes-de-ia-casos-de-uso","inLanguage":"pt-BR","dateModified":"2026-11-14T05:43:30+00:00","image":"https://docs.trackup.me/assets/og.jpg","isPartOf":{"@type":"WebSite","name":"Trackup Docs","url":"https://docs.trackup.me/"},"publisher":{"@type":"Organization","name":"Trackup","url":"https://trackup.me","logo":"https://docs.trackup.me/assets/favicon.svg"},"about":{"@type":"SoftwareApplication","name":"Trackup","applicationCategory":"BusinessApplication","url":"https://trackup.me"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Trackup Docs","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":2,"name":"IA e MCP","item":"https://docs.trackup.me/conectar-mcp"},{"@type":"ListItem","position":3,"name":"Casos de uso para agentes","item":"https://docs.trackup.me/agentes-de-ia-casos-de-uso"}]}]</script>
 </head>
 <body>
 <script>TU.header()</script>
@@ -47,7 +47,7 @@
 	<tbody>
 		<tr><td><a href="#registrar-vendas-de-um-crm-ou-checkout">Registrar vendas de um CRM ou checkout</a></td><td><code>conversion.create</code></td></tr>
 		<tr><td><a href="#relatorio-diario">Relatório diário</a></td><td><code>project.list</code>, <code>analytics.read</code>, <code>conversion.list</code></td></tr>
-		<tr><td><a href="#controlar-campanhas-da-meta">Controlar campanhas da Meta</a></td><td><code>ads-manager.read</code>, <code>ads-manager.update</code></td></tr>
+		<tr><td><a href="#controlar-campanhas-de-anuncios">Controlar campanhas de anúncios</a></td><td><code>ads-manager.read</code>, <code>ads-manager.update</code></td></tr>
 		<tr><td><a href="#auditar-trafego">Auditar tráfego</a></td><td><code>request.list</code>, <code>request-log.list</code>, <code>visitor.list</code>, <code>visitor.read</code></td></tr>
 	</tbody>
 </table>
@@ -99,8 +99,8 @@ Principal fonte: meta (61% da receita)</code></pre></div>
 	</li>
 </ol>
 
-<h2 id="controlar-campanhas-da-meta">Controlar campanhas da Meta<a class="anchor" href="#controlar-campanhas-da-meta" aria-label="Link para esta seção">#</a></h2>
-<p>Pré-requisito: conta conectada no <a href="/gerenciador-de-anuncios">Gerenciador de anúncios</a>. A conexão com o Facebook é feita por uma pessoa no painel.</p>
+<h2 id="controlar-campanhas-de-anuncios">Controlar campanhas de anúncios<a class="anchor" href="#controlar-campanhas-de-anuncios" aria-label="Link para esta seção">#</a></h2>
+<p>Pré-requisito: conta de anúncios conectada no <a href="/gerenciador-de-anuncios">Gerenciador de anúncios</a>. A conexão é feita por uma pessoa no painel; chaves de API não conectam contas.</p>
 <ol class="steps">
 	<li><span class="step-title">Descubra as contas</span>
 		<div class="code"><pre><code class="lang-bash">curl https://api.trackup.me/v1/ads-manager/PROJECT_ID/accounts -H &quot;X-Api-Key: $TRACKUP_API_KEY&quot;</code></pre></div>
@@ -141,7 +141,7 @@ Principal fonte: meta (61% da receita)</code></pre></div>
 			<noscript><p class="site-footer"><a href="/">Início</a> · <a href="/llms.txt">Índice completo</a> · <a href="/sitemap.xml">Mapa do site</a></p></noscript>
 		</article>
 	</main>
-	<aside class="toc"><div class="toc-title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg> Nesta página</div><ul><li class="lvl-2"><a href="#registrar-vendas-de-um-crm-ou-checkout">Registrar vendas de um CRM ou checkout</a></li><li class="lvl-2"><a href="#relatorio-diario">Relatório diário</a></li><li class="lvl-2"><a href="#controlar-campanhas-da-meta">Controlar campanhas da Meta</a></li><li class="lvl-2"><a href="#auditar-trafego">Auditar tráfego</a></li></ul></aside>
+	<aside class="toc"><div class="toc-title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg> Nesta página</div><ul><li class="lvl-2"><a href="#registrar-vendas-de-um-crm-ou-checkout">Registrar vendas de um CRM ou checkout</a></li><li class="lvl-2"><a href="#relatorio-diario">Relatório diário</a></li><li class="lvl-2"><a href="#controlar-campanhas-de-anuncios">Controlar campanhas de anúncios</a></li><li class="lvl-2"><a href="#auditar-trafego">Auditar tráfego</a></li></ul></aside>
 </div>
 <script>TU.end()</script>
 </body>

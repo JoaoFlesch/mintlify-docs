@@ -15,21 +15,21 @@
 <meta property="og:title" content="Visitantes">
 <meta property="og:description" content="Acompanhe a jornada de cada visitante, do primeiro clique às compras, reembolsos e chargebacks.">
 <meta property="og:url" content="https://docs.trackup.me/visitantes">
-<meta property="og:image" content="https://assets.trackup.cloud/assets/pages/79c6dd09-808f-4a9d-b4d9-a079c67f77ae/og.jpg">
+<meta property="og:image" content="https://docs.trackup.me/assets/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Trackup Docs">
-<meta property="article:modified_time" content="2026-11-12T20:34:17+00:00">
+<meta property="article:modified_time" content="2026-11-14T05:44:05+00:00">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Visitantes">
 <meta name="twitter:description" content="Acompanhe a jornada de cada visitante, do primeiro clique às compras, reembolsos e chargebacks.">
-<meta name="twitter:image" content="https://assets.trackup.cloud/assets/pages/79c6dd09-808f-4a9d-b4d9-a079c67f77ae/og.jpg">
+<meta name="twitter:image" content="https://docs.trackup.me/assets/og.jpg">
 <meta name="theme-color" content="#4f39f6">
-<link rel="icon" type="image/svg+xml" href="https://assets.trackup.cloud/assets/pages/79c6dd09-808f-4a9d-b4d9-a079c67f77ae/favicon.svg">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <script>(function(){try{var t=localStorage.getItem('tu-theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
-<link rel="stylesheet" href="https://assets.trackup.cloud/assets/pages/79c6dd09-808f-4a9d-b4d9-a079c67f77ae/style.css">
-<script src="https://assets.trackup.cloud/assets/pages/79c6dd09-808f-4a9d-b4d9-a079c67f77ae/shell.js"></script>
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","headline":"Visitantes","description":"Acompanhe a jornada de cada visitante, do primeiro clique às compras, reembolsos e chargebacks.","url":"https://docs.trackup.me/visitantes","inLanguage":"pt-BR","dateModified":"2026-11-12T20:34:17+00:00","image":"https://assets.trackup.cloud/assets/pages/79c6dd09-808f-4a9d-b4d9-a079c67f77ae/og.jpg","isPartOf":{"@type":"WebSite","name":"Trackup Docs","url":"https://docs.trackup.me/"},"publisher":{"@type":"Organization","name":"Trackup","url":"https://trackup.me","logo":"https://assets.trackup.cloud/assets/pages/79c6dd09-808f-4a9d-b4d9-a079c67f77ae/favicon.svg"},"about":{"@type":"SoftwareApplication","name":"Trackup","applicationCategory":"BusinessApplication","url":"https://trackup.me"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Trackup Docs","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":2,"name":"Guias","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":3,"name":"Visitantes","item":"https://docs.trackup.me/visitantes"}]}]</script>
+<link rel="stylesheet" href="/assets/style.css">
+<script src="/assets/shell.js"></script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","headline":"Visitantes","description":"Acompanhe a jornada de cada visitante, do primeiro clique às compras, reembolsos e chargebacks.","url":"https://docs.trackup.me/visitantes","inLanguage":"pt-BR","dateModified":"2026-11-14T05:44:05+00:00","image":"https://docs.trackup.me/assets/og.jpg","isPartOf":{"@type":"WebSite","name":"Trackup Docs","url":"https://docs.trackup.me/"},"publisher":{"@type":"Organization","name":"Trackup","url":"https://trackup.me","logo":"https://docs.trackup.me/assets/favicon.svg"},"about":{"@type":"SoftwareApplication","name":"Trackup","applicationCategory":"BusinessApplication","url":"https://trackup.me"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Trackup Docs","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":2,"name":"Guias","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":3,"name":"Visitantes","item":"https://docs.trackup.me/visitantes"}]}]</script>
 </head>
 <body>
 <script>TU.header()</script>
@@ -43,6 +43,21 @@
 			<script>TU.actions()</script>
 			<p>O Trackup agrupa as requisições e conversões de uma mesma pessoa em um visitante. Em <strong>Logs › Visitantes</strong>, você pode buscar por e-mail ou telefone e ver tudo o que aquela pessoa fez.</p>
 
+<h2 id="do-id-ao-lead-completo">Do ID ao lead completo<a class="anchor" href="#do-id-ao-lead-completo" aria-label="Link para esta seção">#</a></h2>
+<p>Todo visitante nasce só com um <strong>ID</strong>, gerado no primeiro acesso. A partir daí o perfil é preenchido à medida que a pessoa avança no funil.</p>
+<table>
+	<thead><tr><th>Etapa</th><th>O que passa a existir no perfil</th></tr></thead>
+	<tbody>
+		<tr><td>1. Primeiro acesso</td><td>ID do visitante, primeira visita, país, dispositivo, navegador, UTMs e click ID.</td></tr>
+		<tr><td>2. Novos acessos</td><td>Requisições e eventos (page view, add to cart, start checkout) na linha do tempo. Aparece como visitante recorrente.</td></tr>
+		<tr><td>3. Identificação</td><td>Nome, e-mail e telefone, enviados por <code>trackup('identify', …)</code> no <a href="/script">script</a> (por exemplo, ao enviar um formulário).</td></tr>
+		<tr><td>4. Compra</td><td>A plataforma de venda envia os dados do comprador pelo webhook: nome, e-mail, telefone e endereço. A conversão fica ligada ao visitante.</td></tr>
+		<tr><td>5. Pós-venda</td><td>Reembolsos e chargebacks entram nas abas do perfil.</td></tr>
+	</tbody>
+</table>
+<figure class="shot shot-todo"><div class="shot-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><div><strong>Print pendente · <code>img/visitante-id-inicial.png</code></strong><p>Perfil de um visitante novo, só com ID, primeira visita, país e UTMs; campos de nome, e-mail e telefone vazios.</p></div></div><figcaption>Visitante recém-criado</figcaption></figure></shot>
+<figure class="shot shot-todo"><div class="shot-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><div><strong>Print pendente · <code>img/visitante-lead-completo.png</code></strong><p>O mesmo visitante após a compra, com nome, e-mail (domínio borrado), telefone, endereço (borrado) e a conversão em Atividades recentes.</p></div></div><figcaption>Lead completo</figcaption></figure></shot>
+
 <h2 id="perfil-do-visitante">Perfil do visitante<a class="anchor" href="#perfil-do-visitante" aria-label="Link para esta seção">#</a></h2>
 <p>Clique em um visitante para abrir o perfil:</p>
 <table>
@@ -54,7 +69,7 @@
 	</tbody>
 </table>
 <figure class="shot shot-todo"><div class="shot-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><div><strong>Print pendente · <code>img/visitante-perfil.png</code></strong><p>Perfil de visitante fictício na aba Geral: identificação com nome e e-mail fictícios, primeira visita, país, UTMs da primeira visita e a linha do tempo Atividades recentes com requisições e uma conversão.</p></div></div><figcaption>Perfil de um visitante</figcaption></figure></shot>
-<div class="callout note"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><div><p>Nome, e-mail e telefone são preenchidos pelos dados que a plataforma de venda envia no webhook da compra.</p></div></div>
+<div class="callout note"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><div><p>Se o mesmo e-mail ou telefone aparecer em outro acesso, o Trackup reconhece a pessoa. Use a busca por <strong>E-mail</strong> ou <strong>Telefone</strong> para achar um lead.</p></div></div>
 
 <h2 id="usos-comuns">Usos comuns<a class="anchor" href="#usos-comuns" aria-label="Link para esta seção">#</a></h2>
 <ul>
@@ -67,7 +82,7 @@
 			<noscript><p class="site-footer"><a href="/">Início</a> · <a href="/llms.txt">Índice completo</a> · <a href="/sitemap.xml">Mapa do site</a></p></noscript>
 		</article>
 	</main>
-	<aside class="toc"><div class="toc-title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg> Nesta página</div><ul><li class="lvl-2"><a href="#perfil-do-visitante">Perfil do visitante</a></li><li class="lvl-2"><a href="#usos-comuns">Usos comuns</a></li></ul></aside>
+	<aside class="toc"><div class="toc-title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg> Nesta página</div><ul><li class="lvl-2"><a href="#do-id-ao-lead-completo">Do ID ao lead completo</a></li><li class="lvl-2"><a href="#perfil-do-visitante">Perfil do visitante</a></li><li class="lvl-2"><a href="#usos-comuns">Usos comuns</a></li></ul></aside>
 </div>
 <script>TU.end()</script>
 </body>

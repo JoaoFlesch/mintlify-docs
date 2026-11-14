@@ -1,12 +1,15 @@
 # Prints pendentes
 
-Gerado pelo build. 88 prints faltando.
+Gerado pelo build. 129 prints faltando.
 
 
 ## Quick Start (/quick-start)
 
+- [ ] `img/quick-start-criar-time.png`: Tela de criação do time com o campo Nome preenchido. Sem dados sensíveis.
+- [ ] `img/quick-start-planos.png`: Tela Planos com os cards de plano lado a lado e o botão Assinar plano visível.
 - [ ] `img/quick-start-criar-projeto.png`: Menu lateral com o seletor de projetos aberto, mostrando a lista de projetos do time e o botão Criar projeto em destaque. Nomes de time e projetos fictícios.
-- [ ] `img/quick-start-form-projeto.png`: Diálogo Criar projeto preenchido com Nome = Curso de Fotografia e Moeda = Real brasileiro (BRL), com o aviso de que a moeda não pode ser alterada visível.
+- [ ] `img/quick-start-form-projeto.png`: Diálogo Criar projeto preenchido com Nome = Online Store e Moeda = Real brasileiro (BRL), com o aviso de que a moeda não pode ser alterada visível.
+- [ ] `img/quick-start-membros.png`: Diálogo de convite com o e-mail joao@ e o domínio do e-mail borrado.
 - [ ] `img/quick-start-dominio-cname.png`: Tela Ajustes › Domínios com o domínio lp.exemplo.com.br expandido, status Pendente e a tabela Type / Name / Value do registro CNAME visível. Usar domínio fictício.
 - [ ] `img/quick-start-plataforma-url.png`: Lista Integração › Plataformas de vendas com uma plataforma Hotmart 2.0 cadastrada e o botão Copiar URL em destaque. Parte do código da URL borrada.
 - [ ] `img/quick-start-oferta.png`: Diálogo Adicionar oferta na aba Redirect com Nome, Plataforma de vendas, URL de redirecionamento (checkout fictício), Status code 302 e Caminho /checkout preenchidos.
@@ -14,31 +17,91 @@ Gerado pelo build. 88 prints faltando.
 
 ## Times e membros (/times-e-membros)
 
-- [ ] `img/membros-convite.png`: Diálogo Convidar membro com e-mail fictício preenchido e a lista de permissões por área (Projetos, Páginas, Links, Pixels, Filtro etc.) parcialmente marcada.
+- [ ] `img/times-criar.png`: Tela Configurar time com o nome do time preenchido (Online Store) e a área de upload da logo.
+- [ ] `img/times-configuracoes.png`: Modal Configurações aberto em Meu Time › Configurações, com nome, logo, contato, documento (borrado), endereço (borrado) e fuso horário.
+- [ ] `img/membros-convite.png`: Diálogo Convidar membro com o e-mail de exemplo joao@upsurge.com.br (domínio borrado) e a lista de permissões por área (Projetos, Páginas, Links, Pixels, Filtro etc.) parcialmente marcada.
+
+## Projetos (/projetos)
+
+- [ ] `img/projetos-seletor.png`: Menu lateral com o seletor de projetos aberto e o botão Criar projeto em destaque.
+- [ ] `img/projetos-criar.png`: Diálogo Criar projeto preenchido com Nome = Online Store, URL e Moeda = Real brasileiro (BRL), com o aviso de que a moeda não pode ser alterada visível.
 
 ## Domínios (/dominios)
 
-- [ ] `img/dominios-cname.png`: Lista Ajustes › Domínios com um domínio fictício expandido em status Pendente, mostrando a tabela Type / Name / Value e o botão Verificar.
+- [ ] `img/dominios-adicionar.png`: Diálogo Adicionar domínio com o hostname go.yourdomain.com preenchido.
+- [ ] `img/dominios-cname.png`: Lista Ajustes › Domínios com go.yourdomain.com expandido em status Pendente, mostrando a tabela Type / Name / Value e o botão Verificar.
+- [ ] `img/dominios-verificado.png`: Lista de domínios com go.yourdomain.com em status Verificado e o selo de primário.
+
+## Pixels (/pixels)
+
+- [ ] `img/pixels-adicionar.png`: Diálogo Adicionar pixel com Tipo = Meta, Nome, Pixel ID e Access Token (borrado). Credenciais do pixel de demonstração, token sempre borrado.
+
+## Fontes de tráfego (/fontes-de-trafego)
+
+- [ ] `img/fontes-adicionar.png`: Diálogo Adicionar fonte com o nome Meta Ads e o tipo Meta selecionado.
+- [ ] `img/fontes-parametros.png`: Fonte Meta salva com o bloco Parâmetros de URL e o botão de copiar em destaque.
+
+## Plataformas de venda (/plataformas-de-venda)
+
+- [ ] `img/plataformas-adicionar.png`: Diálogo Adicionar plataforma com o seletor Plataforma aberto, mostrando a lista pesquisável.
+- [ ] `img/plataformas-parametros.png`: Seção Parâmetros avançados aberta com um parâmetro personalizado e o botão Inserir macro.
+- [ ] `img/plataformas-lista.png`: Lista com as colunas Plataforma, Código e URL, e o botão Copiar URL em destaque. Parte da URL borrada.
 
 ## Script de rastreamento (/script)
 
 - [ ] `img/script-snippet.png`: Tela Ajustes › Geral rolada até a seção Segurança, com Domínios permitidos e o bloco Snippet de rastreamento com o botão Copiar. ID do projeto borrado.
 
+## Páginas (/paginas)
+
+- [ ] `img/paginas-adicionar.png`: Diálogo Adicionar página aberto com as abas Redirect, Builder, Upload HTML e Clonar URL visíveis, aba Builder selecionada, Nome preenchido e Caminho /.
+- [ ] `img/paginas-lista.png`: Lista de Páginas com uma página Builder, uma Redirect e uma HTML, colunas Tipo, Nome, Link e Destino (Publicada e Rascunho) e o menu de ações de uma linha aberto.
+
 ## Ofertas (/ofertas)
 
-- [ ] `img/ofertas-criar.png`: Diálogo Adicionar oferta na aba Redirect com Nome, Plataforma de vendas selecionada, URL de redirecionamento de checkout fictício, Status Code 302 e Caminho /checkout.
+- [ ] `img/ofertas-criar.png`: Diálogo Adicionar oferta na aba Redirect com Nome (ex.: Product A - Checkout 1), Plataforma de vendas Upag selecionada, URL de redirecionamento de checkout, Status Code 302 e Caminho /checkout-1.
+- [ ] `img/ofertas-lista.png`: Lista de Ofertas com 2 produtos e 3 ofertas (Product A - Checkout 1, Product A - Checkout 2, Product B - Checkout), coluna Link com botão de copiar e Destino Publicada.
+
+## Builder (/builder)
+
+- [ ] `img/builder-templates.png`: Seletor de templates do Builder com os templates disponíveis lado a lado e a opção de canvas vazio.
+- [ ] `img/builder-editor.png`: Editor aberto com uma página de exemplo (hero com título e botão de compra, depois um depoimento), botão selecionado, painel lateral com as abas Componentes, Blocos e Camadas, e inspetor com as abas Estilo e Config. Anotar as quatro áreas.
+- [ ] `img/builder-botao-destino.png`: Aba Config do botão selecionado, com Evento de clique e Destino preenchido com o link de uma oferta.
+- [ ] `img/builder-responsivo.png`: Editor com a visualização Mobile ativa na barra superior e a página de exemplo no formato do celular.
+
+## Upload HTML (/upload-html)
+
+- [ ] `img/upload-html.png`: Aba Upload HTML do diálogo Adicionar página com Nome, Caminho /lp-html, arquivo pagina.html selecionado e o botão Enviar arquivo.
+
+## Clonar URL (/clonar-url)
+
+- [ ] `img/clonar-url.png`: Aba Clonar URL do diálogo Adicionar página com Nome, Caminho e a URL de origem preenchida (a página HTML criada antes), com o botão Clonar página.
+
+## Redirect (/redirect)
+
+- [ ] `img/redirect-criar.png`: Aba Redirect do diálogo Adicionar página com Nome, URL de redirecionamento apontando para a página criada no Builder, Status Code 302 e Caminho /promo.
 
 ## Versões e arquivos (/versoes-e-arquivos)
 
+- [ ] `img/arquivos-editor.png`: Editor de arquivos de uma página HTML com index.html aberto, árvore à esquerda, código no centro e Preview à direita, com os botões Novo arquivo, Nova pasta, Fazer upload e Publicar visíveis.
 - [ ] `img/versoes-historico.png`: Painel Histórico de uma página HTML com 4 versões, a mais recente marcada como Atual, outra como Publicada, e o botão Restaurar visível em uma versão antiga.
 
 ## Testes A/B (/testes-ab)
 
+- [ ] `img/testes-ab-criar.png`: Diálogo Criar teste A/B com Nome, Slug /lp-teste, Tipo de teste Página e duas variantes em 50% (Página LP Builder e Página LP HTML), com Adicionar variante e Balancear pesos visíveis.
+- [ ] `img/testes-ab-lista.png`: Lista de Testes A/B com um teste de Checkout (ofertas) e um teste de Página (LP Builder contra LP HTML), mostrando nome, link e tipo.
 - [ ] `img/testes-ab-relatorio.png`: Aba Teste A/B do relatório com duas variantes, uma marcada como Vencedora, a frase de conclusão com o percentual de confiança, o gráfico de conversão acumulada e o botão Enviar 100% para a variante.
 
 ## Acionadores (/acionadores)
 
+- [ ] `img/acionadores-condicoes.png`: Formulário Criar acionador com duas condições: Tipo de evento Igual a conversion e UTM Campaign Contém black-friday, e o botão Adicionar condição visível.
+- [ ] `img/acionadores-evento-personalizado.png`: Acionador com a condição Tipo customizado Igual a lead_form_submitted e ação Pixel Meta com o evento Lead. Nome e ID do pixel borrados.
 - [ ] `img/acionadores-acao-pixel.png`: Bloco Ação Pixel com um pixel Meta selecionado, Evento Purchase, um parâmetro de evento e os switches Disparar via servidor (ligado) e Disparar via navegador (desligado).
+- [ ] `img/acionadores-acao-webhook.png`: Bloco Ação Webhook com método POST, URL yourdomain.com/hook e parâmetros email, valor e campanha preenchidos com tokens.
+
+## Filtro (/filtro)
+
+- [ ] `img/filtro-templates.png`: Formulário Criar regra com o seletor Usar template aberto, mostrando as 3 regras sugeridas.
+- [ ] `img/filtro-lista.png`: Tela Filtro com os cards Total de requests, Página de oferta, Safe page e Bots, o gráfico Requests por decisão e a tabela de regras (Nome, Peso, Expressão, Ação, Acessos, Ativo) com 3 regras.
 
 ## Modo básico (/filtro-basico)
 
@@ -50,6 +113,7 @@ Gerado pelo build. 88 prints faltando.
 
 ## Dashboards (/dashboards)
 
+- [ ] `img/dashboard-padrao.png`: Dashboard Padrão com período selecionado e os cards Lucro, Vendas, Funil, Acessos totais e Status de pagamentos preenchidos com dados de exemplo.
 - [ ] `img/dashboard-adicionar-cards.png`: Modal Adicionar cards com as categorias Vendas, Tráfego e Clientes, dois cards marcados e o botão Adicionar 2 cards.
 
 ## Gerenciador de anúncios (/gerenciador-de-anuncios)
@@ -64,11 +128,26 @@ Gerado pelo build. 88 prints faltando.
 
 ## Visitantes (/visitantes)
 
+- [ ] `img/visitante-id-inicial.png`: Perfil de um visitante novo, só com ID, primeira visita, país e UTMs; campos de nome, e-mail e telefone vazios.
+- [ ] `img/visitante-lead-completo.png`: O mesmo visitante após a compra, com nome, e-mail (domínio borrado), telefone, endereço (borrado) e a conversão em Atividades recentes.
 - [ ] `img/visitante-perfil.png`: Perfil de visitante fictício na aba Geral: identificação com nome e e-mail fictícios, primeira visita, país, UTMs da primeira visita e a linha do tempo Atividades recentes com requisições e uma conversão.
+
+## Conversões (/conversoes)
+
+- [ ] `img/conversoes-lista.png`: Logs › Conversões com filtros e uma lista de vendas (plataforma, valor, status Pago, fonte de tráfego), uma delas com o selo Configuração incompleta.
+- [ ] `img/conversoes-detalhe.png`: Conversão expandida mostrando os grupos Venda, Atribuição, Marketing e Anúncios com dados de exemplo; IP borrado.
+
+## Reembolsos e chargebacks (/reembolsos-e-chargebacks)
+
+- [ ] `img/reembolsos-lista.png`: Logs › Conversões na aba Reembolsos com um reembolso listado, mostrando a conversão de origem e a atribuição (campanha, conjunto, anúncio).
 
 ## Logs de acionadores (/logs-de-acionadores)
 
 - [ ] `img/logs-acionadores.png`: Tela Logs de acionadores com filtro por acionador e status, lista com disparos Sucesso e um Erro, e o painel de detalhe aberto mostrando Request e Response. Pixel IDs e tokens borrados.
+
+## Produtos (/produtos)
+
+- [ ] `img/produtos.png`: Tela Produtos com o filtro Plataforma de venda e dois produtos de exemplo, um deles expandido mostrando duas ofertas e a coluna Primeira venda.
 
 ## Configurações (/configuracoes)
 
@@ -76,11 +155,12 @@ Gerado pelo build. 88 prints faltando.
 
 ## Chaves de API (/chaves-de-api)
 
-- [ ] `img/chaves-criar.png`: Modal Criar chave de API com Nome n8n produção, Expira em vazio, um projeto selecionado e a lista de permissões com Páginas e Links marcados.
+- [ ] `img/chaves-criar.png`: Modal Criar chave de API com Nome Automação produção, Expira em vazio, um projeto selecionado e a lista de permissões com Páginas e Links marcados.
 
 ## Assinatura (/assinatura)
 
 - [ ] `img/assinatura.png`: Configurações › Assinatura com o card Assinatura atual (plano, status Ativo, Próxima cobrança), Histórico de faturas com 3 faturas pagas e Métodos de pagamento com um cartão Padrão (número mascarado).
+- [ ] `img/assinatura-planos.png`: Tela de planos com os cards, limites, selo Mais popular e o botão Assinar plano.
 
 ## Afiliados (/afiliados)
 

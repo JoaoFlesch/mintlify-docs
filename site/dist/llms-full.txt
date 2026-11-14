@@ -118,7 +118,7 @@ Convite de membro
 
 ## 3. Conecte seu domínio
 
-Páginas em domínio próprio passam mais confiança, preservam a reputação do seu domínio nas plataformas de anúncio e evitam bloqueios. Recomendamos um subdomínio dedicado, como `go.yourdomain.com` ou `go.seudominio.com`.
+Páginas em domínio próprio passam mais confiança, preservam a reputação do seu domínio nas plataformas de anúncio e evitam bloqueios. Recomendamos um subdomínio dedicado, como `go.yourdomain.com` ou `lp.yourdomain.com`.
 
 - **Abra Domínios**
 		No menu lateral, vá em **Ajustes › Domínios** e clique em **Adicionar domínio**.
@@ -549,6 +549,8 @@ URL: https://docs.trackup.me/dominios
 
 > Sirva páginas e links no seu próprio domínio ou subdomínio.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Adicione o domínio go.yourdomain.com ao projeto Online Store."
+
 Todo projeto nasce com um domínio padrão do Trackup. Para anunciar, use um domínio seu: ele passa mais confiança, protege a reputação da sua marca nas plataformas de anúncio e mantém cookies e atribuição no mesmo endereço.
 
 ## Subdomínio ou domínio raiz
@@ -631,6 +633,8 @@ Trocar o primário muda os links e as URLs de webhook gerados a partir dali. Lin
 URL: https://docs.trackup.me/pixels
 
 > Conecte sua conta de anúncios para enviar os eventos do funil pelo servidor (API de conversões).
+
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie um pixel Meta com acionadores de pageview, início de checkout e conversão."
 
 Um pixel guarda as credenciais da API de conversões de uma plataforma de anúncios. Os [acionadores](https://docs.trackup.me/acionadores) usam o pixel para enviar eventos do funil, como `page_view`, `start_checkout` e `conversion`, direto do servidor do Trackup. Isso evita perdas por bloqueadores de anúncio e navegadores com restrição de cookies.
 
@@ -733,6 +737,8 @@ URL: https://docs.trackup.me/fontes-de-trafego
 
 > Gere os parâmetros de URL que identificam campanha, conjunto e anúncio de cada clique.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie uma fonte de tráfego Meta com o template de UTM padrão."
+
 Uma fonte de tráfego representa uma plataforma onde você anuncia. Ela gera o bloco de **Parâmetros de URL** que você cola no anúncio. Esses parâmetros usam as macros da própria plataforma para preencher, a cada clique, o nome e o ID da campanha, do conjunto e do anúncio. É isso que permite ao Trackup ligar cada venda ao anúncio de origem.
 
 ## Plataformas disponíveis
@@ -800,6 +806,8 @@ Links do tipo Anúncio, criados antes dos testes A/B, continuam funcionando mas 
 URL: https://docs.trackup.me/plataformas-de-venda
 
 > Receba vendas, reembolsos e chargebacks por webhook e ligue cada venda ao anúncio de origem.
+
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Conecte uma plataforma de venda ao projeto e me dê a URL do webhook."
 
 A plataforma de venda é onde o cliente paga: um gateway de pagamento, uma plataforma de infoprodutos ou uma loja virtual. Integrada ao Trackup, ela envia um webhook a cada venda, reembolso ou chargeback, e o Trackup registra a conversão com a campanha que gerou o clique.
 
@@ -1189,6 +1197,8 @@ URL: https://docs.trackup.me/builder
 
 > Monte páginas no editor visual com componentes, blocos prontos e templates, sem escrever código.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Monte uma landing page com hero, botão e depoimento e publique."
+
 O Builder é o editor visual do Trackup. Você arrasta componentes e blocos para o canvas, ajusta textos, imagens e estilos e publica no seu domínio. A página já sai com rastreamento. Para um passo a passo completo, veja o [tutorial de landing page](https://docs.trackup.me/tutorial-landing-builder).
 
 ## Criar uma página no Builder
@@ -1372,6 +1382,8 @@ URL: https://docs.trackup.me/clonar-url
 
 > Copie uma página que já está no ar para o seu domínio no Trackup.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Clone esta página: https://example.com/landing."
+
 Informe a URL de uma página e o Trackup captura o HTML e os arquivos do mesmo domínio (CSS, JS, imagens). O resultado vira uma página HTML que você edita como um upload.
 
 ## Clonar
@@ -1512,6 +1524,8 @@ URL: https://docs.trackup.me/testes-ab
 
 > Divida o tráfego entre páginas ou checkouts, compare as vendas e envie tudo para a variante vencedora.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie um teste A/B com as páginas A e B, 50% cada."
+
 Um teste A/B é um link que distribui os visitantes entre duas ou mais variantes, conforme os pesos que você define. O Trackup mede requisições, visitantes, conversões e receita de cada variante e diz quando já dá para escolher uma vencedora.
 
 ## Tipos de teste
@@ -1613,6 +1627,8 @@ Clique em **Enviar 100% para** a variante vencedora e confirme. As outras ficam 
 URL: https://docs.trackup.me/acionadores
 
 > Envie eventos para pixels e webhooks quando o tráfego atender às condições que você define.
+
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie um acionador de conversão que envie o valor e o ID da transação."
 
 Um acionador observa os eventos do projeto. Quando um evento atende a todas as condições, ele executa as ações: enviar o evento para um ou mais [pixels](https://docs.trackup.me/pixels) ou chamar um webhook.
 
@@ -1807,6 +1823,8 @@ Um acionador sem condição de **Tipo de evento** dispara em todos os eventos. Q
 URL: https://docs.trackup.me/filtro
 
 > Decida o que acontece com cada acesso antes de a página carregar. Bloqueie bots, países e curiosos.
+
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie uma regra que bloqueie tráfego fora do Brasil."
 
 O Filtro avalia cada requisição que chega ao seu domínio, antes de servir a página. Cada regra tem condições e uma ação. A primeira regra que corresponder decide o que acontece com o visitante.
 
@@ -2057,6 +2075,8 @@ URL: https://docs.trackup.me/dashboards
 
 > Monte painéis com os números que importam para você. Lucro, funil, origem das vendas e qualidade do tráfego.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Quantas conversões tive esta semana, por fonte de tráfego?"
+
 Cada projeto pode ter vários dashboards, cada um com seus cards e seu layout. Todos os cards de um dashboard usam o mesmo período, escolhido no topo da tela.
 
 **Print pendente · `img/dashboard-padrao.png`**Dashboard Padrão com período selecionado e os cards Lucro, Vendas, Funil, Acessos totais e Status de pagamentos preenchidos com dados de exemplo.
@@ -2128,6 +2148,8 @@ Crie um dashboard por objetivo, como um de Lucro diário para acompanhar campanh
 URL: https://docs.trackup.me/gerenciador-de-anuncios
 
 > Veja investimento e vendas reais de cada campanha, conjunto e anúncio da Meta em uma só tabela.
+
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Quais anúncios gastaram mais de R$ 200 ontem sem vender?"
 
 O Gerenciador de anúncios sincroniza suas contas da Meta e cruza os dados de entrega (investimento, impressões, cliques) com as vendas que o Trackup atribuiu a cada anúncio. Assim você vê ROAS e CPA com base em vendas confirmadas pela plataforma de venda, e não só no que o pixel reportou.
 

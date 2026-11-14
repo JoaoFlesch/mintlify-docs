@@ -31,8 +31,30 @@ description: Decida o que acontece com cada acesso antes de a página carregar. 
 	<card title="Básico" icon="shield" href="/filtro-basico">Bots, anti-plágio, países, idiomas e dispositivos, sem montar expressões.</card>
 	<card title="Avançado" icon="code" href="/filtro-avancado">Qualquer campo da requisição, com grupos E/OU e regex.</card>
 </cards>
-<p>Também dá para começar por uma das <strong>Regras sugeridas</strong>: bloquear bots, bloquear um país específico ou permitir só quando a URL tem um parâmetro secreto.</p>
-<shot src="img/filtro-lista.webp" caption="Lista de regras e métricas do Filtro"></shot>
+<h3>Modo básico x avançado</h3>
+<table>
+	<thead><tr><th></th><th>Básico</th><th>Avançado</th></tr></thead>
+	<tbody>
+		<tr><td>Critérios</td><td>Bots, anti-plágio, países, idiomas, dispositivos</td><td>Qualquer campo da requisição (IP, URL, user agent, cookie, navegador, SO...)</td></tr>
+		<tr><td>Combinação</td><td>Só E</td><td>Grupos com E dentro e OU entre eles</td></tr>
+		<tr><td>Regex</td><td>Não</td><td>Sim</td></tr>
+		<tr><td>Escopo por link</td><td>Sim</td><td>Pela condição de host e caminho</td></tr>
+		<tr><td>Indicado para</td><td>Proteção do dia a dia</td><td>Casos específicos</td></tr>
+	</tbody>
+</table>
+
+<h3>Regras sugeridas</h3>
+<p>No formulário de nova regra, clique em <strong>Usar template</strong> para começar de um modelo já montado. Todos podem ser editados antes de salvar.</p>
+<table>
+	<thead><tr><th>Regra sugerida</th><th>O que faz</th></tr></thead>
+	<tbody>
+		<tr><td>Bloquear bots (proteção geral)</td><td>Bloqueia todo acesso identificado como bot (<code>detection.bot_protection</code> igual a <code>true</code>).</td></tr>
+		<tr><td>Bloquear país específico</td><td>Bloqueia acessos dos países que você escolher (<code>ip.geoip.country</code> na lista).</td></tr>
+		<tr><td>Permitir somente se a query string contém um valor específico</td><td>Gera um par aleatório, como <code>abc=xyz</code>, e bloqueia quem chega sem ele. A URL de rastreamento da página já leva o parâmetro.</td></tr>
+	</tbody>
+</table>
+<shot src="img/filtro-templates.png" caption="Regras sugeridas" todo="Formulário Criar regra com o seletor Usar template aberto, mostrando as 3 regras sugeridas."></shot>
+<shot src="img/filtro-lista.png" caption="Lista de regras e métricas do Filtro" todo="Tela Filtro com os cards Total de requests, Página de oferta, Safe page e Bots, o gráfico Requests por decisão e a tabela de regras (Nome, Peso, Expressão, Ação, Acessos, Ativo) com 3 regras."></shot>
 
 <h2>Acompanhar o resultado</h2>
 <p>O topo da tela mostra, no período escolhido, o total de requisições, quantas foram para a página de oferta, quantas viram a safe page e quantas eram bots, além de um gráfico por decisão. A coluna <strong>Acessos</strong> mostra quantas vezes cada regra correspondeu.</p>

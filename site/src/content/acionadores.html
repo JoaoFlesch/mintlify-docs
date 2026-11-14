@@ -4,18 +4,20 @@ icon: zap
 description: Envie eventos para pixels e webhooks quando o tráfego atender às condições que você define.
 ---
 <p>Um acionador observa os eventos do projeto. Quando um evento atende a todas as condições, ele executa as ações: enviar o evento para um ou mais <a href="/pixels">pixels</a> ou chamar um webhook.</p>
+<p>Fluxo: o evento chega, o Trackup avalia as condições de cada acionador ativo, executa as ações dos que correspondem e registra cada envio nos <a href="/logs-de-acionadores">logs</a>.</p>
 
 <h2>Acionadores criados automaticamente</h2>
-<p>Ao adicionar um pixel da Meta, TikTok ou Kwai, o Trackup cria três acionadores para ele:</p>
+<p>Ao adicionar um pixel da Meta, TikTok ou Kwai, o Trackup cria acionadores padrão para ele:</p>
 <table>
 	<thead><tr><th>Acionador</th><th>Condição</th></tr></thead>
 	<tbody>
 		<tr><td>Pageview</td><td>Tipo de evento igual a <code>page_view</code></td></tr>
 		<tr><td>Start checkout</td><td>Tipo de evento igual a <code>start_checkout</code></td></tr>
 		<tr><td>Conversão</td><td>Tipo de evento igual a <code>conversion</code></td></tr>
+		<tr><td>Add to cart</td><td>Tipo de evento igual a <code>add_to_cart</code></td></tr>
 	</tbody>
 </table>
-<p>No Google Ads, crie os acionadores você mesmo, porque cada etapa precisa da conversion label da ação de conversão.</p>
+<p>Você pode editar ou desativar qualquer um deles. No Google Ads, crie os acionadores você mesmo, porque cada etapa precisa da conversion label da ação de conversão.</p>
 
 <h2>Criar um acionador</h2>
 <steps>
@@ -24,7 +26,7 @@ description: Envie eventos para pixels e webhooks quando o tráfego atender às 
 	</step>
 	<step title="Defina as condições">
 		<p>Clique em <strong>Adicionar condição</strong> e escolha a variável, o operador e o valor. O acionador dispara quando <strong>todas</strong> as condições são verdadeiras. Veja as <a href="/variaveis">variáveis disponíveis</a>.</p>
-		<shot src="img/acionadores-condicoes.webp" caption="Condições de um acionador"></shot>
+		<shot src="img/acionadores-condicoes.png" caption="Condições de um acionador" todo="Formulário Criar acionador com duas condições: Tipo de evento Igual a conversion e UTM Campaign Contém black-friday, e o botão Adicionar condição visível."></shot>
 	</step>
 	<step title="Adicione as ações">
 		<p>Clique em <strong>Adicionar ação</strong> e escolha <strong>Pixel</strong> ou <strong>Webhook</strong> (detalhes abaixo).</p>
@@ -33,6 +35,29 @@ description: Envie eventos para pixels e webhooks quando o tráfego atender às 
 		<p>Deixe <strong>Ativo</strong> ligado e salve. Você pode desligar um acionador a qualquer momento sem apagá-lo.</p>
 	</step>
 </steps>
+
+<h2>Condições extras</h2>
+<p>O tipo de evento é só a primeira condição. Combine outras para enviar o evento apenas quando fizer sentido. Todas precisam ser verdadeiras (E lógico).</p>
+<table>
+	<thead><tr><th>Quero disparar só quando...</th><th>Condições</th></tr></thead>
+	<tbody>
+		<tr><td>A venda veio de uma campanha</td><td>Tipo de evento = <code>conversion</code> E UTM Campaign contém <code>black-friday</code></td></tr>
+		<tr><td>O tráfego veio de uma rede</td><td>Rede = <code>instagram</code></td></tr>
+		<tr><td>O visitante veio de um criativo</td><td>Sub 1 = <code>criativo-07</code></td></tr>
+		<tr><td>O evento ocorreu em uma página</td><td>URL contém <code>/oferta</code></td></tr>
+		<tr><td>O visitante veio de outro site</td><td>Referrer contém <code>yourdomain.com</code></td></tr>
+	</tbody>
+</table>
+<p>Para ações diferentes no mesmo evento, crie um acionador para cada caso. Todos os que corresponderem disparam.</p>
+
+<h2>Eventos personalizados</h2>
+<p>Além dos eventos padrão, você pode enviar eventos próprios pelo <a href="/script">script</a>, como <code>lead_form_submitted</code> ou <code>video_50</code>. Eles chegam com <strong>Tipo customizado</strong> preenchido e servem como condição em acionadores e como etapa extra do funil nos <a href="/dashboards">dashboards</a>.</p>
+<code-block title="Enviar um evento personalizado" lang="javascript">
+trackup('track', 'lead_form_submitted');
+</code-block>
+<p>Depois, crie o acionador com <strong>Tipo customizado</strong> igual ao nome do evento e escolha a ação, por exemplo o evento <code>Lead</code> de um pixel.</p>
+<callout type="note"><p>Eventos enviados por atributo HTML (<code>data-trackup-event</code>) não disparam acionadores no navegador. Veja os detalhes no <a href="/script">script</a>.</p></callout>
+<shot src="img/acionadores-evento-personalizado.png" caption="Acionador de evento personalizado" todo="Acionador com a condição Tipo customizado Igual a lead_form_submitted e ação Pixel Meta com o evento Lead. Nome e ID do pixel borrados."></shot>
 
 <h2>Ação: Pixel</h2>
 <table>
@@ -63,12 +88,14 @@ description: Envie eventos para pixels e webhooks quando o tráfego atender às 
 }
 </code-block>
 
+<shot src="img/acionadores-acao-webhook.png" caption="Ação de webhook" todo="Bloco Ação Webhook com método POST, URL yourdomain.com/hook e parâmetros email, valor e campanha preenchidos com tokens."></shot>
+
 <h2>Exemplos</h2>
 <accordion title="Enviar Purchase só de vendas vindas da Meta">
 	<p>Condições: <strong>Tipo de evento</strong> igual a <code>conversion</code> e <strong>Rede</strong> igual a <code>facebook</code> (ou <code>instagram</code>). Ação: pixel Meta, evento <code>Purchase</code>.</p>
 </accordion>
-<accordion title="Enviar um evento customizado do script">
-	<p>Condições: <strong>Tipo customizado</strong> igual a <code>lead_form_submitted</code>. Ação: pixel Meta, evento <code>Lead</code>. O evento é enviado pela página com o <a href="/script">script</a>.</p>
+<accordion title="Enviar um evento personalizado do script">
+	<p>Condições: <strong>Tipo customizado</strong> igual a <code>lead_form_submitted</code>. Ação: pixel Meta, evento <code>Lead</code>.</p>
 </accordion>
 <accordion title="Separar uma campanha">
 	<p>Condições: <strong>Tipo de evento</strong> igual a <code>conversion</code> e <strong>UTM Campaign</strong> contém <code>black-friday</code>. Ação: webhook para o seu CRM.</p>

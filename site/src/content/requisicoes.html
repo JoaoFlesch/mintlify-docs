@@ -7,7 +7,7 @@ description: Veja cada acesso às suas páginas em tempo real, com a decisão do
 <shot src="img/requisicoes-lista.png" caption="Lista de requisições com filtros" todo="Tela Requisições com filtros (Host, Caminho, Evento, Decisão, Dispositivo, País), lista de requisições com Data, Caminho, Localização, ícones de navegador/SO/dispositivo e uma linha expandida. IPs e hosts borrados."></shot>
 
 <h2>Filtrar</h2>
-<p>Filtre por host, caminho, IP, evento, decisão (<strong>Permitida</strong> ou <strong>Bloqueada</strong>), dispositivo, visitante, país e tipo de tráfego (<strong>Real</strong> ou <strong>Bot</strong>).</p>
+<p>Filtre por host, caminho, IP, evento, decisão (<strong>Permitida</strong> ou <strong>Bloqueada</strong>), dispositivo, país e visitante (<strong>Real</strong> ou <strong>Bot</strong>).</p>
 
 <h2>Detalhes de uma requisição</h2>
 <p>Expanda uma linha para ver duas abas.</p>
@@ -15,11 +15,12 @@ description: Veja cada acesso às suas páginas em tempo real, com a decisão do
 <table>
 	<thead><tr><th>Grupo</th><th>Campos</th></tr></thead>
 	<tbody>
-		<tr><td>Risco e decisão</td><td>Bot, score, decisão, motivos, regra do filtro que decidiu e se passou no desafio</td></tr>
-		<tr><td>Identificação</td><td>Data, host, caminho, evento, IP, visitor ID, visitante recorrente</td></tr>
-		<tr><td>Localização</td><td>País, estado, cidade, fuso, ISP, proxy</td></tr>
-		<tr><td>Tecnologia</td><td>Navegador, sistema, dispositivo, fabricante, modelo, idioma, user agent, referer</td></tr>
-		<tr><td>Marketing</td><td>UTMs, click ID, origem de tráfego e <code>sub1</code> a <code>sub8</code></td></tr>
+		<tr><td>Risco e decisão</td><td>Score, nível do score, bot, decisão, motivos, regra do filtro (nome e ID) e se passou no desafio</td></tr>
+		<tr><td>Identificação</td><td>ID, data e hora, host, caminho, evento, IP, hash do IP, visitor ID, referer, user agent</td></tr>
+		<tr><td>Localização</td><td>País, estado, cidade, latitude, longitude, fuso, ISP, proxy, idioma do navegador</td></tr>
+		<tr><td>Tecnologia</td><td>Navegador e versão, sistema e versão, dispositivo, fabricante, modelo</td></tr>
+		<tr><td>Marketing e UTMs</td><td>UTMs, click ID e origem de tráfego</td></tr>
+		<tr><td>Parâmetros Sub</td><td><code>sub1</code> a <code>sub8</code></td></tr>
 		<tr><td>Dados customizados</td><td>Dados enviados pelo <a href="/script">script</a> com o evento</td></tr>
 	</tbody>
 </table>

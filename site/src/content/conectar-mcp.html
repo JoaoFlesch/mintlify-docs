@@ -3,15 +3,16 @@ title: Conectar ao MCP
 icon: plug
 description: Conecte Claude, ChatGPT, Cursor e outros assistentes ao Trackup e opere seus projetos conversando.
 ---
-<p>O MCP (Model Context Protocol) é o padrão que deixa um assistente de IA usar ferramentas externas. Com o servidor MCP do Trackup, o assistente lista projetos, cria páginas e links, lê métricas e ajusta campanhas, sempre dentro das permissões que você der.</p>
+<p>O MCP (Model Context Protocol) é o padrão que deixa um assistente de IA usar ferramentas externas. Com ele, você configura o Trackup conversando. Com o servidor MCP do Trackup, o assistente lista projetos, cria páginas e links, lê métricas e ajusta campanhas, sempre dentro das permissões que você der.</p>
 
 <h2>URL do servidor</h2>
-<p>Cada time tem a sua URL. Copie a do seu time em <strong>Configurações › MCP</strong>. O formato é:</p>
+<p>Cada time tem a sua URL, com o ID do time no caminho. Não precisa descobrir o ID: abra <strong>Configurações › MCP</strong> e copie a URL pronta. O formato é:</p>
 <code-block title="URL do servidor MCP" lang="text">
 https://api.trackup.me/SEU_TEAM_ID/mcp
 </code-block>
 <shot src="img/mcp-configuracoes.png" caption="Tela de configuração do MCP" todo="Configurações › MCP com a URL do servidor (team ID borrado), a pergunta Qual cliente você vai conectar? com Claude selecionado, os passos do OAuth e o botão Copiar prompt para o agente."></shot>
 <callout type="tip"><p>Atalho: em <strong>Configurações › MCP</strong>, clique em <strong>Copiar prompt para o agente</strong> e cole no seu assistente. Ele adiciona o servidor sozinho e explica como autorizar.</p></callout>
+<p>Para autenticar, o servidor aceita <code>X-Api-Key</code> ou <code>Authorization: Bearer &lt;token&gt;</code> (token OAuth). Os dois são uma chave de API do time.</p>
 
 <h2>OAuth ou chave de API</h2>
 <table>
@@ -107,13 +108,24 @@ curl -X POST "https://api.trackup.me/SEU_TEAM_ID/mcp" \
 	</tab>
 </tabs>
 
+<h2>Testar a conexão</h2>
+<p>Depois de autorizar, peça: <em>"Liste meus projetos no Trackup."</em> Se a lista aparecer, está conectado.</p>
+<table>
+	<thead><tr><th>Sintoma</th><th>Causa e solução</th></tr></thead>
+	<tbody>
+		<tr><td><code>401</code> ao conectar ou chamar</td><td>Chave ausente, inválida, revogada, expirada ou de outro time. Reautorize o conector ou crie outra chave.</td></tr>
+		<tr><td>Ferramenta ou projeto não aparece</td><td>A chave não tem a permissão ou o projeto. Edite a chave em <a href="/chaves-de-api">Chaves de API</a> e reconecte o assistente para atualizar a lista.</td></tr>
+		<tr><td>Não consigo autorizar</td><td>Falta a permissão <strong>Criar</strong> em <strong>API Keys (MCP)</strong>.</td></tr>
+	</tbody>
+</table>
+
 <h2>O que o assistente consegue fazer</h2>
-<p>Cada ferramenta corresponde a uma operação da <a href="/api">API</a>. Projetos, analytics, páginas e links aparecem como ferramentas diretas. Pixels, acionadores, domínios, dashboards, gerenciador de anúncios, plataformas de venda, fontes de tráfego e filtro são acessados por ferramentas de busca de operações.</p>
+<p>Cada ferramenta corresponde a uma operação da <a href="/api">API</a>. Projetos, analytics, páginas e links aparecem como ferramentas diretas, junto com <code>search</code> e <code>fetch</code> (busca e leitura de projetos, páginas e links) e as ferramentas do construtor de páginas (<code>listPageBlocks</code>, <code>composeBuilderPage</code>, <code>editBuilderPage</code>). Pixels, acionadores, domínios, dashboards, gerenciador de anúncios, plataformas de venda, fontes de tráfego e filtro são acessados em três passos: <code>findOperations</code> (encontrar), <code>describeOperation</code> (ver os campos) e <code>runReadOperation</code> ou <code>runOperation</code> (executar).</p>
 <cards cols="2">
 	<card title="Analisar" icon="chart">Visão geral do projeto, conversões, visitantes, requisições e dashboards.</card>
 	<card title="Criar páginas" icon="file">Montar páginas no Builder, clonar sites, editar arquivos e publicar.</card>
 	<card title="Configurar o funil" icon="zap">Pixels com acionadores, links, testes A/B, domínios e regras de filtro.</card>
-	<card title="Operar campanhas" icon="megaphone">Ler o Gerenciador de anúncios, pausar e ajustar orçamentos.</card>
+	<card title="Operar campanhas" icon="megaphone">Ler o Gerenciador de anúncios, pausar campanhas e ajustar orçamentos.</card>
 </cards>
 <p>O assistente não acessa cobrança, membros, gestão de chaves, exclusão de projeto nem conexões OAuth (Meta, Nuvemshop).</p>
 
@@ -124,12 +136,13 @@ curl -X POST "https://api.trackup.me/SEU_TEAM_ID/mcp" \
 	<li>"Crie um link /oferta-natal apontando para a página Oferta de Natal."</li>
 	<li>"Monte uma landing page para o meu curso de inglês e publique."</li>
 	<li>"Quais anúncios gastaram mais de R$ 200 ontem sem vender?"</li>
+	<li>"Crie um pixel com acionadores de pageview, início de checkout e conversão."</li>
 </ul>
 
 <h2>Segurança</h2>
 <ul>
 	<li><strong>Dê só o necessário.</strong> Restrinja permissões e projetos na autorização.</li>
-	<li><strong>Publicar muda o que está no ar.</strong> O assistente pede confirmação antes de republicar uma página editada ou publicar o projeto.</li>
+	<li><strong>Publicar muda o que está no ar.</strong> Uma página recém-criada é publicada direto. O assistente pede confirmação antes de republicar uma página editada ou publicar o projeto.</li>
 	<li><strong>Tudo fica registrado.</strong> Cada chamada aparece em <strong>Chaves de API › Ver histórico</strong>, marcada como MCP.</li>
 	<li><strong>Desconectar é revogar.</strong> Revogue a chave e o acesso termina na hora.</li>
 </ul>

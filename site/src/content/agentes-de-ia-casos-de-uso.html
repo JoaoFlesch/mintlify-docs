@@ -10,7 +10,7 @@ description: Fluxos prontos para registrar vendas, gerar relatórios, controlar 
 	<tbody>
 		<tr><td><a href="#registrar-vendas-de-um-crm-ou-checkout">Registrar vendas de um CRM ou checkout</a></td><td><code>conversion.create</code></td></tr>
 		<tr><td><a href="#relatorio-diario">Relatório diário</a></td><td><code>project.list</code>, <code>analytics.read</code>, <code>conversion.list</code></td></tr>
-		<tr><td><a href="#controlar-campanhas-da-meta">Controlar campanhas da Meta</a></td><td><code>ads-manager.read</code>, <code>ads-manager.update</code></td></tr>
+		<tr><td><a href="#controlar-campanhas-de-anuncios">Controlar campanhas de anúncios</a></td><td><code>ads-manager.read</code>, <code>ads-manager.update</code></td></tr>
 		<tr><td><a href="#auditar-trafego">Auditar tráfego</a></td><td><code>request.list</code>, <code>request-log.list</code>, <code>visitor.list</code>, <code>visitor.read</code></td></tr>
 	</tbody>
 </table>
@@ -72,8 +72,8 @@ Principal fonte: meta (61% da receita)
 	</step>
 </steps>
 
-<h2>Controlar campanhas da Meta</h2>
-<p>Pré-requisito: conta conectada no <a href="/gerenciador-de-anuncios">Gerenciador de anúncios</a>. A conexão com o Facebook é feita por uma pessoa no painel.</p>
+<h2>Controlar campanhas de anúncios</h2>
+<p>Pré-requisito: conta de anúncios conectada no <a href="/gerenciador-de-anuncios">Gerenciador de anúncios</a>. A conexão é feita por uma pessoa no painel; chaves de API não conectam contas.</p>
 <steps>
 	<step title="Descubra as contas">
 		<code-block lang="bash">

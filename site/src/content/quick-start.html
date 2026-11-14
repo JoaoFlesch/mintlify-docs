@@ -43,12 +43,12 @@ description: Configure um projeto do zero, publique suas páginas e registre a p
 		<shot src="img/quick-start-criar-projeto.png" caption="Seletor de projetos com a opção Criar projeto" todo="Menu lateral com o seletor de projetos aberto, mostrando a lista de projetos do time e o botão Criar projeto em destaque. Nomes de time e projetos fictícios."></shot>
 	</step>
 	<step title="Preencha nome e moeda">
-		<p>Dê um nome descritivo, como <code>Curso de Fotografia</code>, e escolha a <strong>Moeda</strong> em que você vende.</p>
+		<p>Dê um nome descritivo, como <code>Online Store</code>, e escolha a <strong>Moeda</strong> em que você vende.</p>
 		<callout type="warning"><p>A moeda não pode ser alterada depois. Ela é usada para converter os valores recebidos dos webhooks e exibir receita e lucro nos dashboards.</p></callout>
 	</step>
 	<step title="Salve">
 		<p>Clique em <strong>Salvar</strong>. O projeto já nasce com um domínio padrão do Trackup, então você pode testar tudo antes de configurar o seu.</p>
-		<shot src="img/quick-start-form-projeto.png" caption="Formulário de criação de projeto" todo="Diálogo Criar projeto preenchido com Nome = Curso de Fotografia e Moeda = Real brasileiro (BRL), com o aviso de que a moeda não pode ser alterada visível."></shot>
+		<shot src="img/quick-start-form-projeto.png" caption="Formulário de criação de projeto" todo="Diálogo Criar projeto preenchido com Nome = Online Store e Moeda = Real brasileiro (BRL), com o aviso de que a moeda não pode ser alterada visível."></shot>
 	</step>
 	<step title="Adicione membros (opcional)">
 		<p>Em <strong>Time › Membros</strong>, clique em <strong>Convidar membro</strong>, informe o e-mail e a função. Veja <a href="/times-e-membros">Times e membros</a>.</p>
@@ -57,13 +57,13 @@ description: Configure um projeto do zero, publique suas páginas e registre a p
 </steps>
 
 <h2>3. Conecte seu domínio</h2>
-<p>Páginas em domínio próprio passam mais confiança, preservam a reputação do seu domínio nas plataformas de anúncio e evitam bloqueios. Recomendamos um subdomínio dedicado, como <code>lp.seudominio.com</code> ou <code>go.seudominio.com</code>.</p>
+<p>Páginas em domínio próprio passam mais confiança, preservam a reputação do seu domínio nas plataformas de anúncio e evitam bloqueios. Recomendamos um subdomínio dedicado, como <code>go.yourdomain.com</code> ou <code>go.seudominio.com</code>.</p>
 <steps>
 	<step title="Abra Domínios">
 		<p>No menu lateral, vá em <strong>Ajustes › Domínios</strong> e clique em <strong>Adicionar domínio</strong>.</p>
 	</step>
 	<step title="Informe o hostname">
-		<p>Digite o subdomínio completo, por exemplo <code>lp.seudominio.com</code>, e salve. O domínio aparece na lista com o status <span class="badge amber">Pendente</span>.</p>
+		<p>Digite o subdomínio completo, por exemplo <code>go.yourdomain.com</code>, e salve. O domínio aparece na lista com o status <span class="badge amber">Pendente</span>.</p>
 	</step>
 	<step title="Crie o registro CNAME no seu DNS">
 		<p>Abra o domínio na lista para ver o registro. No painel do seu provedor de DNS, crie um registro com os valores de <strong>Type</strong>, <strong>Name</strong> e <strong>Value</strong> exibidos.</p>
@@ -142,7 +142,7 @@ description: Configure um projeto do zero, publique suas páginas e registre a p
 	</step>
 	<step title="Preencha os campos">
 		<ul>
-			<li><strong>Nome</strong>: algo como <code>Checkout Curso de Fotografia</code>.</li>
+			<li><strong>Nome</strong>: algo como <code>Excel Basics - Checkout 1</code>.</li>
 			<li><strong>Plataforma de vendas</strong>: a que você integrou no passo 6.</li>
 			<li><strong>URL de redirecionamento</strong>: o link do checkout na sua plataforma.</li>
 			<li><strong>Caminho</strong>: opcional, por exemplo <code>/checkout</code>. Em branco, o Trackup gera a partir do nome.</li>
@@ -150,7 +150,7 @@ description: Configure um projeto do zero, publique suas páginas e registre a p
 		<shot src="img/quick-start-oferta.png" caption="Criação de uma oferta do tipo Redirect" todo="Diálogo Adicionar oferta na aba Redirect com Nome, Plataforma de vendas, URL de redirecionamento (checkout fictício), Status code 302 e Caminho /checkout preenchidos."></shot>
 	</step>
 	<step title="Copie o link da oferta">
-		<p>Salve. Na lista de ofertas, a coluna <strong>Link</strong> mostra o endereço da oferta no seu domínio, como <code>https://lp.seudominio.com/checkout</code>. Esse é o <strong>link do checkout</strong>.</p>
+		<p>Salve. Na lista de ofertas, a coluna <strong>Link</strong> mostra o endereço da oferta no seu domínio, como <code>https://go.yourdomain.com/checkout</code>. Esse é o <strong>link do checkout</strong>.</p>
 	</step>
 </steps>
 <callout type="note"><p>O link do checkout repassa os parâmetros do visitante e o ID do clique para a plataforma de venda. Por isso a venda volta atribuída ao anúncio certo.</p></callout>
@@ -166,20 +166,20 @@ description: Configure um projeto do zero, publique suas páginas e registre a p
 		<tr><td><a href="/redirect">Redirect</a></td><td>A página fica hospedada fora do Trackup.</td></tr>
 	</tbody>
 </table>
-<p>Use nomes que digam a função da página, como <code>Landing Principal</code> ou <code>VSL Curso de Fotografia</code>. A página nasce com um link próprio, exibido na coluna <strong>Link</strong>.</p>
+<p>Use nomes que digam a função da página, como <code>Landing Principal</code> ou <code>Excel Basics Landing</code>. A página nasce com um link próprio, exibido na coluna <strong>Link</strong>.</p>
 <callout type="warning"><p>Se a página ficar hospedada fora do Trackup (Redirect), instale o <a href="/script">script de rastreamento</a> no <code>&lt;head&gt;</code> dela. Sem o script, eventos e cliques não são registrados.</p></callout>
 
 <h2>9. Aponte os botões para a oferta</h2>
 <p>Todos os botões de compra da landing page precisam apontar para o <strong>link do checkout</strong> do passo 7, nunca para o checkout original da plataforma.</p>
 <code-block title="Exemplo de botão">
-<a href="https://lp.seudominio.com/checkout">Quero me inscrever</a>
+<a href="https://go.yourdomain.com/checkout">Quero me inscrever</a>
 </code-block>
 <callout type="danger"><p>Um botão que leva direto ao checkout da plataforma quebra o rastreamento: a venda chega sem o ID do clique e aparece como <em>Click ID ausente</em>.</p></callout>
 
 <h2>10. Monte a URL do anúncio</h2>
 <p>A URL que vai no anúncio é o link da landing page seguido dos parâmetros de URL da fonte de tráfego (passo 5):</p>
 <code-block title="URL do anúncio">
-https://lp.seudominio.com/curso-fotografia?utm_source=meta&utm_campaign={{campaign.name}}&…
+https://go.yourdomain.com/excel-basics?utm_source=meta&utm_campaign={{campaign.name}}&…
 </code-block>
 <p>Cole a URL completa no campo de destino do anúncio. Na Meta, você pode colar o link no campo <strong>URL do site</strong> e os parâmetros em <strong>Parâmetros de URL</strong>.</p>
 

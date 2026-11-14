@@ -3,24 +3,31 @@ title: Builder
 icon: layers
 description: Monte páginas no editor visual com componentes, blocos prontos e templates, sem escrever código.
 ---
-<p>O Builder é o editor visual do Trackup. Você arrasta componentes e blocos para o canvas, ajusta textos, imagens e estilos e publica no seu domínio. A página já sai com rastreamento.</p>
+<p>O Builder é o editor visual do Trackup. Você arrasta componentes e blocos para o canvas, ajusta textos, imagens e estilos e publica no seu domínio. A página já sai com rastreamento. Para um passo a passo completo, veja o <a href="/tutorial-landing-builder">tutorial de landing page</a>.</p>
 
 <h2>Criar uma página no Builder</h2>
 <steps>
 	<step title="Crie a página">
-		<p>Em <strong>Páginas › Adicionar página</strong>, escolha a aba <strong>Builder</strong>, dê um nome e, se quiser, um caminho. Salve.</p>
+		<p>Em <strong>Páginas › Adicionar página</strong>, escolha a aba <strong>Builder</strong>, dê um nome (como <code>Landing Product A</code>) e, se quiser, um caminho. Salve.</p>
 	</step>
 	<step title="Abra o editor">
 		<p>Na lista, abra o menu da página e clique em <strong>Editar no builder</strong>. O editor abre em uma nova aba.</p>
 	</step>
 	<step title="Comece de um template ou do zero">
-		<p>Escolha um template pronto (pré-venda, VSL, captura e outros) ou comece com o canvas vazio.</p>
-		<shot src="img/builder-templates.webp" caption="Templates disponíveis ao abrir o Builder"></shot>
+		<p>Escolha um template pronto (pré-venda, VSL, captura e outros) ou comece com o canvas vazio. Um hero com botão e um depoimento já formam uma página funcional.</p>
+		<shot src="img/builder-templates.png" caption="Templates disponíveis ao abrir o Builder" todo="Seletor de templates do Builder com os templates disponíveis lado a lado e a opção de canvas vazio."></shot>
+	</step>
+	<step title="Troque os textos e o botão">
+		<p>Clique no título, edite o texto e repita para o botão e o depoimento. Selecione o botão, abra a aba <strong>Config</strong> do inspetor e, em <strong>Evento de clique</strong>, preencha o <strong>Destino</strong> com o link da <a href="/ofertas">oferta</a>.</p>
+	</step>
+	<step title="Salve e publique">
+		<p>Clique em <strong>Salvar</strong> e depois em <strong>Publicar</strong>. Copie o link da página na lista de <strong>Páginas</strong> e abra no navegador para conferir.</p>
 	</step>
 </steps>
 
 <h2>O editor</h2>
-<shot src="img/builder-editor.webp" caption="Barra superior, painel lateral, canvas e inspetor"></shot>
+<shot src="img/builder-editor.png" caption="Barra superior, painel lateral, canvas e inspetor" todo="Editor aberto com uma página de exemplo (hero com título e botão de compra, depois um depoimento), botão selecionado, painel lateral com as abas Componentes, Blocos e Camadas, e inspetor com as abas Estilo e Config. Anotar as quatro áreas."></shot>
+<shot src="img/builder-botao-destino.png" caption="Evento de clique do botão com o link da oferta" todo="Aba Config do botão selecionado, com Evento de clique e Destino preenchido com o link de uma oferta."></shot>
 <table>
 	<thead><tr><th>Área</th><th>O que tem</th></tr></thead>
 	<tbody>
@@ -54,6 +61,7 @@ description: Monte páginas no editor visual com componentes, blocos prontos e t
 
 <h2>Responsivo</h2>
 <p>Alterne entre Desktop, Tablet e Mobile na barra superior para ver e ajustar a página em cada tamanho antes de publicar.</p>
+<shot src="img/builder-responsivo.png" caption="Visualização Mobile" todo="Editor com a visualização Mobile ativa na barra superior e a página de exemplo no formato do celular."></shot>
 
 <h2>Salvar e publicar</h2>
 <ul>

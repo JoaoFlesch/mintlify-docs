@@ -10,7 +10,7 @@ description: Divida o tráfego entre páginas ou checkouts, compare as vendas e 
 	<thead><tr><th>Tipo</th><th>Variantes</th><th>Evento</th><th>Exemplo</th></tr></thead>
 	<tbody>
 		<tr><td>Página</td><td>Páginas de destino (landing)</td><td><code>page_view</code></td><td>VSL longa contra VSL curta.</td></tr>
-		<tr><td>Checkout</td><td>Ofertas (páginas de checkout)</td><td><code>start_checkout</code></td><td>Preço de R$ 197 contra R$ 247, ou Kiwify contra Hotmart.</td></tr>
+		<tr><td>Checkout</td><td>Ofertas (páginas de checkout)</td><td><code>start_checkout</code></td><td>Checkout 1 (preço cheio) contra Checkout 2 (preço com desconto e outra cor).</td></tr>
 	</tbody>
 </table>
 <callout type="note"><p>Testes do tipo <em>Anúncio</em> são de uma versão anterior. Os que existem continuam funcionando e podem ser editados, mas não é possível criar novos.</p></callout>
@@ -25,13 +25,26 @@ description: Divida o tráfego entre páginas ou checkouts, compare as vendas e 
 	</step>
 	<step title="Escolha as variantes e os pesos">
 		<p>O teste começa com duas variantes em 50/50. Para cada uma, escolha a <strong>Página</strong> e o <strong>Tráfego</strong> em porcentagem. Use <strong>Adicionar variante</strong> para mais opções e <strong>Balancear pesos</strong> para dividir por igual.</p>
-		<shot src="img/testes-ab-criar.webp" caption="Variantes e pesos de um teste A/B"></shot>
+		<shot src="img/testes-ab-criar.png" caption="Variantes e pesos de um teste A/B" todo="Diálogo Criar teste A/B com Nome, Slug /lp-teste, Tipo de teste Página e duas variantes em 50% (Página LP Builder e Página LP HTML), com Adicionar variante e Balancear pesos visíveis."></shot>
 		<callout type="warning"><p>Os pesos das variantes ativas precisam somar 100%.</p></callout>
 	</step>
 	<step title="Use o link do teste no anúncio">
-		<p>Salve e use o link do teste no lugar do link da página, com os parâmetros da <a href="/fontes-de-trafego">fonte de tráfego</a>.</p>
+		<p>Salve e copie o link do teste na lista. Use esse link no lugar do link da página, com os parâmetros da <a href="/fontes-de-trafego">fonte de tráfego</a>.</p>
 	</step>
 </steps>
+
+<h2>Exemplos</h2>
+<h3>Testar ofertas (checkouts)</h3>
+<ol>
+	<li>Crie uma <a href="/ofertas">oferta</a> para cada checkout (<code>Product A - Checkout 1</code> e <code>Product A - Checkout 2</code>).</li>
+	<li>Crie um teste do tipo <strong>Checkout</strong> com as duas ofertas como variantes e o slug <code>/comprar</code>.</li>
+	<li>Nos botões de compra da landing, use o link do teste (<code>yourdomain.com/comprar</code>) como destino, no lugar do link de uma oferta.</li>
+</ol>
+<h3>Testar botões</h3>
+<p>O teste A/B divide visitantes entre páginas, então para comparar botões (texto, cor ou posição) crie duas versões da mesma landing que só diferem no botão. No Builder, <strong>Duplique</strong> a página e altere o botão na cópia. Depois crie um teste do tipo <strong>Página</strong> com as duas variantes.</p>
+<h3>Testar landing pages (Builder e HTML)</h3>
+<p>As variantes podem ser de tipos diferentes. Por exemplo, uma página do <a href="/builder">Builder</a> contra uma página <a href="/upload-html">HTML</a>. Crie um teste do tipo <strong>Página</strong>, escolha cada uma como variante e use o link do teste no anúncio.</p>
+<shot src="img/testes-ab-lista.png" caption="Lista de testes A/B" todo="Lista de Testes A/B com um teste de Checkout (ofertas) e um teste de Página (LP Builder contra LP HTML), mostrando nome, link e tipo."></shot>
 
 <h2>Acompanhar o resultado</h2>
 <p>Na lista, abra o menu do teste e clique em <strong>Relatórios</strong>. A aba <strong>Teste A/B</strong> mostra, por variante:</p>

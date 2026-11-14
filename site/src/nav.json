@@ -1,0 +1,183 @@
+{
+	"tabs": [
+		{
+			"name": "Guias",
+			"icon": "book",
+			"groups": [
+				{
+					"name": "Comece aqui",
+					"pages": [
+						"index",
+						"quick-start",
+						"como-funciona"
+					]
+				},
+				{
+					"name": "Configuração",
+					"pages": [
+						"times-e-membros",
+						"projetos",
+						"dominios",
+						"pixels",
+						"fontes-de-trafego",
+						"plataformas-de-venda",
+						"script"
+					]
+				},
+				{
+					"name": "Páginas e ofertas",
+					"pages": [
+						"paginas",
+						"ofertas",
+						"builder",
+						"upload-html",
+						"clonar-url",
+						"redirect",
+						"versoes-e-arquivos"
+					]
+				},
+				{
+					"name": "Otimização",
+					"pages": [
+						"testes-ab",
+						"acionadores",
+						"variaveis",
+						"filtro",
+						"filtro-basico",
+						"filtro-avancado"
+					]
+				},
+				{
+					"name": "Análise",
+					"pages": [
+						"dashboards",
+						"gerenciador-de-anuncios",
+						"requisicoes",
+						"visitantes",
+						"conversoes",
+						"reembolsos-e-chargebacks",
+						"logs-de-acionadores",
+						"produtos"
+					]
+				},
+				{
+					"name": "Conta",
+					"pages": [
+						"configuracoes",
+						"chaves-de-api",
+						"assinatura",
+						"afiliados"
+					]
+				}
+			]
+		},
+		{
+			"name": "Tutoriais",
+			"icon": "hat",
+			"groups": [
+				{
+					"name": "Do zero à venda",
+					"pages": [
+						"tutorial-campanha-meta",
+						"tutorial-dominio-proprio"
+					]
+				},
+				{
+					"name": "Páginas",
+					"pages": [
+						"tutorial-landing-builder",
+						"tutorial-site-externo"
+					]
+				},
+				{
+					"name": "Otimização",
+					"pages": [
+						"tutorial-teste-ab",
+						"tutorial-proteger-paginas",
+						"tutorial-dashboard-lucro"
+					]
+				}
+			]
+		},
+		{
+			"name": "Integrações",
+			"icon": "plug",
+			"groups": [
+				{
+					"name": "Visão geral",
+					"pages": [
+						"integracoes",
+						"webhook-generico"
+					]
+				},
+				{
+					"name": "Plataformas de venda",
+					"pages": [
+						"actionpay",
+						"amplopay",
+						"appmax",
+						"atomo-pay",
+						"braip",
+						"buygoods",
+						"cart-panda",
+						"digipag",
+						"digistore24",
+						"eduzz",
+						"goat-pay",
+						"hotmart",
+						"inova-pag",
+						"kirvano",
+						"kiwify",
+						"lastlink",
+						"luna-checkout",
+						"monetizze",
+						"mundpay",
+						"nuvemshop",
+						"pagueio",
+						"paradise",
+						"payt",
+						"perfect-pay",
+						"proofpay",
+						"shopify",
+						"stripe",
+						"ticto",
+						"tribopay",
+						"upag",
+						"vega-checkout",
+						"yampi",
+						"zedy"
+					]
+				}
+			]
+		},
+		{
+			"name": "IA e MCP",
+			"icon": "sparkles",
+			"groups": [
+				{
+					"name": "Conecte sua IA",
+					"pages": [
+						"conectar-mcp",
+						"agentes-de-ia",
+						"agentes-de-ia-casos-de-uso"
+					]
+				}
+			]
+		},
+		{
+			"name": "API",
+			"icon": "code",
+			"api": true,
+			"groups": [
+				{
+					"name": "Primeiros passos",
+					"pages": [
+						"api",
+						"api-autenticacao",
+						"api-erros"
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,80 @@
+---
+title: Times e membros
+icon: users
+description: Organize sua operação em times, convide pessoas e defina o que cada uma pode fazer.
+---
+<p>O <strong>time</strong> é a conta da sua empresa ou agência no Trackup. Ele concentra a <a href="/assinatura">assinatura</a>, os membros, as chaves de API e todos os projetos. Uma pessoa pode participar de vários times e alternar entre eles pelo seletor de times.</p>
+
+<h2>Estrutura</h2>
+<div class="flow">
+	<div class="flow-step"><b>Time</b><span>assinatura, membros, chaves de API</span></div><div class="flow-arrow">{{icon:arrow}}</div>
+	<div class="flow-step"><b>Projetos</b><span>um por produto, oferta ou cliente</span></div><div class="flow-arrow">{{icon:arrow}}</div>
+	<div class="flow-step"><b>Recursos</b><span>domínios, páginas, pixels, regras, relatórios</span></div>
+</div>
+
+<h2>Criar um time</h2>
+<steps>
+	<step title="Faça o cadastro">
+		<p>O primeiro time é criado junto com a sua conta. Depois do cadastro, o painel abre a tela <strong>Configurar time</strong>.</p>
+		<shot src="img/times-criar.png" caption="Tela Configurar time" todo="Tela Configurar time com o nome do time preenchido (Online Store) e a área de upload da logo."></shot>
+	</step>
+	<step title="Informe o nome do time">
+		<p>Use o nome da empresa ou da agência. Você pode alterá-lo depois.</p>
+	</step>
+	<step title="Envie a logo (opcional)">
+		<p>Aceita PNG ou JPG de até 2 MB. A logo aparece no seletor de times e no menu lateral.</p>
+	</step>
+	<step title="Continue">
+		<p>Salve. Se o time ainda não tem assinatura, o próximo passo é <a href="/assinatura">escolher um plano</a>. Depois, crie o primeiro <a href="/projetos">projeto</a>.</p>
+	</step>
+</steps>
+
+<h2>Editar os dados do time</h2>
+<p>Abra o menu do usuário no rodapé do menu lateral e vá em <strong>Configurações › Meu Time › Configurações</strong>.</p>
+<table>
+	<thead><tr><th>Campo</th><th>Descrição</th></tr></thead>
+	<tbody>
+		<tr><td>Nome e logo</td><td>Identificação do time no painel.</td></tr>
+		<tr><td>Telefone e e-mail de contato</td><td>Usados para comunicações sobre a conta e a cobrança.</td></tr>
+		<tr><td>Documento</td><td>CNPJ ou CPF do titular.</td></tr>
+		<tr><td>Endereço</td><td>Endereço de cobrança.</td></tr>
+		<tr><td>Fuso horário</td><td>Define como todas as datas e horas aparecem no painel e nos relatórios. Ajuste antes de analisar resultados por dia.</td></tr>
+		<tr><td>Excluir time</td><td>Disponível só para o proprietário. Remove o time e todos os projetos dele.</td></tr>
+	</tbody>
+</table>
+<shot src="img/times-configuracoes.png" caption="Configurações › Meu Time › Configurações" todo="Modal Configurações aberto em Meu Time › Configurações, com nome, logo, contato, documento (borrado), endereço (borrado) e fuso horário."></shot>
+
+<h2>Convidar membros</h2>
+<steps>
+	<step title="Abra Membros">
+		<p>Vá em <strong>Configurações › Meu Time › Membros</strong> e clique em <strong>Convidar membro</strong>.</p>
+	</step>
+	<step title="Informe o e-mail">
+		<p>Digite o e-mail da pessoa. Ela precisa ter uma conta no Trackup com esse e-mail para ver o time.</p>
+	</step>
+	<step title="Escolha as permissões">
+		<p>Marque o que o membro pode fazer, área por área, ou use <strong>Selecionar todas</strong>.</p>
+		<shot src="img/membros-convite.png" caption="Convite de membro com permissões por área" todo="Diálogo Convidar membro com o e-mail de exemplo joao@upsurge.com.br (domínio borrado) e a lista de permissões por área (Projetos, Páginas, Links, Pixels, Filtro etc.) parcialmente marcada."></shot>
+	</step>
+	<step title="Convide">
+		<p>Clique em <strong>Convidar</strong>. O time aparece para a pessoa no seletor de times e ela passa a ver só as áreas liberadas.</p>
+	</step>
+</steps>
+
+<h2>Funções e permissões</h2>
+<table>
+	<thead><tr><th>Função</th><th>Acesso</th></tr></thead>
+	<tbody>
+		<tr><td>Proprietário</td><td>Acesso total a todos os recursos, incluindo assinatura e exclusão do time.</td></tr>
+		<tr><td>Membro</td><td>Só o que estiver marcado nas permissões dele. Itens do menu sem permissão ficam ocultos.</td></tr>
+	</tbody>
+</table>
+<p>Para mudar as permissões de alguém, abra o membro na lista e clique em <strong>Salvar alterações</strong> depois de ajustar. Para tirar o acesso, use <strong>Remover</strong>.</p>
+<p>O número de membros é limitado pelo <a href="/assinatura">plano</a> do time.</p>
+<callout type="tip"><p>Para dar acesso a um cliente só ao projeto dele, crie uma <a href="/chaves-de-api">chave de API</a> restrita a esse projeto ou mantenha cada cliente em um time separado.</p></callout>
+
+<h2>Próximos passos</h2>
+<cards>
+	<card title="Projetos" icon="layers" href="/projetos">Crie e configure os projetos do time.</card>
+	<card title="Chaves de API" icon="key" href="/chaves-de-api">Dê acesso a sistemas e agentes de IA.</card>
+</cards>

@@ -1,0 +1,98 @@
+---
+title: Pixels
+icon: pixel
+description: Conecte sua conta de anúncios para enviar os eventos do funil pelo servidor (API de conversões).
+---
+<callout type="tip"><p><strong>Configure pela sua IA.</strong> Conecte seu assistente pelo <a href="/conectar-mcp">MCP</a> e peça: <em>"Crie um pixel Meta com acionadores de pageview, início de checkout e conversão."</em></p></callout>
+<p>Um pixel guarda as credenciais da API de conversões de uma plataforma de anúncios. Os <a href="/acionadores">acionadores</a> usam o pixel para enviar eventos do funil, como <code>page_view</code>, <code>start_checkout</code> e <code>conversion</code>, direto do servidor do Trackup. Isso evita perdas por bloqueadores de anúncio e navegadores com restrição de cookies.</p>
+<p>Tipos disponíveis: Meta, Google Ads, TikTok e Kwai. O exemplo abaixo usa Meta; os outros tipos seguem o mesmo fluxo e mudam só os campos.</p>
+
+<h2>Adicionar um pixel</h2>
+<steps>
+	<step title="Abra Pixels">
+		<p>Vá em <strong>Integração › Pixels</strong> e clique em <strong>Adicionar pixel</strong>.</p>
+		<shot src="img/pixels-adicionar.png" caption="Diálogo Adicionar pixel" todo="Diálogo Adicionar pixel com Tipo = Meta, Nome, Pixel ID e Access Token (borrado). Credenciais do pixel de demonstração, token sempre borrado."></shot>
+	</step>
+	<step title="Escolha o tipo e dê um nome">
+		<p>Selecione o <strong>Tipo</strong> e dê um <strong>Nome</strong> que identifique a conta, como <code>Meta · Online Store</code>.</p>
+	</step>
+	<step title="Preencha as credenciais">
+		<p>Copie os campos da plataforma de anúncios (veja a tabela por plataforma abaixo) e cole no Trackup. Mantenha <strong>Ativo</strong> ligado.</p>
+	</step>
+	<step title="Salve">
+		<p>Clique em salvar. Para Meta, TikTok e Kwai o Trackup cria junto os acionadores <strong>Pageview</strong>, <strong>Start checkout</strong> e <strong>Conversão</strong> e mostra a notificação <em>Pixel e acionadores criados</em>. No Google Ads, crie os acionadores com a conversion label de cada etapa.</p>
+	</step>
+	<step title="Confira na lista">
+		<p>O pixel aparece em <strong>Integração › Pixels</strong>. Se houver Test Event Code, o pixel é marcado como modo teste.</p>
+	</step>
+</steps>
+
+<h2>Campos por plataforma</h2>
+<tabs>
+	<tab title="Meta">
+		<table>
+			<thead><tr><th>Campo</th><th>Onde encontrar</th></tr></thead>
+			<tbody>
+				<tr><td>Pixel ID</td><td>Gerenciador de Eventos › Fontes de dados › seu pixel.</td></tr>
+				<tr><td>Access Token</td><td>Gerenciador de Eventos › Configurações › API de Conversões › Gerar token de acesso.</td></tr>
+				<tr><td>Test Event Code <span class="badge gray">opcional</span></td><td>Gerenciador de Eventos › Testar eventos.</td></tr>
+			</tbody>
+		</table>
+		<callout type="warning"><p>Com o Test Event Code preenchido, os eventos vão só para <em>Test Events</em> e não contam nas campanhas. O pixel aparece marcado como modo teste na lista. Apague o código para ir para produção.</p></callout>
+	</tab>
+	<tab title="Google Ads">
+		<table>
+			<thead><tr><th>Campo</th><th>Onde encontrar</th></tr></thead>
+			<tbody>
+				<tr><td>Conversion ID</td><td>Google Ads › Metas › Conversões › Resumo › ação de conversão › Configuração da tag. É o número depois de <code>AW-</code>; o prefixo é opcional.</td></tr>
+				<tr><td>Moeda padrão <span class="badge gray">opcional</span></td><td>Código ISO, como <code>BRL</code> ou <code>USD</code>.</td></tr>
+				<tr><td>Valor padrão <span class="badge gray">opcional</span></td><td>Valor enviado quando o acionador não define um.</td></tr>
+			</tbody>
+		</table>
+		<p>A <strong>conversion label</strong> fica em cada acionador, no campo de evento. Crie uma ação de conversão no Google Ads para cada etapa que você quer otimizar.</p>
+	</tab>
+	<tab title="TikTok">
+		<table>
+			<thead><tr><th>Campo</th><th>Onde encontrar</th></tr></thead>
+			<tbody>
+				<tr><td>Pixel Code</td><td>TikTok Ads Manager › Ferramentas › Eventos › Web.</td></tr>
+				<tr><td>Access Token</td><td>Configurações do pixel › Gerar token de acesso (Events API).</td></tr>
+				<tr><td>Test Event Code</td><td>Obrigatório no TikTok.</td></tr>
+			</tbody>
+		</table>
+	</tab>
+	<tab title="Kwai">
+		<table>
+			<thead><tr><th>Campo</th><th>Onde encontrar</th></tr></thead>
+			<tbody>
+				<tr><td>Pixel ID e Access Token</td><td>Kwai for Business › Ferramentas › Pixel.</td></tr>
+				<tr><td>Test Event Code</td><td>Obrigatório no Kwai. Valida eventos de teste quando não há <code>click_id</code> na URL.</td></tr>
+			</tbody>
+		</table>
+	</tab>
+</tabs>
+<shot src="img/pixels-lista.webp" caption="Lista de pixels do projeto"></shot>
+
+<h2>Testar a conexão</h2>
+<ol>
+	<li>Preencha o <strong>Test Event Code</strong> do Meta e salve.</li>
+	<li>Acesse uma página do projeto com <code>?utm_source=facebook</code> na URL.</li>
+	<li>No Gerenciador de Eventos, abra <strong>Testar eventos</strong> e confirme o <code>PageView</code> recebido pelo servidor.</li>
+	<li>Em <strong>Logs › Logs de acionadores</strong>, filtre por <strong>Status</strong> <em>Sucesso</em> e abra o disparo para ver o request e o response.</li>
+	<li>Apague o Test Event Code e salve para enviar eventos de produção.</li>
+</ol>
+
+<h2>Servidor ou navegador</h2>
+<p>Por padrão os eventos vão pelo servidor (API de Conversões), o que evita perdas por bloqueadores de anúncio. No acionador você também pode ativar o disparo pelo navegador, disponível só para Meta e TikTok.</p>
+<table>
+	<thead><tr><th>Plataforma</th><th>Servidor</th><th>Navegador</th></tr></thead>
+	<tbody>
+		<tr><td>Meta</td><td>Sim</td><td>Sim</td></tr>
+		<tr><td>TikTok</td><td>Sim</td><td>Sim</td></tr>
+		<tr><td>Google Ads</td><td>Sim</td><td>Não</td></tr>
+		<tr><td>Kwai</td><td>Sim</td><td>Não</td></tr>
+	</tbody>
+</table>
+
+<h2>Desativar um pixel</h2>
+<p>Edite o pixel e desligue <strong>Ativo</strong>. Os acionadores param de enviar eventos para ele, sem perder a configuração.</p>

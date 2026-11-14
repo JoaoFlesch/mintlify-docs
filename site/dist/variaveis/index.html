@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Variáveis | Trackup Docs</title>
+<meta name="description" content="Referência das variáveis e operadores usados nas condições dos acionadores.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://docs.trackup.me/variaveis">
+<link rel="alternate" hreflang="pt-BR" href="https://docs.trackup.me/variaveis">
+<link rel="alternate" type="text/markdown" title="Versão para IA (llms.txt)" href="/llms.txt">
+<meta property="og:site_name" content="Trackup Docs">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Variáveis">
+<meta property="og:description" content="Referência das variáveis e operadores usados nas condições dos acionadores.">
+<meta property="og:url" content="https://docs.trackup.me/variaveis">
+<meta property="og:image" content="https://docs.trackup.me/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Trackup Docs">
+<meta property="article:modified_time" content="2026-11-14T05:44:05+00:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Variáveis">
+<meta name="twitter:description" content="Referência das variáveis e operadores usados nas condições dos acionadores.">
+<meta name="twitter:image" content="https://docs.trackup.me/assets/og.jpg">
+<meta name="theme-color" content="#4f39f6">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<script>(function(){try{var t=localStorage.getItem('tu-theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<link rel="stylesheet" href="/assets/style.css">
+<script src="/assets/shell.js"></script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","headline":"Variáveis","description":"Referência das variáveis e operadores usados nas condições dos acionadores.","url":"https://docs.trackup.me/variaveis","inLanguage":"pt-BR","dateModified":"2026-11-14T05:44:05+00:00","image":"https://docs.trackup.me/assets/og.jpg","isPartOf":{"@type":"WebSite","name":"Trackup Docs","url":"https://docs.trackup.me/"},"publisher":{"@type":"Organization","name":"Trackup","url":"https://trackup.me","logo":"https://docs.trackup.me/assets/favicon.svg"},"about":{"@type":"SoftwareApplication","name":"Trackup","applicationCategory":"BusinessApplication","url":"https://trackup.me"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Trackup Docs","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":2,"name":"Guias","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":3,"name":"Variáveis","item":"https://docs.trackup.me/variaveis"}]}]</script>
+</head>
+<body>
+<script>TU.header()</script>
+<div class="layout">
+	<aside class="sidebar" aria-label="Navegação"><script>TU.sidebar()</script></aside>
+	<main>
+		<article class="content">
+			<nav class="eyebrow" aria-label="Você está em"><a href="/">Guias</a><span aria-hidden="true"> › </span><span>Otimização</span></nav>
+			<h1 class="page-title">Variáveis</h1>
+			<p class="page-desc">Referência das variáveis e operadores usados nas condições dos acionadores.</p>
+			<script>TU.actions()</script>
+			<p>As condições de um <a href="/acionadores">acionador</a> comparam uma variável do evento com um valor. Quando há várias condições, todas precisam ser verdadeiras.</p>
+
+<h2 id="evento">Evento<a class="anchor" href="#evento" aria-label="Link para esta seção">#</a></h2>
+<table>
+	<thead><tr><th>Variável</th><th>Valores</th></tr></thead>
+	<tbody>
+		<tr><td>Tipo de evento (<code>type</code>)</td><td><code>page_view</code>, <code>ad_click</code>, <code>add_to_cart</code>, <code>start_checkout</code>, <code>conversion</code>.</td></tr>
+		<tr><td>Tipo customizado (<code>custom_type</code>)</td><td>Nome do evento enviado pelo <a href="/script">script</a>, como <code>lead_form_submitted</code>. Em conversões, é a plataforma de venda que enviou a venda.</td></tr>
+	</tbody>
+</table>
+
+<h2 id="utm">UTM<a class="anchor" href="#utm" aria-label="Link para esta seção">#</a></h2>
+<p><code>utm_source</code>, <code>utm_medium</code>, <code>utm_campaign</code>, <code>utm_term</code> e <code>utm_content</code>, como chegaram na URL do clique.</p>
+
+<h2 id="subs">Subs<a class="anchor" href="#subs" aria-label="Link para esta seção">#</a></h2>
+<p><code>sub1</code> a <code>sub8</code>: parâmetros livres que você pode adicionar à URL do anúncio (por exemplo <code>?sub1=criativo-07</code>) para segmentar acionadores e relatórios.</p>
+
+<h2 id="trafego">Tráfego<a class="anchor" href="#trafego" aria-label="Link para esta seção">#</a></h2>
+<table>
+	<thead><tr><th>Variável</th><th>Descrição</th></tr></thead>
+	<tbody>
+		<tr><td>Rede (<code>network</code>)</td><td>Origem identificada do visitante: <code>facebook</code>, <code>instagram</code>, <code>google</code>, <code>tiktok</code>, <code>kwai</code>, <code>youtube</code>, <code>twitter</code>, <code>linkedin</code>, <code>pinterest</code>, <code>reddit</code>, <code>bing</code>, <code>yahoo</code>, <code>outbrain</code>, <code>whatsapp</code>, <code>email</code>, assistentes de IA (<code>chatgpt</code>, <code>claude</code>, <code>perplexity</code>, <code>gemini</code>, <code>copilot</code>, <code>deepseek</code>, <code>grok</code>), <code>organic</code> e <code>direct</code>.</td></tr>
+		<tr><td>URL (<code>url</code>)</td><td>Endereço acessado.</td></tr>
+		<tr><td>Referrer (<code>referrer</code>)</td><td>Página de onde o visitante veio.</td></tr>
+	</tbody>
+</table>
+
+<h2 id="operadores">Operadores<a class="anchor" href="#operadores" aria-label="Link para esta seção">#</a></h2>
+<table>
+	<thead><tr><th>Operador</th><th>Uso</th></tr></thead>
+	<tbody>
+		<tr><td>Igual / Diferente</td><td>Valor exato.</td></tr>
+		<tr><td>Contém / Não contém</td><td>Parte do texto, como <code>black</code> em <code>black-friday-2026</code>.</td></tr>
+		<tr><td>Maior que, Menor que, Maior ou igual, Menor ou igual</td><td>Só para valores numéricos.</td></tr>
+	</tbody>
+</table>
+<div class="callout tip"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.1 14c.2-1 .7-1.7 1.5-2.5A6 6 0 1 0 6 8c0 1.4.4 2.6 1.4 3.5.8.8 1.3 1.5 1.5 2.5"/></svg><div><p>Um acionador sem condição de <strong>Tipo de evento</strong> dispara em todos os eventos. Quase sempre você quer limitar a um tipo.</p></div></div>
+
+			<script>TU.pager();TU.footer()</script>
+			<noscript><p class="site-footer"><a href="/">Início</a> · <a href="/llms.txt">Índice completo</a> · <a href="/sitemap.xml">Mapa do site</a></p></noscript>
+		</article>
+	</main>
+	<aside class="toc"><div class="toc-title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg> Nesta página</div><ul><li class="lvl-2"><a href="#evento">Evento</a></li><li class="lvl-2"><a href="#utm">UTM</a></li><li class="lvl-2"><a href="#subs">Subs</a></li><li class="lvl-2"><a href="#trafego">Tráfego</a></li><li class="lvl-2"><a href="#operadores">Operadores</a></li></ul></aside>
+</div>
+<script>TU.end()</script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Autenticação | Trackup Docs</title>
+<meta name="description" content="Autentique as requisições com uma chave de API do time.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://docs.trackup.me/api-autenticacao">
+<link rel="alternate" hreflang="pt-BR" href="https://docs.trackup.me/api-autenticacao">
+<link rel="alternate" type="text/markdown" title="Versão para IA (llms.txt)" href="/llms.txt">
+<meta property="og:site_name" content="Trackup Docs">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Autenticação">
+<meta property="og:description" content="Autentique as requisições com uma chave de API do time.">
+<meta property="og:url" content="https://docs.trackup.me/api-autenticacao">
+<meta property="og:image" content="https://docs.trackup.me/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Trackup Docs">
+<meta property="article:modified_time" content="2026-11-12T20:34:17+00:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Autenticação">
+<meta name="twitter:description" content="Autentique as requisições com uma chave de API do time.">
+<meta name="twitter:image" content="https://docs.trackup.me/assets/og.jpg">
+<meta name="theme-color" content="#4f39f6">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<script>(function(){try{var t=localStorage.getItem('tu-theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<link rel="stylesheet" href="/assets/style.css">
+<script src="/assets/shell.js"></script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","headline":"Autenticação","description":"Autentique as requisições com uma chave de API do time.","url":"https://docs.trackup.me/api-autenticacao","inLanguage":"pt-BR","dateModified":"2026-11-12T20:34:17+00:00","image":"https://docs.trackup.me/assets/og.jpg","isPartOf":{"@type":"WebSite","name":"Trackup Docs","url":"https://docs.trackup.me/"},"publisher":{"@type":"Organization","name":"Trackup","url":"https://trackup.me","logo":"https://docs.trackup.me/assets/favicon.svg"},"about":{"@type":"SoftwareApplication","name":"Trackup","applicationCategory":"BusinessApplication","url":"https://trackup.me"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Trackup Docs","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":2,"name":"API","item":"https://docs.trackup.me/api"},{"@type":"ListItem","position":3,"name":"Autenticação","item":"https://docs.trackup.me/api-autenticacao"}]}]</script>
+</head>
+<body>
+<script>TU.header()</script>
+<div class="layout">
+	<aside class="sidebar" aria-label="Navegação"><script>TU.sidebar()</script></aside>
+	<main>
+		<article class="content">
+			<nav class="eyebrow" aria-label="Você está em"><a href="/api">API</a><span aria-hidden="true"> › </span><span>Primeiros passos</span></nav>
+			<h1 class="page-title">Autenticação</h1>
+			<p class="page-desc">Autentique as requisições com uma chave de API do time.</p>
+			<script>TU.actions()</script>
+			<p>Toda requisição precisa do header <code>X-Api-Key</code> com uma <a href="/chaves-de-api">chave de API</a>.</p>
+<div class="code"><pre><code class="lang-bash">curl https://api.trackup.me/v1/projects \
+  -H &quot;X-Api-Key: $TRACKUP_API_KEY&quot;</code></pre></div>
+
+<h2 id="time">Time<a class="anchor" href="#time" aria-label="Link para esta seção">#</a></h2>
+<p>Cada chave pertence a um time. Não é preciso enviar <code>X-Team-Id</code>. Se enviar, ele precisa ser o time da chave.</p>
+
+<h2 id="permissoes">Permissões<a class="anchor" href="#permissoes" aria-label="Link para esta seção">#</a></h2>
+<p>Cada endpoint exige uma permissão, indicada na página dele, no formato <code>recurso.ação</code>, como <code>page.create</code> ou <code>conversion.list</code>. As ações são <code>list</code>, <code>read</code>, <code>create</code>, <code>update</code> e <code>delete</code>.</p>
+<ul>
+	<li>A chave só faz o que quem a criou pode fazer no time. Se essa pessoa perder a permissão ou sair do time, a chave perde junto.</li>
+	<li>As permissões de ingestão <code>visitor.create</code>, <code>conversion.create</code> e <code>request.create</code> são exclusivas de chaves e não dependem das permissões de quem criou.</li>
+</ul>
+
+<h2 id="projetos">Projetos<a class="anchor" href="#projetos" aria-label="Link para esta seção">#</a></h2>
+<p>Uma chave acessa todos os projetos do time ou só os escolhidos na criação. Pedidos a um projeto fora da lista respondem <code>404</code>.</p>
+
+<h2 id="validade-e-revogacao">Validade e revogação<a class="anchor" href="#validade-e-revogacao" aria-label="Link para esta seção">#</a></h2>
+<p>Depois da data de validade, ou depois de revogada, a chave responde <code>403</code>.</p>
+
+<div class="callout warning"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg><div><p>Use a chave só no servidor. Nunca coloque a chave em código que roda no navegador, em aplicativos ou em repositórios.</p></div></div>
+
+			<script>TU.pager();TU.footer()</script>
+			<noscript><p class="site-footer"><a href="/">Início</a> · <a href="/llms.txt">Índice completo</a> · <a href="/sitemap.xml">Mapa do site</a></p></noscript>
+		</article>
+	</main>
+	<aside class="toc"><div class="toc-title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg> Nesta página</div><ul><li class="lvl-2"><a href="#time">Time</a></li><li class="lvl-2"><a href="#permissoes">Permissões</a></li><li class="lvl-2"><a href="#projetos">Projetos</a></li><li class="lvl-2"><a href="#validade-e-revogacao">Validade e revogação</a></li></ul></aside>
+</div>
+<script>TU.end()</script>
+</body>
+</html>

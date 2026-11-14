@@ -1,0 +1,17 @@
+---
+title: Nuvemshop
+icon: cart
+eyebrow: Plataformas de venda
+description: Receba vendas, reembolsos e chargebacks da Nuvemshop no Trackup, atribuídos ao anúncio de origem.
+---
+<p>A Nuvemshop conecta por autorização (OAuth): o Trackup instala sozinho os webhooks de pedidos e o script de rastreamento na loja.</p>
+<h2>Antes de começar</h2><ul><li>Um projeto com <a href="/dominios">domínio primário</a> configurado. A URL do webhook usa esse domínio.</li><li>Acesso de administrador à sua conta na Nuvemshop.</li></ul>
+<h2>1. Crie a plataforma no Trackup</h2><steps>
+<step title="Adicione a plataforma"><p>Vá em <strong>Integração › Plataformas de vendas</strong>, clique em <strong>Adicionar plataforma</strong> e escolha <strong>Nuvemshop</strong>.</p></step>
+<step title="Conecte a loja"><p>Salve e clique em <strong>Conectar loja</strong>. Na Nuvemshop, aprove os acessos <strong>Ler pedidos</strong>, <strong>Modificar pedidos</strong> (usado só para gravar a atribuição no pedido) e <strong>Scripts</strong>.</p></step>
+<step title="Libere os domínios da loja"><p>Em <strong>Ajustes › Geral › Segurança</strong>, adicione o domínio da loja e o do checkout em <strong>Domínios permitidos</strong>.</p></step>
+</steps>
+<h2>2. Teste</h2>
+<p>Acesse sua landing page por um link do Trackup, clique no botão de compra e faça uma compra de teste. A venda deve aparecer em <strong>Logs › Conversões</strong> com a campanha preenchida.</p>
+<callout type="warning"><p>Se a venda aparecer como <strong>Click ID ausente</strong>, o botão da página não está apontando para o link da <a href="/ofertas">oferta</a> no Trackup, ou o checkout não está devolvendo o parâmetro do clique.</p></callout>
+<p>Não achou sua plataforma? Use o <a href="/webhook-generico">webhook genérico</a>.</p>

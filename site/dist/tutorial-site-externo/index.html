@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rastrear um site hospedado fora do Trackup | Trackup Docs</title>
+<meta name="description" content="Instale o script em uma página do WordPress, Elementor ou outra plataforma e mantenha a atribuição até o checkout.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://docs.trackup.me/tutorial-site-externo">
+<link rel="alternate" hreflang="pt-BR" href="https://docs.trackup.me/tutorial-site-externo">
+<link rel="alternate" type="text/markdown" title="Versão para IA (llms.txt)" href="/llms.txt">
+<meta property="og:site_name" content="Trackup Docs">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Rastrear um site hospedado fora do Trackup">
+<meta property="og:description" content="Instale o script em uma página do WordPress, Elementor ou outra plataforma e mantenha a atribuição até o checkout.">
+<meta property="og:url" content="https://docs.trackup.me/tutorial-site-externo">
+<meta property="og:image" content="https://docs.trackup.me/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Trackup Docs">
+<meta property="article:modified_time" content="2026-11-12T20:34:17+00:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Rastrear um site hospedado fora do Trackup">
+<meta name="twitter:description" content="Instale o script em uma página do WordPress, Elementor ou outra plataforma e mantenha a atribuição até o checkout.">
+<meta name="twitter:image" content="https://docs.trackup.me/assets/og.jpg">
+<meta name="theme-color" content="#4f39f6">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<script>(function(){try{var t=localStorage.getItem('tu-theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<link rel="stylesheet" href="/assets/style.css">
+<script src="/assets/shell.js"></script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","headline":"Rastrear um site hospedado fora do Trackup","description":"Instale o script em uma página do WordPress, Elementor ou outra plataforma e mantenha a atribuição até o checkout.","url":"https://docs.trackup.me/tutorial-site-externo","inLanguage":"pt-BR","dateModified":"2026-11-12T20:34:17+00:00","image":"https://docs.trackup.me/assets/og.jpg","isPartOf":{"@type":"WebSite","name":"Trackup Docs","url":"https://docs.trackup.me/"},"publisher":{"@type":"Organization","name":"Trackup","url":"https://trackup.me","logo":"https://docs.trackup.me/assets/favicon.svg"},"about":{"@type":"SoftwareApplication","name":"Trackup","applicationCategory":"BusinessApplication","url":"https://trackup.me"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Trackup Docs","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":2,"name":"Tutoriais","item":"https://docs.trackup.me/tutorial-campanha-meta"},{"@type":"ListItem","position":3,"name":"Rastrear um site hospedado fora do Trackup","item":"https://docs.trackup.me/tutorial-site-externo"}]}]</script>
+</head>
+<body>
+<script>TU.header()</script>
+<div class="layout">
+	<aside class="sidebar" aria-label="Navegação"><script>TU.sidebar()</script></aside>
+	<main>
+		<article class="content">
+			<nav class="eyebrow" aria-label="Você está em"><a href="/tutorial-campanha-meta">Tutoriais</a><span aria-hidden="true"> › </span><span>Páginas</span></nav>
+			<h1 class="page-title">Rastrear um site hospedado fora do Trackup</h1>
+			<p class="page-desc">Instale o script em uma página do WordPress, Elementor ou outra plataforma e mantenha a atribuição até o checkout.</p>
+			<script>TU.actions()</script>
+			<p>Sua página de vendas já está no ar em outro lugar, como WordPress, Elementor, Webflow ou Framer. Neste tutorial você faz o tráfego passar pelo Trackup, instala o script e envia eventos do funil sem mudar de hospedagem.</p>
+<div class="flow">
+	<div class="flow-step"><b>Anúncio</b><span>link Redirect do Trackup</span></div><div class="flow-arrow">{{icon:arrow}}</div>
+	<div class="flow-step"><b>Seu site</b><span>com o script</span></div><div class="flow-arrow">{{icon:arrow}}</div>
+	<div class="flow-step"><b>Oferta</b><span>link do checkout</span></div><div class="flow-arrow">{{icon:arrow}}</div>
+	<div class="flow-step"><b>Venda</b><span>webhook</span></div>
+</div>
+
+<h2 id="o-que-voce-vai-precisar">O que você vai precisar<a class="anchor" href="#o-que-voce-vai-precisar" aria-label="Link para esta seção">#</a></h2>
+<ul>
+	<li>Acesso para editar o <code>&lt;head&gt;</code> do site (tema, plugin de scripts ou configurações da plataforma).</li>
+	<li>Uma <a href="/ofertas">oferta</a> criada no Trackup.</li>
+</ul>
+
+<h2 id="1-instale-o-script">1. Instale o script<a class="anchor" href="#1-instale-o-script" aria-label="Link para esta seção">#</a></h2>
+<ol class="steps">
+	<li><span class="step-title">Copie o snippet</span>
+		<p>No Trackup, vá em <strong>Ajustes › Geral</strong>, seção <strong>Segurança</strong>, e copie o <strong>Snippet de rastreamento</strong>.</p>
+	</li>
+	<li><span class="step-title">Cole no head do site</span>
+		<div class="ctabs">
+			<div class="ctabs-panel" data-title="WordPress">
+				<p>Instale um plugin de inserção de código no cabeçalho (como <em>WPCode</em>) e cole o snippet na área <strong>Header</strong>. Ou cole em <code>header.php</code>, antes de <code>&lt;/head&gt;</code>.</p>
+			</div>
+			<div class="ctabs-panel" data-title="Elementor">
+				<p>Em <strong>Elementor › Custom Code</strong>, adicione um código com localização <strong>&lt;head&gt;</strong>, cole o snippet e publique para todo o site.</p>
+			</div>
+			<div class="ctabs-panel" data-title="Webflow">
+				<p>Em <strong>Site settings › Custom code › Head code</strong>, cole o snippet e publique.</p>
+			</div>
+			<div class="ctabs-panel" data-title="HTML">
+				<p>Cole o snippet antes de <code>&lt;/head&gt;</code> em todas as páginas.</p>
+			</div>
+		</div>
+	</li>
+	<li><span class="step-title">Libere o domínio</span>
+		<p>Em <strong>Ajustes › Geral › Segurança</strong>, adicione o domínio do site (como <code>www.seusite.com</code>) em <strong>Domínios permitidos</strong>. Sem isso, os eventos são recusados.</p>
+		<figure class="shot shot-todo"><div class="shot-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><div><strong>Print pendente · <code>img/tut-externo-dominios.png</code></strong><p>Seção Segurança de Ajustes › Geral com www.seusite.com adicionado em Domínios permitidos e o Snippet de rastreamento abaixo.</p></div></div><figcaption>Domínios permitidos do snippet</figcaption></figure></shot>
+	</li>
+</ol>
+
+<h2 id="2-faca-o-trafego-passar-pelo-trackup">2. Faça o tráfego passar pelo Trackup<a class="anchor" href="#2-faca-o-trafego-passar-pelo-trackup" aria-label="Link para esta seção">#</a></h2>
+<p>Crie uma página <a href="/redirect">Redirect</a> que leva ao seu site. O anúncio aponta para ela. Assim o Trackup aplica o filtro, registra o clique e repassa as UTMs.</p>
+<ol class="steps">
+	<li><span class="step-title">Crie a página Redirect</span>
+		<p>Em <strong>Páginas › Adicionar página</strong>, na aba <strong>Redirect</strong>: nome <em>Site Curso</em>, URL de redirecionamento <code>https://www.seusite.com/curso</code>, caminho <code>/curso</code>, Status Code 302.</p>
+	</li>
+	<li><span class="step-title">Use o link no anúncio</span>
+		<p>Use o link dessa página (<code>https://lp.seudominio.com/curso</code>) com os parâmetros da fonte de tráfego no anúncio.</p>
+	</li>
+</ol>
+<div class="callout note"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><div><p>Se o anúncio apontar direto para o seu site, o script ainda registra as visitas e as UTMs, mas o <a href="/filtro">filtro</a> não atua, porque a requisição não passa pelo domínio do Trackup.</p></div></div>
+
+<h2 id="3-ligue-os-botoes-a-oferta">3. Ligue os botões à oferta<a class="anchor" href="#3-ligue-os-botoes-a-oferta" aria-label="Link para esta seção">#</a></h2>
+<p>Troque o link de todos os botões de compra do site pelo link da oferta no Trackup, como <code>https://lp.seudominio.com/checkout</code>. No Elementor, edite cada botão e cole o link em <strong>Link</strong>.</p>
+
+<h2 id="4-envie-eventos-do-funil-opcional">4. Envie eventos do funil (opcional)<a class="anchor" href="#4-envie-eventos-do-funil-opcional" aria-label="Link para esta seção">#</a></h2>
+<p>Marque ações importantes para usar em acionadores e no funil do dashboard. Pelo HTML, sem JavaScript:</p>
+<div class="code"><pre><code class="lang-html">&lt;button type=&quot;submit&quot; data-trackup-event=&quot;lead_form_submitted&quot;&gt;Quero receber&lt;/button&gt;
+
+&lt;a href=&quot;https://lp.seudominio.com/checkout&quot; data-trackup-event=&quot;add_to_cart&quot;&gt;Quero me inscrever&lt;/a&gt;</code></pre></div>
+<p>Ou pelo JavaScript, por exemplo quando o vídeo chega ao pitch:</p>
+<div class="code"><pre><code class="lang-javascript">trackup('track', 'vsl_pitch');</code></pre></div>
+<p>Para mandar um evento para o pixel, crie um <a href="/acionadores">acionador</a> com a condição <strong>Tipo customizado</strong> igual ao nome do evento.</p>
+
+<h2 id="5-valide">5. Valide<a class="anchor" href="#5-valide" aria-label="Link para esta seção">#</a></h2>
+<ol class="steps">
+	<li><span class="step-title">Acesse pelo link do anúncio</span>
+		<p>Abra <code>https://lp.seudominio.com/curso?utm_source=teste</code> em uma aba anônima. Você deve cair no seu site com <code>utm_source=teste</code> na URL.</p>
+	</li>
+	<li><span class="step-title">Confira as requisições</span>
+		<p>Em <strong>Logs › Requisições</strong>, aparecem o acesso ao link e o <code>page_view</code> enviado pelo script, no mesmo visitante.</p>
+	</li>
+	<li><span class="step-title">Clique em comprar</span>
+		<p>O checkout deve abrir com o parâmetro de clique da plataforma (como <code>sck</code> ou <code>src</code>) na URL.</p>
+	</li>
+</ol>
+
+<h2 id="problemas-comuns">Problemas comuns<a class="anchor" href="#problemas-comuns" aria-label="Link para esta seção">#</a></h2>
+<details class="acc"><summary>Nenhum evento do script aparece</summary><div class="acc-body">
+	<p>O domínio do site não está em <strong>Domínios permitidos</strong>, o snippet não está no <code>&lt;head&gt;</code>, ou um plugin de cache serve uma versão antiga. Limpe o cache e confira o código-fonte da página.</p>
+</div></details>
+<details class="acc"><summary>As UTMs se perdem no site</summary><div class="acc-body">
+	<p>Algum redirecionamento do site (como de <code>seusite.com</code> para <code>www.seusite.com</code>) está removendo a query string. Use na página Redirect a URL final, já com <code>www</code> e barra.</p>
+</div></details>
+
+			<script>TU.pager();TU.footer()</script>
+			<noscript><p class="site-footer"><a href="/">Início</a> · <a href="/llms.txt">Índice completo</a> · <a href="/sitemap.xml">Mapa do site</a></p></noscript>
+		</article>
+	</main>
+	<aside class="toc"><div class="toc-title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg> Nesta página</div><ul><li class="lvl-2"><a href="#o-que-voce-vai-precisar">O que você vai precisar</a></li><li class="lvl-2"><a href="#1-instale-o-script">1. Instale o script</a></li><li class="lvl-2"><a href="#2-faca-o-trafego-passar-pelo-trackup">2. Faça o tráfego passar pelo Trackup</a></li><li class="lvl-2"><a href="#3-ligue-os-botoes-a-oferta">3. Ligue os botões à oferta</a></li><li class="lvl-2"><a href="#4-envie-eventos-do-funil-opcional">4. Envie eventos do funil (opcional)</a></li><li class="lvl-2"><a href="#5-valide">5. Valide</a></li><li class="lvl-2"><a href="#problemas-comuns">Problemas comuns</a></li></ul></aside>
+</div>
+<script>TU.end()</script>
+</body>
+</html>

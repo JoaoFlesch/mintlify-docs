@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plataformas de venda | Trackup Docs</title>
+<meta name="description" content="Receba vendas, reembolsos e chargebacks por webhook e ligue cada venda ao anúncio de origem.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://docs.trackup.me/plataformas-de-venda">
+<link rel="alternate" hreflang="pt-BR" href="https://docs.trackup.me/plataformas-de-venda">
+<link rel="alternate" type="text/markdown" title="Versão para IA (llms.txt)" href="/llms.txt">
+<meta property="og:site_name" content="Trackup Docs">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Plataformas de venda">
+<meta property="og:description" content="Receba vendas, reembolsos e chargebacks por webhook e ligue cada venda ao anúncio de origem.">
+<meta property="og:url" content="https://docs.trackup.me/plataformas-de-venda">
+<meta property="og:image" content="https://docs.trackup.me/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Trackup Docs">
+<meta property="article:modified_time" content="2026-11-14T05:44:14+00:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Plataformas de venda">
+<meta name="twitter:description" content="Receba vendas, reembolsos e chargebacks por webhook e ligue cada venda ao anúncio de origem.">
+<meta name="twitter:image" content="https://docs.trackup.me/assets/og.jpg">
+<meta name="theme-color" content="#4f39f6">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<script>(function(){try{var t=localStorage.getItem('tu-theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<link rel="stylesheet" href="/assets/style.css">
+<script src="/assets/shell.js"></script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","headline":"Plataformas de venda","description":"Receba vendas, reembolsos e chargebacks por webhook e ligue cada venda ao anúncio de origem.","url":"https://docs.trackup.me/plataformas-de-venda","inLanguage":"pt-BR","dateModified":"2026-11-14T05:44:14+00:00","image":"https://docs.trackup.me/assets/og.jpg","isPartOf":{"@type":"WebSite","name":"Trackup Docs","url":"https://docs.trackup.me/"},"publisher":{"@type":"Organization","name":"Trackup","url":"https://trackup.me","logo":"https://docs.trackup.me/assets/favicon.svg"},"about":{"@type":"SoftwareApplication","name":"Trackup","applicationCategory":"BusinessApplication","url":"https://trackup.me"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Trackup Docs","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":2,"name":"Guias","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":3,"name":"Plataformas de venda","item":"https://docs.trackup.me/plataformas-de-venda"}]}]</script>
+</head>
+<body>
+<script>TU.header()</script>
+<div class="layout">
+	<aside class="sidebar" aria-label="Navegação"><script>TU.sidebar()</script></aside>
+	<main>
+		<article class="content">
+			<nav class="eyebrow" aria-label="Você está em"><a href="/">Guias</a><span aria-hidden="true"> › </span><span>Configuração</span></nav>
+			<h1 class="page-title">Plataformas de venda</h1>
+			<p class="page-desc">Receba vendas, reembolsos e chargebacks por webhook e ligue cada venda ao anúncio de origem.</p>
+			<script>TU.actions()</script>
+			<div class="callout tip"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.1 14c.2-1 .7-1.7 1.5-2.5A6 6 0 1 0 6 8c0 1.4.4 2.6 1.4 3.5.8.8 1.3 1.5 1.5 2.5"/></svg><div><p><strong>Configure pela sua IA.</strong> Conecte seu assistente pelo <a href="/conectar-mcp">MCP</a> e peça: <em>"Conecte uma plataforma de venda ao projeto e me dê a URL do webhook."</em></p></div></div>
+<p>A plataforma de venda é onde o cliente paga: um gateway de pagamento, uma plataforma de infoprodutos ou uma loja virtual. Integrada ao Trackup, ela envia um webhook a cada venda, reembolso ou chargeback, e o Trackup registra a conversão com a campanha que gerou o clique.</p>
+
+<h2 id="como-a-atribuicao-funciona">Como a atribuição funciona<a class="anchor" href="#como-a-atribuicao-funciona" aria-label="Link para esta seção">#</a></h2>
+<ol>
+	<li>O visitante clica no botão de compra, que aponta para o link da <a href="/ofertas">oferta</a>.</li>
+	<li>O Trackup redireciona para o checkout adicionando o ID do clique e as UTMs na URL, no parâmetro que a plataforma aceita (em muitas é <code>sck</code> ou <code>src</code>; os parâmetros já vêm preenchidos para cada plataforma).</li>
+	<li>A plataforma guarda esse ID no pedido e devolve no webhook.</li>
+	<li>O Trackup encontra o clique, registra a <a href="/conversoes">conversão</a> e dispara os <a href="/acionadores">acionadores</a> de <code>conversion</code>.</li>
+</ol>
+
+<h2 id="integrar-uma-plataforma">Integrar uma plataforma<a class="anchor" href="#integrar-uma-plataforma" aria-label="Link para esta seção">#</a></h2>
+<ol class="steps">
+	<li><span class="step-title">Adicione a plataforma</span>
+		<p>Vá em <strong>Integração › Plataformas de vendas</strong> e clique em <strong>Adicionar plataforma</strong>. Pesquise e selecione a sua no campo <strong>Plataforma</strong>.</p>
+		<figure class="shot shot-todo"><div class="shot-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><div><strong>Print pendente · <code>img/plataformas-adicionar.png</code></strong><p>Diálogo Adicionar plataforma com o seletor Plataforma aberto, mostrando a lista pesquisável.</p></div></div><figcaption>Seleção da plataforma de vendas</figcaption></figure></shot>
+	</li>
+	<li><span class="step-title">Dê um nome</span>
+		<p>Use um nome que identifique a conta, por exemplo <code>Gateway · Online Store</code>.</p>
+	</li>
+	<li><span class="step-title">Confira os parâmetros</span>
+		<p>Os parâmetros do checkout vêm preenchidos para cada plataforma. Em <strong>Parâmetros avançados › Personalizar parâmetros</strong> você adiciona parâmetros extras à URL do checkout, como <code>{request.sub1}</code>. Use <strong>Inserir macro</strong> para ver a lista completa.</p>
+		<figure class="shot shot-todo"><div class="shot-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><div><strong>Print pendente · <code>img/plataformas-parametros.png</code></strong><p>Seção Parâmetros avançados aberta com um parâmetro personalizado e o botão Inserir macro.</p></div></div><figcaption>Parâmetros avançados</figcaption></figure></shot>
+	</li>
+	<li><span class="step-title">Salve e copie a URL</span>
+		<p>Salve e, na lista, copie a <strong>URL</strong> do webhook com <strong>Copiar URL</strong>. Se aparecer <em>Configure um domínio</em>, defina antes um <a href="/dominios">domínio primário</a>.</p>
+		<figure class="shot shot-todo"><div class="shot-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><div><strong>Print pendente · <code>img/plataformas-lista.png</code></strong><p>Lista com as colunas Plataforma, Código e URL, e o botão Copiar URL em destaque. Parte da URL borrada.</p></div></div><figcaption>Lista de plataformas de vendas</figcaption></figure></shot>
+	</li>
+	<li><span class="step-title">Cadastre o webhook na plataforma</span>
+		<p>Na área de webhooks da plataforma de venda, cole a URL e habilite os eventos de pagamento confirmado, reembolso e chargeback. Algumas plataformas exigem um evento específico para trazer os itens da compra: confira a página de cada uma em <a href="/integracoes">Integrações</a>.</p>
+	</li>
+	<li><span class="step-title">Valide</span>
+		<p>Faça uma compra de teste pelo fluxo completo (anúncio, página, checkout, compra aprovada) e confira a venda em <strong>Logs › Conversões</strong>. Se aparecer o aviso <em>Click ID ausente nesta conversão</em>, a atribuição está incompleta: revise o link, o pixel e os parâmetros da plataforma.</p>
+	</li>
+</ol>
+<div class="callout note"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><div><p>A URL do webhook usa o <a href="/dominios">domínio primário</a> do projeto. Configure o domínio antes de integrar, para não precisar trocar a URL depois.</p></div></div>
+
+<h2 id="macros-do-checkout">Macros do checkout<a class="anchor" href="#macros-do-checkout" aria-label="Link para esta seção">#</a></h2>
+<p>Os parâmetros aceitam valores fixos ou macros no formato <code>{request.campo}</code>:</p>
+<table>
+	<thead><tr><th>Macro</th><th>Valor</th></tr></thead>
+	<tbody>
+		<tr><td><code>{request.id}</code></td><td>ID do clique (request ID). Obrigatório para atribuição.</td></tr>
+		<tr><td><code>{request.utmSource}</code> … <code>{request.utmContent}</code></td><td>UTMs do clique.</td></tr>
+		<tr><td><code>{request.clickId}</code></td><td>Click ID da plataforma de anúncios.</td></tr>
+		<tr><td><code>{request.sub1}</code> … <code>{request.sub8}</code></td><td>Sub IDs.</td></tr>
+		<tr><td><code>{request.campaignId}</code>, <code>{request.adsetId}</code>, <code>{request.adId}</code></td><td>IDs de campanha, conjunto e anúncio.</td></tr>
+		<tr><td><code>{request.visitorId}</code></td><td>ID do visitante.</td></tr>
+		<tr><td><code>{request.country}</code>, <code>{request.city}</code>, <code>{request.state}</code></td><td>Localização.</td></tr>
+		<tr><td><code>{request.device}</code>, <code>{request.browser}</code>, <code>{request.os}</code></td><td>Dispositivo.</td></tr>
+	</tbody>
+</table>
+
+<p>Há mais macros, como origem do tráfego, IDs da conta, do conjunto e do criativo, idioma e host. Use <strong>Inserir macro</strong> para ver todas.</p>
+
+<h2 id="excluir-uma-plataforma">Excluir uma plataforma<a class="anchor" href="#excluir-uma-plataforma" aria-label="Link para esta seção">#</a></h2>
+<p>Só é possível excluir uma plataforma que não está em nenhum link, página de checkout ou teste A/B. Remova esses vínculos antes.</p>
+
+<div class="cards">
+	<a class="card" href="/integracoes"><span class="card-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8z"/></svg></span><span class="card-title">Todas as integrações</span><span class="card-text">Passo a passo de cada plataforma.</span></a>
+	<a class="card" href="/webhook-generico"><span class="card-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg></span><span class="card-title">Webhook genérico</span><span class="card-text">Para checkouts sem integração nativa.</span></a>
+</div>
+
+			<script>TU.pager();TU.footer()</script>
+			<noscript><p class="site-footer"><a href="/">Início</a> · <a href="/llms.txt">Índice completo</a> · <a href="/sitemap.xml">Mapa do site</a></p></noscript>
+		</article>
+	</main>
+	<aside class="toc"><div class="toc-title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg> Nesta página</div><ul><li class="lvl-2"><a href="#como-a-atribuicao-funciona">Como a atribuição funciona</a></li><li class="lvl-2"><a href="#integrar-uma-plataforma">Integrar uma plataforma</a></li><li class="lvl-2"><a href="#macros-do-checkout">Macros do checkout</a></li><li class="lvl-2"><a href="#excluir-uma-plataforma">Excluir uma plataforma</a></li></ul></aside>
+</div>
+<script>TU.end()</script>
+</body>
+</html>

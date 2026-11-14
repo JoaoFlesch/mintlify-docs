@@ -1,0 +1,638 @@
+[
+  {
+    "slug": "index",
+    "path": "/",
+    "title": "Introdução",
+    "file": "index.html"
+  },
+  {
+    "slug": "quick-start",
+    "path": "/quick-start",
+    "title": "Quick Start",
+    "file": "quick-start/index.html"
+  },
+  {
+    "slug": "como-funciona",
+    "path": "/como-funciona",
+    "title": "Como funciona",
+    "file": "como-funciona/index.html"
+  },
+  {
+    "slug": "times-e-membros",
+    "path": "/times-e-membros",
+    "title": "Times e membros",
+    "file": "times-e-membros/index.html"
+  },
+  {
+    "slug": "projetos",
+    "path": "/projetos",
+    "title": "Projetos",
+    "file": "projetos/index.html"
+  },
+  {
+    "slug": "dominios",
+    "path": "/dominios",
+    "title": "Domínios",
+    "file": "dominios/index.html"
+  },
+  {
+    "slug": "pixels",
+    "path": "/pixels",
+    "title": "Pixels",
+    "file": "pixels/index.html"
+  },
+  {
+    "slug": "fontes-de-trafego",
+    "path": "/fontes-de-trafego",
+    "title": "Fontes de tráfego",
+    "file": "fontes-de-trafego/index.html"
+  },
+  {
+    "slug": "plataformas-de-venda",
+    "path": "/plataformas-de-venda",
+    "title": "Plataformas de venda",
+    "file": "plataformas-de-venda/index.html"
+  },
+  {
+    "slug": "script",
+    "path": "/script",
+    "title": "Script de rastreamento",
+    "file": "script/index.html"
+  },
+  {
+    "slug": "paginas",
+    "path": "/paginas",
+    "title": "Páginas",
+    "file": "paginas/index.html"
+  },
+  {
+    "slug": "ofertas",
+    "path": "/ofertas",
+    "title": "Ofertas",
+    "file": "ofertas/index.html"
+  },
+  {
+    "slug": "builder",
+    "path": "/builder",
+    "title": "Builder",
+    "file": "builder/index.html"
+  },
+  {
+    "slug": "upload-html",
+    "path": "/upload-html",
+    "title": "Upload HTML",
+    "file": "upload-html/index.html"
+  },
+  {
+    "slug": "clonar-url",
+    "path": "/clonar-url",
+    "title": "Clonar URL",
+    "file": "clonar-url/index.html"
+  },
+  {
+    "slug": "redirect",
+    "path": "/redirect",
+    "title": "Redirect",
+    "file": "redirect/index.html"
+  },
+  {
+    "slug": "versoes-e-arquivos",
+    "path": "/versoes-e-arquivos",
+    "title": "Versões e arquivos",
+    "file": "versoes-e-arquivos/index.html"
+  },
+  {
+    "slug": "testes-ab",
+    "path": "/testes-ab",
+    "title": "Testes A/B",
+    "file": "testes-ab/index.html"
+  },
+  {
+    "slug": "acionadores",
+    "path": "/acionadores",
+    "title": "Acionadores",
+    "file": "acionadores/index.html"
+  },
+  {
+    "slug": "variaveis",
+    "path": "/variaveis",
+    "title": "Variáveis",
+    "file": "variaveis/index.html"
+  },
+  {
+    "slug": "filtro",
+    "path": "/filtro",
+    "title": "Filtro",
+    "file": "filtro/index.html"
+  },
+  {
+    "slug": "filtro-basico",
+    "path": "/filtro-basico",
+    "title": "Modo básico",
+    "file": "filtro-basico/index.html"
+  },
+  {
+    "slug": "filtro-avancado",
+    "path": "/filtro-avancado",
+    "title": "Modo avançado",
+    "file": "filtro-avancado/index.html"
+  },
+  {
+    "slug": "dashboards",
+    "path": "/dashboards",
+    "title": "Dashboards",
+    "file": "dashboards/index.html"
+  },
+  {
+    "slug": "gerenciador-de-anuncios",
+    "path": "/gerenciador-de-anuncios",
+    "title": "Gerenciador de anúncios",
+    "file": "gerenciador-de-anuncios/index.html"
+  },
+  {
+    "slug": "requisicoes",
+    "path": "/requisicoes",
+    "title": "Requisições",
+    "file": "requisicoes/index.html"
+  },
+  {
+    "slug": "visitantes",
+    "path": "/visitantes",
+    "title": "Visitantes",
+    "file": "visitantes/index.html"
+  },
+  {
+    "slug": "conversoes",
+    "path": "/conversoes",
+    "title": "Conversões",
+    "file": "conversoes/index.html"
+  },
+  {
+    "slug": "reembolsos-e-chargebacks",
+    "path": "/reembolsos-e-chargebacks",
+    "title": "Reembolsos e chargebacks",
+    "file": "reembolsos-e-chargebacks/index.html"
+  },
+  {
+    "slug": "logs-de-acionadores",
+    "path": "/logs-de-acionadores",
+    "title": "Logs de acionadores",
+    "file": "logs-de-acionadores/index.html"
+  },
+  {
+    "slug": "produtos",
+    "path": "/produtos",
+    "title": "Produtos",
+    "file": "produtos/index.html"
+  },
+  {
+    "slug": "configuracoes",
+    "path": "/configuracoes",
+    "title": "Configurações",
+    "file": "configuracoes/index.html"
+  },
+  {
+    "slug": "chaves-de-api",
+    "path": "/chaves-de-api",
+    "title": "Chaves de API",
+    "file": "chaves-de-api/index.html"
+  },
+  {
+    "slug": "assinatura",
+    "path": "/assinatura",
+    "title": "Assinatura",
+    "file": "assinatura/index.html"
+  },
+  {
+    "slug": "afiliados",
+    "path": "/afiliados",
+    "title": "Afiliados",
+    "file": "afiliados/index.html"
+  },
+  {
+    "slug": "tutorial-campanha-meta",
+    "path": "/tutorial-campanha-meta",
+    "title": "Campanha na Meta",
+    "file": "tutorial-campanha-meta/index.html"
+  },
+  {
+    "slug": "tutorial-dominio-proprio",
+    "path": "/tutorial-dominio-proprio",
+    "title": "Domínio próprio",
+    "file": "tutorial-dominio-proprio/index.html"
+  },
+  {
+    "slug": "tutorial-landing-builder",
+    "path": "/tutorial-landing-builder",
+    "title": "Landing page no Builder",
+    "file": "tutorial-landing-builder/index.html"
+  },
+  {
+    "slug": "tutorial-site-externo",
+    "path": "/tutorial-site-externo",
+    "title": "Site externo",
+    "file": "tutorial-site-externo/index.html"
+  },
+  {
+    "slug": "tutorial-teste-ab",
+    "path": "/tutorial-teste-ab",
+    "title": "Teste A/B de página",
+    "file": "tutorial-teste-ab/index.html"
+  },
+  {
+    "slug": "tutorial-proteger-paginas",
+    "path": "/tutorial-proteger-paginas",
+    "title": "Proteger páginas",
+    "file": "tutorial-proteger-paginas/index.html"
+  },
+  {
+    "slug": "tutorial-dashboard-lucro",
+    "path": "/tutorial-dashboard-lucro",
+    "title": "Dashboard de lucro",
+    "file": "tutorial-dashboard-lucro/index.html"
+  },
+  {
+    "slug": "integracoes",
+    "path": "/integracoes",
+    "title": "Integrações",
+    "file": "integracoes/index.html"
+  },
+  {
+    "slug": "webhook-generico",
+    "path": "/webhook-generico",
+    "title": "Webhook genérico",
+    "file": "webhook-generico/index.html"
+  },
+  {
+    "slug": "actionpay",
+    "path": "/actionpay",
+    "title": "ActionPay",
+    "file": "actionpay/index.html"
+  },
+  {
+    "slug": "amplopay",
+    "path": "/amplopay",
+    "title": "AmploPay",
+    "file": "amplopay/index.html"
+  },
+  {
+    "slug": "appmax",
+    "path": "/appmax",
+    "title": "Appmax",
+    "file": "appmax/index.html"
+  },
+  {
+    "slug": "atomo-pay",
+    "path": "/atomo-pay",
+    "title": "Átomo Pay",
+    "file": "atomo-pay/index.html"
+  },
+  {
+    "slug": "braip",
+    "path": "/braip",
+    "title": "Braip",
+    "file": "braip/index.html"
+  },
+  {
+    "slug": "buygoods",
+    "path": "/buygoods",
+    "title": "BuyGoods",
+    "file": "buygoods/index.html"
+  },
+  {
+    "slug": "cart-panda",
+    "path": "/cart-panda",
+    "title": "CartPanda",
+    "file": "cart-panda/index.html"
+  },
+  {
+    "slug": "digipag",
+    "path": "/digipag",
+    "title": "DigiPag",
+    "file": "digipag/index.html"
+  },
+  {
+    "slug": "digistore24",
+    "path": "/digistore24",
+    "title": "Digistore24",
+    "file": "digistore24/index.html"
+  },
+  {
+    "slug": "eduzz",
+    "path": "/eduzz",
+    "title": "Eduzz",
+    "file": "eduzz/index.html"
+  },
+  {
+    "slug": "goat-pay",
+    "path": "/goat-pay",
+    "title": "GoatPay",
+    "file": "goat-pay/index.html"
+  },
+  {
+    "slug": "hotmart",
+    "path": "/hotmart",
+    "title": "Hotmart",
+    "file": "hotmart/index.html"
+  },
+  {
+    "slug": "inova-pag",
+    "path": "/inova-pag",
+    "title": "InovaPag",
+    "file": "inova-pag/index.html"
+  },
+  {
+    "slug": "kirvano",
+    "path": "/kirvano",
+    "title": "Kirvano",
+    "file": "kirvano/index.html"
+  },
+  {
+    "slug": "kiwify",
+    "path": "/kiwify",
+    "title": "Kiwify",
+    "file": "kiwify/index.html"
+  },
+  {
+    "slug": "lastlink",
+    "path": "/lastlink",
+    "title": "LastLink",
+    "file": "lastlink/index.html"
+  },
+  {
+    "slug": "luna-checkout",
+    "path": "/luna-checkout",
+    "title": "Luna Checkout",
+    "file": "luna-checkout/index.html"
+  },
+  {
+    "slug": "monetizze",
+    "path": "/monetizze",
+    "title": "Monetizze",
+    "file": "monetizze/index.html"
+  },
+  {
+    "slug": "mundpay",
+    "path": "/mundpay",
+    "title": "Mundpay",
+    "file": "mundpay/index.html"
+  },
+  {
+    "slug": "nuvemshop",
+    "path": "/nuvemshop",
+    "title": "Nuvemshop",
+    "file": "nuvemshop/index.html"
+  },
+  {
+    "slug": "pagueio",
+    "path": "/pagueio",
+    "title": "Pague.io",
+    "file": "pagueio/index.html"
+  },
+  {
+    "slug": "paradise",
+    "path": "/paradise",
+    "title": "Paradise",
+    "file": "paradise/index.html"
+  },
+  {
+    "slug": "payt",
+    "path": "/payt",
+    "title": "Payt",
+    "file": "payt/index.html"
+  },
+  {
+    "slug": "perfect-pay",
+    "path": "/perfect-pay",
+    "title": "PerfectPay",
+    "file": "perfect-pay/index.html"
+  },
+  {
+    "slug": "proofpay",
+    "path": "/proofpay",
+    "title": "ProofPay",
+    "file": "proofpay/index.html"
+  },
+  {
+    "slug": "shopify",
+    "path": "/shopify",
+    "title": "Shopify",
+    "file": "shopify/index.html"
+  },
+  {
+    "slug": "stripe",
+    "path": "/stripe",
+    "title": "Stripe",
+    "file": "stripe/index.html"
+  },
+  {
+    "slug": "ticto",
+    "path": "/ticto",
+    "title": "Ticto",
+    "file": "ticto/index.html"
+  },
+  {
+    "slug": "tribopay",
+    "path": "/tribopay",
+    "title": "TriboPay",
+    "file": "tribopay/index.html"
+  },
+  {
+    "slug": "upag",
+    "path": "/upag",
+    "title": "Upag",
+    "file": "upag/index.html"
+  },
+  {
+    "slug": "vega-checkout",
+    "path": "/vega-checkout",
+    "title": "Vega Checkout",
+    "file": "vega-checkout/index.html"
+  },
+  {
+    "slug": "yampi",
+    "path": "/yampi",
+    "title": "Yampi",
+    "file": "yampi/index.html"
+  },
+  {
+    "slug": "zedy",
+    "path": "/zedy",
+    "title": "Zedy",
+    "file": "zedy/index.html"
+  },
+  {
+    "slug": "conectar-mcp",
+    "path": "/conectar-mcp",
+    "title": "Conectar ao MCP",
+    "file": "conectar-mcp/index.html"
+  },
+  {
+    "slug": "agentes-de-ia",
+    "path": "/agentes-de-ia",
+    "title": "Agentes de IA",
+    "file": "agentes-de-ia/index.html"
+  },
+  {
+    "slug": "agentes-de-ia-casos-de-uso",
+    "path": "/agentes-de-ia-casos-de-uso",
+    "title": "Casos de uso",
+    "file": "agentes-de-ia-casos-de-uso/index.html"
+  },
+  {
+    "slug": "api",
+    "path": "/api",
+    "title": "Introdução",
+    "file": "api/index.html"
+  },
+  {
+    "slug": "api-autenticacao",
+    "path": "/api-autenticacao",
+    "title": "Autenticação",
+    "file": "api-autenticacao/index.html"
+  },
+  {
+    "slug": "api-erros",
+    "path": "/api-erros",
+    "title": "Erros",
+    "file": "api-erros/index.html"
+  },
+  {
+    "slug": "api/endpoints",
+    "path": "/api/endpoints",
+    "title": "Todos os endpoints",
+    "file": "api/endpoints/index.html"
+  },
+  {
+    "slug": "api/projetos",
+    "path": "/api/projetos",
+    "title": "Projetos",
+    "file": "api/projetos/index.html"
+  },
+  {
+    "slug": "api/conversoes",
+    "path": "/api/conversoes",
+    "title": "Conversões",
+    "file": "api/conversoes/index.html"
+  },
+  {
+    "slug": "api/reembolsos",
+    "path": "/api/reembolsos",
+    "title": "Reembolsos",
+    "file": "api/reembolsos/index.html"
+  },
+  {
+    "slug": "api/chargebacks",
+    "path": "/api/chargebacks",
+    "title": "Chargebacks",
+    "file": "api/chargebacks/index.html"
+  },
+  {
+    "slug": "api/visitantes",
+    "path": "/api/visitantes",
+    "title": "Visitantes",
+    "file": "api/visitantes/index.html"
+  },
+  {
+    "slug": "api/requisicoes",
+    "path": "/api/requisicoes",
+    "title": "Requisições",
+    "file": "api/requisicoes/index.html"
+  },
+  {
+    "slug": "api/analytics",
+    "path": "/api/analytics",
+    "title": "Analytics",
+    "file": "api/analytics/index.html"
+  },
+  {
+    "slug": "api/dashboards",
+    "path": "/api/dashboards",
+    "title": "Dashboards",
+    "file": "api/dashboards/index.html"
+  },
+  {
+    "slug": "api/pixels",
+    "path": "/api/pixels",
+    "title": "Pixels",
+    "file": "api/pixels/index.html"
+  },
+  {
+    "slug": "api/acionadores",
+    "path": "/api/acionadores",
+    "title": "Acionadores",
+    "file": "api/acionadores/index.html"
+  },
+  {
+    "slug": "api/logs-de-acionadores",
+    "path": "/api/logs-de-acionadores",
+    "title": "Logs de acionadores",
+    "file": "api/logs-de-acionadores/index.html"
+  },
+  {
+    "slug": "api/testes-a-b-e-links",
+    "path": "/api/testes-a-b-e-links",
+    "title": "Testes A/B e links",
+    "file": "api/testes-a-b-e-links/index.html"
+  },
+  {
+    "slug": "api/paginas",
+    "path": "/api/paginas",
+    "title": "Páginas",
+    "file": "api/paginas/index.html"
+  },
+  {
+    "slug": "api/dominios",
+    "path": "/api/dominios",
+    "title": "Domínios",
+    "file": "api/dominios/index.html"
+  },
+  {
+    "slug": "api/filtro",
+    "path": "/api/filtro",
+    "title": "Filtro",
+    "file": "api/filtro/index.html"
+  },
+  {
+    "slug": "api/plataformas-de-venda",
+    "path": "/api/plataformas-de-venda",
+    "title": "Plataformas de venda",
+    "file": "api/plataformas-de-venda/index.html"
+  },
+  {
+    "slug": "api/fontes-de-trafego",
+    "path": "/api/fontes-de-trafego",
+    "title": "Fontes de tráfego",
+    "file": "api/fontes-de-trafego/index.html"
+  },
+  {
+    "slug": "api/produtos",
+    "path": "/api/produtos",
+    "title": "Produtos",
+    "file": "api/produtos/index.html"
+  },
+  {
+    "slug": "api/arquivos",
+    "path": "/api/arquivos",
+    "title": "Arquivos",
+    "file": "api/arquivos/index.html"
+  },
+  {
+    "slug": "api/urls",
+    "path": "/api/urls",
+    "title": "URLs",
+    "file": "api/urls/index.html"
+  },
+  {
+    "slug": "api/gerenciador-de-anuncios",
+    "path": "/api/gerenciador-de-anuncios",
+    "title": "Gerenciador de anúncios",
+    "file": "api/gerenciador-de-anuncios/index.html"
+  },
+  {
+    "slug": "api/ingestao",
+    "path": "/api/ingestao",
+    "title": "Ingestão",
+    "file": "api/ingestao/index.html"
+  }
+]

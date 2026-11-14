@@ -1,0 +1,155 @@
+---
+title: Rastrear uma campanha da Meta com Hotmart
+sidebarTitle: Campanha na Meta
+icon: megaphone
+eyebrow: Tutorial
+description: Do zero até a primeira venda atribuída a um anúncio, com pixel via API de Conversões, Hotmart e Gerenciador de anúncios.
+---
+<p>Neste tutorial você configura um funil completo para anunciar na Meta e vender na Hotmart. No fim, cada venda aparece no Trackup com a campanha, o conjunto e o anúncio de origem, e o Purchase chega ao pixel pela API de Conversões.</p>
+<div class="flow">
+	<div class="flow-step"><b>Anúncio</b><span>Meta Ads</span></div><div class="flow-arrow">{{icon:arrow}}</div>
+	<div class="flow-step"><b>Landing page</b><span>no seu domínio</span></div><div class="flow-arrow">{{icon:arrow}}</div>
+	<div class="flow-step"><b>Oferta</b><span>link do checkout</span></div><div class="flow-arrow">{{icon:arrow}}</div>
+	<div class="flow-step"><b>Hotmart</b><span>webhook da venda</span></div>
+</div>
+
+<h2>O que você vai precisar</h2>
+<ul>
+	<li>Um projeto no Trackup com domínio próprio verificado. Se ainda não tem, siga <a href="/tutorial-dominio-proprio">Configurar um domínio próprio</a>.</li>
+	<li>Acesso de administrador ao Business Manager da Meta e ao pixel.</li>
+	<li>Acesso de produtor na Hotmart, com o produto criado e o link de checkout.</li>
+	<li>Uma landing page. Pode ser montada no <a href="/tutorial-landing-builder">Builder</a> ou estar em um <a href="/tutorial-site-externo">site externo</a>.</li>
+</ul>
+<p>Tempo estimado: 30 minutos.</p>
+
+<h2>Parte 1: Pixel da Meta</h2>
+<steps>
+	<step title="Pegue o ID do pixel">
+		<p>No <strong>Gerenciador de Eventos</strong> da Meta, selecione o pixel. O ID aparece embaixo do nome, um número com 15 ou 16 dígitos.</p>
+	</step>
+	<step title="Gere o token da API de Conversões">
+		<p>Ainda no pixel, abra <strong>Configurações</strong>, role até <strong>API de Conversões</strong> e clique em <strong>Gerar token de acesso</strong>. Copie o token. Ele aparece uma vez só.</p>
+		<callout type="warning"><p>O token dá acesso para enviar eventos ao pixel. Guarde em local seguro e não compartilhe em prints.</p></callout>
+	</step>
+	<step title="Pegue um código de teste">
+		<p>Na aba <strong>Eventos de teste</strong>, copie o código exibido (algo como <code>TEST12345</code>). Você usa só durante a validação.</p>
+	</step>
+	<step title="Cadastre o pixel no Trackup">
+		<p>Em <strong>Integração › Pixels</strong>, clique em <strong>Adicionar pixel</strong>. Preencha:</p>
+		<table>
+			<thead><tr><th>Campo</th><th>Valor</th></tr></thead>
+			<tbody>
+				<tr><td>Nome</td><td><em>Pixel principal</em></td></tr>
+				<tr><td>Tipo</td><td>Meta</td></tr>
+				<tr><td>Pixel ID</td><td>O ID do passo 1</td></tr>
+				<tr><td>Access Token</td><td>O token do passo 2</td></tr>
+				<tr><td>Test Event Code</td><td>O código do passo 3</td></tr>
+			</tbody>
+		</table>
+		<shot src="img/tut-meta-pixel.webp" caption="Pixel da Meta com código de teste"></shot>
+	</step>
+	<step title="Confira os acionadores">
+		<p>Abra <strong>Acionadores</strong>. O Trackup criou três para o pixel: <strong>Pageview</strong>, <strong>Start checkout</strong> e <strong>Conversão</strong>. Não precisa mexer.</p>
+	</step>
+</steps>
+
+<h2>Parte 2: Fonte de tráfego Meta</h2>
+<steps>
+	<step title="Crie a fonte">
+		<p>Em <strong>Integração › Fontes de tráfego</strong>, clique em <strong>Adicionar fonte</strong>, dê o nome <em>Meta Ads</em> e escolha <strong>Meta</strong>.</p>
+	</step>
+	<step title="Copie os parâmetros">
+		<p>Salve e copie o bloco <strong>Parâmetros de URL</strong>. Ele leva o nome e o ID da campanha, do conjunto e do anúncio:</p>
+		<code-block lang="text">
+utm_source=meta&utm_medium={{adset.name}}|{{adset.id}}&utm_campaign={{campaign.name}}|{{campaign.id}}&utm_content={{ad.name}}|{{ad.id}}&utm_term={{placement}}&trk_cmpid={{campaign.id}}&trk_asid={{adset.id}}&trk_aid={{ad.id}}
+</code-block>
+		<p>Os IDs são o que permite ao <a href="/gerenciador-de-anuncios">Gerenciador de anúncios</a> ligar cada venda ao anúncio.</p>
+	</step>
+</steps>
+
+<h2>Parte 3: Hotmart</h2>
+<steps>
+	<step title="Crie a plataforma">
+		<p>Em <strong>Integração › Plataformas de vendas</strong>, clique em <strong>Adicionar plataforma</strong>, escolha <strong>Hotmart 2.0</strong> e salve. Copie a <strong>URL</strong> da plataforma na lista.</p>
+	</step>
+	<step title="Cadastre o webhook na Hotmart">
+		<p>Na Hotmart, vá em <strong>Ferramentas › Webhook (API e notificações)</strong> e clique em <strong>Cadastrar Webhook</strong>. Selecione o produto, cole a URL do Trackup, escolha a versão <strong>2.0.0</strong> e marque <strong>Compra aprovada</strong>, <strong>Compra reembolsada</strong> e <strong>Chargeback</strong>.</p>
+		<shot src="img/tut-meta-hotmart-webhook.png" caption="Webhook cadastrado na Hotmart" todo="Tela de cadastro de webhook da Hotmart com a URL do Trackup (domínio borrado), versão 2.0.0 e os eventos Compra aprovada, Compra reembolsada e Chargeback marcados."></shot>
+	</step>
+	<step title="Crie a oferta">
+		<p>Em <strong>Ofertas</strong>, clique em <strong>Adicionar oferta</strong> e, na aba <strong>Redirect</strong>, preencha:</p>
+		<table>
+			<thead><tr><th>Campo</th><th>Valor</th></tr></thead>
+			<tbody>
+				<tr><td>Nome</td><td><em>Checkout Curso</em></td></tr>
+				<tr><td>Plataforma de vendas</td><td>Hotmart 2.0</td></tr>
+				<tr><td>URL de redirecionamento</td><td>O link do checkout da Hotmart, como <code>https://pay.hotmart.com/ABC123</code></td></tr>
+				<tr><td>Caminho</td><td><code>/checkout</code></td></tr>
+			</tbody>
+		</table>
+		<p>Salve e copie o <strong>Link</strong> da oferta, como <code>https://lp.seudominio.com/checkout</code>.</p>
+	</step>
+</steps>
+
+<h2>Parte 4: Landing page</h2>
+<steps>
+	<step title="Aponte os botões para a oferta">
+		<p>Em todos os botões de compra da landing page, use o link da oferta. No Builder, selecione o botão e, em <strong>Config › Evento de clique</strong>, cole o link em <strong>Destino</strong>. Em um site externo, troque o <code>href</code> dos botões.</p>
+		<callout type="danger"><p>Um único botão apontando direto para <code>pay.hotmart.com</code> já faz parte das vendas chegarem sem atribuição.</p></callout>
+	</step>
+	<step title="Publique e copie o link">
+		<p>Publique a página e copie o <strong>Link</strong> dela em <strong>Páginas</strong>, como <code>https://lp.seudominio.com/curso</code>.</p>
+	</step>
+</steps>
+
+<h2>Parte 5: Anúncio</h2>
+<steps>
+	<step title="Configure o destino">
+		<p>No Gerenciador de Anúncios da Meta, no nível do anúncio, em <strong>Destino</strong>:</p>
+		<ul>
+			<li><strong>URL do site</strong>: o link da landing page.</li>
+			<li><strong>Parâmetros de URL</strong>: o bloco copiado na Parte 2.</li>
+		</ul>
+		<shot src="img/tut-meta-anuncio.png" caption="Destino do anúncio na Meta" todo="Seção Destino de um anúncio no Gerenciador de Anúncios da Meta com URL do site https://lp.seudominio.com/curso e o campo Parâmetros de URL preenchido com o template do Trackup."></shot>
+	</step>
+	<step title="Escolha o pixel">
+		<p>Em <strong>Rastreamento</strong>, selecione o mesmo pixel cadastrado no Trackup. Se o pixel também estiver instalado no navegador pela Meta, deixe o evento <code>Purchase</code> só pelo Trackup para não duplicar.</p>
+	</step>
+</steps>
+
+<h2>Parte 6: Validar</h2>
+<steps>
+	<step title="Simule um clique">
+		<p>Abra em uma aba anônima a URL da landing com os parâmetros, trocando as macros por valores de teste:</p>
+		<code-block lang="text">
+https://lp.seudominio.com/curso?utm_source=meta&utm_campaign=teste|111&utm_content=teste|333&trk_aid=333
+</code-block>
+	</step>
+	<step title="Confira o PageView">
+		<p>Em <strong>Logs › Requisições</strong>, sua visita aparece com as UTMs. No Gerenciador de Eventos, na aba <strong>Eventos de teste</strong>, o <code>PageView</code> chega com a origem <em>Servidor</em>.</p>
+	</step>
+	<step title="Clique em comprar">
+		<p>Clique no botão de compra. Você deve cair no checkout da Hotmart com o parâmetro <code>sck</code> na URL. O <code>InitiateCheckout</code> aparece nos eventos de teste.</p>
+	</step>
+	<step title="Faça uma compra de teste">
+		<p>Conclua uma compra (pode reembolsar depois). Em <strong>Logs › Conversões</strong>, a venda aparece com a campanha <em>teste</em>, e o <code>Purchase</code> aparece em <strong>Logs › Acionadores</strong> com sucesso.</p>
+		<shot src="img/tut-meta-conversao.png" caption="Venda de teste atribuída" todo="Logs › Conversões com uma venda Hotmart expandida mostrando UTM Campaign teste|111, Click ID preenchido e Anúncio ID 333. Valores e IDs de transação fictícios."></shot>
+	</step>
+	<step title="Tire o modo de teste">
+		<p>Edite o pixel em <strong>Integração › Pixels</strong> e apague o <strong>Test Event Code</strong>. Com ele preenchido, os eventos não contam para as campanhas.</p>
+	</step>
+</steps>
+
+<h2>Parte 7: ROAS por anúncio</h2>
+<p>Em <strong>Gerenciador de anúncios</strong>, clique em <strong>Conectar Facebook Ads</strong>, autorize e escolha a conta de anúncio. Depois da sincronização, cada campanha, conjunto e anúncio mostra investimento, vendas, receita, ROAS e CPA reais. Veja <a href="/gerenciador-de-anuncios">Gerenciador de anúncios</a>.</p>
+
+<h2>Se algo não funcionar</h2>
+<accordion title="A venda chega com Configuração incompleta">
+	<p>A venda veio sem click ID. Confira se todos os botões apontam para o link da oferta e se o checkout abriu com <code>sck</code> na URL.</p>
+</accordion>
+<accordion title="Os eventos não aparecem na Meta">
+	<p>Abra <strong>Logs › Acionadores</strong>. Erro de autenticação indica token errado ou de outro Business Manager. Sem nenhum log, confira se os acionadores estão ativos.</p>
+</accordion>
+<accordion title="O Gerenciador de anúncios mostra vendas zeradas">
+	<p>Os parâmetros não estão no anúncio, ou o anúncio foi criado antes de colocá-los. Confira o campo <strong>Parâmetros de URL</strong> em cada anúncio.</p>
+</accordion>

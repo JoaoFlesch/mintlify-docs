@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Testar duas versões de uma página | Trackup Docs</title>
+<meta name="description" content="Compare duas VSLs com o mesmo tráfego, acompanhe a confiança estatística e envie tudo para a vencedora.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://docs.trackup.me/tutorial-teste-ab">
+<link rel="alternate" hreflang="pt-BR" href="https://docs.trackup.me/tutorial-teste-ab">
+<link rel="alternate" type="text/markdown" title="Versão para IA (llms.txt)" href="/llms.txt">
+<meta property="og:site_name" content="Trackup Docs">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Testar duas versões de uma página">
+<meta property="og:description" content="Compare duas VSLs com o mesmo tráfego, acompanhe a confiança estatística e envie tudo para a vencedora.">
+<meta property="og:url" content="https://docs.trackup.me/tutorial-teste-ab">
+<meta property="og:image" content="https://docs.trackup.me/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Trackup Docs">
+<meta property="article:modified_time" content="2026-11-12T20:34:17+00:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Testar duas versões de uma página">
+<meta name="twitter:description" content="Compare duas VSLs com o mesmo tráfego, acompanhe a confiança estatística e envie tudo para a vencedora.">
+<meta name="twitter:image" content="https://docs.trackup.me/assets/og.jpg">
+<meta name="theme-color" content="#4f39f6">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<script>(function(){try{var t=localStorage.getItem('tu-theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<link rel="stylesheet" href="/assets/style.css">
+<script src="/assets/shell.js"></script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","headline":"Testar duas versões de uma página","description":"Compare duas VSLs com o mesmo tráfego, acompanhe a confiança estatística e envie tudo para a vencedora.","url":"https://docs.trackup.me/tutorial-teste-ab","inLanguage":"pt-BR","dateModified":"2026-11-12T20:34:17+00:00","image":"https://docs.trackup.me/assets/og.jpg","isPartOf":{"@type":"WebSite","name":"Trackup Docs","url":"https://docs.trackup.me/"},"publisher":{"@type":"Organization","name":"Trackup","url":"https://trackup.me","logo":"https://docs.trackup.me/assets/favicon.svg"},"about":{"@type":"SoftwareApplication","name":"Trackup","applicationCategory":"BusinessApplication","url":"https://trackup.me"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Trackup Docs","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":2,"name":"Tutoriais","item":"https://docs.trackup.me/tutorial-campanha-meta"},{"@type":"ListItem","position":3,"name":"Testar duas versões de uma página","item":"https://docs.trackup.me/tutorial-teste-ab"}]}]</script>
+</head>
+<body>
+<script>TU.header()</script>
+<div class="layout">
+	<aside class="sidebar" aria-label="Navegação"><script>TU.sidebar()</script></aside>
+	<main>
+		<article class="content">
+			<nav class="eyebrow" aria-label="Você está em"><a href="/tutorial-campanha-meta">Tutoriais</a><span aria-hidden="true"> › </span><span>Otimização</span></nav>
+			<h1 class="page-title">Testar duas versões de uma página</h1>
+			<p class="page-desc">Compare duas VSLs com o mesmo tráfego, acompanhe a confiança estatística e envie tudo para a vencedora.</p>
+			<script>TU.actions()</script>
+			<p>Neste tutorial você descobre qual de duas VSLs vende mais. O anúncio continua o mesmo: o Trackup divide os visitantes entre as versões e mede as vendas de cada uma.</p>
+
+<h2 id="o-que-voce-vai-precisar">O que você vai precisar<a class="anchor" href="#o-que-voce-vai-precisar" aria-label="Link para esta seção">#</a></h2>
+<ul>
+	<li>Uma página publicada que já recebe tráfego, como <em>VSL Curso</em>.</li>
+	<li>Vendas atribuídas funcionando. Sem isso o teste mede só acessos. Veja <a href="/tutorial-campanha-meta">Rastrear uma campanha da Meta</a>.</li>
+</ul>
+
+<h2 id="1-crie-a-variante">1. Crie a variante<a class="anchor" href="#1-crie-a-variante" aria-label="Link para esta seção">#</a></h2>
+<ol class="steps">
+	<li><span class="step-title">Duplique a página</span>
+		<p>Em <strong>Páginas</strong>, abra o menu da <em>VSL Curso</em> e clique em <strong>Duplicar</strong>. Renomeie a cópia para <em>VSL Curso B</em>.</p>
+	</li>
+	<li><span class="step-title">Mude uma coisa só</span>
+		<p>Edite a cópia e mude só o que quer testar, por exemplo o título da primeira dobra. Mudar várias coisas ao mesmo tempo impede saber o que fez diferença.</p>
+	</li>
+	<li><span class="step-title">Publique</span>
+		<p>Publique a variante. Confira que os botões continuam apontando para a mesma oferta.</p>
+	</li>
+</ol>
+
+<h2 id="2-crie-o-teste">2. Crie o teste<a class="anchor" href="#2-crie-o-teste" aria-label="Link para esta seção">#</a></h2>
+<ol class="steps">
+	<li><span class="step-title">Abra Testes A/B</span>
+		<p>No menu lateral, clique em <strong>Testes A/B</strong> e em <strong>Criar teste A/B</strong>.</p>
+	</li>
+	<li><span class="step-title">Preencha</span>
+		<table>
+			<thead><tr><th>Campo</th><th>Valor</th></tr></thead>
+			<tbody>
+				<tr><td>Nome</td><td><em>Título VSL</em></td></tr>
+				<tr><td>Slug</td><td><code>/vsl</code></td></tr>
+				<tr><td>Tipo de teste</td><td>Página</td></tr>
+				<tr><td>Variante 1</td><td>VSL Curso, 50%</td></tr>
+				<tr><td>Variante 2</td><td>VSL Curso B, 50%</td></tr>
+			</tbody>
+		</table>
+		<figure class="shot shot-todo"><div class="shot-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><div><strong>Print pendente · <code>img/tut-ab-criar.png</code></strong><p>Formulário Criar teste A/B com Nome Título VSL, Slug /vsl, Tipo Página e as variantes VSL Curso 50% e VSL Curso B 50%, ambas ativas.</p></div></div><figcaption>Teste com duas variantes em 50/50</figcaption></figure></shot>
+	</li>
+	<li><span class="step-title">Salve e copie o link</span>
+		<p>O link do teste é <code>https://lp.seudominio.com/vsl</code>.</p>
+	</li>
+</ol>
+
+<h2 id="3-troque-o-link-no-anuncio">3. Troque o link no anúncio<a class="anchor" href="#3-troque-o-link-no-anuncio" aria-label="Link para esta seção">#</a></h2>
+<p>Nos anúncios, troque a <strong>URL do site</strong> pelo link do teste. Mantenha os mesmos <strong>Parâmetros de URL</strong>.</p>
+<div class="callout warning"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg><div><p>Na Meta, editar a URL de um anúncio ativo manda ele de volta para revisão. Se preferir, duplique o anúncio com a nova URL.</p></div></div>
+
+<h2 id="4-acompanhe">4. Acompanhe<a class="anchor" href="#4-acompanhe" aria-label="Link para esta seção">#</a></h2>
+<ol class="steps">
+	<li><span class="step-title">Abra o relatório</span>
+		<p>Em <strong>Testes A/B</strong>, abra o menu do teste e clique em <strong>Relatórios</strong>.</p>
+	</li>
+	<li><span class="step-title">Leia a frase de resumo</span>
+		<p>No topo, o Trackup diz como está o teste. Enquanto uma variante estiver só <span class="badge amber">Liderando</span>, não decida. Espere aparecer <span class="badge green">Vencedora</span>.</p>
+		<figure class="shot shot-todo"><div class="shot-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><div><strong>Print pendente · <code>img/tut-ab-relatorio.png</code></strong><p>Relatório Teste A/B com VSL Curso B marcada como Vencedora, a frase de conclusão com o percentual de confiança, a tabela por variante (visitantes, conversões, taxa, receita por visitante) e o gráfico de conversão acumulada.</p></div></div><figcaption>Relatório com variante vencedora</figcaption></figure></shot>
+	</li>
+	<li><span class="step-title">Compare receita por visitante</span>
+		<p>Além da taxa de conversão, olhe a <strong>receita por visitante</strong>. Uma variante pode vender menos vezes e ainda faturar mais, por causa de upsell ou de outro preço.</p>
+	</li>
+</ol>
+<div class="callout tip"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.1 14c.2-1 .7-1.7 1.5-2.5A6 6 0 1 0 6 8c0 1.4.4 2.6 1.4 3.5.8.8 1.3 1.5 1.5 2.5"/></svg><div><p>Deixe o teste rodar ao menos uma semana, para cobrir dias fortes e fracos, mesmo que um vencedor apareça antes.</p></div></div>
+
+<h2 id="5-encerre">5. Encerre<a class="anchor" href="#5-encerre" aria-label="Link para esta seção">#</a></h2>
+<p>Com a vencedora definida, clique em <strong>Enviar 100% para</strong> ela. O anúncio continua no mesmo link e todos os visitantes passam a ver a vencedora. Para o próximo teste, duplique a vencedora e repita.</p>
+
+<h2 id="e-para-testar-preco-ou-checkout">E para testar preço ou checkout?<a class="anchor" href="#e-para-testar-preco-ou-checkout" aria-label="Link para esta seção">#</a></h2>
+<p>Crie duas <a href="/ofertas">ofertas</a> (por exemplo, R$ 197 e R$ 247) e um teste do tipo <strong>Checkout</strong> com as duas. Use o link desse teste nos botões da página, no lugar do link da oferta.</p>
+
+			<script>TU.pager();TU.footer()</script>
+			<noscript><p class="site-footer"><a href="/">Início</a> · <a href="/llms.txt">Índice completo</a> · <a href="/sitemap.xml">Mapa do site</a></p></noscript>
+		</article>
+	</main>
+	<aside class="toc"><div class="toc-title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg> Nesta página</div><ul><li class="lvl-2"><a href="#o-que-voce-vai-precisar">O que você vai precisar</a></li><li class="lvl-2"><a href="#1-crie-a-variante">1. Crie a variante</a></li><li class="lvl-2"><a href="#2-crie-o-teste">2. Crie o teste</a></li><li class="lvl-2"><a href="#3-troque-o-link-no-anuncio">3. Troque o link no anúncio</a></li><li class="lvl-2"><a href="#4-acompanhe">4. Acompanhe</a></li><li class="lvl-2"><a href="#5-encerre">5. Encerre</a></li><li class="lvl-2"><a href="#e-para-testar-preco-ou-checkout">E para testar preço ou checkout?</a></li></ul></aside>
+</div>
+<script>TU.end()</script>
+</body>
+</html>

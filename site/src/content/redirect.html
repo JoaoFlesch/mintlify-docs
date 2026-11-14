@@ -1,0 +1,36 @@
+---
+title: Redirect
+icon: external
+description: Passe o tráfego pelo Trackup e redirecione para uma página hospedada em outro lugar.
+---
+<p>Uma página Redirect registra o acesso, aplica o filtro, dispara os eventos e manda o visitante para outra URL. Use quando a página precisa continuar em outro servidor, ou para criar uma <a href="/ofertas">oferta</a> que leva ao checkout.</p>
+
+<h2>Criar</h2>
+<steps>
+	<step title="Abra a aba Redirect">
+		<p>Em <strong>Páginas › Adicionar página</strong> , mantenha a aba <strong>Redirect</strong>. Para um checkout, use <strong>Ofertas › Adicionar oferta</strong>, que já é um redirecionamento.</p>
+	</step>
+	<step title="Preencha os campos">
+		<table>
+			<thead><tr><th>Campo</th><th>Descrição</th></tr></thead>
+			<tbody>
+				<tr><td>Nome</td><td>Identificação no painel.</td></tr>
+				<tr><td>URL de redirecionamento</td><td>Para onde o visitante vai. O redirecionamento é temporário (302).</td></tr>
+				<tr><td>Caminho</td><td>Endereço no seu domínio, como <code>/promo</code>.</td></tr>
+			</tbody>
+		</table>
+		<shot src="img/redirect-criar.png" caption="Criação de uma página Redirect" todo="Aba Redirect da tela Adicionar página com Nome, URL de redirecionamento apontando para a página criada no Builder e Caminho /promo."></shot>
+	</step>
+	<step title="Salve e teste">
+		<p>Salve, copie o link da página na lista e abra no navegador. Você deve cair na URL de destino.</p>
+	</step>
+	<step title="Instale o script no destino">
+		<p>Se o destino é uma landing page hospedada fora do Trackup, instale o <a href="/script">script de rastreamento</a> nela. Se o destino é uma página do <a href="/builder">Builder</a> ou HTML do próprio Trackup, não precisa de script.</p>
+	</step>
+</steps>
+
+<h2>Parâmetros</h2>
+<p>Os parâmetros da URL do visitante, como <code>utm_source</code> e <code>fbclid</code>, são repassados ao destino. Se o mesmo parâmetro já existir fixo na URL de redirecionamento, vale o valor do visitante.</p>
+
+<h2>Qual status usar</h2>
+<p>Use <code>302</code>, o padrão. Navegadores guardam em cache redirecionamentos <code>301</code> e <code>308</code>, então uma troca de destino pode demorar a valer para quem já acessou.</p>

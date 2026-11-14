@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conectar ao MCP | Trackup Docs</title>
+<meta name="description" content="Conecte Claude, ChatGPT, Cursor e outros assistentes ao Trackup e opere seus projetos conversando.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://docs.trackup.me/conectar-mcp">
+<link rel="alternate" hreflang="pt-BR" href="https://docs.trackup.me/conectar-mcp">
+<link rel="alternate" type="text/markdown" title="Versão para IA (llms.txt)" href="/llms.txt">
+<meta property="og:site_name" content="Trackup Docs">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Conectar ao MCP">
+<meta property="og:description" content="Conecte Claude, ChatGPT, Cursor e outros assistentes ao Trackup e opere seus projetos conversando.">
+<meta property="og:url" content="https://docs.trackup.me/conectar-mcp">
+<meta property="og:image" content="https://docs.trackup.me/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Trackup Docs">
+<meta property="article:modified_time" content="2026-11-14T05:43:30+00:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Conectar ao MCP">
+<meta name="twitter:description" content="Conecte Claude, ChatGPT, Cursor e outros assistentes ao Trackup e opere seus projetos conversando.">
+<meta name="twitter:image" content="https://docs.trackup.me/assets/og.jpg">
+<meta name="theme-color" content="#4f39f6">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<script>(function(){try{var t=localStorage.getItem('tu-theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<link rel="stylesheet" href="/assets/style.css">
+<script src="/assets/shell.js"></script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","headline":"Conectar ao MCP","description":"Conecte Claude, ChatGPT, Cursor e outros assistentes ao Trackup e opere seus projetos conversando.","url":"https://docs.trackup.me/conectar-mcp","inLanguage":"pt-BR","dateModified":"2026-11-14T05:43:30+00:00","image":"https://docs.trackup.me/assets/og.jpg","isPartOf":{"@type":"WebSite","name":"Trackup Docs","url":"https://docs.trackup.me/"},"publisher":{"@type":"Organization","name":"Trackup","url":"https://trackup.me","logo":"https://docs.trackup.me/assets/favicon.svg"},"about":{"@type":"SoftwareApplication","name":"Trackup","applicationCategory":"BusinessApplication","url":"https://trackup.me"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Trackup Docs","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":2,"name":"IA e MCP","item":"https://docs.trackup.me/conectar-mcp"},{"@type":"ListItem","position":3,"name":"Conectar ao MCP","item":"https://docs.trackup.me/conectar-mcp"}]}]</script>
+</head>
+<body>
+<script>TU.header()</script>
+<div class="layout">
+	<aside class="sidebar" aria-label="Navegação"><script>TU.sidebar()</script></aside>
+	<main>
+		<article class="content">
+			<nav class="eyebrow" aria-label="Você está em"><a href="/conectar-mcp">IA e MCP</a><span aria-hidden="true"> › </span><span>Conecte sua IA</span></nav>
+			<h1 class="page-title">Conectar ao MCP</h1>
+			<p class="page-desc">Conecte Claude, ChatGPT, Cursor e outros assistentes ao Trackup e opere seus projetos conversando.</p>
+			<script>TU.actions()</script>
+			<p>O MCP (Model Context Protocol) é o padrão que deixa um assistente de IA usar ferramentas externas. Com ele, você configura o Trackup conversando. Com o servidor MCP do Trackup, o assistente lista projetos, cria páginas e links, lê métricas e ajusta campanhas, sempre dentro das permissões que você der.</p>
+
+<h2 id="url-do-servidor">URL do servidor<a class="anchor" href="#url-do-servidor" aria-label="Link para esta seção">#</a></h2>
+<p>Cada time tem a sua URL, com o ID do time no caminho. Não precisa descobrir o ID: abra <strong>Configurações › MCP</strong> e copie a URL pronta. O formato é:</p>
+<div class="code"><div class="code-head"><span>URL do servidor MCP</span></div><pre><code class="lang-text">https://api.trackup.me/SEU_TEAM_ID/mcp</code></pre></div>
+<figure class="shot shot-todo"><div class="shot-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><div><strong>Print pendente · <code>img/mcp-configuracoes.png</code></strong><p>Configurações › MCP com a URL do servidor (team ID borrado), a pergunta Qual cliente você vai conectar? com Claude selecionado, os passos do OAuth e o botão Copiar prompt para o agente.</p></div></div><figcaption>Tela de configuração do MCP</figcaption></figure></shot>
+<div class="callout tip"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.1 14c.2-1 .7-1.7 1.5-2.5A6 6 0 1 0 6 8c0 1.4.4 2.6 1.4 3.5.8.8 1.3 1.5 1.5 2.5"/></svg><div><p>Atalho: em <strong>Configurações › MCP</strong>, clique em <strong>Copiar prompt para o agente</strong> e cole no seu assistente. Ele adiciona o servidor sozinho e explica como autorizar.</p></div></div>
+<p>Para autenticar, o servidor aceita <code>X-Api-Key</code> ou <code>Authorization: Bearer &lt;token&gt;</code> (token OAuth). Os dois são uma chave de API do time.</p>
+
+<h2 id="oauth-ou-chave-de-api">OAuth ou chave de API<a class="anchor" href="#oauth-ou-chave-de-api" aria-label="Link para esta seção">#</a></h2>
+<table>
+	<thead><tr><th></th><th>OAuth</th><th>Chave de API</th></tr></thead>
+	<tbody>
+		<tr><td>Como funciona</td><td>Você adiciona a URL no assistente e aprova o acesso no Trackup.</td><td>Você cria uma chave e cola na configuração do cliente.</td></tr>
+		<tr><td>Ideal para</td><td>Claude.ai, Claude Desktop e ChatGPT, que só aceitam OAuth.</td><td>Cursor, VS Code, Claude Code e automações.</td></tr>
+		<tr><td>O que é criado</td><td>Uma chave de API, ao aprovar.</td><td>A chave que você criou.</td></tr>
+		<tr><td>Como desconectar</td><td colspan="2">Revogue a chave em <a href="/chaves-de-api">Chaves de API</a>.</td></tr>
+	</tbody>
+</table>
+<div class="callout warning"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg><div><p>Para conectar um assistente, você precisa da permissão <strong>Criar</strong> em <strong>API Keys (MCP)</strong>. Se não tiver, peça ao proprietário do time para liberar em <a href="/times-e-membros">Membros</a>.</p></div></div>
+
+<h2 id="conectar">Conectar<a class="anchor" href="#conectar" aria-label="Link para esta seção">#</a></h2>
+<div class="ctabs">
+	<div class="ctabs-panel" data-title="Claude">
+		<ol class="steps">
+			<li><span class="step-title">Prepare o acesso (opcional)</span>
+				<p>Em <strong>Configurações › MCP</strong>, escolha as permissões e os projetos e clique em <strong>Salvar configuração</strong>. Ela vem preenchida na tela de autorização e vale por 24 horas.</p>
+			</li>
+			<li><span class="step-title">Adicione o conector</span>
+				<p>No Claude.ai ou no Claude Desktop, abra <strong>Configurações › Conectores</strong>, clique em <strong>Adicionar</strong> e escolha <strong>Adicionar conector personalizado</strong>.</p>
+			</li>
+			<li><span class="step-title">Informe a URL</span>
+				<p>Dê o nome <em>Trackup</em>, cole a URL do servidor do seu time e clique em <strong>Continuar</strong>.</p>
+			</li>
+			<li><span class="step-title">Autorize no Trackup</span>
+				<p>O Trackup abre no navegador. Confira o time, as permissões e os projetos e clique em <strong>Autorizar</strong>.</p>
+				<figure class="shot shot-todo"><div class="shot-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><div><strong>Print pendente · <code>img/mcp-autorizar.png</code></strong><p>Tela Autorizar acesso MCP com o título Claude quer acessar o Trackup, seletor de Time (nome borrado), a lista do que será liberado, Personalizar acesso e os botões Negar e Autorizar.</p></div></div><figcaption>Tela de autorização do MCP</figcaption></figure></shot>
+			</li>
+		</ol>
+	</div>
+	<div class="ctabs-panel" data-title="ChatGPT">
+		<ol class="steps">
+			<li><span class="step-title">Ative o modo desenvolvedor</span>
+				<p>Nas configurações do ChatGPT, ative o <strong>Modo desenvolvedor</strong>. A disponibilidade depende do seu plano.</p>
+			</li>
+			<li><span class="step-title">Adicione o conector</span>
+				<p>Crie um conector MCP personalizado com a URL do servidor do seu time e autenticação OAuth.</p>
+			</li>
+			<li><span class="step-title">Autorize no Trackup</span>
+				<p>Confira time, permissões e projetos e clique em <strong>Autorizar</strong>.</p>
+			</li>
+		</ol>
+	</div>
+	<div class="ctabs-panel" data-title="Claude Code">
+		<p>Com OAuth:</p>
+		<div class="code"><pre><code class="lang-bash">claude mcp add --transport http trackup https://api.trackup.me/SEU_TEAM_ID/mcp</code></pre></div>
+		<p>Depois rode <code>/mcp</code>, escolha o servidor e <strong>Authenticate</strong>. Com chave de API:</p>
+		<div class="code"><pre><code class="lang-bash">claude mcp add --transport http trackup https://api.trackup.me/SEU_TEAM_ID/mcp \
+  --header &quot;X-Api-Key: SUA_CHAVE&quot;</code></pre></div>
+	</div>
+	<div class="ctabs-panel" data-title="Cursor">
+		<p>Em <strong>Configurações › MCP</strong>, escolha <strong>Prefiro usar uma chave de API</strong>, crie a chave e clique em <strong>Instalar no Cursor</strong>. Para configurar à mão, edite <code>~/.cursor/mcp.json</code>:</p>
+		<div class="code"><div class="code-head"><span>~/.cursor/mcp.json</span></div><pre><code class="lang-json">{
+  &quot;mcpServers&quot;: {
+    &quot;trackup&quot;: {
+      &quot;url&quot;: &quot;https://api.trackup.me/SEU_TEAM_ID/mcp&quot;,
+      &quot;headers&quot;: { &quot;X-Api-Key&quot;: &quot;SUA_CHAVE&quot; }
+    }
+  }
+}</code></pre></div>
+	</div>
+	<div class="ctabs-panel" data-title="VS Code">
+		<p>Use <strong>Instalar no VS Code</strong> em <strong>Configurações › MCP</strong>, ou edite <code>.vscode/mcp.json</code>:</p>
+		<div class="code"><div class="code-head"><span>.vscode/mcp.json</span></div><pre><code class="lang-json">{
+  &quot;servers&quot;: {
+    &quot;trackup&quot;: {
+      &quot;type&quot;: &quot;http&quot;,
+      &quot;url&quot;: &quot;https://api.trackup.me/SEU_TEAM_ID/mcp&quot;,
+      &quot;headers&quot;: { &quot;X-Api-Key&quot;: &quot;SUA_CHAVE&quot; }
+    }
+  }
+}</code></pre></div>
+	</div>
+	<div class="ctabs-panel" data-title="Outros">
+		<p>Qualquer cliente MCP com transporte Streamable HTTP funciona. Envie a chave no header <code>X-Api-Key</code>. Para testar e listar as ferramentas:</p>
+		<div class="code"><pre><code class="lang-bash">curl -X POST &quot;https://api.trackup.me/SEU_TEAM_ID/mcp&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -H &quot;Accept: application/json, text/event-stream&quot; \
+  -H &quot;X-Api-Key: SUA_CHAVE&quot; \
+  -d '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:1,&quot;method&quot;:&quot;tools/list&quot;}'</code></pre></div>
+	</div>
+</div>
+
+<h2 id="testar-a-conexao">Testar a conexão<a class="anchor" href="#testar-a-conexao" aria-label="Link para esta seção">#</a></h2>
+<p>Depois de autorizar, peça: <em>"Liste meus projetos no Trackup."</em> Se a lista aparecer, está conectado.</p>
+<table>
+	<thead><tr><th>Sintoma</th><th>Causa e solução</th></tr></thead>
+	<tbody>
+		<tr><td><code>401</code> ao conectar ou chamar</td><td>Chave ausente, inválida, revogada, expirada ou de outro time. Reautorize o conector ou crie outra chave.</td></tr>
+		<tr><td>Ferramenta ou projeto não aparece</td><td>A chave não tem a permissão ou o projeto. Edite a chave em <a href="/chaves-de-api">Chaves de API</a> e reconecte o assistente para atualizar a lista.</td></tr>
+		<tr><td>Não consigo autorizar</td><td>Falta a permissão <strong>Criar</strong> em <strong>API Keys (MCP)</strong>.</td></tr>
+	</tbody>
+</table>
+
+<h2 id="o-que-o-assistente-consegue-fazer">O que o assistente consegue fazer<a class="anchor" href="#o-que-o-assistente-consegue-fazer" aria-label="Link para esta seção">#</a></h2>
+<p>Cada ferramenta corresponde a uma operação da <a href="/api">API</a>. Projetos, analytics, páginas e links aparecem como ferramentas diretas, junto com <code>search</code> e <code>fetch</code> (busca e leitura de projetos, páginas e links) e as ferramentas do construtor de páginas (<code>listPageBlocks</code>, <code>composeBuilderPage</code>, <code>editBuilderPage</code>). Pixels, acionadores, domínios, dashboards, gerenciador de anúncios, plataformas de venda, fontes de tráfego e filtro são acessados em três passos: <code>findOperations</code> (encontrar), <code>describeOperation</code> (ver os campos) e <code>runReadOperation</code> ou <code>runOperation</code> (executar).</p>
+<div class="cards">
+	<div class="card"><span class="card-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18"/><path d="M8 17v-5"/><path d="M13 17V8"/><path d="M18 17v-9"/></svg></span><span class="card-title">Analisar</span><span class="card-text">Visão geral do projeto, conversões, visitantes, requisições e dashboards.</span></div>
+	<div class="card"><span class="card-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h5"/></svg></span><span class="card-title">Criar páginas</span><span class="card-text">Montar páginas no Builder, clonar sites, editar arquivos e publicar.</span></div>
+	<div class="card"><span class="card-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg></span><span class="card-title">Configurar o funil</span><span class="card-text">Pixels com acionadores, links, testes A/B, domínios e regras de filtro.</span></div>
+	<div class="card"><span class="card-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></span><span class="card-title">Operar campanhas</span><span class="card-text">Ler o Gerenciador de anúncios, pausar campanhas e ajustar orçamentos.</span></div>
+</div>
+<p>O assistente não acessa cobrança, membros, gestão de chaves, exclusão de projeto nem conexões OAuth (Meta, Nuvemshop).</p>
+
+<h2 id="exemplos-de-pedidos">Exemplos de pedidos<a class="anchor" href="#exemplos-de-pedidos" aria-label="Link para esta seção">#</a></h2>
+<ul>
+	<li>"Liste meus projetos no Trackup."</li>
+	<li>"Quantas conversões o projeto Loja teve nesta semana, por fonte de tráfego?"</li>
+	<li>"Crie um link /oferta-natal apontando para a página Oferta de Natal."</li>
+	<li>"Monte uma landing page para o meu curso de inglês e publique."</li>
+	<li>"Quais anúncios gastaram mais de R$ 200 ontem sem vender?"</li>
+	<li>"Crie um pixel com acionadores de pageview, início de checkout e conversão."</li>
+</ul>
+
+<h2 id="seguranca">Segurança<a class="anchor" href="#seguranca" aria-label="Link para esta seção">#</a></h2>
+<ul>
+	<li><strong>Dê só o necessário.</strong> Restrinja permissões e projetos na autorização.</li>
+	<li><strong>Publicar muda o que está no ar.</strong> Uma página recém-criada é publicada direto. O assistente pede confirmação antes de republicar uma página editada ou publicar o projeto.</li>
+	<li><strong>Tudo fica registrado.</strong> Cada chamada aparece em <strong>Chaves de API › Ver histórico</strong>, marcada como MCP.</li>
+	<li><strong>Desconectar é revogar.</strong> Revogue a chave e o acesso termina na hora.</li>
+</ul>
+
+			<script>TU.pager();TU.footer()</script>
+			<noscript><p class="site-footer"><a href="/">Início</a> · <a href="/llms.txt">Índice completo</a> · <a href="/sitemap.xml">Mapa do site</a></p></noscript>
+		</article>
+	</main>
+	<aside class="toc"><div class="toc-title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg> Nesta página</div><ul><li class="lvl-2"><a href="#url-do-servidor">URL do servidor</a></li><li class="lvl-2"><a href="#oauth-ou-chave-de-api">OAuth ou chave de API</a></li><li class="lvl-2"><a href="#conectar">Conectar</a></li><li class="lvl-2"><a href="#testar-a-conexao">Testar a conexão</a></li><li class="lvl-2"><a href="#o-que-o-assistente-consegue-fazer">O que o assistente consegue fazer</a></li><li class="lvl-2"><a href="#exemplos-de-pedidos">Exemplos de pedidos</a></li><li class="lvl-2"><a href="#seguranca">Segurança</a></li></ul></aside>
+</div>
+<script>TU.end()</script>
+</body>
+</html>

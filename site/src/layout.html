@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="{{canonical}}">
+<link rel="alternate" hreflang="pt-BR" href="{{canonical}}">
+<link rel="alternate" type="text/markdown" title="Versão para IA (llms.txt)" href="/llms.txt">
+<meta property="og:site_name" content="Trackup Docs">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="{{ogTitle}}">
+<meta property="og:description" content="{{description}}">
+<meta property="og:url" content="{{canonical}}">
+<meta property="og:image" content="{{ogImage}}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Trackup Docs">
+{{articleTime}}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ogTitle}}">
+<meta name="twitter:description" content="{{description}}">
+<meta name="twitter:image" content="{{ogImage}}">
+<meta name="theme-color" content="#4f39f6">
+<link rel="icon" type="image/svg+xml" href="{{A}}/favicon.svg">
+<script>(function(){try{var t=localStorage.getItem('tu-theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<link rel="stylesheet" href="{{A}}/style.css">
+<script src="{{A}}/shell.js"></script>
+<script type="application/ld+json">{{jsonld}}</script>
+</head>
+<body>
+<script>TU.header()</script>
+<div class="{{layoutClass}}">
+	<aside class="sidebar" aria-label="Navegação"><script>TU.sidebar()</script></aside>
+	<main>
+		<article class="content">
+			<nav class="eyebrow" aria-label="Você está em">{{breadcrumb}}</nav>
+			<h1 class="page-title">{{pageTitle}}</h1>
+			{{pageDesc}}
+			{{pageActions}}
+			{{content}}
+			<script>TU.pager();TU.footer()</script>
+			<noscript><p class="site-footer"><a href="/">Início</a> · <a href="/llms.txt">Índice completo</a> · <a href="/sitemap.xml">Mapa do site</a></p></noscript>
+		</article>
+	</main>
+	{{toc}}
+</div>
+<script>TU.end()</script>
+</body>
+</html>

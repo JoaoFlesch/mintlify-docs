@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Filtro avançado | Trackup Docs</title>
+<meta name="description" content="Escreva regras com qualquer campo da requisição, operadores, grupos E/OU e expressões regulares.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://docs.trackup.me/filtro-avancado">
+<link rel="alternate" hreflang="pt-BR" href="https://docs.trackup.me/filtro-avancado">
+<link rel="alternate" type="text/markdown" title="Versão para IA (llms.txt)" href="/llms.txt">
+<meta property="og:site_name" content="Trackup Docs">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Filtro avançado">
+<meta property="og:description" content="Escreva regras com qualquer campo da requisição, operadores, grupos E/OU e expressões regulares.">
+<meta property="og:url" content="https://docs.trackup.me/filtro-avancado">
+<meta property="og:image" content="https://docs.trackup.me/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Trackup Docs">
+<meta property="article:modified_time" content="2026-11-12T20:34:17+00:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Filtro avançado">
+<meta name="twitter:description" content="Escreva regras com qualquer campo da requisição, operadores, grupos E/OU e expressões regulares.">
+<meta name="twitter:image" content="https://docs.trackup.me/assets/og.jpg">
+<meta name="theme-color" content="#4f39f6">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<script>(function(){try{var t=localStorage.getItem('tu-theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<link rel="stylesheet" href="/assets/style.css">
+<script src="/assets/shell.js"></script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","headline":"Filtro avançado","description":"Escreva regras com qualquer campo da requisição, operadores, grupos E/OU e expressões regulares.","url":"https://docs.trackup.me/filtro-avancado","inLanguage":"pt-BR","dateModified":"2026-11-12T20:34:17+00:00","image":"https://docs.trackup.me/assets/og.jpg","isPartOf":{"@type":"WebSite","name":"Trackup Docs","url":"https://docs.trackup.me/"},"publisher":{"@type":"Organization","name":"Trackup","url":"https://trackup.me","logo":"https://docs.trackup.me/assets/favicon.svg"},"about":{"@type":"SoftwareApplication","name":"Trackup","applicationCategory":"BusinessApplication","url":"https://trackup.me"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Trackup Docs","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":2,"name":"Guias","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":3,"name":"Filtro avançado","item":"https://docs.trackup.me/filtro-avancado"}]}]</script>
+</head>
+<body>
+<script>TU.header()</script>
+<div class="layout">
+	<aside class="sidebar" aria-label="Navegação"><script>TU.sidebar()</script></aside>
+	<main>
+		<article class="content">
+			<nav class="eyebrow" aria-label="Você está em"><a href="/">Guias</a><span aria-hidden="true"> › </span><span>Otimização</span></nav>
+			<h1 class="page-title">Filtro avançado</h1>
+			<p class="page-desc">Escreva regras com qualquer campo da requisição, operadores, grupos E/OU e expressões regulares.</p>
+			<script>TU.actions()</script>
+			<p>O modo avançado monta a regra como uma expressão. Uma regra tem um ou mais <strong>grupos</strong>. As condições dentro de um grupo se combinam com <strong>E</strong>, e os grupos entre si com <strong>OU</strong>.</p>
+<div class="code"><div class="code-head"><span>Exemplo</span></div><pre><code class="lang-text">(País na lista [US, CA]  E  Tipo de dispositivo na lista [Computador])
+OU
+(User Agent contém &quot;HeadlessChrome&quot;)</code></pre></div>
+<figure class="shot shot-todo"><div class="shot-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><div><strong>Print pendente · <code>img/filtro-avancado.png</code></strong><p>Formulário Criar regra no modo Avançado com dois grupos de condições unidos por OU (o exemplo acima), ação Exibir página e uma safe page selecionada.</p></div></div><figcaption>Regra com dois grupos no modo avançado</figcaption></figure></shot>
+
+<h2 id="campos">Campos<a class="anchor" href="#campos" aria-label="Link para esta seção">#</a></h2>
+<table>
+	<thead><tr><th>Campo</th><th>Chave</th><th>Exemplo de valor</th></tr></thead>
+	<tbody>
+		<tr><td>IP de origem</td><td><code>ip.src</code></td><td><code>203.0.113.10</code></td></tr>
+		<tr><td>País</td><td><code>ip.geoip.country</code></td><td><code>BR</code></td></tr>
+		<tr><td>Host</td><td><code>http.host</code></td><td><code>oferta.seudominio.com</code></td></tr>
+		<tr><td>Caminho da URI</td><td><code>http.request.uri.path</code></td><td><code>/vsl</code></td></tr>
+		<tr><td>Query string</td><td><code>http.request.uri.query</code></td><td><code>utm_source=meta</code></td></tr>
+		<tr><td>User Agent</td><td><code>http.user_agent</code></td><td><code>HeadlessChrome</code></td></tr>
+		<tr><td>Accept Language</td><td><code>http.accept_language</code></td><td><code>pt-BR</code></td></tr>
+		<tr><td>Cookie</td><td><code>http.cookie</code></td><td><code>session_id=</code></td></tr>
+		<tr><td>Proteção contra bots</td><td><code>detection.bot_protection</code></td><td><code>true</code></td></tr>
+		<tr><td>Navegador e versão</td><td><code>device.browser</code>, <code>device.browser_version</code></td><td><code>Chrome</code>, <code>120.0.0.0</code></td></tr>
+		<tr><td>Sistema operacional e versão</td><td><code>device.os</code>, <code>device.os_version</code></td><td><code>iOS</code>, <code>17.0</code></td></tr>
+		<tr><td>Tipo de dispositivo</td><td><code>device.type</code></td><td><code>mobile</code></td></tr>
+		<tr><td>Fabricante e modelo</td><td><code>device.vendor</code>, <code>device.model</code></td><td><code>Apple</code>, <code>iPhone</code></td></tr>
+	</tbody>
+</table>
+
+<h2 id="operadores">Operadores<a class="anchor" href="#operadores" aria-label="Link para esta seção">#</a></h2>
+<table>
+	<thead><tr><th>Tipo de campo</th><th>Operadores</th></tr></thead>
+	<tbody>
+		<tr><td>Texto (host, caminho, query, user agent, cookie, idioma, navegador, SO, fabricante, modelo)</td><td>Igual, Diferente, Contém, Não contém, Começa com, Termina com, Corresponde ao regex, Não corresponde ao regex, Existe, Não existe</td></tr>
+		<tr><td>IP</td><td>Os de texto, mais Na lista e Não na lista</td></tr>
+		<tr><td>País e tipo de dispositivo</td><td>Na lista, Não na lista</td></tr>
+		<tr><td>Proteção contra bots</td><td>Igual, Diferente</td></tr>
+		<tr><td>Versões</td><td>Igual, Diferente, Maior que, Menor que, Maior ou igual, Menor ou igual</td></tr>
+	</tbody>
+</table>
+<div class="callout tip"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.1 14c.2-1 .7-1.7 1.5-2.5A6 6 0 1 0 6 8c0 1.4.4 2.6 1.4 3.5.8.8 1.3 1.5 1.5 2.5"/></svg><div><p>Regex usa a sintaxe padrão. Prefira <strong>Contém</strong> quando ele resolve: é mais fácil de ler e de manter.</p></div></div>
+
+<h2 id="exemplos">Exemplos<a class="anchor" href="#exemplos" aria-label="Link para esta seção">#</a></h2>
+<details class="acc"><summary>Liberar o seu IP antes de qualquer bloqueio</summary><div class="acc-body">
+	<p>Peso <code>1</code>. Condição: <code>ip.src</code> Igual ao seu IP. Ação: Permitir. Como tem o menor peso, é avaliada primeiro e as regras seguintes não se aplicam a você.</p>
+</div></details>
+<details class="acc"><summary>Bloquear navegadores automatizados</summary><div class="acc-body">
+	<p>Condição: <code>http.user_agent</code> corresponde ao regex <code>(HeadlessChrome|PhantomJS|python-requests|curl)</code>. Ação: Bloquear.</p>
+</div></details>
+<details class="acc"><summary>Safe page para quem não veio de anúncio</summary><div class="acc-body">
+	<p>Condição: <code>http.request.uri.query</code> Não contém <code>fbclid</code>, com <code>http.request.uri.path</code> Igual a <code>/oferta</code>. Ação: Exibir página.</p>
+</div></details>
+<details class="acc"><summary>Bloquear versões antigas de Android</summary><div class="acc-body">
+	<p>Condições: <code>device.os</code> Igual a <code>Android</code> E <code>device.os_version</code> Menor que <code>9</code>. Ação: Bloquear.</p>
+</div></details>
+
+<p>Uma regra criada no modo avançado só pode ser editada no modo básico se usar apenas os critérios dele, em um único grupo.</p>
+
+			<script>TU.pager();TU.footer()</script>
+			<noscript><p class="site-footer"><a href="/">Início</a> · <a href="/llms.txt">Índice completo</a> · <a href="/sitemap.xml">Mapa do site</a></p></noscript>
+		</article>
+	</main>
+	<aside class="toc"><div class="toc-title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg> Nesta página</div><ul><li class="lvl-2"><a href="#campos">Campos</a></li><li class="lvl-2"><a href="#operadores">Operadores</a></li><li class="lvl-2"><a href="#exemplos">Exemplos</a></li></ul></aside>
+</div>
+<script>TU.end()</script>
+</body>
+</html>

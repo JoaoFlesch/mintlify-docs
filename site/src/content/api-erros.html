@@ -1,0 +1,38 @@
+---
+title: Erros
+icon: alert
+description: Códigos de status e formato das respostas de erro da API.
+---
+<p>A API usa os códigos HTTP padrão. Respostas <code>2xx</code> indicam sucesso, <code>4xx</code> um problema na requisição e <code>5xx</code> uma falha do Trackup.</p>
+
+<h2>Formato</h2>
+<p>A maioria dos erros traz <code>error</code> e <code>message</code>:</p>
+<code-block lang="json">
+{
+  "error": "FORBIDDEN",
+  "message": "Insufficient permissions"
+}
+</code-block>
+<p>Erros de validação (<code>422</code>) trazem um objeto <code>errors</code>, com o caminho de cada campo e a primeira mensagem. <code>_form</code> indica um erro do objeto como um todo.</p>
+<code-block lang="json">
+{
+  "errors": {
+    "value": "Required"
+  }
+}
+</code-block>
+
+<h2>Códigos</h2>
+<table>
+	<thead><tr><th>Status</th><th>Significado</th><th>O que fazer</th></tr></thead>
+	<tbody>
+		<tr><td><code>400</code></td><td>Requisição incompleta, como <code>projectId</code> ausente em um endpoint de ingestão.</td><td>Corrija a requisição.</td></tr>
+		<tr><td><code>401</code></td><td>Header <code>X-Api-Key</code> ausente ou chave inválida.</td><td>Confira a chave.</td></tr>
+		<tr><td><code>403</code></td><td>Sem a permissão necessária, chave revogada ou expirada.</td><td>Ajuste as permissões ou crie outra chave.</td></tr>
+		<tr><td><code>404</code></td><td>Recurso não existe ou o projeto está fora do escopo da chave.</td><td>Confira o ID e os projetos da chave.</td></tr>
+		<tr><td><code>409</code></td><td>Conflito, como uma conversão com o mesmo <code>transactionId</code> e status.</td><td>Não repita. O recurso já existe.</td></tr>
+		<tr><td><code>422</code></td><td>Corpo ou parâmetros inválidos.</td><td>Leia o objeto <code>errors</code>.</td></tr>
+		<tr><td><code>500</code></td><td>Erro interno.</td><td>Tente de novo com espera crescente.</td></tr>
+		<tr><td><code>502</code></td><td>Falha em um serviço externo, como o câmbio ou a Meta.</td><td>Tente de novo mais tarde.</td></tr>
+	</tbody>
+</table>

@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Montar uma landing page no Builder | Trackup Docs</title>
+<meta name="description" content="Crie e publique uma página de vendas no editor visual, com botões ligados à oferta e pronta para mobile.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://docs.trackup.me/tutorial-landing-builder">
+<link rel="alternate" hreflang="pt-BR" href="https://docs.trackup.me/tutorial-landing-builder">
+<link rel="alternate" type="text/markdown" title="Versão para IA (llms.txt)" href="/llms.txt">
+<meta property="og:site_name" content="Trackup Docs">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Montar uma landing page no Builder">
+<meta property="og:description" content="Crie e publique uma página de vendas no editor visual, com botões ligados à oferta e pronta para mobile.">
+<meta property="og:url" content="https://docs.trackup.me/tutorial-landing-builder">
+<meta property="og:image" content="https://docs.trackup.me/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Trackup Docs">
+<meta property="article:modified_time" content="2026-11-14T03:24:03+00:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Montar uma landing page no Builder">
+<meta name="twitter:description" content="Crie e publique uma página de vendas no editor visual, com botões ligados à oferta e pronta para mobile.">
+<meta name="twitter:image" content="https://docs.trackup.me/assets/og.jpg">
+<meta name="theme-color" content="#4f39f6">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<script>(function(){try{var t=localStorage.getItem('tu-theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<link rel="stylesheet" href="/assets/style.css">
+<script src="/assets/shell.js"></script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","headline":"Montar uma landing page no Builder","description":"Crie e publique uma página de vendas no editor visual, com botões ligados à oferta e pronta para mobile.","url":"https://docs.trackup.me/tutorial-landing-builder","inLanguage":"pt-BR","dateModified":"2026-11-14T03:24:03+00:00","image":"https://docs.trackup.me/assets/og.jpg","isPartOf":{"@type":"WebSite","name":"Trackup Docs","url":"https://docs.trackup.me/"},"publisher":{"@type":"Organization","name":"Trackup","url":"https://trackup.me","logo":"https://docs.trackup.me/assets/favicon.svg"},"about":{"@type":"SoftwareApplication","name":"Trackup","applicationCategory":"BusinessApplication","url":"https://trackup.me"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Trackup Docs","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":2,"name":"Tutoriais","item":"https://docs.trackup.me/tutorial-campanha-meta"},{"@type":"ListItem","position":3,"name":"Montar uma landing page no Builder","item":"https://docs.trackup.me/tutorial-landing-builder"}]}]</script>
+</head>
+<body>
+<script>TU.header()</script>
+<div class="layout">
+	<aside class="sidebar" aria-label="Navegação"><script>TU.sidebar()</script></aside>
+	<main>
+		<article class="content">
+			<nav class="eyebrow" aria-label="Você está em"><a href="/tutorial-campanha-meta">Tutoriais</a><span aria-hidden="true"> › </span><span>Páginas</span></nav>
+			<h1 class="page-title">Montar uma landing page no Builder</h1>
+			<p class="page-desc">Crie e publique uma página de vendas no editor visual, com botões ligados à oferta e pronta para mobile.</p>
+			<script>TU.actions()</script>
+			<p>Neste tutorial você monta uma página de vendas com VSL no Builder, liga os botões ao checkout e publica no seu domínio. Nenhum código é necessário, e o rastreamento já vem embutido.</p>
+
+<h2 id="o-que-voce-vai-precisar">O que você vai precisar<a class="anchor" href="#o-que-voce-vai-precisar" aria-label="Link para esta seção">#</a></h2>
+<ul>
+	<li>Uma <a href="/ofertas">oferta</a> criada, com o link do checkout. Se ainda não tem, siga a Parte 3 de <a href="/tutorial-campanha-meta">Rastrear uma campanha da Meta</a>.</li>
+	<li>Textos, imagens comprimidas (WebP ou JPG até 300 KB) e o link do vídeo da VSL.</li>
+</ul>
+
+<h2 id="1-crie-a-pagina">1. Crie a página<a class="anchor" href="#1-crie-a-pagina" aria-label="Link para esta seção">#</a></h2>
+<ol class="steps">
+	<li><span class="step-title">Adicione a página</span>
+		<p>Em <strong>Páginas</strong>, clique em <strong>Adicionar página</strong> e escolha a aba <strong>Builder</strong>. Nome: <em>VSL Curso</em>. Caminho: <code>/curso</code>. Salve.</p>
+	</li>
+	<li><span class="step-title">Abra o editor</span>
+		<p>Na lista, abra o menu da página e clique em <strong>Editar no builder</strong>.</p>
+	</li>
+	<li><span class="step-title">Escolha um ponto de partida</span>
+		<p>Escolha um template de VSL para ganhar tempo, ou comece com o canvas vazio.</p>
+		<figure class="shot"><img src="../img/tut-builder-templates.webp" alt="Escolha de template no Builder" loading="lazy"><figcaption>Escolha de template no Builder</figcaption></figure></shot>
+	</li>
+</ol>
+
+<h2 id="2-monte-as-secoes">2. Monte as seções<a class="anchor" href="#2-monte-as-secoes" aria-label="Link para esta seção">#</a></h2>
+<p>Uma estrutura que funciona para VSL:</p>
+<table>
+	<thead><tr><th>Ordem</th><th>Bloco</th><th>O que colocar</th></tr></thead>
+	<tbody>
+		<tr><td>1</td><td>Primeira dobra e VSL</td><td>Título com a promessa, o vídeo e um botão logo abaixo.</td></tr>
+		<tr><td>2</td><td>Benefícios</td><td>3 a 6 resultados que o cliente terá.</td></tr>
+		<tr><td>3</td><td>Prova social</td><td>Depoimentos com foto e nome.</td></tr>
+		<tr><td>4</td><td>Oferta e preço</td><td>O que está incluso, preço e garantia.</td></tr>
+		<tr><td>5</td><td>Perguntas frequentes</td><td>As objeções mais comuns.</td></tr>
+		<tr><td>6</td><td>Rodapé</td><td>Links de termos e privacidade.</td></tr>
+	</tbody>
+</table>
+<ol class="steps">
+	<li><span class="step-title">Insira os blocos</span>
+		<p>No painel lateral, abra a aba <strong>Blocos</strong> e arraste cada seção para o canvas, na ordem acima.</p>
+		<figure class="shot shot-todo"><div class="shot-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><div><strong>Print pendente · <code>img/tut-builder-blocos.png</code></strong><p>Editor do Builder com a aba Blocos aberta, a categoria Prova social expandida e um bloco sendo arrastado para o canvas abaixo da primeira dobra.</p></div></div><figcaption>Inserindo blocos no canvas</figcaption></figure></shot>
+	</li>
+	<li><span class="step-title">Edite os textos</span>
+		<p>Clique duas vezes em um texto para editar. Use a aba <strong>Camadas</strong> para achar elementos difíceis de clicar.</p>
+	</li>
+	<li><span class="step-title">Troque imagens e vídeo</span>
+		<p>Selecione a imagem e, em <strong>Config</strong>, abra a <strong>Biblioteca de imagens</strong> para enviar a sua. No vídeo, cole a URL em <strong>Config</strong>.</p>
+	</li>
+	<li><span class="step-title">Ajuste o visual</span>
+		<p>Na aba <strong>Estilo</strong>, ajuste cores, fontes e espaçamentos. Para voltar ao padrão do tema, use o botão ao lado do campo.</p>
+	</li>
+</ol>
+
+<h2 id="3-ligue-os-botoes-a-oferta">3. Ligue os botões à oferta<a class="anchor" href="#3-ligue-os-botoes-a-oferta" aria-label="Link para esta seção">#</a></h2>
+<ol class="steps">
+	<li><span class="step-title">Selecione o botão</span>
+		<p>Clique no botão de compra da primeira dobra.</p>
+	</li>
+	<li><span class="step-title">Configure o clique</span>
+		<p>Na aba <strong>Config</strong>, em <strong>Evento de clique</strong>, cole o link da oferta (por exemplo <code>https://lp.seudominio.com/checkout</code>) em <strong>Destino</strong>.</p>
+		<figure class="shot shot-todo"><div class="shot-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><div><strong>Print pendente · <code>img/tut-builder-botao.png</code></strong><p>Inspetor do Builder na aba Config com um botão selecionado, Evento de clique configurado e Destino https://lp.seudominio.com/checkout.</p></div></div><figcaption>Botão apontando para a oferta</figcaption></figure></shot>
+	</li>
+	<li><span class="step-title">Repita em todos os botões</span>
+		<p>Faça o mesmo em cada botão de compra da página. Use <strong>Camadas</strong> para conferir que nenhum ficou de fora.</p>
+	</li>
+</ol>
+<div class="callout danger"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/></svg><div><p>Nunca use o link direto do checkout da plataforma. As vendas chegam sem o click ID e não são atribuídas ao anúncio.</p></div></div>
+
+<h2 id="4-revise-no-celular">4. Revise no celular<a class="anchor" href="#4-revise-no-celular" aria-label="Link para esta seção">#</a></h2>
+<p>Na barra superior, alterne para <strong>Mobile</strong>. Confira tamanhos de fonte, imagens cortadas e se o botão aparece sem precisar rolar muito. Ajuste em <strong>Estilo</strong> com a visualização Mobile ativa.</p>
+<figure class="shot shot-todo"><div class="shot-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><div><strong>Print pendente · <code>img/tut-builder-mobile.png</code></strong><p>Builder na visualização Mobile mostrando a primeira dobra com título, vídeo e botão, com o seletor Desktop/Tablet/Mobile em destaque.</p></div></div><figcaption>Revisão na visualização Mobile</figcaption></figure></shot>
+
+<h2 id="5-publique">5. Publique<a class="anchor" href="#5-publique" aria-label="Link para esta seção">#</a></h2>
+<ol class="steps">
+	<li><span class="step-title">Salve e publique</span>
+		<p>Clique em <strong>Salvar</strong> e depois em <strong>Publicar</strong>.</p>
+	</li>
+	<li><span class="step-title">Teste a página no ar</span>
+		<p>Volte para <strong>Páginas</strong>, copie o <strong>Link</strong> e abra no celular. Clique no botão e confira se abre o checkout.</p>
+	</li>
+	<li><span class="step-title">Confira o rastreamento</span>
+		<p>Em <strong>Logs › Requisições</strong>, sua visita e o clique no checkout aparecem em poucos segundos.</p>
+	</li>
+</ol>
+
+<h2 id="proximos-passos">Próximos passos<a class="anchor" href="#proximos-passos" aria-label="Link para esta seção">#</a></h2>
+<ul>
+	<li>Use o link da página no anúncio, com os parâmetros da <a href="/fontes-de-trafego">fonte de tráfego</a>.</li>
+	<li>Duplique a página, mude o título e compare as duas com um <a href="/tutorial-teste-ab">teste A/B</a>.</li>
+</ul>
+
+			<script>TU.pager();TU.footer()</script>
+			<noscript><p class="site-footer"><a href="/">Início</a> · <a href="/llms.txt">Índice completo</a> · <a href="/sitemap.xml">Mapa do site</a></p></noscript>
+		</article>
+	</main>
+	<aside class="toc"><div class="toc-title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg> Nesta página</div><ul><li class="lvl-2"><a href="#o-que-voce-vai-precisar">O que você vai precisar</a></li><li class="lvl-2"><a href="#1-crie-a-pagina">1. Crie a página</a></li><li class="lvl-2"><a href="#2-monte-as-secoes">2. Monte as seções</a></li><li class="lvl-2"><a href="#3-ligue-os-botoes-a-oferta">3. Ligue os botões à oferta</a></li><li class="lvl-2"><a href="#4-revise-no-celular">4. Revise no celular</a></li><li class="lvl-2"><a href="#5-publique">5. Publique</a></li><li class="lvl-2"><a href="#proximos-passos">Próximos passos</a></li></ul></aside>
+</div>
+<script>TU.end()</script>
+</body>
+</html>

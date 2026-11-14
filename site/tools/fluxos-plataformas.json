@@ -1,0 +1,407 @@
+{
+ "atomo-pay": {
+  "flow": [
+   "Átomo Pay",
+   "Integrações/Webhooks",
+   "Adicionar",
+   "Colar URL do Trackup",
+   "Selecione os Produtos",
+   "Marque todos métodos de Pagamento",
+   "Marque os Status de Pagamento (Pago, Reembolsado, Chargeback)",
+   "Salve"
+  ],
+  "imgs": [
+   "/images/integration-atomopay.png",
+   "/images/copiar-webhook-atomo-pay.png",
+   "/images/Painel-Atomopay.png",
+   "/images/PLATAFORMA-DE-VENDAS.png"
+  ],
+  "notes": []
+ },
+ "braip": {
+  "flow": [
+   "Braip",
+   "Ferramentas / Postback",
+   "Nova configuração",
+   "Adicionar um nome para a integração",
+   "Colar URL do Trackup",
+   "Selecione os Produtos",
+   "Marque os Eventos de Pagamento (Pago, Reembolsado, Chargeback)",
+   "Salve"
+  ],
+  "imgs": [
+   "/images/Braip-Integration.png",
+   "/images/braip-copy-link.png",
+   "/images/braip-painel.png",
+   "/images/braip-painel-2.png",
+   "/images/PLATAFORMA-DE-VENDAS.png"
+  ],
+  "notes": []
+ },
+ "cart-panda": {
+  "flow": [
+   "CartPanda",
+   "Admin / Notificações",
+   "Webhooks / Configurar Webhooks",
+   "Criar Webhook",
+   "Insira um nome para a integração",
+   "Selecione os Eventos (Pedido Pago, Pedido Reembolsado, Pedido Chargeback)",
+   "Cole a Url do Trackup",
+   "Selecione os produtos desejados",
+   "Salvar Webhook"
+  ],
+  "imgs": [
+   "/images/cartpanda-integration.png",
+   "/images/cartpanda-copy.png",
+   "/images/cartpanda-1.png",
+   "/images/cartpanda-2.png",
+   "/images/cartpanda-3.png",
+   "/images/cartpanda-4.png",
+   "/images/PLATAFORMA-DE-VENDAS.png"
+  ],
+  "notes": []
+ },
+ "digipag": {
+  "flow": [
+   "DigiPag",
+   "Integrações/Webhooks",
+   "Adicionar",
+   "Colar URL do Trackup",
+   "Selecione os Produtos",
+   "Marque todos métodos de Pagamento",
+   "Marque os Status de Pagamento (Pago, Reembolsado, Chargeback)",
+   "Salve"
+  ],
+  "imgs": [
+   "/images/digipag-integration.png",
+   "/images/digipag-1.png",
+   "/images/PLATAFORMA-DE-VENDAS.png"
+  ],
+  "notes": []
+ },
+ "eduzz": {
+  "flow": [
+   "Eduzz",
+   "Developer Hub / Integrações",
+   "Configurações / Nova Configuração",
+   "Insira um nome para a integração",
+   "Cole a Url do Trackup",
+   "Marque as Vendas (myeduzz.invoice_chargeback, myeduzz.invoice_paid, myeduzz.invoice_refunded)",
+   "Criar Configuração"
+  ],
+  "imgs": [
+   "/images/eduzz-integration.png",
+   "/images/eduzz-copy-link.png",
+   "/images/eduzz-1.png",
+   "/images/eduzz-2.png",
+   "/images/eduzz-3.png",
+   "/images/PLATAFORMA-DE-VENDAS.png"
+  ],
+  "notes": []
+ },
+ "goat-pay": {
+  "flow": [
+   "Goat Pay",
+   "Integrações/Webhooks",
+   "Adicionar",
+   "Colar URL do Trackup",
+   "Selecione os Produtos",
+   "Marque todos métodos de Pagamento",
+   "Marque os Status de Pagamento (Pago, Reembolsado, Chargeback)",
+   "Salve"
+  ],
+  "imgs": [
+   "/images/painel-goat.png",
+   "/images/PLATAFORMA-DE-VENDAS.png",
+   "/images/integration-goat-pay.png",
+   "/images/copy-link-goat.png"
+  ],
+  "notes": []
+ },
+ "hotmart": {
+  "flow": [
+   "Hotmart",
+   "Ferramentas / Ver todas",
+   "Selecione Webhook (API e notificações)",
+   "Cadastrar Webhook",
+   "Insira um nome para sua organização",
+   "Selecione os produtos que deseja disparar",
+   "Colar URL do Trackup",
+   "Selecione a versão 2.0.0",
+   "Marque os Eventos (Compra aprovada, Compra reembolsada, Chargeback)",
+   "Salve"
+  ],
+  "imgs": [
+   "/images/integration-hotmart.png",
+   "/images/copy-link-hotmart.png",
+   "/images/hotmart-1.png",
+   "/images/hotmart-2.png",
+   "/images/PLATAFORMA-DE-VENDAS.png"
+  ],
+  "notes": []
+ },
+ "inova-pag": {
+  "flow": [
+   "InovaPag",
+   "Integrações/Webhooks",
+   "Adicionar",
+   "Colar URL do Trackup",
+   "Selecione os Produtos",
+   "Marque todos métodos de Pagamento",
+   "Marque os Status de Pagamento (Pago, Reembolsado, Chargeback)",
+   "Salve"
+  ],
+  "imgs": [
+   "/images/integration-inovapag.png",
+   "/images/copy-link-inovapag.png",
+   "/images/plataforma-inovapag.png",
+   "/images/PLATAFORMA-DE-VENDAS.png"
+  ],
+  "notes": []
+ },
+ "kirvano": {
+  "flow": [
+   "Kirvano",
+   "Integrações / Webhooks",
+   "Adicionar Integração",
+   "Adicionar um nome para a integração",
+   "Colar URL do Trackup",
+   "Selecione os Produtos",
+   "Marque os Eventos (Compra aprovada, Reembolsado, Chargeback)",
+   "Criar"
+  ],
+  "imgs": [
+   "/images/kirvano-integration.png",
+   "/images/kirvano-copy-link.png",
+   "/images/kirvano-painel-01.png",
+   "/images/kirvano-painel-2.png",
+   "/images/kirvano-03.png",
+   "/images/PLATAFORMA-DE-VENDAS.png"
+  ],
+  "notes": []
+ },
+ "kiwify": {
+  "flow": [
+   "Kiwify",
+   "Aps/Webhooks",
+   "Criar Webhook",
+   "Insira um nome para o webhook",
+   "Colar URL do Trackup",
+   "Selecione os Produtos",
+   "Marque os Eventos (Compra aprovada, Reembolso, Chargeback",
+   "Criar"
+  ],
+  "imgs": [
+   "/images/integration-kiwify.png",
+   "/images/copy-link-kiwify.png",
+   "/images/kiwify-1.png",
+   "/images/kiwify-2.png",
+   "/images/Screenshot-2026-06-22-at-16.13.54.png",
+   "/images/PLATAFORMA-DE-VENDAS.png"
+  ],
+  "notes": []
+ },
+ "luna-checkout": {
+  "flow": [
+   "Luna Checkout",
+   "Desenvolvedores/Webhooks",
+   "Nova integração",
+   "Adicionar um nome para a integração",
+   "Colar URL do Trackup",
+   "Marque os Eventos (Venda Aprovada, Venda Chargeback, Venda Estornada)",
+   "Restrinja produtos caso necessário",
+   "Salve"
+  ],
+  "imgs": [
+   "/images/PLATAFORMA-DE-VENDAS.webp",
+   "/images/Luna-integration.png",
+   "/images/Luna-copy-1.png",
+   "/images/luna-1-1.png",
+   "/images/luna-2.png",
+   "/images/luna-3.png"
+  ],
+  "notes": []
+ },
+ "monetizze": {
+  "flow": [
+   "Monetizze",
+   "Ferramentas / Postback - Webhook",
+   "Selecione os Produtos",
+   "Selecione as vendas que deseja trackear",
+   "Tipo : Webhook (server to server)",
+   "Formato JSON",
+   "Cole a Url do Trackup",
+   "Marque as Vendas (Cancelada, Completa, Desevolvida(Reembolso)",
+   "Salvar"
+  ],
+  "imgs": [
+   "/images/monetizze-integration.png",
+   "/images/monetizze-copy-link.png",
+   "/images/monetizze-plataforma.png",
+   "/images/PLATAFORMA-DE-VENDAS.png"
+  ],
+  "notes": []
+ },
+ "paradise": {
+  "flow": [
+   "Paradise",
+   "Integrações",
+   "Webhooks (Postbacks)",
+   "Adicionar/Gerenciar Webhooks",
+   "Colar URL do Trackup",
+   "Marque (Venda Aprovada e Venda Reembolsada)",
+   "Salvar Alterações"
+  ],
+  "imgs": [
+   "/images/integratio-paradise.png",
+   "/images/copy-link-paradise.png",
+   "/images/paradise-1.png",
+   "/images/paradise-2.png",
+   "/images/PLATAFORMA-DE-VENDAS.png"
+  ],
+  "notes": []
+ },
+ "payt": {
+  "flow": [
+   "Payt",
+   "Ferramentas / Postback",
+   "Cadastrar",
+   "Adicionar um nome para a integração",
+   "Colar URL do Trackup",
+   "Selecione os Produtos",
+   "Marque os Eventos (Finalizada/Aprovada, Cancelada - Chargeback, Cancelada - Reembolso)",
+   "Eventos Pague após receber (Pedido Confirmado)",
+   "Salve"
+  ],
+  "imgs": [
+   "/images/payt-integration.png",
+   "/images/payt-copy-link.png",
+   "/images/payt-1.png",
+   "/images/payt-2-1.png",
+   "/images/PLATAFORMA-DE-VENDAS.png"
+  ],
+  "notes": []
+ },
+ "perfect-pay": {
+  "flow": [
+   "Perfect Pay",
+   "Ferramentas/Webhooks - Vendas",
+   "Adicionar",
+   "Selecione os Produtos",
+   "Colar URL do Trackup",
+   "Selecione as váriaveis de acordo com sua preferência",
+   "Marque os Eventos (Aprovado, Devolvido, Charge back",
+   "Salve"
+  ],
+  "imgs": [
+   "/images/perfect-pay-1-1.png",
+   "/images/perfectpay-2--1.png",
+   "/images/PLATAFORMA-DE-VENDAS.png",
+   "/images/integration-Perfect-Pay.png",
+   "/images/copy-link-perfect-pay.png"
+  ],
+  "notes": []
+ },
+ "proofpay": {
+  "flow": [
+   "ProofPay",
+   "Integrações/Webhooks",
+   "Adicionar",
+   "Colar URL do Trackup",
+   "Selecione os Produtos",
+   "Marque todos métodos de Pagamento",
+   "Marque os Status de Pagamento (Pago, Reembolsado, Chargeback)",
+   "Salve"
+  ],
+  "imgs": [
+   "/images/painel-proofpay.png",
+   "/images/PLATAFORMA-DE-VENDAS.png",
+   "/images/intregration-proofpay.png",
+   "/images/copy-link-proofpay.png"
+  ],
+  "notes": []
+ },
+ "tribopay": {
+  "flow": [
+   "TriboPay",
+   "Integrações/Webhooks",
+   "Adicionar",
+   "Colar URL do Trackup",
+   "Selecione os Produtos",
+   "Marque todos métodos de Pagamento",
+   "Marque os Status de Pagamento (Pago, Reembolsado, Chargeback)",
+   "Salve"
+  ],
+  "imgs": [
+   "/images/painel-tribopay.png",
+   "/images/PLATAFORMA-DE-VENDAS.png",
+   "/images/integração-tribopay.png",
+   "/images/copy-link-tribopay.png"
+  ],
+  "notes": []
+ },
+ "upag": {
+  "flow": [
+   "Upag",
+   "Desenvolvedor / Webhooks",
+   "Criar Webhook",
+   "Insira um nome para a integração",
+   "Cole a Url do Trackup",
+   "Selecione apenas o evento invoice.paid",
+   "Criar Webhook",
+   "Concluído"
+  ],
+  "imgs": [
+   "/images/upag-integration.png",
+   "/images/upag-copy.png",
+   "/images/upag-1.png",
+   "/images/upag-2.png",
+   "/images/upag-4.png",
+   "/images/PLATAFORMA-DE-VENDAS.png"
+  ],
+  "notes": []
+ },
+ "vega-checkout": {
+  "flow": [
+   "Vega Checkout",
+   "Desenvolvedores/Webhooks",
+   "Nova integração",
+   "Adicionar um nome para a integração",
+   "Colar URL do Trackup",
+   "Marque os Eventos (Venda Aprovada, Venda Chargeback, Venda Estornada)",
+   "Restrinja produtos caso necessário",
+   "Salve"
+  ],
+  "imgs": [
+   "/images/PLATAFORMA-DE-VENDAS.webp",
+   "/images/vega-integration.png",
+   "/images/vega-copy.png",
+   "/images/vega-1.png",
+   "/images/vega-2-1.png",
+   "/images/vega-3.png",
+   "/images/vega-4.png"
+  ],
+  "notes": []
+ },
+ "yampi": {
+  "flow": [
+   "Yampi",
+   "Desenvolvedor / Webhooks",
+   "Criar Webhook",
+   "Insira um nome para a integração",
+   "Cole a Url do Trackup",
+   "Selecione Todos Eventos",
+   "Criar Webhook",
+   "Concluído"
+  ],
+  "imgs": [
+   "/images/yampi-integration.png",
+   "/images/yampi-copy.png",
+   "/images/yampi-1.png",
+   "/images/yampi-2.png",
+   "/images/yampi-3.png",
+   "/images/PLATAFORMA-DE-VENDAS.png"
+  ],
+  "notes": []
+ }
+}

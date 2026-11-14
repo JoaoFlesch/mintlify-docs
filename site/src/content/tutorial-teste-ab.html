@@ -1,0 +1,75 @@
+---
+title: Testar duas versões de uma página
+sidebarTitle: Teste A/B de página
+icon: split
+eyebrow: Tutorial
+description: Compare duas VSLs com o mesmo tráfego, acompanhe a confiança estatística e envie tudo para a vencedora.
+---
+<p>Neste tutorial você descobre qual de duas VSLs vende mais. O anúncio continua o mesmo: o Trackup divide os visitantes entre as versões e mede as vendas de cada uma.</p>
+
+<h2>O que você vai precisar</h2>
+<ul>
+	<li>Uma página publicada que já recebe tráfego, como <em>VSL Curso</em>.</li>
+	<li>Vendas atribuídas funcionando. Sem isso o teste mede só acessos. Veja <a href="/tutorial-campanha-meta">Rastrear uma campanha da Meta</a>.</li>
+</ul>
+
+<h2>1. Crie a variante</h2>
+<steps>
+	<step title="Duplique a página">
+		<p>Em <strong>Páginas</strong>, abra o menu da <em>VSL Curso</em> e clique em <strong>Duplicar</strong>. Renomeie a cópia para <em>VSL Curso B</em>.</p>
+	</step>
+	<step title="Mude uma coisa só">
+		<p>Edite a cópia e mude só o que quer testar, por exemplo o título da primeira dobra. Mudar várias coisas ao mesmo tempo impede saber o que fez diferença.</p>
+	</step>
+	<step title="Publique">
+		<p>Publique a variante. Confira que os botões continuam apontando para a mesma oferta.</p>
+	</step>
+</steps>
+
+<h2>2. Crie o teste</h2>
+<steps>
+	<step title="Abra Testes A/B">
+		<p>No menu lateral, clique em <strong>Testes A/B</strong> e em <strong>Criar teste A/B</strong>.</p>
+	</step>
+	<step title="Preencha">
+		<table>
+			<thead><tr><th>Campo</th><th>Valor</th></tr></thead>
+			<tbody>
+				<tr><td>Nome</td><td><em>Título VSL</em></td></tr>
+				<tr><td>Slug</td><td><code>/vsl</code></td></tr>
+				<tr><td>Tipo de teste</td><td>Página</td></tr>
+				<tr><td>Variante 1</td><td>VSL Curso, 50%</td></tr>
+				<tr><td>Variante 2</td><td>VSL Curso B, 50%</td></tr>
+			</tbody>
+		</table>
+		<shot src="img/tut-ab-criar.png" caption="Teste com duas variantes em 50/50" todo="Formulário Criar teste A/B com Nome Título VSL, Slug /vsl, Tipo Página e as variantes VSL Curso 50% e VSL Curso B 50%, ambas ativas."></shot>
+	</step>
+	<step title="Salve e copie o link">
+		<p>O link do teste é <code>https://lp.seudominio.com/vsl</code>.</p>
+	</step>
+</steps>
+
+<h2>3. Troque o link no anúncio</h2>
+<p>Nos anúncios, troque a <strong>URL do site</strong> pelo link do teste. Mantenha os mesmos <strong>Parâmetros de URL</strong>.</p>
+<callout type="warning"><p>Na Meta, editar a URL de um anúncio ativo manda ele de volta para revisão. Se preferir, duplique o anúncio com a nova URL.</p></callout>
+
+<h2>4. Acompanhe</h2>
+<steps>
+	<step title="Abra o relatório">
+		<p>Em <strong>Testes A/B</strong>, abra o menu do teste e clique em <strong>Relatórios</strong>.</p>
+	</step>
+	<step title="Leia a frase de resumo">
+		<p>No topo, o Trackup diz como está o teste. Enquanto uma variante estiver só <span class="badge amber">Liderando</span>, não decida. Espere aparecer <span class="badge green">Vencedora</span>.</p>
+		<shot src="img/tut-ab-relatorio.png" caption="Relatório com variante vencedora" todo="Relatório Teste A/B com VSL Curso B marcada como Vencedora, a frase de conclusão com o percentual de confiança, a tabela por variante (visitantes, conversões, taxa, receita por visitante) e o gráfico de conversão acumulada."></shot>
+	</step>
+	<step title="Compare receita por visitante">
+		<p>Além da taxa de conversão, olhe a <strong>receita por visitante</strong>. Uma variante pode vender menos vezes e ainda faturar mais, por causa de upsell ou de outro preço.</p>
+	</step>
+</steps>
+<callout type="tip"><p>Deixe o teste rodar ao menos uma semana, para cobrir dias fortes e fracos, mesmo que um vencedor apareça antes.</p></callout>
+
+<h2>5. Encerre</h2>
+<p>Com a vencedora definida, clique em <strong>Enviar 100% para</strong> ela. O anúncio continua no mesmo link e todos os visitantes passam a ver a vencedora. Para o próximo teste, duplique a vencedora e repita.</p>
+
+<h2>E para testar preço ou checkout?</h2>
+<p>Crie duas <a href="/ofertas">ofertas</a> (por exemplo, R$ 197 e R$ 247) e um teste do tipo <strong>Checkout</strong> com as duas. Use o link desse teste nos botões da página, no lugar do link da oferta.</p>

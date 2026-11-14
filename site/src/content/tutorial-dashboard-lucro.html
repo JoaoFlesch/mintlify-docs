@@ -1,0 +1,73 @@
+---
+title: Montar um dashboard de lucro
+sidebarTitle: Dashboard de lucro
+icon: chart
+eyebrow: Tutorial
+description: Monte um painel diário com lucro, ROAS, funil e as campanhas que mais vendem.
+---
+<p>Neste tutorial você monta um dashboard para abrir todo dia e responder três perguntas: quanto lucrei, onde o funil está vazando e de onde vieram as vendas.</p>
+
+<h2>O que você vai precisar</h2>
+<ul>
+	<li>Vendas chegando pelas <a href="/plataformas-de-venda">plataformas de venda</a>.</li>
+	<li>A conta de anúncios conectada no <a href="/gerenciador-de-anuncios">Gerenciador de anúncios</a>. Sem ela, o card de lucro mostra despesas zeradas.</li>
+</ul>
+
+<h2>1. Crie o dashboard</h2>
+<steps>
+	<step title="Novo dashboard">
+		<p>Em <strong>Dashboard</strong>, clique em <strong>Novo dashboard</strong> e dê o nome <em>Lucro diário</em>.</p>
+	</step>
+	<step title="Limpe o layout inicial">
+		<p>Clique em <strong>Editar layout</strong> e remova os cards que não vai usar.</p>
+	</step>
+</steps>
+
+<h2>2. Adicione os cards</h2>
+<p>Clique em <strong>Adicionar card</strong> e marque, na ordem:</p>
+<table>
+	<thead><tr><th>Card</th><th>Pergunta que responde</th></tr></thead>
+	<tbody>
+		<tr><td>Lucro</td><td>Quanto entrou, quanto saiu em anúncio, lucro e ROAS.</td></tr>
+		<tr><td>Vendas</td><td>Como as vendas se distribuem no período.</td></tr>
+		<tr><td>Funil</td><td>Em que etapa as pessoas desistem.</td></tr>
+		<tr><td>Venda por fonte de tráfego</td><td>Qual canal traz mais receita.</td></tr>
+		<tr><td>Vendas por UTM</td><td>Quais campanhas e anúncios vendem (aba Campanha ou Conteúdo).</td></tr>
+		<tr><td>Status de pagamentos</td><td>Quanto está pendente, pago, reembolsado ou em chargeback.</td></tr>
+		<tr><td>Acessos e vendas por horário</td><td>Em que horas o público compra.</td></tr>
+	</tbody>
+</table>
+<shot src="img/tut-dash-catalogo.png" caption="Cards selecionados no catálogo" todo="Modal Adicionar cards com Lucro, Vendas, Funil, Venda por fonte de tráfego, Vendas por UTM, Status de pagamentos e Acessos e vendas por horário marcados, e o botão Adicionar 7 cards."></shot>
+
+<h2>3. Ajuste o funil</h2>
+<steps>
+	<step title="Abra o funil">
+		<p>No card <strong>Funil</strong>, clique em <strong>Personalizar funil</strong>.</p>
+	</step>
+	<step title="Escolha as etapas">
+		<p>Para uma VSL: <em>impressões</em>, <em>ad click</em>, <em>page view</em>, <em>initiate checkout</em> e <em>purchase</em>. Se a página envia um evento como <code>vsl_pitch</code> pelo <a href="/script">script</a>, clique em <strong>Adicionar evento customizado</strong> e coloque entre page view e initiate checkout.</p>
+		<shot src="img/tut-dash-funil.png" caption="Personalização do funil" todo="Modal Personalizar funil com as etapas impressões, ad click, page view, vsl_pitch (customizada), initiate checkout e purchase, com alças de arrastar e o botão Salvar."></shot>
+	</step>
+	<step title="Salve">
+		<p>Salve o funil e organize os cards arrastando pela alça. Coloque o Lucro no topo. Salve o layout.</p>
+	</step>
+</steps>
+
+<h2>4. Leia todo dia</h2>
+<steps>
+	<step title="Escolha o período">
+		<p>Use <em>Hoje</em> durante o dia e <em>Ontem</em> pela manhã, para ver o dia fechado.</p>
+	</step>
+	<step title="Comece pelo lucro">
+		<p>ROAS abaixo de 1 significa que o anúncio custou mais do que vendeu. Lembre que reembolsos e taxas da plataforma não entram nas despesas.</p>
+	</step>
+	<step title="Ache o vazamento">
+		<p>No funil, compare as etapas. Muito ad click e pouco page view indica página lenta ou bloqueio. Muito page view e pouco initiate checkout indica problema de oferta ou de página. Muito initiate checkout e pouco purchase aponta para o checkout.</p>
+	</step>
+	<step title="Desça até o anúncio">
+		<p>Em <strong>Vendas por UTM</strong>, veja as campanhas e os anúncios que vendem. Para agir (pausar ou escalar), abra o <a href="/gerenciador-de-anuncios">Gerenciador de anúncios</a>.</p>
+	</step>
+</steps>
+<shot src="img/tut-dash-final.png" caption="Dashboard Lucro diário pronto" todo="Dashboard Lucro diário com dados de exemplo: Lucro no topo com faturamento, despesas e ROAS, Funil com 6 etapas, Venda por fonte de tráfego e Vendas por UTM na aba Campanha. Nomes de campanha borrados."></shot>
+
+<callout type="tip"><p>Crie um segundo dashboard, <em>Qualidade do tráfego</em>, com Acessos reais, Acessos de bots, Filtro e Acessos por dispositivo, para acompanhar a proteção das páginas.</p></callout>

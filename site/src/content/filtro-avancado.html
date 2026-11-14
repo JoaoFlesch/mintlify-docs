@@ -1,0 +1,62 @@
+---
+title: Filtro avançado
+sidebarTitle: Modo avançado
+icon: code
+description: Escreva regras com qualquer campo da requisição, operadores, grupos E/OU e expressões regulares.
+---
+<p>O modo avançado monta a regra como uma expressão. Uma regra tem um ou mais <strong>grupos</strong>. As condições dentro de um grupo se combinam com <strong>E</strong>, e os grupos entre si com <strong>OU</strong>.</p>
+<code-block title="Exemplo" lang="text">
+(País na lista [US, CA]  E  Tipo de dispositivo na lista [Computador])
+OU
+(User Agent contém "HeadlessChrome")
+</code-block>
+<shot src="img/filtro-avancado.png" caption="Regra com dois grupos no modo avançado" todo="Formulário Criar regra no modo Avançado com dois grupos de condições unidos por OU (o exemplo acima), ação Exibir página e uma safe page selecionada."></shot>
+
+<h2>Campos</h2>
+<table>
+	<thead><tr><th>Campo</th><th>Chave</th><th>Exemplo de valor</th></tr></thead>
+	<tbody>
+		<tr><td>IP de origem</td><td><code>ip.src</code></td><td><code>203.0.113.10</code></td></tr>
+		<tr><td>País</td><td><code>ip.geoip.country</code></td><td><code>BR</code></td></tr>
+		<tr><td>Host</td><td><code>http.host</code></td><td><code>oferta.seudominio.com</code></td></tr>
+		<tr><td>Caminho da URI</td><td><code>http.request.uri.path</code></td><td><code>/vsl</code></td></tr>
+		<tr><td>Query string</td><td><code>http.request.uri.query</code></td><td><code>utm_source=meta</code></td></tr>
+		<tr><td>User Agent</td><td><code>http.user_agent</code></td><td><code>HeadlessChrome</code></td></tr>
+		<tr><td>Accept Language</td><td><code>http.accept_language</code></td><td><code>pt-BR</code></td></tr>
+		<tr><td>Cookie</td><td><code>http.cookie</code></td><td><code>session_id=</code></td></tr>
+		<tr><td>Proteção contra bots</td><td><code>detection.bot_protection</code></td><td><code>true</code></td></tr>
+		<tr><td>Navegador e versão</td><td><code>device.browser</code>, <code>device.browser_version</code></td><td><code>Chrome</code>, <code>120.0.0.0</code></td></tr>
+		<tr><td>Sistema operacional e versão</td><td><code>device.os</code>, <code>device.os_version</code></td><td><code>iOS</code>, <code>17.0</code></td></tr>
+		<tr><td>Tipo de dispositivo</td><td><code>device.type</code></td><td><code>mobile</code></td></tr>
+		<tr><td>Fabricante e modelo</td><td><code>device.vendor</code>, <code>device.model</code></td><td><code>Apple</code>, <code>iPhone</code></td></tr>
+	</tbody>
+</table>
+
+<h2>Operadores</h2>
+<table>
+	<thead><tr><th>Tipo de campo</th><th>Operadores</th></tr></thead>
+	<tbody>
+		<tr><td>Texto (host, caminho, query, user agent, cookie, idioma, navegador, SO, fabricante, modelo)</td><td>Igual, Diferente, Contém, Não contém, Começa com, Termina com, Corresponde ao regex, Não corresponde ao regex, Existe, Não existe</td></tr>
+		<tr><td>IP</td><td>Os de texto, mais Na lista e Não na lista</td></tr>
+		<tr><td>País e tipo de dispositivo</td><td>Na lista, Não na lista</td></tr>
+		<tr><td>Proteção contra bots</td><td>Igual, Diferente</td></tr>
+		<tr><td>Versões</td><td>Igual, Diferente, Maior que, Menor que, Maior ou igual, Menor ou igual</td></tr>
+	</tbody>
+</table>
+<callout type="tip"><p>Regex usa a sintaxe padrão. Prefira <strong>Contém</strong> quando ele resolve: é mais fácil de ler e de manter.</p></callout>
+
+<h2>Exemplos</h2>
+<accordion title="Liberar o seu IP antes de qualquer bloqueio">
+	<p>Peso <code>1</code>. Condição: <code>ip.src</code> Igual ao seu IP. Ação: Permitir. Como tem o menor peso, é avaliada primeiro e as regras seguintes não se aplicam a você.</p>
+</accordion>
+<accordion title="Bloquear navegadores automatizados">
+	<p>Condição: <code>http.user_agent</code> corresponde ao regex <code>(HeadlessChrome|PhantomJS|python-requests|curl)</code>. Ação: Bloquear.</p>
+</accordion>
+<accordion title="Safe page para quem não veio de anúncio">
+	<p>Condição: <code>http.request.uri.query</code> Não contém <code>fbclid</code>, com <code>http.request.uri.path</code> Igual a <code>/oferta</code>. Ação: Exibir página.</p>
+</accordion>
+<accordion title="Bloquear versões antigas de Android">
+	<p>Condições: <code>device.os</code> Igual a <code>Android</code> E <code>device.os_version</code> Menor que <code>9</code>. Ação: Bloquear.</p>
+</accordion>
+
+<p>Uma regra criada no modo avançado só pode ser editada no modo básico se usar apenas os critérios dele, em um único grupo.</p>

@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pixels | Trackup Docs</title>
+<meta name="description" content="Conecte sua conta de anúncios para enviar os eventos do funil pelo servidor (API de conversões).">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://docs.trackup.me/pixels">
+<link rel="alternate" hreflang="pt-BR" href="https://docs.trackup.me/pixels">
+<link rel="alternate" type="text/markdown" title="Versão para IA (llms.txt)" href="/llms.txt">
+<meta property="og:site_name" content="Trackup Docs">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pixels">
+<meta property="og:description" content="Conecte sua conta de anúncios para enviar os eventos do funil pelo servidor (API de conversões).">
+<meta property="og:url" content="https://docs.trackup.me/pixels">
+<meta property="og:image" content="https://docs.trackup.me/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Trackup Docs">
+<meta property="article:modified_time" content="2026-11-14T05:44:14+00:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pixels">
+<meta name="twitter:description" content="Conecte sua conta de anúncios para enviar os eventos do funil pelo servidor (API de conversões).">
+<meta name="twitter:image" content="https://docs.trackup.me/assets/og.jpg">
+<meta name="theme-color" content="#4f39f6">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<script>(function(){try{var t=localStorage.getItem('tu-theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<link rel="stylesheet" href="/assets/style.css">
+<script src="/assets/shell.js"></script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","headline":"Pixels","description":"Conecte sua conta de anúncios para enviar os eventos do funil pelo servidor (API de conversões).","url":"https://docs.trackup.me/pixels","inLanguage":"pt-BR","dateModified":"2026-11-14T05:44:14+00:00","image":"https://docs.trackup.me/assets/og.jpg","isPartOf":{"@type":"WebSite","name":"Trackup Docs","url":"https://docs.trackup.me/"},"publisher":{"@type":"Organization","name":"Trackup","url":"https://trackup.me","logo":"https://docs.trackup.me/assets/favicon.svg"},"about":{"@type":"SoftwareApplication","name":"Trackup","applicationCategory":"BusinessApplication","url":"https://trackup.me"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Trackup Docs","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":2,"name":"Guias","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":3,"name":"Pixels","item":"https://docs.trackup.me/pixels"}]}]</script>
+</head>
+<body>
+<script>TU.header()</script>
+<div class="layout">
+	<aside class="sidebar" aria-label="Navegação"><script>TU.sidebar()</script></aside>
+	<main>
+		<article class="content">
+			<nav class="eyebrow" aria-label="Você está em"><a href="/">Guias</a><span aria-hidden="true"> › </span><span>Configuração</span></nav>
+			<h1 class="page-title">Pixels</h1>
+			<p class="page-desc">Conecte sua conta de anúncios para enviar os eventos do funil pelo servidor (API de conversões).</p>
+			<script>TU.actions()</script>
+			<div class="callout tip"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.1 14c.2-1 .7-1.7 1.5-2.5A6 6 0 1 0 6 8c0 1.4.4 2.6 1.4 3.5.8.8 1.3 1.5 1.5 2.5"/></svg><div><p><strong>Configure pela sua IA.</strong> Conecte seu assistente pelo <a href="/conectar-mcp">MCP</a> e peça: <em>"Crie um pixel Meta com acionadores de pageview, início de checkout e conversão."</em></p></div></div>
+<p>Um pixel guarda as credenciais da API de conversões de uma plataforma de anúncios. Os <a href="/acionadores">acionadores</a> usam o pixel para enviar eventos do funil, como <code>page_view</code>, <code>start_checkout</code> e <code>conversion</code>, direto do servidor do Trackup. Isso evita perdas por bloqueadores de anúncio e navegadores com restrição de cookies.</p>
+<p>Tipos disponíveis: Meta, Google Ads, TikTok e Kwai. O exemplo abaixo usa Meta; os outros tipos seguem o mesmo fluxo e mudam só os campos.</p>
+
+<h2 id="adicionar-um-pixel">Adicionar um pixel<a class="anchor" href="#adicionar-um-pixel" aria-label="Link para esta seção">#</a></h2>
+<ol class="steps">
+	<li><span class="step-title">Abra Pixels</span>
+		<p>Vá em <strong>Integração › Pixels</strong> e clique em <strong>Adicionar pixel</strong>.</p>
+		<figure class="shot shot-todo"><div class="shot-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><div><strong>Print pendente · <code>img/pixels-adicionar.png</code></strong><p>Diálogo Adicionar pixel com Tipo = Meta, Nome, Pixel ID e Access Token (borrado). Credenciais do pixel de demonstração, token sempre borrado.</p></div></div><figcaption>Diálogo Adicionar pixel</figcaption></figure></shot>
+	</li>
+	<li><span class="step-title">Escolha o tipo e dê um nome</span>
+		<p>Selecione o <strong>Tipo</strong> e dê um <strong>Nome</strong> que identifique a conta, como <code>Meta · Online Store</code>.</p>
+	</li>
+	<li><span class="step-title">Preencha as credenciais</span>
+		<p>Copie os campos da plataforma de anúncios (veja a tabela por plataforma abaixo) e cole no Trackup. Mantenha <strong>Ativo</strong> ligado.</p>
+	</li>
+	<li><span class="step-title">Salve</span>
+		<p>Clique em salvar. Para Meta, TikTok e Kwai o Trackup cria junto os acionadores <strong>Pageview</strong>, <strong>Start checkout</strong> e <strong>Conversão</strong> e mostra a notificação <em>Pixel e acionadores criados</em>. No Google Ads, crie os acionadores com a conversion label de cada etapa.</p>
+	</li>
+	<li><span class="step-title">Confira na lista</span>
+		<p>O pixel aparece em <strong>Integração › Pixels</strong>. Se houver Test Event Code, o pixel é marcado como modo teste.</p>
+	</li>
+</ol>
+
+<h2 id="campos-por-plataforma">Campos por plataforma<a class="anchor" href="#campos-por-plataforma" aria-label="Link para esta seção">#</a></h2>
+<div class="ctabs">
+	<div class="ctabs-panel" data-title="Meta">
+		<table>
+			<thead><tr><th>Campo</th><th>Onde encontrar</th></tr></thead>
+			<tbody>
+				<tr><td>Pixel ID</td><td>Gerenciador de Eventos › Fontes de dados › seu pixel.</td></tr>
+				<tr><td>Access Token</td><td>Gerenciador de Eventos › Configurações › API de Conversões › Gerar token de acesso.</td></tr>
+				<tr><td>Test Event Code <span class="badge gray">opcional</span></td><td>Gerenciador de Eventos › Testar eventos.</td></tr>
+			</tbody>
+		</table>
+		<div class="callout warning"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg><div><p>Com o Test Event Code preenchido, os eventos vão só para <em>Test Events</em> e não contam nas campanhas. O pixel aparece marcado como modo teste na lista. Apague o código para ir para produção.</p></div></div>
+	</div>
+	<div class="ctabs-panel" data-title="Google Ads">
+		<table>
+			<thead><tr><th>Campo</th><th>Onde encontrar</th></tr></thead>
+			<tbody>
+				<tr><td>Conversion ID</td><td>Google Ads › Metas › Conversões › Resumo › ação de conversão › Configuração da tag. É o número depois de <code>AW-</code>; o prefixo é opcional.</td></tr>
+				<tr><td>Moeda padrão <span class="badge gray">opcional</span></td><td>Código ISO, como <code>BRL</code> ou <code>USD</code>.</td></tr>
+				<tr><td>Valor padrão <span class="badge gray">opcional</span></td><td>Valor enviado quando o acionador não define um.</td></tr>
+			</tbody>
+		</table>
+		<p>A <strong>conversion label</strong> fica em cada acionador, no campo de evento. Crie uma ação de conversão no Google Ads para cada etapa que você quer otimizar.</p>
+	</div>
+	<div class="ctabs-panel" data-title="TikTok">
+		<table>
+			<thead><tr><th>Campo</th><th>Onde encontrar</th></tr></thead>
+			<tbody>
+				<tr><td>Pixel Code</td><td>TikTok Ads Manager › Ferramentas › Eventos › Web.</td></tr>
+				<tr><td>Access Token</td><td>Configurações do pixel › Gerar token de acesso (Events API).</td></tr>
+				<tr><td>Test Event Code</td><td>Obrigatório no TikTok.</td></tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="ctabs-panel" data-title="Kwai">
+		<table>
+			<thead><tr><th>Campo</th><th>Onde encontrar</th></tr></thead>
+			<tbody>
+				<tr><td>Pixel ID e Access Token</td><td>Kwai for Business › Ferramentas › Pixel.</td></tr>
+				<tr><td>Test Event Code</td><td>Obrigatório no Kwai. Valida eventos de teste quando não há <code>click_id</code> na URL.</td></tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<figure class="shot"><img src="../img/pixels-lista.webp" alt="Lista de pixels do projeto" loading="lazy"><figcaption>Lista de pixels do projeto</figcaption></figure></shot>
+
+<h2 id="testar-a-conexao">Testar a conexão<a class="anchor" href="#testar-a-conexao" aria-label="Link para esta seção">#</a></h2>
+<ol>
+	<li>Preencha o <strong>Test Event Code</strong> do Meta e salve.</li>
+	<li>Acesse uma página do projeto com <code>?utm_source=facebook</code> na URL.</li>
+	<li>No Gerenciador de Eventos, abra <strong>Testar eventos</strong> e confirme o <code>PageView</code> recebido pelo servidor.</li>
+	<li>Em <strong>Logs › Logs de acionadores</strong>, filtre por <strong>Status</strong> <em>Sucesso</em> e abra o disparo para ver o request e o response.</li>
+	<li>Apague o Test Event Code e salve para enviar eventos de produção.</li>
+</ol>
+
+<h2 id="servidor-ou-navegador">Servidor ou navegador<a class="anchor" href="#servidor-ou-navegador" aria-label="Link para esta seção">#</a></h2>
+<p>Por padrão os eventos vão pelo servidor (API de Conversões), o que evita perdas por bloqueadores de anúncio. No acionador você também pode ativar o disparo pelo navegador, disponível só para Meta e TikTok.</p>
+<table>
+	<thead><tr><th>Plataforma</th><th>Servidor</th><th>Navegador</th></tr></thead>
+	<tbody>
+		<tr><td>Meta</td><td>Sim</td><td>Sim</td></tr>
+		<tr><td>TikTok</td><td>Sim</td><td>Sim</td></tr>
+		<tr><td>Google Ads</td><td>Sim</td><td>Não</td></tr>
+		<tr><td>Kwai</td><td>Sim</td><td>Não</td></tr>
+	</tbody>
+</table>
+
+<h2 id="desativar-um-pixel">Desativar um pixel<a class="anchor" href="#desativar-um-pixel" aria-label="Link para esta seção">#</a></h2>
+<p>Edite o pixel e desligue <strong>Ativo</strong>. Os acionadores param de enviar eventos para ele, sem perder a configuração.</p>
+
+			<script>TU.pager();TU.footer()</script>
+			<noscript><p class="site-footer"><a href="/">Início</a> · <a href="/llms.txt">Índice completo</a> · <a href="/sitemap.xml">Mapa do site</a></p></noscript>
+		</article>
+	</main>
+	<aside class="toc"><div class="toc-title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg> Nesta página</div><ul><li class="lvl-2"><a href="#adicionar-um-pixel">Adicionar um pixel</a></li><li class="lvl-2"><a href="#campos-por-plataforma">Campos por plataforma</a></li><li class="lvl-2"><a href="#testar-a-conexao">Testar a conexão</a></li><li class="lvl-2"><a href="#servidor-ou-navegador">Servidor ou navegador</a></li><li class="lvl-2"><a href="#desativar-um-pixel">Desativar um pixel</a></li></ul></aside>
+</div>
+<script>TU.end()</script>
+</body>
+</html>

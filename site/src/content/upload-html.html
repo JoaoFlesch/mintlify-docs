@@ -1,0 +1,69 @@
+---
+title: Upload HTML
+icon: file
+description: Hospede no Trackup uma página que você já tem em HTML.
+---
+<p>Envie um arquivo <code>.html</code> ou um <code>.zip</code> com a página e os arquivos dela. O Trackup hospeda tudo no seu domínio e a página já sai rastreada.</p>
+
+<h2>Preparar o arquivo</h2>
+<ul>
+	<li>Um único <code>.html</code> ou <code>.htm</code>, ou</li>
+	<li>um <code>.zip</code> com <code>index.html</code> na raiz e os arquivos usados por ela (CSS, JS, imagens, fontes).</li>
+	<li>Tamanho máximo: 5 MB.</li>
+</ul>
+<code-block title="Estrutura do .zip">
+pagina.zip
+├── index.html
+├── css/
+│   └── style.css
+├── js/
+│   └── main.js
+└── img/
+    └── hero.webp
+</code-block>
+<callout type="tip"><p>Use caminhos relativos (<code>css/style.css</code>, <code>img/hero.webp</code>). O Trackup reescreve as referências para servir os arquivos pelo CDN.</p></callout>
+
+<h2>Enviar</h2>
+<steps>
+	<step title="Abra a aba Upload HTML">
+		<p>Em <strong>Páginas › Adicionar página</strong>, escolha <strong>Upload HTML</strong>.</p>
+	</step>
+	<step title="Preencha e envie">
+		<p>Informe o nome, o caminho (opcional), clique na área de envio para escolher o arquivo (ou arraste-o até ela) e clique em <strong>Enviar arquivo</strong>.</p>
+		<shot src="img/upload-html.png" caption="Envio de uma página HTML" todo="Aba Upload HTML do diálogo Adicionar página com Nome, Caminho /lp-html, arquivo pagina.html selecionado e o botão Enviar arquivo."></shot>
+	</step>
+	<step title="Confira">
+		<p>Na lista de páginas, copie o link da nova página e abra no navegador. Confira o visual e clique no botão de compra para ver se ele leva à <a href="/ofertas">oferta</a>.</p>
+	</step>
+</steps>
+
+<h2>Exemplo mínimo</h2>
+<p>Uma landing básica já funciona. Salve como <code>index.html</code> (ou <code>pagina.html</code>) e envie:</p>
+<code-block title="pagina.html">
+&lt;!doctype html&gt;
+&lt;html lang="pt-BR"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  &lt;title&gt;Product A&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Product A&lt;/h1&gt;
+  &lt;p&gt;Short description of the offer.&lt;/p&gt;
+  &lt;a href="https://yourdomain.com/checkout-1"&gt;Buy now&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code-block>
+<p>Troque o <code>href</code> pelo link da sua oferta.</p>
+
+<h2>Editar depois</h2>
+<p>Para ajustes pontuais, use <strong>Editar arquivos</strong> no menu da página. Veja <a href="/versoes-e-arquivos">Versões e arquivos</a>.</p>
+<p>Para trocar a página inteira, edite a página e envie um novo arquivo em <strong>Substituir HTML</strong>.</p>
+<callout type="warning"><p>Substituir o HTML apaga todos os arquivos atuais, inclusive as alterações feitas no editor de arquivos.</p></callout>
+
+<h2>Checklist</h2>
+<ul>
+	<li>Os botões de compra apontam para o link da <a href="/ofertas">oferta</a>.</li>
+	<li>Não há outro script de rastreamento ou pixel duplicando eventos que o Trackup já envia pelo servidor.</li>
+	<li>As imagens estão comprimidas.</li>
+</ul>

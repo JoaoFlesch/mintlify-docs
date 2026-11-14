@@ -1,0 +1,203 @@
+---
+title: Quick Start
+icon: rocket
+eyebrow: Comece aqui
+description: Configure um projeto do zero, publique suas páginas e registre a primeira venda atribuída a um anúncio.
+---
+<p>Neste guia você monta uma operação completa: um projeto com domínio próprio, pixel, fonte de tráfego, plataforma de venda, oferta, landing page e a URL que vai no anúncio. Leva cerca de 20 minutos.</p>
+
+<div class="flow">
+	<div class="flow-step"><b>Anúncio</b><span>URL da campanha</span></div><div class="flow-arrow">{{icon:arrow}}</div>
+	<div class="flow-step"><b>Landing page</b><span>hospedada no Trackup</span></div><div class="flow-arrow">{{icon:arrow}}</div>
+	<div class="flow-step"><b>Oferta</b><span>link do checkout</span></div><div class="flow-arrow">{{icon:arrow}}</div>
+	<div class="flow-step"><b>Venda</b><span>webhook da plataforma</span></div>
+</div>
+
+<h2>Antes de começar</h2>
+<ul>
+	<li>Uma conta no Trackup com acesso ao painel em <a href="https://dash.trackup.me" target="_blank" rel="noopener">dash.trackup.me</a>.</li>
+	<li>Acesso ao DNS do seu domínio, se for usar um domínio próprio (Cloudflare, Registro.br, GoDaddy etc.).</li>
+	<li>O ID e o token de acesso do seu pixel na plataforma de anúncios.</li>
+	<li>Acesso de administrador à sua plataforma de venda, para cadastrar o webhook.</li>
+</ul>
+
+<h2>1. Crie o time e assine um plano</h2>
+<p>O time é a conta que reúne projetos, membros e a assinatura. Quem cria o time se torna o dono.</p>
+<steps>
+	<step title="Crie sua conta e o time">
+		<p>Acesse o painel, entre na sua conta e informe o nome do time. Use o nome da sua empresa ou operação.</p>
+		<shot src="img/quick-start-criar-time.png" caption="Criação do time" todo="Tela de criação do time com o campo Nome preenchido. Sem dados sensíveis."></shot>
+	</step>
+	<step title="Escolha o plano">
+		<p>Na tela <strong>Planos</strong>, compare os limites de domínios, membros, conversões e filtro de tráfego e clique em <strong>Assinar plano</strong>. O pagamento é por cartão ou PIX e você cancela quando quiser.</p>
+		<shot src="img/quick-start-planos.png" caption="Tela de planos" todo="Tela Planos com os cards de plano lado a lado e o botão Assinar plano visível."></shot>
+		<callout type="note"><p>Só o dono do time escolhe o plano. Sem assinatura ativa, os demais membros veem o aviso para pedir ao dono.</p></callout>
+	</step>
+</steps>
+
+<h2>2. Crie o projeto</h2>
+<p>Um projeto reúne páginas, pixels, domínios e relatórios de uma operação. Crie um projeto para cada produto, oferta ou cliente.</p>
+<steps>
+	<step title="Abra o seletor de projetos">
+		<p>No topo do menu lateral, clique no nome do projeto atual e depois em <strong>Criar projeto</strong>.</p>
+		<shot src="img/quick-start-criar-projeto.png" caption="Seletor de projetos com a opção Criar projeto" todo="Menu lateral com o seletor de projetos aberto, mostrando a lista de projetos do time e o botão Criar projeto em destaque. Nomes de time e projetos fictícios."></shot>
+	</step>
+	<step title="Preencha nome e moeda">
+		<p>Dê um nome descritivo, como <code>Online Store</code>, e escolha a <strong>Moeda</strong> em que você vende.</p>
+		<callout type="warning"><p>A moeda não pode ser alterada depois. Ela é usada para converter os valores recebidos dos webhooks e exibir receita e lucro nos dashboards.</p></callout>
+	</step>
+	<step title="Salve">
+		<p>Clique em <strong>Salvar</strong>. O projeto já nasce com um domínio padrão do Trackup, então você pode testar tudo antes de configurar o seu.</p>
+		<shot src="img/quick-start-form-projeto.png" caption="Formulário de criação de projeto" todo="Diálogo Criar projeto preenchido com Nome = Online Store e Moeda = Real brasileiro (BRL), com o aviso de que a moeda não pode ser alterada visível."></shot>
+	</step>
+	<step title="Adicione membros (opcional)">
+		<p>Em <strong>Time › Membros</strong>, clique em <strong>Convidar membro</strong>, informe o e-mail e a função. Veja <a href="/times-e-membros">Times e membros</a>.</p>
+		<shot src="img/quick-start-membros.png" caption="Convite de membro" todo="Diálogo de convite com o e-mail joao@ e o domínio do e-mail borrado."></shot>
+	</step>
+</steps>
+
+<h2>3. Conecte seu domínio</h2>
+<p>Páginas em domínio próprio passam mais confiança, preservam a reputação do seu domínio nas plataformas de anúncio e evitam bloqueios. Recomendamos um subdomínio dedicado, como <code>go.yourdomain.com</code> ou <code>lp.yourdomain.com</code>.</p>
+<steps>
+	<step title="Abra Domínios">
+		<p>No menu lateral, vá em <strong>Ajustes › Domínios</strong> e clique em <strong>Adicionar domínio</strong>.</p>
+	</step>
+	<step title="Informe o hostname">
+		<p>Digite o subdomínio completo, por exemplo <code>go.yourdomain.com</code>, e salve. O domínio aparece na lista com o status <span class="badge amber">Pendente</span>.</p>
+	</step>
+	<step title="Crie o registro CNAME no seu DNS">
+		<p>Abra o domínio na lista para ver o registro. No painel do seu provedor de DNS, crie um registro com os valores de <strong>Type</strong>, <strong>Name</strong> e <strong>Value</strong> exibidos.</p>
+		<shot src="img/quick-start-dominio-cname.png" caption="Registro CNAME que deve ser criado no DNS" todo="Tela Ajustes › Domínios com o domínio lp.exemplo.com.br expandido, status Pendente e a tabela Type / Name / Value do registro CNAME visível. Usar domínio fictício."></shot>
+		<callout type="warning"><p>Na Cloudflare, deixe o proxy desligado (nuvem cinza, <strong>DNS only</strong>). Com o proxy ligado a verificação falha.</p></callout>
+	</step>
+	<step title="Verifique">
+		<p>Volte ao Trackup e clique em <strong>Verificar</strong>. A propagação costuma levar poucos minutos, mas pode chegar a algumas horas. Quando o status mudar para <span class="badge green">Verificado</span>, o domínio está pronto.</p>
+	</step>
+	<step title="Defina como primário">
+		<p>No menu do domínio, clique em <strong>Definir como primário</strong>. Novas páginas, links e URLs de webhook passam a usar esse domínio.</p>
+	</step>
+</steps>
+<callout type="note"><p>Quer usar o domínio raiz (<code>seudominio.com</code>)? Funciona, mas só em provedores de DNS com CNAME flattening, como a Cloudflare. Veja <a href="/dominios">Domínios</a>.</p></callout>
+
+<h2>4. Conecte seu pixel</h2>
+<p>O Trackup envia os eventos do funil para a plataforma de anúncios pelo servidor (server-side), o que evita perdas por bloqueadores de anúncio e restrições de navegador.</p>
+<steps>
+	<step title="Abra Pixels">
+		<p>No menu lateral, vá em <strong>Integração › Pixels</strong> e clique em <strong>Adicionar pixel</strong>.</p>
+	</step>
+	<step title="Escolha a plataforma e preencha as credenciais">
+		<p>Dê um nome ao pixel, escolha o <strong>Tipo</strong> e preencha os campos da plataforma:</p>
+		<table>
+			<thead><tr><th>Plataforma</th><th>Campos</th></tr></thead>
+			<tbody>
+				<tr><td>Meta</td><td>Pixel ID e Access Token. Test Event Code é opcional.</td></tr>
+				<tr><td>Google Ads</td><td>Conversion ID. Moeda e valor padrão são opcionais.</td></tr>
+				<tr><td>TikTok</td><td>Pixel Code e Access Token.</td></tr>
+				<tr><td>Kwai</td><td>Pixel ID, Access Token e Test Event Code.</td></tr>
+			</tbody>
+		</table>
+		<shot src="img/quick-start-pixel-meta.webp" caption="Cadastro de um pixel da Meta"></shot>
+		<callout type="warning"><p>Com o <strong>Test Event Code</strong> preenchido, a Meta recebe os eventos só em <em>Test Events</em> e eles não contam para as campanhas. Apague o código antes de anunciar.</p></callout>
+	</step>
+	<step title="Salve">
+		<p>Para Meta, TikTok e Kwai, o Trackup cria na hora os acionadores do funil: <strong>page_view</strong>, <strong>start_checkout</strong> e <strong>conversion</strong>. No Google Ads, cada etapa precisa de uma conversion label, então você cria os acionadores em <a href="/acionadores">Acionadores</a>.</p>
+	</step>
+</steps>
+
+<h2>5. Adicione a fonte de tráfego</h2>
+<p>A fonte de tráfego gera os parâmetros de UTM que você cola na URL do anúncio. Eles identificam a campanha, o conjunto e o anúncio de cada clique.</p>
+<steps>
+	<step title="Abra Fontes de tráfego">
+		<p>Vá em <strong>Integração › Fontes de tráfego</strong> e clique em <strong>Adicionar fonte</strong>.</p>
+	</step>
+	<step title="Escolha a plataforma">
+		<p>Dê um nome, como <code>Meta Ads</code>, e selecione a plataforma: Meta, Google, TikTok ou Kwai. O template padrão já cobre a maioria dos casos.</p>
+	</step>
+	<step title="Copie os parâmetros de URL">
+		<p>Salve e copie o bloco <strong>Parâmetros de URL</strong>. Você vai usar no passo 10.</p>
+		<shot src="img/quick-start-fonte-parametros.webp" caption="Parâmetros de URL gerados para a Meta"></shot>
+	</step>
+</steps>
+
+<h2>6. Integre sua plataforma de venda</h2>
+<p>A plataforma de venda avisa o Trackup por webhook a cada venda, reembolso ou chargeback. É assim que a venda é ligada ao clique que a originou.</p>
+<steps>
+	<step title="Adicione a plataforma">
+		<p>Vá em <strong>Integração › Plataformas de vendas</strong>, clique em <strong>Adicionar plataforma</strong>, pesquise a sua (Hotmart, Kiwify, Eduzz, Shopify e mais 30) e salve.</p>
+	</step>
+	<step title="Copie a URL do webhook">
+		<p>Na lista de plataformas, copie a <strong>URL</strong> da plataforma que você criou.</p>
+		<shot src="img/quick-start-plataforma-url.png" caption="URL de webhook pronta para copiar" todo="Lista Integração › Plataformas de vendas com uma plataforma Hotmart 2.0 cadastrada e o botão Copiar URL em destaque. Parte do código da URL borrada."></shot>
+	</step>
+	<step title="Cadastre o webhook na plataforma">
+		<p>No painel da sua plataforma, cole a URL na área de webhooks ou postback e ative os eventos de compra aprovada, reembolso e chargeback. O passo a passo de cada uma está em <a href="/plataformas-de-venda">Plataformas de venda</a>.</p>
+	</step>
+</steps>
+
+<h2>7. Crie a oferta</h2>
+<p>A oferta é a página de checkout do seu produto. No Trackup ela é uma página com finalidade <em>Checkout</em> que normalmente redireciona para o checkout da sua plataforma de venda.</p>
+<steps>
+	<step title="Adicione a oferta">
+		<p>No menu lateral, clique em <strong>Ofertas</strong> e depois em <strong>Adicionar oferta</strong>. A oferta abre em uma página inteira.</p>
+	</step>
+	<step title="Preencha os campos">
+		<ul>
+			<li><strong>Nome</strong>: algo como <code>Excel Basics - Checkout 1</code>.</li>
+			<li><strong>Plataforma de vendas</strong>: a que você integrou no passo 6.</li>
+			<li><strong>URL de redirecionamento</strong>: o link do checkout na sua plataforma.</li>
+			<li><strong>Caminho</strong>: opcional, por exemplo <code>/checkout</code>. Em branco, o Trackup gera a partir do nome.</li>
+		</ul>
+		<shot src="img/quick-start-oferta.png" caption="Criação de uma oferta" todo="Diálogo Adicionar oferta na aba Redirect com Nome, Plataforma de vendas, URL de redirecionamento (checkout fictício), Status code 302 e Caminho /checkout preenchidos."></shot>
+	</step>
+	<step title="Copie o link da oferta">
+		<p>Salve. Na lista de ofertas, a coluna <strong>Link</strong> mostra o endereço da oferta no seu domínio, como <code>https://go.yourdomain.com/checkout</code>. Esse é o <strong>link do checkout</strong>.</p>
+	</step>
+</steps>
+<callout type="note"><p>O link do checkout repassa os parâmetros do visitante e o ID do clique para a plataforma de venda. Por isso a venda volta atribuída ao anúncio certo.</p></callout>
+
+<h2>8. Publique a landing page</h2>
+<p>Escolha a forma de criar a página em <strong>Páginas › Adicionar página</strong>:</p>
+<table>
+	<thead><tr><th>Aba</th><th>Quando usar</th></tr></thead>
+	<tbody>
+		<tr><td><a href="/builder">Builder</a></td><td>Criar a página do zero com blocos prontos, sem código.</td></tr>
+		<tr><td><a href="/upload-html">Upload HTML</a></td><td>Você já tem a página em <code>.html</code> ou <code>.zip</code>.</td></tr>
+		<tr><td><a href="/clonar-url">Clonar URL</a></td><td>Copiar uma página que já está no ar.</td></tr>
+		<tr><td><a href="/redirect">Redirect</a></td><td>A página fica hospedada fora do Trackup.</td></tr>
+	</tbody>
+</table>
+<p>Use nomes que digam a função da página, como <code>Landing Principal</code> ou <code>Excel Basics Landing</code>. A página nasce com um link próprio, exibido na coluna <strong>Link</strong>.</p>
+<callout type="warning"><p>Se a página ficar hospedada fora do Trackup (Redirect), instale o <a href="/script">script de rastreamento</a> no <code>&lt;head&gt;</code> dela. Sem o script, eventos e cliques não são registrados.</p></callout>
+
+<h2>9. Aponte os botões para a oferta</h2>
+<p>Todos os botões de compra da landing page precisam apontar para o <strong>link do checkout</strong> do passo 7, nunca para o checkout original da plataforma.</p>
+<code-block title="Exemplo de botão">
+<a href="https://go.yourdomain.com/checkout">Quero me inscrever</a>
+</code-block>
+<callout type="danger"><p>Um botão que leva direto ao checkout da plataforma quebra o rastreamento: a venda chega sem o ID do clique e aparece como <em>Click ID ausente</em>.</p></callout>
+
+<h2>10. Monte a URL do anúncio</h2>
+<p>A URL que vai no anúncio é o link da landing page seguido dos parâmetros de URL da fonte de tráfego (passo 5):</p>
+<code-block title="URL do anúncio">
+https://go.yourdomain.com/excel-basics?utm_source=meta&utm_campaign={{campaign.name}}&…
+</code-block>
+<p>Cole a URL completa no campo de destino do anúncio. Na Meta, você pode colar o link no campo <strong>URL do site</strong> e os parâmetros em <strong>Parâmetros de URL</strong>.</p>
+
+<h2>11. Valide antes de anunciar</h2>
+<p>Abra a URL do anúncio em uma aba anônima, clique no botão de compra e confira no painel:</p>
+<ul>
+	<li><strong>Ajustes › Domínios</strong>: domínio <span class="badge green">Verificado</span>.</li>
+	<li><strong>Logs › Requisições</strong>: sua visita aparece com a origem e as UTMs corretas.</li>
+	<li><strong>Logs › Visitantes</strong>: o visitante mostra os eventos <code>page_view</code> e <code>start_checkout</code>.</li>
+	<li><strong>Logs › Acionadores</strong>: os disparos para o pixel aparecem com sucesso.</li>
+	<li><strong>Logs › Conversões</strong>: depois de uma compra de teste, a venda aparece ligada ao clique.</li>
+</ul>
+<shot src="img/quick-start-validacao.png" caption="Requisição de teste registrada em Logs › Requisições" todo="Tela Logs › Requisições com uma requisição de teste aberta no painel de detalhes, mostrando origem Meta, UTMs e o link acessado. IP e localização borrados."></shot>
+
+<h2>Próximos passos</h2>
+<cards>
+	<card title="Monte um dashboard" icon="chart" href="/dashboards">Acompanhe lucro, funil e vendas por campanha.</card>
+	<card title="Proteja suas páginas" icon="shield" href="/filtro">Bloqueie bots e tráfego fora do seu público.</card>
+	<card title="Teste variações" icon="split" href="/testes-ab">Descubra qual página ou checkout converte mais.</card>
+	<card title="Entenda o rastreamento" icon="compass" href="/como-funciona">Veja o caminho completo do clique até a venda.</card>
+</cards>

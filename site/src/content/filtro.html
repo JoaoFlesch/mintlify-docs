@@ -1,0 +1,64 @@
+---
+title: Filtro
+icon: shield
+description: Decida o que acontece com cada acesso antes de a página carregar. Bloqueie bots, países e curiosos.
+---
+<callout type="tip"><p><strong>Configure pela sua IA.</strong> Conecte seu assistente pelo <a href="/conectar-mcp">MCP</a> e peça: <em>"Crie uma regra que bloqueie tráfego fora do Brasil."</em></p></callout>
+<p>O Filtro avalia cada requisição que chega ao seu domínio, antes de servir a página. Cada regra tem condições e uma ação. A primeira regra que corresponder decide o que acontece com o visitante.</p>
+
+<h2>Como as regras são avaliadas</h2>
+<ol>
+	<li>As regras ativas são avaliadas em ordem de <strong>Peso</strong>, do menor para o maior. Sem peso, a regra vai para o fim da fila.</li>
+	<li>Se todas as condições da regra forem verdadeiras, a ação é executada.</li>
+	<li>Se nenhuma regra corresponder, o visitante segue para o destino normalmente.</li>
+</ol>
+
+<h2>Ações</h2>
+<table>
+	<thead><tr><th>Ação</th><th>O que acontece</th></tr></thead>
+	<tbody>
+		<tr><td>Permitir</td><td>Libera o acesso e segue normalmente. Use com peso baixo para criar exceções, como o seu próprio IP.</td></tr>
+		<tr><td>Bloquear</td><td>Interrompe o acesso com uma resposta de bloqueio.</td></tr>
+		<tr><td>Desafiar</td><td>Pede uma verificação antes de liberar.</td></tr>
+		<tr><td>Redirecionar</td><td>Envia o visitante para outra URL.</td></tr>
+		<tr><td>Exibir página</td><td>Mostra outra página do projeto no lugar do destino, por exemplo uma <em>safe page</em>.</td></tr>
+		<tr><td>Registrar</td><td>Só registra que a regra correspondeu, sem mudar a navegação. Use para testar uma regra antes de bloquear.</td></tr>
+	</tbody>
+</table>
+
+<h2>Criar uma regra</h2>
+<p>Em <strong>Filtro</strong>, clique em <strong>Criar regra</strong> e escolha o modo:</p>
+<cards cols="2">
+	<card title="Básico" icon="shield" href="/filtro-basico">Bots, anti-plágio, países, idiomas e dispositivos, sem montar expressões.</card>
+	<card title="Avançado" icon="code" href="/filtro-avancado">Qualquer campo da requisição, com grupos E/OU e regex.</card>
+</cards>
+<h3>Modo básico x avançado</h3>
+<table>
+	<thead><tr><th></th><th>Básico</th><th>Avançado</th></tr></thead>
+	<tbody>
+		<tr><td>Critérios</td><td>Bots, anti-plágio, países, idiomas, dispositivos</td><td>Qualquer campo da requisição (IP, URL, user agent, cookie, navegador, SO...)</td></tr>
+		<tr><td>Combinação</td><td>Só E</td><td>Grupos com E dentro e OU entre eles</td></tr>
+		<tr><td>Regex</td><td>Não</td><td>Sim</td></tr>
+		<tr><td>Escopo por link</td><td>Sim</td><td>Pela condição de host e caminho</td></tr>
+		<tr><td>Indicado para</td><td>Proteção do dia a dia</td><td>Casos específicos</td></tr>
+	</tbody>
+</table>
+
+<h3>Regras sugeridas</h3>
+<p>No fim da tela <strong>Filtro</strong>, abaixo da tabela de regras, a seção <strong>Regras sugeridas</strong> mostra modelos prontos. Clique em <strong>Usar template</strong> em um deles para abrir o formulário já preenchido. Todos podem ser editados antes de salvar.</p>
+<table>
+	<thead><tr><th>Regra sugerida</th><th>O que faz</th></tr></thead>
+	<tbody>
+		<tr><td>Bloquear bots (proteção geral)</td><td>Bloqueia todo acesso identificado como bot (<code>detection.bot_protection</code> igual a <code>true</code>).</td></tr>
+		<tr><td>Bloquear país específico</td><td>Bloqueia acessos dos países que você escolher (<code>ip.geoip.country</code> na lista).</td></tr>
+		<tr><td>Permitir somente se a query string contém um valor específico</td><td>Gera um par aleatório, como <code>abc=xyz</code>, e bloqueia quem chega sem ele. A URL de rastreamento da página já leva o parâmetro.</td></tr>
+	</tbody>
+</table>
+<shot src="img/filtro-templates.png" caption="Regras sugeridas" todo="Final da tela Filtro com a seção Regras sugeridas e os 3 modelos."></shot>
+<shot src="img/filtro-lista.png" caption="Lista de regras e métricas do Filtro" todo="Tela Filtro com os cards Total de requests, Página de oferta, Safe page e Bots, o gráfico Requests por decisão e a tabela de regras (Nome, Peso, Expressão, Ação, Acessos, Ativo) com 3 regras."></shot>
+
+<h2>Acompanhar o resultado</h2>
+<p>O topo da tela mostra, no período escolhido, o total de requisições, quantas foram para a página de oferta, quantas viram a safe page e quantas eram bots, além de um gráfico por decisão. A coluna <strong>Acessos</strong> mostra quantas vezes cada regra correspondeu.</p>
+<p>Para ver qual regra decidiu um acesso específico, abra a requisição em <a href="/requisicoes">Logs › Requisições</a>. O detalhe mostra a <strong>Regra do firewall</strong>.</p>
+
+<callout type="warning"><p>Teste antes de bloquear. Crie a regra com a ação <strong>Registrar</strong>, confira os acessos por alguns dias e só então troque para <strong>Bloquear</strong>.</p></callout>

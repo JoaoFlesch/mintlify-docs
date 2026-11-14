@@ -1,0 +1,20 @@
+---
+title: AmploPay
+icon: cart
+eyebrow: Plataformas de venda
+description: Receba vendas, reembolsos e chargebacks da AmploPay no Trackup, atribuídos ao anúncio de origem.
+---
+<p>A integração tem duas partes: o Trackup envia o ID do clique para o checkout da AmploPay, e a AmploPay devolve esse ID no webhook de cada venda.</p>
+<h2>Antes de começar</h2><ul><li>Um projeto com <a href="/dominios">domínio primário</a> configurado. A URL do webhook usa esse domínio.</li><li>Acesso de administrador à sua conta na AmploPay.</li></ul>
+<h2>1. Crie a plataforma no Trackup</h2><steps>
+<step title="Adicione a plataforma"><p>Vá em <strong>Integração › Plataformas de vendas</strong>, clique em <strong>Adicionar plataforma</strong> e escolha <strong>AmploPay</strong>.</p></step>
+<step title="Confira os parâmetros"><p>O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em <code>utm_id</code> e as UTMs vão junto. Só mude se a AmploPay pedir outro nome de parâmetro.</p></step>
+<step title="Copie a URL do webhook"><p>Salve. Na lista de plataformas, copie a <strong>URL</strong> da AmploPay.</p><shot src="img/plataforma-url-copiar.png" caption="URL do webhook na lista de plataformas" todo="Integração › Plataformas de vendas com a plataforma AmploPay cadastrada e o botão Copiar URL em destaque. Parte do código da URL borrada."></shot></step>
+</steps>
+<h2>2. Cadastre o webhook na AmploPay</h2>
+<ol><li>No painel da AmploPay, abra a área de <strong>webhooks</strong> ou <strong>postback</strong>.</li><li>Crie uma integração nova e cole a URL do Trackup.</li><li>Ative os eventos de compra aprovada, reembolso e chargeback.</li><li>Selecione os produtos que devem enviar vendas, se a plataforma pedir, e salve.</li></ol>
+<shot src="img/plataformas/amplopay-webhook.webp" caption="Configuração do webhook na AmploPay" todo="Painel da AmploPay na tela de criação de webhook/postback, com a URL do Trackup colada e os eventos de compra aprovada, reembolso e chargeback marcados. Dados da conta borrados."></shot>
+<h2>3. Teste</h2>
+<p>Acesse sua landing page por um link do Trackup, clique no botão de compra e faça uma compra de teste. A venda deve aparecer em <strong>Logs › Conversões</strong> com a campanha preenchida.</p>
+<callout type="warning"><p>Se a venda aparecer como <strong>Click ID ausente</strong>, o botão da página não está apontando para o link da <a href="/ofertas">oferta</a> no Trackup, ou o checkout não está devolvendo o parâmetro do clique.</p></callout>
+<p>Não achou sua plataforma? Use o <a href="/webhook-generico">webhook genérico</a>.</p>

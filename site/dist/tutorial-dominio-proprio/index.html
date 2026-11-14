@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Configurar um domínio próprio | Trackup Docs</title>
+<meta name="description" content="Conecte um subdomínio seu ao Trackup pela Cloudflare ou pelo Registro.br e deixe como domínio primário.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://docs.trackup.me/tutorial-dominio-proprio">
+<link rel="alternate" hreflang="pt-BR" href="https://docs.trackup.me/tutorial-dominio-proprio">
+<link rel="alternate" type="text/markdown" title="Versão para IA (llms.txt)" href="/llms.txt">
+<meta property="og:site_name" content="Trackup Docs">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Configurar um domínio próprio">
+<meta property="og:description" content="Conecte um subdomínio seu ao Trackup pela Cloudflare ou pelo Registro.br e deixe como domínio primário.">
+<meta property="og:url" content="https://docs.trackup.me/tutorial-dominio-proprio">
+<meta property="og:image" content="https://docs.trackup.me/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Trackup Docs">
+<meta property="article:modified_time" content="2026-11-12T20:34:17+00:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Configurar um domínio próprio">
+<meta name="twitter:description" content="Conecte um subdomínio seu ao Trackup pela Cloudflare ou pelo Registro.br e deixe como domínio primário.">
+<meta name="twitter:image" content="https://docs.trackup.me/assets/og.jpg">
+<meta name="theme-color" content="#4f39f6">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<script>(function(){try{var t=localStorage.getItem('tu-theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<link rel="stylesheet" href="/assets/style.css">
+<script src="/assets/shell.js"></script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","headline":"Configurar um domínio próprio","description":"Conecte um subdomínio seu ao Trackup pela Cloudflare ou pelo Registro.br e deixe como domínio primário.","url":"https://docs.trackup.me/tutorial-dominio-proprio","inLanguage":"pt-BR","dateModified":"2026-11-12T20:34:17+00:00","image":"https://docs.trackup.me/assets/og.jpg","isPartOf":{"@type":"WebSite","name":"Trackup Docs","url":"https://docs.trackup.me/"},"publisher":{"@type":"Organization","name":"Trackup","url":"https://trackup.me","logo":"https://docs.trackup.me/assets/favicon.svg"},"about":{"@type":"SoftwareApplication","name":"Trackup","applicationCategory":"BusinessApplication","url":"https://trackup.me"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Trackup Docs","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":2,"name":"Tutoriais","item":"https://docs.trackup.me/tutorial-campanha-meta"},{"@type":"ListItem","position":3,"name":"Configurar um domínio próprio","item":"https://docs.trackup.me/tutorial-dominio-proprio"}]}]</script>
+</head>
+<body>
+<script>TU.header()</script>
+<div class="layout">
+	<aside class="sidebar" aria-label="Navegação"><script>TU.sidebar()</script></aside>
+	<main>
+		<article class="content">
+			<nav class="eyebrow" aria-label="Você está em"><a href="/tutorial-campanha-meta">Tutoriais</a><span aria-hidden="true"> › </span><span>Do zero à venda</span></nav>
+			<h1 class="page-title">Configurar um domínio próprio</h1>
+			<p class="page-desc">Conecte um subdomínio seu ao Trackup pela Cloudflare ou pelo Registro.br e deixe como domínio primário.</p>
+			<script>TU.actions()</script>
+			<p>Neste tutorial você conecta <code>lp.seudominio.com</code> ao Trackup. Todas as páginas, ofertas e URLs de webhook passam a usar esse endereço.</p>
+
+<h2 id="o-que-voce-vai-precisar">O que você vai precisar<a class="anchor" href="#o-que-voce-vai-precisar" aria-label="Link para esta seção">#</a></h2>
+<ul>
+	<li>Um domínio registrado, como <code>seudominio.com</code>.</li>
+	<li>Acesso ao painel onde o DNS do domínio é gerenciado. Normalmente é a Cloudflare, o Registro.br, a GoDaddy ou a Hostinger.</li>
+</ul>
+<div class="callout tip"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.1 14c.2-1 .7-1.7 1.5-2.5A6 6 0 1 0 6 8c0 1.4.4 2.6 1.4 3.5.8.8 1.3 1.5 1.5 2.5"/></svg><div><p>Não sabe onde está o DNS? Consulte os <em>nameservers</em> do domínio em um site de <em>whois</em>. Se terminam em <code>cloudflare.com</code>, o DNS está na Cloudflare.</p></div></div>
+
+<h2 id="1-escolha-o-subdominio">1. Escolha o subdomínio<a class="anchor" href="#1-escolha-o-subdominio" aria-label="Link para esta seção">#</a></h2>
+<p>Use um subdomínio dedicado, como <code>lp</code>, <code>go</code> ou <code>oferta</code>. Assim o site principal continua onde está, e a reputação das páginas de anúncio fica separada.</p>
+
+<h2 id="2-adicione-no-trackup">2. Adicione no Trackup<a class="anchor" href="#2-adicione-no-trackup" aria-label="Link para esta seção">#</a></h2>
+<ol class="steps">
+	<li><span class="step-title">Abra Domínios</span>
+		<p>No menu lateral, vá em <strong>Ajustes › Domínios</strong> e clique em <strong>Adicionar domínio</strong>.</p>
+	</li>
+	<li><span class="step-title">Digite o hostname</span>
+		<p>Digite <code>lp.seudominio.com</code>, sem <code>https://</code> e sem barra no fim, e salve. O domínio entra com o status <strong>Pendente</strong>.</p>
+	</li>
+	<li><span class="step-title">Copie o registro</span>
+		<p>Abra o domínio na lista. Anote o <strong>Type</strong> (CNAME), o <strong>Name</strong> e o <strong>Value</strong>.</p>
+		<figure class="shot shot-todo"><div class="shot-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><div><strong>Print pendente · <code>img/tut-dominio-registro.png</code></strong><p>Detalhe do domínio lp.seudominio.com com status Pendente e a tabela Type CNAME, Name lp, Value com o destino do Trackup e botões de copiar.</p></div></div><figcaption>Registro CNAME a criar no DNS</figcaption></figure></shot>
+	</li>
+</ol>
+
+<h2 id="3-crie-o-registro-no-dns">3. Crie o registro no DNS<a class="anchor" href="#3-crie-o-registro-no-dns" aria-label="Link para esta seção">#</a></h2>
+<div class="ctabs">
+	<div class="ctabs-panel" data-title="Cloudflare">
+		<ol class="steps">
+			<li><span class="step-title">Abra o DNS</span>
+				<p>Na Cloudflare, selecione o domínio e vá em <strong>DNS › Records</strong>. Clique em <strong>Add record</strong>.</p>
+			</li>
+			<li><span class="step-title">Preencha</span>
+				<p><strong>Type</strong>: CNAME. <strong>Name</strong>: <code>lp</code>. <strong>Target</strong>: o Value do Trackup.</p>
+			</li>
+			<li><span class="step-title">Desligue o proxy</span>
+				<p>Clique na nuvem laranja para deixar cinza (<strong>DNS only</strong>) e salve.</p>
+				<figure class="shot shot-todo"><div class="shot-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><div><strong>Print pendente · <code>img/tut-dominio-cloudflare.png</code></strong><p>Formulário Add record da Cloudflare com Type CNAME, Name lp, Target com o destino do Trackup e Proxy status DNS only (nuvem cinza).</p></div></div><figcaption>Registro na Cloudflare com proxy desligado</figcaption></figure></shot>
+				<div class="callout warning"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg><div><p>Com a nuvem laranja, a verificação falha.</p></div></div>
+			</li>
+		</ol>
+	</div>
+	<div class="ctabs-panel" data-title="Registro.br">
+		<ol class="steps">
+			<li><span class="step-title">Abra a zona</span>
+				<p>No Registro.br, abra o domínio e clique em <strong>Editar zona</strong>. Se aparecer a opção de usar o DNS do Registro.br, ative.</p>
+			</li>
+			<li><span class="step-title">Crie a entrada</span>
+				<p>Clique em <strong>Nova entrada</strong>. Tipo <strong>CNAME</strong>, nome <code>lp</code> e dados com o Value do Trackup. Salve as alterações.</p>
+			</li>
+		</ol>
+	</div>
+	<div class="ctabs-panel" data-title="Outros">
+		<p>Em qualquer provedor, crie um registro do tipo <strong>CNAME</strong> com o nome do subdomínio (<code>lp</code>) apontando para o Value exibido no Trackup. Remova antes qualquer registro A ou CNAME que já exista com o mesmo nome.</p>
+	</div>
+</div>
+
+<h2 id="4-verifique-e-defina-como-primario">4. Verifique e defina como primário<a class="anchor" href="#4-verifique-e-defina-como-primario" aria-label="Link para esta seção">#</a></h2>
+<ol class="steps">
+	<li><span class="step-title">Verifique</span>
+		<p>Volte ao Trackup e clique em <strong>Verificar</strong>. Costuma levar poucos minutos. Se ainda estiver <strong>Pendente</strong>, espere e tente de novo. A propagação pode levar algumas horas.</p>
+	</li>
+	<li><span class="step-title">Defina como primário</span>
+		<p>Com o status <strong>Verificado</strong>, abra o menu do domínio e clique em <strong>Definir como primário</strong>.</p>
+	</li>
+	<li><span class="step-title">Teste</span>
+		<p>Abra <code>https://lp.seudominio.com/</code> no navegador. O certificado HTTPS é emitido automaticamente.</p>
+	</li>
+</ol>
+
+<h2 id="depois-de-trocar-o-dominio-primario">Depois de trocar o domínio primário<a class="anchor" href="#depois-de-trocar-o-dominio-primario" aria-label="Link para esta seção">#</a></h2>
+<ul>
+	<li>Novos links de páginas e ofertas, as URLs de webhook e o snippet passam a usar o novo domínio.</li>
+	<li>Links divulgados no domínio anterior continuam funcionando enquanto ele estiver no projeto. Mesmo assim, atualize anúncios, botões e webhooks para manter tudo em um domínio só.</li>
+</ul>
+
+<h2 id="problemas-comuns">Problemas comuns<a class="anchor" href="#problemas-comuns" aria-label="Link para esta seção">#</a></h2>
+<details class="acc"><summary>Verificação falha na Cloudflare</summary><div class="acc-body">
+	<p>O proxy está ligado. Deixe o registro como <strong>DNS only</strong>.</p>
+</div></details>
+<details class="acc"><summary>Já existe um registro com esse nome</summary><div class="acc-body">
+	<p>Remova ou renomeie o registro antigo. Um nome só pode ter um CNAME.</p>
+</div></details>
+<details class="acc"><summary>Quero usar o domínio raiz</summary><div class="acc-body">
+	<p>Funciona só em provedores com CNAME flattening, como a Cloudflare. Veja <a href="/dominios">Domínios</a>.</p>
+</div></details>
+
+			<script>TU.pager();TU.footer()</script>
+			<noscript><p class="site-footer"><a href="/">Início</a> · <a href="/llms.txt">Índice completo</a> · <a href="/sitemap.xml">Mapa do site</a></p></noscript>
+		</article>
+	</main>
+	<aside class="toc"><div class="toc-title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg> Nesta página</div><ul><li class="lvl-2"><a href="#o-que-voce-vai-precisar">O que você vai precisar</a></li><li class="lvl-2"><a href="#1-escolha-o-subdominio">1. Escolha o subdomínio</a></li><li class="lvl-2"><a href="#2-adicione-no-trackup">2. Adicione no Trackup</a></li><li class="lvl-2"><a href="#3-crie-o-registro-no-dns">3. Crie o registro no DNS</a></li><li class="lvl-2"><a href="#4-verifique-e-defina-como-primario">4. Verifique e defina como primário</a></li><li class="lvl-2"><a href="#depois-de-trocar-o-dominio-primario">Depois de trocar o domínio primário</a></li><li class="lvl-2"><a href="#problemas-comuns">Problemas comuns</a></li></ul></aside>
+</div>
+<script>TU.end()</script>
+</body>
+</html>

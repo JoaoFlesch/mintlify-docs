@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Montar um dashboard de lucro | Trackup Docs</title>
+<meta name="description" content="Monte um painel diário com lucro, ROAS, funil e as campanhas que mais vendem.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://docs.trackup.me/tutorial-dashboard-lucro">
+<link rel="alternate" hreflang="pt-BR" href="https://docs.trackup.me/tutorial-dashboard-lucro">
+<link rel="alternate" type="text/markdown" title="Versão para IA (llms.txt)" href="/llms.txt">
+<meta property="og:site_name" content="Trackup Docs">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Montar um dashboard de lucro">
+<meta property="og:description" content="Monte um painel diário com lucro, ROAS, funil e as campanhas que mais vendem.">
+<meta property="og:url" content="https://docs.trackup.me/tutorial-dashboard-lucro">
+<meta property="og:image" content="https://docs.trackup.me/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Trackup Docs">
+<meta property="article:modified_time" content="2026-11-12T20:34:17+00:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Montar um dashboard de lucro">
+<meta name="twitter:description" content="Monte um painel diário com lucro, ROAS, funil e as campanhas que mais vendem.">
+<meta name="twitter:image" content="https://docs.trackup.me/assets/og.jpg">
+<meta name="theme-color" content="#4f39f6">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<script>(function(){try{var t=localStorage.getItem('tu-theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<link rel="stylesheet" href="/assets/style.css">
+<script src="/assets/shell.js"></script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","headline":"Montar um dashboard de lucro","description":"Monte um painel diário com lucro, ROAS, funil e as campanhas que mais vendem.","url":"https://docs.trackup.me/tutorial-dashboard-lucro","inLanguage":"pt-BR","dateModified":"2026-11-12T20:34:17+00:00","image":"https://docs.trackup.me/assets/og.jpg","isPartOf":{"@type":"WebSite","name":"Trackup Docs","url":"https://docs.trackup.me/"},"publisher":{"@type":"Organization","name":"Trackup","url":"https://trackup.me","logo":"https://docs.trackup.me/assets/favicon.svg"},"about":{"@type":"SoftwareApplication","name":"Trackup","applicationCategory":"BusinessApplication","url":"https://trackup.me"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Trackup Docs","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":2,"name":"Tutoriais","item":"https://docs.trackup.me/tutorial-campanha-meta"},{"@type":"ListItem","position":3,"name":"Montar um dashboard de lucro","item":"https://docs.trackup.me/tutorial-dashboard-lucro"}]}]</script>
+</head>
+<body>
+<script>TU.header()</script>
+<div class="layout">
+	<aside class="sidebar" aria-label="Navegação"><script>TU.sidebar()</script></aside>
+	<main>
+		<article class="content">
+			<nav class="eyebrow" aria-label="Você está em"><a href="/tutorial-campanha-meta">Tutoriais</a><span aria-hidden="true"> › </span><span>Otimização</span></nav>
+			<h1 class="page-title">Montar um dashboard de lucro</h1>
+			<p class="page-desc">Monte um painel diário com lucro, ROAS, funil e as campanhas que mais vendem.</p>
+			<script>TU.actions()</script>
+			<p>Neste tutorial você monta um dashboard para abrir todo dia e responder três perguntas: quanto lucrei, onde o funil está vazando e de onde vieram as vendas.</p>
+
+<h2 id="o-que-voce-vai-precisar">O que você vai precisar<a class="anchor" href="#o-que-voce-vai-precisar" aria-label="Link para esta seção">#</a></h2>
+<ul>
+	<li>Vendas chegando pelas <a href="/plataformas-de-venda">plataformas de venda</a>.</li>
+	<li>A conta de anúncios conectada no <a href="/gerenciador-de-anuncios">Gerenciador de anúncios</a>. Sem ela, o card de lucro mostra despesas zeradas.</li>
+</ul>
+
+<h2 id="1-crie-o-dashboard">1. Crie o dashboard<a class="anchor" href="#1-crie-o-dashboard" aria-label="Link para esta seção">#</a></h2>
+<ol class="steps">
+	<li><span class="step-title">Novo dashboard</span>
+		<p>Em <strong>Dashboard</strong>, clique em <strong>Novo dashboard</strong> e dê o nome <em>Lucro diário</em>.</p>
+	</li>
+	<li><span class="step-title">Limpe o layout inicial</span>
+		<p>Clique em <strong>Editar layout</strong> e remova os cards que não vai usar.</p>
+	</li>
+</ol>
+
+<h2 id="2-adicione-os-cards">2. Adicione os cards<a class="anchor" href="#2-adicione-os-cards" aria-label="Link para esta seção">#</a></h2>
+<p>Clique em <strong>Adicionar card</strong> e marque, na ordem:</p>
+<table>
+	<thead><tr><th>Card</th><th>Pergunta que responde</th></tr></thead>
+	<tbody>
+		<tr><td>Lucro</td><td>Quanto entrou, quanto saiu em anúncio, lucro e ROAS.</td></tr>
+		<tr><td>Vendas</td><td>Como as vendas se distribuem no período.</td></tr>
+		<tr><td>Funil</td><td>Em que etapa as pessoas desistem.</td></tr>
+		<tr><td>Venda por fonte de tráfego</td><td>Qual canal traz mais receita.</td></tr>
+		<tr><td>Vendas por UTM</td><td>Quais campanhas e anúncios vendem (aba Campanha ou Conteúdo).</td></tr>
+		<tr><td>Status de pagamentos</td><td>Quanto está pendente, pago, reembolsado ou em chargeback.</td></tr>
+		<tr><td>Acessos e vendas por horário</td><td>Em que horas o público compra.</td></tr>
+	</tbody>
+</table>
+<figure class="shot shot-todo"><div class="shot-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><div><strong>Print pendente · <code>img/tut-dash-catalogo.png</code></strong><p>Modal Adicionar cards com Lucro, Vendas, Funil, Venda por fonte de tráfego, Vendas por UTM, Status de pagamentos e Acessos e vendas por horário marcados, e o botão Adicionar 7 cards.</p></div></div><figcaption>Cards selecionados no catálogo</figcaption></figure></shot>
+
+<h2 id="3-ajuste-o-funil">3. Ajuste o funil<a class="anchor" href="#3-ajuste-o-funil" aria-label="Link para esta seção">#</a></h2>
+<ol class="steps">
+	<li><span class="step-title">Abra o funil</span>
+		<p>No card <strong>Funil</strong>, clique em <strong>Personalizar funil</strong>.</p>
+	</li>
+	<li><span class="step-title">Escolha as etapas</span>
+		<p>Para uma VSL: <em>impressões</em>, <em>ad click</em>, <em>page view</em>, <em>initiate checkout</em> e <em>purchase</em>. Se a página envia um evento como <code>vsl_pitch</code> pelo <a href="/script">script</a>, clique em <strong>Adicionar evento customizado</strong> e coloque entre page view e initiate checkout.</p>
+		<figure class="shot shot-todo"><div class="shot-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><div><strong>Print pendente · <code>img/tut-dash-funil.png</code></strong><p>Modal Personalizar funil com as etapas impressões, ad click, page view, vsl_pitch (customizada), initiate checkout e purchase, com alças de arrastar e o botão Salvar.</p></div></div><figcaption>Personalização do funil</figcaption></figure></shot>
+	</li>
+	<li><span class="step-title">Salve</span>
+		<p>Salve o funil e organize os cards arrastando pela alça. Coloque o Lucro no topo. Salve o layout.</p>
+	</li>
+</ol>
+
+<h2 id="4-leia-todo-dia">4. Leia todo dia<a class="anchor" href="#4-leia-todo-dia" aria-label="Link para esta seção">#</a></h2>
+<ol class="steps">
+	<li><span class="step-title">Escolha o período</span>
+		<p>Use <em>Hoje</em> durante o dia e <em>Ontem</em> pela manhã, para ver o dia fechado.</p>
+	</li>
+	<li><span class="step-title">Comece pelo lucro</span>
+		<p>ROAS abaixo de 1 significa que o anúncio custou mais do que vendeu. Lembre que reembolsos e taxas da plataforma não entram nas despesas.</p>
+	</li>
+	<li><span class="step-title">Ache o vazamento</span>
+		<p>No funil, compare as etapas. Muito ad click e pouco page view indica página lenta ou bloqueio. Muito page view e pouco initiate checkout indica problema de oferta ou de página. Muito initiate checkout e pouco purchase aponta para o checkout.</p>
+	</li>
+	<li><span class="step-title">Desça até o anúncio</span>
+		<p>Em <strong>Vendas por UTM</strong>, veja as campanhas e os anúncios que vendem. Para agir (pausar ou escalar), abra o <a href="/gerenciador-de-anuncios">Gerenciador de anúncios</a>.</p>
+	</li>
+</ol>
+<figure class="shot shot-todo"><div class="shot-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><div><strong>Print pendente · <code>img/tut-dash-final.png</code></strong><p>Dashboard Lucro diário com dados de exemplo: Lucro no topo com faturamento, despesas e ROAS, Funil com 6 etapas, Venda por fonte de tráfego e Vendas por UTM na aba Campanha. Nomes de campanha borrados.</p></div></div><figcaption>Dashboard Lucro diário pronto</figcaption></figure></shot>
+
+<div class="callout tip"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.1 14c.2-1 .7-1.7 1.5-2.5A6 6 0 1 0 6 8c0 1.4.4 2.6 1.4 3.5.8.8 1.3 1.5 1.5 2.5"/></svg><div><p>Crie um segundo dashboard, <em>Qualidade do tráfego</em>, com Acessos reais, Acessos de bots, Filtro e Acessos por dispositivo, para acompanhar a proteção das páginas.</p></div></div>
+
+			<script>TU.pager();TU.footer()</script>
+			<noscript><p class="site-footer"><a href="/">Início</a> · <a href="/llms.txt">Índice completo</a> · <a href="/sitemap.xml">Mapa do site</a></p></noscript>
+		</article>
+	</main>
+	<aside class="toc"><div class="toc-title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg> Nesta página</div><ul><li class="lvl-2"><a href="#o-que-voce-vai-precisar">O que você vai precisar</a></li><li class="lvl-2"><a href="#1-crie-o-dashboard">1. Crie o dashboard</a></li><li class="lvl-2"><a href="#2-adicione-os-cards">2. Adicione os cards</a></li><li class="lvl-2"><a href="#3-ajuste-o-funil">3. Ajuste o funil</a></li><li class="lvl-2"><a href="#4-leia-todo-dia">4. Leia todo dia</a></li></ul></aside>
+</div>
+<script>TU.end()</script>
+</body>
+</html>

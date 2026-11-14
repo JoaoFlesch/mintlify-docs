@@ -1,0 +1,42 @@
+---
+title: Variáveis
+icon: list
+description: Referência das variáveis e operadores usados nas condições dos acionadores.
+---
+<p>As condições de um <a href="/acionadores">acionador</a> comparam uma variável do evento com um valor. Quando há várias condições, todas precisam ser verdadeiras.</p>
+
+<h2>Evento</h2>
+<table>
+	<thead><tr><th>Variável</th><th>Valores</th></tr></thead>
+	<tbody>
+		<tr><td>Tipo de evento (<code>type</code>)</td><td><code>page_view</code>, <code>ad_click</code>, <code>add_to_cart</code>, <code>start_checkout</code>, <code>conversion</code>.</td></tr>
+		<tr><td>Tipo customizado (<code>custom_type</code>)</td><td>Nome do evento enviado pelo <a href="/script">script</a>, como <code>lead_form_submitted</code>. Em conversões, é a plataforma de venda que enviou a venda.</td></tr>
+	</tbody>
+</table>
+
+<h2>UTM</h2>
+<p><code>utm_source</code>, <code>utm_medium</code>, <code>utm_campaign</code>, <code>utm_term</code> e <code>utm_content</code>, como chegaram na URL do clique.</p>
+
+<h2>Subs</h2>
+<p><code>sub1</code> a <code>sub8</code>: parâmetros livres que você pode adicionar à URL do anúncio (por exemplo <code>?sub1=criativo-07</code>) para segmentar acionadores e relatórios.</p>
+
+<h2>Tráfego</h2>
+<table>
+	<thead><tr><th>Variável</th><th>Descrição</th></tr></thead>
+	<tbody>
+		<tr><td>Rede (<code>network</code>)</td><td>Origem identificada do visitante: <code>facebook</code>, <code>instagram</code>, <code>google</code>, <code>tiktok</code>, <code>kwai</code>, <code>youtube</code>, <code>twitter</code>, <code>linkedin</code>, <code>pinterest</code>, <code>reddit</code>, <code>bing</code>, <code>yahoo</code>, <code>outbrain</code>, <code>whatsapp</code>, <code>email</code>, assistentes de IA (<code>chatgpt</code>, <code>claude</code>, <code>perplexity</code>, <code>gemini</code>, <code>copilot</code>, <code>deepseek</code>, <code>grok</code>), <code>organic</code> e <code>direct</code>.</td></tr>
+		<tr><td>URL (<code>url</code>)</td><td>Endereço acessado.</td></tr>
+		<tr><td>Referrer (<code>referrer</code>)</td><td>Página de onde o visitante veio.</td></tr>
+	</tbody>
+</table>
+
+<h2>Operadores</h2>
+<table>
+	<thead><tr><th>Operador</th><th>Uso</th></tr></thead>
+	<tbody>
+		<tr><td>Igual / Diferente</td><td>Valor exato.</td></tr>
+		<tr><td>Contém / Não contém</td><td>Parte do texto, como <code>black</code> em <code>black-friday-2026</code>.</td></tr>
+		<tr><td>Maior que, Menor que, Maior ou igual, Menor ou igual</td><td>Só para valores numéricos.</td></tr>
+	</tbody>
+</table>
+<callout type="tip"><p>Um acionador sem condição de <strong>Tipo de evento</strong> dispara em todos os eventos. Quase sempre você quer limitar a um tipo.</p></callout>

@@ -1,0 +1,153 @@
+# Trackup Docs
+
+> Documentação oficial do Trackup: rastreamento, páginas, testes A/B, filtro, integrações e API.
+
+Documentação completa em um só arquivo: https://docs.trackup.me/llms-full.txt
+
+## Guias › Comece aqui
+
+- [Introdução](https://docs.trackup.me/): Rastreie cada clique, hospede suas páginas, proteja seu tráfego e saiba de onde vem cada venda. Tudo em uma plataforma.
+- [Quick Start](https://docs.trackup.me/quick-start): Configure um projeto do zero, publique suas páginas e registre a primeira venda atribuída a um anúncio.
+- [Como funciona](https://docs.trackup.me/como-funciona): O caminho de um clique até a venda, e os conceitos que você vai encontrar em todo o painel.
+
+## Guias › Configuração
+
+- [Times e membros](https://docs.trackup.me/times-e-membros): Organize sua operação em times, convide pessoas e defina o que cada uma pode fazer.
+- [Projetos](https://docs.trackup.me/projetos): Um projeto reúne domínios, páginas, pixels, regras e relatórios de uma operação.
+- [Domínios](https://docs.trackup.me/dominios): Sirva páginas e links no seu próprio domínio ou subdomínio.
+- [Pixels](https://docs.trackup.me/pixels): Conecte sua conta de anúncios para enviar os eventos do funil pelo servidor (API de conversões).
+- [Fontes de tráfego](https://docs.trackup.me/fontes-de-trafego): Gere os parâmetros de URL que identificam campanha, conjunto e anúncio de cada clique.
+- [Plataformas de venda](https://docs.trackup.me/plataformas-de-venda): Receba vendas, reembolsos e chargebacks por webhook e ligue cada venda ao anúncio de origem.
+- [Script de rastreamento](https://docs.trackup.me/script): Rastreie páginas hospedadas fora do Trackup, identifique visitantes e envie eventos customizados.
+
+## Guias › Páginas e ofertas
+
+- [Páginas](https://docs.trackup.me/paginas): Crie, hospede e publique landing pages e checkouts no seu domínio, já com rastreamento.
+- [Ofertas](https://docs.trackup.me/ofertas): A oferta é a página de checkout do seu produto. É por ela que a venda volta atribuída ao anúncio.
+- [Builder](https://docs.trackup.me/builder): Monte páginas no editor visual com componentes, blocos prontos e templates, sem escrever código.
+- [Upload HTML](https://docs.trackup.me/upload-html): Hospede no Trackup uma página que você já tem em HTML.
+- [Clonar URL](https://docs.trackup.me/clonar-url): Copie uma página que já está no ar para o seu domínio no Trackup.
+- [Redirect](https://docs.trackup.me/redirect): Passe o tráfego pelo Trackup e redirecione para uma página hospedada em outro lugar.
+- [Versões e arquivos](https://docs.trackup.me/versoes-e-arquivos): Edite os arquivos de páginas HTML, publique e volte para uma versão anterior quando precisar.
+
+## Guias › Otimização
+
+- [Testes A/B](https://docs.trackup.me/testes-ab): Divida o tráfego entre páginas ou checkouts, compare as vendas e envie tudo para a variante vencedora.
+- [Acionadores](https://docs.trackup.me/acionadores): Envie eventos para pixels e webhooks quando o tráfego atender às condições que você define.
+- [Variáveis](https://docs.trackup.me/variaveis): Referência das variáveis e operadores usados nas condições dos acionadores.
+- [Filtro](https://docs.trackup.me/filtro): Decida o que acontece com cada acesso antes de a página carregar. Bloqueie bots, países e curiosos.
+- [Modo básico](https://docs.trackup.me/filtro-basico): Monte regras de filtro com os critérios mais comuns, sem escrever expressões.
+- [Modo avançado](https://docs.trackup.me/filtro-avancado): Escreva regras com qualquer campo da requisição, operadores, grupos E/OU e expressões regulares.
+
+## Guias › Análise
+
+- [Dashboards](https://docs.trackup.me/dashboards): Monte painéis com os números que importam para você. Lucro, funil, origem das vendas e qualidade do tráfego.
+- [Gerenciador de anúncios](https://docs.trackup.me/gerenciador-de-anuncios): Veja investimento e vendas reais de cada campanha, conjunto e anúncio da Meta em uma só tabela.
+- [Requisições](https://docs.trackup.me/requisicoes): Veja cada acesso às suas páginas em tempo real, com a decisão do filtro, a origem e os eventos disparados.
+- [Visitantes](https://docs.trackup.me/visitantes): Acompanhe a jornada de cada visitante, do primeiro clique às compras, reembolsos e chargebacks.
+- [Conversões](https://docs.trackup.me/conversoes): Todas as vendas recebidas das plataformas de venda, com a atribuição de campanha, conjunto e anúncio.
+- [Reembolsos e chargebacks](https://docs.trackup.me/reembolsos-e-chargebacks): Acompanhe as vendas desfeitas e de onde elas vieram.
+- [Logs de acionadores](https://docs.trackup.me/logs-de-acionadores): Confira cada evento enviado aos pixels e cada chamada de webhook, com a resposta da plataforma.
+- [Produtos](https://docs.trackup.me/produtos): Veja os produtos e ofertas que você vende, registrados automaticamente a partir das vendas.
+
+## Guias › Conta
+
+- [Configurações](https://docs.trackup.me/configuracoes): Perfil, senha e dados do time.
+- [Chaves de API](https://docs.trackup.me/chaves-de-api): Crie chaves para integrar sistemas e agentes de IA ao Trackup, com permissões e projetos limitados.
+- [Assinatura](https://docs.trackup.me/assinatura): Escolha, troque ou cancele o plano do time e gerencie faturas e cartões.
+- [Afiliados](https://docs.trackup.me/afiliados): Indique o Trackup e receba comissão recorrente sobre as assinaturas dos times que você trouxer.
+
+## Tutoriais › Do zero à venda
+
+- [Campanha na Meta](https://docs.trackup.me/tutorial-campanha-meta): Do zero até a primeira venda atribuída a um anúncio, com pixel via API de Conversões, Hotmart e Gerenciador de anúncios.
+- [Domínio próprio](https://docs.trackup.me/tutorial-dominio-proprio): Conecte um subdomínio seu ao Trackup pela Cloudflare ou pelo Registro.br e deixe como domínio primário.
+
+## Tutoriais › Páginas
+
+- [Landing page no Builder](https://docs.trackup.me/tutorial-landing-builder): Crie e publique uma página de vendas no editor visual, com botões ligados à oferta e pronta para mobile.
+- [Site externo](https://docs.trackup.me/tutorial-site-externo): Instale o script em uma página do WordPress, Elementor ou outra plataforma e mantenha a atribuição até o checkout.
+
+## Tutoriais › Otimização
+
+- [Teste A/B de página](https://docs.trackup.me/tutorial-teste-ab): Compare duas VSLs com o mesmo tráfego, acompanhe a confiança estatística e envie tudo para a vencedora.
+- [Proteger páginas](https://docs.trackup.me/tutorial-proteger-paginas): Monte uma proteção em camadas com o Filtro: bloqueio de bots, país, parâmetro secreto e safe page.
+- [Dashboard de lucro](https://docs.trackup.me/tutorial-dashboard-lucro): Monte um painel diário com lucro, ROAS, funil e as campanhas que mais vendem.
+
+## Integrações › Visão geral
+
+- [Integrações](https://docs.trackup.me/integracoes): Passo a passo para conectar cada plataforma de venda ao Trackup.
+- [Webhook genérico](https://docs.trackup.me/webhook-generico): Envie vendas, reembolsos e chargebacks de qualquer checkout ou sistema próprio para o Trackup.
+
+## Integrações › Plataformas de venda
+
+- [ActionPay](https://docs.trackup.me/actionpay): Receba vendas, reembolsos e chargebacks da ActionPay no Trackup, atribuídos ao anúncio de origem.
+- [AmploPay](https://docs.trackup.me/amplopay): Receba vendas, reembolsos e chargebacks da AmploPay no Trackup, atribuídos ao anúncio de origem.
+- [Appmax](https://docs.trackup.me/appmax): Receba vendas, reembolsos e chargebacks da Appmax no Trackup, atribuídos ao anúncio de origem.
+- [Átomo Pay](https://docs.trackup.me/atomo-pay): Receba vendas, reembolsos e chargebacks da Átomo Pay no Trackup, atribuídos ao anúncio de origem.
+- [Braip](https://docs.trackup.me/braip): Receba vendas, reembolsos e chargebacks da Braip no Trackup, atribuídos ao anúncio de origem.
+- [BuyGoods](https://docs.trackup.me/buygoods): Receba vendas, reembolsos e chargebacks da BuyGoods no Trackup, atribuídos ao anúncio de origem.
+- [CartPanda](https://docs.trackup.me/cart-panda): Receba vendas, reembolsos e chargebacks da CartPanda no Trackup, atribuídos ao anúncio de origem.
+- [DigiPag](https://docs.trackup.me/digipag): Receba vendas, reembolsos e chargebacks da DigiPag no Trackup, atribuídos ao anúncio de origem.
+- [Digistore24](https://docs.trackup.me/digistore24): Receba vendas, reembolsos e chargebacks da Digistore24 no Trackup, atribuídos ao anúncio de origem.
+- [Eduzz](https://docs.trackup.me/eduzz): Receba vendas, reembolsos e chargebacks da Eduzz no Trackup, atribuídos ao anúncio de origem.
+- [GoatPay](https://docs.trackup.me/goat-pay): Receba vendas, reembolsos e chargebacks da GoatPay no Trackup, atribuídos ao anúncio de origem.
+- [Hotmart](https://docs.trackup.me/hotmart): Receba vendas, reembolsos e chargebacks da Hotmart no Trackup, atribuídos ao anúncio de origem.
+- [InovaPag](https://docs.trackup.me/inova-pag): Receba vendas, reembolsos e chargebacks da InovaPag no Trackup, atribuídos ao anúncio de origem.
+- [Kirvano](https://docs.trackup.me/kirvano): Receba vendas, reembolsos e chargebacks da Kirvano no Trackup, atribuídos ao anúncio de origem.
+- [Kiwify](https://docs.trackup.me/kiwify): Receba vendas, reembolsos e chargebacks da Kiwify no Trackup, atribuídos ao anúncio de origem.
+- [LastLink](https://docs.trackup.me/lastlink): Receba vendas, reembolsos e chargebacks da LastLink no Trackup, atribuídos ao anúncio de origem.
+- [Luna Checkout](https://docs.trackup.me/luna-checkout): Receba vendas, reembolsos e chargebacks da Luna Checkout no Trackup, atribuídos ao anúncio de origem.
+- [Monetizze](https://docs.trackup.me/monetizze): Receba vendas, reembolsos e chargebacks da Monetizze no Trackup, atribuídos ao anúncio de origem.
+- [Mundpay](https://docs.trackup.me/mundpay): Receba vendas, reembolsos e chargebacks da Mundpay no Trackup, atribuídos ao anúncio de origem.
+- [Nuvemshop](https://docs.trackup.me/nuvemshop): Receba vendas, reembolsos e chargebacks da Nuvemshop no Trackup, atribuídos ao anúncio de origem.
+- [Pague.io](https://docs.trackup.me/pagueio): Receba vendas, reembolsos e chargebacks da Pague.io no Trackup, atribuídos ao anúncio de origem.
+- [Paradise](https://docs.trackup.me/paradise): Receba vendas, reembolsos e chargebacks da Paradise no Trackup, atribuídos ao anúncio de origem.
+- [Payt](https://docs.trackup.me/payt): Receba vendas, reembolsos e chargebacks da Payt no Trackup, atribuídos ao anúncio de origem.
+- [PerfectPay](https://docs.trackup.me/perfect-pay): Receba vendas, reembolsos e chargebacks da PerfectPay no Trackup, atribuídos ao anúncio de origem.
+- [ProofPay](https://docs.trackup.me/proofpay): Receba vendas, reembolsos e chargebacks da ProofPay no Trackup, atribuídos ao anúncio de origem.
+- [Shopify](https://docs.trackup.me/shopify): Receba vendas, reembolsos e chargebacks da Shopify no Trackup, atribuídos ao anúncio de origem.
+- [Stripe](https://docs.trackup.me/stripe): Receba vendas, reembolsos e chargebacks da Stripe no Trackup, atribuídos ao anúncio de origem.
+- [Ticto](https://docs.trackup.me/ticto): Receba vendas, reembolsos e chargebacks da Ticto no Trackup, atribuídos ao anúncio de origem.
+- [TriboPay](https://docs.trackup.me/tribopay): Receba vendas, reembolsos e chargebacks da TriboPay no Trackup, atribuídos ao anúncio de origem.
+- [Upag](https://docs.trackup.me/upag): Receba vendas, reembolsos e chargebacks da Upag no Trackup, atribuídos ao anúncio de origem.
+- [Vega Checkout](https://docs.trackup.me/vega-checkout): Receba vendas, reembolsos e chargebacks da Vega Checkout no Trackup, atribuídos ao anúncio de origem.
+- [Yampi](https://docs.trackup.me/yampi): Receba vendas, reembolsos e chargebacks da Yampi no Trackup, atribuídos ao anúncio de origem.
+- [Zedy](https://docs.trackup.me/zedy): Receba vendas, reembolsos e chargebacks da Zedy no Trackup, atribuídos ao anúncio de origem.
+
+## IA e MCP › Conecte sua IA
+
+- [Conectar ao MCP](https://docs.trackup.me/conectar-mcp): Conecte Claude, ChatGPT, Cursor e outros assistentes ao Trackup e opere seus projetos conversando.
+- [Agentes de IA](https://docs.trackup.me/agentes-de-ia): Dê a agentes e automações acesso controlado ao Trackup pela API, com permissões, projetos e histórico.
+- [Casos de uso](https://docs.trackup.me/agentes-de-ia-casos-de-uso): Fluxos prontos para registrar vendas, gerar relatórios, controlar campanhas e auditar tráfego pela API.
+
+## API › Primeiros passos
+
+- [Introdução](https://docs.trackup.me/api): Integre seus sistemas ao Trackup com uma API REST em JSON.
+- [Autenticação](https://docs.trackup.me/api-autenticacao): Autentique as requisições com uma chave de API do time.
+- [Erros](https://docs.trackup.me/api-erros): Códigos de status e formato das respostas de erro da API.
+
+## API › Referência
+
+- [Todos os endpoints](https://docs.trackup.me/api/endpoints): 114 operações da API REST v1, agrupadas por área.
+- [Projetos](https://docs.trackup.me/api/projetos): 5 endpoints da API REST v1.
+- [Conversões](https://docs.trackup.me/api/conversoes): 2 endpoints da API REST v1.
+- [Reembolsos](https://docs.trackup.me/api/reembolsos): 2 endpoints da API REST v1.
+- [Chargebacks](https://docs.trackup.me/api/chargebacks): 2 endpoints da API REST v1.
+- [Visitantes](https://docs.trackup.me/api/visitantes): 3 endpoints da API REST v1.
+- [Requisições](https://docs.trackup.me/api/requisicoes): 2 endpoints da API REST v1.
+- [Analytics](https://docs.trackup.me/api/analytics): 1 endpoint da API REST v1.
+- [Dashboards](https://docs.trackup.me/api/dashboards): 8 endpoints da API REST v1.
+- [Pixels](https://docs.trackup.me/api/pixels): 5 endpoints da API REST v1.
+- [Acionadores](https://docs.trackup.me/api/acionadores): 6 endpoints da API REST v1.
+- [Logs de acionadores](https://docs.trackup.me/api/logs-de-acionadores): 1 endpoint da API REST v1.
+- [Testes A/B e links](https://docs.trackup.me/api/testes-a-b-e-links): 7 endpoints da API REST v1.
+- [Páginas](https://docs.trackup.me/api/paginas): 23 endpoints da API REST v1.
+- [Domínios](https://docs.trackup.me/api/dominios): 6 endpoints da API REST v1.
+- [Filtro](https://docs.trackup.me/api/filtro): 5 endpoints da API REST v1.
+- [Plataformas de venda](https://docs.trackup.me/api/plataformas-de-venda): 4 endpoints da API REST v1.
+- [Fontes de tráfego](https://docs.trackup.me/api/fontes-de-trafego): 4 endpoints da API REST v1.
+- [Produtos](https://docs.trackup.me/api/produtos): 1 endpoint da API REST v1.
+- [Arquivos](https://docs.trackup.me/api/arquivos): 3 endpoints da API REST v1.
+- [URLs](https://docs.trackup.me/api/urls): 4 endpoints da API REST v1.
+- [Gerenciador de anúncios](https://docs.trackup.me/api/gerenciador-de-anuncios): 15 endpoints da API REST v1.
+- [Ingestão](https://docs.trackup.me/api/ingestao): 5 endpoints da API REST v1.

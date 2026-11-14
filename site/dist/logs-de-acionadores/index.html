@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Logs de acionadores | Trackup Docs</title>
+<meta name="description" content="Confira cada evento enviado aos pixels e cada chamada de webhook, com a resposta da plataforma.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://docs.trackup.me/logs-de-acionadores">
+<link rel="alternate" hreflang="pt-BR" href="https://docs.trackup.me/logs-de-acionadores">
+<link rel="alternate" type="text/markdown" title="Versão para IA (llms.txt)" href="/llms.txt">
+<meta property="og:site_name" content="Trackup Docs">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Logs de acionadores">
+<meta property="og:description" content="Confira cada evento enviado aos pixels e cada chamada de webhook, com a resposta da plataforma.">
+<meta property="og:url" content="https://docs.trackup.me/logs-de-acionadores">
+<meta property="og:image" content="https://docs.trackup.me/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Trackup Docs">
+<meta property="article:modified_time" content="2026-11-12T20:34:17+00:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Logs de acionadores">
+<meta name="twitter:description" content="Confira cada evento enviado aos pixels e cada chamada de webhook, com a resposta da plataforma.">
+<meta name="twitter:image" content="https://docs.trackup.me/assets/og.jpg">
+<meta name="theme-color" content="#4f39f6">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<script>(function(){try{var t=localStorage.getItem('tu-theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<link rel="stylesheet" href="/assets/style.css">
+<script src="/assets/shell.js"></script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","headline":"Logs de acionadores","description":"Confira cada evento enviado aos pixels e cada chamada de webhook, com a resposta da plataforma.","url":"https://docs.trackup.me/logs-de-acionadores","inLanguage":"pt-BR","dateModified":"2026-11-12T20:34:17+00:00","image":"https://docs.trackup.me/assets/og.jpg","isPartOf":{"@type":"WebSite","name":"Trackup Docs","url":"https://docs.trackup.me/"},"publisher":{"@type":"Organization","name":"Trackup","url":"https://trackup.me","logo":"https://docs.trackup.me/assets/favicon.svg"},"about":{"@type":"SoftwareApplication","name":"Trackup","applicationCategory":"BusinessApplication","url":"https://trackup.me"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Trackup Docs","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":2,"name":"Guias","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":3,"name":"Logs de acionadores","item":"https://docs.trackup.me/logs-de-acionadores"}]}]</script>
+</head>
+<body>
+<script>TU.header()</script>
+<div class="layout">
+	<aside class="sidebar" aria-label="Navegação"><script>TU.sidebar()</script></aside>
+	<main>
+		<article class="content">
+			<nav class="eyebrow" aria-label="Você está em"><a href="/">Guias</a><span aria-hidden="true"> › </span><span>Análise</span></nav>
+			<h1 class="page-title">Logs de acionadores</h1>
+			<p class="page-desc">Confira cada evento enviado aos pixels e cada chamada de webhook, com a resposta da plataforma.</p>
+			<script>TU.actions()</script>
+			<p>Em <strong>Logs › Acionadores</strong> fica o histórico de tudo o que os <a href="/acionadores">acionadores</a> executaram: disparos de pixel e chamadas de webhook.</p>
+<figure class="shot shot-todo"><div class="shot-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><div><strong>Print pendente · <code>img/logs-acionadores.png</code></strong><p>Tela Logs de acionadores com filtro por acionador e status, lista com disparos Sucesso e um Erro, e o painel de detalhe aberto mostrando Request e Response. Pixel IDs e tokens borrados.</p></div></div><figcaption>Histórico de disparos dos acionadores</figcaption></figure></shot>
+
+<h2 id="filtrar">Filtrar<a class="anchor" href="#filtrar" aria-label="Link para esta seção">#</a></h2>
+<ul>
+	<li><strong>Acionador</strong>: um acionador específico ou todos.</li>
+	<li><strong>Status</strong>: <strong>Sucesso</strong> ou <strong>Erro</strong>.</li>
+</ul>
+
+<h2 id="ler-um-disparo">Ler um disparo<a class="anchor" href="#ler-um-disparo" aria-label="Link para esta seção">#</a></h2>
+<p>Abra um disparo para ver o acionador, o pixel, a URL chamada, o corpo enviado (<strong>Request</strong>) e o que a plataforma respondeu (<strong>Response</strong>).</p>
+
+<h2 id="erros-comuns">Erros comuns<a class="anchor" href="#erros-comuns" aria-label="Link para esta seção">#</a></h2>
+<table>
+	<thead><tr><th>Sintoma</th><th>O que verificar</th></tr></thead>
+	<tbody>
+		<tr><td>Erro de autenticação na Meta</td><td>O token de acesso do pixel expirou ou foi gerado em outro Business Manager. Gere outro e atualize o <a href="/pixels">pixel</a>.</td></tr>
+		<tr><td>Erro de conversion label no Google</td><td>A label do acionador não corresponde a uma ação de conversão da conta.</td></tr>
+		<tr><td>Webhook com erro 4xx ou 5xx</td><td>A URL de destino está fora do ar ou espera outro formato. Veja o corpo da resposta.</td></tr>
+		<tr><td>Nenhum log aparece</td><td>O acionador está inativo, ou as condições não correspondem aos eventos. Confira em <a href="/requisicoes">Requisições</a> se o evento chegou.</td></tr>
+	</tbody>
+</table>
+
+			<script>TU.pager();TU.footer()</script>
+			<noscript><p class="site-footer"><a href="/">Início</a> · <a href="/llms.txt">Índice completo</a> · <a href="/sitemap.xml">Mapa do site</a></p></noscript>
+		</article>
+	</main>
+	<aside class="toc"><div class="toc-title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg> Nesta página</div><ul><li class="lvl-2"><a href="#filtrar">Filtrar</a></li><li class="lvl-2"><a href="#ler-um-disparo">Ler um disparo</a></li><li class="lvl-2"><a href="#erros-comuns">Erros comuns</a></li></ul></aside>
+</div>
+<script>TU.end()</script>
+</body>
+</html>

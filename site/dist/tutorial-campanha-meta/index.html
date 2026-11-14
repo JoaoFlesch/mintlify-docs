@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rastrear uma campanha da Meta com Hotmart | Trackup Docs</title>
+<meta name="description" content="Do zero até a primeira venda atribuída a um anúncio, com pixel via API de Conversões, Hotmart e Gerenciador de anúncios.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://docs.trackup.me/tutorial-campanha-meta">
+<link rel="alternate" hreflang="pt-BR" href="https://docs.trackup.me/tutorial-campanha-meta">
+<link rel="alternate" type="text/markdown" title="Versão para IA (llms.txt)" href="/llms.txt">
+<meta property="og:site_name" content="Trackup Docs">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Rastrear uma campanha da Meta com Hotmart">
+<meta property="og:description" content="Do zero até a primeira venda atribuída a um anúncio, com pixel via API de Conversões, Hotmart e Gerenciador de anúncios.">
+<meta property="og:url" content="https://docs.trackup.me/tutorial-campanha-meta">
+<meta property="og:image" content="https://docs.trackup.me/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Trackup Docs">
+<meta property="article:modified_time" content="2026-11-14T03:24:03+00:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Rastrear uma campanha da Meta com Hotmart">
+<meta name="twitter:description" content="Do zero até a primeira venda atribuída a um anúncio, com pixel via API de Conversões, Hotmart e Gerenciador de anúncios.">
+<meta name="twitter:image" content="https://docs.trackup.me/assets/og.jpg">
+<meta name="theme-color" content="#4f39f6">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<script>(function(){try{var t=localStorage.getItem('tu-theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<link rel="stylesheet" href="/assets/style.css">
+<script src="/assets/shell.js"></script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","headline":"Rastrear uma campanha da Meta com Hotmart","description":"Do zero até a primeira venda atribuída a um anúncio, com pixel via API de Conversões, Hotmart e Gerenciador de anúncios.","url":"https://docs.trackup.me/tutorial-campanha-meta","inLanguage":"pt-BR","dateModified":"2026-11-14T03:24:03+00:00","image":"https://docs.trackup.me/assets/og.jpg","isPartOf":{"@type":"WebSite","name":"Trackup Docs","url":"https://docs.trackup.me/"},"publisher":{"@type":"Organization","name":"Trackup","url":"https://trackup.me","logo":"https://docs.trackup.me/assets/favicon.svg"},"about":{"@type":"SoftwareApplication","name":"Trackup","applicationCategory":"BusinessApplication","url":"https://trackup.me"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Trackup Docs","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":2,"name":"Tutoriais","item":"https://docs.trackup.me/tutorial-campanha-meta"},{"@type":"ListItem","position":3,"name":"Rastrear uma campanha da Meta com Hotmart","item":"https://docs.trackup.me/tutorial-campanha-meta"}]}]</script>
+</head>
+<body>
+<script>TU.header()</script>
+<div class="layout">
+	<aside class="sidebar" aria-label="Navegação"><script>TU.sidebar()</script></aside>
+	<main>
+		<article class="content">
+			<nav class="eyebrow" aria-label="Você está em"><a href="/tutorial-campanha-meta">Tutoriais</a><span aria-hidden="true"> › </span><span>Do zero à venda</span></nav>
+			<h1 class="page-title">Rastrear uma campanha da Meta com Hotmart</h1>
+			<p class="page-desc">Do zero até a primeira venda atribuída a um anúncio, com pixel via API de Conversões, Hotmart e Gerenciador de anúncios.</p>
+			<script>TU.actions()</script>
+			<p>Neste tutorial você configura um funil completo para anunciar na Meta e vender na Hotmart. No fim, cada venda aparece no Trackup com a campanha, o conjunto e o anúncio de origem, e o Purchase chega ao pixel pela API de Conversões.</p>
+<div class="flow">
+	<div class="flow-step"><b>Anúncio</b><span>Meta Ads</span></div><div class="flow-arrow">{{icon:arrow}}</div>
+	<div class="flow-step"><b>Landing page</b><span>no seu domínio</span></div><div class="flow-arrow">{{icon:arrow}}</div>
+	<div class="flow-step"><b>Oferta</b><span>link do checkout</span></div><div class="flow-arrow">{{icon:arrow}}</div>
+	<div class="flow-step"><b>Hotmart</b><span>webhook da venda</span></div>
+</div>
+
+<h2 id="o-que-voce-vai-precisar">O que você vai precisar<a class="anchor" href="#o-que-voce-vai-precisar" aria-label="Link para esta seção">#</a></h2>
+<ul>
+	<li>Um projeto no Trackup com domínio próprio verificado. Se ainda não tem, siga <a href="/tutorial-dominio-proprio">Configurar um domínio próprio</a>.</li>
+	<li>Acesso de administrador ao Business Manager da Meta e ao pixel.</li>
+	<li>Acesso de produtor na Hotmart, com o produto criado e o link de checkout.</li>
+	<li>Uma landing page. Pode ser montada no <a href="/tutorial-landing-builder">Builder</a> ou estar em um <a href="/tutorial-site-externo">site externo</a>.</li>
+</ul>
+<p>Tempo estimado: 30 minutos.</p>
+
+<h2 id="parte-1-pixel-da-meta">Parte 1: Pixel da Meta<a class="anchor" href="#parte-1-pixel-da-meta" aria-label="Link para esta seção">#</a></h2>
+<ol class="steps">
+	<li><span class="step-title">Pegue o ID do pixel</span>
+		<p>No <strong>Gerenciador de Eventos</strong> da Meta, selecione o pixel. O ID aparece embaixo do nome, um número com 15 ou 16 dígitos.</p>
+	</li>
+	<li><span class="step-title">Gere o token da API de Conversões</span>
+		<p>Ainda no pixel, abra <strong>Configurações</strong>, role até <strong>API de Conversões</strong> e clique em <strong>Gerar token de acesso</strong>. Copie o token. Ele aparece uma vez só.</p>
+		<div class="callout warning"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg><div><p>O token dá acesso para enviar eventos ao pixel. Guarde em local seguro e não compartilhe em prints.</p></div></div>
+	</li>
+	<li><span class="step-title">Pegue um código de teste</span>
+		<p>Na aba <strong>Eventos de teste</strong>, copie o código exibido (algo como <code>TEST12345</code>). Você usa só durante a validação.</p>
+	</li>
+	<li><span class="step-title">Cadastre o pixel no Trackup</span>
+		<p>Em <strong>Integração › Pixels</strong>, clique em <strong>Adicionar pixel</strong>. Preencha:</p>
+		<table>
+			<thead><tr><th>Campo</th><th>Valor</th></tr></thead>
+			<tbody>
+				<tr><td>Nome</td><td><em>Pixel principal</em></td></tr>
+				<tr><td>Tipo</td><td>Meta</td></tr>
+				<tr><td>Pixel ID</td><td>O ID do passo 1</td></tr>
+				<tr><td>Access Token</td><td>O token do passo 2</td></tr>
+				<tr><td>Test Event Code</td><td>O código do passo 3</td></tr>
+			</tbody>
+		</table>
+		<figure class="shot"><img src="../img/tut-meta-pixel.webp" alt="Pixel da Meta com código de teste" loading="lazy"><figcaption>Pixel da Meta com código de teste</figcaption></figure></shot>
+	</li>
+	<li><span class="step-title">Confira os acionadores</span>
+		<p>Abra <strong>Acionadores</strong>. O Trackup criou três para o pixel: <strong>Pageview</strong>, <strong>Start checkout</strong> e <strong>Conversão</strong>. Não precisa mexer.</p>
+	</li>
+</ol>
+
+<h2 id="parte-2-fonte-de-trafego-meta">Parte 2: Fonte de tráfego Meta<a class="anchor" href="#parte-2-fonte-de-trafego-meta" aria-label="Link para esta seção">#</a></h2>
+<ol class="steps">
+	<li><span class="step-title">Crie a fonte</span>
+		<p>Em <strong>Integração › Fontes de tráfego</strong>, clique em <strong>Adicionar fonte</strong>, dê o nome <em>Meta Ads</em> e escolha <strong>Meta</strong>.</p>
+	</li>
+	<li><span class="step-title">Copie os parâmetros</span>
+		<p>Salve e copie o bloco <strong>Parâmetros de URL</strong>. Ele leva o nome e o ID da campanha, do conjunto e do anúncio:</p>
+		<div class="code"><pre><code class="lang-text">utm_source=meta&amp;utm_medium={{adset.name}}|{{adset.id}}&amp;utm_campaign={{campaign.name}}|{{campaign.id}}&amp;utm_content={{ad.name}}|{{ad.id}}&amp;utm_term={{placement}}&amp;trk_cmpid={{campaign.id}}&amp;trk_asid={{adset.id}}&amp;trk_aid={{ad.id}}</code></pre></div>
+		<p>Os IDs são o que permite ao <a href="/gerenciador-de-anuncios">Gerenciador de anúncios</a> ligar cada venda ao anúncio.</p>
+	</li>
+</ol>
+
+<h2 id="parte-3-hotmart">Parte 3: Hotmart<a class="anchor" href="#parte-3-hotmart" aria-label="Link para esta seção">#</a></h2>
+<ol class="steps">
+	<li><span class="step-title">Crie a plataforma</span>
+		<p>Em <strong>Integração › Plataformas de vendas</strong>, clique em <strong>Adicionar plataforma</strong>, escolha <strong>Hotmart 2.0</strong> e salve. Copie a <strong>URL</strong> da plataforma na lista.</p>
+	</li>
+	<li><span class="step-title">Cadastre o webhook na Hotmart</span>
+		<p>Na Hotmart, vá em <strong>Ferramentas › Webhook (API e notificações)</strong> e clique em <strong>Cadastrar Webhook</strong>. Selecione o produto, cole a URL do Trackup, escolha a versão <strong>2.0.0</strong> e marque <strong>Compra aprovada</strong>, <strong>Compra reembolsada</strong> e <strong>Chargeback</strong>.</p>
+		<figure class="shot shot-todo"><div class="shot-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><div><strong>Print pendente · <code>img/tut-meta-hotmart-webhook.png</code></strong><p>Tela de cadastro de webhook da Hotmart com a URL do Trackup (domínio borrado), versão 2.0.0 e os eventos Compra aprovada, Compra reembolsada e Chargeback marcados.</p></div></div><figcaption>Webhook cadastrado na Hotmart</figcaption></figure></shot>
+	</li>
+	<li><span class="step-title">Crie a oferta</span>
+		<p>Em <strong>Ofertas</strong>, clique em <strong>Adicionar oferta</strong> e, na aba <strong>Redirect</strong>, preencha:</p>
+		<table>
+			<thead><tr><th>Campo</th><th>Valor</th></tr></thead>
+			<tbody>
+				<tr><td>Nome</td><td><em>Checkout Curso</em></td></tr>
+				<tr><td>Plataforma de vendas</td><td>Hotmart 2.0</td></tr>
+				<tr><td>URL de redirecionamento</td><td>O link do checkout da Hotmart, como <code>https://pay.hotmart.com/ABC123</code></td></tr>
+				<tr><td>Caminho</td><td><code>/checkout</code></td></tr>
+			</tbody>
+		</table>
+		<p>Salve e copie o <strong>Link</strong> da oferta, como <code>https://lp.seudominio.com/checkout</code>.</p>
+	</li>
+</ol>
+
+<h2 id="parte-4-landing-page">Parte 4: Landing page<a class="anchor" href="#parte-4-landing-page" aria-label="Link para esta seção">#</a></h2>
+<ol class="steps">
+	<li><span class="step-title">Aponte os botões para a oferta</span>
+		<p>Em todos os botões de compra da landing page, use o link da oferta. No Builder, selecione o botão e, em <strong>Config › Evento de clique</strong>, cole o link em <strong>Destino</strong>. Em um site externo, troque o <code>href</code> dos botões.</p>
+		<div class="callout danger"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/></svg><div><p>Um único botão apontando direto para <code>pay.hotmart.com</code> já faz parte das vendas chegarem sem atribuição.</p></div></div>
+	</li>
+	<li><span class="step-title">Publique e copie o link</span>
+		<p>Publique a página e copie o <strong>Link</strong> dela em <strong>Páginas</strong>, como <code>https://lp.seudominio.com/curso</code>.</p>
+	</li>
+</ol>
+
+<h2 id="parte-5-anuncio">Parte 5: Anúncio<a class="anchor" href="#parte-5-anuncio" aria-label="Link para esta seção">#</a></h2>
+<ol class="steps">
+	<li><span class="step-title">Configure o destino</span>
+		<p>No Gerenciador de Anúncios da Meta, no nível do anúncio, em <strong>Destino</strong>:</p>
+		<ul>
+			<li><strong>URL do site</strong>: o link da landing page.</li>
+			<li><strong>Parâmetros de URL</strong>: o bloco copiado na Parte 2.</li>
+		</ul>
+		<figure class="shot shot-todo"><div class="shot-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><div><strong>Print pendente · <code>img/tut-meta-anuncio.png</code></strong><p>Seção Destino de um anúncio no Gerenciador de Anúncios da Meta com URL do site https://lp.seudominio.com/curso e o campo Parâmetros de URL preenchido com o template do Trackup.</p></div></div><figcaption>Destino do anúncio na Meta</figcaption></figure></shot>
+	</li>
+	<li><span class="step-title">Escolha o pixel</span>
+		<p>Em <strong>Rastreamento</strong>, selecione o mesmo pixel cadastrado no Trackup. Se o pixel também estiver instalado no navegador pela Meta, deixe o evento <code>Purchase</code> só pelo Trackup para não duplicar.</p>
+	</li>
+</ol>
+
+<h2 id="parte-6-validar">Parte 6: Validar<a class="anchor" href="#parte-6-validar" aria-label="Link para esta seção">#</a></h2>
+<ol class="steps">
+	<li><span class="step-title">Simule um clique</span>
+		<p>Abra em uma aba anônima a URL da landing com os parâmetros, trocando as macros por valores de teste:</p>
+		<div class="code"><pre><code class="lang-text">https://lp.seudominio.com/curso?utm_source=meta&amp;utm_campaign=teste|111&amp;utm_content=teste|333&amp;trk_aid=333</code></pre></div>
+	</li>
+	<li><span class="step-title">Confira o PageView</span>
+		<p>Em <strong>Logs › Requisições</strong>, sua visita aparece com as UTMs. No Gerenciador de Eventos, na aba <strong>Eventos de teste</strong>, o <code>PageView</code> chega com a origem <em>Servidor</em>.</p>
+	</li>
+	<li><span class="step-title">Clique em comprar</span>
+		<p>Clique no botão de compra. Você deve cair no checkout da Hotmart com o parâmetro <code>sck</code> na URL. O <code>InitiateCheckout</code> aparece nos eventos de teste.</p>
+	</li>
+	<li><span class="step-title">Faça uma compra de teste</span>
+		<p>Conclua uma compra (pode reembolsar depois). Em <strong>Logs › Conversões</strong>, a venda aparece com a campanha <em>teste</em>, e o <code>Purchase</code> aparece em <strong>Logs › Acionadores</strong> com sucesso.</p>
+		<figure class="shot shot-todo"><div class="shot-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><div><strong>Print pendente · <code>img/tut-meta-conversao.png</code></strong><p>Logs › Conversões com uma venda Hotmart expandida mostrando UTM Campaign teste|111, Click ID preenchido e Anúncio ID 333. Valores e IDs de transação fictícios.</p></div></div><figcaption>Venda de teste atribuída</figcaption></figure></shot>
+	</li>
+	<li><span class="step-title">Tire o modo de teste</span>
+		<p>Edite o pixel em <strong>Integração › Pixels</strong> e apague o <strong>Test Event Code</strong>. Com ele preenchido, os eventos não contam para as campanhas.</p>
+	</li>
+</ol>
+
+<h2 id="parte-7-roas-por-anuncio">Parte 7: ROAS por anúncio<a class="anchor" href="#parte-7-roas-por-anuncio" aria-label="Link para esta seção">#</a></h2>
+<p>Em <strong>Gerenciador de anúncios</strong>, clique em <strong>Conectar Facebook Ads</strong>, autorize e escolha a conta de anúncio. Depois da sincronização, cada campanha, conjunto e anúncio mostra investimento, vendas, receita, ROAS e CPA reais. Veja <a href="/gerenciador-de-anuncios">Gerenciador de anúncios</a>.</p>
+
+<h2 id="se-algo-nao-funcionar">Se algo não funcionar<a class="anchor" href="#se-algo-nao-funcionar" aria-label="Link para esta seção">#</a></h2>
+<details class="acc"><summary>A venda chega com Configuração incompleta</summary><div class="acc-body">
+	<p>A venda veio sem click ID. Confira se todos os botões apontam para o link da oferta e se o checkout abriu com <code>sck</code> na URL.</p>
+</div></details>
+<details class="acc"><summary>Os eventos não aparecem na Meta</summary><div class="acc-body">
+	<p>Abra <strong>Logs › Acionadores</strong>. Erro de autenticação indica token errado ou de outro Business Manager. Sem nenhum log, confira se os acionadores estão ativos.</p>
+</div></details>
+<details class="acc"><summary>O Gerenciador de anúncios mostra vendas zeradas</summary><div class="acc-body">
+	<p>Os parâmetros não estão no anúncio, ou o anúncio foi criado antes de colocá-los. Confira o campo <strong>Parâmetros de URL</strong> em cada anúncio.</p>
+</div></details>
+
+			<script>TU.pager();TU.footer()</script>
+			<noscript><p class="site-footer"><a href="/">Início</a> · <a href="/llms.txt">Índice completo</a> · <a href="/sitemap.xml">Mapa do site</a></p></noscript>
+		</article>
+	</main>
+	<aside class="toc"><div class="toc-title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg> Nesta página</div><ul><li class="lvl-2"><a href="#o-que-voce-vai-precisar">O que você vai precisar</a></li><li class="lvl-2"><a href="#parte-1-pixel-da-meta">Parte 1: Pixel da Meta</a></li><li class="lvl-2"><a href="#parte-2-fonte-de-trafego-meta">Parte 2: Fonte de tráfego Meta</a></li><li class="lvl-2"><a href="#parte-3-hotmart">Parte 3: Hotmart</a></li><li class="lvl-2"><a href="#parte-4-landing-page">Parte 4: Landing page</a></li><li class="lvl-2"><a href="#parte-5-anuncio">Parte 5: Anúncio</a></li><li class="lvl-2"><a href="#parte-6-validar">Parte 6: Validar</a></li><li class="lvl-2"><a href="#parte-7-roas-por-anuncio">Parte 7: ROAS por anúncio</a></li><li class="lvl-2"><a href="#se-algo-nao-funcionar">Se algo não funcionar</a></li></ul></aside>
+</div>
+<script>TU.end()</script>
+</body>
+</html>

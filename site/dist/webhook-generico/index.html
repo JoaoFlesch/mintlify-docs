@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Webhook genérico | Trackup Docs</title>
+<meta name="description" content="Envie vendas, reembolsos e chargebacks de qualquer checkout ou sistema próprio para o Trackup.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://docs.trackup.me/webhook-generico">
+<link rel="alternate" hreflang="pt-BR" href="https://docs.trackup.me/webhook-generico">
+<link rel="alternate" type="text/markdown" title="Versão para IA (llms.txt)" href="/llms.txt">
+<meta property="og:site_name" content="Trackup Docs">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Webhook genérico">
+<meta property="og:description" content="Envie vendas, reembolsos e chargebacks de qualquer checkout ou sistema próprio para o Trackup.">
+<meta property="og:url" content="https://docs.trackup.me/webhook-generico">
+<meta property="og:image" content="https://docs.trackup.me/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Trackup Docs">
+<meta property="article:modified_time" content="2026-11-12T20:34:17+00:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Webhook genérico">
+<meta name="twitter:description" content="Envie vendas, reembolsos e chargebacks de qualquer checkout ou sistema próprio para o Trackup.">
+<meta name="twitter:image" content="https://docs.trackup.me/assets/og.jpg">
+<meta name="theme-color" content="#4f39f6">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<script>(function(){try{var t=localStorage.getItem('tu-theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<link rel="stylesheet" href="/assets/style.css">
+<script src="/assets/shell.js"></script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","headline":"Webhook genérico","description":"Envie vendas, reembolsos e chargebacks de qualquer checkout ou sistema próprio para o Trackup.","url":"https://docs.trackup.me/webhook-generico","inLanguage":"pt-BR","dateModified":"2026-11-12T20:34:17+00:00","image":"https://docs.trackup.me/assets/og.jpg","isPartOf":{"@type":"WebSite","name":"Trackup Docs","url":"https://docs.trackup.me/"},"publisher":{"@type":"Organization","name":"Trackup","url":"https://trackup.me","logo":"https://docs.trackup.me/assets/favicon.svg"},"about":{"@type":"SoftwareApplication","name":"Trackup","applicationCategory":"BusinessApplication","url":"https://trackup.me"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Trackup Docs","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":2,"name":"Integrações","item":"https://docs.trackup.me/integracoes"},{"@type":"ListItem","position":3,"name":"Webhook genérico","item":"https://docs.trackup.me/webhook-generico"}]}]</script>
+</head>
+<body>
+<script>TU.header()</script>
+<div class="layout">
+	<aside class="sidebar" aria-label="Navegação"><script>TU.sidebar()</script></aside>
+	<main>
+		<article class="content">
+			<nav class="eyebrow" aria-label="Você está em"><a href="/integracoes">Integrações</a><span aria-hidden="true"> › </span><span>Visão geral</span></nav>
+			<h1 class="page-title">Webhook genérico</h1>
+			<p class="page-desc">Envie vendas, reembolsos e chargebacks de qualquer checkout ou sistema próprio para o Trackup.</p>
+			<script>TU.actions()</script>
+			<p>Use o webhook genérico quando sua plataforma não tem integração nativa. Seu sistema faz um <code>POST</code> JSON a cada venda, devolvendo o <code>request_id</code> que o Trackup enviou ao checkout.</p>
+
+<div class="code"><div class="code-head"><span>Referência rápida</span></div><pre><code class="lang-http">POST https://{dominio-primario}/api/webhook/{code}
+Content-Type: application/json
+
+{
+  &quot;event&quot;: &quot;paid&quot;,
+  &quot;transaction_id&quot;: &quot;order_123&quot;,
+  &quot;value&quot;: 99.9,
+  &quot;currency&quot;: &quot;BRL&quot;,
+  &quot;request_id&quot;: &quot;550e8400-e29b-41d4-a716-446655440000&quot;,
+  &quot;payment_method&quot;: &quot;credit_card&quot;
+}</code></pre></div>
+
+<h2 id="configurar">Configurar<a class="anchor" href="#configurar" aria-label="Link para esta seção">#</a></h2>
+<ol class="steps">
+	<li><span class="step-title">Crie a plataforma</span>
+		<p>Vá em <strong>Integração › Plataformas de vendas › Adicionar plataforma</strong> e escolha <strong>Genérico</strong>.</p>
+	</li>
+	<li><span class="step-title">Confira os parâmetros do checkout</span>
+		<p>O Trackup adiciona estes parâmetros à URL do checkout. O único obrigatório é <code>request_id</code>.</p>
+		<table>
+			<thead><tr><th>Parâmetro</th><th>Valor</th></tr></thead>
+			<tbody>
+				<tr><td><code>request_id</code></td><td><code>{request.id}</code></td></tr>
+				<tr><td><code>utm_source</code> … <code>utm_content</code></td><td><code>{request.utmSource}</code> … <code>{request.utmContent}</code></td></tr>
+			</tbody>
+		</table>
+		<p>Seu checkout precisa ler o <code>request_id</code> da URL e guardar junto com o pedido.</p>
+	</li>
+	<li><span class="step-title">Copie a URL do webhook</span>
+		<p>Salve e copie a <strong>URL</strong> na lista de plataformas. O formato é <code>https://{dominio-primario}/api/webhook/{code}</code>, em que <code>{code}</code> é um código de 16 caracteres.</p>
+	</li>
+	<li><span class="step-title">Envie um POST a cada evento</span>
+		<p>Envie o JSON abaixo quando um pagamento for aprovado, reembolsado ou contestado. A rota aceita qualquer método e também <code>application/x-www-form-urlencoded</code>, mas o formato recomendado é <code>POST</code> com JSON.</p>
+	</li>
+</ol>
+
+<h2 id="payload">Payload<a class="anchor" href="#payload" aria-label="Link para esta seção">#</a></h2>
+<table>
+	<thead><tr><th>Campo</th><th>Tipo</th><th>Descrição</th></tr></thead>
+	<tbody>
+		<tr><td><code>event</code> <span class="param-req">obrigatório</span></td><td>string</td><td><code>paid</code>, <code>refunded</code> ou <code>chargeback</code>.</td></tr>
+		<tr><td><code>transaction_id</code></td><td>string</td><td>ID único do pedido. Usado para evitar duplicidade. Reutilize o mesmo ID no reembolso e no chargeback.</td></tr>
+		<tr><td><code>value</code></td><td>number</td><td>Valor da transação, arredondado para 2 casas. Padrão: <code>0</code>.</td></tr>
+		<tr><td><code>currency</code></td><td>string</td><td>Código da moeda, como <code>BRL</code> ou <code>USD</code>. Convertido para a moeda do projeto.</td></tr>
+		<tr><td><code>request_id</code></td><td>string</td><td>ID recebido na URL do checkout. É ele que liga a venda à campanha.</td></tr>
+		<tr><td><code>payment_method</code></td><td>string</td><td><code>credit_card</code>, <code>pix</code>, <code>boleto</code>, <code>paypal</code>, <code>apple_pay</code> ou <code>other</code>.</td></tr>
+		<tr><td><code>customer</code></td><td>object</td><td><code>name</code>, <code>email</code>, <code>phone</code> e <code>address</code> (<code>street</code>, <code>city</code>, <code>state</code>, <code>zip</code>, <code>country</code>).</td></tr>
+	</tbody>
+</table>
+<div class="code"><div class="code-head"><span>Exemplo completo</span></div><pre><code class="lang-json">{
+  &quot;event&quot;: &quot;paid&quot;,
+  &quot;transaction_id&quot;: &quot;order_123&quot;,
+  &quot;value&quot;: 99.9,
+  &quot;currency&quot;: &quot;BRL&quot;,
+  &quot;request_id&quot;: &quot;550e8400-e29b-41d4-a716-446655440000&quot;,
+  &quot;payment_method&quot;: &quot;credit_card&quot;,
+  &quot;customer&quot;: {
+    &quot;name&quot;: &quot;Maria Silva&quot;,
+    &quot;email&quot;: &quot;maria@exemplo.com&quot;,
+    &quot;phone&quot;: &quot;+5511999999999&quot;,
+    &quot;address&quot;: { &quot;city&quot;: &quot;São Paulo&quot;, &quot;state&quot;: &quot;SP&quot;, &quot;country&quot;: &quot;BR&quot; }
+  }
+}</code></pre></div>
+
+<h2 id="eventos">Eventos<a class="anchor" href="#eventos" aria-label="Link para esta seção">#</a></h2>
+<table>
+	<thead><tr><th><code>event</code></th><th>Resultado</th></tr></thead>
+	<tbody>
+		<tr><td><code>paid</code></td><td>Registra a conversão e dispara os acionadores de <code>conversion</code>.</td></tr>
+		<tr><td><code>refunded</code></td><td>Registra o reembolso da transação.</td></tr>
+		<tr><td><code>chargeback</code></td><td>Registra o chargeback da transação.</td></tr>
+		<tr><td>outros</td><td>Ignorado. Resposta <code>{"ok": true, "ignored": true}</code>.</td></tr>
+	</tbody>
+</table>
+
+<h2 id="respostas">Respostas<a class="anchor" href="#respostas" aria-label="Link para esta seção">#</a></h2>
+<div class="code"><div class="code-head"><span>200 · sucesso</span></div><pre><code class="lang-json">{ &quot;ok&quot;: true, &quot;id&quot;: &quot;&lt;conversion-id&gt;&quot; }</code></pre></div>
+<table>
+	<thead><tr><th>Status</th><th><code>error</code></th><th>Quando</th></tr></thead>
+	<tbody>
+		<tr><td>409</td><td><code>DUPLICATE_CONVERSION</code></td><td>Mesmo <code>transaction_id</code> e status já registrados. Pode ignorar em reenvios.</td></tr>
+		<tr><td>404</td><td><code>SALES_PLATFORM_NOT_FOUND</code></td><td>Código do webhook inválido.</td></tr>
+		<tr><td>404</td><td><code>PROJECT_NOT_FOUND</code>, <code>TEAM_NOT_FOUND</code>, <code>CONFIG_NOT_FOUND</code></td><td>Projeto, time ou configuração não encontrados.</td></tr>
+		<tr><td>400</td><td><code>UNKNOWN_NETWORK</code></td><td>Tipo de plataforma desconhecido.</td></tr>
+		<tr><td>400</td><td><code>PARSE_ERROR</code></td><td>Corpo inválido.</td></tr>
+		<tr><td>502</td><td><code>CURRENCY_CONVERSION_FAILED</code></td><td>Falha ao converter a moeda. Tente de novo.</td></tr>
+	</tbody>
+</table>
+
+<h2 id="boas-praticas">Boas práticas<a class="anchor" href="#boas-praticas" aria-label="Link para esta seção">#</a></h2>
+<ul>
+	<li>Sempre envie <code>request_id</code> e um <code>transaction_id</code> único.</li>
+	<li>Não precisa enviar UTMs no webhook: o Trackup recupera tudo pelo <code>request_id</code>.</li>
+	<li>Em erros 5xx ou falha de rede, tente de novo com o mesmo <code>transaction_id</code>.</li>
+</ul>
+
+			<script>TU.pager();TU.footer()</script>
+			<noscript><p class="site-footer"><a href="/">Início</a> · <a href="/llms.txt">Índice completo</a> · <a href="/sitemap.xml">Mapa do site</a></p></noscript>
+		</article>
+	</main>
+	<aside class="toc"><div class="toc-title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg> Nesta página</div><ul><li class="lvl-2"><a href="#configurar">Configurar</a></li><li class="lvl-2"><a href="#payload">Payload</a></li><li class="lvl-2"><a href="#eventos">Eventos</a></li><li class="lvl-2"><a href="#respostas">Respostas</a></li><li class="lvl-2"><a href="#boas-praticas">Boas práticas</a></li></ul></aside>
+</div>
+<script>TU.end()</script>
+</body>
+</html>

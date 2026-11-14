@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Acionadores | Trackup Docs</title>
+<meta name="description" content="Envie eventos para pixels e webhooks quando o tráfego atender às condições que você define.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://docs.trackup.me/acionadores">
+<link rel="alternate" hreflang="pt-BR" href="https://docs.trackup.me/acionadores">
+<link rel="alternate" type="text/markdown" title="Versão para IA (llms.txt)" href="/llms.txt">
+<meta property="og:site_name" content="Trackup Docs">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Acionadores">
+<meta property="og:description" content="Envie eventos para pixels e webhooks quando o tráfego atender às condições que você define.">
+<meta property="og:url" content="https://docs.trackup.me/acionadores">
+<meta property="og:image" content="https://docs.trackup.me/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Trackup Docs">
+<meta property="article:modified_time" content="2026-11-14T05:44:05+00:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Acionadores">
+<meta name="twitter:description" content="Envie eventos para pixels e webhooks quando o tráfego atender às condições que você define.">
+<meta name="twitter:image" content="https://docs.trackup.me/assets/og.jpg">
+<meta name="theme-color" content="#4f39f6">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<script>(function(){try{var t=localStorage.getItem('tu-theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<link rel="stylesheet" href="/assets/style.css">
+<script src="/assets/shell.js"></script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","headline":"Acionadores","description":"Envie eventos para pixels e webhooks quando o tráfego atender às condições que você define.","url":"https://docs.trackup.me/acionadores","inLanguage":"pt-BR","dateModified":"2026-11-14T05:44:05+00:00","image":"https://docs.trackup.me/assets/og.jpg","isPartOf":{"@type":"WebSite","name":"Trackup Docs","url":"https://docs.trackup.me/"},"publisher":{"@type":"Organization","name":"Trackup","url":"https://trackup.me","logo":"https://docs.trackup.me/assets/favicon.svg"},"about":{"@type":"SoftwareApplication","name":"Trackup","applicationCategory":"BusinessApplication","url":"https://trackup.me"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Trackup Docs","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":2,"name":"Guias","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":3,"name":"Acionadores","item":"https://docs.trackup.me/acionadores"}]}]</script>
+</head>
+<body>
+<script>TU.header()</script>
+<div class="layout">
+	<aside class="sidebar" aria-label="Navegação"><script>TU.sidebar()</script></aside>
+	<main>
+		<article class="content">
+			<nav class="eyebrow" aria-label="Você está em"><a href="/">Guias</a><span aria-hidden="true"> › </span><span>Otimização</span></nav>
+			<h1 class="page-title">Acionadores</h1>
+			<p class="page-desc">Envie eventos para pixels e webhooks quando o tráfego atender às condições que você define.</p>
+			<script>TU.actions()</script>
+			<div class="callout tip"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.1 14c.2-1 .7-1.7 1.5-2.5A6 6 0 1 0 6 8c0 1.4.4 2.6 1.4 3.5.8.8 1.3 1.5 1.5 2.5"/></svg><div><p><strong>Configure pela sua IA.</strong> Conecte seu assistente pelo <a href="/conectar-mcp">MCP</a> e peça: <em>"Crie um acionador de conversão que envie o valor e o ID da transação."</em></p></div></div>
+<p>Um acionador observa os eventos do projeto. Quando um evento atende a todas as condições, ele executa as ações: enviar o evento para um ou mais <a href="/pixels">pixels</a> ou chamar um webhook.</p>
+<p>Fluxo: o evento chega, o Trackup avalia as condições de cada acionador ativo, executa as ações dos que correspondem e registra cada envio nos <a href="/logs-de-acionadores">logs</a>.</p>
+
+<h2 id="acionadores-criados-automaticamente">Acionadores criados automaticamente<a class="anchor" href="#acionadores-criados-automaticamente" aria-label="Link para esta seção">#</a></h2>
+<p>Ao adicionar um pixel da Meta, TikTok ou Kwai, o Trackup cria acionadores padrão para ele:</p>
+<table>
+	<thead><tr><th>Acionador</th><th>Condição</th></tr></thead>
+	<tbody>
+		<tr><td>Pageview</td><td>Tipo de evento igual a <code>page_view</code></td></tr>
+		<tr><td>Start checkout</td><td>Tipo de evento igual a <code>start_checkout</code></td></tr>
+		<tr><td>Conversão</td><td>Tipo de evento igual a <code>conversion</code></td></tr>
+		<tr><td>Add to cart</td><td>Tipo de evento igual a <code>add_to_cart</code></td></tr>
+	</tbody>
+</table>
+<p>Você pode editar ou desativar qualquer um deles. No Google Ads, crie os acionadores você mesmo, porque cada etapa precisa da conversion label da ação de conversão.</p>
+
+<h2 id="criar-um-acionador">Criar um acionador<a class="anchor" href="#criar-um-acionador" aria-label="Link para esta seção">#</a></h2>
+<ol class="steps">
+	<li><span class="step-title">Abra Acionadores</span>
+		<p>No menu lateral, clique em <strong>Acionadores</strong> e em <strong>Criar acionador</strong>.</p>
+	</li>
+	<li><span class="step-title">Defina as condições</span>
+		<p>Clique em <strong>Adicionar condição</strong> e escolha a variável, o operador e o valor. O acionador dispara quando <strong>todas</strong> as condições são verdadeiras. Veja as <a href="/variaveis">variáveis disponíveis</a>.</p>
+		<figure class="shot shot-todo"><div class="shot-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><div><strong>Print pendente · <code>img/acionadores-condicoes.png</code></strong><p>Formulário Criar acionador com duas condições: Tipo de evento Igual a conversion e UTM Campaign Contém black-friday, e o botão Adicionar condição visível.</p></div></div><figcaption>Condições de um acionador</figcaption></figure></shot>
+	</li>
+	<li><span class="step-title">Adicione as ações</span>
+		<p>Clique em <strong>Adicionar ação</strong> e escolha <strong>Pixel</strong> ou <strong>Webhook</strong> (detalhes abaixo).</p>
+	</li>
+	<li><span class="step-title">Ative e salve</span>
+		<p>Deixe <strong>Ativo</strong> ligado e salve. Você pode desligar um acionador a qualquer momento sem apagá-lo.</p>
+	</li>
+</ol>
+
+<h2 id="condicoes-extras">Condições extras<a class="anchor" href="#condicoes-extras" aria-label="Link para esta seção">#</a></h2>
+<p>O tipo de evento é só a primeira condição. Combine outras para enviar o evento apenas quando fizer sentido. Todas precisam ser verdadeiras (E lógico).</p>
+<table>
+	<thead><tr><th>Quero disparar só quando...</th><th>Condições</th></tr></thead>
+	<tbody>
+		<tr><td>A venda veio de uma campanha</td><td>Tipo de evento = <code>conversion</code> E UTM Campaign contém <code>black-friday</code></td></tr>
+		<tr><td>O tráfego veio de uma rede</td><td>Rede = <code>instagram</code></td></tr>
+		<tr><td>O visitante veio de um criativo</td><td>Sub 1 = <code>criativo-07</code></td></tr>
+		<tr><td>O evento ocorreu em uma página</td><td>URL contém <code>/oferta</code></td></tr>
+		<tr><td>O visitante veio de outro site</td><td>Referrer contém <code>yourdomain.com</code></td></tr>
+	</tbody>
+</table>
+<p>Para ações diferentes no mesmo evento, crie um acionador para cada caso. Todos os que corresponderem disparam.</p>
+
+<h2 id="eventos-personalizados">Eventos personalizados<a class="anchor" href="#eventos-personalizados" aria-label="Link para esta seção">#</a></h2>
+<p>Além dos eventos padrão, você pode enviar eventos próprios pelo <a href="/script">script</a>, como <code>lead_form_submitted</code> ou <code>video_50</code>. Eles chegam com <strong>Tipo customizado</strong> preenchido e servem como condição em acionadores e como etapa extra do funil nos <a href="/dashboards">dashboards</a>.</p>
+<div class="code"><div class="code-head"><span>Enviar um evento personalizado</span></div><pre><code class="lang-javascript">trackup('track', 'lead_form_submitted');</code></pre></div>
+<p>Depois, crie o acionador com <strong>Tipo customizado</strong> igual ao nome do evento e escolha a ação, por exemplo o evento <code>Lead</code> de um pixel.</p>
+<div class="callout note"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><div><p>Eventos enviados por atributo HTML (<code>data-trackup-event</code>) não disparam acionadores no navegador. Veja os detalhes no <a href="/script">script</a>.</p></div></div>
+<figure class="shot shot-todo"><div class="shot-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><div><strong>Print pendente · <code>img/acionadores-evento-personalizado.png</code></strong><p>Acionador com a condição Tipo customizado Igual a lead_form_submitted e ação Pixel Meta com o evento Lead. Nome e ID do pixel borrados.</p></div></div><figcaption>Acionador de evento personalizado</figcaption></figure></shot>
+
+<h2 id="acao-pixel">Ação: Pixel<a class="anchor" href="#acao-pixel" aria-label="Link para esta seção">#</a></h2>
+<table>
+	<thead><tr><th>Campo</th><th>Descrição</th></tr></thead>
+	<tbody>
+		<tr><td>Pixels</td><td>Um ou mais pixels que vão receber o evento.</td></tr>
+		<tr><td>Evento</td><td>Na Meta, o nome do evento padrão, como <code>PageView</code>, <code>InitiateCheckout</code> ou <code>Purchase</code>. No Google Ads, a <strong>Conversion Label</strong>. No TikTok e no Kwai, o evento da plataforma.</td></tr>
+		<tr><td>Parâmetros do evento</td><td>Valores fixos ou tokens, como <code>{utm_source}</code>, enviados junto com o evento.</td></tr>
+		<tr><td>Disparar via servidor (CAPI)</td><td>Envia pela API de Conversões. Recomendado.</td></tr>
+		<tr><td>Disparar via navegador</td><td>Dispara também no navegador. Só Meta e TikTok.</td></tr>
+	</tbody>
+</table>
+<figure class="shot shot-todo"><div class="shot-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><div><strong>Print pendente · <code>img/acionadores-acao-pixel.png</code></strong><p>Bloco Ação Pixel com um pixel Meta selecionado, Evento Purchase, um parâmetro de evento e os switches Disparar via servidor (ligado) e Disparar via navegador (desligado).</p></div></div><figcaption>Ação de pixel com evento e modo de disparo</figcaption></figure></shot>
+<div class="callout note"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><div><p>Em conversões, valor, moeda e dados do comprador são enviados automaticamente a partir do webhook da plataforma de venda.</p></div></div>
+
+<h2 id="acao-webhook">Ação: Webhook<a class="anchor" href="#acao-webhook" aria-label="Link para esta seção">#</a></h2>
+<p>Envia os dados do evento para uma URL sua, por exemplo um CRM, um bot de mensagens ou uma planilha.</p>
+<ul>
+	<li><strong>Método</strong>: <code>POST</code> (parâmetros em JSON) ou <code>GET</code> (parâmetros na query string).</li>
+	<li><strong>URL</strong> e <strong>Parâmetros</strong>: valores fixos ou tokens.</li>
+</ul>
+<p>Tokens disponíveis: <code>transaction_id</code>, <code>value</code>, <code>currency</code>, <code>visitor_id</code>, <code>email</code>, <code>phone</code>, <code>first_name</code>, <code>last_name</code>, <code>city</code>, <code>state</code>, <code>zip</code>, <code>country</code>, <code>utm_source</code>, <code>utm_medium</code>, <code>utm_campaign</code>, <code>utm_term</code>, <code>utm_content</code>, <code>sub1</code> a <code>sub8</code>, <code>network</code>, <code>url</code>, <code>referrer</code>, <code>type</code> e <code>custom_type</code>.</p>
+<div class="code"><div class="code-head"><span>Exemplo: avisar o CRM a cada venda</span></div><pre><code class="lang-json">{
+  &quot;email&quot;: &quot;{email}&quot;,
+  &quot;valor&quot;: &quot;{value}&quot;,
+  &quot;campanha&quot;: &quot;{utm_campaign}&quot;
+}</code></pre></div>
+
+<figure class="shot shot-todo"><div class="shot-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><div><strong>Print pendente · <code>img/acionadores-acao-webhook.png</code></strong><p>Bloco Ação Webhook com método POST, URL yourdomain.com/hook e parâmetros email, valor e campanha preenchidos com tokens.</p></div></div><figcaption>Ação de webhook</figcaption></figure></shot>
+
+<h2 id="exemplos">Exemplos<a class="anchor" href="#exemplos" aria-label="Link para esta seção">#</a></h2>
+<details class="acc"><summary>Enviar Purchase só de vendas vindas da Meta</summary><div class="acc-body">
+	<p>Condições: <strong>Tipo de evento</strong> igual a <code>conversion</code> e <strong>Rede</strong> igual a <code>facebook</code> (ou <code>instagram</code>). Ação: pixel Meta, evento <code>Purchase</code>.</p>
+</div></details>
+<details class="acc"><summary>Enviar um evento personalizado do script</summary><div class="acc-body">
+	<p>Condições: <strong>Tipo customizado</strong> igual a <code>lead_form_submitted</code>. Ação: pixel Meta, evento <code>Lead</code>.</p>
+</div></details>
+<details class="acc"><summary>Separar uma campanha</summary><div class="acc-body">
+	<p>Condições: <strong>Tipo de evento</strong> igual a <code>conversion</code> e <strong>UTM Campaign</strong> contém <code>black-friday</code>. Ação: webhook para o seu CRM.</p>
+</div></details>
+
+<h2 id="conferir-os-disparos">Conferir os disparos<a class="anchor" href="#conferir-os-disparos" aria-label="Link para esta seção">#</a></h2>
+<p>Cada envio fica registrado em <a href="/logs-de-acionadores">Logs › Acionadores</a>, com o status, o corpo enviado e a resposta da plataforma.</p>
+<div class="callout warning"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg><div><p>Se você também tem o pixel instalado no navegador pela própria plataforma, os eventos podem duplicar. Use o deduplicador da plataforma ou deixe o envio só pelo Trackup.</p></div></div>
+
+			<script>TU.pager();TU.footer()</script>
+			<noscript><p class="site-footer"><a href="/">Início</a> · <a href="/llms.txt">Índice completo</a> · <a href="/sitemap.xml">Mapa do site</a></p></noscript>
+		</article>
+	</main>
+	<aside class="toc"><div class="toc-title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg> Nesta página</div><ul><li class="lvl-2"><a href="#acionadores-criados-automaticamente">Acionadores criados automaticamente</a></li><li class="lvl-2"><a href="#criar-um-acionador">Criar um acionador</a></li><li class="lvl-2"><a href="#condicoes-extras">Condições extras</a></li><li class="lvl-2"><a href="#eventos-personalizados">Eventos personalizados</a></li><li class="lvl-2"><a href="#acao-pixel">Ação: Pixel</a></li><li class="lvl-2"><a href="#acao-webhook">Ação: Webhook</a></li><li class="lvl-2"><a href="#exemplos">Exemplos</a></li><li class="lvl-2"><a href="#conferir-os-disparos">Conferir os disparos</a></li></ul></aside>
+</div>
+<script>TU.end()</script>
+</body>
+</html>

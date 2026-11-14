@@ -1,0 +1,123 @@
+---
+title: Casos de uso para agentes
+sidebarTitle: Casos de uso
+icon: sparkles
+description: Fluxos prontos para registrar vendas, gerar relatórios, controlar campanhas e auditar tráfego pela API.
+---
+<p>Cada fluxo mostra as permissões, as chamadas em ordem e o que fazer com a resposta. Os exemplos usam <code>https://api.trackup.me/v1</code> e a chave em <code>$TRACKUP_API_KEY</code>. Antes, configure a chave como em <a href="/agentes-de-ia">Agentes de IA</a>.</p>
+<table>
+	<thead><tr><th>Fluxo</th><th>Permissões</th></tr></thead>
+	<tbody>
+		<tr><td><a href="#registrar-vendas-de-um-crm-ou-checkout">Registrar vendas de um CRM ou checkout</a></td><td><code>conversion.create</code></td></tr>
+		<tr><td><a href="#relatorio-diario">Relatório diário</a></td><td><code>project.list</code>, <code>analytics.read</code>, <code>conversion.list</code></td></tr>
+		<tr><td><a href="#controlar-campanhas-de-anuncios">Controlar campanhas de anúncios</a></td><td><code>ads-manager.read</code>, <code>ads-manager.update</code></td></tr>
+		<tr><td><a href="#auditar-trafego">Auditar tráfego</a></td><td><code>request.list</code>, <code>request-log.list</code>, <code>visitor.list</code>, <code>visitor.read</code></td></tr>
+	</tbody>
+</table>
+
+<h2>Registrar vendas de um CRM ou checkout</h2>
+<p>Cada venda confirmada no seu sistema vira uma conversão no Trackup, atribuída ao visitante certo.</p>
+<steps>
+	<step title="Guarde o visitante">
+		<p>Para atribuir a venda, envie o <code>visitorId</code> que o Trackup gerou quando a pessoa passou pela sua página. Guarde esse ID no CRM junto com o lead. Sem ele, envie o que tiver: <code>clickId</code>, UTMs ou <code>trafficSource</code>.</p>
+	</step>
+	<step title="Registre a conversão">
+		<code-block lang="bash">
+curl -X POST https://api.trackup.me/v1/conversions \
+  -H "Content-Type: application/json" \
+  -H "X-Api-Key: $TRACKUP_API_KEY" \
+  -d '{
+    "projectId": "PROJECT_ID",
+    "transactionId": "crm-98213",
+    "value": 497.00,
+    "currency": "BRL",
+    "paymentMethod": "pix",
+    "visitorId": "VISITOR_ID"
+  }'
+</code-block>
+		<p>Sempre envie <code>transactionId</code>. Se a chamada se repetir, o Trackup responde <code>409</code> e não duplica a venda.</p>
+	</step>
+	<step title="Registre reembolsos e chargebacks">
+		<p>Mesmo corpo e mesmo <code>transactionId</code>, em <code>POST /v1/refunds</code> ou <code>POST /v1/chargebacks</code>.</p>
+	</step>
+</steps>
+
+<h2>Relatório diário</h2>
+<steps>
+	<step title="Liste os projetos">
+		<code-block lang="bash">
+curl https://api.trackup.me/v1/projects -H "X-Api-Key: $TRACKUP_API_KEY"
+</code-block>
+	</step>
+	<step title="Busque a visão geral do dia">
+		<code-block lang="bash">
+curl "https://api.trackup.me/v1/projects/PROJECT_ID/analytics/overview?startDate=2026-11-11&endDate=2026-11-11&granularity=hour" \
+  -H "X-Api-Key: $TRACKUP_API_KEY"
+</code-block>
+		<p>Datas no formato <code>YYYY-MM-DD</code>, no fuso do time. A resposta traz requisições, visitantes únicos, conversões, receita, ticket médio e as séries ao longo do período.</p>
+	</step>
+	<step title="Liste as conversões">
+		<code-block lang="bash">
+curl "https://api.trackup.me/v1/projects/PROJECT_ID/conversions?startDate=2026-11-11&endDate=2026-11-11&limit=100" \
+  -H "X-Api-Key: $TRACKUP_API_KEY"
+</code-block>
+		<p>Use <code>page</code> para buscar as próximas páginas até somar <code>count</code>.</p>
+	</step>
+	<step title="Escreva o resumo">
+		<code-block lang="text">
+Loja · 11/11
+Visitantes únicos: 9.912 · Conversões: 143 · Receita: R$ 71.051,00
+Principal fonte: meta (61% da receita)
+</code-block>
+	</step>
+</steps>
+
+<h2>Controlar campanhas de anúncios</h2>
+<p>Pré-requisito: conta de anúncios conectada no <a href="/gerenciador-de-anuncios">Gerenciador de anúncios</a>. A conexão é feita por uma pessoa no painel; chaves de API não conectam contas.</p>
+<steps>
+	<step title="Descubra as contas">
+		<code-block lang="bash">
+curl https://api.trackup.me/v1/ads-manager/PROJECT_ID/accounts -H "X-Api-Key: $TRACKUP_API_KEY"
+</code-block>
+	</step>
+	<step title="Leia as campanhas">
+		<code-block lang="bash">
+curl "https://api.trackup.me/v1/ads-manager/PROJECT_ID/table?accountIds=ACCOUNT_ID&level=campaign&startDate=2026-11-11&endDate=2026-11-11" \
+  -H "X-Api-Key: $TRACKUP_API_KEY"
+</code-block>
+		<p><code>level</code> aceita <code>campaign</code>, <code>adset</code> ou <code>ad</code>. Cada linha traz investimento, vendas, receita, ROAS e CPA.</p>
+	</step>
+	<step title="Pause ou ajuste o orçamento">
+		<code-block lang="bash">
+curl -X PATCH https://api.trackup.me/v1/ads-manager/PROJECT_ID/entities/ENTITY_ID/status \
+  -H "Content-Type: application/json" \
+  -H "X-Api-Key: $TRACKUP_API_KEY" \
+  -d '{ "entityType": "campaign", "status": "PAUSED" }'
+</code-block>
+		<p>Para orçamento, use <code>/entities/ENTITY_ID/budget</code>. Veja os campos em <a href="/api/gerenciador-de-anuncios#updateadentitybudget">Atualizar orçamento</a>.</p>
+		<callout type="warning"><p>Pausar e mudar orçamento mexe em dinheiro real. Faça o agente pedir confirmação a uma pessoa, ou dê só <code>ads-manager.read</code>.</p></callout>
+	</step>
+</steps>
+
+<h2>Auditar tráfego</h2>
+<steps>
+	<step title="Filtre as requisições">
+		<code-block lang="bash">
+curl -G https://api.trackup.me/v1/projects/PROJECT_ID/requests \
+  -H "X-Api-Key: $TRACKUP_API_KEY" \
+  --data-urlencode "startDate=2026-11-11" \
+  --data-urlencode "endDate=2026-11-11" \
+  --data-urlencode 'filters=[{"field":"country","operator":"not_equals","value":"BR"}]'
+</code-block>
+	</step>
+	<step title="Veja os disparos de uma requisição">
+		<code-block lang="bash">
+curl https://api.trackup.me/v1/projects/PROJECT_ID/requests/REQUEST_ID/logs -H "X-Api-Key: $TRACKUP_API_KEY"
+</code-block>
+	</step>
+	<step title="Reconstrua a jornada do visitante">
+		<code-block lang="bash">
+curl https://api.trackup.me/v1/projects/PROJECT_ID/visitors/VISITOR_ID/events -H "X-Api-Key: $TRACKUP_API_KEY"
+</code-block>
+	</step>
+</steps>

@@ -1,0 +1,50 @@
+---
+title: Projetos
+icon: layers
+description: Um projeto reúne domínios, páginas, pixels, regras e relatórios de uma operação.
+---
+<p>Crie um projeto para cada produto, oferta ou cliente. Os dados de um projeto não se misturam com os de outro: cada um tem seus domínios, suas páginas, seus pixels e seus dashboards.</p>
+
+<p>Um projeto novo, sem dados, mostra o guia <strong>Crie seu primeiro projeto</strong> com quatro etapas: criar o projeto, conectar as fontes (pixels, fontes de tráfego e plataformas de venda), proteger as páginas (domínio próprio e filtro) e acompanhar os resultados.</p>
+
+<h2>Criar um projeto</h2>
+<steps>
+	<step title="Abra o seletor de projetos">
+		<p>No topo do menu lateral, clique no projeto atual e em <strong>Criar projeto</strong>. No primeiro acesso, use o botão do estado vazio.</p>
+		<shot src="img/projetos-seletor.png" caption="Seletor de projetos" todo="Menu lateral com o seletor de projetos aberto e o botão Criar projeto em destaque."></shot>
+	</step>
+	<step title="Preencha os campos">
+		<table>
+			<thead><tr><th>Campo</th><th>Descrição</th></tr></thead>
+			<tbody>
+				<tr><td>Nome</td><td>Como o projeto aparece no painel, por exemplo <code>Online Store</code>.</td></tr>
+				<tr><td>URL</td><td>Identificador inicial do projeto (slug), usado em links e scripts. Use letras minúsculas, números e hífen.</td></tr>
+				<tr><td>Moeda</td><td>Moeda dos relatórios. Vendas em outra moeda são convertidas pelo câmbio do dia nos webhooks. <strong>Não pode ser alterada depois.</strong></td></tr>
+			</tbody>
+		</table>
+	</step>
+	<step title="Salve">
+		<p>O projeto é criado com um domínio padrão do Trackup, que já serve páginas e links. Configure um <a href="/dominios">domínio próprio</a> antes de anunciar.</p>
+		<shot src="img/projetos-criar.png" caption="Diálogo Criar projeto" todo="Diálogo Criar projeto preenchido com Nome = Online Store, URL e Moeda = Real brasileiro (BRL), com o aviso de que a moeda não pode ser alterada visível."></shot>
+	</step>
+</steps>
+
+<h2>Configurações do projeto</h2>
+<p>Em <strong>Ajustes › Geral</strong> você encontra:</p>
+<table>
+	<thead><tr><th>Seção</th><th>O que faz</th></tr></thead>
+	<tbody>
+		<tr><td>Projeto</td><td>Altera o nome e a URL do projeto, usada em links e scripts.</td></tr>
+		<tr><td>Segurança › Domínios permitidos</td><td>Lista os sites autorizados a enviar eventos pelo <a href="/script">script</a>. <code>yourdomain.com</code> libera só o domínio raiz; <code>*.yourdomain.com</code>, só os subdomínios. Para liberar os dois, adicione as duas entradas. Vazia, libera todos.</td></tr>
+		<tr><td>Segurança › Snippet de rastreamento</td><td>Código para instalar em páginas fora do Trackup, com um snippet por domínio. Veja <a href="/script">Script de rastreamento</a>.</td></tr>
+		<tr><td>Excluir projeto</td><td>Remove o projeto e todos os dados dele.</td></tr>
+	</tbody>
+</table>
+<shot src="img/projeto-ajustes-geral.webp" caption="Ajustes › Geral"></shot>
+<callout type="danger"><p>Excluir um projeto apaga páginas, links, regras, logs e conversões de forma permanente. Não há como desfazer.</p></callout>
+
+<h2>Dashboard do projeto</h2>
+<p>A tela inicial do projeto é o dashboard. Ele mostra lucro (faturamento, despesas e ROAS), vendas do período atual contra o anterior, funil, status de pagamentos, acessos por origem, dispositivo e horário, e visitantes reais contra bots. Veja como montar o seu em <a href="/dashboards">Dashboards</a>.</p>
+
+<h2>Alternar entre projetos</h2>
+<p>Use o seletor no topo do menu lateral. Tudo que aparece no menu (dashboards, páginas, logs, integrações) se refere ao projeto selecionado.</p>

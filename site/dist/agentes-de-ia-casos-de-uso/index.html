@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Casos de uso para agentes | Trackup Docs</title>
+<meta name="description" content="Fluxos prontos para registrar vendas, gerar relatórios, controlar campanhas e auditar tráfego pela API.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://docs.trackup.me/agentes-de-ia-casos-de-uso">
+<link rel="alternate" hreflang="pt-BR" href="https://docs.trackup.me/agentes-de-ia-casos-de-uso">
+<link rel="alternate" type="text/markdown" title="Versão para IA (llms.txt)" href="/llms.txt">
+<meta property="og:site_name" content="Trackup Docs">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Casos de uso para agentes">
+<meta property="og:description" content="Fluxos prontos para registrar vendas, gerar relatórios, controlar campanhas e auditar tráfego pela API.">
+<meta property="og:url" content="https://docs.trackup.me/agentes-de-ia-casos-de-uso">
+<meta property="og:image" content="https://docs.trackup.me/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Trackup Docs">
+<meta property="article:modified_time" content="2026-11-14T05:43:30+00:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Casos de uso para agentes">
+<meta name="twitter:description" content="Fluxos prontos para registrar vendas, gerar relatórios, controlar campanhas e auditar tráfego pela API.">
+<meta name="twitter:image" content="https://docs.trackup.me/assets/og.jpg">
+<meta name="theme-color" content="#4f39f6">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<script>(function(){try{var t=localStorage.getItem('tu-theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<link rel="stylesheet" href="/assets/style.css">
+<script src="/assets/shell.js"></script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","headline":"Casos de uso para agentes","description":"Fluxos prontos para registrar vendas, gerar relatórios, controlar campanhas e auditar tráfego pela API.","url":"https://docs.trackup.me/agentes-de-ia-casos-de-uso","inLanguage":"pt-BR","dateModified":"2026-11-14T05:43:30+00:00","image":"https://docs.trackup.me/assets/og.jpg","isPartOf":{"@type":"WebSite","name":"Trackup Docs","url":"https://docs.trackup.me/"},"publisher":{"@type":"Organization","name":"Trackup","url":"https://trackup.me","logo":"https://docs.trackup.me/assets/favicon.svg"},"about":{"@type":"SoftwareApplication","name":"Trackup","applicationCategory":"BusinessApplication","url":"https://trackup.me"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Trackup Docs","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":2,"name":"IA e MCP","item":"https://docs.trackup.me/conectar-mcp"},{"@type":"ListItem","position":3,"name":"Casos de uso para agentes","item":"https://docs.trackup.me/agentes-de-ia-casos-de-uso"}]}]</script>
+</head>
+<body>
+<script>TU.header()</script>
+<div class="layout">
+	<aside class="sidebar" aria-label="Navegação"><script>TU.sidebar()</script></aside>
+	<main>
+		<article class="content">
+			<nav class="eyebrow" aria-label="Você está em"><a href="/conectar-mcp">IA e MCP</a><span aria-hidden="true"> › </span><span>Conecte sua IA</span></nav>
+			<h1 class="page-title">Casos de uso para agentes</h1>
+			<p class="page-desc">Fluxos prontos para registrar vendas, gerar relatórios, controlar campanhas e auditar tráfego pela API.</p>
+			<script>TU.actions()</script>
+			<p>Cada fluxo mostra as permissões, as chamadas em ordem e o que fazer com a resposta. Os exemplos usam <code>https://api.trackup.me/v1</code> e a chave em <code>$TRACKUP_API_KEY</code>. Antes, configure a chave como em <a href="/agentes-de-ia">Agentes de IA</a>.</p>
+<table>
+	<thead><tr><th>Fluxo</th><th>Permissões</th></tr></thead>
+	<tbody>
+		<tr><td><a href="#registrar-vendas-de-um-crm-ou-checkout">Registrar vendas de um CRM ou checkout</a></td><td><code>conversion.create</code></td></tr>
+		<tr><td><a href="#relatorio-diario">Relatório diário</a></td><td><code>project.list</code>, <code>analytics.read</code>, <code>conversion.list</code></td></tr>
+		<tr><td><a href="#controlar-campanhas-de-anuncios">Controlar campanhas de anúncios</a></td><td><code>ads-manager.read</code>, <code>ads-manager.update</code></td></tr>
+		<tr><td><a href="#auditar-trafego">Auditar tráfego</a></td><td><code>request.list</code>, <code>request-log.list</code>, <code>visitor.list</code>, <code>visitor.read</code></td></tr>
+	</tbody>
+</table>
+
+<h2 id="registrar-vendas-de-um-crm-ou-checkout">Registrar vendas de um CRM ou checkout<a class="anchor" href="#registrar-vendas-de-um-crm-ou-checkout" aria-label="Link para esta seção">#</a></h2>
+<p>Cada venda confirmada no seu sistema vira uma conversão no Trackup, atribuída ao visitante certo.</p>
+<ol class="steps">
+	<li><span class="step-title">Guarde o visitante</span>
+		<p>Para atribuir a venda, envie o <code>visitorId</code> que o Trackup gerou quando a pessoa passou pela sua página. Guarde esse ID no CRM junto com o lead. Sem ele, envie o que tiver: <code>clickId</code>, UTMs ou <code>trafficSource</code>.</p>
+	</li>
+	<li><span class="step-title">Registre a conversão</span>
+		<div class="code"><pre><code class="lang-bash">curl -X POST https://api.trackup.me/v1/conversions \
+  -H &quot;Content-Type: application/json&quot; \
+  -H &quot;X-Api-Key: $TRACKUP_API_KEY&quot; \
+  -d '{
+    &quot;projectId&quot;: &quot;PROJECT_ID&quot;,
+    &quot;transactionId&quot;: &quot;crm-98213&quot;,
+    &quot;value&quot;: 497.00,
+    &quot;currency&quot;: &quot;BRL&quot;,
+    &quot;paymentMethod&quot;: &quot;pix&quot;,
+    &quot;visitorId&quot;: &quot;VISITOR_ID&quot;
+  }'</code></pre></div>
+		<p>Sempre envie <code>transactionId</code>. Se a chamada se repetir, o Trackup responde <code>409</code> e não duplica a venda.</p>
+	</li>
+	<li><span class="step-title">Registre reembolsos e chargebacks</span>
+		<p>Mesmo corpo e mesmo <code>transactionId</code>, em <code>POST /v1/refunds</code> ou <code>POST /v1/chargebacks</code>.</p>
+	</li>
+</ol>
+
+<h2 id="relatorio-diario">Relatório diário<a class="anchor" href="#relatorio-diario" aria-label="Link para esta seção">#</a></h2>
+<ol class="steps">
+	<li><span class="step-title">Liste os projetos</span>
+		<div class="code"><pre><code class="lang-bash">curl https://api.trackup.me/v1/projects -H &quot;X-Api-Key: $TRACKUP_API_KEY&quot;</code></pre></div>
+	</li>
+	<li><span class="step-title">Busque a visão geral do dia</span>
+		<div class="code"><pre><code class="lang-bash">curl &quot;https://api.trackup.me/v1/projects/PROJECT_ID/analytics/overview?startDate=2026-11-11&amp;endDate=2026-11-11&amp;granularity=hour&quot; \
+  -H &quot;X-Api-Key: $TRACKUP_API_KEY&quot;</code></pre></div>
+		<p>Datas no formato <code>YYYY-MM-DD</code>, no fuso do time. A resposta traz requisições, visitantes únicos, conversões, receita, ticket médio e as séries ao longo do período.</p>
+	</li>
+	<li><span class="step-title">Liste as conversões</span>
+		<div class="code"><pre><code class="lang-bash">curl &quot;https://api.trackup.me/v1/projects/PROJECT_ID/conversions?startDate=2026-11-11&amp;endDate=2026-11-11&amp;limit=100&quot; \
+  -H &quot;X-Api-Key: $TRACKUP_API_KEY&quot;</code></pre></div>
+		<p>Use <code>page</code> para buscar as próximas páginas até somar <code>count</code>.</p>
+	</li>
+	<li><span class="step-title">Escreva o resumo</span>
+		<div class="code"><pre><code class="lang-text">Loja · 11/11
+Visitantes únicos: 9.912 · Conversões: 143 · Receita: R$ 71.051,00
+Principal fonte: meta (61% da receita)</code></pre></div>
+	</li>
+</ol>
+
+<h2 id="controlar-campanhas-de-anuncios">Controlar campanhas de anúncios<a class="anchor" href="#controlar-campanhas-de-anuncios" aria-label="Link para esta seção">#</a></h2>
+<p>Pré-requisito: conta de anúncios conectada no <a href="/gerenciador-de-anuncios">Gerenciador de anúncios</a>. A conexão é feita por uma pessoa no painel; chaves de API não conectam contas.</p>
+<ol class="steps">
+	<li><span class="step-title">Descubra as contas</span>
+		<div class="code"><pre><code class="lang-bash">curl https://api.trackup.me/v1/ads-manager/PROJECT_ID/accounts -H &quot;X-Api-Key: $TRACKUP_API_KEY&quot;</code></pre></div>
+	</li>
+	<li><span class="step-title">Leia as campanhas</span>
+		<div class="code"><pre><code class="lang-bash">curl &quot;https://api.trackup.me/v1/ads-manager/PROJECT_ID/table?accountIds=ACCOUNT_ID&amp;level=campaign&amp;startDate=2026-11-11&amp;endDate=2026-11-11&quot; \
+  -H &quot;X-Api-Key: $TRACKUP_API_KEY&quot;</code></pre></div>
+		<p><code>level</code> aceita <code>campaign</code>, <code>adset</code> ou <code>ad</code>. Cada linha traz investimento, vendas, receita, ROAS e CPA.</p>
+	</li>
+	<li><span class="step-title">Pause ou ajuste o orçamento</span>
+		<div class="code"><pre><code class="lang-bash">curl -X PATCH https://api.trackup.me/v1/ads-manager/PROJECT_ID/entities/ENTITY_ID/status \
+  -H &quot;Content-Type: application/json&quot; \
+  -H &quot;X-Api-Key: $TRACKUP_API_KEY&quot; \
+  -d '{ &quot;entityType&quot;: &quot;campaign&quot;, &quot;status&quot;: &quot;PAUSED&quot; }'</code></pre></div>
+		<p>Para orçamento, use <code>/entities/ENTITY_ID/budget</code>. Veja os campos em <a href="/api/gerenciador-de-anuncios#updateadentitybudget">Atualizar orçamento</a>.</p>
+		<div class="callout warning"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg><div><p>Pausar e mudar orçamento mexe em dinheiro real. Faça o agente pedir confirmação a uma pessoa, ou dê só <code>ads-manager.read</code>.</p></div></div>
+	</li>
+</ol>
+
+<h2 id="auditar-trafego">Auditar tráfego<a class="anchor" href="#auditar-trafego" aria-label="Link para esta seção">#</a></h2>
+<ol class="steps">
+	<li><span class="step-title">Filtre as requisições</span>
+		<div class="code"><pre><code class="lang-bash">curl -G https://api.trackup.me/v1/projects/PROJECT_ID/requests \
+  -H &quot;X-Api-Key: $TRACKUP_API_KEY&quot; \
+  --data-urlencode &quot;startDate=2026-11-11&quot; \
+  --data-urlencode &quot;endDate=2026-11-11&quot; \
+  --data-urlencode 'filters=[{&quot;field&quot;:&quot;country&quot;,&quot;operator&quot;:&quot;not_equals&quot;,&quot;value&quot;:&quot;BR&quot;}]'</code></pre></div>
+	</li>
+	<li><span class="step-title">Veja os disparos de uma requisição</span>
+		<div class="code"><pre><code class="lang-bash">curl https://api.trackup.me/v1/projects/PROJECT_ID/requests/REQUEST_ID/logs -H &quot;X-Api-Key: $TRACKUP_API_KEY&quot;</code></pre></div>
+	</li>
+	<li><span class="step-title">Reconstrua a jornada do visitante</span>
+		<div class="code"><pre><code class="lang-bash">curl https://api.trackup.me/v1/projects/PROJECT_ID/visitors/VISITOR_ID/events -H &quot;X-Api-Key: $TRACKUP_API_KEY&quot;</code></pre></div>
+	</li>
+</ol>
+
+			<script>TU.pager();TU.footer()</script>
+			<noscript><p class="site-footer"><a href="/">Início</a> · <a href="/llms.txt">Índice completo</a> · <a href="/sitemap.xml">Mapa do site</a></p></noscript>
+		</article>
+	</main>
+	<aside class="toc"><div class="toc-title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg> Nesta página</div><ul><li class="lvl-2"><a href="#registrar-vendas-de-um-crm-ou-checkout">Registrar vendas de um CRM ou checkout</a></li><li class="lvl-2"><a href="#relatorio-diario">Relatório diário</a></li><li class="lvl-2"><a href="#controlar-campanhas-de-anuncios">Controlar campanhas de anúncios</a></li><li class="lvl-2"><a href="#auditar-trafego">Auditar tráfego</a></li></ul></aside>
+</div>
+<script>TU.end()</script>
+</body>
+</html>

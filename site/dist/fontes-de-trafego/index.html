@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fontes de tráfego | Trackup Docs</title>
+<meta name="description" content="Gere os parâmetros de URL que identificam campanha, conjunto e anúncio de cada clique.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://docs.trackup.me/fontes-de-trafego">
+<link rel="alternate" hreflang="pt-BR" href="https://docs.trackup.me/fontes-de-trafego">
+<link rel="alternate" type="text/markdown" title="Versão para IA (llms.txt)" href="/llms.txt">
+<meta property="og:site_name" content="Trackup Docs">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fontes de tráfego">
+<meta property="og:description" content="Gere os parâmetros de URL que identificam campanha, conjunto e anúncio de cada clique.">
+<meta property="og:url" content="https://docs.trackup.me/fontes-de-trafego">
+<meta property="og:image" content="https://docs.trackup.me/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Trackup Docs">
+<meta property="article:modified_time" content="2026-11-14T05:44:14+00:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fontes de tráfego">
+<meta name="twitter:description" content="Gere os parâmetros de URL que identificam campanha, conjunto e anúncio de cada clique.">
+<meta name="twitter:image" content="https://docs.trackup.me/assets/og.jpg">
+<meta name="theme-color" content="#4f39f6">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<script>(function(){try{var t=localStorage.getItem('tu-theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<link rel="stylesheet" href="/assets/style.css">
+<script src="/assets/shell.js"></script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","headline":"Fontes de tráfego","description":"Gere os parâmetros de URL que identificam campanha, conjunto e anúncio de cada clique.","url":"https://docs.trackup.me/fontes-de-trafego","inLanguage":"pt-BR","dateModified":"2026-11-14T05:44:14+00:00","image":"https://docs.trackup.me/assets/og.jpg","isPartOf":{"@type":"WebSite","name":"Trackup Docs","url":"https://docs.trackup.me/"},"publisher":{"@type":"Organization","name":"Trackup","url":"https://trackup.me","logo":"https://docs.trackup.me/assets/favicon.svg"},"about":{"@type":"SoftwareApplication","name":"Trackup","applicationCategory":"BusinessApplication","url":"https://trackup.me"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Trackup Docs","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":2,"name":"Guias","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":3,"name":"Fontes de tráfego","item":"https://docs.trackup.me/fontes-de-trafego"}]}]</script>
+</head>
+<body>
+<script>TU.header()</script>
+<div class="layout">
+	<aside class="sidebar" aria-label="Navegação"><script>TU.sidebar()</script></aside>
+	<main>
+		<article class="content">
+			<nav class="eyebrow" aria-label="Você está em"><a href="/">Guias</a><span aria-hidden="true"> › </span><span>Configuração</span></nav>
+			<h1 class="page-title">Fontes de tráfego</h1>
+			<p class="page-desc">Gere os parâmetros de URL que identificam campanha, conjunto e anúncio de cada clique.</p>
+			<script>TU.actions()</script>
+			<div class="callout tip"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.1 14c.2-1 .7-1.7 1.5-2.5A6 6 0 1 0 6 8c0 1.4.4 2.6 1.4 3.5.8.8 1.3 1.5 1.5 2.5"/></svg><div><p><strong>Configure pela sua IA.</strong> Conecte seu assistente pelo <a href="/conectar-mcp">MCP</a> e peça: <em>"Crie uma fonte de tráfego Meta com o template de UTM padrão."</em></p></div></div>
+<p>Uma fonte de tráfego representa uma plataforma onde você anuncia. Ela gera o bloco de <strong>Parâmetros de URL</strong> que você cola no anúncio. Esses parâmetros usam as macros da própria plataforma para preencher, a cada clique, o nome e o ID da campanha, do conjunto e do anúncio. É isso que permite ao Trackup ligar cada venda ao anúncio de origem.</p>
+
+<h2 id="plataformas-disponiveis">Plataformas disponíveis<a class="anchor" href="#plataformas-disponiveis" aria-label="Link para esta seção">#</a></h2>
+<p>Meta, Google, TikTok e Kwai. Crie uma fonte para cada plataforma em que você anuncia. Cada tipo já vem com um template de UTM padrão.</p>
+
+<h2 id="criar-uma-fonte">Criar uma fonte<a class="anchor" href="#criar-uma-fonte" aria-label="Link para esta seção">#</a></h2>
+<ol class="steps">
+	<li><span class="step-title">Abra Fontes de tráfego</span>
+		<p>Vá em <strong>Integração › Fontes de tráfego</strong> e clique em <strong>Adicionar fonte</strong>.</p>
+	</li>
+	<li><span class="step-title">Escolha a plataforma</span>
+		<p>Dê um nome, como <code>Meta Ads</code>, e selecione a plataforma. O template padrão é preenchido sozinho.</p>
+		<figure class="shot shot-todo"><div class="shot-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><div><strong>Print pendente · <code>img/fontes-adicionar.png</code></strong><p>Diálogo Adicionar fonte com o nome Meta Ads e o tipo Meta selecionado.</p></div></div><figcaption>Diálogo de nova fonte de tráfego</figcaption></figure></shot>
+	</li>
+	<li><span class="step-title">Revise os parâmetros</span>
+		<p>Confira os pares chave e valor do template. Para alterar, use <strong>Personalizar parâmetros</strong> (veja abaixo).</p>
+	</li>
+	<li><span class="step-title">Salve e copie os parâmetros</span>
+		<p>Salve e copie o bloco <strong>Parâmetros de URL</strong>.</p>
+		<figure class="shot shot-todo"><div class="shot-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><div><strong>Print pendente · <code>img/fontes-parametros.png</code></strong><p>Fonte Meta salva com o bloco Parâmetros de URL e o botão de copiar em destaque.</p></div></div><figcaption>Parâmetros de URL de uma fonte Meta</figcaption></figure></shot>
+	</li>
+</ol>
+
+<h2 id="usar-no-anuncio">Usar no anúncio<a class="anchor" href="#usar-no-anuncio" aria-label="Link para esta seção">#</a></h2>
+<p>A URL de destino do anúncio é a URL da página (copiada da lista de <a href="/paginas">páginas</a>) seguida dos parâmetros da fonte:</p>
+<div class="code"><div class="code-head"><span>URL do anúncio</span></div><pre><code>https://go.yourdomain.com/offer?utm_source=…&amp;utm_campaign=…&amp;utm_content=…</code></pre></div>
+<div class="ctabs">
+	<div class="ctabs-panel" data-title="Meta">
+		<p>No nível do anúncio, cole o link da página em <strong>URL do site</strong> e o bloco em <strong>Parâmetros de URL</strong>.</p>
+	</div>
+	<div class="ctabs-panel" data-title="Google">
+		<p>Cole o bloco no <strong>Modelo de rastreamento</strong> ou no <strong>Sufixo do URL final</strong> da campanha.</p>
+	</div>
+	<div class="ctabs-panel" data-title="TikTok">
+		<p>No anúncio, cole a URL completa (link + parâmetros) em <strong>URL de destino</strong>.</p>
+	</div>
+	<div class="ctabs-panel" data-title="Kwai">
+		<p>No anúncio, cole a URL completa (link + parâmetros) no campo de URL de destino.</p>
+	</div>
+</div>
+<div class="callout tip"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.1 14c.2-1 .7-1.7 1.5-2.5A6 6 0 1 0 6 8c0 1.4.4 2.6 1.4 3.5.8.8 1.3 1.5 1.5 2.5"/></svg><div><p>O Trackup também reconhece os Click IDs das plataformas (<code>fbclid</code>, <code>gclid</code>, <code>ttclid</code>, <code>click_id</code>) e identifica a origem pelo referrer, mesmo sem UTMs.</p></div></div>
+
+<h2 id="personalizar-parametros">Personalizar parâmetros<a class="anchor" href="#personalizar-parametros" aria-label="Link para esta seção">#</a></h2>
+<p>Clique em <strong>Personalizar parâmetros</strong> para abrir duas áreas:</p>
+<ul>
+	<li><strong>Parâmetros de UTM</strong>: pares de chave e valor. O valor pode ser um texto fixo ou um token da plataforma, como <code>{{campaign.id}}</code>. Use <strong>Inserir token</strong> para ver os tokens disponíveis e <strong>Adicionar parâmetro</strong> para incluir mais um par.</li>
+	<li><strong>Parâmetros de URL</strong>: o resultado final, pronto para copiar e colar na URL da campanha na plataforma de anúncios.</li>
+</ul>
+<p>Os valores ficam disponíveis nos relatórios, nos <a href="/acionadores">acionadores</a> (como <code>utm_source</code>, <code>sub1</code> etc.) e são repassados ao checkout.</p>
+
+<div class="callout note"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><div><p>Links do tipo <em>Anúncio</em>, criados antes dos testes A/B, continuam funcionando mas não podem mais ser criados. Hoje a URL do anúncio é sempre a URL da página com os parâmetros da fonte.</p></div></div>
+
+			<script>TU.pager();TU.footer()</script>
+			<noscript><p class="site-footer"><a href="/">Início</a> · <a href="/llms.txt">Índice completo</a> · <a href="/sitemap.xml">Mapa do site</a></p></noscript>
+		</article>
+	</main>
+	<aside class="toc"><div class="toc-title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg> Nesta página</div><ul><li class="lvl-2"><a href="#plataformas-disponiveis">Plataformas disponíveis</a></li><li class="lvl-2"><a href="#criar-uma-fonte">Criar uma fonte</a></li><li class="lvl-2"><a href="#usar-no-anuncio">Usar no anúncio</a></li><li class="lvl-2"><a href="#personalizar-parametros">Personalizar parâmetros</a></li></ul></aside>
+</div>
+<script>TU.end()</script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DigiPag | Trackup Docs</title>
+<meta name="description" content="Receba vendas, reembolsos e chargebacks da DigiPag no Trackup, atribuídos ao anúncio de origem.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://docs.trackup.me/digipag">
+<link rel="alternate" hreflang="pt-BR" href="https://docs.trackup.me/digipag">
+<link rel="alternate" type="text/markdown" title="Versão para IA (llms.txt)" href="/llms.txt">
+<meta property="og:site_name" content="Trackup Docs">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DigiPag">
+<meta property="og:description" content="Receba vendas, reembolsos e chargebacks da DigiPag no Trackup, atribuídos ao anúncio de origem.">
+<meta property="og:url" content="https://docs.trackup.me/digipag">
+<meta property="og:image" content="https://docs.trackup.me/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Trackup Docs">
+<meta property="article:modified_time" content="2026-11-12T20:34:17+00:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="DigiPag">
+<meta name="twitter:description" content="Receba vendas, reembolsos e chargebacks da DigiPag no Trackup, atribuídos ao anúncio de origem.">
+<meta name="twitter:image" content="https://docs.trackup.me/assets/og.jpg">
+<meta name="theme-color" content="#4f39f6">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<script>(function(){try{var t=localStorage.getItem('tu-theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<link rel="stylesheet" href="/assets/style.css">
+<script src="/assets/shell.js"></script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","headline":"DigiPag","description":"Receba vendas, reembolsos e chargebacks da DigiPag no Trackup, atribuídos ao anúncio de origem.","url":"https://docs.trackup.me/digipag","inLanguage":"pt-BR","dateModified":"2026-11-12T20:34:17+00:00","image":"https://docs.trackup.me/assets/og.jpg","isPartOf":{"@type":"WebSite","name":"Trackup Docs","url":"https://docs.trackup.me/"},"publisher":{"@type":"Organization","name":"Trackup","url":"https://trackup.me","logo":"https://docs.trackup.me/assets/favicon.svg"},"about":{"@type":"SoftwareApplication","name":"Trackup","applicationCategory":"BusinessApplication","url":"https://trackup.me"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Trackup Docs","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":2,"name":"Integrações","item":"https://docs.trackup.me/integracoes"},{"@type":"ListItem","position":3,"name":"DigiPag","item":"https://docs.trackup.me/digipag"}]}]</script>
+</head>
+<body>
+<script>TU.header()</script>
+<div class="layout">
+	<aside class="sidebar" aria-label="Navegação"><script>TU.sidebar()</script></aside>
+	<main>
+		<article class="content">
+			<nav class="eyebrow" aria-label="Você está em"><a href="/integracoes">Integrações</a><span aria-hidden="true"> › </span><span>Plataformas de venda</span></nav>
+			<h1 class="page-title">DigiPag</h1>
+			<p class="page-desc">Receba vendas, reembolsos e chargebacks da DigiPag no Trackup, atribuídos ao anúncio de origem.</p>
+			<script>TU.actions()</script>
+			<p>A integração tem duas partes: o Trackup envia o ID do clique para o checkout da DigiPag, e a DigiPag devolve esse ID no webhook de cada venda.</p>
+<h2 id="antes-de-comecar">Antes de começar<a class="anchor" href="#antes-de-comecar" aria-label="Link para esta seção">#</a></h2><ul><li>Um projeto com <a href="/dominios">domínio primário</a> configurado. A URL do webhook usa esse domínio.</li><li>Acesso de administrador à sua conta na DigiPag.</li></ul>
+<h2 id="1-crie-a-plataforma-no-trackup">1. Crie a plataforma no Trackup<a class="anchor" href="#1-crie-a-plataforma-no-trackup" aria-label="Link para esta seção">#</a></h2><ol class="steps">
+<li><span class="step-title">Adicione a plataforma</span><p>Vá em <strong>Integração › Plataformas de vendas</strong>, clique em <strong>Adicionar plataforma</strong> e escolha <strong>DigiPag</strong>.</p></li>
+<li><span class="step-title">Confira os parâmetros</span><p>O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em <code>src</code> e as UTMs vão junto. Só mude se a DigiPag pedir outro nome de parâmetro.</p></li>
+<li><span class="step-title">Copie a URL do webhook</span><p>Salve. Na lista de plataformas, copie a <strong>URL</strong> da DigiPag.</p><figure class="shot shot-todo"><div class="shot-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><div><strong>Print pendente · <code>img/plataforma-url-copiar.png</code></strong><p>Integração › Plataformas de vendas com a plataforma DigiPag cadastrada e o botão Copiar URL em destaque. Parte do código da URL borrada.</p></div></div><figcaption>URL do webhook na lista de plataformas</figcaption></figure></shot></li>
+</ol>
+<h2 id="2-cadastre-o-webhook-na-digipag">2. Cadastre o webhook na DigiPag<a class="anchor" href="#2-cadastre-o-webhook-na-digipag" aria-label="Link para esta seção">#</a></h2>
+<ol>
+<li>Integrações/Webhooks</li>
+<li>Adicionar</li>
+<li>Cole a URL do Trackup</li>
+<li>Selecione os Produtos</li>
+<li>Marque todos métodos de Pagamento</li>
+<li>Marque os Status de Pagamento (Pago, Reembolsado, Chargeback)</li>
+<li>Salve</li>
+</ol>
+<figure class="shot"><img src="../img/plataformas/digipag-1.webp" alt="Configuração no painel da DigiPag" loading="lazy"><figcaption>Configuração no painel da DigiPag</figcaption></figure></shot>
+<h2 id="3-teste">3. Teste<a class="anchor" href="#3-teste" aria-label="Link para esta seção">#</a></h2>
+<p>Acesse sua landing page por um link do Trackup, clique no botão de compra e faça uma compra de teste. A venda deve aparecer em <strong>Logs › Conversões</strong> com a campanha preenchida.</p>
+<div class="callout warning"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg><div><p>Se a venda aparecer como <strong>Click ID ausente</strong>, o botão da página não está apontando para o link da <a href="/ofertas">oferta</a> no Trackup, ou o checkout não está devolvendo o parâmetro do clique.</p></div></div>
+<p>Não achou sua plataforma? Use o <a href="/webhook-generico">webhook genérico</a>.</p>
+
+			<script>TU.pager();TU.footer()</script>
+			<noscript><p class="site-footer"><a href="/">Início</a> · <a href="/llms.txt">Índice completo</a> · <a href="/sitemap.xml">Mapa do site</a></p></noscript>
+		</article>
+	</main>
+	<aside class="toc"><div class="toc-title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg> Nesta página</div><ul><li class="lvl-2"><a href="#antes-de-comecar">Antes de começar</a></li><li class="lvl-2"><a href="#1-crie-a-plataforma-no-trackup">1. Crie a plataforma no Trackup</a></li><li class="lvl-2"><a href="#2-cadastre-o-webhook-na-digipag">2. Cadastre o webhook na DigiPag</a></li><li class="lvl-2"><a href="#3-teste">3. Teste</a></li></ul></aside>
+</div>
+<script>TU.end()</script>
+</body>
+</html>

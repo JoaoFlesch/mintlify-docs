@@ -1,0 +1,28 @@
+---
+title: Autenticação
+icon: key
+description: Autentique as requisições com uma chave de API do time.
+---
+<p>Toda requisição precisa do header <code>X-Api-Key</code> com uma <a href="/chaves-de-api">chave de API</a>.</p>
+<code-block lang="bash">
+curl https://api.trackup.me/v1/projects \
+  -H "X-Api-Key: $TRACKUP_API_KEY"
+</code-block>
+
+<h2>Time</h2>
+<p>Cada chave pertence a um time. Não é preciso enviar <code>X-Team-Id</code>. Se enviar, ele precisa ser o time da chave.</p>
+
+<h2>Permissões</h2>
+<p>Cada endpoint exige uma permissão, indicada na página dele, no formato <code>recurso.ação</code>, como <code>page.create</code> ou <code>conversion.list</code>. As ações são <code>list</code>, <code>read</code>, <code>create</code>, <code>update</code> e <code>delete</code>.</p>
+<ul>
+	<li>A chave só faz o que quem a criou pode fazer no time. Se essa pessoa perder a permissão ou sair do time, a chave perde junto.</li>
+	<li>As permissões de ingestão <code>visitor.create</code>, <code>conversion.create</code> e <code>request.create</code> são exclusivas de chaves e não dependem das permissões de quem criou.</li>
+</ul>
+
+<h2>Projetos</h2>
+<p>Uma chave acessa todos os projetos do time ou só os escolhidos na criação. Pedidos a um projeto fora da lista respondem <code>404</code>.</p>
+
+<h2>Validade e revogação</h2>
+<p>Depois da data de validade, ou depois de revogada, a chave responde <code>403</code>.</p>
+
+<callout type="warning"><p>Use a chave só no servidor. Nunca coloque a chave em código que roda no navegador, em aplicativos ou em repositórios.</p></callout>

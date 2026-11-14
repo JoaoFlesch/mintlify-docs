@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Script de rastreamento | Trackup Docs</title>
+<meta name="description" content="Rastreie páginas hospedadas fora do Trackup, identifique visitantes e envie eventos customizados.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://docs.trackup.me/script">
+<link rel="alternate" hreflang="pt-BR" href="https://docs.trackup.me/script">
+<link rel="alternate" type="text/markdown" title="Versão para IA (llms.txt)" href="/llms.txt">
+<meta property="og:site_name" content="Trackup Docs">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Script de rastreamento">
+<meta property="og:description" content="Rastreie páginas hospedadas fora do Trackup, identifique visitantes e envie eventos customizados.">
+<meta property="og:url" content="https://docs.trackup.me/script">
+<meta property="og:image" content="https://docs.trackup.me/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Trackup Docs">
+<meta property="article:modified_time" content="2026-11-14T05:44:14+00:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Script de rastreamento">
+<meta name="twitter:description" content="Rastreie páginas hospedadas fora do Trackup, identifique visitantes e envie eventos customizados.">
+<meta name="twitter:image" content="https://docs.trackup.me/assets/og.jpg">
+<meta name="theme-color" content="#4f39f6">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<script>(function(){try{var t=localStorage.getItem('tu-theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<link rel="stylesheet" href="/assets/style.css">
+<script src="/assets/shell.js"></script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","headline":"Script de rastreamento","description":"Rastreie páginas hospedadas fora do Trackup, identifique visitantes e envie eventos customizados.","url":"https://docs.trackup.me/script","inLanguage":"pt-BR","dateModified":"2026-11-14T05:44:14+00:00","image":"https://docs.trackup.me/assets/og.jpg","isPartOf":{"@type":"WebSite","name":"Trackup Docs","url":"https://docs.trackup.me/"},"publisher":{"@type":"Organization","name":"Trackup","url":"https://trackup.me","logo":"https://docs.trackup.me/assets/favicon.svg"},"about":{"@type":"SoftwareApplication","name":"Trackup","applicationCategory":"BusinessApplication","url":"https://trackup.me"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Trackup Docs","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":2,"name":"Guias","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":3,"name":"Script de rastreamento","item":"https://docs.trackup.me/script"}]}]</script>
+</head>
+<body>
+<script>TU.header()</script>
+<div class="layout">
+	<aside class="sidebar" aria-label="Navegação"><script>TU.sidebar()</script></aside>
+	<main>
+		<article class="content">
+			<nav class="eyebrow" aria-label="Você está em"><a href="/">Guias</a><span aria-hidden="true"> › </span><span>Configuração</span></nav>
+			<h1 class="page-title">Script de rastreamento</h1>
+			<p class="page-desc">Rastreie páginas hospedadas fora do Trackup, identifique visitantes e envie eventos customizados.</p>
+			<script>TU.actions()</script>
+			<p>Páginas criadas no Trackup já são rastreadas. Instale o script quando a página estiver em outro servidor (CMS, loja virtual ou o seu próprio site) ou quando quiser enviar eventos além do <code>page_view</code>.</p>
+
+<h2 id="instalacao">Instalação<a class="anchor" href="#instalacao" aria-label="Link para esta seção">#</a></h2>
+<ol class="steps">
+	<li><span class="step-title">Copie o snippet do projeto</span>
+		<p>No painel, vá em <strong>Ajustes › Geral</strong> e, na seção <strong>Segurança</strong>, escolha o <strong>Domínio</strong> e copie o <strong>Snippet de rastreamento</strong>. Ele já vem com o domínio e o ID do seu projeto.</p>
+		<figure class="shot shot-todo"><div class="shot-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><div><strong>Print pendente · <code>img/script-snippet.png</code></strong><p>Tela Ajustes › Geral rolada até a seção Segurança, com Domínios permitidos e o bloco Snippet de rastreamento com o botão Copiar. ID do projeto borrado.</p></div></div><figcaption>Snippet de rastreamento em Ajustes › Geral</figcaption></figure></shot>
+	</li>
+	<li><span class="step-title">Cole antes do fechamento do head</span>
+		<p>Cole o snippet antes de <code>&lt;/head&gt;</code> em todas as páginas que você quer rastrear. Em CMS e construtores, use o campo de código do cabeçalho (header).</p>
+		<div class="code"><div class="code-head"><span>index.html</span></div><pre><code class="lang-html">&lt;script&gt;
+!function(t,r,a,c,k,u,p){
+t[k]=t[k]||function(){(t[k].q=t[k].q||[]).push(arguments)};
+u=r.createElement(a),a=r.getElementsByTagName(a)[0];
+u.async=!0;u.src=c;a.parentNode.insertBefore(u,a);}(window,document,
+'script','https://{hostname}/__t/e.js','trackup');
+trackup('init','{projectId}');
+trackup('track','page_view');
+&lt;/script&gt;
+		</code></pre></div>
+	</li>
+	<li><span class="step-title">Libere o domínio do site</span>
+		<p>Ainda em <strong>Ajustes › Geral › Segurança</strong>, adicione o domínio do site em <strong>Domínios permitidos</strong>. Use <code>yourdomain.com</code> para o domínio raiz e <code>*.yourdomain.com</code> para os subdomínios. Com a lista vazia, qualquer domínio pode enviar eventos.</p>
+	</li>
+	<li><span class="step-title">Valide</span>
+		<p>Abra a página no navegador e confira a visita em <strong>Logs › Requisições</strong>. Se a visita não aparecer, confirme se o domínio do site está em <strong>Domínios permitidos</strong> e se o snippet está dentro do <code>&lt;head&gt;</code>.</p>
+	</li>
+</ol>
+<p>O script carrega de <code>https://{hostname}/__t/e.js</code> e envia os eventos para <code>POST /__t/events</code> no mesmo domínio. Ele expõe a função global <code>trackup</code> com três comandos: <code>init</code>, <code>track</code> e <code>identify</code>. Chamadas feitas antes do carregamento ficam em fila e rodam depois do <code>init</code>.</p>
+
+<h3 id="opcoes-do-init">Opções do init<a class="anchor" href="#opcoes-do-init" aria-label="Link para esta seção">#</a></h3>
+<div class="code"><pre><code class="lang-javascript">trackup('init', '{projectId}', {
+  passthrough: true,          // repassa a query string para links decorados (padrão: true)
+  registrable: 'yourdomain.com'  // domínio registrável, usado em links entre domínios
+});</code></pre></div>
+
+<h2 id="eventos-customizados">Eventos customizados<a class="anchor" href="#eventos-customizados" aria-label="Link para esta seção">#</a></h2>
+<p>Use <code>track</code> com qualquer nome de evento. Eventos diferentes de <code>page_view</code> são gravados como <em>tipo customizado</em> e podem ser usados como condição em <a href="/acionadores">acionadores</a>.</p>
+<div class="code"><pre><code class="lang-javascript">trackup('track', 'sign_in');
+
+trackup('track', 'add_to_cart', {
+  customData: { productId: 'sku_42', quantity: 2 }
+});</code></pre></div>
+<div class="callout note"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><div><p>Só o nome do evento e os dados de rastreamento automáticos (URL, UTMs, subs) são gravados. Propriedades soltas no terceiro argumento são ignoradas: use <code>customData</code>.</p></div></div>
+
+<h3 id="pelo-html-sem-javascript">Pelo HTML, sem JavaScript<a class="anchor" href="#pelo-html-sem-javascript" aria-label="Link para esta seção">#</a></h3>
+<p>Adicione <code>data-trackup-event</code> a qualquer elemento clicável. Para enviar dados, use <code>data-trackup-props</code> com um JSON.</p>
+<div class="code"><pre><code class="lang-html">&lt;button data-trackup-event=&quot;lead_form_submitted&quot;&gt;Quero receber&lt;/button&gt;
+
+&lt;a href=&quot;/checkout&quot; data-trackup-event=&quot;add_to_cart&quot;
+   data-trackup-props='{&quot;productId&quot;:&quot;sku_42&quot;,&quot;quantity&quot;:2}'&gt;Comprar agora&lt;/a&gt;</code></pre></div>
+<div class="callout warning"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg><div><p>Eventos enviados por atributo usam <em>beacon</em>: não aceitam callback e não disparam acionadores no navegador. Para isso, use <code>trackup('track', …)</code>.</p></div></div>
+
+<h3 id="callback">Callback<a class="anchor" href="#callback" aria-label="Link para esta seção">#</a></h3>
+<p>Passe uma função como quarto argumento para esperar a confirmação do servidor, por exemplo antes de redirecionar ao checkout.</p>
+<div class="code"><pre><code class="lang-javascript">document.getElementById('comprar').addEventListener('click', function (e) {
+  e.preventDefault();
+  var destino = this.href;
+  trackup('track', 'start_checkout', { value: '100', currency: 'BRL' }, function (event) {
+    window.location.href = destino; // event.vid e event.sid disponíveis
+  });
+});</code></pre></div>
+<table>
+	<thead><tr><th>Campo</th><th>Descrição</th></tr></thead>
+	<tbody>
+		<tr><td><code>vid</code></td><td>ID do visitante (UUID), também salvo em cookie e localStorage.</td></tr>
+		<tr><td><code>sid</code></td><td>ID de atribuição da sessão, usado para decorar links.</td></tr>
+	</tbody>
+</table>
+<div class="callout note"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><div><p>O callback só roda quando o servidor responde <code>200</code>. Se a navegação depende dele, use um timeout de segurança.</p></div></div>
+
+<h2 id="identificar-o-visitante">Identificar o visitante<a class="anchor" href="#identificar-o-visitante" aria-label="Link para esta seção">#</a></h2>
+<p><code>identify</code> grava dados de contato no perfil do visitante. Campos omitidos não apagam valores existentes.</p>
+<div class="code"><pre><code class="lang-javascript">trackup('identify', {
+  name: 'Maria Silva',
+  email: 'maria@yourdomain.com',
+  phone: '+5511999990000',
+  addr_city: 'São Paulo',
+  addr_state: 'SP',
+  addr_country: 'BR'
+});</code></pre></div>
+<table>
+	<thead><tr><th>Campo</th><th>Descrição</th></tr></thead>
+	<tbody>
+		<tr><td><code>name</code></td><td>Nome</td></tr>
+		<tr><td><code>email</code></td><td>E-mail</td></tr>
+		<tr><td><code>phone</code></td><td>Telefone</td></tr>
+		<tr><td><code>addr_street</code>, <code>addr_city</code>, <code>addr_state</code>, <code>addr_zip</code>, <code>addr_country</code></td><td>Endereço</td></tr>
+	</tbody>
+</table>
+
+<h2 id="limites-do-customdata">Limites do customData<a class="anchor" href="#limites-do-customdata" aria-label="Link para esta seção">#</a></h2>
+<table>
+	<thead><tr><th>Regra</th><th>Valor</th></tr></thead>
+	<tbody>
+		<tr><td>Chaves</td><td>até 15</td></tr>
+		<tr><td>Tamanho</td><td>até 8 KB em JSON</td></tr>
+		<tr><td>Formato</td><td>objeto plano (não array)</td></tr>
+	</tbody>
+</table>
+<p>No script, um <code>customData</code> inválido é descartado e o evento segue sem ele. Na API, a mesma violação retorna <code>400</code>.</p>
+
+			<script>TU.pager();TU.footer()</script>
+			<noscript><p class="site-footer"><a href="/">Início</a> · <a href="/llms.txt">Índice completo</a> · <a href="/sitemap.xml">Mapa do site</a></p></noscript>
+		</article>
+	</main>
+	<aside class="toc"><div class="toc-title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg> Nesta página</div><ul><li class="lvl-2"><a href="#instalacao">Instalação</a></li><li class="lvl-3"><a href="#opcoes-do-init">Opções do init</a></li><li class="lvl-2"><a href="#eventos-customizados">Eventos customizados</a></li><li class="lvl-3"><a href="#pelo-html-sem-javascript">Pelo HTML, sem JavaScript</a></li><li class="lvl-3"><a href="#callback">Callback</a></li><li class="lvl-2"><a href="#identificar-o-visitante">Identificar o visitante</a></li><li class="lvl-2"><a href="#limites-do-customdata">Limites do customData</a></li></ul></aside>
+</div>
+<script>TU.end()</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+---
+title: API do Trackup
+sidebarTitle: Introdução
+icon: code
+description: Integre seus sistemas ao Trackup com uma API REST em JSON.
+---
+<p>A API dá acesso programático aos mesmos recursos do painel: projetos, páginas, links, pixels, acionadores, domínios, filtro, dashboards, gerenciador de anúncios e dados de tráfego e vendas. Também recebe vendas e eventos de sistemas externos.</p>
+
+<code-block title="URL base" lang="text">
+https://api.trackup.me/v1
+</code-block>
+
+<cards cols="3">
+	<card title="Autenticação" icon="key" href="/api-autenticacao">Chave no header <code>X-Api-Key</code>, permissões e projetos.</card>
+	<card title="Erros" icon="alert" href="/api-erros">Códigos de status e formato das respostas de erro.</card>
+	<card title="Endpoints" icon="list" href="/api/endpoints">Todas as operações, agrupadas por área.</card>
+</cards>
+
+<h2>Primeira requisição</h2>
+<steps>
+	<step title="Crie uma chave">
+		<p>Em <strong>Configurações › Chaves de API</strong>, crie uma chave com a permissão <code>project.list</code>. Veja <a href="/chaves-de-api">Chaves de API</a>.</p>
+	</step>
+	<step title="Liste os projetos">
+		<code-block lang="bash">
+curl https://api.trackup.me/v1/projects \
+  -H "X-Api-Key: $TRACKUP_API_KEY"
+</code-block>
+		<code-block title="Resposta" lang="json">
+{
+  "data": [
+    { "id": "11111111-1111-4111-8111-111111111111", "name": "Loja", "slug": "loja", "currency": "BRL" }
+  ],
+  "count": 1
+}
+</code-block>
+	</step>
+</steps>
+
+<h2>Convenções</h2>
+<table>
+	<thead><tr><th>Tema</th><th>Regra</th></tr></thead>
+	<tbody>
+		<tr><td>Formato</td><td>Corpos e respostas em JSON. Envie <code>Content-Type: application/json</code>.</td></tr>
+		<tr><td>Listagens</td><td>Retornam <code>{ "data": [...], "count": n }</code> e aceitam <code>page</code> (a partir de 1) e <code>limit</code> (até 100, padrão 20).</td></tr>
+		<tr><td>Datas de consulta</td><td><code>YYYY-MM-DD</code>, dias no fuso horário do time. <code>endDate</code> é inclusivo.</td></tr>
+		<tr><td>Filtros</td><td>Onde existe <code>filters</code>, envie um array JSON codificado na URL, combinado com E.</td></tr>
+		<tr><td>Projeto</td><td>Quase tudo é por projeto, no caminho (<code>/projects/{id}/...</code>). Nos endpoints de ingestão, envie <code>projectId</code> no corpo, exceto se a chave tiver um único projeto.</td></tr>
+		<tr><td>Publicação</td><td>Alterações em páginas só vão ao ar com <code>publishPage</code>.</td></tr>
+	</tbody>
+</table>
+
+<h2>Especificação OpenAPI</h2>
+<p>A especificação completa está em <code>https://api.trackup.me/openapi.json</code>. Use para gerar clientes ou importar no Postman e no Insomnia.</p>
+<callout type="tip"><p>Para usar o Trackup com Claude, ChatGPT ou Cursor sem escrever código, veja <a href="/conectar-mcp">Conectar ao MCP</a>.</p></callout>

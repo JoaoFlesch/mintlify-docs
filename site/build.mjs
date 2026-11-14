@@ -83,7 +83,8 @@ function expand(html) {
 				shotsTodo.push({ page: currentSlug, src, caption, todo });
 				return `<figure class="shot shot-todo"><div class="shot-box">${icon('pixel')}<div><strong>Print pendente${src ? ` · <code>${esc(src)}</code>` : ''}</strong><p>${esc(todo || caption || '')}</p></div></div>${caption ? `<figcaption>${esc(caption)}</figcaption>` : ''}</figure>`;
 			}
-			return `<figure class="shot"><img src="${esc(src)}" alt="${esc(alt || caption || '')}" loading="lazy">${caption ? `<figcaption>${esc(caption)}</figcaption>` : ''}</figure>`;
+			const imgUrl = /^https?:/.test(IMG_BASE) && !/^https?:/.test(src) ? `${IMG_BASE}/${src.replace(/^\//, '')}` : src;
+			return `<figure class="shot"><img src="${esc(imgUrl)}" alt="${esc(alt || caption || '')}" loading="lazy">${caption ? `<figcaption>${esc(caption)}</figcaption>` : ''}</figure>`;
 		})
 		.replace(/<icon name="([a-z-]+)"\s*\/?>/g, (_, n) => icon(n));
 	// Títulos com âncora
@@ -166,6 +167,8 @@ function tabsBar(currentTab) {
 // Defina a base com --assets=https://... (padrão /assets, na raiz do domínio da documentação).
 const argAssets = process.argv.find(a => a.startsWith('--assets='));
 const ASSETS = (argAssets ? argAssets.slice(9) : process.env.TU_ASSETS || '/assets').replace(/\/$/, '');
+const argImg = process.argv.find(a => a.startsWith('--img='));
+const IMG_BASE = (argImg ? argImg.slice(6) : ASSETS).replace(/\/$/, '');
 const absAsset = f => (/^https?:/.test(ASSETS) ? ASSETS : SITE.url + ASSETS) + '/' + f;
 
 const layout = read(join(SRC, 'layout.html'));
@@ -305,6 +308,12 @@ if (existsSync(imgSrc)) {
 		}
 	};
 	copyDir(imgSrc, join(DIST, 'img'));
+	// Página-hospedeira das imagens (publicada no Trackup; o clonador baixa cada imagem listada)
+	copyDir(imgSrc, join(DIST, 'imagens', 'img'));
+	const imgFiles = [];
+	const walk = (d, rel) => { for (const f of readdirSync(d)) { const p = join(d, f); if (statSync(p).isDirectory()) walk(p, rel + f + '/'); else imgFiles.push(rel + f); } };
+	walk(imgSrc, 'img/');
+	writeFileSync(join(DIST, 'imagens', 'index.html'), `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="robots" content="noindex"><title>Trackup Docs: imagens</title></head><body>${imgFiles.map(f => `<img src="${f}" alt="" width="1" height="1">`).join('')}</body></html>`);
 }
 
 // llms.txt (índice para agentes de IA) e sitemap

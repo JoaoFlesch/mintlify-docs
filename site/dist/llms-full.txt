@@ -136,9 +136,7 @@ O Trackup envia os eventos do funil para a plataforma de anúncios pelo servidor
 
 				Kwai | Pixel ID, Access Token e Test Event Code. |
 
-		**Print pendente · `img/quick-start-pixel-meta.png`**Formulário Adicionar pixel com Tipo = Meta, campos Pixel ID e Access Token preenchidos com valores fictícios (Access Token borrado) e o switch Ativo ligado.
-
-Cadastro de um pixel da Meta
+		Cadastro de um pixel da Meta
 
 		Com o **Test Event Code** preenchido, a Meta recebe os eventos só em Test Events e eles não contam para as campanhas. Apague o código antes de anunciar.
 
@@ -158,9 +156,7 @@ A fonte de tráfego gera os parâmetros de UTM que você cola na URL do anúncio
 - **Copie os parâmetros de URL**
 		Salve e copie o bloco **Parâmetros de URL**. Você vai usar no passo 9.
 
-		**Print pendente · `img/quick-start-fonte-parametros.png`**Tela da fonte de tráfego Meta Ads mostrando o bloco Parâmetros de URL com o botão de copiar em destaque.
-
-Parâmetros de URL gerados para a Meta
+		Parâmetros de URL gerados para a Meta
 
 ## 5. Integre sua plataforma de venda
 
@@ -458,8 +454,6 @@ Em **Ajustes › Geral** você encontra:
 
 		Excluir projeto | Remove o projeto e todos os dados dele. |
 
-**Print pendente · `img/projeto-ajustes-geral.png`**Tela Ajustes › Geral com as seções Projeto (nome e URL), Segurança (domínios permitidos e snippet) e Excluir projeto visíveis. Nome do projeto fictício.
-
 Ajustes › Geral
 
 Excluir um projeto apaga páginas, links, regras, logs e conversões de forma permanente. Não há como desfazer.
@@ -593,8 +587,6 @@ Um pixel guarda as credenciais da API de conversões de uma plataforma de anúnc
 
 				Test Event Code | Obrigatório no Kwai. Valida eventos de teste quando não há `click_id` na URL. |
 
-**Print pendente · `img/pixels-lista.png`**Tela Integração › Pixels com três pixels fictícios (Meta, Google Ads, TikTok), coluna Tipo e status Ativo, um deles com o aviso de modo teste.
-
 Lista de pixels do projeto
 
 ## Servidor ou navegador
@@ -640,9 +632,7 @@ Meta, Google, TikTok e Kwai. Crie uma fonte para cada plataforma em que você an
 - **Copie os parâmetros**
 		Salve e copie o bloco **Parâmetros de URL**.
 
-		**Print pendente · `img/fontes-parametros.png`**Tela de edição da fonte Meta Ads com o bloco Parâmetros de URL e o botão de copiar, e o link Personalizar parâmetros fechado.
-
-Parâmetros de URL de uma fonte Meta
+		Parâmetros de URL de uma fonte Meta
 
 ## Usar no anúncio
 
@@ -697,9 +687,7 @@ A plataforma de venda é onde o cliente paga: Hotmart, Kiwify, Shopify, Stripe e
 - **Adicione a plataforma**
 		Vá em **Integração › Plataformas de vendas** e clique em **Adicionar plataforma**. Pesquise e selecione a sua.
 
-		**Print pendente · `img/plataformas-adicionar.png`**Diálogo Adicionar plataforma com a busca de plataformas aberta mostrando a lista (Hotmart 2.0, Kiwify, Eduzz…).
-
-Seleção da plataforma de vendas
+		Seleção da plataforma de vendas
 
 - **Confira os parâmetros**
 		Os parâmetros do checkout vêm preenchidos para cada plataforma. Use **Personalizar parâmetros** só se precisar enviar dados extras, como `{request.sub1}`.
@@ -921,9 +909,7 @@ Uma página é qualquer endereço do seu domínio no Trackup: uma landing page, 
 - **Escolha a aba**
 		Selecione **Redirect**, **Builder**, **Upload HTML** ou **Clonar URL** e preencha o formulário.
 
-		**Print pendente · `img/paginas-adicionar.png`**Diálogo Adicionar página com as abas Redirect, Builder, Upload HTML e Clonar URL visíveis, aba Upload HTML selecionada mostrando Nome, Caminho e o campo de arquivo.
-
-Adicionar página com as quatro abas
+		Adicionar página com as quatro abas
 
 - **Defina o caminho**
 		O **Caminho** é o endereço da página no domínio. Use `/` para a raiz (`seudominio.com`) ou algo como `/oferta`. Em branco, o Trackup gera a partir do nome. Letras, números, `-`, `.`, `_`, `~` e `/` são aceitos.
@@ -943,8 +929,6 @@ A tabela mostra o tipo, o status e o **Link** de cada página, com botão para c
 		Duplicar | Cria uma cópia, útil para montar a variante de um [teste A/B](https://docs.trackup.me/testes-ab). |
 
 		Deletar | Remove a página para sempre. |
-
-**Print pendente · `img/paginas-lista.png`**Menu Páginas com 3 a 4 páginas fictícias (Builder, HTML, Redirect), status Publicada/Rascunho, coluna Link com botão copiar e o menu de ações de uma linha aberto.
 
 Lista de páginas com tipo, status e link
 
@@ -1045,13 +1029,9 @@ O Builder é o editor visual do Trackup. Você arrasta componentes e blocos para
 - **Comece de um template ou do zero**
 		Escolha um template pronto (pré-venda, VSL, captura e outros) ou comece com o canvas vazio.
 
-		**Print pendente · `img/builder-templates.png`**Tela inicial do Builder com a galeria de templates (presell, VSL, captura) e a opção de página em branco.
-
-Templates disponíveis ao abrir o Builder
+		Templates disponíveis ao abrir o Builder
 
 ## O editor
-
-**Print pendente · `img/builder-editor.png`**Builder com uma página aberta: barra superior (nome, desfazer/refazer, Desktop/Tablet/Mobile, Salvar, Publicar), painel lateral com Componentes/Blocos/Camadas, canvas no centro e inspetor com as abas Estilo e Config à direita. Numerar as 4 áreas.
 
 Barra superior, painel lateral, canvas e inspetor
 
@@ -1146,9 +1126,7 @@ Use caminhos relativos (`css/style.css`, `img/hero.webp`). O Trackup reescreve a
 - **Preencha e envie**
 		Informe o nome, o caminho (opcional), escolha o arquivo e clique em **Enviar arquivo**.
 
-		**Print pendente · `img/upload-html.png`**Aba Upload HTML com Nome, Caminho e um arquivo pagina.zip selecionado, mostrando o texto HTML, HTM ou ZIP (máx. 5MB).
-
-Envio de uma página em .zip
+		Envio de uma página em .zip
 
 - **Confira**
 		Copie o link na lista de páginas e abra no navegador.
@@ -1187,9 +1165,7 @@ Informe a URL de uma página e o Trackup captura o HTML e os arquivos do mesmo d
 - **Informe a URL de origem**
 		Cole o endereço completo, com `https://`, dê um nome e clique em **Clonar página**.
 
-		**Print pendente · `img/clonar-url.png`**Aba Clonar URL com Nome e URL de origem (site fictício) preenchidos e o botão Clonar página.
-
-Clonagem de uma página
+		Clonagem de uma página
 
 - **Aguarde a captura**
 		A página aparece na lista como Aguardando clone e depois Clonando…. Em geral leva alguns segundos.
@@ -1236,9 +1212,7 @@ Uma página Redirect registra o acesso, aplica o filtro, dispara os eventos e ma
 
 				Caminho | Endereço no seu domínio, como `/promo`. |
 
-		**Print pendente · `img/redirect-criar.png`**Aba Redirect com Nome, URL de redirecionamento externa fictícia, Status Code 302 e o aviso de Parâmetros na URL de destino visível.
-
-Criação de uma página Redirect
+		Criação de uma página Redirect
 
 - **Instale o script no destino**
 		Se o destino é uma landing page sua, instale o [script de rastreamento](https://docs.trackup.me/script) nela para registrar eventos e manter a atribuição até o checkout.
@@ -1264,8 +1238,6 @@ Páginas criadas por [Upload HTML](https://docs.trackup.me/upload-html) ou [Clon
 ## Editor de arquivos
 
 Na lista de páginas, abra o menu da página e clique em **Editar arquivos**.
-
-**Print pendente · `img/arquivos-editor.png`**Tela Arquivos da página com a árvore de arquivos à esquerda, index.html aberto no editor ao centro, o preview à direita e os botões Publicar, Novo arquivo, Nova pasta e Fazer upload.
 
 Editor de arquivos com árvore, código e preview
 
@@ -1337,9 +1309,7 @@ Testes do tipo Anúncio são de uma versão anterior. Os que existem continuam f
 - **Escolha as variantes e os pesos**
 		O teste começa com duas variantes em 50/50. Para cada uma, escolha a **Página** e o **Tráfego** em porcentagem. Use **Adicionar variante** para mais opções e **Balancear pesos** para dividir por igual.
 
-		**Print pendente · `img/testes-ab-criar.png`**Tela Criar teste A/B com Nome, Slug /vsl, Tipo de teste = Página e duas variantes (VSL longa 50%, VSL curta 50%) com o switch Ativo e o botão Balancear pesos.
-
-Variantes e pesos de um teste A/B
+		Variantes e pesos de um teste A/B
 
 		Os pesos das variantes ativas precisam somar 100%.
 
@@ -1418,9 +1388,7 @@ No Google Ads, crie os acionadores você mesmo, porque cada etapa precisa da con
 - **Defina as condições**
 		Clique em **Adicionar condição** e escolha a variável, o operador e o valor. O acionador dispara quando **todas** as condições são verdadeiras. Veja as [variáveis disponíveis](https://docs.trackup.me/variaveis).
 
-		**Print pendente · `img/acionadores-condicoes.png`**Formulário Criar acionador com duas condições: Tipo de evento Igual conversion e UTM Source Contém meta.
-
-Condições de um acionador
+		Condições de um acionador
 
 - **Adicione as ações**
 		Clique em **Adicionar ação** e escolha **Pixel** ou **Webhook** (detalhes abaixo).
@@ -1578,8 +1546,6 @@ Em **Filtro**, clique em **Criar regra** e escolha o modo:
 	[AvançadoQualquer campo da requisição, com grupos E/OU e regex.](https://docs.trackup.me/filtro-avancado)
 
 Também dá para começar por uma das **Regras sugeridas**: bloquear bots, bloquear um país específico ou permitir só quando a URL tem um parâmetro secreto.
-
-**Print pendente · `img/filtro-lista.png`**Tela Filtro com os cards Total de requests, Página de oferta, Safe page e Bots, o gráfico Requests no período, o gráfico Requests por decisão e a tabela de regras (Nome, Peso, Expressão, Ação, Acessos, Ativo) com 3 regras.
 
 Lista de regras e métricas do Filtro
 
@@ -1766,8 +1732,6 @@ URL: https://docs.trackup.me/dashboards
 > Monte painéis com os números que importam para você. Lucro, funil, origem das vendas e qualidade do tráfego.
 
 Cada projeto pode ter vários dashboards, cada um com seus cards e seu layout. Todos os cards de um dashboard usam o mesmo período, escolhido no topo da tela.
-
-**Print pendente · `img/dashboard-padrao.png`**Dashboard Padrão com dados de exemplo: card Lucro (faturamento, despesas, ROAS), Vendas, Funil, Venda por plataforma e Acessos por dispositivo, com o seletor de período no topo e a lista de dashboards na lateral.
 
 Dashboard padrão de um projeto
 
@@ -1987,8 +1951,6 @@ URL: https://docs.trackup.me/conversoes
 
 Em **Logs › Conversões**, a aba **Conversões** lista cada venda recebida pelo webhook das [plataformas de venda](https://docs.trackup.me/plataformas-de-venda).
 
-**Print pendente · `img/conversoes-lista.png`**Aba Conversões com 6 vendas fictícias (Data, Plataforma, Valor, Pagamento, Status), uma delas com o aviso Configuração incompleta, e uma linha expandida mostrando Venda, Atribuição, Marketing e Anúncios. IDs de transação borrados.
-
 Lista de conversões
 
 ## Filtrar
@@ -2084,8 +2046,6 @@ URL: https://docs.trackup.me/produtos
 > Veja os produtos e ofertas que você vende, registrados automaticamente a partir das vendas.
 
 A tela **Produtos** lista os produtos vendidos nas suas plataformas de venda. Você não precisa cadastrá-los: cada produto aparece quando a primeira venda dele chega pelo webhook.
-
-**Print pendente · `img/produtos.png`**Tela Produtos com filtro Plataforma de venda, 3 produtos fictícios (Produto, Plataforma, Primeira venda) e um deles expandido mostrando as Ofertas da plataforma.
 
 Produtos registrados a partir das vendas
 
@@ -2344,9 +2304,7 @@ Tempo estimado: 30 minutos.
 
 				Test Event Code | O código do passo 3 |
 
-		**Print pendente · `img/tut-meta-pixel.png`**Modal Adicionar pixel com Tipo Meta, Nome Pixel principal, Pixel ID e Access Token preenchidos (borrados) e Test Event Code TEST12345.
-
-Pixel da Meta com código de teste
+		Pixel da Meta com código de teste
 
 - **Confira os acionadores**
 		Abra **Acionadores**. O Trackup criou três para o pixel: **Pageview**, **Start checkout** e **Conversão**. Não precisa mexer.
@@ -2581,9 +2539,7 @@ Neste tutorial você monta uma página de vendas com VSL no Builder, liga os bot
 - **Escolha um ponto de partida**
 		Escolha um template de VSL para ganhar tempo, ou comece com o canvas vazio.
 
-		**Print pendente · `img/tut-builder-templates.png`**Galeria de templates do Builder com as opções pré-venda, VSL e captura, e a opção de começar do zero.
-
-Escolha de template no Builder
+		Escolha de template no Builder
 
 ## 2. Monte as seções
 

@@ -393,10 +393,6 @@ O **time** é a conta da sua empresa ou agência no Trackup. Ele concentra a [as
 - **Faça o cadastro**
 		O primeiro time é criado junto com a sua conta. Depois do cadastro, o painel abre a tela **Configurar time**.
 
-		**Print pendente · `img/times-criar.png`**Tela Configurar time com o nome do time preenchido (Online Store) e a área de upload da logo.
-
-Tela Configurar time
-
 - **Informe o nome do time**
 		Use o nome da empresa ou da agência. Você pode alterá-lo depois.
 
@@ -424,9 +420,7 @@ Abra o menu do usuário no rodapé do menu lateral e vá em **Configurações �
 
 		Excluir time | Disponível só para o proprietário. Remove o time e todos os projetos dele. |
 
-**Print pendente · `img/times-configuracoes.png`**Modal Configurações aberto em Meu Time › Configurações, com nome, logo, contato, documento (borrado), endereço (borrado) e fuso horário.
-
-Configurações › Meu Time › Configurações
+Configurações › Meu Time › Configurações: logo, nome e documento
 
 ## Convidar membros
 
@@ -1445,8 +1439,6 @@ Qualquer alteração de arquivo deixa a página em rascunho. O link continua mos
 
 No menu da página, clique em **Histórico**. Cada versão mostra o número, o tipo (Versão inicial, Envio da página, Clonagem, Duplicação, Edição, Envio de arquivo, Renomeação, Exclusão, Substituição dos arquivos ou Restauração), o autor, a data e as marcas Atual e Publicada. Use o ícone de edição para dar nome e descrição a uma versão.
 
-**Print pendente · `img/versoes-historico.png`**Painel Histórico de uma página HTML com 4 versões, a mais recente marcada como Atual, outra como Publicada, e o botão Restaurar visível em uma versão antiga.
-
 Histórico de versões de uma página
 
 ## Restaurar uma versão
@@ -2363,9 +2355,7 @@ URL: https://docs.trackup.me/configuracoes
 
 Abra as configurações pelo menu do usuário, no canto inferior esquerdo, em **Configurações**. O menu tem duas partes: **Conta** (só sua) e **Meu Time** (vale para todos do time).
 
-**Print pendente · `img/configuracoes.png`**Modal Configurações aberto em Meu Time › Configurações, com o menu lateral (Perfil, Senha, Configurações, Membros, Chaves de API, MCP, Assinatura) e as seções Time, Documento, Endereço e Fuso horário preenchidas com dados fictícios.
-
-Modal de configurações
+Configurações do time: logo, nome, contato e documento
 
 ## Conta
 
@@ -2388,6 +2378,12 @@ Modal de configurações
 		MCP | Conectar agentes de IA. Veja [Conectar ao MCP](https://docs.trackup.me/conectar-mcp). |
 
 		Assinatura | Plano, faturas e cartões. Veja [Assinatura](https://docs.trackup.me/assinatura). |
+
+A tela de **Configurações** do time é longa e rola dentro do modal. Mais abaixo ficam o endereço, o fuso horário e a exclusão do time.
+
+Endereço comercial ou fiscal do time
+
+Fuso horário e exclusão do time
 
 ## Passo a passo
 
@@ -2879,9 +2875,7 @@ Uma estrutura que funciona para VSL:
 - **Insira os blocos**
 		No painel lateral, abra a aba **Blocos** e arraste cada seção para o canvas, na ordem acima.
 
-		**Print pendente · `img/tut-builder-blocos.png`**Editor do Builder com a aba Blocos aberta, a categoria Prova social expandida e um bloco sendo arrastado para o canvas abaixo da primeira dobra.
-
-Inserindo blocos no canvas
+		Aba Blocos com a categoria Prova social e o canvas ao lado
 
 - **Edite os textos**
 		Clique duas vezes em um texto para editar. Use a aba **Camadas** para achar elementos difíceis de clicar.
@@ -2975,9 +2969,7 @@ Sua página de vendas já está no ar em outro lugar, como WordPress, Elementor,
 - **Libere o domínio**
 		Em **Ajustes › Geral › Segurança**, adicione o domínio do site (como `www.seusite.com`) em **Domínios permitidos**. Sem isso, os eventos são recusados.
 
-		**Print pendente · `img/tut-externo-dominios.png`**Seção Segurança de Ajustes › Geral com www.seusite.com adicionado em Domínios permitidos e o Snippet de rastreamento abaixo.
-
-Domínios permitidos do snippet
+		Domínios permitidos do snippet
 
 ## 2. Faça o tráfego passar pelo Trackup
 
@@ -3172,9 +3164,7 @@ No fim da tela **Filtro**, em **Regras sugeridas**, clique em **Usar template** 
 - **Ação**
 		Escolha **Exibir página** e selecione a safe page.
 
-		**Print pendente · `img/tut-filtro-pais.png`**Formulário de regra no modo Básico com nome Fora do Brasil, peso 20, Países Não na lista Brasil, Links com a página da oferta e ação Exibir página com a safe page selecionada.
-
-Regra de país com safe page
+		Regra de país com safe page
 
 ## 4. Exija o parâmetro secreto
 
@@ -3187,9 +3177,7 @@ Regra de país com safe page
 - **Coloque o parâmetro no anúncio**
 		Na lista de páginas, use o botão de copiar link da oferta e abra **Ver URL**. A **URL final** já inclui os **Parâmetros do filtro**. Use essa URL no anúncio, junto com os parâmetros da fonte de tráfego.
 
-		**Print pendente · `img/tut-filtro-url.png`**Modal URL de rastreio de uma página com URL base, Parâmetros do filtro (k3j9x=82mqa) e URL final, com botões de copiar e o QR Code.
-
-URL de rastreio com parâmetros do filtro
+		URL de rastreio com parâmetros do filtro
 
 Anúncio sem o parâmetro manda todo o tráfego para a safe page. Confira a URL antes de publicar.
 

@@ -1,20 +1,11 @@
 # Prints pendentes
 
-Gerado pelo build. 32 prints faltando.
+Gerado pelo build. 24 prints faltando.
 
 
 ## Quick Start (/quick-start)
 
 - [ ] `img/quick-start-validacao.png`: Tela Logs › Requisições com uma requisição de teste aberta no painel de detalhes, mostrando origem Meta, UTMs e o link acessado. IP e localização borrados.
-
-## Times e membros (/times-e-membros)
-
-- [ ] `img/times-criar.png`: Tela Configurar time com o nome do time preenchido (Online Store) e a área de upload da logo.
-- [ ] `img/times-configuracoes.png`: Modal Configurações aberto em Meu Time › Configurações, com nome, logo, contato, documento (borrado), endereço (borrado) e fuso horário.
-
-## Versões e arquivos (/versoes-e-arquivos)
-
-- [ ] `img/versoes-historico.png`: Painel Histórico de uma página HTML com 4 versões, a mais recente marcada como Atual, outra como Publicada, e o botão Restaurar visível em uma versão antiga.
 
 ## Testes A/B (/testes-ab)
 
@@ -37,10 +28,6 @@ Gerado pelo build. 32 prints faltando.
 
 - [ ] `img/produtos.png`: Tela Produtos com o filtro Plataforma de venda e dois produtos de exemplo, um deles expandido mostrando duas ofertas e a coluna Primeira venda.
 
-## Configurações (/configuracoes)
-
-- [ ] `img/configuracoes.png`: Modal Configurações aberto em Meu Time › Configurações, com o menu lateral (Perfil, Senha, Configurações, Membros, Chaves de API, MCP, Assinatura) e as seções Time, Documento, Endereço e Fuso horário preenchidas com dados fictícios.
-
 ## Campanha na Meta (/tutorial-campanha-meta)
 
 - [ ] `img/tut-meta-hotmart-webhook.png`: Tela de cadastro de webhook da Hotmart com a URL do Trackup (domínio borrado), versão 2.0.0 e os eventos Compra aprovada, Compra reembolsada e Chargeback marcados.
@@ -50,22 +37,9 @@ Gerado pelo build. 32 prints faltando.
 
 - [ ] `img/tut-dominio-cloudflare.png`: Formulário Add record da Cloudflare com Type CNAME, Name lp, Target com o destino do Trackup e Proxy status DNS only (nuvem cinza).
 
-## Landing page no Builder (/tutorial-landing-builder)
-
-- [ ] `img/tut-builder-blocos.png`: Editor do Builder com a aba Blocos aberta, a categoria Prova social expandida e um bloco sendo arrastado para o canvas abaixo da primeira dobra.
-
-## Site externo (/tutorial-site-externo)
-
-- [ ] `img/tut-externo-dominios.png`: Seção Segurança de Ajustes › Geral com www.seusite.com adicionado em Domínios permitidos e o Snippet de rastreamento abaixo.
-
 ## Teste A/B de página (/tutorial-teste-ab)
 
 - [ ] `img/tut-ab-relatorio.png`: Relatório Teste A/B com VSL Curso B marcada como Vencedora, a frase de conclusão com o percentual de confiança, a tabela por variante (visitantes, conversões, taxa, receita por visitante) e o gráfico de conversão acumulada.
-
-## Proteger páginas (/tutorial-proteger-paginas)
-
-- [ ] `img/tut-filtro-pais.png`: Formulário de regra no modo Básico com nome Fora do Brasil, peso 20, Países Não na lista Brasil, Links com a página da oferta e ação Exibir página com a safe page selecionada.
-- [ ] `img/tut-filtro-url.png`: Modal URL de rastreio de uma página com URL base, Parâmetros do filtro (k3j9x=82mqa) e URL final, com botões de copiar e o QR Code.
 
 ## ActionPay (/actionpay)
 

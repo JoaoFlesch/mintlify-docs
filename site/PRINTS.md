@@ -1,12 +1,10 @@
 # Prints pendentes
 
-Gerado pelo build. 36 prints faltando.
+Gerado pelo build. 32 prints faltando.
 
 
 ## Quick Start (/quick-start)
 
-- [ ] `img/quick-start-criar-time.png`: Tela de criação do time com o campo Nome preenchido. Sem dados sensíveis.
-- [ ] `img/quick-start-planos.png`: Tela Planos com os cards de plano lado a lado e o botão Assinar plano visível.
 - [ ] `img/quick-start-validacao.png`: Tela Logs › Requisições com uma requisição de teste aberta no painel de detalhes, mostrando origem Meta, UTMs e o link acessado. IP e localização borrados.
 
 ## Times e membros (/times-e-membros)
@@ -42,11 +40,6 @@ Gerado pelo build. 36 prints faltando.
 ## Configurações (/configuracoes)
 
 - [ ] `img/configuracoes.png`: Modal Configurações aberto em Meu Time › Configurações, com o menu lateral (Perfil, Senha, Configurações, Membros, Chaves de API, MCP, Assinatura) e as seções Time, Documento, Endereço e Fuso horário preenchidas com dados fictícios.
-
-## Assinatura (/assinatura)
-
-- [ ] `img/assinatura.png`: Configurações › Assinatura com o card Assinatura atual (plano, status Ativo, Próxima cobrança), Histórico de faturas com 3 faturas pagas e Métodos de pagamento com um cartão Padrão (número mascarado).
-- [ ] `img/assinatura-planos.png`: Tela de planos com os cards, limites, selo Mais popular e o botão Assinar plano.
 
 ## Campanha na Meta (/tutorial-campanha-meta)
 

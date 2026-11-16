@@ -66,25 +66,25 @@ Neste guia você monta uma operação completa: um projeto com domínio próprio
 
 - Acesso de administrador à sua plataforma de venda, para cadastrar o webhook.
 
-## 1. Crie o time e assine um plano
+## 1. Crie sua conta, o time e assine um plano
 
 O time é a conta que reúne projetos, membros e a assinatura. Quem cria o time se torna o dono.
 
-- **Crie sua conta e o time**
-		Acesse o painel, entre na sua conta e informe o nome do time. Use o nome da sua empresa ou operação.
+- **Crie sua conta ou entre**
+		Acesse [dash.trackup.me](https://dash.trackup.me). Se for o seu primeiro acesso, crie a conta com seu e-mail e uma senha, ou entre com o provedor de login disponível na tela. Se já tem conta, faça login.
 
-		**Print pendente · `img/quick-start-criar-time.png`**Tela de criação do time com o campo Nome preenchido. Sem dados sensíveis.
+- **Crie o time**
+		No primeiro acesso, o painel abre a tela **Configurar time** (Dados do time). Preencha o **Nome do time** com o nome da sua empresa ou operação, por exemplo `Aurora Digital`. Se quiser, clique em **Enviar imagem** para adicionar a logo (PNG ou JPG, até 2 MB). Clique em **Continuar**.
 
-Criação do time
+		O nome e a logo podem ser alterados depois, nas configurações do time.
+
+- **Crie o primeiro projeto**
+		Na etapa seguinte (Primeiro projeto), dê um nome ao projeto e clique em **Criar projeto e continuar**. A URL do projeto é gerada automaticamente e o painel do projeto abre em seguida. Se preferir, crie o projeto pelo passo 2 abaixo.
 
 - **Escolha o plano**
-		Na tela **Planos**, compare os limites de domínios, membros, conversões e filtro de tráfego e clique em **Assinar plano**. O pagamento é por cartão ou PIX e você cancela quando quiser.
+		Abra a tela **Planos** e compare os limites de domínios, membros, conversões e filtro de tráfego. O plano de melhor custo-benefício traz o selo **Mais popular**. Clique em **Assinar plano** no plano escolhido e conclua o pagamento no checkout, por cartão ou PIX. Você cancela quando quiser.
 
-		**Print pendente · `img/quick-start-planos.png`**Tela Planos com os cards de plano lado a lado e o botão Assinar plano visível.
-
-Tela de planos
-
-		Só o dono do time escolhe o plano. Sem assinatura ativa, os demais membros veem o aviso para pedir ao dono.
+		Só o dono do time escolhe o plano. Sem assinatura ativa, os demais membros veem o aviso para pedir ao dono. Veja [Assinatura](https://docs.trackup.me/assinatura).
 
 ## 2. Crie o projeto
 
@@ -2485,18 +2485,18 @@ URL: https://docs.trackup.me/assinatura
 
 A assinatura é do time. Gerencie em **Configurações › Assinatura**, no menu do usuário. Só o proprietário escolhe o plano. Enquanto não houver assinatura, o painel mostra O time ainda não tem uma assinatura ativa.
 
-**Print pendente · `img/assinatura.png`**Configurações › Assinatura com o card Assinatura atual (plano, status Ativo, Próxima cobrança), Histórico de faturas com 3 faturas pagas e Métodos de pagamento com um cartão Padrão (número mascarado).
+A tela reúne três blocos:
 
-Tela de assinatura
+- **Assinatura atual**: nome do plano, status, valor mensal e a data da próxima cobrança. Durante o período de teste, o status aparece como **Em teste** e mostra até quando o teste vai.
+
+- **Histórico de faturas**: fica vazio até a primeira cobrança.
+
+- **Métodos de pagamento**: os cartões cadastrados, com o número mascarado e a marca **Padrão** no cartão usado nas renovações.
 
 ## Assinar um plano
 
 - **Veja os planos**
 		Clique em **Ver planos**. Cada card mostra o tipo (assinatura recorrente), os limites de **Domínios**, **Membros** e **Conversões**, e se inclui **Filtro de tráfego**. O plano de melhor custo-benefício traz o selo **Mais popular**.
-
-		**Print pendente · `img/assinatura-planos.png`**Tela de planos com os cards, limites, selo Mais popular e o botão Assinar plano.
-
-Planos disponíveis
 
 - **Assine**
 		Clique em **Assinar plano** no plano escolhido. O pagamento é feito no checkout de pagamento, por cartão ou PIX. Você pode cancelar a qualquer momento.

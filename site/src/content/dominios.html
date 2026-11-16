@@ -43,7 +43,7 @@ description: Sirva páginas e links no seu próprio domínio ou subdomínio.
 	</step>
 	<step title="Verifique">
 		<p>Volte ao Trackup e clique em <strong>Verificar</strong>. Quando o status mudar para <span class="badge green">Verificado</span>, o domínio está ativo. A propagação costuma levar minutos, mas pode chegar a 24 horas.</p>
-		<shot src="img/dominios-verificado.png" caption="Domínio com status Verificado" todo="Lista de domínios com go.yourdomain.com em status Verificado e o selo de primário."></shot>
+		<shot src="img/dominios-verificado.png" caption="Domínios verificados e a opção Definir como primário" todo="Lista de domínios verificados."></shot>
 	</step>
 	<step title="Defina como primário">
 		<p>No menu do domínio, clique em <strong>Definir como primário</strong>. Faça isso antes de cadastrar webhooks nas <a href="/plataformas-de-venda">plataformas de venda</a>, porque a URL deles usa o domínio primário.</p>
@@ -70,4 +70,5 @@ description: Sirva páginas e links no seu próprio domínio ou subdomínio.
 </accordion>
 <accordion title="Quero usar o domínio raiz">
 	<p>O domínio raiz só aceita CNAME em provedores com CNAME flattening. Transfira o DNS para a Cloudflare e crie o registro em <code>@</code>.</p>
+	<shot src="img/extra-dominio-real-expandido.png" caption="Registro CNAME de um domínio raiz (nome @)" todo="Domínio raiz expandido com o registro CNAME."></shot>
 </accordion>

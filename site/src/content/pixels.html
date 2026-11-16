@@ -44,12 +44,15 @@ description: Conecte sua conta de anúncios para enviar os eventos do funil pelo
 		<table>
 			<thead><tr><th>Campo</th><th>Onde encontrar</th></tr></thead>
 			<tbody>
-				<tr><td>Conversion ID</td><td>Google Ads › Metas › Conversões › Resumo › ação de conversão › Configuração da tag. É o número depois de <code>AW-</code>; o prefixo é opcional.</td></tr>
+				<tr><td>Conta Google</td><td>Clique em <strong>Continuar com o Google</strong> e autorize a conta que tem acesso ao Google Ads. Depois, escolha a conta conectada na lista.</td></tr>
+				<tr><td>ID de cliente do Google Ads</td><td>Número da conta do Google Ads, no canto superior direito do Google Ads. Não é o <code>AW-...</code>.</td></tr>
+				<tr><td>ID da conta de administrador (MCC) <span class="badge gray">opcional</span></td><td>Preencha só se a conta Google conectada acessa essa conta do Google Ads por uma conta de administrador.</td></tr>
 				<tr><td>Moeda padrão <span class="badge gray">opcional</span></td><td>Código ISO, como <code>BRL</code> ou <code>USD</code>.</td></tr>
 				<tr><td>Valor padrão <span class="badge gray">opcional</span></td><td>Valor enviado quando o acionador não define um.</td></tr>
 			</tbody>
 		</table>
-		<p>A <strong>conversion label</strong> fica em cada acionador, no campo de evento. Crie uma ação de conversão no Google Ads para cada etapa que você quer otimizar.</p>
+		<p>As conversões são enviadas pela Data Manager API do Google, em nome da conta conectada. A <strong>conversion label</strong> fica em cada acionador, no campo de evento. Crie uma ação de conversão no Google Ads para cada etapa que você quer otimizar.</p>
+		<shot src="img/pixels-google.png" caption="Cadastro de um pixel do Google Ads" todo="Formulário Adicionar pixel com tipo Google Ads."></shot>
 	</tab>
 	<tab title="TikTok">
 		<table>
@@ -60,6 +63,7 @@ description: Conecte sua conta de anúncios para enviar os eventos do funil pelo
 				<tr><td>Test Event Code</td><td>Obrigatório no TikTok.</td></tr>
 			</tbody>
 		</table>
+		<shot src="img/pixels-tiktok.png" caption="Cadastro de um pixel do TikTok" todo="Formulário Adicionar pixel com tipo TikTok."></shot>
 	</tab>
 	<tab title="Kwai">
 		<table>
@@ -69,6 +73,7 @@ description: Conecte sua conta de anúncios para enviar os eventos do funil pelo
 				<tr><td>Test Event Code</td><td>Obrigatório no Kwai. Valida eventos de teste quando não há <code>click_id</code> na URL.</td></tr>
 			</tbody>
 		</table>
+		<shot src="img/pixels-kwai.png" caption="Cadastro de um pixel do Kwai" todo="Formulário Adicionar pixel com tipo Kwai."></shot>
 	</tab>
 </tabs>
 <shot src="img/pixels-lista.webp" caption="Lista de pixels do projeto"></shot>

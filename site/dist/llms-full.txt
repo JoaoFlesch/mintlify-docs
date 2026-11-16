@@ -149,7 +149,7 @@ O Trackup envia os eventos do funil para a plataforma de anúncios pelo servidor
 
 				Meta | Pixel ID e Access Token. Test Event Code é opcional. |
 
-				Google Ads | Conversion ID. Moeda e valor padrão são opcionais. |
+				Google Ads | Conta Google conectada e ID de cliente do Google Ads. MCC, moeda e valor padrão são opcionais. |
 
 				TikTok | Pixel Code e Access Token. |
 
@@ -571,9 +571,7 @@ Prefira um subdomínio dedicado, como `go.yourdomain.com`. Se algo der errado no
 - **Verifique**
 		Volte ao Trackup e clique em **Verificar**. Quando o status mudar para Verificado, o domínio está ativo. A propagação costuma levar minutos, mas pode chegar a 24 horas.
 
-		**Print pendente · `img/dominios-verificado.png`**Lista de domínios com go.yourdomain.com em status Verificado e o selo de primário.
-
-Domínio com status Verificado
+		Domínios verificados e a opção Definir como primário
 
 - **Defina como primário**
 		No menu do domínio, clique em **Definir como primário**. Faça isso antes de cadastrar webhooks nas [plataformas de venda](https://docs.trackup.me/plataformas-de-venda), porque a URL deles usa o domínio primário.
@@ -603,6 +601,8 @@ Trocar o primário muda os links e as URLs de webhook gerados a partir dali. Lin
 **Quero usar o domínio raiz**
 
 	O domínio raiz só aceita CNAME em provedores com CNAME flattening. Transfira o DNS para a Cloudflare e crie o registro em `@`.
+
+	Registro CNAME de um domínio raiz (nome @)
 
 ---
 
@@ -651,13 +651,19 @@ Tipos disponíveis: Meta, Google Ads, TikTok e Kwai. O exemplo abaixo usa Meta; 
 
 			Campo | Onde encontrar |
 
-				Conversion ID | Google Ads › Metas › Conversões › Resumo › ação de conversão › Configuração da tag. É o número depois de `AW-`; o prefixo é opcional. |
+				Conta Google | Clique em **Continuar com o Google** e autorize a conta que tem acesso ao Google Ads. Depois, escolha a conta conectada na lista. |
+
+				ID de cliente do Google Ads | Número da conta do Google Ads, no canto superior direito do Google Ads. Não é o `AW-...`. |
+
+				ID da conta de administrador (MCC) opcional | Preencha só se a conta Google conectada acessa essa conta do Google Ads por uma conta de administrador. |
 
 				Moeda padrão opcional | Código ISO, como `BRL` ou `USD`. |
 
 				Valor padrão opcional | Valor enviado quando o acionador não define um. |
 
-		A **conversion label** fica em cada acionador, no campo de evento. Crie uma ação de conversão no Google Ads para cada etapa que você quer otimizar.
+		As conversões são enviadas pela Data Manager API do Google, em nome da conta conectada. A **conversion label** fica em cada acionador, no campo de evento. Crie uma ação de conversão no Google Ads para cada etapa que você quer otimizar.
+
+		Cadastro de um pixel do Google Ads
 
 			Campo | Onde encontrar |
 
@@ -667,11 +673,15 @@ Tipos disponíveis: Meta, Google Ads, TikTok e Kwai. O exemplo abaixo usa Meta; 
 
 				Test Event Code | Obrigatório no TikTok. |
 
+		Cadastro de um pixel do TikTok
+
 			Campo | Onde encontrar |
 
 				Pixel ID e Access Token | Kwai for Business › Ferramentas › Pixel. |
 
 				Test Event Code | Obrigatório no Kwai. Valida eventos de teste quando não há `click_id` na URL. |
+
+		Cadastro de um pixel do Kwai
 
 Lista de pixels do projeto
 

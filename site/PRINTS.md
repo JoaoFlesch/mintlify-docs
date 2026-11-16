@@ -1,6 +1,6 @@
 # Prints pendentes
 
-Gerado pelo build. 37 prints faltando.
+Gerado pelo build. 36 prints faltando.
 
 
 ## Quick Start (/quick-start)
@@ -13,10 +13,6 @@ Gerado pelo build. 37 prints faltando.
 
 - [ ] `img/times-criar.png`: Tela Configurar time com o nome do time preenchido (Online Store) e a área de upload da logo.
 - [ ] `img/times-configuracoes.png`: Modal Configurações aberto em Meu Time › Configurações, com nome, logo, contato, documento (borrado), endereço (borrado) e fuso horário.
-
-## Domínios (/dominios)
-
-- [ ] `img/dominios-verificado.png`: Lista de domínios com go.yourdomain.com em status Verificado e o selo de primário.
 
 ## Versões e arquivos (/versoes-e-arquivos)
 

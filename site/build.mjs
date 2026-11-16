@@ -83,7 +83,8 @@ function expand(html) {
 				shotsTodo.push({ page: currentSlug, src, caption, todo });
 				return `<figure class="shot shot-todo"><div class="shot-box">${icon('pixel')}<div><strong>Print pendente${src ? ` · <code>${esc(src)}</code>` : ''}</strong><p>${esc(todo || caption || '')}</p></div></div>${caption ? `<figcaption>${esc(caption)}</figcaption>` : ''}</figure>`;
 			}
-			const imgUrl = /^https?:/.test(IMG_BASE) && !/^https?:/.test(src) ? `${IMG_BASE}/${src.replace(/^\//, '')}` : src;
+			const imgBase = IMG2_FILES.has(src.replace(/^\//, '')) && IMG2_BASE ? IMG2_BASE : IMG_BASE;
+			const imgUrl = /^https?:/.test(imgBase) && !/^https?:/.test(src) ? `${imgBase}/${src.replace(/^\//, '')}` : src;
 			return `<figure class="shot"><img src="${esc(imgUrl)}" alt="${esc(alt || caption || '')}" loading="lazy">${caption ? `<figcaption>${esc(caption)}</figcaption>` : ''}</figure>`;
 		})
 		.replace(/<icon name="([a-z-]+)"\s*\/?>/g, (_, n) => icon(n));
@@ -169,6 +170,10 @@ const argAssets = process.argv.find(a => a.startsWith('--assets='));
 const ASSETS = (argAssets ? argAssets.slice(9) : process.env.TU_ASSETS || '/assets').replace(/\/$/, '');
 const argImg = process.argv.find(a => a.startsWith('--img='));
 const IMG_BASE = (argImg ? argImg.slice(6) : ASSETS).replace(/\/$/, '');
+const argImg2 = process.argv.find(a => a.startsWith('--img2='));
+const IMG2_BASE = argImg2 ? argImg2.slice(7).replace(/\/$/, '') : '';
+// Imagens hospedadas numa segunda página-hospedeira (lote novo, sem reclonar a primeira)
+const IMG2_FILES = new Set(existsSync(join(SRC, 'img-extra.json')) ? JSON.parse(readFileSync(join(SRC, 'img-extra.json'), 'utf8')) : []);
 const absAsset = f => (/^https?:/.test(ASSETS) ? ASSETS : SITE.url + ASSETS) + '/' + f;
 
 const layout = read(join(SRC, 'layout.html'));
@@ -310,6 +315,11 @@ if (existsSync(imgSrc)) {
 	copyDir(imgSrc, join(DIST, 'img'));
 	// Página-hospedeira das imagens (publicada no Trackup; o clonador baixa cada imagem listada)
 	copyDir(imgSrc, join(DIST, 'imagens', 'img'));
+	if (IMG2_FILES.size) {
+		mkdirSync(join(DIST, 'imagens-2', 'img'), { recursive: true });
+		for (const f of IMG2_FILES) copyFileSync(join(imgSrc, f.replace(/^img\//, '')), join(DIST, 'imagens-2', f));
+		writeFileSync(join(DIST, 'imagens-2', 'index.html'), `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="robots" content="noindex"><title>Trackup Docs: imagens 2</title></head><body>${[...IMG2_FILES].map(f => `<img src="${f}" alt="" width="1" height="1">`).join('')}</body></html>`);
+	}
 	const imgFiles = [];
 	const walk = (d, rel) => { for (const f of readdirSync(d)) { const p = join(d, f); if (statSync(p).isDirectory()) walk(p, rel + f + '/'); else imgFiles.push(rel + f); } };
 	walk(imgSrc, 'img/');

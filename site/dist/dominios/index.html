@@ -19,7 +19,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Trackup Docs">
-<meta property="article:modified_time" content="2026-11-14T05:44:14+00:00">
+<meta property="article:modified_time" content="2026-11-14T05:50:41+00:00">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Domínios">
 <meta name="twitter:description" content="Sirva páginas e links no seu próprio domínio ou subdomínio.">
@@ -29,7 +29,7 @@
 <script>(function(){try{var t=localStorage.getItem('tu-theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <link rel="stylesheet" href="/assets/style.css">
 <script src="/assets/shell.js"></script>
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","headline":"Domínios","description":"Sirva páginas e links no seu próprio domínio ou subdomínio.","url":"https://docs.trackup.me/dominios","inLanguage":"pt-BR","dateModified":"2026-11-14T05:44:14+00:00","image":"https://docs.trackup.me/assets/og.jpg","isPartOf":{"@type":"WebSite","name":"Trackup Docs","url":"https://docs.trackup.me/"},"publisher":{"@type":"Organization","name":"Trackup","url":"https://trackup.me","logo":"https://docs.trackup.me/assets/favicon.svg"},"about":{"@type":"SoftwareApplication","name":"Trackup","applicationCategory":"BusinessApplication","url":"https://trackup.me"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Trackup Docs","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":2,"name":"Guias","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":3,"name":"Domínios","item":"https://docs.trackup.me/dominios"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","headline":"Domínios","description":"Sirva páginas e links no seu próprio domínio ou subdomínio.","url":"https://docs.trackup.me/dominios","inLanguage":"pt-BR","dateModified":"2026-11-14T05:50:41+00:00","image":"https://docs.trackup.me/assets/og.jpg","isPartOf":{"@type":"WebSite","name":"Trackup Docs","url":"https://docs.trackup.me/"},"publisher":{"@type":"Organization","name":"Trackup","url":"https://trackup.me","logo":"https://docs.trackup.me/assets/favicon.svg"},"about":{"@type":"SoftwareApplication","name":"Trackup","applicationCategory":"BusinessApplication","url":"https://trackup.me"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Trackup Docs","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":2,"name":"Guias","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":3,"name":"Domínios","item":"https://docs.trackup.me/dominios"}]}]</script>
 </head>
 <body>
 <script>TU.header()</script>
@@ -59,11 +59,11 @@
 <ol class="steps">
 	<li><span class="step-title">Adicione o hostname</span>
 		<p>Vá em <strong>Ajustes › Domínios</strong>, clique em <strong>Adicionar domínio</strong>, informe o hostname (por exemplo <code>go.yourdomain.com</code>, sem <code>https://</code> e sem barra no final) e salve. O número de domínios depende do <a href="/assinatura">plano</a>.</p>
-		<figure class="shot shot-todo"><div class="shot-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><div><strong>Print pendente · <code>img/dominios-adicionar.png</code></strong><p>Diálogo Adicionar domínio com o hostname go.yourdomain.com preenchido.</p></div></div><figcaption>Diálogo Adicionar domínio</figcaption></figure></shot>
+		<figure class="shot"><img src="../img/dominios-adicionar.png" alt="Diálogo Adicionar domínio" loading="lazy"><figcaption>Diálogo Adicionar domínio</figcaption></figure></shot>
 	</li>
 	<li><span class="step-title">Copie o registro CNAME</span>
 		<p>Abra o domínio na lista. O Trackup mostra o registro a criar, com <strong>Type</strong> (<code>CNAME</code>), <strong>Name</strong> (o subdomínio) e <strong>Value</strong> (o destino). Use o botão de copiar ao lado de cada campo.</p>
-		<figure class="shot shot-todo"><div class="shot-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><div><strong>Print pendente · <code>img/dominios-cname.png</code></strong><p>Lista Ajustes › Domínios com go.yourdomain.com expandido em status Pendente, mostrando a tabela Type / Name / Value e o botão Verificar.</p></div></div><figcaption>Registro CNAME exibido para o domínio</figcaption></figure></shot>
+		<figure class="shot"><img src="../img/dominios-cname.png" alt="Registro CNAME exibido para o domínio" loading="lazy"><figcaption>Registro CNAME exibido para o domínio</figcaption></figure></shot>
 	</li>
 	<li><span class="step-title">Crie o registro no seu DNS</span>
 		<p>No painel do provedor de DNS, crie um registro <code>CNAME</code> com os mesmos valores.</p>

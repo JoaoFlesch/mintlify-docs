@@ -19,7 +19,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Trackup Docs">
-<meta property="article:modified_time" content="2026-11-14T05:43:53+00:00">
+<meta property="article:modified_time" content="2026-11-14T11:47:29+00:00">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Testes A/B">
 <meta name="twitter:description" content="Divida o tráfego entre páginas ou checkouts, compare as vendas e envie tudo para a variante vencedora.">
@@ -29,7 +29,7 @@
 <script>(function(){try{var t=localStorage.getItem('tu-theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <link rel="stylesheet" href="/assets/style.css">
 <script src="/assets/shell.js"></script>
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","headline":"Testes A/B","description":"Divida o tráfego entre páginas ou checkouts, compare as vendas e envie tudo para a variante vencedora.","url":"https://docs.trackup.me/testes-ab","inLanguage":"pt-BR","dateModified":"2026-11-14T05:43:53+00:00","image":"https://docs.trackup.me/assets/og.jpg","isPartOf":{"@type":"WebSite","name":"Trackup Docs","url":"https://docs.trackup.me/"},"publisher":{"@type":"Organization","name":"Trackup","url":"https://trackup.me","logo":"https://docs.trackup.me/assets/favicon.svg"},"about":{"@type":"SoftwareApplication","name":"Trackup","applicationCategory":"BusinessApplication","url":"https://trackup.me"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Trackup Docs","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":2,"name":"Guias","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":3,"name":"Testes A/B","item":"https://docs.trackup.me/testes-ab"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","headline":"Testes A/B","description":"Divida o tráfego entre páginas ou checkouts, compare as vendas e envie tudo para a variante vencedora.","url":"https://docs.trackup.me/testes-ab","inLanguage":"pt-BR","dateModified":"2026-11-14T11:47:29+00:00","image":"https://docs.trackup.me/assets/og.jpg","isPartOf":{"@type":"WebSite","name":"Trackup Docs","url":"https://docs.trackup.me/"},"publisher":{"@type":"Organization","name":"Trackup","url":"https://trackup.me","logo":"https://docs.trackup.me/assets/favicon.svg"},"about":{"@type":"SoftwareApplication","name":"Trackup","applicationCategory":"BusinessApplication","url":"https://trackup.me"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Trackup Docs","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":2,"name":"Guias","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":3,"name":"Testes A/B","item":"https://docs.trackup.me/testes-ab"}]}]</script>
 </head>
 <body>
 <script>TU.header()</script>
@@ -63,8 +63,8 @@
 		<p>No menu lateral, clique em <strong>Testes A/B</strong> e em <strong>Criar teste A/B</strong>. Dê um nome, escolha o <strong>Slug</strong> (o caminho do link, como <code>/vsl</code>) e o <strong>Tipo de teste</strong>.</p>
 	</li>
 	<li><span class="step-title">Escolha as variantes e os pesos</span>
-		<p>O teste começa com duas variantes em 50/50. Para cada uma, escolha a <strong>Página</strong> e o <strong>Tráfego</strong> em porcentagem. Use <strong>Adicionar variante</strong> para mais opções e <strong>Balancear pesos</strong> para dividir por igual.</p>
-		<figure class="shot shot-todo"><div class="shot-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><div><strong>Print pendente · <code>img/testes-ab-criar.png</code></strong><p>Diálogo Criar teste A/B com Nome, Slug /lp-teste, Tipo de teste Página e duas variantes em 50% (Página LP Builder e Página LP HTML), com Adicionar variante e Balancear pesos visíveis.</p></div></div><figcaption>Variantes e pesos de um teste A/B</figcaption></figure></shot>
+		<p>O teste começa com duas variantes em 50/50. Para cada uma, escolha a <strong>Página</strong> e o <strong>Tráfego</strong> em porcentagem. Use <strong>Adicionar variante</strong> para mais opções. Se a soma dos pesos passar de 100%, aparece um alerta com o botão <strong>Balancear pesos</strong>.</p>
+		<figure class="shot"><img src="../img/testes-ab-criar.png" alt="Variantes e pesos de um teste A/B" loading="lazy"><figcaption>Variantes e pesos de um teste A/B</figcaption></figure></shot>
 		<div class="callout warning"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg><div><p>Os pesos das variantes ativas precisam somar 100%.</p></div></div>
 	</li>
 	<li><span class="step-title">Use o link do teste no anúncio</span>
@@ -83,7 +83,7 @@
 <p>O teste A/B divide visitantes entre páginas, então para comparar botões (texto, cor ou posição) crie duas versões da mesma landing que só diferem no botão. No Builder, <strong>Duplique</strong> a página e altere o botão na cópia. Depois crie um teste do tipo <strong>Página</strong> com as duas variantes.</p>
 <h3 id="testar-landing-pages-builder-e-html">Testar landing pages (Builder e HTML)<a class="anchor" href="#testar-landing-pages-builder-e-html" aria-label="Link para esta seção">#</a></h3>
 <p>As variantes podem ser de tipos diferentes. Por exemplo, uma página do <a href="/builder">Builder</a> contra uma página <a href="/upload-html">HTML</a>. Crie um teste do tipo <strong>Página</strong>, escolha cada uma como variante e use o link do teste no anúncio.</p>
-<figure class="shot shot-todo"><div class="shot-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><div><strong>Print pendente · <code>img/testes-ab-lista.png</code></strong><p>Lista de Testes A/B com um teste de Checkout (ofertas) e um teste de Página (LP Builder contra LP HTML), mostrando nome, link e tipo.</p></div></div><figcaption>Lista de testes A/B</figcaption></figure></shot>
+<figure class="shot"><img src="../img/testes-ab-lista.png" alt="Lista de testes A/B" loading="lazy"><figcaption>Lista de testes A/B</figcaption></figure></shot>
 
 <h2 id="acompanhar-o-resultado">Acompanhar o resultado<a class="anchor" href="#acompanhar-o-resultado" aria-label="Link para esta seção">#</a></h2>
 <p>Na lista, abra o menu do teste e clique em <strong>Relatórios</strong>. A aba <strong>Teste A/B</strong> mostra, por variante:</p>

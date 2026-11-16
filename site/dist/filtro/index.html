@@ -19,7 +19,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Trackup Docs">
-<meta property="article:modified_time" content="2026-11-14T05:44:05+00:00">
+<meta property="article:modified_time" content="2026-11-14T11:47:29+00:00">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Filtro">
 <meta name="twitter:description" content="Decida o que acontece com cada acesso antes de a página carregar. Bloqueie bots, países e curiosos.">
@@ -29,7 +29,7 @@
 <script>(function(){try{var t=localStorage.getItem('tu-theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <link rel="stylesheet" href="/assets/style.css">
 <script src="/assets/shell.js"></script>
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","headline":"Filtro","description":"Decida o que acontece com cada acesso antes de a página carregar. Bloqueie bots, países e curiosos.","url":"https://docs.trackup.me/filtro","inLanguage":"pt-BR","dateModified":"2026-11-14T05:44:05+00:00","image":"https://docs.trackup.me/assets/og.jpg","isPartOf":{"@type":"WebSite","name":"Trackup Docs","url":"https://docs.trackup.me/"},"publisher":{"@type":"Organization","name":"Trackup","url":"https://trackup.me","logo":"https://docs.trackup.me/assets/favicon.svg"},"about":{"@type":"SoftwareApplication","name":"Trackup","applicationCategory":"BusinessApplication","url":"https://trackup.me"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Trackup Docs","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":2,"name":"Guias","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":3,"name":"Filtro","item":"https://docs.trackup.me/filtro"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","headline":"Filtro","description":"Decida o que acontece com cada acesso antes de a página carregar. Bloqueie bots, países e curiosos.","url":"https://docs.trackup.me/filtro","inLanguage":"pt-BR","dateModified":"2026-11-14T11:47:29+00:00","image":"https://docs.trackup.me/assets/og.jpg","isPartOf":{"@type":"WebSite","name":"Trackup Docs","url":"https://docs.trackup.me/"},"publisher":{"@type":"Organization","name":"Trackup","url":"https://trackup.me","logo":"https://docs.trackup.me/assets/favicon.svg"},"about":{"@type":"SoftwareApplication","name":"Trackup","applicationCategory":"BusinessApplication","url":"https://trackup.me"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Trackup Docs","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":2,"name":"Guias","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":3,"name":"Filtro","item":"https://docs.trackup.me/filtro"}]}]</script>
 </head>
 <body>
 <script>TU.header()</script>
@@ -83,7 +83,7 @@
 </table>
 
 <h3 id="regras-sugeridas">Regras sugeridas<a class="anchor" href="#regras-sugeridas" aria-label="Link para esta seção">#</a></h3>
-<p>No formulário de nova regra, clique em <strong>Usar template</strong> para começar de um modelo já montado. Todos podem ser editados antes de salvar.</p>
+<p>No fim da tela <strong>Filtro</strong>, abaixo da tabela de regras, a seção <strong>Regras sugeridas</strong> mostra modelos prontos. Clique em <strong>Usar template</strong> em um deles para abrir o formulário já preenchido. Todos podem ser editados antes de salvar.</p>
 <table>
 	<thead><tr><th>Regra sugerida</th><th>O que faz</th></tr></thead>
 	<tbody>
@@ -92,8 +92,8 @@
 		<tr><td>Permitir somente se a query string contém um valor específico</td><td>Gera um par aleatório, como <code>abc=xyz</code>, e bloqueia quem chega sem ele. A URL de rastreamento da página já leva o parâmetro.</td></tr>
 	</tbody>
 </table>
-<figure class="shot shot-todo"><div class="shot-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><div><strong>Print pendente · <code>img/filtro-templates.png</code></strong><p>Formulário Criar regra com o seletor Usar template aberto, mostrando as 3 regras sugeridas.</p></div></div><figcaption>Regras sugeridas</figcaption></figure></shot>
-<figure class="shot shot-todo"><div class="shot-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><div><strong>Print pendente · <code>img/filtro-lista.png</code></strong><p>Tela Filtro com os cards Total de requests, Página de oferta, Safe page e Bots, o gráfico Requests por decisão e a tabela de regras (Nome, Peso, Expressão, Ação, Acessos, Ativo) com 3 regras.</p></div></div><figcaption>Lista de regras e métricas do Filtro</figcaption></figure></shot>
+<figure class="shot"><img src="../img/filtro-templates.png" alt="Regras sugeridas" loading="lazy"><figcaption>Regras sugeridas</figcaption></figure></shot>
+<figure class="shot"><img src="../img/filtro-lista.png" alt="Lista de regras e métricas do Filtro" loading="lazy"><figcaption>Lista de regras e métricas do Filtro</figcaption></figure></shot>
 
 <h2 id="acompanhar-o-resultado">Acompanhar o resultado<a class="anchor" href="#acompanhar-o-resultado" aria-label="Link para esta seção">#</a></h2>
 <p>O topo da tela mostra, no período escolhido, o total de requisições, quantas foram para a página de oferta, quantas viram a safe page e quantas eram bots, além de um gráfico por decisão. A coluna <strong>Acessos</strong> mostra quantas vezes cada regra correspondeu.</p>

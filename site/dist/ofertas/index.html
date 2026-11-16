@@ -19,7 +19,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Trackup Docs">
-<meta property="article:modified_time" content="2026-11-14T05:43:53+00:00">
+<meta property="article:modified_time" content="2026-11-14T11:47:29+00:00">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Ofertas">
 <meta name="twitter:description" content="A oferta é a página de checkout do seu produto. É por ela que a venda volta atribuída ao anúncio.">
@@ -29,7 +29,7 @@
 <script>(function(){try{var t=localStorage.getItem('tu-theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <link rel="stylesheet" href="/assets/style.css">
 <script src="/assets/shell.js"></script>
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","headline":"Ofertas","description":"A oferta é a página de checkout do seu produto. É por ela que a venda volta atribuída ao anúncio.","url":"https://docs.trackup.me/ofertas","inLanguage":"pt-BR","dateModified":"2026-11-14T05:43:53+00:00","image":"https://docs.trackup.me/assets/og.jpg","isPartOf":{"@type":"WebSite","name":"Trackup Docs","url":"https://docs.trackup.me/"},"publisher":{"@type":"Organization","name":"Trackup","url":"https://trackup.me","logo":"https://docs.trackup.me/assets/favicon.svg"},"about":{"@type":"SoftwareApplication","name":"Trackup","applicationCategory":"BusinessApplication","url":"https://trackup.me"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Trackup Docs","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":2,"name":"Guias","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":3,"name":"Ofertas","item":"https://docs.trackup.me/ofertas"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","headline":"Ofertas","description":"A oferta é a página de checkout do seu produto. É por ela que a venda volta atribuída ao anúncio.","url":"https://docs.trackup.me/ofertas","inLanguage":"pt-BR","dateModified":"2026-11-14T11:47:29+00:00","image":"https://docs.trackup.me/assets/og.jpg","isPartOf":{"@type":"WebSite","name":"Trackup Docs","url":"https://docs.trackup.me/"},"publisher":{"@type":"Organization","name":"Trackup","url":"https://trackup.me","logo":"https://docs.trackup.me/assets/favicon.svg"},"about":{"@type":"SoftwareApplication","name":"Trackup","applicationCategory":"BusinessApplication","url":"https://trackup.me"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Trackup Docs","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":2,"name":"Guias","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":3,"name":"Ofertas","item":"https://docs.trackup.me/ofertas"}]}]</script>
 </head>
 <body>
 <script>TU.header()</script>
@@ -56,18 +56,17 @@
 		<p>A oferta precisa de uma <a href="/plataformas-de-venda">plataforma de venda</a> integrada. Se ainda não tem, crie em <strong>Integração › Plataformas de vendas</strong> ou pelo atalho <strong>Criar plataforma de vendas</strong> dentro do formulário.</p>
 	</li>
 	<li><span class="step-title">Adicione a oferta</span>
-		<p>No menu lateral, clique em <strong>Ofertas</strong> e em <strong>Adicionar oferta</strong>. Na aba <strong>Redirect</strong>, preencha:</p>
+		<p>No menu lateral, clique em <strong>Ofertas</strong> e em <strong>Adicionar oferta</strong>. A oferta abre em uma página inteira, sem abas. Preencha:</p>
 		<table>
 			<thead><tr><th>Campo</th><th>Descrição</th></tr></thead>
 			<tbody>
 				<tr><td>Nome</td><td>Por exemplo <code>Checkout Produto X</code>.</td></tr>
 				<tr><td>Plataforma de vendas</td><td>A plataforma que processa o pagamento.</td></tr>
-				<tr><td>URL de redirecionamento</td><td>O link do checkout na plataforma.</td></tr>
-				<tr><td>Status Code</td><td><code>302</code> por padrão. Também aceita <code>301</code>, <code>307</code> e <code>308</code>.</td></tr>
+				<tr><td>URL de redirecionamento</td><td>O link do checkout na plataforma. O redirecionamento é temporário (302).</td></tr>
 				<tr><td>Caminho</td><td>Opcional, como <code>/checkout</code>.</td></tr>
 			</tbody>
 		</table>
-		<figure class="shot shot-todo"><div class="shot-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><div><strong>Print pendente · <code>img/ofertas-criar.png</code></strong><p>Diálogo Adicionar oferta na aba Redirect com Nome (ex.: Product A - Checkout 1), Plataforma de vendas Upag selecionada, URL de redirecionamento de checkout, Status Code 302 e Caminho /checkout-1.</p></div></div><figcaption>Criação de uma oferta</figcaption></figure></shot>
+		<figure class="shot"><img src="../img/ofertas-criar.png" alt="Criação de uma oferta" loading="lazy"><figcaption>Criação de uma oferta</figcaption></figure></shot>
 	</li>
 	<li><span class="step-title">Copie o link da oferta</span>
 		<p>Na lista de <strong>Ofertas</strong>, clique no botão de copiar da coluna <strong>Link</strong>.</p>
@@ -82,7 +81,7 @@
 
 <h2 id="varios-checkouts-para-o-mesmo-produto">Vários checkouts para o mesmo produto<a class="anchor" href="#varios-checkouts-para-o-mesmo-produto" aria-label="Link para esta seção">#</a></h2>
 <p>Crie uma oferta para cada checkout. Um produto pode ter, por exemplo, <code>Product A - Checkout 1</code> (preço cheio) e <code>Product A - Checkout 2</code> (preço com desconto, outra cor). Cada oferta tem seu link e seu caminho, e todas aparecem na lista de <strong>Ofertas</strong>.</p>
-<figure class="shot shot-todo"><div class="shot-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><div><strong>Print pendente · <code>img/ofertas-lista.png</code></strong><p>Lista de Ofertas com 2 produtos e 3 ofertas (Product A - Checkout 1, Product A - Checkout 2, Product B - Checkout), coluna Link com botão de copiar e Destino Publicada.</p></div></div><figcaption>Lista de ofertas</figcaption></figure></shot>
+<figure class="shot"><img src="../img/ofertas-lista.png" alt="Lista de ofertas" loading="lazy"><figcaption>Lista de ofertas</figcaption></figure></shot>
 
 <h2 id="oferta-com-pagina-propria">Oferta com página própria<a class="anchor" href="#oferta-com-pagina-propria" aria-label="Link para esta seção">#</a></h2>
 <p>Além de Redirect, uma oferta pode ser criada com Builder, Upload HTML ou Clonar URL, por exemplo para um pré-checkout. Nesse caso, o botão dessa página deve levar ao checkout da plataforma.</p>

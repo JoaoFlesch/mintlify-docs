@@ -7,6 +7,7 @@ import { join, dirname, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createServer } from 'node:http';
 import { execSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { icon } from './src/icons.mjs';
 import { buildApiPages } from './src/api.mjs';
 
@@ -259,6 +260,9 @@ for (const n of usedIcons) shellData.icons[n] = icon(n);
 const shellOut = `/* gerado por site/build.mjs — não edite: altere src/assets/shell.js, app.js ou nav.json */\n`
 	+ `window.TU={A:${JSON.stringify(ASSETS)},data:${JSON.stringify(shellData)}};\n${shellJs}\nTU.init=function(){\n${appJs}\n};\n`;
 
+// Versão dos arquivos compartilhados: o nome do arquivo muda quando o conteúdo muda, para furar o cache da borda (max-age 4h).
+const ASSET_V = createHash('sha1').update(css).update(shellOut).digest('hex').slice(0, 8);
+
 const jsonEsc = o => JSON.stringify(o).replace(/</g, '\\u003c');
 
 rmSync(DIST, { recursive: true, force: true });
@@ -269,6 +273,8 @@ for (const f of ['og.jpg', 'favicon.svg']) copyFileSync(join(SRC, 'assets', f), 
 writeFileSync(join(DIST, 'assets', 'search.js'), `window.__SEARCH__=${JSON.stringify(searchIndex)};`);
 writeFileSync(join(DIST, 'assets', 'style.css'), css);
 writeFileSync(join(DIST, 'assets', 'shell.js'), shellOut);
+writeFileSync(join(DIST, 'assets', `style.${ASSET_V}.css`), css);
+writeFileSync(join(DIST, 'assets', `shell.${ASSET_V}.js`), shellOut);
 // Página-hospedeira dos arquivos compartilhados: publicada no Trackup em /assets, faz o clonador baixar cada arquivo.
 writeFileSync(join(DIST, 'assets', 'index.html'), `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="robots" content="noindex"><title>Trackup Docs: arquivos</title><link rel="icon" href="favicon.svg"><link rel="stylesheet" href="style.css"><script src="shell.js" defer></script><script src="search.js" defer></script></head><body><img src="og.jpg" alt="" width="1" height="1"></body></html>`);
 for (const { entry, page } of rendered) {
@@ -309,7 +315,7 @@ for (const { entry, page } of rendered) {
 		.replaceAll('{{description}}', esc(meta.description || ''))
 		.replaceAll('{{canonical}}', canonical)
 		.replaceAll('{{ogImage}}', absAsset('og.jpg'))
-		.replaceAll('{{A}}', ASSETS)
+		.replaceAll('{{A}}', ASSETS).replaceAll('{{V}}', ASSET_V)
 		.replace('{{articleTime}}', isHome ? '' : `<meta property="article:modified_time" content="${modified}">`)
 		.replace('{{jsonld}}', () => jsonEsc(ld))
 		.replace('{{layoutClass}}', showToc ? 'layout' : 'layout no-toc')

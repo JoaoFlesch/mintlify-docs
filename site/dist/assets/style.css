@@ -222,11 +222,37 @@ figure.shot figcaption { font-size: 13px; color: var(--text-faint); margin-top: 
 .badge.green { background: var(--tip-bg); color: var(--tip); }
 .badge.amber { background: var(--warn-bg); color: var(--warn); }
 .badge.red { background: var(--danger-bg); color: var(--danger); }
-.flow { display: flex; flex-wrap: wrap; align-items: stretch; gap: 0; margin: 4px 0 24px; }
-.flow-step { flex: 1 1 120px; min-width: 120px; padding: 12px 12px; border: 1px solid var(--border); background: var(--bg-elevated); border-radius: 10px; font-size: 13.5px; line-height: 1.45; }
-.flow-step b { display: block; font-size: 14px; margin-bottom: 2px; }
-.flow-step span { color: var(--text-muted); }
-.flow-arrow { display: grid; place-items: center; width: 26px; color: var(--text-faint); }
+/* Diagrama de fluxo: <flow>, <fstep>, <fbranch> */
+.flow { --gap: 28px; display: flex; align-items: stretch; gap: var(--gap); margin: 8px 0 28px; padding: 22px; border: 1px solid var(--border); border-radius: 14px; background: var(--bg-subtle); background-image: radial-gradient(var(--border) 1px, transparent 1px); background-size: 18px 18px; }
+.fnode { position: relative; flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 10px; padding: 14px; border: 1px solid var(--border-strong); border-radius: 12px; background: var(--bg-elevated); box-shadow: var(--shadow); }
+.fnode-ic { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 9px; background: var(--brand-soft); color: var(--brand); }
+.fnode-ic svg { width: 18px; height: 18px; }
+.fnode-n { position: absolute; top: 12px; right: 12px; font: 600 11.5px/1 var(--mono); color: var(--text-faint); }
+.fnode-body b { display: block; font-size: 14.5px; line-height: 1.35; color: var(--text); }
+.fnode-body span { display: block; margin-top: 2px; font-size: 13px; line-height: 1.5; color: var(--text-muted); }
+.fnode.tone-ok { border-color: var(--tip); } .fnode.tone-ok .fnode-ic { background: var(--tip-bg); color: var(--tip); }
+.fnode.tone-stop { border-color: var(--danger); } .fnode.tone-stop .fnode-ic { background: var(--danger-bg); color: var(--danger); }
+.fnode.tone-brand { border-color: var(--brand); }
+/* conectores */
+.flow > .fnode:not(:first-child)::before, .flow > .fbranch::before { content: ""; position: absolute; left: calc(var(--gap) * -1); top: 50%; width: var(--gap); border-top: 2px solid var(--border-strong); }
+.fa { position: absolute; left: -7px; top: calc(50% - 5px); width: 8px; height: 8px; border-top: 2px solid var(--border-strong); border-right: 2px solid var(--border-strong); transform: rotate(45deg); }
+.flow > .fnode:first-child > .fa { display: none; }
+.fbranch { position: relative; align-self: center; flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 12px; }
+.flow > .fbranch::before { width: calc(var(--gap) / 2); }
+.fbranch > .fnode::before { content: ""; position: absolute; left: calc(var(--gap) / -2); top: 50%; width: calc(var(--gap) / 2); border-top: 2px solid var(--border-strong); }
+.fbranch > .fnode::after { content: ""; position: absolute; left: calc(var(--gap) / -2); top: -7px; bottom: -7px; border-left: 2px solid var(--border-strong); }
+.fbranch > .fnode:first-child::after { top: 50%; }
+.fbranch > .fnode:last-child::after { bottom: 50%; }
+.fbranch > .fnode:only-child::after { display: none; }
+.flow.flow-v { flex-direction: column; align-items: stretch; --gap: 30px; }
+@media (max-width: 760px) {
+	.flow { flex-direction: column; align-items: stretch; --gap: 30px; padding: 16px; }
+	.flow > .fnode:not(:first-child)::before, .flow > .fbranch::before, .flow.flow-v > .fnode:not(:first-child)::before { left: 50%; top: calc(var(--gap) * -1); width: 0; height: var(--gap); border-top: 0; border-left: 2px solid var(--border-strong); }
+	.flow > .fbranch::before { height: calc(var(--gap) / 2); top: calc(var(--gap) / -2 * 2); }
+	.fa { left: calc(50% - 5px); top: -9px; transform: rotate(135deg); }
+	.fbranch > .fnode::before, .fbranch > .fnode::after { display: none; }
+	.fbranch > .fnode:not(:first-child) > .fa { display: none; }
+}
 
 /* Rodapé da página */
 .feedback { display: flex; align-items: center; gap: 10px; margin-top: 56px; font-size: 14px; color: var(--text-muted); }
@@ -309,3 +335,11 @@ figure.shot figcaption { font-size: 13px; color: var(--text-faint); margin-top: 
 /* Breadcrumb */
 .eyebrow a { color: inherit; text-decoration: none; }
 .eyebrow a:hover { text-decoration: underline; }
+.flow:has(.fbranch) { align-items: center; }
+.flow.flow-v .fnode { flex-direction: row; align-items: center; gap: 14px; }
+.flow.flow-v .fnode-body span { margin-top: 0; }
+.flow.flow-v > .fnode:not(:first-child)::before { left: 28px; top: calc(var(--gap) * -1); width: 0; height: var(--gap); border-top: 0; border-left: 2px solid var(--border-strong); }
+.flow.flow-v > .fnode > .fa { left: 24px; top: -9px; transform: rotate(135deg); }
+.flow.flow-v > .fnode:first-child > .fa { display: none; }
+@media (max-width: 760px) { .flow.flow-v > .fnode::before { left: 50%; } .flow.flow-v > .fnode > .fa { left: calc(50% - 5px); } }
+@media (max-width: 760px) { .flow:has(.fbranch), .flow:has(.fbranch) .fbranch { align-items: stretch; align-self: stretch; } }

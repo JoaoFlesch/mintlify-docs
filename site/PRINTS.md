@@ -1,6 +1,6 @@
 # Prints pendentes
 
-Gerado pelo build. 24 prints faltando.
+Gerado pelo build. 23 prints faltando.
 
 
 ## Quick Start (/quick-start)
@@ -32,10 +32,6 @@ Gerado pelo build. 24 prints faltando.
 
 - [ ] `img/tut-meta-hotmart-webhook.png`: Tela de cadastro de webhook da Hotmart com a URL do Trackup (domínio borrado), versão 2.0.0 e os eventos Compra aprovada, Compra reembolsada e Chargeback marcados.
 - [ ] `img/tut-meta-anuncio.png`: Seção Destino de um anúncio no Gerenciador de Anúncios da Meta com URL do site https://lp.seudominio.com/curso e o campo Parâmetros de URL preenchido com o template do Trackup.
-
-## Domínio próprio (/tutorial-dominio-proprio)
-
-- [ ] `img/tut-dominio-cloudflare.png`: Formulário Add record da Cloudflare com Type CNAME, Name lp, Target com o destino do Trackup e Proxy status DNS only (nuvem cinza).
 
 ## Teste A/B de página (/tutorial-teste-ab)
 

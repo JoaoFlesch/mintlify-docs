@@ -19,7 +19,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Trackup Docs">
-<meta property="article:modified_time" content="2026-11-14T05:44:05+00:00">
+<meta property="article:modified_time" content="2026-11-17T00:40:28+00:00">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Conversões">
 <meta name="twitter:description" content="Todas as vendas recebidas das plataformas de venda, com a atribuição de campanha, conjunto e anúncio.">
@@ -29,7 +29,7 @@
 <script>(function(){try{var t=localStorage.getItem('tu-theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <link rel="stylesheet" href="https://assets.trackup.cloud/assets/pages/2e1cbc4b-c7b6-4295-baf2-b2e46f5c8f5b/style.css">
 <script src="https://assets.trackup.cloud/assets/pages/2e1cbc4b-c7b6-4295-baf2-b2e46f5c8f5b/shell.js"></script>
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","headline":"Conversões","description":"Todas as vendas recebidas das plataformas de venda, com a atribuição de campanha, conjunto e anúncio.","url":"https://docs.trackup.me/conversoes","inLanguage":"pt-BR","dateModified":"2026-11-14T05:44:05+00:00","image":"https://assets.trackup.cloud/assets/pages/2e1cbc4b-c7b6-4295-baf2-b2e46f5c8f5b/og.jpg","isPartOf":{"@type":"WebSite","name":"Trackup Docs","url":"https://docs.trackup.me/"},"publisher":{"@type":"Organization","name":"Trackup","url":"https://trackup.me","logo":"https://assets.trackup.cloud/assets/pages/2e1cbc4b-c7b6-4295-baf2-b2e46f5c8f5b/favicon.svg"},"about":{"@type":"SoftwareApplication","name":"Trackup","applicationCategory":"BusinessApplication","url":"https://trackup.me"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Trackup Docs","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":2,"name":"Guias","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":3,"name":"Conversões","item":"https://docs.trackup.me/conversoes"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","headline":"Conversões","description":"Todas as vendas recebidas das plataformas de venda, com a atribuição de campanha, conjunto e anúncio.","url":"https://docs.trackup.me/conversoes","inLanguage":"pt-BR","dateModified":"2026-11-17T00:40:28+00:00","image":"https://assets.trackup.cloud/assets/pages/2e1cbc4b-c7b6-4295-baf2-b2e46f5c8f5b/og.jpg","isPartOf":{"@type":"WebSite","name":"Trackup Docs","url":"https://docs.trackup.me/"},"publisher":{"@type":"Organization","name":"Trackup","url":"https://trackup.me","logo":"https://assets.trackup.cloud/assets/pages/2e1cbc4b-c7b6-4295-baf2-b2e46f5c8f5b/favicon.svg"},"about":{"@type":"SoftwareApplication","name":"Trackup","applicationCategory":"BusinessApplication","url":"https://trackup.me"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Trackup Docs","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":2,"name":"Guias","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":3,"name":"Conversões","item":"https://docs.trackup.me/conversoes"}]}]</script>
 </head>
 <body>
 <script>TU.header()</script>
@@ -43,6 +43,13 @@
 			<script>TU.actions()</script>
 			<p>Em <strong>Logs › Conversões</strong>, a aba <strong>Conversões</strong> lista cada venda recebida pelo webhook das <a href="/plataformas-de-venda">plataformas de venda</a>.</p>
 <figure class="shot"><img src="https://assets.trackup.cloud/assets/pages/9d029c4c-402a-4f7c-aac9-b6a86575c0f1/img/conversoes-lista.png" alt="Lista de conversões" loading="lazy"><figcaption>Lista de conversões</figcaption></figure></shot>
+
+<div class="flow">
+	<div class="fnode"><i class="fa"></i><span class="fnode-n">1</span><span class="fnode-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span><div class="fnode-body"><b>Clique</b><span>Gera o ID da requisição</span></div></div>
+	<div class="fnode"><i class="fa"></i><span class="fnode-n">2</span><span class="fnode-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2 2h3l2.7 12.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg></span><div class="fnode-body"><b>Compra</b><span>Na plataforma de venda</span></div></div>
+	<div class="fnode"><i class="fa"></i><span class="fnode-n">3</span><span class="fnode-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8z"/></svg></span><div class="fnode-body"><b>Webhook</b><span>Devolve o ID ao Trackup</span></div></div>
+	<div class="fnode tone-ok"><i class="fa"></i><span class="fnode-n">4</span><span class="fnode-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><div class="fnode-body"><b>Conversão</b><span>Ligada ao clique e à campanha</span></div></div>
+</div>
 
 <h2 id="filtrar">Filtrar<a class="anchor" href="#filtrar" aria-label="Link para esta seção">#</a></h2>
 <p>Filtre por plataforma, fonte de tráfego, ID da transação e status: <strong>Pago</strong>, <strong>Pendente</strong>, <strong>Reembolsado</strong>, <strong>Chargeback</strong> ou <strong>Desconhecido</strong>.</p>

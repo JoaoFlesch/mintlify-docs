@@ -46,13 +46,10 @@ URL: https://docs.trackup.me/quick-start
 Neste guia você monta uma operação completa: um projeto com domínio próprio, pixel, fonte de tráfego, plataforma de venda, oferta, landing page e a URL que vai no anúncio. Leva cerca de 20 minutos.
 
 	**Anúncio**URL da campanha
-{{icon:arrow}}
 
 	**Landing page**hospedada no Trackup
-{{icon:arrow}}
 
 	**Oferta**link do checkout
-{{icon:arrow}}
 
 	**Venda**webhook da plataforma
 
@@ -295,19 +292,15 @@ Toda visita passa pelo seu domínio no Trackup antes de chegar à página. Nesse
 
 ## O caminho de uma venda
 
-	**1. Clique**no anúncio, com UTMs e Click ID
-{{icon:arrow}}
+	1**Clique**no anúncio, com UTMs e Click ID
 
-	**2. Requisição**registrada e filtrada no seu domínio
-{{icon:arrow}}
+	2**Requisição**registrada e filtrada no seu domínio
 
-	**3. Página**evento page_view
-{{icon:arrow}}
+	3**Página**evento page_view
 
-	**4. Checkout**evento start_checkout
-{{icon:arrow}}
+	4**Checkout**evento start_checkout
 
-	**5. Venda**webhook com o ID do clique
+	5**Venda**webhook com o ID do clique
 
 - **Clique.** A pessoa clica no anúncio. A URL leva os parâmetros de UTM da [fonte de tráfego](https://docs.trackup.me/fontes-de-trafego) e o Click ID da plataforma (`fbclid`, `gclid`, `ttclid`).
 
@@ -381,10 +374,8 @@ O **time** é a conta da sua empresa ou agência no Trackup. Ele concentra a [as
 ## Estrutura
 
 	**Time**assinatura, membros, chaves de API
-{{icon:arrow}}
 
 	**Projetos**um por produto, oferta ou cliente
-{{icon:arrow}}
 
 	**Recursos**domínios, páginas, pixels, regras, relatórios
 
@@ -541,6 +532,14 @@ Prefixos comuns: `lp.`, `go.`, `track.`, `offer.`.
 
 Prefira um subdomínio dedicado, como `go.yourdomain.com`. Se algo der errado no DNS, o site principal não é afetado.
 
+	**Domínio**Por exemplo, `go.yourdomain.com`
+
+	**DNS**Registro CNAME no seu provedor
+
+	**Projeto**Domínio verificado e vinculado
+
+	**Página**Publicada no domínio
+
 ## Adicionar um domínio
 
 - **Adicione o hostname**
@@ -556,11 +555,94 @@ Prefira um subdomínio dedicado, como `go.yourdomain.com`. Se algo der errado no
 - **Crie o registro no seu DNS**
 		No painel do provedor de DNS, crie um registro `CNAME` com os mesmos valores.
 
-				Em **DNS › Records › Add record**, escolha `CNAME`, preencha **Name** e **Target** e deixe **Proxy status** em DNS only (nuvem cinza).
+		Escolha o provedor onde o DNS do seu domínio está hospedado. Se você não sabe qual é, consulte os nameservers do domínio em um site de whois: o DNS fica no provedor dono desses servidores, que nem sempre é onde você comprou o domínio. Em todos, use o **Name** e o **Value** exatamente como o Trackup mostra.
 
-				Em **Editar zona**, clique em **Nova entrada**, escolha o tipo `CNAME`, preencha o nome do subdomínio e o valor, e salve a zona.
+- **Abra o DNS**
+						Entre na Cloudflare, selecione o domínio e vá em **DNS › Records**. Clique em **Add record**.
 
-				Procure a área de DNS ou zona DNS, crie uma entrada do tipo `CNAME` com o nome e o valor exibidos no Trackup e remova registros `A` ou `CNAME` antigos para o mesmo nome.
+- **Preencha o registro**
+						**Type**: `CNAME`. **Name**: o subdomínio, por exemplo `lp`. **Target**: o **Value** exibido no Trackup.
+
+- **Desligue o proxy**
+						Clique na nuvem laranja até ficar cinza (**DNS only**) e clique em **Save**. Com a nuvem laranja, a verificação falha.
+
+				Mais detalhes na [Ajuda da Cloudflare](https://developers.cloudflare.com/dns/manage-dns-records/how-to/create-dns-records/).
+
+- **Abra o domínio**
+						Entre em [registro.br](https://registro.br), abra **Meus domínios** e clique no domínio.
+
+- **Entre na zona DNS**
+						Vá na seção **DNS** e clique em **Editar zona**. Se o domínio usa outros servidores DNS (por exemplo, a Cloudflare), a opção não aparece: crie o registro lá, ou volte para os servidores do Registro.br em **Alterar servidores DNS**.
+
+- **Crie a entrada**
+						Clique em **Nova entrada**. Em **Tipo**, escolha `CNAME`. Em **Nome**, informe só o subdomínio (`lp`). Em **Dados**, cole o **Value** do Trackup.
+
+- **Salve a zona**
+						Clique em **Salvar** e depois em **Publicar alterações**, se o painel pedir. Se ele exigir um ponto no fim do valor, adicione (`valor.exemplo.com.`).
+
+- **Abra o DNS**
+						Entre na GoDaddy, abra **Meus produtos**, localize o domínio e clique em **DNS** (ou **Gerenciar DNS**).
+
+- **Adicione o registro**
+						Clique em **Adicionar novo registro**. Em **Tipo**, escolha `CNAME`. Em **Nome**, informe o subdomínio (`lp`). Em **Valor**, cole o **Value** do Trackup. Deixe o **TTL** padrão.
+
+- **Salve**
+						Clique em **Salvar**. Se já existir um registro `A` ou `CNAME` com o mesmo nome, exclua-o antes.
+
+				Mais detalhes na [Ajuda da GoDaddy](https://www.godaddy.com/help/add-a-cname-record-19236).
+
+- **Abra o DNS**
+						Entre no hPanel, vá em **Domínios**, clique em **Gerenciar** ao lado do domínio e abra **DNS / Servidores de nomes**.
+
+- **Preencha o registro**
+						Na área **Gerenciar registros DNS**, escolha o tipo `CNAME`. Em **Nome**, informe o subdomínio (`lp`). Em **Aponta para**, cole o **Value** do Trackup. Mantenha o TTL padrão.
+
+- **Salve**
+						Clique em **Adicionar registro**. Se o domínio usa servidores de nomes de outro provedor, o painel da Hostinger não vale: crie o registro no provedor que aparece em **Servidores de nomes**.
+
+- **Abra o domínio**
+						Entre na Namecheap, vá em **Domain List** e clique em **Manage** ao lado do domínio.
+
+- **Abra o DNS avançado**
+						Abra a aba **Advanced DNS**. Em **Nameservers** (aba **Domain**), confirme que está em Namecheap BasicDNS ou Namecheap Web Hosting DNS; caso contrário, crie o registro no provedor que aparece ali.
+
+- **Adicione o registro**
+						Em **Host Records**, clique em **Add New Record**. **Type**: `CNAME Record`. **Host**: o subdomínio (`lp`). **Value**: o **Value** do Trackup. **TTL**: Automatic.
+
+- **Salve**
+						Clique no ícone de confirmação (✓) ao lado do registro.
+
+				Mais detalhes na [Ajuda da Namecheap](https://www.namecheap.com/support/knowledgebase/article.aspx/9646/2237/how-to-create-a-cname-record-for-your-domain/).
+
+- **Abra a zona DNS**
+						Entre no **Portal do Cliente**, abra a hospedagem e clique em **cPanel**. Na seção **Domínios**, abra o **Editor de Zona** (Zone Editor).
+
+- **Escolha o domínio**
+						Na linha do domínio, clique em **Gerenciar**, depois em **Adicionar registro** (ou **+ Registro CNAME**).
+
+- **Preencha o registro**
+						**Nome**: o subdomínio completo, como `lp.seudominio.com.` (com o ponto no fim, se o cPanel pedir). **Tipo**: `CNAME`. **Registro**: o **Value** do Trackup.
+
+- **Salve**
+						Clique em **Adicionar registro**. Se o domínio usa servidores DNS de outro provedor, crie o registro lá.
+
+				Mais detalhes na [Ajuda da HostGator](https://www.hostgator.com/help/article/how-to-change-dns-zones-mx-cname-and-a-records).
+
+- **Abra o domínio**
+						O Google Domains foi transferido para a Squarespace. Entre em **account.squarespace.com**, vá em **Domains** e clique no domínio.
+
+- **Abra as configurações de DNS**
+						Clique em **DNS** (ou **DNS Settings**) e role até **Custom records**.
+
+- **Adicione o registro**
+						Clique em **Add record**. **Host**: o subdomínio (`lp`). **Type**: `CNAME`. **Data**: o **Value** do Trackup.
+
+- **Salve**
+						Clique em **Save**.
+
+				Mais detalhes na [Ajuda da Squarespace](https://support.squarespace.com/hc/en-us/articles/360002101888-Adding-custom-DNS-records-to-your-Squarespace-managed-domain).
+
+				Procure a área de **DNS** ou **zona DNS** do provedor, crie uma entrada do tipo `CNAME` com o nome do subdomínio (`lp`) apontando para o **Value** exibido no Trackup e remova registros `A` ou `CNAME` antigos para o mesmo nome. Se o painel pedir TTL, deixe o padrão.
 
 - **Verifique**
 		Volte ao Trackup e clique em **Verificar**. Quando o status mudar para Verificado, o domínio está ativo. A propagação costuma levar minutos, mas pode chegar a 24 horas.
@@ -692,6 +774,14 @@ Lista de pixels do projeto
 - Apague o Test Event Code e salve para enviar eventos de produção.
 
 ## Servidor ou navegador
+
+	**Evento**Gerado pelo acionador
+
+		**Servidor**API de Conversões, padrão
+
+		**Navegador**Opcional, só Meta e TikTok
+
+	**Plataforma de anúncios**Recebe o evento
 
 Por padrão os eventos vão pelo servidor (API de Conversões), o que evita perdas por bloqueadores de anúncio. No acionador você também pode ativar o disparo pelo navegador, disponível só para Meta e TikTok.
 
@@ -1012,6 +1102,18 @@ Uma página é qualquer endereço do seu domínio no Trackup: landing page, pré
 
 		Checkout | Menu **Ofertas** | Levam ao checkout da plataforma de venda. Geram `start_checkout`. Veja [Ofertas](https://docs.trackup.me/ofertas). |
 
+		**Builder**Editor visual
+
+		**Upload HTML**Seu arquivo
+
+		**Clonar URL**Página existente
+
+		**Redirect**Página em outro servidor
+
+	**Publicar**Rascunho vira publicada
+
+	**No seu domínio**Recebe o tráfego
+
 ## Quatro formas de criar
 
 	[BuilderEditor visual com blocos e templates. Sem código.](https://docs.trackup.me/builder)
@@ -1091,13 +1193,10 @@ URL: https://docs.trackup.me/ofertas
 Uma oferta é uma página com finalidade Checkout, ligada a uma [plataforma de venda](https://docs.trackup.me/plataformas-de-venda). Na maioria dos casos ela redireciona para o checkout da plataforma, levando junto o ID do clique e as UTMs. Quando a venda acontece, a plataforma devolve esse ID no webhook e o Trackup liga a venda à campanha.
 
 	**Botão de compra**na landing page
-{{icon:arrow}}
 
 	**Oferta**lp.seudominio.com/checkout
-{{icon:arrow}}
 
 	**Checkout**com ID do clique e UTMs
-{{icon:arrow}}
 
 	**Webhook**venda atribuída
 
@@ -1466,6 +1565,14 @@ URL: https://docs.trackup.me/testes-ab
 
 Um teste A/B é um link que distribui os visitantes entre duas ou mais variantes, conforme os pesos que você define. O Trackup mede requisições, visitantes, conversões e receita de cada variante e diz quando já dá para escolher uma vencedora.
 
+	**Link do teste**Distribui os visitantes pelos pesos
+
+		**Variante A**Peso definido por você
+
+		**Variante B**Peso definido por você
+
+	**Resultado**Requisições, conversões e receita
+
 ## Tipos de teste
 
 	Tipo | Variantes | Evento | Exemplo |
@@ -1567,6 +1674,16 @@ URL: https://docs.trackup.me/acionadores
 Um acionador observa os eventos do projeto. Quando um evento atende a todas as condições, ele executa as ações: enviar o evento para um ou mais [pixels](https://docs.trackup.me/pixels) ou chamar um webhook.
 
 Fluxo: o evento chega, o Trackup avalia as condições de cada acionador ativo, executa as ações dos que correspondem e registra cada envio nos [logs](https://docs.trackup.me/logs-de-acionadores).
+
+	**Evento**Chega ao projeto
+
+	**Acionador**Confere as condições
+
+		**Pixel**Envia o evento
+
+		**Webhook**Chama a URL
+
+	**Logs**Cada envio é registrado
 
 ## Acionadores criados automaticamente
 
@@ -1761,6 +1878,14 @@ O Filtro avalia cada requisição que chega ao seu domínio, antes de servir a p
 - Se todas as condições da regra forem verdadeiras, a ação é executada.
 
 - Se nenhuma regra corresponder, o visitante segue para o destino normalmente.
+
+	**Requisição**Chega ao seu domínio
+
+	**Regras ativas**Avaliadas por peso, do menor para o maior
+
+		**Regra corresponde**A ação é executada
+
+		**Nenhuma corresponde**Segue para o destino
 
 ## Ações
 
@@ -2235,6 +2360,14 @@ Em **Logs › Conversões**, a aba **Conversões** lista cada venda recebida pel
 
 Lista de conversões
 
+	1**Clique**Gera o ID da requisição
+
+	2**Compra**Na plataforma de venda
+
+	3**Webhook**Devolve o ID ao Trackup
+
+	4**Conversão**Ligada ao clique e à campanha
+
 ## Filtrar
 
 Filtre por plataforma, fonte de tráfego, ID da transação e status: **Pago**, **Pendente**, **Reembolsado**, **Chargeback** ou **Desconhecido**.
@@ -2571,13 +2704,10 @@ URL: https://docs.trackup.me/tutorial-campanha-meta
 Neste tutorial você configura um funil completo para anunciar na Meta e vender na Hotmart. No fim, cada venda aparece no Trackup com a campanha, o conjunto e o anúncio de origem, e o Purchase chega ao pixel pela API de Conversões.
 
 	**Anúncio**Meta Ads
-{{icon:arrow}}
 
 	**Landing page**no seu domínio
-{{icon:arrow}}
 
 	**Oferta**link do checkout
-{{icon:arrow}}
 
 	**Hotmart**webhook da venda
 
@@ -2740,7 +2870,7 @@ Em **Gerenciador de anúncios**, clique em **Conectar Facebook Ads**, autorize e
 
 URL: https://docs.trackup.me/tutorial-dominio-proprio
 
-> Conecte um subdomínio seu ao Trackup pela Cloudflare ou pelo Registro.br e deixe como domínio primário.
+> Conecte um subdomínio seu ao Trackup pelo provedor de DNS (Cloudflare, Registro.br, GoDaddy, Hostinger, Namecheap e outros) e deixe como domínio primário.
 
 Neste tutorial você conecta `lp.seudominio.com` ao Trackup. Todas as páginas, ofertas e URLs de webhook passam a usar esse endereço.
 
@@ -2748,7 +2878,7 @@ Neste tutorial você conecta `lp.seudominio.com` ao Trackup. Todas as páginas, 
 
 - Um domínio registrado, como `seudominio.com`.
 
-- Acesso ao painel onde o DNS do domínio é gerenciado. Normalmente é a Cloudflare, o Registro.br, a GoDaddy ou a Hostinger.
+- Acesso ao painel onde o DNS do domínio é gerenciado. Por exemplo, a Cloudflare, o Registro.br, a GoDaddy, a Hostinger, a Namecheap, a HostGator ou a Squarespace (antigo Google Domains).
 
 Não sabe onde está o DNS? Consulte os nameservers do domínio em um site de whois. Se terminam em `cloudflare.com`, o DNS está na Cloudflare.
 
@@ -2771,28 +2901,94 @@ Use um subdomínio dedicado, como `lp`, `go` ou `oferta`. Assim o site principal
 
 ## 3. Crie o registro no DNS
 
-- **Abra o DNS**
-				Na Cloudflare, selecione o domínio e vá em **DNS › Records**. Clique em **Add record**.
+Escolha o provedor onde o DNS do seu domínio está hospedado. Se você não sabe qual é, consulte os nameservers do domínio em um site de whois: o DNS fica no provedor dono desses servidores, que nem sempre é onde você comprou o domínio. Em todos, use o **Name** e o **Value** exatamente como o Trackup mostra.
 
-- **Preencha**
-				**Type**: CNAME. **Name**: `lp`. **Target**: o Value do Trackup.
+- **Abra o DNS**
+				Entre na Cloudflare, selecione o domínio e vá em **DNS › Records**. Clique em **Add record**.
+
+- **Preencha o registro**
+				**Type**: `CNAME`. **Name**: o subdomínio, por exemplo `lp`. **Target**: o **Value** exibido no Trackup.
 
 - **Desligue o proxy**
-				Clique na nuvem laranja para deixar cinza (**DNS only**) e salve.
+				Clique na nuvem laranja até ficar cinza (**DNS only**) e clique em **Save**. Com a nuvem laranja, a verificação falha.
 
-				**Print pendente · `img/tut-dominio-cloudflare.png`**Formulário Add record da Cloudflare com Type CNAME, Name lp, Target com o destino do Trackup e Proxy status DNS only (nuvem cinza).
+		Mais detalhes na [Ajuda da Cloudflare](https://developers.cloudflare.com/dns/manage-dns-records/how-to/create-dns-records/).
 
-Registro na Cloudflare com proxy desligado
+- **Abra o domínio**
+				Entre em [registro.br](https://registro.br), abra **Meus domínios** e clique no domínio.
 
-				Com a nuvem laranja, a verificação falha.
-
-- **Abra a zona**
-				No Registro.br, abra o domínio e clique em **Editar zona**. Se aparecer a opção de usar o DNS do Registro.br, ative.
+- **Entre na zona DNS**
+				Vá na seção **DNS** e clique em **Editar zona**. Se o domínio usa outros servidores DNS (por exemplo, a Cloudflare), a opção não aparece: crie o registro lá, ou volte para os servidores do Registro.br em **Alterar servidores DNS**.
 
 - **Crie a entrada**
-				Clique em **Nova entrada**. Tipo **CNAME**, nome `lp` e dados com o Value do Trackup. Salve as alterações.
+				Clique em **Nova entrada**. Em **Tipo**, escolha `CNAME`. Em **Nome**, informe só o subdomínio (`lp`). Em **Dados**, cole o **Value** do Trackup.
 
-		Em qualquer provedor, crie um registro do tipo **CNAME** com o nome do subdomínio (`lp`) apontando para o Value exibido no Trackup. Remova antes qualquer registro A ou CNAME que já exista com o mesmo nome.
+- **Salve a zona**
+				Clique em **Salvar** e depois em **Publicar alterações**, se o painel pedir. Se ele exigir um ponto no fim do valor, adicione (`valor.exemplo.com.`).
+
+- **Abra o DNS**
+				Entre na GoDaddy, abra **Meus produtos**, localize o domínio e clique em **DNS** (ou **Gerenciar DNS**).
+
+- **Adicione o registro**
+				Clique em **Adicionar novo registro**. Em **Tipo**, escolha `CNAME`. Em **Nome**, informe o subdomínio (`lp`). Em **Valor**, cole o **Value** do Trackup. Deixe o **TTL** padrão.
+
+- **Salve**
+				Clique em **Salvar**. Se já existir um registro `A` ou `CNAME` com o mesmo nome, exclua-o antes.
+
+		Mais detalhes na [Ajuda da GoDaddy](https://www.godaddy.com/help/add-a-cname-record-19236).
+
+- **Abra o DNS**
+				Entre no hPanel, vá em **Domínios**, clique em **Gerenciar** ao lado do domínio e abra **DNS / Servidores de nomes**.
+
+- **Preencha o registro**
+				Na área **Gerenciar registros DNS**, escolha o tipo `CNAME`. Em **Nome**, informe o subdomínio (`lp`). Em **Aponta para**, cole o **Value** do Trackup. Mantenha o TTL padrão.
+
+- **Salve**
+				Clique em **Adicionar registro**. Se o domínio usa servidores de nomes de outro provedor, o painel da Hostinger não vale: crie o registro no provedor que aparece em **Servidores de nomes**.
+
+- **Abra o domínio**
+				Entre na Namecheap, vá em **Domain List** e clique em **Manage** ao lado do domínio.
+
+- **Abra o DNS avançado**
+				Abra a aba **Advanced DNS**. Em **Nameservers** (aba **Domain**), confirme que está em Namecheap BasicDNS ou Namecheap Web Hosting DNS; caso contrário, crie o registro no provedor que aparece ali.
+
+- **Adicione o registro**
+				Em **Host Records**, clique em **Add New Record**. **Type**: `CNAME Record`. **Host**: o subdomínio (`lp`). **Value**: o **Value** do Trackup. **TTL**: Automatic.
+
+- **Salve**
+				Clique no ícone de confirmação (✓) ao lado do registro.
+
+		Mais detalhes na [Ajuda da Namecheap](https://www.namecheap.com/support/knowledgebase/article.aspx/9646/2237/how-to-create-a-cname-record-for-your-domain/).
+
+- **Abra a zona DNS**
+				Entre no **Portal do Cliente**, abra a hospedagem e clique em **cPanel**. Na seção **Domínios**, abra o **Editor de Zona** (Zone Editor).
+
+- **Escolha o domínio**
+				Na linha do domínio, clique em **Gerenciar**, depois em **Adicionar registro** (ou **+ Registro CNAME**).
+
+- **Preencha o registro**
+				**Nome**: o subdomínio completo, como `lp.seudominio.com.` (com o ponto no fim, se o cPanel pedir). **Tipo**: `CNAME`. **Registro**: o **Value** do Trackup.
+
+- **Salve**
+				Clique em **Adicionar registro**. Se o domínio usa servidores DNS de outro provedor, crie o registro lá.
+
+		Mais detalhes na [Ajuda da HostGator](https://www.hostgator.com/help/article/how-to-change-dns-zones-mx-cname-and-a-records).
+
+- **Abra o domínio**
+				O Google Domains foi transferido para a Squarespace. Entre em **account.squarespace.com**, vá em **Domains** e clique no domínio.
+
+- **Abra as configurações de DNS**
+				Clique em **DNS** (ou **DNS Settings**) e role até **Custom records**.
+
+- **Adicione o registro**
+				Clique em **Add record**. **Host**: o subdomínio (`lp`). **Type**: `CNAME`. **Data**: o **Value** do Trackup.
+
+- **Salve**
+				Clique em **Save**.
+
+		Mais detalhes na [Ajuda da Squarespace](https://support.squarespace.com/hc/en-us/articles/360002101888-Adding-custom-DNS-records-to-your-Squarespace-managed-domain).
+
+		Procure a área de **DNS** ou **zona DNS** do provedor, crie uma entrada do tipo `CNAME` com o nome do subdomínio (`lp`) apontando para o **Value** exibido no Trackup e remova registros `A` ou `CNAME` antigos para o mesmo nome. Se o painel pedir TTL, deixe o padrão.
 
 ## 4. Verifique e defina como primário
 
@@ -2935,13 +3131,10 @@ URL: https://docs.trackup.me/tutorial-site-externo
 Sua página de vendas já está no ar em outro lugar, como WordPress, Elementor, Webflow ou Framer. Neste tutorial você faz o tráfego passar pelo Trackup, instala o script e envia eventos do funil sem mudar de hospedagem.
 
 	**Anúncio**link Redirect do Trackup
-{{icon:arrow}}
 
 	**Seu site**com o script
-{{icon:arrow}}
 
 	**Oferta**link do checkout
-{{icon:arrow}}
 
 	**Venda**webhook
 

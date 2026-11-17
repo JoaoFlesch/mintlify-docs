@@ -4,7 +4,7 @@
   <url><loc>https://docs.trackup.me/quick-start</loc><lastmod>2026-11-17</lastmod></url>
   <url><loc>https://docs.trackup.me/como-funciona</loc><lastmod>2026-11-17</lastmod></url>
   <url><loc>https://docs.trackup.me/times-e-membros</loc><lastmod>2026-11-17</lastmod></url>
-  <url><loc>https://docs.trackup.me/projetos</loc><lastmod>2026-11-14</lastmod></url>
+  <url><loc>https://docs.trackup.me/projetos</loc><lastmod>2026-11-17</lastmod></url>
   <url><loc>https://docs.trackup.me/dominios</loc><lastmod>2026-11-17</lastmod></url>
   <url><loc>https://docs.trackup.me/pixels</loc><lastmod>2026-11-17</lastmod></url>
   <url><loc>https://docs.trackup.me/fontes-de-trafego</loc><lastmod>2026-11-14</lastmod></url>
@@ -13,24 +13,24 @@
   <url><loc>https://docs.trackup.me/paginas</loc><lastmod>2026-11-17</lastmod></url>
   <url><loc>https://docs.trackup.me/ofertas</loc><lastmod>2026-11-17</lastmod></url>
   <url><loc>https://docs.trackup.me/builder</loc><lastmod>2026-11-14</lastmod></url>
-  <url><loc>https://docs.trackup.me/upload-html</loc><lastmod>2026-11-14</lastmod></url>
+  <url><loc>https://docs.trackup.me/upload-html</loc><lastmod>2026-11-17</lastmod></url>
   <url><loc>https://docs.trackup.me/clonar-url</loc><lastmod>2026-11-14</lastmod></url>
-  <url><loc>https://docs.trackup.me/redirect</loc><lastmod>2026-11-14</lastmod></url>
+  <url><loc>https://docs.trackup.me/redirect</loc><lastmod>2026-11-17</lastmod></url>
   <url><loc>https://docs.trackup.me/versoes-e-arquivos</loc><lastmod>2026-11-17</lastmod></url>
   <url><loc>https://docs.trackup.me/testes-ab</loc><lastmod>2026-11-17</lastmod></url>
   <url><loc>https://docs.trackup.me/acionadores</loc><lastmod>2026-11-17</lastmod></url>
   <url><loc>https://docs.trackup.me/variaveis</loc><lastmod>2026-11-14</lastmod></url>
   <url><loc>https://docs.trackup.me/filtro</loc><lastmod>2026-11-17</lastmod></url>
-  <url><loc>https://docs.trackup.me/filtro-basico</loc><lastmod>2026-11-12</lastmod></url>
-  <url><loc>https://docs.trackup.me/filtro-avancado</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://docs.trackup.me/filtro-basico</loc><lastmod>2026-11-17</lastmod></url>
+  <url><loc>https://docs.trackup.me/filtro-avancado</loc><lastmod>2026-11-17</lastmod></url>
   <url><loc>https://docs.trackup.me/dashboards</loc><lastmod>2026-11-14</lastmod></url>
   <url><loc>https://docs.trackup.me/gerenciador-de-anuncios</loc><lastmod>2026-11-14</lastmod></url>
-  <url><loc>https://docs.trackup.me/requisicoes</loc><lastmod>2026-11-14</lastmod></url>
-  <url><loc>https://docs.trackup.me/visitantes</loc><lastmod>2026-11-14</lastmod></url>
+  <url><loc>https://docs.trackup.me/requisicoes</loc><lastmod>2026-11-17</lastmod></url>
+  <url><loc>https://docs.trackup.me/visitantes</loc><lastmod>2026-11-17</lastmod></url>
   <url><loc>https://docs.trackup.me/conversoes</loc><lastmod>2026-11-17</lastmod></url>
-  <url><loc>https://docs.trackup.me/reembolsos-e-chargebacks</loc><lastmod>2026-11-14</lastmod></url>
-  <url><loc>https://docs.trackup.me/logs-de-acionadores</loc><lastmod>2026-11-12</lastmod></url>
-  <url><loc>https://docs.trackup.me/produtos</loc><lastmod>2026-11-14</lastmod></url>
+  <url><loc>https://docs.trackup.me/reembolsos-e-chargebacks</loc><lastmod>2026-11-17</lastmod></url>
+  <url><loc>https://docs.trackup.me/logs-de-acionadores</loc><lastmod>2026-11-17</lastmod></url>
+  <url><loc>https://docs.trackup.me/produtos</loc><lastmod>2026-11-17</lastmod></url>
   <url><loc>https://docs.trackup.me/configuracoes</loc><lastmod>2026-11-16</lastmod></url>
   <url><loc>https://docs.trackup.me/chaves-de-api</loc><lastmod>2026-11-14</lastmod></url>
   <url><loc>https://docs.trackup.me/assinatura</loc><lastmod>2026-11-16</lastmod></url>
@@ -41,9 +41,9 @@
   <url><loc>https://docs.trackup.me/tutorial-site-externo</loc><lastmod>2026-11-17</lastmod></url>
   <url><loc>https://docs.trackup.me/tutorial-teste-ab</loc><lastmod>2026-11-17</lastmod></url>
   <url><loc>https://docs.trackup.me/tutorial-proteger-paginas</loc><lastmod>2026-11-17</lastmod></url>
-  <url><loc>https://docs.trackup.me/tutorial-dashboard-lucro</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://docs.trackup.me/tutorial-dashboard-lucro</loc><lastmod>2026-11-17</lastmod></url>
   <url><loc>https://docs.trackup.me/integracoes</loc><lastmod>2026-11-12</lastmod></url>
-  <url><loc>https://docs.trackup.me/webhook-generico</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://docs.trackup.me/webhook-generico</loc><lastmod>2026-11-17</lastmod></url>
   <url><loc>https://docs.trackup.me/actionpay</loc><lastmod>2026-11-17</lastmod></url>
   <url><loc>https://docs.trackup.me/amplopay</loc><lastmod>2026-11-17</lastmod></url>
   <url><loc>https://docs.trackup.me/appmax</loc><lastmod>2026-11-17</lastmod></url>

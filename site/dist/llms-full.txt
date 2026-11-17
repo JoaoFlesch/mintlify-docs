@@ -3119,10 +3119,6 @@ Cole a URL de postback no painel da ActionPay em **Nova postagem**. No link da o
 - Ative os eventos de compra aprovada, reembolso e chargeback.
 - Selecione os produtos que devem enviar vendas, se a plataforma pedir, e salve.
 
-**Print pendente · `img/plataformas/actionpay-webhook.webp`**Painel da ActionPay na tela de criação de webhook/postback, com a URL do Trackup colada e os eventos de compra aprovada, reembolso e chargeback marcados. Dados da conta borrados.
-
-Configuração do webhook na ActionPay
-
 ## 3. Teste
 
 Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
@@ -3170,10 +3166,6 @@ URL do webhook na lista de plataformas
 - Ative os eventos de compra aprovada, reembolso e chargeback.
 - Selecione os produtos que devem enviar vendas, se a plataforma pedir, e salve.
 
-**Print pendente · `img/plataformas/amplopay-webhook.webp`**Painel da AmploPay na tela de criação de webhook/postback, com a URL do Trackup colada e os eventos de compra aprovada, reembolso e chargeback marcados. Dados da conta borrados.
-
-Configuração do webhook na AmploPay
-
 ## 3. Teste
 
 Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
@@ -3220,10 +3212,6 @@ URL do webhook na lista de plataformas
 - Crie uma integração e cole a URL do Trackup.
 - Ative os eventos de compra aprovada, reembolso e chargeback.
 - Selecione os produtos que devem enviar vendas, se a plataforma pedir, e salve.
-
-**Print pendente · `img/plataformas/appmax-webhook.webp`**Painel da Appmax na tela de criação de webhook/postback, com a URL do Trackup colada e os eventos de compra aprovada, reembolso e chargeback marcados. Dados da conta borrados.
-
-Configuração do webhook na Appmax
 
 ## 3. Teste
 
@@ -3279,8 +3267,6 @@ URL do webhook na lista de plataformas
 
 - Salve.
 
-Configuração no painel da Átomo Pay
-
 ## 3. Teste
 
 Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
@@ -3335,10 +3321,6 @@ URL do webhook na lista de plataformas
 
 - Salve.
 
-Configuração no painel da Braip
-
-Configuração no painel da Braip
-
 ## 3. Teste
 
 Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
@@ -3385,10 +3367,6 @@ URL do webhook na lista de plataformas
 - Crie uma integração e cole a URL do Trackup.
 - Ative os eventos de compra aprovada, reembolso e chargeback.
 - Selecione os produtos que devem enviar vendas, se a plataforma pedir, e salve.
-
-**Print pendente · `img/plataformas/buygoods-webhook.webp`**Painel da BuyGoods na tela de criação de webhook/postback, com a URL do Trackup colada e os eventos de compra aprovada, reembolso e chargeback marcados. Dados da conta borrados.
-
-Configuração do webhook na BuyGoods
 
 ## 3. Teste
 
@@ -3444,14 +3422,6 @@ URL do webhook na lista de plataformas
 
 - Clique em **Salvar Webhook**.
 
-Configuração no painel da CartPanda
-
-Configuração no painel da CartPanda
-
-Configuração no painel da CartPanda
-
-Configuração no painel da CartPanda
-
 ## 3. Teste
 
 Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
@@ -3506,8 +3476,6 @@ URL do webhook na lista de plataformas
 
 - Salve.
 
-Configuração no painel da DigiPag
-
 ## 3. Teste
 
 Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
@@ -3554,10 +3522,6 @@ URL do webhook na lista de plataformas
 - Crie uma integração e cole a URL do Trackup.
 - Ative os eventos de compra aprovada, reembolso e chargeback.
 - Selecione os produtos que devem enviar vendas, se a plataforma pedir, e salve.
-
-**Print pendente · `img/plataformas/digistore24-webhook.webp`**Painel da Digistore24 na tela de criação de webhook/postback, com a URL do Trackup colada e os eventos de compra aprovada, reembolso e chargeback marcados. Dados da conta borrados.
-
-Configuração do webhook na Digistore24
 
 ## 3. Teste
 
@@ -3610,12 +3574,6 @@ URL do webhook na lista de plataformas
 - Marque os eventos `myeduzz.invoice_paid`, `myeduzz.invoice_refunded` e `myeduzz.invoice_chargeback`.
 
 - Clique em **Criar Configuração**.
-
-Configuração no painel da Eduzz
-
-Configuração no painel da Eduzz
-
-Configuração no painel da Eduzz
 
 ## 3. Teste
 
@@ -3670,8 +3628,6 @@ URL do webhook na lista de plataformas
 - Marque os status **Pago**, **Reembolsado** e **Chargeback**.
 
 - Salve.
-
-Configuração no painel da GoatPay
 
 ## 3. Teste
 
@@ -3730,10 +3686,6 @@ Há dois tipos no Trackup. Use **Hotmart 2.0** em integrações novas: ele envia
 - Marque os eventos **Compra aprovada**, **Compra reembolsada** e **Chargeback**.
 
 - Salve.
-
-Configuração no painel da Hotmart
-
-Configuração no painel da Hotmart
 
 ## 3. Teste
 
@@ -3843,12 +3795,6 @@ URL do webhook na lista de plataformas
 
 - Clique em **Criar**.
 
-Configuração no painel da Kirvano
-
-Configuração no painel da Kirvano
-
-Configuração no painel da Kirvano
-
 ## 3. Teste
 
 Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
@@ -3903,10 +3849,6 @@ URL do webhook na lista de plataformas
 
 - Clique em **Criar**.
 
-Configuração no painel da Kiwify
-
-Configuração no painel da Kiwify
-
 ## 3. Teste
 
 Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
@@ -3955,10 +3897,6 @@ Não ative **Fatura criada** nem **Assinatura pendente de renovação**: esses e
 - Crie uma integração e cole a URL do Trackup.
 - Ative os eventos de Compra completa, Pagamento de renovação, Pagamento reembolsado e Pagamento estornado.
 - Selecione os produtos que devem enviar vendas, se a plataforma pedir, e salve.
-
-**Print pendente · `img/plataformas/lastlink-webhook.webp`**Painel da LastLink na tela de criação de webhook/postback, com a URL do Trackup colada e os eventos de compra aprovada, reembolso e chargeback marcados. Dados da conta borrados.
-
-Configuração do webhook na LastLink
 
 ## 3. Teste
 
@@ -4013,12 +3951,6 @@ URL do webhook na lista de plataformas
 - Se quiser, restrinja a integração a alguns produtos.
 
 - Salve.
-
-Configuração no painel da Luna Checkout
-
-Configuração no painel da Luna Checkout
-
-Configuração no painel da Luna Checkout
 
 ## 3. Teste
 
@@ -4123,10 +4055,6 @@ Em **Integrações › Webhooks**, cadastre a URL como **Postback URL**. No link
 - Ative os eventos de `order.paid`, `order.awaiting_payment`, `order.refunded` e `order.chargeback`.
 - Selecione os produtos que devem enviar vendas, se a plataforma pedir, e salve.
 
-**Print pendente · `img/plataformas/mundpay-webhook.webp`**Painel da Mundpay na tela de criação de webhook/postback, com a URL do Trackup colada e os eventos de compra aprovada, reembolso e chargeback marcados. Dados da conta borrados.
-
-Configuração do webhook na Mundpay
-
 ## 3. Teste
 
 Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
@@ -4211,10 +4139,6 @@ URL do webhook na lista de plataformas
 - Ative os eventos de compra aprovada, reembolso e chargeback.
 - Selecione os produtos que devem enviar vendas, se a plataforma pedir, e salve.
 
-**Print pendente · `img/plataformas/pagueio-webhook.webp`**Painel da Pague.io na tela de criação de webhook/postback, com a URL do Trackup colada e os eventos de compra aprovada, reembolso e chargeback marcados. Dados da conta borrados.
-
-Configuração do webhook na Pague.io
-
 ## 3. Teste
 
 Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
@@ -4264,10 +4188,6 @@ URL do webhook na lista de plataformas
 - Marque **Venda Aprovada** e **Venda Reembolsada**.
 
 - Clique em **Salvar Alterações**.
-
-Configuração no painel da Paradise
-
-Configuração no painel da Paradise
 
 ## 3. Teste
 
@@ -4323,10 +4243,6 @@ URL do webhook na lista de plataformas
 
 - Salve.
 
-Configuração no painel da Payt
-
-Configuração no painel da Payt
-
 ## 3. Teste
 
 Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
@@ -4380,10 +4296,6 @@ URL do webhook na lista de plataformas
 - Marque os eventos **Aprovado**, **Devolvido** e **Charge back**.
 
 - Salve.
-
-Configuração no painel da PerfectPay
-
-Configuração no painel da PerfectPay
 
 ## 3. Teste
 
@@ -4439,8 +4351,6 @@ URL do webhook na lista de plataformas
 
 - Salve.
 
-Configuração no painel da ProofPay
-
 ## 3. Teste
 
 Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
@@ -4487,10 +4397,6 @@ URL do webhook na lista de plataformas
 - Crie uma integração e cole a URL do Trackup.
 - Ative os eventos de compra aprovada, reembolso e chargeback.
 - Selecione os produtos que devem enviar vendas, se a plataforma pedir, e salve.
-
-**Print pendente · `img/plataformas/shopify-webhook.webp`**Painel da Shopify na tela de criação de webhook/postback, com a URL do Trackup colada e os eventos de compra aprovada, reembolso e chargeback marcados. Dados da conta borrados.
-
-Configuração do webhook na Shopify
 
 ## 3. Teste
 
@@ -4541,10 +4447,6 @@ O Trackup envia o ID do clique em `client_reference_id`, o campo que o Stripe Ch
 - Ative os eventos de `checkout.session.completed` e `payment_intent.succeeded`.
 - Selecione os produtos que devem enviar vendas, se a plataforma pedir, e salve.
 
-**Print pendente · `img/plataformas/stripe-webhook.webp`**Painel da Stripe na tela de criação de webhook/postback, com a URL do Trackup colada e os eventos de compra aprovada, reembolso e chargeback marcados. Dados da conta borrados.
-
-Configuração do webhook na Stripe
-
 ## 3. Teste
 
 Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
@@ -4591,10 +4493,6 @@ URL do webhook na lista de plataformas
 - Crie uma integração e cole a URL do Trackup.
 - Ative os eventos de compra aprovada, reembolso e chargeback.
 - Selecione os produtos que devem enviar vendas, se a plataforma pedir, e salve.
-
-**Print pendente · `img/plataformas/ticto-webhook.webp`**Painel da Ticto na tela de criação de webhook/postback, com a URL do Trackup colada e os eventos de compra aprovada, reembolso e chargeback marcados. Dados da conta borrados.
-
-Configuração do webhook na Ticto
 
 ## 3. Teste
 
@@ -4650,8 +4548,6 @@ URL do webhook na lista de plataformas
 
 - Salve.
 
-Configuração no painel da TriboPay
-
 ## 3. Teste
 
 Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
@@ -4705,12 +4601,6 @@ Selecione **apenas** `invoice.paid`. Eventos como `payment.approved` não trazem
 - Selecione **apenas** o evento `invoice.paid`.
 
 - Clique em **Criar Webhook**.
-
-Configuração no painel da Upag
-
-Configuração no painel da Upag
-
-Configuração no painel da Upag
 
 Eventos a ativar: `invoice.paid`.
 
@@ -4768,14 +4658,6 @@ URL do webhook na lista de plataformas
 
 - Salve.
 
-Configuração no painel da Vega Checkout
-
-Configuração no painel da Vega Checkout
-
-Configuração no painel da Vega Checkout
-
-Configuração no painel da Vega Checkout
-
 ## 3. Teste
 
 Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
@@ -4828,12 +4710,6 @@ URL do webhook na lista de plataformas
 
 - Clique em **Criar Webhook**.
 
-Configuração no painel da Yampi
-
-Configuração no painel da Yampi
-
-Configuração no painel da Yampi
-
 ## 3. Teste
 
 Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
@@ -4880,10 +4756,6 @@ URL do webhook na lista de plataformas
 - Crie uma integração e cole a URL do Trackup.
 - Ative os eventos de compra aprovada, reembolso e chargeback.
 - Selecione os produtos que devem enviar vendas, se a plataforma pedir, e salve.
-
-**Print pendente · `img/plataformas/zedy-webhook.webp`**Painel da Zedy na tela de criação de webhook/postback, com a URL do Trackup colada e os eventos de compra aprovada, reembolso e chargeback marcados. Dados da conta borrados.
-
-Configuração do webhook na Zedy
 
 ## 3. Teste
 
@@ -13890,10 +13762,6 @@ utm_source=meta&utm_medium={{adset.name}}|{{adset.id}}&utm_campaign={{campaign.n
 
 - **Cadastre o webhook na Upag**
 		Na Upag, abra **Desenvolvedor › Webhooks** e clique em **Criar Webhook**. Dê um nome, cole a URL do Trackup e selecione **apenas** o evento `invoice.paid`. Clique em **Criar Webhook** para concluir.
-
-		Webhooks no painel da Upag
-
-		Webhook com a URL do Trackup e o evento invoice.paid
 
 		O passo a passo completo está em [Upag](https://docs.trackup.me/upag).
 

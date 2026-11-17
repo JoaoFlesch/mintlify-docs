@@ -135,15 +135,12 @@ def page(slug, name, kind, key, events, note):
 			for s in STEPS[slug]:
 				out.append(f'<li>{s}</li>')
 			out.append('</ol>')
-			imgs = [compress(i) for i in flow['imgs'] if not TRACKUP_SIDE.search(i)]
-			for i in [x for x in imgs if x]:
-				out.append(f'<shot src="{i}" caption="Configuração no painel da {name}"></shot>')
+			# Os prints vindos da documentação antiga foram removidos (decisão do João, 16/11); só os prints próprios entram.
 		else:
 			out.append(f'<ol><li>No painel da {name}, abra a área de <strong>webhooks</strong> ou <strong>postback</strong>.</li>'
 				f'<li>Crie uma integração e cole a URL do Trackup.</li>'
 				f'<li>Ative os eventos de {events or "compra aprovada, reembolso e chargeback"}.</li>'
 				'<li>Selecione os produtos que devem enviar vendas, se a plataforma pedir, e salve.</li></ol>')
-			out.append(f'<shot src="img/plataformas/{slug}-webhook.webp" caption="Configuração do webhook na {name}" todo="Painel da {esc(name)} na tela de criação de webhook/postback, com a URL do Trackup colada e os eventos de compra aprovada, reembolso e chargeback marcados. Dados da conta borrados."></shot>')
 		if events and flow:
 			out.append(f'<p>Eventos a ativar: {events}.</p>')
 	out.append(f'<h2>{"3" if slug != "nuvemshop" else "2"}. Teste</h2>')

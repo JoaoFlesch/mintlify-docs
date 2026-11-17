@@ -374,6 +374,11 @@ if (existsSync(imgSrc)) {
 		for (const f of IMG6_FILES) copyFileSync(join(imgSrc, f.replace(/^img\//, '')), join(DIST, 'imagens-6', f));
 		writeFileSync(join(DIST, 'imagens-6', 'index.html'), `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="robots" content="noindex"><title>Trackup Docs: imagens 6</title></head><body>${[...IMG6_FILES].map(f => `<img src="${f}" alt="" width="1" height="1">`).join('')}</body></html>`);
 	}
+	if (IMG7_FILES.size) {
+		mkdirSync(join(DIST, 'imagens-7', 'img'), { recursive: true });
+		for (const f of IMG7_FILES) copyFileSync(join(imgSrc, f.replace(/^img\//, '')), join(DIST, 'imagens-7', f));
+		writeFileSync(join(DIST, 'imagens-7', 'index.html'), `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="robots" content="noindex"><title>Trackup Docs: imagens 7</title></head><body>${[...IMG7_FILES].map(f => `<img src="${f}" alt="" width="1" height="1">`).join('')}</body></html>`);
+	}
 	const imgFiles = [];
 	const walk = (d, rel) => { for (const f of readdirSync(d)) { const p = join(d, f); if (statSync(p).isDirectory()) walk(p, rel + f + '/'); else imgFiles.push(rel + f); } };
 	walk(imgSrc, 'img/');

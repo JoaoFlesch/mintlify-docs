@@ -68,7 +68,7 @@ Documentação completa em um só arquivo: https://docs.trackup.me/llms-full.txt
 
 ## Tutoriais › Do zero à venda
 
-- [Campanha na Meta](https://docs.trackup.me/tutorial-campanha-meta): Do zero até a primeira venda atribuída a um anúncio, com pixel via API de Conversões, Hotmart e Gerenciador de anúncios.
+- [Campanha na Meta](https://docs.trackup.me/tutorial-campanha-meta): Do zero até a primeira venda atribuída a um anúncio, com pixel via API de Conversões, Upag e Gerenciador de anúncios.
 - [Domínio próprio](https://docs.trackup.me/tutorial-dominio-proprio): Conecte um subdomínio seu ao Trackup pelo provedor de DNS (Cloudflare, Registro.br, GoDaddy, Hostinger, Namecheap e outros) e deixe como domínio primário.
 
 ## Tutoriais › Páginas

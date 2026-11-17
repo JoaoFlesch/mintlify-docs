@@ -2446,9 +2446,7 @@ Cada linha mostra a **Conversão** de origem e os mesmos dados de atribuição d
 
 Nem todas as plataformas de venda enviam esses eventos. Algumas enviam só pagamentos aprovados. Veja o guia de cada [plataforma](https://docs.trackup.me/integracoes).
 
-**Print pendente · `img/reembolsos-lista.png`**Logs › Conversões na aba Reembolsos com um reembolso listado, mostrando a conversão de origem e a atribuição (campanha, conjunto, anúncio).
-
-Aba Reembolsos
+Reembolso expandido, com a venda de origem, a atribuição e o marketing
 
 A conversão original muda para o status **Reembolsado** ou **Chargeback**, e o card [Status de pagamentos](https://docs.trackup.me/dashboards) passa a contar a mudança.
 
@@ -2729,15 +2727,15 @@ Se a sua conta for desativada, as comissões e os saques ficam pausados.
 
 ---
 
-# Rastrear uma campanha da Meta com Hotmart
+# Rastrear uma campanha da Meta com Upag
 
 URL: https://docs.trackup.me/tutorial-campanha-meta
 
-> Do zero até a primeira venda atribuída a um anúncio, com pixel via API de Conversões, Hotmart e Gerenciador de anúncios.
+> Do zero até a primeira venda atribuída a um anúncio, com pixel via API de Conversões, Upag e Gerenciador de anúncios.
 
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Configure o projeto Online Store para anunciar na Meta: crie a fonte de tráfego Meta, um pixel com acionadores de pageview, carrinho, início de checkout e conversão, e a plataforma Hotmart. No fim, me dê a URL do webhook." A conexão da conta de anúncios (OAuth) e o cadastro do webhook na Hotmart ficam com você.
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Configure o projeto Online Store para anunciar na Meta: crie a fonte de tráfego Meta, um pixel com acionadores de pageview, carrinho, início de checkout e conversão, e a plataforma Upag. No fim, me dê a URL do webhook." A conexão da conta de anúncios (OAuth) e o cadastro do webhook na Upag ficam com você.
 
-Neste tutorial você configura um funil completo para anunciar na Meta e vender na Hotmart. No fim, cada venda aparece no Trackup com a campanha, o conjunto e o anúncio de origem, e o Purchase chega ao pixel pela API de Conversões.
+Neste tutorial você configura um funil completo para anunciar na Meta e vender na Upag. No fim, cada venda aparece no Trackup com a campanha, o conjunto e o anúncio de origem, e o Purchase chega ao pixel pela API de Conversões.
 
 	**Anúncio**Meta Ads
 
@@ -2745,7 +2743,7 @@ Neste tutorial você configura um funil completo para anunciar na Meta e vender 
 
 	**Oferta**link do checkout
 
-	**Hotmart**webhook da venda
+	**Upag**webhook da venda
 
 ## O que você vai precisar
 
@@ -2753,7 +2751,7 @@ Neste tutorial você configura um funil completo para anunciar na Meta e vender 
 
 - Acesso de administrador ao Business Manager da Meta e ao pixel.
 
-- Acesso de produtor na Hotmart, com o produto criado e o link de checkout.
+- Acesso de administrador à Upag, com o produto criado e o link de checkout (link de pagamento).
 
 - Uma landing page. Pode ser montada no [Builder](https://docs.trackup.me/tutorial-landing-builder) ou estar em um [site externo](https://docs.trackup.me/tutorial-site-externo).
 
@@ -2806,17 +2804,19 @@ utm_source=meta&utm_medium={{adset.name}}|{{adset.id}}&utm_campaign={{campaign.n
 
 		Os IDs são o que permite ao [Gerenciador de anúncios](https://docs.trackup.me/gerenciador-de-anuncios) ligar cada venda ao anúncio.
 
-## Parte 3: Hotmart
+## Parte 3: Upag
 
 - **Crie a plataforma**
-		Em **Integração › Plataformas de vendas**, clique em **Adicionar plataforma**, escolha **Hotmart 2.0** e salve. Copie a **URL** da plataforma na lista.
+		Em **Integração › Plataformas de vendas**, clique em **Adicionar plataforma**, escolha **Upag** e salve. Copie a **URL** da plataforma na lista.
 
-- **Cadastre o webhook na Hotmart**
-		Na Hotmart, vá em **Ferramentas › Webhook (API e notificações)** e clique em **Cadastrar Webhook**. Selecione o produto, cole a URL do Trackup, escolha a versão **2.0.0** e marque **Compra aprovada**, **Compra reembolsada** e **Chargeback**.
+- **Cadastre o webhook na Upag**
+		Na Upag, abra **Desenvolvedor › Webhooks** e clique em **Criar Webhook**. Dê um nome, cole a URL do Trackup e selecione **apenas** o evento `invoice.paid`. Clique em **Criar Webhook** para concluir.
 
-		**Print pendente · `img/tut-meta-hotmart-webhook.png`**Tela de cadastro de webhook da Hotmart com a URL do Trackup (domínio borrado), versão 2.0.0 e os eventos Compra aprovada, Compra reembolsada e Chargeback marcados.
+		Webhooks no painel da Upag
 
-Webhook cadastrado na Hotmart
+		Webhook com a URL do Trackup e o evento invoice.paid
+
+		O passo a passo completo está em [Upag](https://docs.trackup.me/upag).
 
 - **Crie a oferta**
 		Em **Ofertas**, clique em **Adicionar oferta** e, na aba **Redirect**, preencha:
@@ -2825,9 +2825,9 @@ Webhook cadastrado na Hotmart
 
 				Nome | Checkout Curso |
 
-				Plataforma de vendas | Hotmart 2.0 |
+				Plataforma de vendas | Upag |
 
-				URL de redirecionamento | O link do checkout da Hotmart, como `https://pay.hotmart.com/ABC123` |
+				URL de redirecionamento | O link de pagamento da Upag, como `https://pay.upag.com.br/ABC123` |
 
 				Caminho | `/checkout` |
 
@@ -2838,7 +2838,7 @@ Webhook cadastrado na Hotmart
 - **Aponte os botões para a oferta**
 		Em todos os botões de compra da landing page, use o link da oferta. No Builder, selecione o botão e, em **Config › Evento de clique**, cole o link em **Destino**. Em um site externo, troque o `href` dos botões.
 
-		Um único botão apontando direto para `pay.hotmart.com` já faz parte das vendas chegarem sem atribuição.
+		Um único botão apontando direto para o link de pagamento da Upag já faz parte das vendas chegarem sem atribuição.
 
 - **Publique e copie o link**
 		Publique a página e copie o **Link** dela em **Páginas**, como `https://lp.seudominio.com/curso`.
@@ -2872,10 +2872,10 @@ https://lp.seudominio.com/curso?utm_source=meta&utm_campaign=teste|111&utm_conte
 		Em **Logs › Requisições**, sua visita aparece com as UTMs. No Gerenciador de Eventos, na aba **Eventos de teste**, o `PageView` chega com a origem Servidor.
 
 - **Clique em comprar**
-		Clique no botão de compra. Você deve cair no checkout da Hotmart com o parâmetro `sck` na URL. O `InitiateCheckout` aparece nos eventos de teste.
+		Clique no botão de compra. Você deve cair no checkout da Upag com o parâmetro `clickId` na URL. O `InitiateCheckout` aparece nos eventos de teste.
 
 - **Faça uma compra de teste**
-		Conclua uma compra (pode reembolsar depois). Em **Logs › Conversões**, a venda aparece com a campanha teste, e o `Purchase` aparece em **Logs › Acionadores** com sucesso.
+		Conclua uma compra de valor baixo (pode reembolsar depois). Em **Logs › Conversões**, a venda aparece com a campanha teste, e o `Purchase` aparece em **Logs › Acionadores** com sucesso.
 
 		Venda de teste atribuída
 

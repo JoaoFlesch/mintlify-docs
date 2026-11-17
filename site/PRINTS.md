@@ -1,6 +1,6 @@
 # Prints pendentes
 
-Gerado pelo build. 19 prints faltando.
+Gerado pelo build. 17 prints faltando.
 
 
 ## Gerenciador de anúncios (/gerenciador-de-anuncios)
@@ -8,17 +8,12 @@ Gerado pelo build. 19 prints faltando.
 - [ ] `img/ads-contas.png`: Modal Selecionar contas de anúncios com 3 contas fictícias, duas marcadas, e o botão Conectar 2 conta(s). Nomes de conta borrados.
 - [ ] `img/ads-tabela.png`: Aba Campanhas com o resumo no topo (Investimento, Impressões, Cliques, Visitantes únicos, Vendas, Receita), 4 campanhas fictícias com Status, Investimento, Vendas, Receita, ROAS e CPA, e o indicador Última sincronização. Nomes de campanha borrados.
 
-## Reembolsos e chargebacks (/reembolsos-e-chargebacks)
-
-- [ ] `img/reembolsos-lista.png`: Logs › Conversões na aba Reembolsos com um reembolso listado, mostrando a conversão de origem e a atribuição (campanha, conjunto, anúncio).
-
 ## Produtos (/produtos)
 
 - [ ] `img/produtos.png`: Tela Produtos com o filtro Plataforma de venda e dois produtos de exemplo, um deles expandido mostrando duas ofertas e a coluna Primeira venda.
 
 ## Campanha na Meta (/tutorial-campanha-meta)
 
-- [ ] `img/tut-meta-hotmart-webhook.png`: Tela de cadastro de webhook da Hotmart com a URL do Trackup (domínio borrado), versão 2.0.0 e os eventos Compra aprovada, Compra reembolsada e Chargeback marcados.
 - [ ] `img/tut-meta-anuncio.png`: Seção Destino de um anúncio no Gerenciador de Anúncios da Meta com URL do site https://lp.seudominio.com/curso e o campo Parâmetros de URL preenchido com o template do Trackup.
 
 ## ActionPay (/actionpay)

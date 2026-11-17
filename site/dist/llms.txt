@@ -69,7 +69,7 @@ Documentação completa em um só arquivo: https://docs.trackup.me/llms-full.txt
 
 ## Tutoriais › Otimização
 
-- [Teste A/B de página](https://docs.trackup.me/tutorial-teste-ab): Compare duas VSLs com o mesmo tráfego, acompanhe a confiança estatística e envie tudo para a vencedora.
+- [Teste A/B de página](https://docs.trackup.me/tutorial-teste-ab): Compare duas páginas com o mesmo tráfego, acompanhe a confiança estatística e envie tudo para a vencedora.
 - [Proteger páginas](https://docs.trackup.me/tutorial-proteger-paginas): Monte uma proteção em camadas com o Filtro: bloqueio de bots, país, parâmetro secreto e safe page.
 - [Dashboard de lucro](https://docs.trackup.me/tutorial-dashboard-lucro): Monte um painel diário com lucro, ROAS, funil e as campanhas que mais vendem.
 

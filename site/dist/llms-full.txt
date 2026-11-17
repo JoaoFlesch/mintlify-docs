@@ -1637,8 +1637,6 @@ Na lista, abra o menu do teste e clique em **Relatórios**. A aba **Teste A/B** 
 
 - confiança estatística e o gráfico de conversão acumulada por dia.
 
-**Print pendente · `img/testes-ab-relatorio.png`**Aba Teste A/B do relatório com duas variantes, uma marcada como Vencedora, a frase de conclusão com o percentual de confiança, o gráfico de conversão acumulada e o botão Enviar 100% para a variante.
-
 Relatório de um teste A/B com variante vencedora
 
 No topo, o Trackup resume o resultado em uma frase:
@@ -3231,26 +3229,26 @@ Para mandar um evento para o pixel, crie um [acionador](https://docs.trackup.me/
 
 URL: https://docs.trackup.me/tutorial-teste-ab
 
-> Compare duas VSLs com o mesmo tráfego, acompanhe a confiança estatística e envie tudo para a vencedora.
+> Compare duas páginas com o mesmo tráfego, acompanhe a confiança estatística e envie tudo para a vencedora.
 
-Neste tutorial você descobre qual de duas VSLs vende mais. O anúncio continua o mesmo: o Trackup divide os visitantes entre as versões e mede as vendas de cada uma.
+Neste tutorial você descobre qual de duas landing pages vende mais. O anúncio continua o mesmo: o Trackup divide os visitantes entre as versões e mede as vendas de cada uma.
 
 ## O que você vai precisar
 
-- Uma página publicada que já recebe tráfego, como VSL Curso.
+- Uma página publicada que já recebe tráfego, como Excel Basics - LP Builder.
 
 - Vendas atribuídas funcionando. Sem isso o teste mede só acessos. Veja [Rastrear uma campanha da Meta](https://docs.trackup.me/tutorial-campanha-meta).
 
-## 1. Crie a variante
+## 1. Prepare as duas páginas
 
-- **Duplique a página**
-		Em **Páginas**, abra o menu da VSL Curso e clique em **Duplicar**. Renomeie a cópia para VSL Curso B.
+- **Crie a segunda página**
+		Em **Páginas**, crie a página que vai concorrer com a primeira. Você pode duplicar a original no menu da página, em **Duplicar**, ou criar outra página. Neste exemplo, a primeira é Excel Basics - LP Builder e a segunda é Email Templates - LP HTML.
 
 - **Mude uma coisa só**
-		Edite a cópia e mude só o que quer testar, por exemplo o título da primeira dobra. Mudar várias coisas ao mesmo tempo impede saber o que fez diferença.
+		Se a segunda página for uma cópia, mude só o que quer testar, por exemplo o título da primeira dobra. Mudar várias coisas ao mesmo tempo impede saber o que fez diferença.
 
 - **Publique**
-		Publique a variante. Confira que os botões continuam apontando para a mesma oferta.
+		Publique as duas páginas. Confira que os botões continuam apontando para a mesma oferta.
 
 ## 2. Crie o teste
 
@@ -3261,20 +3259,20 @@ Neste tutorial você descobre qual de duas VSLs vende mais. O anúncio continua 
 
 			Campo | Valor |
 
-				Nome | Título VSL |
+				Nome | LP test: Builder vs HTML |
 
-				Slug | `/vsl` |
+				Slug | `/lp-teste` |
 
 				Tipo de teste | Página |
 
-				Variante 1 | VSL Curso, 50% |
+				Variante 1 | Excel Basics - LP Builder, 50% |
 
-				Variante 2 | VSL Curso B, 50% |
+				Variante 2 | Email Templates - LP HTML, 50% |
 
 		Teste com duas variantes em 50/50
 
 - **Salve e copie o link**
-		O link do teste é `https://lp.seudominio.com/vsl`.
+		O link do teste é `https://lp.seudominio.com/lp-teste`.
 
 ## 3. Troque o link no anúncio
 
@@ -3290,9 +3288,7 @@ Na Meta, editar a URL de um anúncio ativo manda ele de volta para revisão. Se 
 - **Leia a frase de resumo**
 		No topo, o Trackup diz como está o teste. Enquanto uma variante estiver só Liderando, não decida. Espere aparecer Vencedora.
 
-		**Print pendente · `img/tut-ab-relatorio.png`**Relatório Teste A/B com VSL Curso B marcada como Vencedora, a frase de conclusão com o percentual de confiança, a tabela por variante (visitantes, conversões, taxa, receita por visitante) e o gráfico de conversão acumulada.
-
-Relatório com variante vencedora
+		Relatório com variante vencedora, gráfico de conversão acumulada e botão para enviar 100% do tráfego
 
 - **Compare receita por visitante**
 		Além da taxa de conversão, olhe a **receita por visitante**. Uma variante pode vender menos vezes e ainda faturar mais, por causa de upsell ou de outro preço.

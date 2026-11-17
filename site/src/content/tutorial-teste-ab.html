@@ -3,26 +3,26 @@ title: Testar duas versões de uma página
 sidebarTitle: Teste A/B de página
 icon: split
 eyebrow: Tutorial
-description: Compare duas VSLs com o mesmo tráfego, acompanhe a confiança estatística e envie tudo para a vencedora.
+description: Compare duas páginas com o mesmo tráfego, acompanhe a confiança estatística e envie tudo para a vencedora.
 ---
-<p>Neste tutorial você descobre qual de duas VSLs vende mais. O anúncio continua o mesmo: o Trackup divide os visitantes entre as versões e mede as vendas de cada uma.</p>
+<p>Neste tutorial você descobre qual de duas landing pages vende mais. O anúncio continua o mesmo: o Trackup divide os visitantes entre as versões e mede as vendas de cada uma.</p>
 
 <h2>O que você vai precisar</h2>
 <ul>
-	<li>Uma página publicada que já recebe tráfego, como <em>VSL Curso</em>.</li>
+	<li>Uma página publicada que já recebe tráfego, como <em>Excel Basics - LP Builder</em>.</li>
 	<li>Vendas atribuídas funcionando. Sem isso o teste mede só acessos. Veja <a href="/tutorial-campanha-meta">Rastrear uma campanha da Meta</a>.</li>
 </ul>
 
-<h2>1. Crie a variante</h2>
+<h2>1. Prepare as duas páginas</h2>
 <steps>
-	<step title="Duplique a página">
-		<p>Em <strong>Páginas</strong>, abra o menu da <em>VSL Curso</em> e clique em <strong>Duplicar</strong>. Renomeie a cópia para <em>VSL Curso B</em>.</p>
+	<step title="Crie a segunda página">
+		<p>Em <strong>Páginas</strong>, crie a página que vai concorrer com a primeira. Você pode duplicar a original no menu da página, em <strong>Duplicar</strong>, ou criar outra página. Neste exemplo, a primeira é <em>Excel Basics - LP Builder</em> e a segunda é <em>Email Templates - LP HTML</em>.</p>
 	</step>
 	<step title="Mude uma coisa só">
-		<p>Edite a cópia e mude só o que quer testar, por exemplo o título da primeira dobra. Mudar várias coisas ao mesmo tempo impede saber o que fez diferença.</p>
+		<p>Se a segunda página for uma cópia, mude só o que quer testar, por exemplo o título da primeira dobra. Mudar várias coisas ao mesmo tempo impede saber o que fez diferença.</p>
 	</step>
 	<step title="Publique">
-		<p>Publique a variante. Confira que os botões continuam apontando para a mesma oferta.</p>
+		<p>Publique as duas páginas. Confira que os botões continuam apontando para a mesma oferta.</p>
 	</step>
 </steps>
 
@@ -35,17 +35,17 @@ description: Compare duas VSLs com o mesmo tráfego, acompanhe a confiança esta
 		<table>
 			<thead><tr><th>Campo</th><th>Valor</th></tr></thead>
 			<tbody>
-				<tr><td>Nome</td><td><em>Título VSL</em></td></tr>
-				<tr><td>Slug</td><td><code>/vsl</code></td></tr>
+				<tr><td>Nome</td><td><em>LP test: Builder vs HTML</em></td></tr>
+				<tr><td>Slug</td><td><code>/lp-teste</code></td></tr>
 				<tr><td>Tipo de teste</td><td>Página</td></tr>
-				<tr><td>Variante 1</td><td>VSL Curso, 50%</td></tr>
-				<tr><td>Variante 2</td><td>VSL Curso B, 50%</td></tr>
+				<tr><td>Variante 1</td><td>Excel Basics - LP Builder, 50%</td></tr>
+				<tr><td>Variante 2</td><td>Email Templates - LP HTML, 50%</td></tr>
 			</tbody>
 		</table>
-		<shot src="img/tut-ab-criar.png" caption="Teste com duas variantes em 50/50" todo="Formulário Criar teste A/B com Nome Título VSL, Slug /vsl, Tipo Página e as variantes VSL Curso 50% e VSL Curso B 50%, ambas ativas."></shot>
+		<shot src="img/tut-ab-criar.png" caption="Teste com duas variantes em 50/50" ></shot>
 	</step>
 	<step title="Salve e copie o link">
-		<p>O link do teste é <code>https://lp.seudominio.com/vsl</code>.</p>
+		<p>O link do teste é <code>https://lp.seudominio.com/lp-teste</code>.</p>
 	</step>
 </steps>
 
@@ -60,7 +60,7 @@ description: Compare duas VSLs com o mesmo tráfego, acompanhe a confiança esta
 	</step>
 	<step title="Leia a frase de resumo">
 		<p>No topo, o Trackup diz como está o teste. Enquanto uma variante estiver só <span class="badge amber">Liderando</span>, não decida. Espere aparecer <span class="badge green">Vencedora</span>.</p>
-		<shot src="img/tut-ab-relatorio.png" caption="Relatório com variante vencedora" todo="Relatório Teste A/B com VSL Curso B marcada como Vencedora, a frase de conclusão com o percentual de confiança, a tabela por variante (visitantes, conversões, taxa, receita por visitante) e o gráfico de conversão acumulada."></shot>
+		<shot src="img/tut-ab-relatorio-v2.png" caption="Relatório com variante vencedora, gráfico de conversão acumulada e botão para enviar 100% do tráfego"></shot>
 	</step>
 	<step title="Compare receita por visitante">
 		<p>Além da taxa de conversão, olhe a <strong>receita por visitante</strong>. Uma variante pode vender menos vezes e ainda faturar mais, por causa de upsell ou de outro preço.</p>

@@ -1,11 +1,7 @@
 # Prints pendentes
 
-Gerado pelo build. 22 prints faltando.
+Gerado pelo build. 20 prints faltando.
 
-
-## Testes A/B (/testes-ab)
-
-- [ ] `img/testes-ab-relatorio.png`: Aba Teste A/B do relatório com duas variantes, uma marcada como Vencedora, a frase de conclusão com o percentual de confiança, o gráfico de conversão acumulada e o botão Enviar 100% para a variante.
 
 ## Modo avançado (/filtro-avancado)
 
@@ -28,10 +24,6 @@ Gerado pelo build. 22 prints faltando.
 
 - [ ] `img/tut-meta-hotmart-webhook.png`: Tela de cadastro de webhook da Hotmart com a URL do Trackup (domínio borrado), versão 2.0.0 e os eventos Compra aprovada, Compra reembolsada e Chargeback marcados.
 - [ ] `img/tut-meta-anuncio.png`: Seção Destino de um anúncio no Gerenciador de Anúncios da Meta com URL do site https://lp.seudominio.com/curso e o campo Parâmetros de URL preenchido com o template do Trackup.
-
-## Teste A/B de página (/tutorial-teste-ab)
-
-- [ ] `img/tut-ab-relatorio.png`: Relatório Teste A/B com VSL Curso B marcada como Vencedora, a frase de conclusão com o percentual de confiança, a tabela por variante (visitantes, conversões, taxa, receita por visitante) e o gráfico de conversão acumulada.
 
 ## ActionPay (/actionpay)
 

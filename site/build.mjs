@@ -261,7 +261,7 @@ const shellOut = `/* gerado por site/build.mjs — não edite: altere src/assets
 	+ `window.TU={A:${JSON.stringify(ASSETS)},data:${JSON.stringify(shellData)}};\n${shellJs}\nTU.init=function(){\n${appJs}\n};\n`;
 
 // Versão dos arquivos compartilhados: o nome do arquivo muda quando o conteúdo muda, para furar o cache da borda (max-age 4h).
-const ASSET_V = createHash('sha1').update(css).update(shellOut).digest('hex').slice(0, 8);
+const ASSET_V = createHash('sha1').update(css).digest('hex').slice(0, 8);
 
 const jsonEsc = o => JSON.stringify(o).replace(/</g, '\\u003c');
 
@@ -274,7 +274,6 @@ writeFileSync(join(DIST, 'assets', 'search.js'), `window.__SEARCH__=${JSON.strin
 writeFileSync(join(DIST, 'assets', 'style.css'), css);
 writeFileSync(join(DIST, 'assets', 'shell.js'), shellOut);
 writeFileSync(join(DIST, 'assets', `style.${ASSET_V}.css`), css);
-writeFileSync(join(DIST, 'assets', `shell.${ASSET_V}.js`), shellOut);
 // Página-hospedeira dos arquivos compartilhados: publicada no Trackup em /assets, faz o clonador baixar cada arquivo.
 writeFileSync(join(DIST, 'assets', 'index.html'), `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="robots" content="noindex"><title>Trackup Docs: arquivos</title><link rel="icon" href="favicon.svg"><link rel="stylesheet" href="style.css"><script src="shell.js" defer></script><script src="search.js" defer></script></head><body><img src="og.jpg" alt="" width="1" height="1"></body></html>`);
 for (const { entry, page } of rendered) {

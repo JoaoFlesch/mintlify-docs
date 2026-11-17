@@ -109,6 +109,8 @@ kbd { font: 12px var(--mono); border: 1px solid var(--border); border-bottom-wid
 .nav-link:hover { color: var(--text); background: var(--bg-subtle); text-decoration: none; }
 .nav-link.active { color: var(--brand); background: var(--brand-soft); font-weight: 500; }
 .nav-link .badge { margin-left: auto; }
+.nav-link.nav-sub { margin-left: 14px; padding-left: 12px; border-left: 1px solid var(--border); border-radius: 0 8px 8px 0; font-size: 13.5px; }
+.nav-link.nav-sub.active { border-left-color: var(--brand); }
 
 main { min-width: 0; padding: 40px 0 80px; }
 .content { max-width: var(--content-max); }

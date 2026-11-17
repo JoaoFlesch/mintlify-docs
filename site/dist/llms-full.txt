@@ -684,6 +684,227 @@ Trocar o primário muda os links e as URLs de webhook gerados a partir dali. Lin
 
 ---
 
+# Plataformas de venda
+
+URL: https://docs.trackup.me/plataformas-de-venda
+
+> Receba vendas, reembolsos e chargebacks por webhook e ligue cada venda ao anúncio de origem.
+
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Conecte uma plataforma de venda ao projeto e me dê a URL do webhook."
+
+A plataforma de venda é onde o cliente paga: um gateway de pagamento, uma plataforma de infoprodutos ou uma loja virtual. Integrada ao Trackup, ela envia um webhook a cada venda, reembolso ou chargeback, e o Trackup registra a conversão com a campanha que gerou o clique.
+
+## Como a atribuição funciona
+
+	1**Oferta**Botão de compra leva ao link da oferta
+
+	2**Checkout**Recebe o ID do clique e as UTMs
+
+	3**Webhook**A plataforma devolve o ID na venda
+
+	4**Conversão**Ligada ao clique e à campanha
+
+- O visitante clica no botão de compra, que aponta para o link da [oferta](https://docs.trackup.me/ofertas).
+
+- O Trackup redireciona para o checkout adicionando o ID do clique e as UTMs na URL, no parâmetro que a plataforma aceita (em muitas é `sck` ou `src`; os parâmetros já vêm preenchidos para cada plataforma).
+
+- A plataforma guarda esse ID no pedido e devolve no webhook.
+
+- O Trackup encontra o clique, registra a [conversão](https://docs.trackup.me/conversoes) e dispara os [acionadores](https://docs.trackup.me/acionadores) de `conversion`.
+
+## Integrar uma plataforma
+
+- **Adicione a plataforma**
+		Vá em **Integração › Plataformas de vendas** e clique em **Adicionar plataforma**. Pesquise e selecione a sua no campo **Plataforma**.
+
+		Seleção da plataforma de vendas
+
+- **Dê um nome**
+		Use um nome que identifique a conta, por exemplo `Gateway · Online Store`.
+
+- **Confira os parâmetros**
+		Os parâmetros do checkout vêm preenchidos para cada plataforma. Em **Parâmetros avançados › Personalizar parâmetros** você adiciona parâmetros extras à URL do checkout, como `{request.sub1}`. Use **Inserir macro** para ver a lista completa.
+
+		Parâmetros avançados
+
+- **Salve e copie a URL**
+		Salve e, na lista, copie a **URL** do webhook com **Copiar URL**. Se aparecer Configure um domínio, defina antes um [domínio primário](https://docs.trackup.me/dominios).
+
+		Lista de plataformas de vendas
+
+- **Cadastre o webhook na plataforma**
+		Na área de webhooks da plataforma de venda, cole a URL e habilite os eventos de pagamento confirmado, reembolso e chargeback. Algumas plataformas exigem um evento específico para trazer os itens da compra: confira a página de cada uma em [Integrações](https://docs.trackup.me/integracoes).
+
+- **Valide**
+		Faça uma compra de teste pelo fluxo completo (anúncio, página, checkout, compra aprovada) e confira a venda em **Logs › Conversões**. Se aparecer o aviso Click ID ausente nesta conversão, a atribuição está incompleta: revise o link, o pixel e os parâmetros da plataforma.
+
+A URL do webhook usa o [domínio primário](https://docs.trackup.me/dominios) do projeto. Configure o domínio antes de integrar, para não precisar trocar a URL depois.
+
+## Macros do checkout
+
+Os parâmetros aceitam valores fixos ou macros no formato `{request.campo}`:
+
+	Macro | Valor |
+
+		`{request.id}` | ID do clique (request ID). Obrigatório para atribuição. |
+
+		`{request.utmSource}` … `{request.utmContent}` | UTMs do clique. |
+
+		`{request.clickId}` | Click ID da plataforma de anúncios. |
+
+		`{request.sub1}` … `{request.sub8}` | Sub IDs. |
+
+		`{request.campaignId}`, `{request.adsetId}`, `{request.adId}` | IDs de campanha, conjunto e anúncio. |
+
+		`{request.visitorId}` | ID do visitante. |
+
+		`{request.country}`, `{request.city}`, `{request.state}` | Localização. |
+
+		`{request.device}`, `{request.browser}`, `{request.os}` | Dispositivo. |
+
+Há mais macros, como origem do tráfego, IDs da conta, do conjunto e do criativo, idioma e host. Use **Inserir macro** para ver todas.
+
+## Excluir uma plataforma
+
+Só é possível excluir uma plataforma que não está em nenhum link, página de checkout ou teste A/B. Remova esses vínculos antes.
+
+	[Todas as integraçõesPasso a passo de cada plataforma.](https://docs.trackup.me/integracoes)
+	[Webhook genéricoPara checkouts sem integração nativa.](https://docs.trackup.me/webhook-generico)
+
+---
+
+# Fontes de tráfego
+
+URL: https://docs.trackup.me/fontes-de-trafego
+
+> Gere os parâmetros de URL que identificam campanha, conjunto e anúncio de cada clique.
+
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie uma fonte de tráfego Meta com o template de UTM padrão."
+
+Uma fonte de tráfego representa uma plataforma onde você anuncia. Ela gera o bloco de **Parâmetros de URL** que você cola no anúncio. Esses parâmetros usam as macros da própria plataforma para preencher, a cada clique, o nome e o ID da campanha, do conjunto e do anúncio. É isso que permite ao Trackup ligar cada venda ao anúncio de origem.
+
+## Plataformas disponíveis
+
+Meta, Google, TikTok e Kwai. Crie uma fonte para cada plataforma em que você anuncia. Cada tipo já vem com um template de UTM padrão.
+
+## Criar uma fonte
+
+- **Abra Fontes de tráfego**
+		Vá em **Integração › Fontes de tráfego** e clique em **Adicionar fonte**.
+
+- **Escolha a plataforma**
+		Dê um nome, como `Meta Ads`, e selecione a plataforma. O template padrão é preenchido sozinho.
+
+		Diálogo de nova fonte de tráfego
+
+- **Revise os parâmetros**
+		Confira os pares chave e valor do template. Para alterar, use **Personalizar parâmetros** (veja abaixo).
+
+- **Salve e copie os parâmetros**
+		Salve e copie o bloco **Parâmetros de URL**.
+
+		Parâmetros de URL de uma fonte Meta
+
+## Usar no anúncio
+
+A URL de destino do anúncio é a URL da página (copiada da lista de [páginas](https://docs.trackup.me/paginas)) seguida dos parâmetros da fonte:
+
+URL do anúncio
+
+```
+https://go.yourdomain.com/offer?utm_source=…&utm_campaign=…&utm_content=…
+```
+
+		No nível do anúncio, cole o link da página em **URL do site** e o bloco em **Parâmetros de URL**.
+
+		Cole o bloco no **Modelo de rastreamento** ou no **Sufixo do URL final** da campanha.
+
+		No anúncio, cole a URL completa (link + parâmetros) em **URL de destino**.
+
+		No anúncio, cole a URL completa (link + parâmetros) no campo de URL de destino.
+
+O Trackup também reconhece os Click IDs das plataformas (`fbclid`, `gclid`, `ttclid`, `click_id`) e identifica a origem pelo referrer, mesmo sem UTMs.
+
+## Personalizar parâmetros
+
+Clique em **Personalizar parâmetros** para abrir duas áreas:
+
+- **Parâmetros de UTM**: pares de chave e valor. O valor pode ser um texto fixo ou um token da plataforma, como `{{campaign.id}}`. Use **Inserir token** para ver os tokens disponíveis e **Adicionar parâmetro** para incluir mais um par.
+
+- **Parâmetros de URL**: o resultado final, pronto para copiar e colar na URL da campanha na plataforma de anúncios.
+
+Os valores ficam disponíveis nos relatórios, nos [acionadores](https://docs.trackup.me/acionadores) (como `utm_source`, `sub1` etc.) e são repassados ao checkout.
+
+Links do tipo Anúncio, criados antes dos testes A/B, continuam funcionando mas não podem mais ser criados. Hoje a URL do anúncio é sempre a URL da página com os parâmetros da fonte.
+
+---
+
+# Gerenciador de anúncios
+
+URL: https://docs.trackup.me/gerenciador-de-anuncios
+
+> Veja investimento e vendas reais de cada campanha, conjunto e anúncio da Meta em uma só tabela.
+
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Quais anúncios gastaram mais de R$ 200 ontem sem vender?"
+
+O Gerenciador de anúncios sincroniza suas contas da Meta e cruza os dados de entrega (investimento, impressões, cliques) com as vendas que o Trackup atribuiu a cada anúncio. Assim você vê ROAS e CPA com base em vendas confirmadas pela plataforma de venda, e não só no que o pixel reportou.
+
+Disponível para Meta Ads. A atribuição depende dos parâmetros da [fonte de tráfego Meta](https://docs.trackup.me/fontes-de-trafego) na URL dos anúncios.
+
+## Conectar a conta
+
+- **Conecte o Facebook**
+		Em **Gerenciador de anúncios**, clique em **Conectar Facebook Ads** e em **Entrar com o Facebook**. Autorize as permissões pedidas.
+
+- **Escolha as contas**
+		Selecione uma ou mais contas de anúncio e clique em **Conectar**. A primeira sincronização pode levar alguns minutos.
+
+		**Print pendente · `img/ads-contas.png`**Modal Selecionar contas de anúncios com 3 contas fictícias, duas marcadas, e o botão Conectar 2 conta(s). Nomes de conta borrados.
+
+Seleção de contas de anúncio
+
+## Usar a tabela
+
+**Print pendente · `img/ads-tabela.png`**Aba Campanhas com o resumo no topo (Investimento, Impressões, Cliques, Visitantes únicos, Vendas, Receita), 4 campanhas fictícias com Status, Investimento, Vendas, Receita, ROAS e CPA, e o indicador Última sincronização. Nomes de campanha borrados.
+
+Tabela de campanhas com vendas rastreadas
+
+- Navegue pelas abas **Campanhas**, **Conjuntos de anúncios** e **Anúncios**. Selecionar linhas em uma aba filtra as seguintes.
+
+- Use o seletor de contas para ver uma ou várias contas juntas. Contas em outra moeda aparecem marcadas.
+
+- Clique em **Colunas** para escolher e reordenar colunas.
+
+- Abra uma linha para ver o **Detalhamento** por dia, por país ou por dispositivo.
+
+## Colunas
+
+	Grupo | Colunas |
+
+		Desempenho | Investimento, Impressões, Alcance, Frequência, Cliques, CTR, CPC, CPM |
+
+		Conversões (Trackup) | Cliques rastreados, Visitantes, Vendas, Receita, ROAS, CPA |
+
+		Conversões (Meta) | Conversions e Valor conv. reportados pela Meta, IC e Valor IC, Conversas, Custo por conversa, Seguidores no Instagram, Custo por seguidor |
+
+		Engajamento | Hook, Hold Rate, Retenção, Retenção do body, CTA, Play rate do hook, Retenção de vídeo (75%) |
+
+		Configurações | Status, Entrega, Orçamento diário e vitalício, Bid cap, Criação, Última atualização, ID |
+
+Compare **Vendas** (Trackup) com **Conversions (Meta)**. Uma diferença grande costuma indicar parâmetros faltando na URL do anúncio ou eventos duplicados no pixel.
+
+## Insights e alertas
+
+Acima da tabela, o Trackup destaca anúncios e campanhas que merecem atenção. Clique em **Ver todos** para abrir a lista completa.
+
+## Reconectar
+
+Se a sessão da Meta expirar (por exemplo, depois de uma troca de senha) ou perder permissões, um aviso aparece no topo. Clique em **Reconectar Meta** com a mesma conta do Facebook.
+
+O investimento das contas conectadas também alimenta as despesas do card [Lucro](https://docs.trackup.me/dashboards#lucro).
+
+---
+
 # Pixels
 
 URL: https://docs.trackup.me/pixels
@@ -800,161 +1021,6 @@ Por padrão os eventos vão pelo servidor (API de Conversões), o que evita perd
 ## Desativar um pixel
 
 Edite o pixel e desligue **Ativo**. Os acionadores param de enviar eventos para ele, sem perder a configuração.
-
----
-
-# Fontes de tráfego
-
-URL: https://docs.trackup.me/fontes-de-trafego
-
-> Gere os parâmetros de URL que identificam campanha, conjunto e anúncio de cada clique.
-
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie uma fonte de tráfego Meta com o template de UTM padrão."
-
-Uma fonte de tráfego representa uma plataforma onde você anuncia. Ela gera o bloco de **Parâmetros de URL** que você cola no anúncio. Esses parâmetros usam as macros da própria plataforma para preencher, a cada clique, o nome e o ID da campanha, do conjunto e do anúncio. É isso que permite ao Trackup ligar cada venda ao anúncio de origem.
-
-## Plataformas disponíveis
-
-Meta, Google, TikTok e Kwai. Crie uma fonte para cada plataforma em que você anuncia. Cada tipo já vem com um template de UTM padrão.
-
-## Criar uma fonte
-
-- **Abra Fontes de tráfego**
-		Vá em **Integração › Fontes de tráfego** e clique em **Adicionar fonte**.
-
-- **Escolha a plataforma**
-		Dê um nome, como `Meta Ads`, e selecione a plataforma. O template padrão é preenchido sozinho.
-
-		Diálogo de nova fonte de tráfego
-
-- **Revise os parâmetros**
-		Confira os pares chave e valor do template. Para alterar, use **Personalizar parâmetros** (veja abaixo).
-
-- **Salve e copie os parâmetros**
-		Salve e copie o bloco **Parâmetros de URL**.
-
-		Parâmetros de URL de uma fonte Meta
-
-## Usar no anúncio
-
-A URL de destino do anúncio é a URL da página (copiada da lista de [páginas](https://docs.trackup.me/paginas)) seguida dos parâmetros da fonte:
-
-URL do anúncio
-
-```
-https://go.yourdomain.com/offer?utm_source=…&utm_campaign=…&utm_content=…
-```
-
-		No nível do anúncio, cole o link da página em **URL do site** e o bloco em **Parâmetros de URL**.
-
-		Cole o bloco no **Modelo de rastreamento** ou no **Sufixo do URL final** da campanha.
-
-		No anúncio, cole a URL completa (link + parâmetros) em **URL de destino**.
-
-		No anúncio, cole a URL completa (link + parâmetros) no campo de URL de destino.
-
-O Trackup também reconhece os Click IDs das plataformas (`fbclid`, `gclid`, `ttclid`, `click_id`) e identifica a origem pelo referrer, mesmo sem UTMs.
-
-## Personalizar parâmetros
-
-Clique em **Personalizar parâmetros** para abrir duas áreas:
-
-- **Parâmetros de UTM**: pares de chave e valor. O valor pode ser um texto fixo ou um token da plataforma, como `{{campaign.id}}`. Use **Inserir token** para ver os tokens disponíveis e **Adicionar parâmetro** para incluir mais um par.
-
-- **Parâmetros de URL**: o resultado final, pronto para copiar e colar na URL da campanha na plataforma de anúncios.
-
-Os valores ficam disponíveis nos relatórios, nos [acionadores](https://docs.trackup.me/acionadores) (como `utm_source`, `sub1` etc.) e são repassados ao checkout.
-
-Links do tipo Anúncio, criados antes dos testes A/B, continuam funcionando mas não podem mais ser criados. Hoje a URL do anúncio é sempre a URL da página com os parâmetros da fonte.
-
----
-
-# Plataformas de venda
-
-URL: https://docs.trackup.me/plataformas-de-venda
-
-> Receba vendas, reembolsos e chargebacks por webhook e ligue cada venda ao anúncio de origem.
-
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Conecte uma plataforma de venda ao projeto e me dê a URL do webhook."
-
-A plataforma de venda é onde o cliente paga: um gateway de pagamento, uma plataforma de infoprodutos ou uma loja virtual. Integrada ao Trackup, ela envia um webhook a cada venda, reembolso ou chargeback, e o Trackup registra a conversão com a campanha que gerou o clique.
-
-## Como a atribuição funciona
-
-	1**Oferta**Botão de compra leva ao link da oferta
-
-	2**Checkout**Recebe o ID do clique e as UTMs
-
-	3**Webhook**A plataforma devolve o ID na venda
-
-	4**Conversão**Ligada ao clique e à campanha
-
-- O visitante clica no botão de compra, que aponta para o link da [oferta](https://docs.trackup.me/ofertas).
-
-- O Trackup redireciona para o checkout adicionando o ID do clique e as UTMs na URL, no parâmetro que a plataforma aceita (em muitas é `sck` ou `src`; os parâmetros já vêm preenchidos para cada plataforma).
-
-- A plataforma guarda esse ID no pedido e devolve no webhook.
-
-- O Trackup encontra o clique, registra a [conversão](https://docs.trackup.me/conversoes) e dispara os [acionadores](https://docs.trackup.me/acionadores) de `conversion`.
-
-## Integrar uma plataforma
-
-- **Adicione a plataforma**
-		Vá em **Integração › Plataformas de vendas** e clique em **Adicionar plataforma**. Pesquise e selecione a sua no campo **Plataforma**.
-
-		Seleção da plataforma de vendas
-
-- **Dê um nome**
-		Use um nome que identifique a conta, por exemplo `Gateway · Online Store`.
-
-- **Confira os parâmetros**
-		Os parâmetros do checkout vêm preenchidos para cada plataforma. Em **Parâmetros avançados › Personalizar parâmetros** você adiciona parâmetros extras à URL do checkout, como `{request.sub1}`. Use **Inserir macro** para ver a lista completa.
-
-		Parâmetros avançados
-
-- **Salve e copie a URL**
-		Salve e, na lista, copie a **URL** do webhook com **Copiar URL**. Se aparecer Configure um domínio, defina antes um [domínio primário](https://docs.trackup.me/dominios).
-
-		Lista de plataformas de vendas
-
-- **Cadastre o webhook na plataforma**
-		Na área de webhooks da plataforma de venda, cole a URL e habilite os eventos de pagamento confirmado, reembolso e chargeback. Algumas plataformas exigem um evento específico para trazer os itens da compra: confira a página de cada uma em [Integrações](https://docs.trackup.me/integracoes).
-
-- **Valide**
-		Faça uma compra de teste pelo fluxo completo (anúncio, página, checkout, compra aprovada) e confira a venda em **Logs › Conversões**. Se aparecer o aviso Click ID ausente nesta conversão, a atribuição está incompleta: revise o link, o pixel e os parâmetros da plataforma.
-
-A URL do webhook usa o [domínio primário](https://docs.trackup.me/dominios) do projeto. Configure o domínio antes de integrar, para não precisar trocar a URL depois.
-
-## Macros do checkout
-
-Os parâmetros aceitam valores fixos ou macros no formato `{request.campo}`:
-
-	Macro | Valor |
-
-		`{request.id}` | ID do clique (request ID). Obrigatório para atribuição. |
-
-		`{request.utmSource}` … `{request.utmContent}` | UTMs do clique. |
-
-		`{request.clickId}` | Click ID da plataforma de anúncios. |
-
-		`{request.sub1}` … `{request.sub8}` | Sub IDs. |
-
-		`{request.campaignId}`, `{request.adsetId}`, `{request.adId}` | IDs de campanha, conjunto e anúncio. |
-
-		`{request.visitorId}` | ID do visitante. |
-
-		`{request.country}`, `{request.city}`, `{request.state}` | Localização. |
-
-		`{request.device}`, `{request.browser}`, `{request.os}` | Dispositivo. |
-
-Há mais macros, como origem do tráfego, IDs da conta, do conjunto e do criativo, idioma e host. Use **Inserir macro** para ver todas.
-
-## Excluir uma plataforma
-
-Só é possível excluir uma plataforma que não está em nenhum link, página de checkout ou teste A/B. Remova esses vínculos antes.
-
-	[Todas as integraçõesPasso a passo de cada plataforma.](https://docs.trackup.me/integracoes)
-	[Webhook genéricoPara checkouts sem integração nativa.](https://docs.trackup.me/webhook-generico)
 
 ---
 
@@ -1193,72 +1259,6 @@ Deletar uma página quebra todos os anúncios e testes A/B que apontam para ela.
 - Mantenha um projeto por produto ou cliente, para não misturar páginas e relatórios.
 
 - Os botões de compra devem apontar para o link da [oferta](https://docs.trackup.me/ofertas), nunca para o checkout original.
-
----
-
-# Ofertas
-
-URL: https://docs.trackup.me/ofertas
-
-> A oferta é a página de checkout do seu produto. É por ela que a venda volta atribuída ao anúncio.
-
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a oferta Excel Basics Course em /checkout-excel, redirecionando para https://pay.example.com/excel-basics, ligada à plataforma de venda Hotmart, e publique." A IA confere se a plataforma existe antes de criar.
-
-Uma oferta é uma página com finalidade Checkout, ligada a uma [plataforma de venda](https://docs.trackup.me/plataformas-de-venda). Na maioria dos casos ela redireciona para o checkout da plataforma, levando junto o ID do clique e as UTMs. Quando a venda acontece, a plataforma devolve esse ID no webhook e o Trackup liga a venda à campanha.
-
-	**Botão de compra**na landing page
-
-	**Oferta**lp.seudominio.com/checkout
-
-	**Checkout**com ID do clique e UTMs
-
-	**Webhook**venda atribuída
-
-## Criar uma oferta
-
-- **Tenha uma plataforma de venda**
-		A oferta precisa de uma [plataforma de venda](https://docs.trackup.me/plataformas-de-venda) integrada. Se ainda não tem, crie em **Integração › Plataformas de vendas** ou pelo atalho **Criar plataforma de vendas** dentro do formulário.
-
-- **Adicione a oferta**
-		No menu lateral, clique em **Ofertas** e em **Adicionar oferta**. A oferta abre em uma página inteira, sem abas. Preencha:
-
-			Campo | Descrição |
-
-				Nome | Por exemplo `Checkout Produto X`. |
-
-				Plataforma de vendas | A plataforma que processa o pagamento. |
-
-				URL de redirecionamento | O link do checkout na plataforma. O redirecionamento é temporário (302). |
-
-				Caminho | Opcional, como `/checkout`. |
-
-		Criação de uma oferta
-
-- **Copie o link da oferta**
-		Na lista de **Ofertas**, clique no botão de copiar da coluna **Link**.
-
-- **Use o link nos botões de compra**
-		Cole o link como destino de todos os botões de compra das suas páginas. No Builder, é o campo **Destino** do evento de clique do botão.
-
-## Parâmetros repassados ao checkout
-
-Os parâmetros que o visitante trouxe (como `utm_source`) são repassados para a URL de destino. Se o mesmo parâmetro já existir fixo na URL de redirecionamento, o valor do visitante prevalece. Os parâmetros da plataforma de venda, como o ID do clique, são adicionados automaticamente.
-
-## Vários checkouts para o mesmo produto
-
-Crie uma oferta para cada checkout. Um produto pode ter, por exemplo, `Product A - Checkout 1` (preço cheio) e `Product A - Checkout 2` (preço com desconto, outra cor). Cada oferta tem seu link e seu caminho, e todas aparecem na lista de **Ofertas**.
-
-Lista de ofertas
-
-## Oferta com página própria
-
-Além de Redirect, uma oferta pode ser criada com Builder, Upload HTML ou Clonar URL, por exemplo para um pré-checkout. Nesse caso, o botão dessa página deve levar ao checkout da plataforma.
-
-## Testar ofertas
-
-Para comparar dois checkouts (preços, cores, plataformas ou páginas de pagamento diferentes), crie um [teste A/B](https://docs.trackup.me/testes-ab) do tipo **Checkout** com as ofertas como variantes. O botão de compra aponta para o link do teste.
-
-Se um botão apontar direto para o checkout da plataforma, a venda chega sem o ID do clique e aparece como Click ID ausente em [Conversões](https://docs.trackup.me/conversoes).
 
 ---
 
@@ -1572,6 +1572,72 @@ Histórico de versões de uma página
 		A página restaurada fica em rascunho. Publique para colocar no ar.
 
 Restaurar descarta as alterações não salvas no editor.
+
+---
+
+# Ofertas
+
+URL: https://docs.trackup.me/ofertas
+
+> A oferta é a página de checkout do seu produto. É por ela que a venda volta atribuída ao anúncio.
+
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a oferta Excel Basics Course em /checkout-excel, redirecionando para https://pay.example.com/excel-basics, ligada à plataforma de venda Hotmart, e publique." A IA confere se a plataforma existe antes de criar.
+
+Uma oferta é uma página com finalidade Checkout, ligada a uma [plataforma de venda](https://docs.trackup.me/plataformas-de-venda). Na maioria dos casos ela redireciona para o checkout da plataforma, levando junto o ID do clique e as UTMs. Quando a venda acontece, a plataforma devolve esse ID no webhook e o Trackup liga a venda à campanha.
+
+	**Botão de compra**na landing page
+
+	**Oferta**lp.seudominio.com/checkout
+
+	**Checkout**com ID do clique e UTMs
+
+	**Webhook**venda atribuída
+
+## Criar uma oferta
+
+- **Tenha uma plataforma de venda**
+		A oferta precisa de uma [plataforma de venda](https://docs.trackup.me/plataformas-de-venda) integrada. Se ainda não tem, crie em **Integração › Plataformas de vendas** ou pelo atalho **Criar plataforma de vendas** dentro do formulário.
+
+- **Adicione a oferta**
+		No menu lateral, clique em **Ofertas** e em **Adicionar oferta**. A oferta abre em uma página inteira, sem abas. Preencha:
+
+			Campo | Descrição |
+
+				Nome | Por exemplo `Checkout Produto X`. |
+
+				Plataforma de vendas | A plataforma que processa o pagamento. |
+
+				URL de redirecionamento | O link do checkout na plataforma. O redirecionamento é temporário (302). |
+
+				Caminho | Opcional, como `/checkout`. |
+
+		Criação de uma oferta
+
+- **Copie o link da oferta**
+		Na lista de **Ofertas**, clique no botão de copiar da coluna **Link**.
+
+- **Use o link nos botões de compra**
+		Cole o link como destino de todos os botões de compra das suas páginas. No Builder, é o campo **Destino** do evento de clique do botão.
+
+## Parâmetros repassados ao checkout
+
+Os parâmetros que o visitante trouxe (como `utm_source`) são repassados para a URL de destino. Se o mesmo parâmetro já existir fixo na URL de redirecionamento, o valor do visitante prevalece. Os parâmetros da plataforma de venda, como o ID do clique, são adicionados automaticamente.
+
+## Vários checkouts para o mesmo produto
+
+Crie uma oferta para cada checkout. Um produto pode ter, por exemplo, `Product A - Checkout 1` (preço cheio) e `Product A - Checkout 2` (preço com desconto, outra cor). Cada oferta tem seu link e seu caminho, e todas aparecem na lista de **Ofertas**.
+
+Lista de ofertas
+
+## Oferta com página própria
+
+Além de Redirect, uma oferta pode ser criada com Builder, Upload HTML ou Clonar URL, por exemplo para um pré-checkout. Nesse caso, o botão dessa página deve levar ao checkout da plataforma.
+
+## Testar ofertas
+
+Para comparar dois checkouts (preços, cores, plataformas ou páginas de pagamento diferentes), crie um [teste A/B](https://docs.trackup.me/testes-ab) do tipo **Checkout** com as ofertas como variantes. O botão de compra aponta para o link do teste.
+
+Se um botão apontar direto para o checkout da plataforma, a venda chega sem o ID do clique e aparece como Click ID ausente em [Conversões](https://docs.trackup.me/conversoes).
 
 ---
 
@@ -2206,120 +2272,6 @@ Crie um dashboard por objetivo, como um de Lucro diário para acompanhar campanh
 
 ---
 
-# Gerenciador de anúncios
-
-URL: https://docs.trackup.me/gerenciador-de-anuncios
-
-> Veja investimento e vendas reais de cada campanha, conjunto e anúncio da Meta em uma só tabela.
-
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Quais anúncios gastaram mais de R$ 200 ontem sem vender?"
-
-O Gerenciador de anúncios sincroniza suas contas da Meta e cruza os dados de entrega (investimento, impressões, cliques) com as vendas que o Trackup atribuiu a cada anúncio. Assim você vê ROAS e CPA com base em vendas confirmadas pela plataforma de venda, e não só no que o pixel reportou.
-
-Disponível para Meta Ads. A atribuição depende dos parâmetros da [fonte de tráfego Meta](https://docs.trackup.me/fontes-de-trafego) na URL dos anúncios.
-
-## Conectar a conta
-
-- **Conecte o Facebook**
-		Em **Gerenciador de anúncios**, clique em **Conectar Facebook Ads** e em **Entrar com o Facebook**. Autorize as permissões pedidas.
-
-- **Escolha as contas**
-		Selecione uma ou mais contas de anúncio e clique em **Conectar**. A primeira sincronização pode levar alguns minutos.
-
-		**Print pendente · `img/ads-contas.png`**Modal Selecionar contas de anúncios com 3 contas fictícias, duas marcadas, e o botão Conectar 2 conta(s). Nomes de conta borrados.
-
-Seleção de contas de anúncio
-
-## Usar a tabela
-
-**Print pendente · `img/ads-tabela.png`**Aba Campanhas com o resumo no topo (Investimento, Impressões, Cliques, Visitantes únicos, Vendas, Receita), 4 campanhas fictícias com Status, Investimento, Vendas, Receita, ROAS e CPA, e o indicador Última sincronização. Nomes de campanha borrados.
-
-Tabela de campanhas com vendas rastreadas
-
-- Navegue pelas abas **Campanhas**, **Conjuntos de anúncios** e **Anúncios**. Selecionar linhas em uma aba filtra as seguintes.
-
-- Use o seletor de contas para ver uma ou várias contas juntas. Contas em outra moeda aparecem marcadas.
-
-- Clique em **Colunas** para escolher e reordenar colunas.
-
-- Abra uma linha para ver o **Detalhamento** por dia, por país ou por dispositivo.
-
-## Colunas
-
-	Grupo | Colunas |
-
-		Desempenho | Investimento, Impressões, Alcance, Frequência, Cliques, CTR, CPC, CPM |
-
-		Conversões (Trackup) | Cliques rastreados, Visitantes, Vendas, Receita, ROAS, CPA |
-
-		Conversões (Meta) | Conversions e Valor conv. reportados pela Meta, IC e Valor IC, Conversas, Custo por conversa, Seguidores no Instagram, Custo por seguidor |
-
-		Engajamento | Hook, Hold Rate, Retenção, Retenção do body, CTA, Play rate do hook, Retenção de vídeo (75%) |
-
-		Configurações | Status, Entrega, Orçamento diário e vitalício, Bid cap, Criação, Última atualização, ID |
-
-Compare **Vendas** (Trackup) com **Conversions (Meta)**. Uma diferença grande costuma indicar parâmetros faltando na URL do anúncio ou eventos duplicados no pixel.
-
-## Insights e alertas
-
-Acima da tabela, o Trackup destaca anúncios e campanhas que merecem atenção. Clique em **Ver todos** para abrir a lista completa.
-
-## Reconectar
-
-Se a sessão da Meta expirar (por exemplo, depois de uma troca de senha) ou perder permissões, um aviso aparece no topo. Clique em **Reconectar Meta** com a mesma conta do Facebook.
-
-O investimento das contas conectadas também alimenta as despesas do card [Lucro](https://docs.trackup.me/dashboards#lucro).
-
----
-
-# Requisições
-
-URL: https://docs.trackup.me/requisicoes
-
-> Veja cada acesso às suas páginas em tempo real, com a decisão do filtro, a origem e os eventos disparados.
-
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Mostre as requisições bloqueadas hoje no caminho /oferta e, para as três mais recentes, o log com a regra que decidiu."
-
-Em **Logs › Requisições** você vê cada requisição que passou pelo Trackup. Use para conferir se o tráfego está chegando, entender por que um visitante foi bloqueado ou se um evento foi enviado ao pixel.
-
-Lista de requisições com filtros
-
-## Filtrar
-
-Filtre por host, caminho, IP, evento, decisão (**Permitida** ou **Bloqueada**), dispositivo, país e visitante (**Real** ou **Bot**).
-
-## Detalhes de uma requisição
-
-Expanda uma linha para ver duas abas.
-
-### Resumo
-
-	Grupo | Campos |
-
-		Risco e decisão | Score, nível do score, bot, decisão, motivos, regra do filtro (nome e ID) e se passou no desafio |
-
-		Identificação | ID, data e hora, host, caminho, evento, IP, hash do IP, visitor ID, referer, user agent |
-
-		Localização | País, estado, cidade, latitude, longitude, fuso, ISP, proxy, idioma do navegador |
-
-		Tecnologia | Navegador e versão, sistema e versão, dispositivo, fabricante, modelo |
-
-		Marketing e UTMs | UTMs, click ID e origem de tráfego |
-
-		Parâmetros Sub | `sub1` a `sub8` |
-
-		Dados customizados | Dados enviados pelo [script](https://docs.trackup.me/script) com o evento |
-
-### Logs
-
-Os disparos de pixel feitos por causa dessa requisição, com horário, método, duração, o acionador, o pixel, a URL, e o corpo da requisição e da resposta. Cada valor pode ser copiado.
-
-Disparos de pixel de uma requisição
-
-Para depurar uma campanha, abra a URL do anúncio em uma aba anônima e procure a sua requisição filtrando pelo seu IP.
-
----
-
 # Visitantes
 
 URL: https://docs.trackup.me/visitantes
@@ -2373,6 +2325,54 @@ Se o mesmo e-mail ou telefone aparecer em outro acesso, o Trackup reconhece a pe
 - Ver quanto tempo e quantas visitas levou até a compra.
 
 - Conferir se o checkout recebeu o click ID de um comprador específico.
+
+---
+
+# Requisições
+
+URL: https://docs.trackup.me/requisicoes
+
+> Veja cada acesso às suas páginas em tempo real, com a decisão do filtro, a origem e os eventos disparados.
+
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Mostre as requisições bloqueadas hoje no caminho /oferta e, para as três mais recentes, o log com a regra que decidiu."
+
+Em **Logs › Requisições** você vê cada requisição que passou pelo Trackup. Use para conferir se o tráfego está chegando, entender por que um visitante foi bloqueado ou se um evento foi enviado ao pixel.
+
+Lista de requisições com filtros
+
+## Filtrar
+
+Filtre por host, caminho, IP, evento, decisão (**Permitida** ou **Bloqueada**), dispositivo, país e visitante (**Real** ou **Bot**).
+
+## Detalhes de uma requisição
+
+Expanda uma linha para ver duas abas.
+
+### Resumo
+
+	Grupo | Campos |
+
+		Risco e decisão | Score, nível do score, bot, decisão, motivos, regra do filtro (nome e ID) e se passou no desafio |
+
+		Identificação | ID, data e hora, host, caminho, evento, IP, hash do IP, visitor ID, referer, user agent |
+
+		Localização | País, estado, cidade, latitude, longitude, fuso, ISP, proxy, idioma do navegador |
+
+		Tecnologia | Navegador e versão, sistema e versão, dispositivo, fabricante, modelo |
+
+		Marketing e UTMs | UTMs, click ID e origem de tráfego |
+
+		Parâmetros Sub | `sub1` a `sub8` |
+
+		Dados customizados | Dados enviados pelo [script](https://docs.trackup.me/script) com o evento |
+
+### Logs
+
+Os disparos de pixel feitos por causa dessa requisição, com horário, método, duração, o acionador, o pixel, a URL, e o corpo da requisição e da resposta. Cada valor pode ser copiado.
+
+Disparos de pixel de uma requisição
+
+Para depurar uma campanha, abra a URL do anúncio em uma aba anônima e procure a sua requisição filtrando pelo seu IP.
 
 ---
 

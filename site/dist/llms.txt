@@ -10,41 +10,50 @@ Documentação completa em um só arquivo: https://docs.trackup.me/llms-full.txt
 - [Quick Start](https://docs.trackup.me/quick-start): Configure um projeto do zero, publique suas páginas e registre a primeira venda atribuída a um anúncio.
 - [Como funciona](https://docs.trackup.me/como-funciona): O caminho de um clique até a venda, e os conceitos que você vai encontrar em todo o painel.
 
-## Guias › Configuração
+## Guias › Configuração inicial
 
 - [Times e membros](https://docs.trackup.me/times-e-membros): Organize sua operação em times, convide pessoas e defina o que cada uma pode fazer.
 - [Projetos](https://docs.trackup.me/projetos): Um projeto reúne domínios, páginas, pixels, regras e relatórios de uma operação.
 - [Domínios](https://docs.trackup.me/dominios): Sirva páginas e links no seu próprio domínio ou subdomínio.
-- [Pixels](https://docs.trackup.me/pixels): Conecte sua conta de anúncios para enviar os eventos do funil pelo servidor (API de conversões).
-- [Fontes de tráfego](https://docs.trackup.me/fontes-de-trafego): Gere os parâmetros de URL que identificam campanha, conjunto e anúncio de cada clique.
+
+## Guias › Conexões
+
 - [Plataformas de venda](https://docs.trackup.me/plataformas-de-venda): Receba vendas, reembolsos e chargebacks por webhook e ligue cada venda ao anúncio de origem.
+- [Fontes de tráfego](https://docs.trackup.me/fontes-de-trafego): Gere os parâmetros de URL que identificam campanha, conjunto e anúncio de cada clique.
+- [Gerenciador de anúncios](https://docs.trackup.me/gerenciador-de-anuncios): Veja investimento e vendas reais de cada campanha, conjunto e anúncio da Meta em uma só tabela.
+- [Pixels](https://docs.trackup.me/pixels): Conecte sua conta de anúncios para enviar os eventos do funil pelo servidor (API de conversões).
 - [Script de rastreamento](https://docs.trackup.me/script): Rastreie páginas hospedadas fora do Trackup, identifique visitantes e envie eventos customizados.
 
 ## Guias › Páginas e ofertas
 
 - [Páginas](https://docs.trackup.me/paginas): Crie, hospede e publique landing pages e checkouts no seu domínio, já com rastreamento.
-- [Ofertas](https://docs.trackup.me/ofertas): A oferta é a página de checkout do seu produto. É por ela que a venda volta atribuída ao anúncio.
 - [Builder](https://docs.trackup.me/builder): Monte páginas no editor visual com componentes, blocos prontos e templates, sem escrever código.
 - [Upload HTML](https://docs.trackup.me/upload-html): Hospede no Trackup uma página que você já tem em HTML.
 - [Clonar URL](https://docs.trackup.me/clonar-url): Copie uma página que já está no ar para o seu domínio no Trackup.
 - [Redirect](https://docs.trackup.me/redirect): Passe o tráfego pelo Trackup e redirecione para uma página hospedada em outro lugar.
 - [Versões e arquivos](https://docs.trackup.me/versoes-e-arquivos): Edite os arquivos de páginas HTML, publique e volte para uma versão anterior quando precisar.
+- [Ofertas](https://docs.trackup.me/ofertas): A oferta é a página de checkout do seu produto. É por ela que a venda volta atribuída ao anúncio.
 
-## Guias › Otimização
+## Guias › Testes A/B
 
 - [Testes A/B](https://docs.trackup.me/testes-ab): Divida o tráfego entre páginas ou checkouts, compare as vendas e envie tudo para a variante vencedora.
+
+## Guias › Acionadores
+
 - [Acionadores](https://docs.trackup.me/acionadores): Envie eventos para pixels e webhooks quando o tráfego atender às condições que você define.
 - [Variáveis](https://docs.trackup.me/variaveis): Referência das variáveis e operadores usados nas condições dos acionadores.
+
+## Guias › Filtros
+
 - [Filtro](https://docs.trackup.me/filtro): Decida o que acontece com cada acesso antes de a página carregar. Bloqueie bots, países e curiosos.
 - [Modo básico](https://docs.trackup.me/filtro-basico): Monte regras de filtro com os critérios mais comuns, sem escrever expressões.
 - [Modo avançado](https://docs.trackup.me/filtro-avancado): Escreva regras com qualquer campo da requisição, operadores, grupos E/OU e expressões regulares.
 
-## Guias › Análise
+## Guias › Dados e análise
 
 - [Dashboards](https://docs.trackup.me/dashboards): Monte painéis com os números que importam para você. Lucro, funil, origem das vendas e qualidade do tráfego.
-- [Gerenciador de anúncios](https://docs.trackup.me/gerenciador-de-anuncios): Veja investimento e vendas reais de cada campanha, conjunto e anúncio da Meta em uma só tabela.
-- [Requisições](https://docs.trackup.me/requisicoes): Veja cada acesso às suas páginas em tempo real, com a decisão do filtro, a origem e os eventos disparados.
 - [Visitantes](https://docs.trackup.me/visitantes): Acompanhe a jornada de cada visitante, do primeiro clique às compras, reembolsos e chargebacks.
+- [Requisições](https://docs.trackup.me/requisicoes): Veja cada acesso às suas páginas em tempo real, com a decisão do filtro, a origem e os eventos disparados.
 - [Conversões](https://docs.trackup.me/conversoes): Todas as vendas recebidas das plataformas de venda, com a atribuição de campanha, conjunto e anúncio.
 - [Reembolsos e chargebacks](https://docs.trackup.me/reembolsos-e-chargebacks): Acompanhe as vendas desfeitas e de onde elas vieram.
 - [Logs de acionadores](https://docs.trackup.me/logs-de-acionadores): Confira cada evento enviado aos pixels e cada chamada de webhook, com a resposta da plataforma.

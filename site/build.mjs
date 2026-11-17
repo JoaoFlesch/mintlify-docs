@@ -133,12 +133,16 @@ if (apiTab) {
 	}
 }
 
+// Itens do menu: "slug" ou { slug, children: [...] }. flatItems devolve todos em ordem, com a profundidade.
+const flatItems = (items, d = 0) => items.flatMap(it => {
+	const slug = typeof it === 'string' ? it : it.slug;
+	return [{ slug, d }, ...(typeof it === 'object' && it.children ? flatItems(it.children, d + 1) : [])];
+});
 const order = []; // { slug, tab, group }
 const missing = [];
 for (const tab of nav.tabs) {
 	for (const group of tab.groups || []) {
-		for (const item of group.pages) {
-			const slug = typeof item === 'string' ? item : item.slug;
+		for (const { slug } of flatItems(group.pages)) {
 			if (!pages.has(slug)) { missing.push(slug); continue; }
 			order.push({ slug, tab, group });
 		}
@@ -236,10 +240,10 @@ const shellData = {
 		n: t.name, u: tabFirst(t), i: icon(t.icon || 'book'),
 		g: (t.groups || []).map(g => ({
 			n: g.name,
-			p: g.pages.map(it => (typeof it === 'string' ? it : it.slug)).filter(sl => pages.has(sl)).map(sl => {
+			p: flatItems(g.pages).filter(x => pages.has(x.slug)).map(({ slug: sl, d }) => {
 				const m = pages.get(sl).meta;
 				if (m.icon && !m.method) usedIcons.add(m.icon);
-				return { u: urlOf(sl), t: titleOf(sl), ...(m.method ? { m: m.method } : m.icon ? { i: m.icon } : {}), ...(m.badge ? { b: m.badge } : {}) };
+				return { u: urlOf(sl), t: titleOf(sl), ...(d ? { d } : {}), ...(m.method ? { m: m.method } : m.icon ? { i: m.icon } : {}), ...(m.badge ? { b: m.badge } : {}) };
 			}),
 		})).filter(g => g.p.length),
 	})),
@@ -364,7 +368,7 @@ if (existsSync(imgSrc)) {
 const llms = [`# ${SITE.name}`, '', '> Documentação oficial do Trackup: rastreamento, páginas, testes A/B, filtro, integrações e API.', '', `Documentação completa em um só arquivo: ${SITE.url}/llms-full.txt`, ''];
 for (const tab of nav.tabs) {
 	for (const g of tab.groups || []) {
-		const present = g.pages.map(i => (typeof i === 'string' ? i : i.slug)).filter(sl => pages.has(sl));
+		const present = flatItems(g.pages).map(x => x.slug).filter(sl => pages.has(sl));
 		if (!present.length) continue;
 		llms.push(`## ${tab.name} › ${g.name}`, '');
 		for (const slug of present) {

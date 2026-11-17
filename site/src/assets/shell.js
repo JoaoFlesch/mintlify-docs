@@ -44,7 +44,7 @@
 				+ g.p.map(function (p) {
 					var lead = p.m ? '<span class="method ' + p.m + '">' + (p.m === 'delete' ? 'del' : p.m) + '</span>' : (p.i ? I[p.i] || '' : '');
 					var badge = p.b ? '<span class="badge">' + esc(p.b) + '</span>' : '';
-					return '<li><a class="nav-link' + (p.u === path ? ' active' : '') + '" href="' + esc(p.u) + '">' + lead + '<span>' + esc(p.t) + '</span>' + badge + '</a></li>';
+					return '<li><a class="nav-link' + (p.d ? ' nav-sub' : '') + (p.u === path ? ' active' : '') + '" href="' + esc(p.u) + '">' + lead + '<span>' + esc(p.t) + '</span>' + badge + '</a></li>';
 				}).join('') + '</ul></div>';
 		}).join(''));
 	};

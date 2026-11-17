@@ -1,11 +1,7 @@
 # Prints pendentes
 
-Gerado pelo build. 23 prints faltando.
+Gerado pelo build. 22 prints faltando.
 
-
-## Quick Start (/quick-start)
-
-- [ ] `img/quick-start-validacao.png`: Tela Logs › Requisições com uma requisição de teste aberta no painel de detalhes, mostrando origem Meta, UTMs e o link acessado. IP e localização borrados.
 
 ## Testes A/B (/testes-ab)
 

@@ -3527,6 +3527,8 @@ URL: https://docs.trackup.me/integracoes
 
 O Trackup recebe vendas de 33 plataformas por webhook. Escolha a sua abaixo. Se ela não estiver na lista, use o [webhook genérico](https://docs.trackup.me/webhook-generico).
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Conecte a Hotmart ao projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da plataforma de venda é feito por você.
+
 Primeira vez integrando? Leia antes [como a atribuição de vendas funciona](https://docs.trackup.me/plataformas-de-venda).
 
 	[ActionPayActionPay](https://docs.trackup.me/actionpay)

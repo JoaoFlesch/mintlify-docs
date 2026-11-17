@@ -1,0 +1,57 @@
+---
+title: Modelo de diagrama
+icon: layers
+description: Modelo de organograma e fluxo para as páginas da documentação. Página de aprovação, fora do menu.
+---
+<p>Os diagramas mostram como as peças do Trackup se ligam. Cada etapa é um cartão com ícone, título e uma linha de apoio. Três formatos cobrem os casos da documentação.</p>
+
+<h2>Fluxo em linha</h2>
+<p>Para sequências, como o caminho de uma venda.</p>
+<flow>
+	<fstep n="1" icon="megaphone" title="Anúncio">URL da campanha com UTMs</fstep>
+	<fstep n="2" icon="globe" title="Seu domínio">Requisição registrada e filtrada</fstep>
+	<fstep n="3" icon="file" title="Página">Evento <code>page_view</code></fstep>
+	<fstep n="4" icon="bag" title="Oferta">Link do checkout com o Click ID</fstep>
+	<fstep n="5" icon="dollar" title="Venda" tone="ok">Webhook liga a venda ao clique</fstep>
+</flow>
+
+<h2>Fluxo com ramificação</h2>
+<p>Para decisões, como o filtro ou um teste A/B.</p>
+<flow>
+	<fstep icon="link" title="Link">Recebe o acesso</fstep>
+	<fstep icon="shield" title="Filtro">Aplica as regras</fstep>
+	<fbranch>
+		<fstep icon="check" title="Aprovado" tone="ok">Vai para a página real</fstep>
+		<fstep icon="ban" title="Bloqueado" tone="stop">Vai para a página segura</fstep>
+	</fbranch>
+</flow>
+
+<flow>
+	<fstep icon="link" title="Link">Divide o tráfego</fstep>
+	<fbranch>
+		<fstep icon="file" title="Página A">50% dos visitantes</fstep>
+		<fstep icon="file" title="Página B">50% dos visitantes</fstep>
+		<fstep icon="file" title="Página C">Sem tráfego</fstep>
+	</fbranch>
+	<fstep icon="chart" title="Resultado" tone="brand">Compare conversões</fstep>
+</flow>
+
+<h2>Fluxo vertical</h2>
+<p>Para listas curtas de dependências, ou quando o texto das etapas é longo.</p>
+<flow type="vertical">
+	<fstep icon="users" title="Time">Assinatura, membros e chaves de API</fstep>
+	<fstep icon="layers" title="Projeto">Um por produto, oferta ou cliente</fstep>
+	<fstep icon="globe" title="Domínio">Subdomínio do projeto</fstep>
+</flow>
+
+<h2>Como escrever</h2>
+<code-block title="Markup" lang="html">
+<flow>
+	<fstep n="1" icon="megaphone" title="Anúncio">URL da campanha</fstep>
+	<fbranch>
+		<fstep icon="check" title="Aprovado" tone="ok">Página real</fstep>
+		<fstep icon="ban" title="Bloqueado" tone="stop">Página segura</fstep>
+	</fbranch>
+</flow>
+</code-block>
+<p><code>tone</code> aceita <code>ok</code>, <code>stop</code> e <code>brand</code>. Os ícones vêm da lista interna da documentação. No celular o fluxo vira uma coluna com setas para baixo.</p>

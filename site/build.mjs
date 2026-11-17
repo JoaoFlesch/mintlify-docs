@@ -88,8 +88,14 @@ function expand(html) {
 			const imgUrl = /^https?:/.test(imgBase) && !/^https?:/.test(src) ? `${imgBase}/${src.replace(/^\//, '')}` : src;
 			return `<figure class="shot"><img src="${esc(imgUrl)}" alt="${esc(alt || caption || '')}" loading="lazy">${caption ? `<figcaption>${esc(caption)}</figcaption>` : ''}</figure>`;
 		})
-		.replace(/<icon name="([a-z-]+)"\s*\/?>/g, (_, n) => icon(n))
-		.replace(/\{\{icon:([a-z-]+)\}\}/g, (_, n) => icon(n));
+		.replace(/<flow([^>]*)>/g, (_, a) => `<div class="flow${attrs(a).type === 'vertical' ? ' flow-v' : ''}">`).replace(/<\/flow>/g, '</div>')
+		.replace(/<fbranch>/g, '<div class="fbranch">').replace(/<\/fbranch>/g, '</div>')
+		.replace(/<fstep([^>]*)>([\s\S]*?)<\/fstep>/g, (_, a, text) => {
+			const { title, icon: ic, n, tone } = attrs(a);
+			return `<div class="fnode${tone ? ` tone-${esc(tone)}` : ''}"><i class="fa"></i>${n ? `<span class="fnode-n">${esc(n)}</span>` : ''}${ic ? `<span class="fnode-ic">${icon(ic)}</span>` : ''}<div class="fnode-body"><b>${esc(title)}</b><span>${text.trim()}</span></div></div>`;
+		})
+		.replace(/\{\{icon:([a-z-]+)\}\}/g, (_, n) => icon(n))
+		.replace(/<icon name="([a-z-]+)"\s*\/?>/g, (_, n) => icon(n));
 	// Títulos com âncora
 	const toc = [];
 	const used = new Set();

@@ -1,24 +1,24 @@
 ---
-title: Rastrear uma campanha da Meta com Hotmart
+title: Rastrear uma campanha da Meta com Upag
 sidebarTitle: Campanha na Meta
 icon: megaphone
 eyebrow: Tutorial
-description: Do zero até a primeira venda atribuída a um anúncio, com pixel via API de Conversões, Hotmart e Gerenciador de anúncios.
+description: Do zero até a primeira venda atribuída a um anúncio, com pixel via API de Conversões, Upag e Gerenciador de anúncios.
 ---
-<callout type="tip"><p><strong>Configure pela sua IA.</strong> Conecte seu assistente pelo <a href="/conectar-mcp">MCP</a> e peça: <em>"Configure o projeto Online Store para anunciar na Meta: crie a fonte de tráfego Meta, um pixel com acionadores de pageview, carrinho, início de checkout e conversão, e a plataforma Hotmart. No fim, me dê a URL do webhook."</em> A conexão da conta de anúncios (OAuth) e o cadastro do webhook na Hotmart ficam com você.</p></callout>
-<p>Neste tutorial você configura um funil completo para anunciar na Meta e vender na Hotmart. No fim, cada venda aparece no Trackup com a campanha, o conjunto e o anúncio de origem, e o Purchase chega ao pixel pela API de Conversões.</p>
+<callout type="tip"><p><strong>Configure pela sua IA.</strong> Conecte seu assistente pelo <a href="/conectar-mcp">MCP</a> e peça: <em>"Configure o projeto Online Store para anunciar na Meta: crie a fonte de tráfego Meta, um pixel com acionadores de pageview, carrinho, início de checkout e conversão, e a plataforma Upag. No fim, me dê a URL do webhook."</em> A conexão da conta de anúncios (OAuth) e o cadastro do webhook na Upag ficam com você.</p></callout>
+<p>Neste tutorial você configura um funil completo para anunciar na Meta e vender na Upag. No fim, cada venda aparece no Trackup com a campanha, o conjunto e o anúncio de origem, e o Purchase chega ao pixel pela API de Conversões.</p>
 <flow>
 	<fstep icon="megaphone" title="Anúncio">Meta Ads</fstep>
 	<fstep icon="file" title="Landing page">no seu domínio</fstep>
 	<fstep icon="bag" title="Oferta">link do checkout</fstep>
-	<fstep icon="dollar" title="Hotmart" tone="ok">webhook da venda</fstep>
+	<fstep icon="dollar" title="Upag" tone="ok">webhook da venda</fstep>
 </flow>
 
 <h2>O que você vai precisar</h2>
 <ul>
 	<li>Um projeto no Trackup com domínio próprio verificado. Se ainda não tem, siga <a href="/tutorial-dominio-proprio">Configurar um domínio próprio</a>.</li>
 	<li>Acesso de administrador ao Business Manager da Meta e ao pixel.</li>
-	<li>Acesso de produtor na Hotmart, com o produto criado e o link de checkout.</li>
+	<li>Acesso de administrador à Upag, com o produto criado e o link de checkout (link de pagamento).</li>
 	<li>Uma landing page. Pode ser montada no <a href="/tutorial-landing-builder">Builder</a> ou estar em um <a href="/tutorial-site-externo">site externo</a>.</li>
 </ul>
 <p>Tempo estimado: 30 minutos.</p>
@@ -68,14 +68,16 @@ utm_source=meta&utm_medium={{adset.name}}|{{adset.id}}&utm_campaign={{campaign.n
 	</step>
 </steps>
 
-<h2>Parte 3: Hotmart</h2>
+<h2>Parte 3: Upag</h2>
 <steps>
 	<step title="Crie a plataforma">
-		<p>Em <strong>Integração › Plataformas de vendas</strong>, clique em <strong>Adicionar plataforma</strong>, escolha <strong>Hotmart 2.0</strong> e salve. Copie a <strong>URL</strong> da plataforma na lista.</p>
+		<p>Em <strong>Integração › Plataformas de vendas</strong>, clique em <strong>Adicionar plataforma</strong>, escolha <strong>Upag</strong> e salve. Copie a <strong>URL</strong> da plataforma na lista.</p>
 	</step>
-	<step title="Cadastre o webhook na Hotmart">
-		<p>Na Hotmart, vá em <strong>Ferramentas › Webhook (API e notificações)</strong> e clique em <strong>Cadastrar Webhook</strong>. Selecione o produto, cole a URL do Trackup, escolha a versão <strong>2.0.0</strong> e marque <strong>Compra aprovada</strong>, <strong>Compra reembolsada</strong> e <strong>Chargeback</strong>.</p>
-		<shot src="img/tut-meta-hotmart-webhook.png" caption="Webhook cadastrado na Hotmart" todo="Tela de cadastro de webhook da Hotmart com a URL do Trackup (domínio borrado), versão 2.0.0 e os eventos Compra aprovada, Compra reembolsada e Chargeback marcados."></shot>
+	<step title="Cadastre o webhook na Upag">
+		<p>Na Upag, abra <strong>Desenvolvedor › Webhooks</strong> e clique em <strong>Criar Webhook</strong>. Dê um nome, cole a URL do Trackup e selecione <strong>apenas</strong> o evento <code>invoice.paid</code>. Clique em <strong>Criar Webhook</strong> para concluir.</p>
+		<shot src="img/plataformas/upag-1.webp" caption="Webhooks no painel da Upag"></shot>
+		<shot src="img/plataformas/upag-2.webp" caption="Webhook com a URL do Trackup e o evento invoice.paid"></shot>
+		<p>O passo a passo completo está em <a href="/upag">Upag</a>.</p>
 	</step>
 	<step title="Crie a oferta">
 		<p>Em <strong>Ofertas</strong>, clique em <strong>Adicionar oferta</strong> e, na aba <strong>Redirect</strong>, preencha:</p>
@@ -83,8 +85,8 @@ utm_source=meta&utm_medium={{adset.name}}|{{adset.id}}&utm_campaign={{campaign.n
 			<thead><tr><th>Campo</th><th>Valor</th></tr></thead>
 			<tbody>
 				<tr><td>Nome</td><td><em>Checkout Curso</em></td></tr>
-				<tr><td>Plataforma de vendas</td><td>Hotmart 2.0</td></tr>
-				<tr><td>URL de redirecionamento</td><td>O link do checkout da Hotmart, como <code>https://pay.hotmart.com/ABC123</code></td></tr>
+				<tr><td>Plataforma de vendas</td><td>Upag</td></tr>
+				<tr><td>URL de redirecionamento</td><td>O link de pagamento da Upag, como <code>https://pay.upag.com.br/ABC123</code></td></tr>
 				<tr><td>Caminho</td><td><code>/checkout</code></td></tr>
 			</tbody>
 		</table>
@@ -96,7 +98,7 @@ utm_source=meta&utm_medium={{adset.name}}|{{adset.id}}&utm_campaign={{campaign.n
 <steps>
 	<step title="Aponte os botões para a oferta">
 		<p>Em todos os botões de compra da landing page, use o link da oferta. No Builder, selecione o botão e, em <strong>Config › Evento de clique</strong>, cole o link em <strong>Destino</strong>. Em um site externo, troque o <code>href</code> dos botões.</p>
-		<callout type="danger"><p>Um único botão apontando direto para <code>pay.hotmart.com</code> já faz parte das vendas chegarem sem atribuição.</p></callout>
+		<callout type="danger"><p>Um único botão apontando direto para o link de pagamento da Upag já faz parte das vendas chegarem sem atribuição.</p></callout>
 	</step>
 	<step title="Publique e copie o link">
 		<p>Publique a página e copie o <strong>Link</strong> dela em <strong>Páginas</strong>, como <code>https://lp.seudominio.com/curso</code>.</p>
@@ -130,11 +132,11 @@ https://lp.seudominio.com/curso?utm_source=meta&utm_campaign=teste|111&utm_conte
 		<p>Em <strong>Logs › Requisições</strong>, sua visita aparece com as UTMs. No Gerenciador de Eventos, na aba <strong>Eventos de teste</strong>, o <code>PageView</code> chega com a origem <em>Servidor</em>.</p>
 	</step>
 	<step title="Clique em comprar">
-		<p>Clique no botão de compra. Você deve cair no checkout da Hotmart com o parâmetro <code>sck</code> na URL. O <code>InitiateCheckout</code> aparece nos eventos de teste.</p>
+		<p>Clique no botão de compra. Você deve cair no checkout da Upag com o parâmetro <code>clickId</code> na URL. O <code>InitiateCheckout</code> aparece nos eventos de teste.</p>
 	</step>
 	<step title="Faça uma compra de teste">
-		<p>Conclua uma compra (pode reembolsar depois). Em <strong>Logs › Conversões</strong>, a venda aparece com a campanha <em>teste</em>, e o <code>Purchase</code> aparece em <strong>Logs › Acionadores</strong> com sucesso.</p>
-		<shot src="img/tut-meta-conversao.png" caption="Venda de teste atribuída" todo="Logs › Conversões com uma venda Hotmart expandida mostrando UTM Campaign teste|111, Click ID preenchido e Anúncio ID 333. Valores e IDs de transação fictícios."></shot>
+		<p>Conclua uma compra de valor baixo (pode reembolsar depois). Em <strong>Logs › Conversões</strong>, a venda aparece com a campanha <em>teste</em>, e o <code>Purchase</code> aparece em <strong>Logs › Acionadores</strong> com sucesso.</p>
+		<shot src="img/tut-meta-conversao.png" caption="Venda de teste atribuída" todo="Logs › Conversões com uma venda Upag expandida mostrando UTM Campaign teste|111, Click ID preenchido e Anúncio ID 333. Valores e IDs de transação fictícios."></shot>
 	</step>
 	<step title="Tire o modo de teste">
 		<p>Edite o pixel em <strong>Integração › Pixels</strong> e apague o <strong>Test Event Code</strong>. Com ele preenchido, os eventos não contam para as campanhas.</p>

@@ -85,7 +85,7 @@ function expand(html) {
 				return `<figure class="shot shot-todo"><div class="shot-box">${icon('pixel')}<div><strong>Print pendente${src ? ` · <code>${esc(src)}</code>` : ''}</strong><p>${esc(todo || caption || '')}</p></div></div>${caption ? `<figcaption>${esc(caption)}</figcaption>` : ''}</figure>`;
 			}
 			const k = src.replace(/^\//, '');
-			const imgBase = IMG6_FILES.has(k) && IMG6_BASE ? IMG6_BASE : IMG5_FILES.has(k) && IMG5_BASE ? IMG5_BASE : IMG4_FILES.has(k) && IMG4_BASE ? IMG4_BASE : IMG3_FILES.has(k) && IMG3_BASE ? IMG3_BASE : IMG2_FILES.has(k) && IMG2_BASE ? IMG2_BASE : IMG_BASE;
+			const imgBase = IMG7_FILES.has(k) && IMG7_BASE ? IMG7_BASE : IMG6_FILES.has(k) && IMG6_BASE ? IMG6_BASE : IMG5_FILES.has(k) && IMG5_BASE ? IMG5_BASE : IMG4_FILES.has(k) && IMG4_BASE ? IMG4_BASE : IMG3_FILES.has(k) && IMG3_BASE ? IMG3_BASE : IMG2_FILES.has(k) && IMG2_BASE ? IMG2_BASE : IMG_BASE;
 			const imgUrl = /^https?:/.test(imgBase) && !/^https?:/.test(src) ? `${imgBase}/${src.replace(/^\//, '')}` : src;
 			return `<figure class="shot"><img src="${esc(imgUrl)}" alt="${esc(alt || caption || '')}" loading="lazy">${caption ? `<figcaption>${esc(caption)}</figcaption>` : ''}</figure>`;
 		})
@@ -201,6 +201,9 @@ const IMG5_FILES = new Set(existsSync(join(SRC, 'img-extra-5.json')) ? JSON.pars
 const argImg6 = process.argv.find(a => a.startsWith('--img6='));
 const IMG6_BASE = argImg6 ? argImg6.slice(7).replace(/\/$/, '') : '';
 const IMG6_FILES = new Set(existsSync(join(SRC, 'img-extra-6.json')) ? JSON.parse(readFileSync(join(SRC, 'img-extra-6.json'), 'utf8')) : []);
+const argImg7 = process.argv.find(a => a.startsWith('--img7='));
+const IMG7_BASE = argImg7 ? argImg7.slice(7).replace(/\/$/, '') : '';
+const IMG7_FILES = new Set(existsSync(join(SRC, 'img-extra-7.json')) ? JSON.parse(readFileSync(join(SRC, 'img-extra-7.json'), 'utf8')) : []);
 const absAsset = f => (/^https?:/.test(ASSETS) ? ASSETS : SITE.url + ASSETS) + '/' + f;
 
 const layout = read(join(SRC, 'layout.html'));

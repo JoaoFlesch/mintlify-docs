@@ -133,8 +133,8 @@ eyebrow: Plataformas de venda
 description: Passo a passo para conectar cada plataforma de venda ao Trackup.
 toc: false
 ---
-<p>O Trackup recebe vendas de {len(P)} plataformas por webhook. Escolha a sua abaixo. Se ela não estiver na lista, use o <a href="/webhook-generico">webhook genérico</a>.</p>
 <callout type="tip"><p><strong>Configure pela sua IA.</strong> Conecte seu assistente pelo <a href="/conectar-mcp">MCP</a> e peça: <em>"Conecte a Hotmart ao projeto Online Store e me dê a URL do webhook."</em> O cadastro da URL dentro da plataforma de venda é feito por você.</p></callout>
+<p>O Trackup recebe vendas de {len(P)} plataformas por webhook. Escolha a sua abaixo. Se ela não estiver na lista, use o <a href="/webhook-generico">webhook genérico</a>.</p>
 <callout type="tip"><p>Primeira vez integrando? Leia antes <a href="/plataformas-de-venda">como a atribuição de vendas funciona</a>.</p></callout>
 <cards cols="3">
 {cards}

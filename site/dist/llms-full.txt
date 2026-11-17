@@ -269,8 +269,6 @@ Abra a URL do anúncio em uma aba anônima, clique no botão de compra e confira
 
 - **Logs › Conversões**: depois de uma compra de teste, a venda aparece ligada ao clique.
 
-**Print pendente · `img/quick-start-validacao.png`**Tela Logs › Requisições com uma requisição de teste aberta no painel de detalhes, mostrando origem Meta, UTMs e o link acessado. IP e localização borrados.
-
 Requisição de teste registrada em Logs › Requisições
 
 ## Próximos passos
@@ -3356,16 +3354,20 @@ No fim da tela **Filtro**, em **Regras sugeridas**, clique em **Usar template** 
 - **Crie a regra no modo básico**
 		**Criar regra**, modo **Básico**. Nome: Fora do Brasil. Peso: `20`.
 
+		Nome e peso da regra
+
 - **Filtro de país**
 		Em **Países**, escolha **Não na lista** e selecione Brasil.
+
+		Ação Exibir página e filtro de país
 
 - **Limite à oferta**
 		Em **Links**, selecione a página da oferta. As outras páginas do projeto não são afetadas.
 
+		Link da oferta selecionado e botão Salvar
+
 - **Ação**
 		Escolha **Exibir página** e selecione a safe page.
-
-		Regra de país com safe page
 
 ## 4. Exija o parâmetro secreto
 

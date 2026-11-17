@@ -3703,6 +3703,8 @@ URL: https://docs.trackup.me/actionpay
 
 > Receba vendas, reembolsos e chargebacks da ActionPay no Trackup, atribuídos ao anúncio de origem.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda ActionPay no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da ActionPay continua com você.
+
 A integração tem duas partes: o Trackup envia o ID do clique para o checkout da ActionPay, e a ActionPay devolve esse ID no webhook de cada venda.
 
 1**Checkout**O Trackup envia o ID do clique para a ActionPay
@@ -3710,8 +3712,6 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A ActionPay devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
-
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda ActionPay no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da ActionPay continua com você.
 
 ## Antes de começar
 
@@ -3756,6 +3756,8 @@ URL: https://docs.trackup.me/amplopay
 
 > Receba vendas, reembolsos e chargebacks da AmploPay no Trackup, atribuídos ao anúncio de origem.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda AmploPay no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da AmploPay continua com você.
+
 A integração tem duas partes: o Trackup envia o ID do clique para o checkout da AmploPay, e a AmploPay devolve esse ID no webhook de cada venda.
 
 1**Checkout**O Trackup envia o ID do clique para a AmploPay
@@ -3763,8 +3765,6 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A AmploPay devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
-
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda AmploPay no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da AmploPay continua com você.
 
 ## Antes de começar
 
@@ -3807,6 +3807,8 @@ URL: https://docs.trackup.me/appmax
 
 > Receba vendas, reembolsos e chargebacks da Appmax no Trackup, atribuídos ao anúncio de origem.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Appmax no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Appmax continua com você.
+
 A integração tem duas partes: o Trackup envia o ID do clique para o checkout da Appmax, e a Appmax devolve esse ID no webhook de cada venda.
 
 1**Checkout**O Trackup envia o ID do clique para a Appmax
@@ -3814,8 +3816,6 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A Appmax devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
-
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Appmax no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Appmax continua com você.
 
 ## Antes de começar
 
@@ -3858,6 +3858,8 @@ URL: https://docs.trackup.me/atomo-pay
 
 > Receba vendas, reembolsos e chargebacks da Átomo Pay no Trackup, atribuídos ao anúncio de origem.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Átomo Pay no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Átomo Pay continua com você.
+
 A integração tem duas partes: o Trackup envia o ID do clique para o checkout da Átomo Pay, e a Átomo Pay devolve esse ID no webhook de cada venda.
 
 1**Checkout**O Trackup envia o ID do clique para a Átomo Pay
@@ -3865,8 +3867,6 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A Átomo Pay devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
-
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Átomo Pay no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Átomo Pay continua com você.
 
 ## Antes de começar
 
@@ -3916,6 +3916,8 @@ URL: https://docs.trackup.me/braip
 
 > Receba vendas, reembolsos e chargebacks da Braip no Trackup, atribuídos ao anúncio de origem.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Braip no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Braip continua com você.
+
 A integração tem duas partes: o Trackup envia o ID do clique para o checkout da Braip, e a Braip devolve esse ID no webhook de cada venda.
 
 1**Checkout**O Trackup envia o ID do clique para a Braip
@@ -3923,8 +3925,6 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A Braip devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
-
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Braip no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Braip continua com você.
 
 ## Antes de começar
 
@@ -3976,6 +3976,8 @@ URL: https://docs.trackup.me/buygoods
 
 > Receba vendas, reembolsos e chargebacks da BuyGoods no Trackup, atribuídos ao anúncio de origem.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda BuyGoods no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da BuyGoods continua com você.
+
 A integração tem duas partes: o Trackup envia o ID do clique para o checkout da BuyGoods, e a BuyGoods devolve esse ID no webhook de cada venda.
 
 1**Checkout**O Trackup envia o ID do clique para a BuyGoods
@@ -3983,8 +3985,6 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A BuyGoods devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
-
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda BuyGoods no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da BuyGoods continua com você.
 
 ## Antes de começar
 
@@ -4027,6 +4027,8 @@ URL: https://docs.trackup.me/cart-panda
 
 > Receba vendas, reembolsos e chargebacks da CartPanda no Trackup, atribuídos ao anúncio de origem.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda CartPanda no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da CartPanda continua com você.
+
 A integração tem duas partes: o Trackup envia o ID do clique para o checkout da CartPanda, e a CartPanda devolve esse ID no webhook de cada venda.
 
 1**Checkout**O Trackup envia o ID do clique para a CartPanda
@@ -4034,8 +4036,6 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A CartPanda devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
-
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda CartPanda no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da CartPanda continua com você.
 
 ## Antes de começar
 
@@ -4093,6 +4093,8 @@ URL: https://docs.trackup.me/digipag
 
 > Receba vendas, reembolsos e chargebacks da DigiPag no Trackup, atribuídos ao anúncio de origem.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda DigiPag no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da DigiPag continua com você.
+
 A integração tem duas partes: o Trackup envia o ID do clique para o checkout da DigiPag, e a DigiPag devolve esse ID no webhook de cada venda.
 
 1**Checkout**O Trackup envia o ID do clique para a DigiPag
@@ -4100,8 +4102,6 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A DigiPag devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
-
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda DigiPag no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da DigiPag continua com você.
 
 ## Antes de começar
 
@@ -4151,6 +4151,8 @@ URL: https://docs.trackup.me/digistore24
 
 > Receba vendas, reembolsos e chargebacks da Digistore24 no Trackup, atribuídos ao anúncio de origem.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Digistore24 no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Digistore24 continua com você.
+
 A integração tem duas partes: o Trackup envia o ID do clique para o checkout da Digistore24, e a Digistore24 devolve esse ID no webhook de cada venda.
 
 1**Checkout**O Trackup envia o ID do clique para a Digistore24
@@ -4158,8 +4160,6 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A Digistore24 devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
-
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Digistore24 no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Digistore24 continua com você.
 
 ## Antes de começar
 
@@ -4202,6 +4202,8 @@ URL: https://docs.trackup.me/eduzz
 
 > Receba vendas, reembolsos e chargebacks da Eduzz no Trackup, atribuídos ao anúncio de origem.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Eduzz no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Eduzz continua com você.
+
 A integração tem duas partes: o Trackup envia o ID do clique para o checkout da Eduzz, e a Eduzz devolve esse ID no webhook de cada venda.
 
 1**Checkout**O Trackup envia o ID do clique para a Eduzz
@@ -4209,8 +4211,6 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A Eduzz devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
-
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Eduzz no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Eduzz continua com você.
 
 ## Antes de começar
 
@@ -4262,6 +4262,8 @@ URL: https://docs.trackup.me/goat-pay
 
 > Receba vendas, reembolsos e chargebacks da GoatPay no Trackup, atribuídos ao anúncio de origem.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda GoatPay no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da GoatPay continua com você.
+
 A integração tem duas partes: o Trackup envia o ID do clique para o checkout da GoatPay, e a GoatPay devolve esse ID no webhook de cada venda.
 
 1**Checkout**O Trackup envia o ID do clique para a GoatPay
@@ -4269,8 +4271,6 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A GoatPay devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
-
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda GoatPay no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da GoatPay continua com você.
 
 ## Antes de começar
 
@@ -4320,6 +4320,8 @@ URL: https://docs.trackup.me/hotmart
 
 > Receba vendas, reembolsos e chargebacks da Hotmart no Trackup, atribuídos ao anúncio de origem.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Hotmart no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Hotmart continua com você.
+
 A integração tem duas partes: o Trackup envia o ID do clique para o checkout da Hotmart, e a Hotmart devolve esse ID no webhook de cada venda.
 
 1**Checkout**O Trackup envia o ID do clique para a Hotmart
@@ -4327,8 +4329,6 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A Hotmart devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
-
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Hotmart no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Hotmart continua com você.
 
 ## Antes de começar
 
@@ -4386,6 +4386,8 @@ URL: https://docs.trackup.me/inova-pag
 
 > Receba vendas, reembolsos e chargebacks da InovaPag no Trackup, atribuídos ao anúncio de origem.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda InovaPag no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da InovaPag continua com você.
+
 A integração tem duas partes: o Trackup envia o ID do clique para o checkout da InovaPag, e a InovaPag devolve esse ID no webhook de cada venda.
 
 1**Checkout**O Trackup envia o ID do clique para a InovaPag
@@ -4393,8 +4395,6 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A InovaPag devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
-
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda InovaPag no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da InovaPag continua com você.
 
 ## Antes de começar
 
@@ -4442,6 +4442,8 @@ URL: https://docs.trackup.me/kirvano
 
 > Receba vendas, reembolsos e chargebacks da Kirvano no Trackup, atribuídos ao anúncio de origem.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Kirvano no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Kirvano continua com você.
+
 A integração tem duas partes: o Trackup envia o ID do clique para o checkout da Kirvano, e a Kirvano devolve esse ID no webhook de cada venda.
 
 1**Checkout**O Trackup envia o ID do clique para a Kirvano
@@ -4449,8 +4451,6 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A Kirvano devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
-
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Kirvano no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Kirvano continua com você.
 
 ## Antes de começar
 
@@ -4504,6 +4504,8 @@ URL: https://docs.trackup.me/kiwify
 
 > Receba vendas, reembolsos e chargebacks da Kiwify no Trackup, atribuídos ao anúncio de origem.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Kiwify no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Kiwify continua com você.
+
 A integração tem duas partes: o Trackup envia o ID do clique para o checkout da Kiwify, e a Kiwify devolve esse ID no webhook de cada venda.
 
 1**Checkout**O Trackup envia o ID do clique para a Kiwify
@@ -4511,8 +4513,6 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A Kiwify devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
-
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Kiwify no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Kiwify continua com você.
 
 ## Antes de começar
 
@@ -4564,6 +4564,8 @@ URL: https://docs.trackup.me/lastlink
 
 > Receba vendas, reembolsos e chargebacks da LastLink no Trackup, atribuídos ao anúncio de origem.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda LastLink no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da LastLink continua com você.
+
 A integração tem duas partes: o Trackup envia o ID do clique para o checkout da LastLink, e a LastLink devolve esse ID no webhook de cada venda.
 
 1**Checkout**O Trackup envia o ID do clique para a LastLink
@@ -4571,8 +4573,6 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A LastLink devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
-
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda LastLink no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da LastLink continua com você.
 
 ## Antes de começar
 
@@ -4617,6 +4617,8 @@ URL: https://docs.trackup.me/luna-checkout
 
 > Receba vendas, reembolsos e chargebacks da Luna Checkout no Trackup, atribuídos ao anúncio de origem.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Luna Checkout no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Luna Checkout continua com você.
+
 A integração tem duas partes: o Trackup envia o ID do clique para o checkout da Luna Checkout, e a Luna Checkout devolve esse ID no webhook de cada venda.
 
 1**Checkout**O Trackup envia o ID do clique para a Luna Checkout
@@ -4624,8 +4626,6 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A Luna Checkout devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
-
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Luna Checkout no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Luna Checkout continua com você.
 
 ## Antes de começar
 
@@ -4679,6 +4679,8 @@ URL: https://docs.trackup.me/monetizze
 
 > Receba vendas, reembolsos e chargebacks da Monetizze no Trackup, atribuídos ao anúncio de origem.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Monetizze no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Monetizze continua com você.
+
 A integração tem duas partes: o Trackup envia o ID do clique para o checkout da Monetizze, e a Monetizze devolve esse ID no webhook de cada venda.
 
 1**Checkout**O Trackup envia o ID do clique para a Monetizze
@@ -4686,8 +4688,6 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A Monetizze devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
-
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Monetizze no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Monetizze continua com você.
 
 ## Antes de começar
 
@@ -4737,6 +4737,8 @@ URL: https://docs.trackup.me/mundpay
 
 > Receba vendas, reembolsos e chargebacks da Mundpay no Trackup, atribuídos ao anúncio de origem.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Mundpay no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Mundpay continua com você.
+
 A integração tem duas partes: o Trackup envia o ID do clique para o checkout da Mundpay, e a Mundpay devolve esse ID no webhook de cada venda.
 
 1**Checkout**O Trackup envia o ID do clique para a Mundpay
@@ -4744,8 +4746,6 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A Mundpay devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
-
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Mundpay no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Mundpay continua com você.
 
 ## Antes de começar
 
@@ -4827,6 +4827,8 @@ URL: https://docs.trackup.me/pagueio
 
 > Receba vendas, reembolsos e chargebacks da Pague.io no Trackup, atribuídos ao anúncio de origem.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Pague.io no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Pague.io continua com você.
+
 A integração tem duas partes: o Trackup envia o ID do clique para o checkout da Pague.io, e a Pague.io devolve esse ID no webhook de cada venda.
 
 1**Checkout**O Trackup envia o ID do clique para a Pague.io
@@ -4834,8 +4836,6 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A Pague.io devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
-
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Pague.io no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Pague.io continua com você.
 
 ## Antes de começar
 
@@ -4878,6 +4878,8 @@ URL: https://docs.trackup.me/paradise
 
 > Receba vendas, reembolsos e chargebacks da Paradise no Trackup, atribuídos ao anúncio de origem.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Paradise no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Paradise continua com você.
+
 A integração tem duas partes: o Trackup envia o ID do clique para o checkout da Paradise, e a Paradise devolve esse ID no webhook de cada venda.
 
 1**Checkout**O Trackup envia o ID do clique para a Paradise
@@ -4885,8 +4887,6 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A Paradise devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
-
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Paradise no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Paradise continua com você.
 
 ## Antes de começar
 
@@ -4936,6 +4936,8 @@ URL: https://docs.trackup.me/payt
 
 > Receba vendas, reembolsos e chargebacks da Payt no Trackup, atribuídos ao anúncio de origem.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Payt no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Payt continua com você.
+
 A integração tem duas partes: o Trackup envia o ID do clique para o checkout da Payt, e a Payt devolve esse ID no webhook de cada venda.
 
 1**Checkout**O Trackup envia o ID do clique para a Payt
@@ -4943,8 +4945,6 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A Payt devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
-
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Payt no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Payt continua com você.
 
 ## Antes de começar
 
@@ -4998,6 +4998,8 @@ URL: https://docs.trackup.me/perfect-pay
 
 > Receba vendas, reembolsos e chargebacks da PerfectPay no Trackup, atribuídos ao anúncio de origem.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda PerfectPay no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da PerfectPay continua com você.
+
 A integração tem duas partes: o Trackup envia o ID do clique para o checkout da PerfectPay, e a PerfectPay devolve esse ID no webhook de cada venda.
 
 1**Checkout**O Trackup envia o ID do clique para a PerfectPay
@@ -5005,8 +5007,6 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A PerfectPay devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
-
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda PerfectPay no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da PerfectPay continua com você.
 
 ## Antes de começar
 
@@ -5058,6 +5058,8 @@ URL: https://docs.trackup.me/proofpay
 
 > Receba vendas, reembolsos e chargebacks da ProofPay no Trackup, atribuídos ao anúncio de origem.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda ProofPay no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da ProofPay continua com você.
+
 A integração tem duas partes: o Trackup envia o ID do clique para o checkout da ProofPay, e a ProofPay devolve esse ID no webhook de cada venda.
 
 1**Checkout**O Trackup envia o ID do clique para a ProofPay
@@ -5065,8 +5067,6 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A ProofPay devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
-
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda ProofPay no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da ProofPay continua com você.
 
 ## Antes de começar
 
@@ -5116,6 +5116,8 @@ URL: https://docs.trackup.me/shopify
 
 > Receba vendas, reembolsos e chargebacks da Shopify no Trackup, atribuídos ao anúncio de origem.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Shopify no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Shopify continua com você.
+
 A integração tem duas partes: o Trackup envia o ID do clique para o checkout da Shopify, e a Shopify devolve esse ID no webhook de cada venda.
 
 1**Checkout**O Trackup envia o ID do clique para a Shopify
@@ -5123,8 +5125,6 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A Shopify devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
-
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Shopify no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Shopify continua com você.
 
 ## Antes de começar
 
@@ -5167,6 +5167,8 @@ URL: https://docs.trackup.me/stripe
 
 > Receba vendas, reembolsos e chargebacks da Stripe no Trackup, atribuídos ao anúncio de origem.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Stripe no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Stripe continua com você.
+
 A integração tem duas partes: o Trackup envia o ID do clique para o checkout da Stripe, e a Stripe devolve esse ID no webhook de cada venda.
 
 1**Checkout**O Trackup envia o ID do clique para a Stripe
@@ -5174,8 +5176,6 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A Stripe devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
-
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Stripe no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Stripe continua com você.
 
 ## Antes de começar
 
@@ -5220,6 +5220,8 @@ URL: https://docs.trackup.me/ticto
 
 > Receba vendas, reembolsos e chargebacks da Ticto no Trackup, atribuídos ao anúncio de origem.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Ticto no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Ticto continua com você.
+
 A integração tem duas partes: o Trackup envia o ID do clique para o checkout da Ticto, e a Ticto devolve esse ID no webhook de cada venda.
 
 1**Checkout**O Trackup envia o ID do clique para a Ticto
@@ -5227,8 +5229,6 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A Ticto devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
-
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Ticto no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Ticto continua com você.
 
 ## Antes de começar
 
@@ -5271,6 +5271,8 @@ URL: https://docs.trackup.me/tribopay
 
 > Receba vendas, reembolsos e chargebacks da TriboPay no Trackup, atribuídos ao anúncio de origem.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda TriboPay no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da TriboPay continua com você.
+
 A integração tem duas partes: o Trackup envia o ID do clique para o checkout da TriboPay, e a TriboPay devolve esse ID no webhook de cada venda.
 
 1**Checkout**O Trackup envia o ID do clique para a TriboPay
@@ -5278,8 +5280,6 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A TriboPay devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
-
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda TriboPay no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da TriboPay continua com você.
 
 ## Antes de começar
 
@@ -5329,6 +5329,8 @@ URL: https://docs.trackup.me/upag
 
 > Receba vendas, reembolsos e chargebacks da Upag no Trackup, atribuídos ao anúncio de origem.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Upag no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Upag continua com você.
+
 A integração tem duas partes: o Trackup envia o ID do clique para o checkout da Upag, e a Upag devolve esse ID no webhook de cada venda.
 
 1**Checkout**O Trackup envia o ID do clique para a Upag
@@ -5336,8 +5338,6 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A Upag devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
-
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Upag no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Upag continua com você.
 
 ## Antes de começar
 
@@ -5395,6 +5395,8 @@ URL: https://docs.trackup.me/vega-checkout
 
 > Receba vendas, reembolsos e chargebacks da Vega Checkout no Trackup, atribuídos ao anúncio de origem.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Vega Checkout no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Vega Checkout continua com você.
+
 A integração tem duas partes: o Trackup envia o ID do clique para o checkout da Vega Checkout, e a Vega Checkout devolve esse ID no webhook de cada venda.
 
 1**Checkout**O Trackup envia o ID do clique para a Vega Checkout
@@ -5402,8 +5404,6 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A Vega Checkout devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
-
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Vega Checkout no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Vega Checkout continua com você.
 
 ## Antes de começar
 
@@ -5459,6 +5459,8 @@ URL: https://docs.trackup.me/yampi
 
 > Receba vendas, reembolsos e chargebacks da Yampi no Trackup, atribuídos ao anúncio de origem.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Yampi no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Yampi continua com você.
+
 A integração tem duas partes: o Trackup envia o ID do clique para o checkout da Yampi, e a Yampi devolve esse ID no webhook de cada venda.
 
 1**Checkout**O Trackup envia o ID do clique para a Yampi
@@ -5466,8 +5468,6 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A Yampi devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
-
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Yampi no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Yampi continua com você.
 
 ## Antes de começar
 
@@ -5521,6 +5521,8 @@ URL: https://docs.trackup.me/zedy
 
 > Receba vendas, reembolsos e chargebacks da Zedy no Trackup, atribuídos ao anúncio de origem.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Zedy no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Zedy continua com você.
+
 A integração tem duas partes: o Trackup envia o ID do clique para o checkout da Zedy, e a Zedy devolve esse ID no webhook de cada venda.
 
 1**Checkout**O Trackup envia o ID do clique para a Zedy
@@ -5528,8 +5530,6 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A Zedy devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
-
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Zedy no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Zedy continua com você.
 
 ## Antes de começar
 

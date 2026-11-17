@@ -67,6 +67,8 @@ def page(slug, name, kind, key, events, note):
 	esc = html.escape
 	out = ['---', f'title: {name}', 'icon: cart', 'eyebrow: Plataformas de venda',
 		f'description: Receba vendas, reembolsos e chargebacks da {name} no Trackup, atribuídos ao anúncio de origem.', '---']
+	if slug != 'nuvemshop':
+		out.append(f'<callout type="tip"><p><strong>Configure pela sua IA.</strong> Conecte seu assistente pelo <a href="/conectar-mcp">MCP</a> e peça: <em>"Crie a plataforma de venda {esc(name)} no projeto Online Store e me dê a URL do webhook."</em> O cadastro da URL dentro da {esc(name)} continua com você.</p></callout>')
 	if slug == 'nuvemshop':
 		out.append('<p>A Nuvemshop conecta por autorização (OAuth): o Trackup instala sozinho os webhooks de pedidos e o script de rastreamento na loja.</p>')
 	else:
@@ -75,8 +77,6 @@ def page(slug, name, kind, key, events, note):
 		out.append('<flow><fstep n="1" icon="cart" title="Pedido na loja">O cliente compra na Nuvemshop</fstep><fstep n="2" icon="plug" title="Webhook">Instalado pelo Trackup</fstep><fstep n="3" icon="dollar" title="Conversão" tone="ok">Ligada ao clique e à campanha</fstep></flow>')
 	else:
 		out.append(f'<flow><fstep n="1" icon="cart" title="Checkout">O Trackup envia o ID do clique para a {name}</fstep><fstep n="2" icon="plug" title="Webhook">A {name} devolve o ID a cada venda</fstep><fstep n="3" icon="dollar" title="Conversão" tone="ok">Ligada ao clique e à campanha</fstep></flow>')
-	if slug != 'nuvemshop':
-		out.append(f'<callout type="tip"><p><strong>Configure pela sua IA.</strong> Conecte seu assistente pelo <a href="/conectar-mcp">MCP</a> e peça: <em>"Crie a plataforma de venda {esc(name)} no projeto Online Store e me dê a URL do webhook."</em> O cadastro da URL dentro da {esc(name)} continua com você.</p></callout>')
 	out.append('<h2>Antes de começar</h2><ul><li>Um projeto com <a href="/dominios">domínio primário</a> configurado. A URL do webhook usa esse domínio.</li>'
 		f'<li>Acesso de administrador à sua conta na {name}.</li></ul>')
 	out.append('<h2>1. Crie a plataforma no Trackup</h2><steps>')

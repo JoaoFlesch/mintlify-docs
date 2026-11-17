@@ -88,6 +88,14 @@ description: Conecte sua conta de anúncios para enviar os eventos do funil pelo
 </ol>
 
 <h2>Servidor ou navegador</h2>
+<flow>
+	<fstep icon="zap" title="Evento">Gerado pelo acionador</fstep>
+	<fbranch>
+		<fstep icon="shield" title="Servidor" tone="ok">API de Conversões, padrão</fstep>
+		<fstep icon="globe" title="Navegador">Opcional, só Meta e TikTok</fstep>
+	</fbranch>
+	<fstep icon="megaphone" title="Plataforma de anúncios" tone="brand">Recebe o evento</fstep>
+</flow>
 <p>Por padrão os eventos vão pelo servidor (API de Conversões), o que evita perdas por bloqueadores de anúncio. No acionador você também pode ativar o disparo pelo navegador, disponível só para Meta e TikTok.</p>
 <table>
 	<thead><tr><th>Plataforma</th><th>Servidor</th><th>Navegador</th></tr></thead>

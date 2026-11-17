@@ -6,6 +6,13 @@ description: Todas as vendas recebidas das plataformas de venda, com a atribuiç
 <p>Em <strong>Logs › Conversões</strong>, a aba <strong>Conversões</strong> lista cada venda recebida pelo webhook das <a href="/plataformas-de-venda">plataformas de venda</a>.</p>
 <shot src="img/conversoes-lista.png" caption="Lista de conversões" todo="Logs › Conversões com filtros e uma lista de vendas (plataforma, valor, status Pago, fonte de tráfego), uma delas com o selo Configuração incompleta."></shot>
 
+<flow>
+	<fstep n="1" icon="target" title="Clique">Gera o ID da requisição</fstep>
+	<fstep n="2" icon="cart" title="Compra">Na plataforma de venda</fstep>
+	<fstep n="3" icon="plug" title="Webhook">Devolve o ID ao Trackup</fstep>
+	<fstep n="4" icon="dollar" title="Conversão" tone="ok">Ligada ao clique e à campanha</fstep>
+</flow>
+
 <h2>Filtrar</h2>
 <p>Filtre por plataforma, fonte de tráfego, ID da transação e status: <strong>Pago</strong>, <strong>Pendente</strong>, <strong>Reembolsado</strong>, <strong>Chargeback</strong> ou <strong>Desconhecido</strong>.</p>
 

@@ -7,6 +7,17 @@ description: Envie eventos para pixels e webhooks quando o tráfego atender às 
 <p>Um acionador observa os eventos do projeto. Quando um evento atende a todas as condições, ele executa as ações: enviar o evento para um ou mais <a href="/pixels">pixels</a> ou chamar um webhook.</p>
 <p>Fluxo: o evento chega, o Trackup avalia as condições de cada acionador ativo, executa as ações dos que correspondem e registra cada envio nos <a href="/logs-de-acionadores">logs</a>.</p>
 
+<flow>
+	<fstep icon="zap" title="Evento">Chega ao projeto</fstep>
+	<fstep icon="settings" title="Acionador">Confere as condições</fstep>
+	<fbranch>
+		<fstep icon="pixel" title="Pixel">Envia o evento</fstep>
+		<fstep icon="plug" title="Webhook">Chama a URL</fstep>
+	</fbranch>
+	<fstep icon="list" title="Logs" tone="brand">Cada envio é registrado</fstep>
+</flow>
+
+
 <h2>Acionadores criados automaticamente</h2>
 <p>Ao adicionar um pixel da Meta, TikTok ou Kwai, o Trackup cria acionadores padrão para ele:</p>
 <table>

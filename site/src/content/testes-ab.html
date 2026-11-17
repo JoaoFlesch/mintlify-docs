@@ -6,6 +6,16 @@ description: Divida o tráfego entre páginas ou checkouts, compare as vendas e 
 <callout type="tip"><p><strong>Configure pela sua IA.</strong> Conecte seu assistente pelo <a href="/conectar-mcp">MCP</a> e peça: <em>"Crie um teste A/B com as páginas A e B, 50% cada."</em></p></callout>
 <p>Um teste A/B é um link que distribui os visitantes entre duas ou mais variantes, conforme os pesos que você define. O Trackup mede requisições, visitantes, conversões e receita de cada variante e diz quando já dá para escolher uma vencedora.</p>
 
+<flow>
+	<fstep icon="link" title="Link do teste">Distribui os visitantes pelos pesos</fstep>
+	<fbranch>
+		<fstep icon="file" title="Variante A">Peso definido por você</fstep>
+		<fstep icon="file" title="Variante B">Peso definido por você</fstep>
+	</fbranch>
+	<fstep icon="chart" title="Resultado" tone="brand">Requisições, conversões e receita</fstep>
+</flow>
+
+
 <h2>Tipos de teste</h2>
 <table>
 	<thead><tr><th>Tipo</th><th>Variantes</th><th>Evento</th><th>Exemplo</th></tr></thead>

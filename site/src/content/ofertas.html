@@ -5,12 +5,12 @@ description: A oferta é a página de checkout do seu produto. É por ela que a 
 ---
 <p>Uma oferta é uma página com finalidade <em>Checkout</em>, ligada a uma <a href="/plataformas-de-venda">plataforma de venda</a>. Na maioria dos casos ela redireciona para o checkout da plataforma, levando junto o ID do clique e as UTMs. Quando a venda acontece, a plataforma devolve esse ID no webhook e o Trackup liga a venda à campanha.</p>
 
-<div class="flow">
-	<div class="flow-step"><b>Botão de compra</b><span>na landing page</span></div><div class="flow-arrow">{{icon:arrow}}</div>
-	<div class="flow-step"><b>Oferta</b><span>lp.seudominio.com/checkout</span></div><div class="flow-arrow">{{icon:arrow}}</div>
-	<div class="flow-step"><b>Checkout</b><span>com ID do clique e UTMs</span></div><div class="flow-arrow">{{icon:arrow}}</div>
-	<div class="flow-step"><b>Webhook</b><span>venda atribuída</span></div>
-</div>
+<flow>
+	<fstep icon="zap" title="Botão de compra">na landing page</fstep>
+	<fstep icon="bag" title="Oferta">lp.seudominio.com/checkout</fstep>
+	<fstep icon="cart" title="Checkout">com ID do clique e UTMs</fstep>
+	<fstep icon="plug" title="Webhook" tone="ok">venda atribuída</fstep>
+</flow>
 
 <h2>Criar uma oferta</h2>
 <steps>

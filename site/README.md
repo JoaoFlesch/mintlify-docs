@@ -34,7 +34,11 @@ Precisa só de Node 18+.
 <accordion title="...">...</accordion>
 <code-block title="..." lang="bash">...</code-block>
 <shot src="img/x.png" caption="..." todo="o que o print deve mostrar"></shot>
+<flow><fstep n="1" icon="megaphone" title="Anúncio" tone="ok">texto de apoio</fstep><fbranch><fstep icon="file" title="A">...</fstep><fstep icon="file" title="B">...</fstep></fbranch></flow>
+<flow type="vertical"><fstep icon="users" title="Time">...</fstep></flow>
 ```
+
+`<flow>` desenha diagramas: `<fstep>` é uma etapa (`icon`, `title`, `n` opcional, `tone` = `ok`, `stop` ou `brand`) e `<fbranch>` agrupa etapas em paralelo. `type="vertical"` empilha as etapas. Os ícones vêm de `src/icons.mjs`.
 
 Um `<shot>` sem a imagem em `src/img` aparece como "Print pendente" e entra em `PRINTS.md`. Ao adicionar o arquivo, o print aparece sozinho.
 

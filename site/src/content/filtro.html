@@ -13,6 +13,16 @@ description: Decida o que acontece com cada acesso antes de a página carregar. 
 	<li>Se nenhuma regra corresponder, o visitante segue para o destino normalmente.</li>
 </ol>
 
+<flow>
+	<fstep icon="globe" title="Requisição">Chega ao seu domínio</fstep>
+	<fstep icon="shield" title="Regras ativas">Avaliadas por peso, do menor para o maior</fstep>
+	<fbranch>
+		<fstep icon="check" title="Regra corresponde">A ação é executada</fstep>
+		<fstep icon="arrow" title="Nenhuma corresponde" tone="ok">Segue para o destino</fstep>
+	</fbranch>
+</flow>
+
+
 <h2>Ações</h2>
 <table>
 	<thead><tr><th>Ação</th><th>O que acontece</th></tr></thead>

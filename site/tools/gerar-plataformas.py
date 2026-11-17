@@ -7,6 +7,13 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 SITE = ROOT / 'site'
 IMG_OUT = SITE / 'src' / 'img' / 'plataformas'
+LOGOS = SITE / 'src' / 'img' / 'logos'  # logos do app (apps/dashboard/public/img/platforms), um arquivo por slug
+
+def logo(slug):
+	for ext in ('svg', 'png'):
+		if (LOGOS / f'{slug}.{ext}').exists():
+			return f'img/logos/{slug}.{ext}'
+	return None
 FLOWS = json.loads((SITE / 'tools' / 'fluxos-plataformas.json').read_text())
 
 # slug, nome, tipo no painel, parâmetro que leva o ID do clique, eventos a ativar, observação
@@ -65,7 +72,8 @@ def compress(src_rel):
 def page(slug, name, kind, key, events, note):
 	flow = FLOWS.get(slug)
 	esc = html.escape
-	out = ['---', f'title: {name}', 'icon: cart', 'eyebrow: Plataformas de venda',
+	lg = logo(slug)
+	out = ['---', f'title: {name}', 'icon: cart', 'eyebrow: Plataformas de venda', *([f'logo: {lg}'] if lg else []),
 		f'description: Receba vendas, reembolsos e chargebacks da {name} no Trackup, atribuídos ao anúncio de origem.', '---']
 	if slug != 'nuvemshop':
 		out.append(f'<callout type="tip"><p><strong>Configure pela sua IA.</strong> Conecte seu assistente pelo <a href="/conectar-mcp">MCP</a> e peça: <em>"Crie a plataforma de venda {esc(name)} no projeto Online Store e me dê a URL do webhook."</em> O cadastro da URL dentro da {esc(name)} continua com você.</p></callout>')
@@ -125,7 +133,7 @@ json.dump([{'slug': s, 'name': n} for s, n, *_ in P], open(SITE / 'src' / 'plata
 print(f'{len(P)} páginas de plataforma geradas')
 
 # Página índice de integrações
-cards = '\n'.join(f'\t<card title="{html.escape(n)}" href="/{s}">{html.escape(k)}</card>' for s, n, k, *_ in P)
+cards = '\n'.join(f'\t<card title="{html.escape(n)}" href="/{s}"{" logo=" + chr(34) + logo(s) + chr(34) if logo(s) else ""}>{html.escape(k)}</card>' for s, n, k, *_ in P)
 (SITE / 'src' / 'content' / 'integracoes.html').write_text(f'''---
 title: Integrações
 icon: plug
@@ -141,6 +149,17 @@ toc: false
 	<card title="Webhook genérico" href="/webhook-generico">Qualquer checkout ou sistema próprio</card>
 </cards>
 ''')
+
+# Logos na página plataformas-de-venda (entre os marcadores)
+pv = SITE / 'src' / 'content' / 'plataformas-de-venda.html'
+chips = '\n'.join(f'\t<chip href="/{s}" logo="{logo(s)}">{html.escape(n)}</chip>' for s, n, *_ in P if logo(s))
+block = f'<!--plataformas:start-->\n<h2>Plataformas compatíveis</h2>\n<chips>\n{chips}\n</chips>\n<!--plataformas:end-->'
+txt = pv.read_text()
+if '<!--plataformas:start-->' in txt:
+	txt = re.sub(r'<!--plataformas:start-->.*?<!--plataformas:end-->', lambda m: block, txt, flags=re.S)
+else:
+	txt = txt.replace('<h2>Como a atribuição funciona</h2>', block + '\n\n<h2>Como a atribuição funciona</h2>', 1)
+pv.write_text(txt)
 
 # Atualiza o grupo de plataformas no nav.json
 nav_path = SITE / 'src' / 'nav.json'

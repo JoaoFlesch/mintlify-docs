@@ -195,6 +195,16 @@ a.card:hover { border-color: color-mix(in srgb, var(--brand) 45%, var(--border))
 .card-title { font-weight: 600; font-size: 15.5px; margin-bottom: 4px; display: block; }
 .card-text { color: var(--text-muted); font-size: 14px; line-height: 1.55; display: block; }
 
+/* Logos de plataformas */
+.plat-logo { display: inline-block; width: 40px; height: 40px; object-fit: contain; vertical-align: middle; margin: -4px 12px 0 0; padding: 4px; border-radius: 10px; background: #fff; border: 1px solid var(--border); box-sizing: border-box; }
+.card-icon.card-logo { background: #fff; border: 1px solid var(--border); width: 40px; height: 40px; }
+.card-icon.card-logo img { width: 28px; height: 28px; object-fit: contain; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 24px; }
+.chip { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px 6px 8px; border: 1px solid var(--border); border-radius: 999px; background: var(--bg-elevated); color: var(--text); font-size: 14px; font-weight: 500; text-decoration: none; transition: border-color .15s, box-shadow .15s; }
+.chip:hover { border-color: color-mix(in srgb, var(--brand) 45%, var(--border)); box-shadow: var(--shadow); text-decoration: none; }
+.chip img { width: 22px; height: 22px; object-fit: contain; border-radius: 5px; background: #fff; flex: none; }
+@media (max-width: 720px) { .plat-logo { width: 34px; height: 34px; margin-right: 10px; } }
+
 /* Abas de conteúdo */
 .ctabs { margin: 0 0 22px; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
 .ctabs-list { display: flex; gap: 2px; padding: 0 8px; border-bottom: 1px solid var(--border); background: var(--bg-subtle); overflow-x: auto; }

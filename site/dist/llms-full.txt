@@ -694,6 +694,42 @@ URL: https://docs.trackup.me/plataformas-de-venda
 
 A plataforma de venda é onde o cliente paga: um gateway de pagamento, uma plataforma de infoprodutos ou uma loja virtual. Integrada ao Trackup, ela envia um webhook a cada venda, reembolso ou chargeback, e o Trackup registra a conversão com a campanha que gerou o clique.
 
+## Plataformas compatíveis
+
+	[ActionPay](https://docs.trackup.me/actionpay)
+	[AmploPay](https://docs.trackup.me/amplopay)
+	[Appmax](https://docs.trackup.me/appmax)
+	[Átomo Pay](https://docs.trackup.me/atomo-pay)
+	[Braip](https://docs.trackup.me/braip)
+	[BuyGoods](https://docs.trackup.me/buygoods)
+	[CartPanda](https://docs.trackup.me/cart-panda)
+	[DigiPag](https://docs.trackup.me/digipag)
+	[Digistore24](https://docs.trackup.me/digistore24)
+	[Eduzz](https://docs.trackup.me/eduzz)
+	[GoatPay](https://docs.trackup.me/goat-pay)
+	[Hotmart](https://docs.trackup.me/hotmart)
+	[InovaPag](https://docs.trackup.me/inova-pag)
+	[Kirvano](https://docs.trackup.me/kirvano)
+	[Kiwify](https://docs.trackup.me/kiwify)
+	[LastLink](https://docs.trackup.me/lastlink)
+	[Luna Checkout](https://docs.trackup.me/luna-checkout)
+	[Monetizze](https://docs.trackup.me/monetizze)
+	[Mundpay](https://docs.trackup.me/mundpay)
+	[Nuvemshop](https://docs.trackup.me/nuvemshop)
+	[Pague.io](https://docs.trackup.me/pagueio)
+	[Paradise](https://docs.trackup.me/paradise)
+	[Payt](https://docs.trackup.me/payt)
+	[PerfectPay](https://docs.trackup.me/perfect-pay)
+	[ProofPay](https://docs.trackup.me/proofpay)
+	[Shopify](https://docs.trackup.me/shopify)
+	[Stripe](https://docs.trackup.me/stripe)
+	[Ticto](https://docs.trackup.me/ticto)
+	[TriboPay](https://docs.trackup.me/tribopay)
+	[Upag](https://docs.trackup.me/upag)
+	[Vega Checkout](https://docs.trackup.me/vega-checkout)
+	[Yampi](https://docs.trackup.me/yampi)
+	[Zedy](https://docs.trackup.me/zedy)
+
 ## Como a atribuição funciona
 
 	1**Oferta**Botão de compra leva ao link da oferta

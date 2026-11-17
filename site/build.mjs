@@ -71,10 +71,12 @@ function expand(html) {
 		}).replace(/<\/callout>/g, '</div></div>')
 		.replace(/<cards([^>]*)>/g, (_, a) => `<div class="cards${attrs(a).cols === '3' ? ' cols-3' : ''}">`).replace(/<\/cards>/g, '</div>')
 		.replace(/<card([^>]*)>([\s\S]*?)<\/card>/g, (_, a, text) => {
-			const { title, href, icon: ic } = attrs(a);
+			const { title, href, icon: ic, logo } = attrs(a);
 			const tag = href ? 'a' : 'div';
-			return `<${tag} class="card"${href ? ` href="${esc(href)}"` : ''}>${ic ? `<span class="card-icon">${icon(ic)}</span>` : ''}<span class="card-title">${esc(title)}</span><span class="card-text">${text.trim()}</span></${tag}>`;
+			return `<${tag} class="card"${href ? ` href="${esc(href)}"` : ''}>${logo ? `<span class="card-icon card-logo"><img src="${esc(imgUrlOf(logo))}" alt="" loading="lazy" width="28" height="28"></span>` : ic ? `<span class="card-icon">${icon(ic)}</span>` : ''}<span class="card-title">${esc(title)}</span><span class="card-text">${text.trim()}</span></${tag}>`;
 		})
+		.replace(/<chips>/g, '<div class="chips">').replace(/<\/chips>/g, '</div>')
+		.replace(/<chip([^>]*)>([\s\S]*?)<\/chip>/g, (_, a, text) => { const { href, logo } = attrs(a); return `<a class="chip" href="${esc(href)}"><img src="${esc(imgUrlOf(logo))}" alt="" loading="lazy" width="22" height="22"><span>${text.trim()}</span></a>`; })
 		.replace(/<tabs>/g, '<div class="ctabs">').replace(/<\/tabs>/g, '</div>')
 		.replace(/<tab(\s[^>]*)?>/g, (_, a) => `<div class="ctabs-panel" data-title="${esc(attrs(a).title)}">`).replace(/<\/tab>/g, '</div>')
 		.replace(/<accordion([^>]*)>/g, (_, a) => `<details class="acc"><summary>${esc(attrs(a).title)}</summary><div class="acc-body">`).replace(/<\/accordion>/g, '</div></details>')
@@ -84,9 +86,7 @@ function expand(html) {
 				shotsTodo.push({ page: currentSlug, src, caption, todo });
 				return `<figure class="shot shot-todo"><div class="shot-box">${icon('pixel')}<div><strong>Print pendente${src ? ` · <code>${esc(src)}</code>` : ''}</strong><p>${esc(todo || caption || '')}</p></div></div>${caption ? `<figcaption>${esc(caption)}</figcaption>` : ''}</figure>`;
 			}
-			const k = src.replace(/^\//, '');
-			const imgBase = IMG7_FILES.has(k) && IMG7_BASE ? IMG7_BASE : IMG6_FILES.has(k) && IMG6_BASE ? IMG6_BASE : IMG5_FILES.has(k) && IMG5_BASE ? IMG5_BASE : IMG4_FILES.has(k) && IMG4_BASE ? IMG4_BASE : IMG3_FILES.has(k) && IMG3_BASE ? IMG3_BASE : IMG2_FILES.has(k) && IMG2_BASE ? IMG2_BASE : IMG_BASE;
-			const imgUrl = /^https?:/.test(imgBase) && !/^https?:/.test(src) ? `${imgBase}/${src.replace(/^\//, '')}` : src;
+			const imgUrl = imgUrlOf(src);
 			return `<figure class="shot"><img src="${esc(imgUrl)}" alt="${esc(alt || caption || '')}" loading="lazy">${caption ? `<figcaption>${esc(caption)}</figcaption>` : ''}</figure>`;
 		})
 		.replace(/<flow([^>]*)>/g, (_, a) => `<div class="flow${attrs(a).type === 'vertical' ? ' flow-v' : ''}">`).replace(/<\/flow>/g, '</div>')
@@ -204,6 +204,15 @@ const IMG6_FILES = new Set(existsSync(join(SRC, 'img-extra-6.json')) ? JSON.pars
 const argImg7 = process.argv.find(a => a.startsWith('--img7='));
 const IMG7_BASE = argImg7 ? argImg7.slice(7).replace(/\/$/, '') : '';
 const IMG7_FILES = new Set(existsSync(join(SRC, 'img-extra-7.json')) ? JSON.parse(readFileSync(join(SRC, 'img-extra-7.json'), 'utf8')) : []);
+const argImg8 = process.argv.find(a => a.startsWith('--img8='));
+const IMG8_BASE = argImg8 ? argImg8.slice(7).replace(/\/$/, '') : '';
+const IMG8_FILES = new Set(existsSync(join(SRC, 'img-extra-8.json')) ? JSON.parse(readFileSync(join(SRC, 'img-extra-8.json'), 'utf8')) : []);
+// URL final de uma imagem de src/img (escolhe a hospedeira certa)
+const imgUrlOf = src => {
+	const k = src.replace(/^\//, '');
+	const imgBase = IMG8_FILES.has(k) && IMG8_BASE ? IMG8_BASE : IMG7_FILES.has(k) && IMG7_BASE ? IMG7_BASE : IMG6_FILES.has(k) && IMG6_BASE ? IMG6_BASE : IMG5_FILES.has(k) && IMG5_BASE ? IMG5_BASE : IMG4_FILES.has(k) && IMG4_BASE ? IMG4_BASE : IMG3_FILES.has(k) && IMG3_BASE ? IMG3_BASE : IMG2_FILES.has(k) && IMG2_BASE ? IMG2_BASE : IMG_BASE;
+	return /^https?:/.test(imgBase) && !/^https?:/.test(src) ? `${imgBase}/${k}` : src;
+};
 const absAsset = f => (/^https?:/.test(ASSETS) ? ASSETS : SITE.url + ASSETS) + '/' + f;
 
 const layout = read(join(SRC, 'layout.html'));
@@ -322,7 +331,7 @@ for (const { entry, page } of rendered) {
 		.replace('{{jsonld}}', () => jsonEsc(ld))
 		.replace('{{layoutClass}}', showToc ? 'layout' : 'layout no-toc')
 		.replace('{{breadcrumb}}', () => breadcrumb)
-		.replace('{{pageTitle}}', esc(meta.title))
+		.replace('{{pageTitle}}', (meta.logo ? `<img class="plat-logo" src="${esc(imgUrlOf(meta.logo))}" alt="" width="40" height="40">` : '') + esc(meta.title))
 		.replace('{{pageDesc}}', meta.description ? `<p class="page-desc">${esc(meta.description)}</p>` : '')
 		.replace('{{pageActions}}', () => (meta.actions === 'false' ? '' : '<script>TU.actions()</script>'))
 		.replace('{{content}}', () => html)
@@ -378,6 +387,11 @@ if (existsSync(imgSrc)) {
 		mkdirSync(join(DIST, 'imagens-7', 'img'), { recursive: true });
 		for (const f of IMG7_FILES) copyFileSync(join(imgSrc, f.replace(/^img\//, '')), join(DIST, 'imagens-7', f));
 		writeFileSync(join(DIST, 'imagens-7', 'index.html'), `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="robots" content="noindex"><title>Trackup Docs: imagens 7</title></head><body>${[...IMG7_FILES].map(f => `<img src="${f}" alt="" width="1" height="1">`).join('')}</body></html>`);
+	}
+	if (IMG8_FILES.size) {
+		mkdirSync(join(DIST, 'imagens-8', 'img'), { recursive: true });
+		for (const f of IMG8_FILES) { mkdirSync(dirname(join(DIST, 'imagens-8', f)), { recursive: true }); copyFileSync(join(imgSrc, f.replace(/^img\//, '')), join(DIST, 'imagens-8', f)); }
+		writeFileSync(join(DIST, 'imagens-8', 'index.html'), `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="robots" content="noindex"><title>Trackup Docs: imagens 8</title></head><body>${[...IMG8_FILES].map(f => `<img src="${f}" alt="" width="1" height="1">`).join('')}</body></html>`);
 	}
 	const imgFiles = [];
 	const walk = (d, rel) => { for (const f of readdirSync(d)) { const p = join(d, f); if (statSync(p).isDirectory()) walk(p, rel + f + '/'); else imgFiles.push(rel + f); } };

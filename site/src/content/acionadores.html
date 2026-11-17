@@ -5,7 +5,6 @@ description: Envie eventos para pixels e webhooks quando o tráfego atender às 
 ---
 <callout type="tip"><p><strong>Configure pela sua IA.</strong> Conecte seu assistente pelo <a href="/conectar-mcp">MCP</a> e peça: <em>"Crie um acionador de conversão que envie o valor e o ID da transação."</em></p></callout>
 <p>Um acionador observa os eventos do projeto. Quando um evento atende a todas as condições, ele executa as ações: enviar o evento para um ou mais <a href="/pixels">pixels</a> ou chamar um webhook.</p>
-<p>Fluxo: o evento chega, o Trackup avalia as condições de cada acionador ativo, executa as ações dos que correspondem e registra cada envio nos <a href="/logs-de-acionadores">logs</a>.</p>
 
 <flow>
 	<fstep icon="zap" title="Evento">Chega ao projeto</fstep>
@@ -19,14 +18,14 @@ description: Envie eventos para pixels e webhooks quando o tráfego atender às 
 
 
 <h2>Acionadores criados automaticamente</h2>
-<p>Ao adicionar um pixel da Meta, TikTok ou Kwai, o Trackup cria acionadores padrão para ele:</p>
+<p>Ao adicionar um pixel da Meta, TikTok ou Kwai, o Trackup cria quatro acionadores para ele, com o nome do pixel seguido da etapa (por exemplo <em>Meta · Online Store - Pageview</em>). Todos enviam pelo servidor.</p>
 <table>
-	<thead><tr><th>Acionador</th><th>Condição</th></tr></thead>
+	<thead><tr><th>Acionador</th><th>Condição</th><th>Meta</th><th>TikTok</th><th>Kwai</th></tr></thead>
 	<tbody>
-		<tr><td>Pageview</td><td>Tipo de evento igual a <code>page_view</code></td></tr>
-		<tr><td>Start checkout</td><td>Tipo de evento igual a <code>start_checkout</code></td></tr>
-		<tr><td>Conversão</td><td>Tipo de evento igual a <code>conversion</code></td></tr>
-		<tr><td>Add to cart</td><td>Tipo de evento igual a <code>add_to_cart</code></td></tr>
+		<tr><td>Pageview</td><td>Tipo de evento igual a <code>page_view</code></td><td><code>PageView</code></td><td><code>ViewContent</code></td><td><code>EVENT_CONTENT_VIEW</code></td></tr>
+		<tr><td>Add to cart</td><td>Tipo de evento igual a <code>add_to_cart</code></td><td><code>AddToCart</code></td><td><code>AddToCart</code></td><td><code>EVENT_ADD_TO_CART</code></td></tr>
+		<tr><td>Start checkout</td><td>Tipo de evento igual a <code>start_checkout</code></td><td><code>InitiateCheckout</code></td><td><code>InitiateCheckout</code></td><td><code>EVENT_INITIATED_CHECKOUT</code></td></tr>
+		<tr><td>Conversão</td><td>Tipo de evento igual a <code>conversion</code></td><td><code>Purchase</code></td><td><code>CompletePayment</code></td><td><code>EVENT_PURCHASE</code></td></tr>
 	</tbody>
 </table>
 <p>Você pode editar ou desativar qualquer um deles. No Google Ads, crie os acionadores você mesmo, porque cada etapa precisa da conversion label da ação de conversão.</p>

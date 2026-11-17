@@ -59,7 +59,7 @@
 <p>Uma chave acessa todos os projetos do time ou só os escolhidos na criação. Pedidos a um projeto fora da lista respondem <code>404</code>.</p>
 
 <h2 id="validade-e-revogacao">Validade e revogação<a class="anchor" href="#validade-e-revogacao" aria-label="Link para esta seção">#</a></h2>
-<p>Depois da data de validade, ou depois de revogada, a chave responde <code>403</code>.</p>
+<p>Depois da data de validade, ou depois de revogada, a chave responde <code>403</code>. Chave ausente ou inválida responde <code>401</code>.</p>
 
 <div class="callout warning"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg><div><p>Use a chave só no servidor. Nunca coloque a chave em código que roda no navegador, em aplicativos ou em repositórios.</p></div></div>
 

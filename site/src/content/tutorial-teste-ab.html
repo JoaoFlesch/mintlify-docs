@@ -5,8 +5,18 @@ icon: split
 eyebrow: Tutorial
 description: Compare duas páginas com o mesmo tráfego, acompanhe a confiança estatística e envie tudo para a vencedora.
 ---
-<callout type="tip"><p><strong>Configure pela sua IA.</strong> Conecte seu assistente pelo <a href="/conectar-mcp">MCP</a> e peça: <em>"Crie um teste A/B no link /lp com as páginas /lp e /lp-teste, 50% para cada. Daqui a uma semana, mostre o resultado e a confiança, e só promova a vencedora se eu confirmar."</em></p></callout>
+<callout type="tip"><p><strong>Configure pela sua IA.</strong> Conecte seu assistente pelo <a href="/conectar-mcp">MCP</a> e peça: <em>"Crie um teste A/B no link /lp-teste com as páginas Excel Basics - LP Builder e Email Templates - LP HTML, 50% para cada. Daqui a uma semana, mostre o resultado e a confiança, e só promova a vencedora se eu confirmar."</em></p></callout>
 <p>Neste tutorial você descobre qual de duas landing pages vende mais. O anúncio continua o mesmo: o Trackup divide os visitantes entre as versões e mede as vendas de cada uma.</p>
+
+<flow>
+	<fstep icon="megaphone" title="Anúncio">Aponta para o link do teste</fstep>
+	<fstep icon="split" title="/lp-teste">50% para cada variante</fstep>
+	<fbranch>
+		<fstep icon="file" title="Variante A">LP Builder</fstep>
+		<fstep icon="file" title="Variante B">LP HTML</fstep>
+	</fbranch>
+	<fstep icon="chart" title="Vencedora" tone="ok">Recebe 100% do tráfego</fstep>
+</flow>
 
 <h2>O que você vai precisar</h2>
 <ul>
@@ -46,7 +56,7 @@ description: Compare duas páginas com o mesmo tráfego, acompanhe a confiança 
 		<shot src="img/tut-ab-criar.png" caption="Teste com duas variantes em 50/50" ></shot>
 	</step>
 	<step title="Salve e copie o link">
-		<p>O link do teste é <code>https://lp.seudominio.com/lp-teste</code>.</p>
+		<p>O link do teste é <code>https://lp.yourdomain.com/lp-teste</code>.</p>
 	</step>
 </steps>
 

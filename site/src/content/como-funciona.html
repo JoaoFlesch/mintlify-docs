@@ -29,20 +29,20 @@ description: O caminho de um clique até a venda, e os conceitos que você vai e
 <p>Agrupa tudo de uma operação: domínios, pixels, páginas, testes, regras de filtro e relatórios. Cada projeto tem uma moeda fixa. Um time pode ter vários projetos.</p>
 
 <h3>Página e link</h3>
-<p>Toda <a href="/paginas">página</a> tem um link próprio no seu domínio, como <code>lp.seudominio.com/oferta</code>. Esse é o endereço que você divulga. Páginas com finalidade <em>Landing</em> ficam em <strong>Páginas</strong>; páginas com finalidade <em>Checkout</em> são as <strong>Ofertas</strong>.</p>
+<p>Toda <a href="/paginas">página</a> tem um link próprio no seu domínio, como <code>lp.yourdomain.com/oferta</code>. Esse é o endereço que você divulga. Páginas com finalidade <em>Landing</em> ficam em <strong>Páginas</strong>; páginas com finalidade <em>Checkout</em> são as <strong>Ofertas</strong>.</p>
 <p>Um <a href="/testes-ab">Teste A/B</a> é um link extra que divide o tráfego entre duas ou mais páginas.</p>
 
 <h3>Requisição e visitante</h3>
 <p>Uma <strong>requisição</strong> é cada acesso a um link. Um <strong>visitante</strong> é a pessoa por trás das requisições, reconhecida entre visitas. Um visitante pode ter várias requisições, eventos e conversões.</p>
 
 <h3>Evento</h3>
-<p>Uma ação no funil. Os eventos nativos são <code>ad_click</code>, <code>page_view</code>, <code>start_checkout</code> e <code>conversion</code>. Você também pode enviar eventos customizados, como <code>video_started</code> ou <code>lead_form_submitted</code>, com o <a href="/script">script</a>.</p>
+<p>Uma ação no funil. Os eventos nativos são <code>ad_click</code>, <code>page_view</code>, <code>add_to_cart</code>, <code>start_checkout</code> e <code>conversion</code>. Você também pode enviar eventos customizados, como <code>video_started</code> ou <code>lead_form_submitted</code>, com o <a href="/script">script</a>.</p>
 
 <h3>Pixel e acionador</h3>
 <p>O <a href="/pixels">pixel</a> guarda as credenciais da plataforma de anúncios. O <a href="/acionadores">acionador</a> define quando enviar um evento para esse pixel, por exemplo "toda conversão vinda da Meta".</p>
 
 <h3>Atribuição e Click ID</h3>
-<p>Atribuição é descobrir qual campanha gerou cada venda. O Trackup faz isso guardando o ID de cada requisição e repassando esse ID ao checkout em um parâmetro que a plataforma de venda devolve no webhook (por exemplo <code>sck</code> na Kiwify ou <code>src</code> na Monetizze). Quando o ID não volta, a venda aparece como <em>Click ID ausente</em> e fica sem campanha.</p>
+<p>Atribuição é descobrir qual campanha gerou cada venda. O Trackup faz isso guardando o ID de cada requisição e repassando esse ID ao checkout em um parâmetro que a plataforma de venda devolve no webhook (o nome do parâmetro muda de uma plataforma para outra, como <code>sck</code>, <code>src</code> ou <code>clickId</code>). Quando o ID não volta, a venda aparece como <em>Click ID ausente</em> e fica sem campanha.</p>
 
 <h3>UTMs</h3>
 <p>Parâmetros na URL que descrevem a origem do clique: <code>utm_source</code>, <code>utm_medium</code>, <code>utm_campaign</code>, <code>utm_content</code> e <code>utm_term</code>. O Trackup preserva as UTMs entre páginas e as envia ao checkout.</p>

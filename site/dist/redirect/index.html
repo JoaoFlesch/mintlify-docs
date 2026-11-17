@@ -44,17 +44,25 @@
 			<div class="callout tip"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.1 14c.2-1 .7-1.7 1.5-2.5A6 6 0 1 0 6 8c0 1.4.4 2.6 1.4 3.5.8.8 1.3 1.5 1.5 2.5"/></svg><div><p><strong>Configure pela sua IA.</strong> Conecte seu assistente pelo <a href="/conectar-mcp">MCP</a> e peça: <em>"Crie uma página Redirect em /go que leve para https://example.com/obrigado com redirecionamento 301."</em></p></div></div>
 <p>Uma página Redirect registra o acesso, aplica o filtro, dispara os eventos e manda o visitante para outra URL. Use quando a página precisa continuar em outro servidor, ou para criar uma <a href="/ofertas">oferta</a> que leva ao checkout.</p>
 
+<div class="flow">
+	<div class="fnode"><i class="fa"></i><span class="fnode-n">1</span><span class="fnode-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span><div class="fnode-body"><b>Clique</b><span>No anúncio ou no botão</span></div></div>
+	<div class="fnode"><i class="fa"></i><span class="fnode-n">2</span><span class="fnode-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><div class="fnode-body"><b>Trackup</b><span>Registra, filtra e dispara eventos</span></div></div>
+	<div class="fnode"><i class="fa"></i><span class="fnode-n">3</span><span class="fnode-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span><div class="fnode-body"><b>Redirecionamento</b><span>302 com os parâmetros do visitante</span></div></div>
+	<div class="fnode tone-ok"><i class="fa"></i><span class="fnode-n">4</span><span class="fnode-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span><div class="fnode-body"><b>Destino</b><span>Sua página ou o checkout</span></div></div>
+</div>
+
 <h2 id="criar">Criar<a class="anchor" href="#criar" aria-label="Link para esta seção">#</a></h2>
 <ol class="steps">
 	<li><span class="step-title">Abra a aba Redirect</span>
-		<p>Em <strong>Páginas › Adicionar página</strong> , mantenha a aba <strong>Redirect</strong>. Para um checkout, use <strong>Ofertas › Adicionar oferta</strong>, que já é um redirecionamento.</p>
+		<p>Em <strong>Páginas › Adicionar página</strong>, mantenha a aba <strong>Redirect</strong>. Para um checkout, use <strong>Ofertas › Adicionar oferta</strong>, que já é um redirecionamento.</p>
 	</li>
 	<li><span class="step-title">Preencha os campos</span>
 		<table>
 			<thead><tr><th>Campo</th><th>Descrição</th></tr></thead>
 			<tbody>
 				<tr><td>Nome</td><td>Identificação no painel.</td></tr>
-				<tr><td>URL de redirecionamento</td><td>Para onde o visitante vai. O redirecionamento é temporário (302).</td></tr>
+				<tr><td>URL de redirecionamento</td><td>Para onde o visitante vai, com <code>https://</code>.</td></tr>
+				<tr><td>Status Code</td><td><code>302</code> (padrão), <code>301</code>, <code>307</code> ou <code>308</code>. Veja <a href="#qual-status-usar">Qual status usar</a>.</td></tr>
 				<tr><td>Caminho</td><td>Endereço no seu domínio, como <code>/promo</code>.</td></tr>
 			</tbody>
 		</table>
@@ -72,7 +80,15 @@
 <p>Os parâmetros da URL do visitante, como <code>utm_source</code> e <code>fbclid</code>, são repassados ao destino. Se o mesmo parâmetro já existir fixo na URL de redirecionamento, vale o valor do visitante.</p>
 
 <h2 id="qual-status-usar">Qual status usar<a class="anchor" href="#qual-status-usar" aria-label="Link para esta seção">#</a></h2>
-<p>Use <code>302</code>, o padrão. Navegadores guardam em cache redirecionamentos <code>301</code> e <code>308</code>, então uma troca de destino pode demorar a valer para quem já acessou.</p>
+<table>
+	<thead><tr><th>Status</th><th>Tipo</th><th>Quando usar</th></tr></thead>
+	<tbody>
+		<tr><td><code>302</code> <span class="badge">Padrão</span></td><td>Temporário</td><td>Quase sempre. Você pode trocar o destino quando quiser.</td></tr>
+		<tr><td><code>307</code></td><td>Temporário</td><td>Igual ao 302, mas mantém o método da requisição (útil para formulários com POST).</td></tr>
+		<tr><td><code>301</code> e <code>308</code></td><td>Permanente</td><td>Só para mudanças definitivas de endereço.</td></tr>
+	</tbody>
+</table>
+<div class="callout warning"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg><div><p>Navegadores guardam em cache os redirecionamentos <code>301</code> e <code>308</code>. Se você trocar o destino depois, quem já acessou pode continuar indo para o endereço antigo.</p></div></div>
 
 			<script>TU.pager();TU.footer()</script>
 			<noscript><p class="site-footer"><a href="/">Início</a> · <a href="/llms.txt">Índice completo</a> · <a href="/sitemap.xml">Mapa do site</a></p></noscript>

@@ -24,6 +24,16 @@ description: Escolha, troque ou cancele o plano do time e gerencie faturas e car
 	</step>
 </steps>
 
+<flow>
+	<fstep icon="list" title="Ver planos">Limites de cada plano</fstep>
+	<fstep icon="dollar" title="Assinar plano">Cartão ou PIX</fstep>
+	<fstep icon="check" title="Assinatura ativa" tone="ok">Renova a cada ciclo</fstep>
+	<fbranch>
+		<fstep icon="rocket" title="Fazer upgrade">Vale na hora</fstep>
+		<fstep icon="scroll" title="Mudar para este plano">Downgrade na renovação</fstep>
+	</fbranch>
+</flow>
+
 <h2>Trocar de plano</h2>
 <table>
 	<thead><tr><th>Tipo</th><th>Quando vale</th><th>Cobrança</th></tr></thead>

@@ -8,6 +8,14 @@ description: Crie e publique uma página de vendas no editor visual, com botões
 <callout type="tip"><p><strong>Configure pela sua IA.</strong> Conecte seu assistente pelo <a href="/conectar-mcp">MCP</a> e peça: <em>"Monte em /vsl-excel uma página de vendas com hero, vídeo, três benefícios, depoimento e botão para o link /checkout-excel, e publique."</em> Depois, ajuste o visual no Builder.</p></callout>
 <p>Neste tutorial você monta uma página de vendas com VSL no Builder, liga os botões ao checkout e publica no seu domínio. Nenhum código é necessário, e o rastreamento já vem embutido.</p>
 
+<flow>
+	<fstep n="1" icon="file" title="Criar página">Aba Builder</fstep>
+	<fstep n="2" icon="layers" title="Montar seções">Blocos prontos</fstep>
+	<fstep n="3" icon="link" title="Ligar botões">Link da oferta</fstep>
+	<fstep n="4" icon="check" title="Revisar no celular">Visualização Mobile</fstep>
+	<fstep n="5" icon="rocket" title="Publicar" tone="ok">No seu domínio</fstep>
+</flow>
+
 <h2>O que você vai precisar</h2>
 <ul>
 	<li>Uma <a href="/ofertas">oferta</a> criada, com o link do checkout. Se ainda não tem, siga a Parte 3 de <a href="/tutorial-campanha-meta">Rastrear uma campanha da Meta</a>.</li>
@@ -63,8 +71,8 @@ description: Crie e publique uma página de vendas no editor visual, com botões
 		<p>Clique no botão de compra da primeira dobra.</p>
 	</step>
 	<step title="Configure o clique">
-		<p>Na aba <strong>Config</strong>, em <strong>Evento de clique</strong>, cole o link da oferta (por exemplo <code>https://lp.seudominio.com/checkout</code>) em <strong>Destino</strong>.</p>
-		<shot src="img/tut-builder-botao.png" caption="Botão apontando para a oferta" todo="Inspetor do Builder na aba Config com um botão selecionado, Evento de clique configurado e Destino https://lp.seudominio.com/checkout."></shot>
+		<p>Na aba <strong>Config</strong>, em <strong>Evento de clique</strong>, cole o link da oferta (por exemplo <code>https://lp.yourdomain.com/checkout</code>) em <strong>Destino</strong>.</p>
+		<shot src="img/tut-builder-botao.png" caption="Botão apontando para a oferta" todo="Inspetor do Builder na aba Config com um botão selecionado, Evento de clique configurado e Destino https://lp.yourdomain.com/checkout."></shot>
 	</step>
 	<step title="Repita em todos os botões">
 		<p>Faça o mesmo em cada botão de compra da página. Use <strong>Camadas</strong> para conferir que nenhum ficou de fora.</p>

@@ -41,12 +41,19 @@
 			<h1 class="page-title">Configurar um domínio próprio</h1>
 			<p class="page-desc">Conecte um subdomínio seu ao Trackup pelo provedor de DNS (Cloudflare, Registro.br, GoDaddy, Hostinger, Namecheap e outros) e deixe como domínio primário.</p>
 			<script>TU.actions()</script>
-			<div class="callout tip"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.1 14c.2-1 .7-1.7 1.5-2.5A6 6 0 1 0 6 8c0 1.4.4 2.6 1.4 3.5.8.8 1.3 1.5 1.5 2.5"/></svg><div><p><strong>Configure pela sua IA.</strong> Conecte seu assistente pelo <a href="/conectar-mcp">MCP</a> e peça: <em>"Adicione o domínio lp.seudominio.com ao projeto Online Store e me diga o CNAME para cadastrar. Quando eu avisar, verifique."</em> Só a alteração no DNS é manual.</p></div></div>
-<p>Neste tutorial você conecta <code>lp.seudominio.com</code> ao Trackup. Todas as páginas, ofertas e URLs de webhook passam a usar esse endereço.</p>
+			<div class="callout tip"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.1 14c.2-1 .7-1.7 1.5-2.5A6 6 0 1 0 6 8c0 1.4.4 2.6 1.4 3.5.8.8 1.3 1.5 1.5 2.5"/></svg><div><p><strong>Configure pela sua IA.</strong> Conecte seu assistente pelo <a href="/conectar-mcp">MCP</a> e peça: <em>"Adicione o domínio lp.yourdomain.com ao projeto Online Store e me diga o CNAME para cadastrar. Quando eu avisar, verifique."</em> Só a alteração no DNS é manual.</p></div></div>
+<p>Neste tutorial você conecta <code>lp.yourdomain.com</code> ao Trackup. Todas as páginas, ofertas e URLs de webhook passam a usar esse endereço.</p>
+
+<div class="flow">
+	<div class="fnode"><i class="fa"></i><span class="fnode-n">1</span><span class="fnode-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span><div class="fnode-body"><b>Adicionar</b><span>lp.yourdomain.com no Trackup</span></div></div>
+	<div class="fnode"><i class="fa"></i><span class="fnode-n">2</span><span class="fnode-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg></span><div class="fnode-body"><b>CNAME</b><span>No seu provedor de DNS</span></div></div>
+	<div class="fnode"><i class="fa"></i><span class="fnode-n">3</span><span class="fnode-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><div class="fnode-body"><b>Verificar</b><span>Status Verificado</span></div></div>
+	<div class="fnode tone-ok"><i class="fa"></i><span class="fnode-n">4</span><span class="fnode-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span><div class="fnode-body"><b>Primário</b><span>Links, webhooks e snippet usam o domínio</span></div></div>
+</div>
 
 <h2 id="o-que-voce-vai-precisar">O que você vai precisar<a class="anchor" href="#o-que-voce-vai-precisar" aria-label="Link para esta seção">#</a></h2>
 <ul>
-	<li>Um domínio registrado, como <code>seudominio.com</code>.</li>
+	<li>Um domínio registrado, como <code>yourdomain.com</code>.</li>
 	<li>Acesso ao painel onde o DNS do domínio é gerenciado. Por exemplo, a Cloudflare, o Registro.br, a GoDaddy, a Hostinger, a Namecheap, a HostGator ou a Squarespace (antigo Google Domains).</li>
 </ul>
 <div class="callout tip"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.1 14c.2-1 .7-1.7 1.5-2.5A6 6 0 1 0 6 8c0 1.4.4 2.6 1.4 3.5.8.8 1.3 1.5 1.5 2.5"/></svg><div><p>Não sabe onde está o DNS? Consulte os <em>nameservers</em> do domínio em um site de <em>whois</em>. Se terminam em <code>cloudflare.com</code>, o DNS está na Cloudflare.</p></div></div>
@@ -60,7 +67,7 @@
 		<p>No menu lateral, vá em <strong>Ajustes › Domínios</strong> e clique em <strong>Adicionar domínio</strong>.</p>
 	</li>
 	<li><span class="step-title">Digite o hostname</span>
-		<p>Digite <code>lp.seudominio.com</code>, sem <code>https://</code> e sem barra no fim, e salve. O domínio entra com o status <strong>Pendente</strong>.</p>
+		<p>Digite <code>lp.yourdomain.com</code>, sem <code>https://</code> e sem barra no fim, e salve. O domínio entra com o status <strong>Pendente</strong>.</p>
 	</li>
 	<li><span class="step-title">Copie o registro</span>
 		<p>Abra o domínio na lista. Anote o <strong>Type</strong> (CNAME), o <strong>Name</strong> e o <strong>Value</strong>.</p>
@@ -154,7 +161,7 @@
 				<p>Na linha do domínio, clique em <strong>Gerenciar</strong>, depois em <strong>Adicionar registro</strong> (ou <strong>+ Registro CNAME</strong>).</p>
 			</li>
 			<li><span class="step-title">Preencha o registro</span>
-				<p><strong>Nome</strong>: o subdomínio completo, como <code>lp.seudominio.com.</code> (com o ponto no fim, se o cPanel pedir). <strong>Tipo</strong>: <code>CNAME</code>. <strong>Registro</strong>: o <strong>Value</strong> do Trackup.</p>
+				<p><strong>Nome</strong>: o subdomínio completo, como <code>lp.yourdomain.com.</code> (com o ponto no fim, se o cPanel pedir). <strong>Tipo</strong>: <code>CNAME</code>. <strong>Registro</strong>: o <strong>Value</strong> do Trackup.</p>
 			</li>
 			<li><span class="step-title">Salve</span>
 				<p>Clique em <strong>Adicionar registro</strong>. Se o domínio usa servidores DNS de outro provedor, crie o registro lá.</p>
@@ -193,7 +200,7 @@
 		<p>Com o status <strong>Verificado</strong>, abra o menu do domínio e clique em <strong>Definir como primário</strong>.</p>
 	</li>
 	<li><span class="step-title">Teste</span>
-		<p>Abra <code>https://lp.seudominio.com/</code> no navegador. O certificado HTTPS é emitido automaticamente.</p>
+		<p>Abra <code>https://lp.yourdomain.com/</code> no navegador. O certificado HTTPS é emitido automaticamente.</p>
 	</li>
 </ol>
 

@@ -5,6 +5,15 @@ description: Crie chaves para integrar sistemas e agentes de IA ao Trackup, com 
 ---
 <p>Uma chave de API dá acesso à <a href="/api">API do Trackup</a> e ao <a href="/conectar-mcp">servidor MCP</a> em nome do time. Cada chave tem suas permissões, seus projetos e, se quiser, uma data de validade.</p>
 
+<flow>
+	<fstep icon="users" title="Quem cria">Permissões dessa pessoa no time</fstep>
+	<fstep icon="key" title="Chave de API">Permissões, projetos e validade escolhidos</fstep>
+	<fbranch>
+		<fstep icon="code" title="API REST">Header X-Api-Key</fstep>
+		<fstep icon="bot" title="MCP">Assistentes de IA</fstep>
+	</fbranch>
+</flow>
+
 <h2>Criar uma chave</h2>
 <steps>
 	<step title="Abra Chaves de API">
@@ -39,7 +48,7 @@ description: Crie chaves para integrar sistemas e agentes de IA ao Trackup, com 
 </table>
 
 <h2>Usar a chave</h2>
-<p>Envie a chave no header <code>X-Api-Key</code>. A URL base aparece na própria tela, em <strong>URL da API</strong>. Chave ausente, inválida, revogada ou expirada retorna <code>403</code> na API REST e <code>401</code> no MCP.</p>
+<p>Envie a chave no header <code>X-Api-Key</code>. A URL base aparece na própria tela, em <strong>URL da API</strong>. Na API REST, chave ausente ou inválida retorna <code>401</code>, e chave revogada ou expirada, <code>403</code>. No MCP, todos esses casos retornam <code>401</code>, para o assistente pedir uma nova autorização.</p>
 <code-block title="Exemplo" lang="bash">
 curl https://api.trackup.me/v1/projects \
   -H "X-Api-Key: $TRACKUP_API_KEY"

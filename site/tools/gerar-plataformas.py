@@ -53,6 +53,32 @@ P = [
 	('zedy', 'Zedy', 'Zedy', 'src', None, None),
 ]
 
+
+# Passos revisados (17/11) no painel de cada plataforma. Substituem o texto bruto de fluxos-plataformas.json.
+B = lambda s: f'<strong>{s}</strong>'
+STEPS = {
+	'atomo-pay': ['No painel da Átomo Pay, abra ' + B('Integrações › Webhooks') + ' e clique em ' + B('Adicionar') + '.', 'Cole a URL do Trackup.', 'Selecione os produtos que devem enviar vendas.', 'Marque todos os métodos de pagamento.', 'Marque os status ' + B('Pago') + ', ' + B('Reembolsado') + ' e ' + B('Chargeback') + '.', 'Salve.'],
+	'braip': ['No painel da Braip, abra ' + B('Ferramentas › Postback') + ' e clique em ' + B('Nova configuração') + '.', 'Dê um nome à integração, como <em>Trackup</em>.', 'Cole a URL do Trackup.', 'Selecione os produtos.', 'Marque os eventos de pagamento ' + B('Pago') + ', ' + B('Reembolsado') + ' e ' + B('Chargeback') + '.', 'Salve.'],
+	'cart-panda': ['No admin da CartPanda, abra ' + B('Notificações › Webhooks') + ' e clique em ' + B('Configurar Webhooks') + '.', 'Clique em ' + B('Criar Webhook') + ' e dê um nome à integração.', 'Selecione os eventos ' + B('Pedido Pago') + ', ' + B('Pedido Reembolsado') + ' e ' + B('Pedido Chargeback') + '.', 'Cole a URL do Trackup.', 'Selecione os produtos.', 'Clique em ' + B('Salvar Webhook') + '.'],
+	'digipag': ['No painel da DigiPag, abra ' + B('Integrações › Webhooks') + ' e clique em ' + B('Adicionar') + '.', 'Cole a URL do Trackup.', 'Selecione os produtos que devem enviar vendas.', 'Marque todos os métodos de pagamento.', 'Marque os status ' + B('Pago') + ', ' + B('Reembolsado') + ' e ' + B('Chargeback') + '.', 'Salve.'],
+	'eduzz': ['No ' + B('Developer Hub') + ' da Eduzz, abra ' + B('Integrações') + '.', 'Em ' + B('Configurações') + ', clique em ' + B('Nova Configuração') + ' e dê um nome à integração.', 'Cole a URL do Trackup.', 'Marque os eventos <code>myeduzz.invoice_paid</code>, <code>myeduzz.invoice_refunded</code> e <code>myeduzz.invoice_chargeback</code>.', 'Clique em ' + B('Criar Configuração') + '.'],
+	'goat-pay': ['No painel da GoatPay, abra ' + B('Integrações › Webhooks') + ' e clique em ' + B('Adicionar') + '.', 'Cole a URL do Trackup.', 'Selecione os produtos que devem enviar vendas.', 'Marque todos os métodos de pagamento.', 'Marque os status ' + B('Pago') + ', ' + B('Reembolsado') + ' e ' + B('Chargeback') + '.', 'Salve.'],
+	'hotmart': ['Na Hotmart, abra ' + B('Ferramentas') + ', clique em ' + B('Ver todas') + ' e escolha ' + B('Webhook (API e notificações)') + '.', 'Clique em ' + B('Cadastrar Webhook') + ' e dê um nome à configuração, como <em>Trackup</em>.', 'Selecione os produtos que devem enviar vendas.', 'Cole a URL do Trackup.', 'Selecione a versão ' + B('2.0.0') + '.', 'Marque os eventos ' + B('Compra aprovada') + ', ' + B('Compra reembolsada') + ' e ' + B('Chargeback') + '.', 'Salve.'],
+	'inova-pag': ['No painel da InovaPag, abra ' + B('Integrações › Webhooks') + ' e clique em ' + B('Adicionar') + '.', 'Cole a URL do Trackup.', 'Selecione os produtos que devem enviar vendas.', 'Marque todos os métodos de pagamento.', 'Marque os status ' + B('Pago') + ', ' + B('Reembolsado') + ' e ' + B('Chargeback') + '.', 'Salve.'],
+	'kirvano': ['Na Kirvano, abra ' + B('Integrações › Webhooks') + ' e clique em ' + B('Adicionar Integração') + '.', 'Dê um nome à integração.', 'Cole a URL do Trackup.', 'Selecione os produtos.', 'Marque os eventos ' + B('Compra aprovada') + ', ' + B('Reembolsado') + ' e ' + B('Chargeback') + '.', 'Clique em ' + B('Criar') + '.'],
+	'kiwify': ['Na Kiwify, abra ' + B('Apps › Webhooks') + ' e clique em ' + B('Criar Webhook') + '.', 'Dê um nome ao webhook.', 'Cole a URL do Trackup.', 'Selecione os produtos.', 'Marque os eventos ' + B('Compra aprovada') + ', ' + B('Reembolso') + ' e ' + B('Chargeback') + '.', 'Clique em ' + B('Criar') + '.'],
+	'luna-checkout': ['No Luna Checkout, abra ' + B('Desenvolvedores › Webhooks') + ' e clique em ' + B('Nova integração') + '.', 'Dê um nome à integração.', 'Cole a URL do Trackup.', 'Marque os eventos ' + B('Venda Aprovada') + ', ' + B('Venda Estornada') + ' e ' + B('Venda Chargeback') + '.', 'Se quiser, restrinja a integração a alguns produtos.', 'Salve.'],
+	'monetizze': ['Na Monetizze, abra ' + B('Ferramentas › Postback - Webhook') + '.', 'Selecione os produtos e as vendas que devem ser enviadas.', 'Em ' + B('Tipo') + ', escolha ' + B('Webhook (server to server)') + ' e o formato ' + B('JSON') + '.', 'Cole a URL do Trackup.', 'Marque as vendas ' + B('Completa') + ', ' + B('Cancelada') + ' e ' + B('Devolvida') + ' (reembolso).', 'Salve.'],
+	'paradise': ['Na Paradise, abra ' + B('Integrações › Webhooks (Postbacks)') + ' e clique em ' + B('Adicionar/Gerenciar Webhooks') + '.', 'Cole a URL do Trackup.', 'Marque ' + B('Venda Aprovada') + ' e ' + B('Venda Reembolsada') + '.', 'Clique em ' + B('Salvar Alterações') + '.'],
+	'payt': ['Na Payt, abra ' + B('Ferramentas › Postback') + ' e clique em ' + B('Cadastrar') + '.', 'Dê um nome à integração.', 'Cole a URL do Trackup.', 'Selecione os produtos.', 'Marque os eventos ' + B('Finalizada/Aprovada') + ', ' + B('Cancelada - Reembolso') + ' e ' + B('Cancelada - Chargeback') + '. Se vende com pagamento após o recebimento, marque também ' + B('Pedido Confirmado') + '.', 'Salve.'],
+	'perfect-pay': ['Na PerfectPay, abra ' + B('Ferramentas › Webhooks - Vendas') + ' e clique em ' + B('Adicionar') + '.', 'Selecione os produtos.', 'Cole a URL do Trackup.', 'Escolha as variáveis que quiser enviar.', 'Marque os eventos ' + B('Aprovado') + ', ' + B('Devolvido') + ' e ' + B('Charge back') + '.', 'Salve.'],
+	'proofpay': ['No painel da ProofPay, abra ' + B('Integrações › Webhooks') + ' e clique em ' + B('Adicionar') + '.', 'Cole a URL do Trackup.', 'Selecione os produtos que devem enviar vendas.', 'Marque todos os métodos de pagamento.', 'Marque os status ' + B('Pago') + ', ' + B('Reembolsado') + ' e ' + B('Chargeback') + '.', 'Salve.'],
+	'tribopay': ['No painel da TriboPay, abra ' + B('Integrações › Webhooks') + ' e clique em ' + B('Adicionar') + '.', 'Cole a URL do Trackup.', 'Selecione os produtos que devem enviar vendas.', 'Marque todos os métodos de pagamento.', 'Marque os status ' + B('Pago') + ', ' + B('Reembolsado') + ' e ' + B('Chargeback') + '.', 'Salve.'],
+	'upag': ['Na Upag, abra ' + B('Desenvolvedor › Webhooks') + ' e clique em ' + B('Criar Webhook') + '.', 'Dê um nome à integração, como <em>Trackup</em>.', 'Cole a URL do Trackup.', 'Selecione ' + B('apenas') + ' o evento <code>invoice.paid</code>.', 'Clique em ' + B('Criar Webhook') + '.'],
+	'vega-checkout': ['No Vega Checkout, abra ' + B('Desenvolvedores › Webhooks') + ' e clique em ' + B('Nova integração') + '.', 'Dê um nome à integração.', 'Cole a URL do Trackup.', 'Marque os eventos ' + B('Venda Aprovada') + ', ' + B('Venda Estornada') + ' e ' + B('Venda Chargeback') + '.', 'Se quiser, restrinja a integração a alguns produtos.', 'Salve.'],
+	'yampi': ['Na Yampi, abra ' + B('Desenvolvedor › Webhooks') + ' e clique em ' + B('Criar Webhook') + '.', 'Dê um nome à integração.', 'Cole a URL do Trackup.', 'Selecione todos os eventos.', 'Clique em ' + B('Criar Webhook') + '.'],
+}
+
 TRACKUP_SIDE = re.compile(r'copy|copiar|integra|intregra|PLATAFORMA|Screenshot', re.I)
 
 def compress(src_rel):
@@ -88,9 +114,11 @@ def page(slug, name, kind, key, events, note):
 	out.append('<h2>Antes de começar</h2><ul><li>Um projeto com <a href="/dominios">domínio primário</a> configurado. A URL do webhook usa esse domínio.</li>'
 		f'<li>Acesso de administrador à sua conta na {name}.</li></ul>')
 	out.append('<h2>1. Crie a plataforma no Trackup</h2><steps>')
-	out.append(f'<step title="Adicione a plataforma"><p>Vá em <strong>Integração › Plataformas de vendas</strong>, clique em <strong>Adicionar plataforma</strong> e escolha <strong>{esc(kind)}</strong>.</p></step>')
+	kind_html = '<strong>Hotmart 2.0</strong> (ou <strong>Hotmart 1.0</strong>, em integrações antigas)' if slug == 'hotmart' else f'<strong>{esc(kind)}</strong>'
+	out.append(f'<step title="Adicione a plataforma"><p>Vá em <strong>Integração › Plataformas de vendas</strong>, clique em <strong>Adicionar plataforma</strong> e escolha {kind_html}.</p></step>')
 	if key:
-		out.append(f'<step title="Confira os parâmetros"><p>O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em <code>{esc(key)}</code> e as UTMs vão junto. Só mude se a {name} pedir outro nome de parâmetro.</p></step>')
+		key_html = '<code>sck</code> (Hotmart 2.0) ou <code>xcod</code> (Hotmart 1.0)' if slug == 'hotmart' else f'<code>{esc(key)}</code>'
+		out.append(f'<step title="Confira os parâmetros"><p>O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em {key_html} e as UTMs vão junto. Só altere se a {name} usar outro nome de parâmetro.</p></step>')
 	if slug == 'nuvemshop':
 		out.append('<step title="Conecte a loja"><p>Salve e clique em <strong>Conectar loja</strong>. Na Nuvemshop, aprove os acessos <strong>Ler pedidos</strong>, <strong>Modificar pedidos</strong> (usado só para gravar a atribuição no pedido) e <strong>Scripts</strong>.</p></step>')
 		out.append('<step title="Libere os domínios da loja"><p>Em <strong>Ajustes › Geral › Segurança</strong>, adicione o domínio da loja e o do checkout em <strong>Domínios permitidos</strong>.</p></step>')
@@ -103,10 +131,8 @@ def page(slug, name, kind, key, events, note):
 		if note:
 			out.append(f'<callout type="warning"><p>{note}</p></callout>' if slug in ('upag', 'lastlink') else f'<callout type="note"><p>{note}</p></callout>')
 		if flow:
-			steps = [s for s in flow['flow'][1:]]
 			out.append('<ol>')
-			for s in steps:
-				s = esc(s).replace('Colar URL do Trackup', 'Cole a URL do Trackup').replace('Cole a Url do Trackup', 'Cole a URL do Trackup').replace('Url', 'URL')
+			for s in STEPS[slug]:
 				out.append(f'<li>{s}</li>')
 			out.append('</ol>')
 			imgs = [compress(i) for i in flow['imgs'] if not TRACKUP_SIDE.search(i)]
@@ -114,14 +140,14 @@ def page(slug, name, kind, key, events, note):
 				out.append(f'<shot src="{i}" caption="Configuração no painel da {name}"></shot>')
 		else:
 			out.append(f'<ol><li>No painel da {name}, abra a área de <strong>webhooks</strong> ou <strong>postback</strong>.</li>'
-				f'<li>Crie uma integração nova e cole a URL do Trackup.</li>'
+				f'<li>Crie uma integração e cole a URL do Trackup.</li>'
 				f'<li>Ative os eventos de {events or "compra aprovada, reembolso e chargeback"}.</li>'
 				'<li>Selecione os produtos que devem enviar vendas, se a plataforma pedir, e salve.</li></ol>')
 			out.append(f'<shot src="img/plataformas/{slug}-webhook.webp" caption="Configuração do webhook na {name}" todo="Painel da {esc(name)} na tela de criação de webhook/postback, com a URL do Trackup colada e os eventos de compra aprovada, reembolso e chargeback marcados. Dados da conta borrados."></shot>')
 		if events and flow:
 			out.append(f'<p>Eventos a ativar: {events}.</p>')
 	out.append(f'<h2>{"3" if slug != "nuvemshop" else "2"}. Teste</h2>')
-	out.append(f'<p>Acesse sua landing page por um link do Trackup, clique no botão de compra e faça uma compra de teste. A venda deve aparecer em <strong>Logs › Conversões</strong> com a campanha preenchida.</p>')
+	out.append(f'<p>Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em <strong>Logs › Conversões</strong> com a campanha preenchida.</p>')
 	out.append('<callout type="warning"><p>Se a venda aparecer como <strong>Click ID ausente</strong>, o botão da página não está apontando para o link da <a href="/ofertas">oferta</a> no Trackup, ou o checkout não está devolvendo o parâmetro do clique.</p></callout>')
 	out.append('<p>Não achou sua plataforma? Use o <a href="/webhook-generico">webhook genérico</a>.</p>')
 	return '\n'.join(out) + '\n'

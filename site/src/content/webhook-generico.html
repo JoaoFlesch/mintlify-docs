@@ -21,6 +21,13 @@ Content-Type: application/json
 }
 </code-block>
 
+<flow>
+	<fstep n="1" icon="bag" title="Oferta">Envia request_id na URL do checkout</fstep>
+	<fstep n="2" icon="cart" title="Seu checkout">Guarda o request_id no pedido</fstep>
+	<fstep n="3" icon="plug" title="POST no webhook">event, transaction_id, value e request_id</fstep>
+	<fstep n="4" icon="dollar" title="Conversão" tone="ok">Atribuída e enviada aos acionadores</fstep>
+</flow>
+
 <h2>Configurar</h2>
 <steps>
 	<step title="Crie a plataforma">

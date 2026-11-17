@@ -6,6 +6,13 @@ description: Rastreie páginas hospedadas fora do Trackup, identifique visitante
 ---
 <p>Páginas criadas no Trackup já são rastreadas. Instale o script quando a página estiver em outro servidor (CMS, loja virtual ou o seu próprio site) ou quando quiser enviar eventos além do <code>page_view</code>.</p>
 
+<flow>
+	<fstep n="1" icon="globe" title="Seu site">Página fora do Trackup com o snippet no head</fstep>
+	<fstep n="2" icon="code" title="Script">Carrega de /__t/e.js no seu domínio Trackup</fstep>
+	<fstep n="3" icon="zap" title="Evento">page_view, eventos customizados e identify</fstep>
+	<fstep n="4" icon="list" title="Requisição" tone="ok">Registrada no visitante e enviada aos acionadores</fstep>
+</flow>
+
 <h2>Instalação</h2>
 <steps>
 	<step title="Copie o snippet do projeto">

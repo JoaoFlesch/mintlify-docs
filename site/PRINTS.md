@@ -58,4 +58,4 @@ Gerado pelo build. 15 prints faltando.
 
 ## Campanha na Meta (/tutorial-campanha-meta)
 
-- [ ] `img/tut-meta-anuncio.png`: Seção Destino de um anúncio no Gerenciador de Anúncios da Meta com URL do site https://lp.seudominio.com/curso e o campo Parâmetros de URL preenchido com o template do Trackup.
+- [ ] `img/tut-meta-anuncio.png`: Seção Destino de um anúncio no Gerenciador de Anúncios da Meta com URL do site https://lp.yourdomain.com/curso e o campo Parâmetros de URL preenchido com o template do Trackup.

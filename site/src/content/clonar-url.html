@@ -23,6 +23,17 @@ description: Copie uma página que já está no ar para o seu domínio no Tracku
 	</step>
 </steps>
 
+<h2>Status da clonagem</h2>
+<flow>
+	<fstep icon="link" title="URL de origem">Você informa o endereço</fstep>
+	<fstep icon="scroll" title="Aguardando clone">Na fila</fstep>
+	<fstep icon="copy" title="Clonando…">HTML e arquivos do mesmo domínio</fstep>
+	<fbranch>
+		<fstep icon="check" title="Página HTML" tone="ok">Pronta para editar e publicar</fstep>
+		<fstep icon="alert" title="Falha no clone" tone="stop">Use o Upload HTML</fstep>
+	</fbranch>
+</flow>
+
 <h2>Limitações</h2>
 <ul>
 	<li>Só arquivos do mesmo domínio são copiados. Imagens e scripts de outros domínios continuam vindo da origem.</li>

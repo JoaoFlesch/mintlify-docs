@@ -7,6 +7,15 @@ description: Confira cada evento enviado aos pixels e cada chamada de webhook, c
 <p>Em <strong>Logs › Acionadores</strong> fica o histórico de tudo o que os <a href="/acionadores">acionadores</a> executaram: disparos de pixel e chamadas de webhook.</p>
 <shot src="img/logs-acionadores.png" caption="Histórico de disparos dos acionadores" todo="Tela Logs de acionadores com filtro por acionador e status, lista com disparos Sucesso e um Erro, e o painel de detalhe aberto mostrando Request e Response. Pixel IDs e tokens borrados."></shot>
 
+<flow>
+	<fstep icon="zap" title="Acionador">Condições atendidas</fstep>
+	<fbranch>
+		<fstep icon="pixel" title="Pixel">Evento para a plataforma</fstep>
+		<fstep icon="plug" title="Webhook">Chamada para a sua URL</fstep>
+	</fbranch>
+	<fstep icon="scroll" title="Log" tone="brand">Status, Request e Response</fstep>
+</flow>
+
 <h2>Filtrar</h2>
 <ul>
 	<li><strong>Acionador</strong>: um acionador específico ou todos.</li>

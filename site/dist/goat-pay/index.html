@@ -47,22 +47,21 @@
 <h2 id="antes-de-comecar">Antes de começar<a class="anchor" href="#antes-de-comecar" aria-label="Link para esta seção">#</a></h2><ul><li>Um projeto com <a href="/dominios">domínio primário</a> configurado. A URL do webhook usa esse domínio.</li><li>Acesso de administrador à sua conta na GoatPay.</li></ul>
 <h2 id="1-crie-a-plataforma-no-trackup">1. Crie a plataforma no Trackup<a class="anchor" href="#1-crie-a-plataforma-no-trackup" aria-label="Link para esta seção">#</a></h2><ol class="steps">
 <li><span class="step-title">Adicione a plataforma</span><p>Vá em <strong>Integração › Plataformas de vendas</strong>, clique em <strong>Adicionar plataforma</strong> e escolha <strong>GoatPay</strong>.</p></li>
-<li><span class="step-title">Confira os parâmetros</span><p>O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em <code>src</code> e as UTMs vão junto. Só mude se a GoatPay pedir outro nome de parâmetro.</p></li>
+<li><span class="step-title">Confira os parâmetros</span><p>O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em <code>src</code> e as UTMs vão junto. Só altere se a GoatPay usar outro nome de parâmetro.</p></li>
 <li><span class="step-title">Copie a URL do webhook</span><p>Salve. Na lista de plataformas, copie a <strong>URL</strong> da GoatPay.</p><figure class="shot"><img src="https://assets.trackup.cloud/assets/pages/9d029c4c-402a-4f7c-aac9-b6a86575c0f1/img/plataforma-url-copiar.png" alt="URL do webhook na lista de plataformas" loading="lazy"><figcaption>URL do webhook na lista de plataformas</figcaption></figure></shot></li>
 </ol>
 <h2 id="2-cadastre-o-webhook-na-goatpay">2. Cadastre o webhook na GoatPay<a class="anchor" href="#2-cadastre-o-webhook-na-goatpay" aria-label="Link para esta seção">#</a></h2>
 <ol>
-<li>Integrações/Webhooks</li>
-<li>Adicionar</li>
-<li>Cole a URL do Trackup</li>
-<li>Selecione os Produtos</li>
-<li>Marque todos métodos de Pagamento</li>
-<li>Marque os Status de Pagamento (Pago, Reembolsado, Chargeback)</li>
-<li>Salve</li>
+<li>No painel da GoatPay, abra <strong>Integrações › Webhooks</strong> e clique em <strong>Adicionar</strong>.</li>
+<li>Cole a URL do Trackup.</li>
+<li>Selecione os produtos que devem enviar vendas.</li>
+<li>Marque todos os métodos de pagamento.</li>
+<li>Marque os status <strong>Pago</strong>, <strong>Reembolsado</strong> e <strong>Chargeback</strong>.</li>
+<li>Salve.</li>
 </ol>
 <figure class="shot"><img src="https://assets.trackup.cloud/assets/pages/9d029c4c-402a-4f7c-aac9-b6a86575c0f1/img/plataformas/painel-goat.webp" alt="Configuração no painel da GoatPay" loading="lazy"><figcaption>Configuração no painel da GoatPay</figcaption></figure></shot>
 <h2 id="3-teste">3. Teste<a class="anchor" href="#3-teste" aria-label="Link para esta seção">#</a></h2>
-<p>Acesse sua landing page por um link do Trackup, clique no botão de compra e faça uma compra de teste. A venda deve aparecer em <strong>Logs › Conversões</strong> com a campanha preenchida.</p>
+<p>Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em <strong>Logs › Conversões</strong> com a campanha preenchida.</p>
 <div class="callout warning"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg><div><p>Se a venda aparecer como <strong>Click ID ausente</strong>, o botão da página não está apontando para o link da <a href="/ofertas">oferta</a> no Trackup, ou o checkout não está devolvendo o parâmetro do clique.</p></div></div>
 <p>Não achou sua plataforma? Use o <a href="/webhook-generico">webhook genérico</a>.</p>
 

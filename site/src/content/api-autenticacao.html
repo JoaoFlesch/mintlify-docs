@@ -23,6 +23,6 @@ curl https://api.trackup.me/v1/projects \
 <p>Uma chave acessa todos os projetos do time ou só os escolhidos na criação. Pedidos a um projeto fora da lista respondem <code>404</code>.</p>
 
 <h2>Validade e revogação</h2>
-<p>Depois da data de validade, ou depois de revogada, a chave responde <code>403</code>.</p>
+<p>Depois da data de validade, ou depois de revogada, a chave responde <code>403</code>. Chave ausente ou inválida responde <code>401</code>.</p>
 
 <callout type="warning"><p>Use a chave só no servidor. Nunca coloque a chave em código que roda no navegador, em aplicativos ou em repositórios.</p></callout>

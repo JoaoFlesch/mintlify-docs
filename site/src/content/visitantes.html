@@ -18,6 +18,14 @@ description: Acompanhe a jornada de cada visitante, do primeiro clique às compr
 		<tr><td>5. Pós-venda</td><td>Reembolsos e chargebacks entram nas abas do perfil.</td></tr>
 	</tbody>
 </table>
+<flow type="vertical">
+	<fstep n="1" icon="target" title="Primeiro acesso">Só o ID, a origem e o dispositivo</fstep>
+	<fstep n="2" icon="scroll" title="Novos acessos">Eventos na linha do tempo</fstep>
+	<fstep n="3" icon="users" title="Identificação">Nome, e-mail e telefone pelo script</fstep>
+	<fstep n="4" icon="dollar" title="Compra" tone="ok">Dados do comprador pelo webhook</fstep>
+	<fstep n="5" icon="alert" title="Pós-venda" tone="stop">Reembolsos e chargebacks</fstep>
+</flow>
+
 <shot src="img/visitante-id-inicial.png" caption="Visitante recém-criado" todo="Perfil de um visitante novo, só com ID, primeira visita, país e UTMs; campos de nome, e-mail e telefone vazios."></shot>
 <shot src="img/visitante-lead-completo.png" caption="Lead completo" todo="O mesmo visitante após a compra, com nome, e-mail (domínio borrado), telefone, endereço (borrado) e a conversão em Atividades recentes."></shot>
 

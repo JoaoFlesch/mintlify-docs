@@ -41,8 +41,18 @@
 			<h1 class="page-title">Testar duas versões de uma página</h1>
 			<p class="page-desc">Compare duas páginas com o mesmo tráfego, acompanhe a confiança estatística e envie tudo para a vencedora.</p>
 			<script>TU.actions()</script>
-			<div class="callout tip"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.1 14c.2-1 .7-1.7 1.5-2.5A6 6 0 1 0 6 8c0 1.4.4 2.6 1.4 3.5.8.8 1.3 1.5 1.5 2.5"/></svg><div><p><strong>Configure pela sua IA.</strong> Conecte seu assistente pelo <a href="/conectar-mcp">MCP</a> e peça: <em>"Crie um teste A/B no link /lp com as páginas /lp e /lp-teste, 50% para cada. Daqui a uma semana, mostre o resultado e a confiança, e só promova a vencedora se eu confirmar."</em></p></div></div>
+			<div class="callout tip"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.1 14c.2-1 .7-1.7 1.5-2.5A6 6 0 1 0 6 8c0 1.4.4 2.6 1.4 3.5.8.8 1.3 1.5 1.5 2.5"/></svg><div><p><strong>Configure pela sua IA.</strong> Conecte seu assistente pelo <a href="/conectar-mcp">MCP</a> e peça: <em>"Crie um teste A/B no link /lp-teste com as páginas Excel Basics - LP Builder e Email Templates - LP HTML, 50% para cada. Daqui a uma semana, mostre o resultado e a confiança, e só promova a vencedora se eu confirmar."</em></p></div></div>
 <p>Neste tutorial você descobre qual de duas landing pages vende mais. O anúncio continua o mesmo: o Trackup divide os visitantes entre as versões e mede as vendas de cada uma.</p>
+
+<div class="flow">
+	<div class="fnode"><i class="fa"></i><span class="fnode-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></span><div class="fnode-body"><b>Anúncio</b><span>Aponta para o link do teste</span></div></div>
+	<div class="fnode"><i class="fa"></i><span class="fnode-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 3h5v5"/><path d="M8 3H3v5"/><path d="M12 22v-8.3a4 4 0 0 0-1.2-2.9L3 3"/><path d="m15 9 6-6"/></svg></span><div class="fnode-body"><b>/lp-teste</b><span>50% para cada variante</span></div></div>
+	<div class="fbranch">
+		<div class="fnode"><i class="fa"></i><span class="fnode-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h5"/></svg></span><div class="fnode-body"><b>Variante A</b><span>LP Builder</span></div></div>
+		<div class="fnode"><i class="fa"></i><span class="fnode-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h5"/></svg></span><div class="fnode-body"><b>Variante B</b><span>LP HTML</span></div></div>
+	</div>
+	<div class="fnode tone-ok"><i class="fa"></i><span class="fnode-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18"/><path d="M8 17v-5"/><path d="M13 17V8"/><path d="M18 17v-9"/></svg></span><div class="fnode-body"><b>Vencedora</b><span>Recebe 100% do tráfego</span></div></div>
+</div>
 
 <h2 id="o-que-voce-vai-precisar">O que você vai precisar<a class="anchor" href="#o-que-voce-vai-precisar" aria-label="Link para esta seção">#</a></h2>
 <ul>
@@ -82,7 +92,7 @@
 		<figure class="shot"><img src="https://assets.trackup.cloud/assets/pages/9d029c4c-402a-4f7c-aac9-b6a86575c0f1/img/tut-ab-criar.png" alt="Teste com duas variantes em 50/50" loading="lazy"><figcaption>Teste com duas variantes em 50/50</figcaption></figure></shot>
 	</li>
 	<li><span class="step-title">Salve e copie o link</span>
-		<p>O link do teste é <code>https://lp.seudominio.com/lp-teste</code>.</p>
+		<p>O link do teste é <code>https://lp.yourdomain.com/lp-teste</code>.</p>
 	</li>
 </ol>
 

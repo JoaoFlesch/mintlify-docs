@@ -42,6 +42,14 @@ description: Monte regras de filtro com os critérios mais comuns, sem escrever 
 </steps>
 
 <h2>Filtro anti-plágio</h2>
+
+<flow>
+	<fstep icon="globe" title="Acesso à página">Com ou sem o parâmetro</fstep>
+	<fbranch>
+		<fstep icon="check" title="Com o parâmetro" tone="ok">Veio do anúncio: vê a oferta</fstep>
+		<fstep icon="ban" title="Sem o parâmetro" tone="stop">Copiou o link ou é robô: safe page ou bloqueio</fstep>
+	</fbranch>
+</flow>
 <p>Ao ligar o filtro, o Trackup gera um parâmetro aleatório. A regra corresponde a todo acesso que chega <strong>sem</strong> esse parâmetro. Com a ação <strong>Bloquear</strong> ou <strong>Exibir página</strong>, só quem clicou no seu anúncio vê a página de verdade. Quem copia o endereço da barra e abre sem o parâmetro, ou um robô de clonagem, vê outra coisa.</p>
 <steps>
 	<step title="Ligue o filtro e salve a regra">

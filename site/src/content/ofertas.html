@@ -3,12 +3,12 @@ title: Ofertas
 icon: bag
 description: A oferta é a página de checkout do seu produto. É por ela que a venda volta atribuída ao anúncio.
 ---
-<callout type="tip"><p><strong>Configure pela sua IA.</strong> Conecte seu assistente pelo <a href="/conectar-mcp">MCP</a> e peça: <em>"Crie a oferta Excel Basics Course em /checkout-excel, redirecionando para https://pay.example.com/excel-basics, ligada à plataforma de venda Hotmart, e publique."</em> A IA confere se a plataforma existe antes de criar.</p></callout>
+<callout type="tip"><p><strong>Configure pela sua IA.</strong> Conecte seu assistente pelo <a href="/conectar-mcp">MCP</a> e peça: <em>"Crie a oferta Excel Basics Course em /checkout-excel, redirecionando para https://pay.example.com/excel-basics, ligada à minha plataforma de venda, e publique."</em> A IA confere se a plataforma existe antes de criar.</p></callout>
 <p>Uma oferta é uma página com finalidade <em>Checkout</em>, ligada a uma <a href="/plataformas-de-venda">plataforma de venda</a>. Na maioria dos casos ela redireciona para o checkout da plataforma, levando junto o ID do clique e as UTMs. Quando a venda acontece, a plataforma devolve esse ID no webhook e o Trackup liga a venda à campanha.</p>
 
 <flow>
 	<fstep icon="zap" title="Botão de compra">na landing page</fstep>
-	<fstep icon="bag" title="Oferta">lp.seudominio.com/checkout</fstep>
+	<fstep icon="bag" title="Oferta">lp.yourdomain.com/checkout</fstep>
 	<fstep icon="cart" title="Checkout">com ID do clique e UTMs</fstep>
 	<fstep icon="plug" title="Webhook" tone="ok">venda atribuída</fstep>
 </flow>
@@ -19,13 +19,14 @@ description: A oferta é a página de checkout do seu produto. É por ela que a 
 		<p>A oferta precisa de uma <a href="/plataformas-de-venda">plataforma de venda</a> integrada. Se ainda não tem, crie em <strong>Integração › Plataformas de vendas</strong> ou pelo atalho <strong>Criar plataforma de vendas</strong> dentro do formulário.</p>
 	</step>
 	<step title="Adicione a oferta">
-		<p>No menu lateral, clique em <strong>Ofertas</strong> e em <strong>Adicionar oferta</strong>. A oferta abre em uma página inteira, sem abas. Preencha:</p>
+		<p>No menu lateral, clique em <strong>Ofertas</strong> e em <strong>Adicionar oferta</strong>. A oferta abre em uma página inteira, com um formulário de redirecionamento. Preencha:</p>
 		<table>
 			<thead><tr><th>Campo</th><th>Descrição</th></tr></thead>
 			<tbody>
 				<tr><td>Nome</td><td>Por exemplo <code>Checkout Produto X</code>.</td></tr>
 				<tr><td>Plataforma de vendas</td><td>A plataforma que processa o pagamento.</td></tr>
-				<tr><td>URL de redirecionamento</td><td>O link do checkout na plataforma. O redirecionamento é temporário (302).</td></tr>
+				<tr><td>URL de redirecionamento</td><td>O link do checkout na plataforma.</td></tr>
+				<tr><td>Status Code</td><td>Mantenha <code>302</code>, o padrão. Veja <a href="/redirect#qual-status-usar">Qual status usar</a>.</td></tr>
 				<tr><td>Caminho</td><td>Opcional, como <code>/checkout</code>.</td></tr>
 			</tbody>
 		</table>
@@ -46,8 +47,8 @@ description: A oferta é a página de checkout do seu produto. É por ela que a 
 <p>Crie uma oferta para cada checkout. Um produto pode ter, por exemplo, <code>Product A - Checkout 1</code> (preço cheio) e <code>Product A - Checkout 2</code> (preço com desconto, outra cor). Cada oferta tem seu link e seu caminho, e todas aparecem na lista de <strong>Ofertas</strong>.</p>
 <shot src="img/ofertas-lista.png" caption="Lista de ofertas" todo="Lista de Ofertas com 2 produtos e 3 ofertas (Product A - Checkout 1, Product A - Checkout 2, Product B - Checkout), coluna Link com botão de copiar e Destino Publicada."></shot>
 
-<h2>Oferta com página própria</h2>
-<p>Além de Redirect, uma oferta pode ser criada com Builder, Upload HTML ou Clonar URL, por exemplo para um pré-checkout. Nesse caso, o botão dessa página deve levar ao checkout da plataforma.</p>
+<h2>Pré-checkout</h2>
+<p>No painel, toda oferta é um redirecionamento para o checkout. Se você quer uma página intermediária antes do pagamento (um pré-checkout, uma página de escolha de plano), crie essa página em <a href="/paginas">Páginas</a> e aponte o botão dela para o link da oferta. O ID do clique e as UTMs seguem junto até o checkout.</p>
 
 <h2>Testar ofertas</h2>
 <p>Para comparar dois checkouts (preços, cores, plataformas ou páginas de pagamento diferentes), crie um <a href="/testes-ab">teste A/B</a> do tipo <strong>Checkout</strong> com as ofertas como variantes. O botão de compra aponta para o link do teste.</p>

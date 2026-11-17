@@ -43,6 +43,13 @@
 			<script>TU.actions()</script>
 			<p>Páginas criadas no Trackup já são rastreadas. Instale o script quando a página estiver em outro servidor (CMS, loja virtual ou o seu próprio site) ou quando quiser enviar eventos além do <code>page_view</code>.</p>
 
+<div class="flow">
+	<div class="fnode"><i class="fa"></i><span class="fnode-n">1</span><span class="fnode-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span><div class="fnode-body"><b>Seu site</b><span>Página fora do Trackup com o snippet no head</span></div></div>
+	<div class="fnode"><i class="fa"></i><span class="fnode-n">2</span><span class="fnode-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg></span><div class="fnode-body"><b>Script</b><span>Carrega de /__t/e.js no seu domínio Trackup</span></div></div>
+	<div class="fnode"><i class="fa"></i><span class="fnode-n">3</span><span class="fnode-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg></span><div class="fnode-body"><b>Evento</b><span>page_view, eventos customizados e identify</span></div></div>
+	<div class="fnode tone-ok"><i class="fa"></i><span class="fnode-n">4</span><span class="fnode-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></span><div class="fnode-body"><b>Requisição</b><span>Registrada no visitante e enviada aos acionadores</span></div></div>
+</div>
+
 <h2 id="instalacao">Instalação<a class="anchor" href="#instalacao" aria-label="Link para esta seção">#</a></h2>
 <ol class="steps">
 	<li><span class="step-title">Copie o snippet do projeto</span>

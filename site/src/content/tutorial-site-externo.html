@@ -5,7 +5,7 @@ icon: code
 eyebrow: Tutorial
 description: Instale o script em uma página do WordPress, Elementor ou outra plataforma e mantenha a atribuição até o checkout.
 ---
-<callout type="tip"><p><strong>Configure pela sua IA.</strong> Conecte seu assistente pelo <a href="/conectar-mcp">MCP</a> e peça: <em>"Crie uma página Redirect em /go que leve para https://meusite.example.com/vsl, e me diga o snippet do script para colar no site."</em> Colar o script no site é com você.</p></callout>
+<callout type="tip"><p><strong>Configure pela sua IA.</strong> Conecte seu assistente pelo <a href="/conectar-mcp">MCP</a> e peça: <em>"Crie uma página Redirect em /go que leve para https://www.yoursite.com/vsl, e me diga o snippet do script para colar no site."</em> Colar o script no site é com você.</p></callout>
 <p>Sua página de vendas já está no ar em outro lugar, como WordPress, Elementor, Webflow ou Framer. Neste tutorial você faz o tráfego passar pelo Trackup, instala o script e envia eventos do funil sem mudar de hospedagem.</p>
 <flow>
 	<fstep icon="megaphone" title="Anúncio">link Redirect do Trackup</fstep>
@@ -42,8 +42,8 @@ description: Instale o script em uma página do WordPress, Elementor ou outra pl
 		</tabs>
 	</step>
 	<step title="Libere o domínio">
-		<p>Em <strong>Ajustes › Geral › Segurança</strong>, adicione o domínio do site (como <code>www.seusite.com</code>) em <strong>Domínios permitidos</strong>. Sem isso, os eventos são recusados.</p>
-		<shot src="img/tut-externo-dominios.png" caption="Domínios permitidos do snippet" todo="Seção Segurança de Ajustes › Geral com www.seusite.com adicionado em Domínios permitidos e o Snippet de rastreamento abaixo."></shot>
+		<p>Em <strong>Ajustes › Geral › Segurança</strong>, adicione o domínio do site (como <code>www.yoursite.com</code>) em <strong>Domínios permitidos</strong>. Sem isso, os eventos são recusados.</p>
+		<shot src="img/tut-externo-dominios.png" caption="Domínios permitidos do snippet" todo="Seção Segurança de Ajustes › Geral com www.yoursite.com adicionado em Domínios permitidos e o Snippet de rastreamento abaixo."></shot>
 	</step>
 </steps>
 
@@ -51,23 +51,23 @@ description: Instale o script em uma página do WordPress, Elementor ou outra pl
 <p>Crie uma página <a href="/redirect">Redirect</a> que leva ao seu site. O anúncio aponta para ela. Assim o Trackup aplica o filtro, registra o clique e repassa as UTMs.</p>
 <steps>
 	<step title="Crie a página Redirect">
-		<p>Em <strong>Páginas › Adicionar página</strong>, na aba <strong>Redirect</strong>: nome <em>Site Curso</em>, URL de redirecionamento <code>https://www.seusite.com/curso</code>, caminho <code>/curso</code>, Status Code 302.</p>
+		<p>Em <strong>Páginas › Adicionar página</strong>, na aba <strong>Redirect</strong>: nome <em>Site Curso</em>, URL de redirecionamento <code>https://www.yoursite.com/curso</code>, caminho <code>/curso</code>, Status Code 302.</p>
 	</step>
 	<step title="Use o link no anúncio">
-		<p>Use o link dessa página (<code>https://lp.seudominio.com/curso</code>) com os parâmetros da fonte de tráfego no anúncio.</p>
+		<p>Use o link dessa página (<code>https://lp.yourdomain.com/curso</code>) com os parâmetros da fonte de tráfego no anúncio.</p>
 	</step>
 </steps>
 <callout type="note"><p>Se o anúncio apontar direto para o seu site, o script ainda registra as visitas e as UTMs, mas o <a href="/filtro">filtro</a> não atua, porque a requisição não passa pelo domínio do Trackup.</p></callout>
 
 <h2>3. Ligue os botões à oferta</h2>
-<p>Troque o link de todos os botões de compra do site pelo link da oferta no Trackup, como <code>https://lp.seudominio.com/checkout</code>. No Elementor, edite cada botão e cole o link em <strong>Link</strong>.</p>
+<p>Troque o link de todos os botões de compra do site pelo link da oferta no Trackup, como <code>https://lp.yourdomain.com/checkout</code>. No Elementor, edite cada botão e cole o link em <strong>Link</strong>.</p>
 
 <h2>4. Envie eventos do funil (opcional)</h2>
 <p>Marque ações importantes para usar em acionadores e no funil do dashboard. Pelo HTML, sem JavaScript:</p>
 <code-block lang="html">
 <button type="submit" data-trackup-event="lead_form_submitted">Quero receber</button>
 
-<a href="https://lp.seudominio.com/checkout" data-trackup-event="add_to_cart">Quero me inscrever</a>
+<a href="https://lp.yourdomain.com/checkout" data-trackup-event="add_to_cart">Quero me inscrever</a>
 </code-block>
 <p>Ou pelo JavaScript, por exemplo quando o vídeo chega ao pitch:</p>
 <code-block lang="javascript">
@@ -78,7 +78,7 @@ trackup('track', 'vsl_pitch');
 <h2>5. Valide</h2>
 <steps>
 	<step title="Acesse pelo link do anúncio">
-		<p>Abra <code>https://lp.seudominio.com/curso?utm_source=teste</code> em uma aba anônima. Você deve cair no seu site com <code>utm_source=teste</code> na URL.</p>
+		<p>Abra <code>https://lp.yourdomain.com/curso?utm_source=teste</code> em uma aba anônima. Você deve cair no seu site com <code>utm_source=teste</code> na URL.</p>
 	</step>
 	<step title="Confira as requisições">
 		<p>Em <strong>Logs › Requisições</strong>, aparecem o acesso ao link e o <code>page_view</code> enviado pelo script, no mesmo visitante.</p>
@@ -93,5 +93,5 @@ trackup('track', 'vsl_pitch');
 	<p>O domínio do site não está em <strong>Domínios permitidos</strong>, o snippet não está no <code>&lt;head&gt;</code>, ou um plugin de cache serve uma versão antiga. Limpe o cache e confira o código-fonte da página.</p>
 </accordion>
 <accordion title="As UTMs se perdem no site">
-	<p>Algum redirecionamento do site (como de <code>seusite.com</code> para <code>www.seusite.com</code>) está removendo a query string. Use na página Redirect a URL final, já com <code>www</code> e barra.</p>
+	<p>Algum redirecionamento do site (como de <code>yoursite.com</code> para <code>www.yoursite.com</code>) está removendo a query string. Use na página Redirect a URL final, já com <code>www</code> e barra.</p>
 </accordion>

@@ -17,7 +17,7 @@ description: Configure um projeto do zero, publique suas páginas e registre a p
 <ul>
 	<li>Uma conta no Trackup com acesso ao painel em <a href="https://dash.trackup.me" target="_blank" rel="noopener">dash.trackup.me</a>.</li>
 	<li>Acesso ao DNS do seu domínio, se for usar um domínio próprio (Cloudflare, Registro.br, GoDaddy etc.).</li>
-	<li>O ID e o token de acesso do seu pixel na plataforma de anúncios.</li>
+	<li>As credenciais do seu pixel na plataforma de anúncios (na Meta, o ID do pixel e o token da API de Conversões).</li>
 	<li>Acesso de administrador à sua plataforma de venda, para cadastrar o webhook.</li>
 </ul>
 
@@ -32,7 +32,7 @@ description: Configure um projeto do zero, publique suas páginas e registre a p
 		<p>O nome e a logo podem ser alterados depois, nas configurações do time.</p>
 	</step>
 	<step title="Crie o primeiro projeto">
-		<p>Na etapa seguinte (<em>Primeiro projeto</em>), dê um nome ao projeto e clique em <strong>Criar projeto e continuar</strong>. A URL do projeto é gerada automaticamente e o painel do projeto abre em seguida. Se preferir, crie o projeto pelo passo 2 abaixo.</p>
+		<p>Na etapa seguinte (<em>Primeiro projeto</em>), dê um nome ao projeto e clique em <strong>Criar projeto e continuar</strong>. A URL do projeto é gerada automaticamente e o painel do projeto abre em seguida. Se criar o projeto aqui, confira a moeda no passo 2 e siga para <em>Adicione membros</em>.</p>
 	</step>
 	<step title="Escolha o plano">
 		<p>Abra a tela <strong>Planos</strong> e compare os limites de domínios, membros, conversões e filtro de tráfego. O plano de melhor custo-benefício traz o selo <strong>Mais popular</strong>. Clique em <strong>Assinar plano</strong> no plano escolhido e conclua o pagamento no checkout, por cartão ou PIX. Você cancela quando quiser.</p>
@@ -82,7 +82,7 @@ description: Configure um projeto do zero, publique suas páginas e registre a p
 		<p>No menu do domínio, clique em <strong>Definir como primário</strong>. Novas páginas, links e URLs de webhook passam a usar esse domínio.</p>
 	</step>
 </steps>
-<callout type="note"><p>Quer usar o domínio raiz (<code>seudominio.com</code>)? Funciona, mas só em provedores de DNS com CNAME flattening, como a Cloudflare. Veja <a href="/dominios">Domínios</a>.</p></callout>
+<callout type="note"><p>Quer usar o domínio raiz (<code>yourdomain.com</code>)? Funciona, mas só em provedores de DNS com CNAME flattening, como a Cloudflare. Veja <a href="/dominios">Domínios</a>.</p></callout>
 
 <h2>4. Conecte seu pixel</h2>
 <p>O Trackup envia os eventos do funil para a plataforma de anúncios pelo servidor (server-side), o que evita perdas por bloqueadores de anúncio e restrições de navegador.</p>
@@ -105,7 +105,7 @@ description: Configure um projeto do zero, publique suas páginas e registre a p
 		<callout type="warning"><p>Com o <strong>Test Event Code</strong> preenchido, a Meta recebe os eventos só em <em>Test Events</em> e eles não contam para as campanhas. Apague o código antes de anunciar.</p></callout>
 	</step>
 	<step title="Salve">
-		<p>Para Meta, TikTok e Kwai, o Trackup cria na hora os acionadores do funil: <strong>page_view</strong>, <strong>start_checkout</strong> e <strong>conversion</strong>. No Google Ads, cada etapa precisa de uma conversion label, então você cria os acionadores em <a href="/acionadores">Acionadores</a>.</p>
+		<p>Para Meta, TikTok e Kwai, o Trackup cria na hora quatro acionadores do funil: <strong>Pageview</strong>, <strong>Add to cart</strong>, <strong>Start checkout</strong> e <strong>Conversão</strong>. No Google Ads, cada etapa precisa de uma conversion label, então você cria os acionadores em <a href="/acionadores">Acionadores</a>.</p>
 	</step>
 </steps>
 
@@ -128,7 +128,7 @@ description: Configure um projeto do zero, publique suas páginas e registre a p
 <p>A plataforma de venda avisa o Trackup por webhook a cada venda, reembolso ou chargeback. É assim que a venda é ligada ao clique que a originou.</p>
 <steps>
 	<step title="Adicione a plataforma">
-		<p>Vá em <strong>Integração › Plataformas de vendas</strong>, clique em <strong>Adicionar plataforma</strong>, pesquise a sua (Hotmart, Kiwify, Eduzz, Shopify e mais 30) e salve.</p>
+		<p>Vá em <strong>Integração › Plataformas de vendas</strong>, clique em <strong>Adicionar plataforma</strong>, pesquise a sua entre as 33 integrações nativas e salve. Se ela não estiver na lista, use o <a href="/webhook-generico">webhook genérico</a>.</p>
 	</step>
 	<step title="Copie a URL do webhook">
 		<p>Na lista de plataformas, copie a <strong>URL</strong> da plataforma que você criou.</p>
@@ -206,4 +206,4 @@ https://go.yourdomain.com/excel-basics?utm_source=meta&utm_campaign={{campaign.n
 	<card title="Teste variações" icon="split" href="/testes-ab">Descubra qual página ou checkout converte mais.</card>
 	<card title="Entenda o rastreamento" icon="compass" href="/como-funciona">Veja o caminho completo do clique até a venda.</card>
 </cards>
-<callout type="tip"><p><strong>Configure pela sua IA.</strong> Depois de criar o time e conectar o domínio, você pode fazer o restante pela sua IA. Conecte seu assistente pelo <a href="/conectar-mcp">MCP</a> e peça: <em>"Configure o projeto Online Store com pixel Meta, fonte de tráfego Meta e plataforma Hotmart, e liste o que ainda falta."</em> Cobrança, membros, chaves de API e conexões OAuth continuam no painel.</p></callout>
+<callout type="tip"><p><strong>Configure pela sua IA.</strong> Depois de criar o time e conectar o domínio, você pode fazer o restante pela sua IA. Conecte seu assistente pelo <a href="/conectar-mcp">MCP</a> e peça: <em>"Configure o projeto Online Store com pixel Meta, fonte de tráfego Meta e a minha plataforma de venda, e liste o que ainda falta."</em> Cobrança, membros, chaves de API e conexões OAuth continuam no painel.</p></callout>

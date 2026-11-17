@@ -21,7 +21,7 @@ O Trackup reúne em um só lugar o que uma operação de tráfego pago costuma e
 	[Testes A/BDivida o tráfego entre páginas ou checkouts e promova a variante vencedora.](https://docs.trackup.me/testes-ab)
 	[Pixels e acionadoresEnvie eventos server-side para Meta, Google Ads, TikTok e Kwai.](https://docs.trackup.me/acionadores)
 	[FiltroBloqueie bots e tráfego fora do seu público antes que ele chegue à página.](https://docs.trackup.me/filtro)
-	[Plataformas de vendaReceba vendas, reembolsos e chargebacks de 34 plataformas por webhook.](https://docs.trackup.me/plataformas-de-venda)
+	[Plataformas de vendaReceba vendas, reembolsos e chargebacks de 33 plataformas, ou de qualquer checkout pelo webhook genérico.](https://docs.trackup.me/plataformas-de-venda)
 	[DashboardsMonte painéis com lucro, funil, origem das vendas e resultados de testes.](https://docs.trackup.me/dashboards)
 
 ## Para quem é
@@ -59,7 +59,7 @@ Neste guia você monta uma operação completa: um projeto com domínio próprio
 
 - Acesso ao DNS do seu domínio, se for usar um domínio próprio (Cloudflare, Registro.br, GoDaddy etc.).
 
-- O ID e o token de acesso do seu pixel na plataforma de anúncios.
+- As credenciais do seu pixel na plataforma de anúncios (na Meta, o ID do pixel e o token da API de Conversões).
 
 - Acesso de administrador à sua plataforma de venda, para cadastrar o webhook.
 
@@ -76,7 +76,7 @@ O time é a conta que reúne projetos, membros e a assinatura. Quem cria o time 
 		O nome e a logo podem ser alterados depois, nas configurações do time.
 
 - **Crie o primeiro projeto**
-		Na etapa seguinte (Primeiro projeto), dê um nome ao projeto e clique em **Criar projeto e continuar**. A URL do projeto é gerada automaticamente e o painel do projeto abre em seguida. Se preferir, crie o projeto pelo passo 2 abaixo.
+		Na etapa seguinte (Primeiro projeto), dê um nome ao projeto e clique em **Criar projeto e continuar**. A URL do projeto é gerada automaticamente e o painel do projeto abre em seguida. Se criar o projeto aqui, confira a moeda no passo 2 e siga para Adicione membros.
 
 - **Escolha o plano**
 		Abra a tela **Planos** e compare os limites de domínios, membros, conversões e filtro de tráfego. O plano de melhor custo-benefício traz o selo **Mais popular**. Clique em **Assinar plano** no plano escolhido e conclua o pagamento no checkout, por cartão ou PIX. Você cancela quando quiser.
@@ -130,7 +130,7 @@ Páginas em domínio próprio passam mais confiança, preservam a reputação do
 - **Defina como primário**
 		No menu do domínio, clique em **Definir como primário**. Novas páginas, links e URLs de webhook passam a usar esse domínio.
 
-Quer usar o domínio raiz (`seudominio.com`)? Funciona, mas só em provedores de DNS com CNAME flattening, como a Cloudflare. Veja [Domínios](https://docs.trackup.me/dominios).
+Quer usar o domínio raiz (`yourdomain.com`)? Funciona, mas só em provedores de DNS com CNAME flattening, como a Cloudflare. Veja [Domínios](https://docs.trackup.me/dominios).
 
 ## 4. Conecte seu pixel
 
@@ -157,7 +157,7 @@ O Trackup envia os eventos do funil para a plataforma de anúncios pelo servidor
 		Com o **Test Event Code** preenchido, a Meta recebe os eventos só em Test Events e eles não contam para as campanhas. Apague o código antes de anunciar.
 
 - **Salve**
-		Para Meta, TikTok e Kwai, o Trackup cria na hora os acionadores do funil: **page_view**, **start_checkout** e **conversion**. No Google Ads, cada etapa precisa de uma conversion label, então você cria os acionadores em [Acionadores](https://docs.trackup.me/acionadores).
+		Para Meta, TikTok e Kwai, o Trackup cria na hora quatro acionadores do funil: **Pageview**, **Add to cart**, **Start checkout** e **Conversão**. No Google Ads, cada etapa precisa de uma conversion label, então você cria os acionadores em [Acionadores](https://docs.trackup.me/acionadores).
 
 ## 5. Adicione a fonte de tráfego
 
@@ -179,7 +179,7 @@ A fonte de tráfego gera os parâmetros de UTM que você cola na URL do anúncio
 A plataforma de venda avisa o Trackup por webhook a cada venda, reembolso ou chargeback. É assim que a venda é ligada ao clique que a originou.
 
 - **Adicione a plataforma**
-		Vá em **Integração › Plataformas de vendas**, clique em **Adicionar plataforma**, pesquise a sua (Hotmart, Kiwify, Eduzz, Shopify e mais 30) e salve.
+		Vá em **Integração › Plataformas de vendas**, clique em **Adicionar plataforma**, pesquise a sua entre as 33 integrações nativas e salve. Se ela não estiver na lista, use o [webhook genérico](https://docs.trackup.me/webhook-generico).
 
 - **Copie a URL do webhook**
 		Na lista de plataformas, copie a **URL** da plataforma que você criou.
@@ -278,7 +278,7 @@ Requisição de teste registrada em Logs › Requisições
 	[Teste variaçõesDescubra qual página ou checkout converte mais.](https://docs.trackup.me/testes-ab)
 	[Entenda o rastreamentoVeja o caminho completo do clique até a venda.](https://docs.trackup.me/como-funciona)
 
-**Configure pela sua IA.** Depois de criar o time e conectar o domínio, você pode fazer o restante pela sua IA. Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Configure o projeto Online Store com pixel Meta, fonte de tráfego Meta e plataforma Hotmart, e liste o que ainda falta." Cobrança, membros, chaves de API e conexões OAuth continuam no painel.
+**Configure pela sua IA.** Depois de criar o time e conectar o domínio, você pode fazer o restante pela sua IA. Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Configure o projeto Online Store com pixel Meta, fonte de tráfego Meta e a minha plataforma de venda, e liste o que ainda falta." Cobrança, membros, chaves de API e conexões OAuth continuam no painel.
 
 ---
 
@@ -320,7 +320,7 @@ Agrupa tudo de uma operação: domínios, pixels, páginas, testes, regras de fi
 
 ### Página e link
 
-Toda [página](https://docs.trackup.me/paginas) tem um link próprio no seu domínio, como `lp.seudominio.com/oferta`. Esse é o endereço que você divulga. Páginas com finalidade Landing ficam em **Páginas**; páginas com finalidade Checkout são as **Ofertas**.
+Toda [página](https://docs.trackup.me/paginas) tem um link próprio no seu domínio, como `lp.yourdomain.com/oferta`. Esse é o endereço que você divulga. Páginas com finalidade Landing ficam em **Páginas**; páginas com finalidade Checkout são as **Ofertas**.
 
 Um [Teste A/B](https://docs.trackup.me/testes-ab) é um link extra que divide o tráfego entre duas ou mais páginas.
 
@@ -330,7 +330,7 @@ Uma **requisição** é cada acesso a um link. Um **visitante** é a pessoa por 
 
 ### Evento
 
-Uma ação no funil. Os eventos nativos são `ad_click`, `page_view`, `start_checkout` e `conversion`. Você também pode enviar eventos customizados, como `video_started` ou `lead_form_submitted`, com o [script](https://docs.trackup.me/script).
+Uma ação no funil. Os eventos nativos são `ad_click`, `page_view`, `add_to_cart`, `start_checkout` e `conversion`. Você também pode enviar eventos customizados, como `video_started` ou `lead_form_submitted`, com o [script](https://docs.trackup.me/script).
 
 ### Pixel e acionador
 
@@ -338,7 +338,7 @@ O [pixel](https://docs.trackup.me/pixels) guarda as credenciais da plataforma de
 
 ### Atribuição e Click ID
 
-Atribuição é descobrir qual campanha gerou cada venda. O Trackup faz isso guardando o ID de cada requisição e repassando esse ID ao checkout em um parâmetro que a plataforma de venda devolve no webhook (por exemplo `sck` na Kiwify ou `src` na Monetizze). Quando o ID não volta, a venda aparece como Click ID ausente e fica sem campanha.
+Atribuição é descobrir qual campanha gerou cada venda. O Trackup faz isso guardando o ID de cada requisição e repassando esse ID ao checkout em um parâmetro que a plataforma de venda devolve no webhook (o nome do parâmetro muda de uma plataforma para outra, como `sck`, `src` ou `clickId`). Quando o ID não volta, a venda aparece como Click ID ausente e fica sem campanha.
 
 ### UTMs
 
@@ -441,7 +441,7 @@ Para mudar as permissões de alguém, abra o membro na lista e clique em **Salva
 
 O número de membros é limitado pelo [plano](https://docs.trackup.me/assinatura) do time.
 
-Para dar acesso a um cliente só ao projeto dele, crie uma [chave de API](https://docs.trackup.me/chaves-de-api) restrita a esse projeto ou mantenha cada cliente em um time separado.
+As permissões dos membros valem por área, para todos os projetos do time. Para que um cliente veja só a operação dele, mantenha cada cliente em um time separado. Para dar a um sistema ou agente de IA acesso a um único projeto, use uma [chave de API](https://docs.trackup.me/chaves-de-api) restrita a esse projeto.
 
 ## Próximos passos
 
@@ -623,7 +623,7 @@ Prefira um subdomínio dedicado, como `go.yourdomain.com`. Se algo der errado no
 						Na linha do domínio, clique em **Gerenciar**, depois em **Adicionar registro** (ou **+ Registro CNAME**).
 
 - **Preencha o registro**
-						**Nome**: o subdomínio completo, como `lp.seudominio.com.` (com o ponto no fim, se o cPanel pedir). **Tipo**: `CNAME`. **Registro**: o **Value** do Trackup.
+						**Nome**: o subdomínio completo, como `lp.yourdomain.com.` (com o ponto no fim, se o cPanel pedir). **Tipo**: `CNAME`. **Registro**: o **Value** do Trackup.
 
 - **Salve**
 						Clique em **Adicionar registro**. Se o domínio usa servidores DNS de outro provedor, crie o registro lá.
@@ -764,7 +764,7 @@ A plataforma de venda é onde o cliente paga: um gateway de pagamento, uma plata
 		Parâmetros avançados
 
 - **Salve e copie a URL**
-		Salve e, na lista, copie a **URL** do webhook com **Copiar URL**. Se aparecer Configure um domínio, defina antes um [domínio primário](https://docs.trackup.me/dominios).
+		Salve e, na lista, copie a **URL** do webhook com **Copiar URL**. Se aparecer Configure um domínio primário para gerar a URL, defina antes um [domínio primário](https://docs.trackup.me/dominios).
 
 		Lista de plataformas de vendas
 
@@ -887,6 +887,14 @@ O Gerenciador de anúncios sincroniza suas contas da Meta e cruza os dados de en
 
 Disponível para Meta Ads. A atribuição depende dos parâmetros da [fonte de tráfego Meta](https://docs.trackup.me/fontes-de-trafego) na URL dos anúncios.
 
+	**Meta Ads**Investimento, impressões e cliques
+
+	**Sincronização**Contas conectadas pelo Facebook
+
+	**Vendas do Trackup**Atribuídas pelos IDs da URL do anúncio
+
+	**ROAS e CPA reais**Por campanha, conjunto e anúncio
+
 ## Conectar a conta
 
 - **Conecte o Facebook**
@@ -967,7 +975,7 @@ Tipos disponíveis: Meta, Google Ads, TikTok e Kwai. O exemplo abaixo usa Meta; 
 		Copie os campos da plataforma de anúncios (veja a tabela por plataforma abaixo) e cole no Trackup. Mantenha **Ativo** ligado.
 
 - **Salve**
-		Clique em salvar. Para Meta, TikTok e Kwai o Trackup cria junto os acionadores **Pageview**, **Start checkout** e **Conversão** e mostra a notificação Pixel e acionadores criados. No Google Ads, crie os acionadores com a conversion label de cada etapa.
+		Clique em **Salvar**. Para Meta, TikTok e Kwai o Trackup cria junto quatro acionadores (**Pageview**, **Add to cart**, **Start checkout** e **Conversão**) e mostra a notificação Pixel e acionadores criados. Veja os eventos enviados em [Acionadores](https://docs.trackup.me/acionadores#acionadores-criados-automaticamente). No Google Ads, crie os acionadores com a conversion label de cada etapa.
 
 - **Confira na lista**
 		O pixel aparece em **Integração › Pixels**. Se houver Test Event Code, o pixel é marcado como modo teste.
@@ -1067,6 +1075,14 @@ URL: https://docs.trackup.me/script
 > Rastreie páginas hospedadas fora do Trackup, identifique visitantes e envie eventos customizados.
 
 Páginas criadas no Trackup já são rastreadas. Instale o script quando a página estiver em outro servidor (CMS, loja virtual ou o seu próprio site) ou quando quiser enviar eventos além do `page_view`.
+
+	1**Seu site**Página fora do Trackup com o snippet no head
+
+	2**Script**Carrega de /__t/e.js no seu domínio Trackup
+
+	3**Evento**page_view, eventos customizados e identify
+
+	4**Requisição**Registrada no visitante e enviada aos acionadores
 
 ## Instalação
 
@@ -1214,7 +1230,7 @@ Uma página é qualquer endereço do seu domínio no Trackup: landing page, pré
 
 		Landing | Menu **Páginas** | Recebe o tráfego do anúncio. Gera `page_view`. |
 
-		Checkout | Menu **Ofertas** | Levam ao checkout da plataforma de venda. Geram `start_checkout`. Veja [Ofertas](https://docs.trackup.me/ofertas). |
+		Checkout | Menu **Ofertas** | Leva ao checkout da plataforma de venda. Gera `start_checkout`. Veja [Ofertas](https://docs.trackup.me/ofertas). |
 
 		**Builder**Editor visual
 
@@ -1256,10 +1272,10 @@ Uma página é qualquer endereço do seu domínio no Trackup: landing page, pré
 		Adicionar página com as quatro abas
 
 - **Defina o caminho**
-		O **Caminho** é o endereço da página no domínio. Use `/` para a raiz (`seudominio.com`) ou algo como `/oferta`. Em branco, o Trackup gera a partir do nome. Letras, números, `-`, `.`, `_`, `~` e `/` são aceitos.
+		O **Caminho** é o endereço da página no domínio. Use `/` para a raiz (`yourdomain.com`) ou algo como `/oferta`. Em branco, o Trackup gera a partir do nome. Comece com `/` e use só letras, números, hífen (`-`), ponto (`.`), til (`~`) e barra (`/`).
 
-- **Confirme a finalidade**
-		Em **Finalidade**, mantenha **Landing** para páginas que recebem o anúncio. Para páginas de checkout, crie em **Ofertas** (veja [Ofertas](https://docs.trackup.me/ofertas)).
+- **Confira onde está criando**
+		Toda página criada em **Páginas** tem finalidade **Landing**. Para uma página de checkout, use **Ofertas › Adicionar oferta** (veja [Ofertas](https://docs.trackup.me/ofertas)).
 
 - **Salve e copie o link**
 		Clique em salvar. A página aparece na lista, já publicada. Use o botão de copiar na coluna **Link** para pegar o endereço.
@@ -1278,7 +1294,7 @@ A tabela mostra o tipo, o status e o **Link** de cada página, com botão para c
 
 		Duplicar | Cria uma cópia, útil para montar a variante de um [teste A/B](https://docs.trackup.me/testes-ab). |
 
-		Deletar | Remove a página para sempre. |
+		Deletar | Remove a página para sempre. Não dá para desfazer. |
 
 Lista de páginas com tipo, status e link
 
@@ -1422,6 +1438,12 @@ Use caminhos relativos (`css/style.css`, `img/hero.webp`). O Trackup reescreve a
 
 ## Enviar
 
+	**.html ou .zip**Até 5 MB, com index.html na raiz
+
+	**Upload HTML**Nome e caminho
+
+	**Página publicada**No seu domínio, já rastreada
+
 - **Abra a aba Upload HTML**
 		Em **Páginas › Adicionar página**, escolha **Upload HTML**.
 
@@ -1501,6 +1523,18 @@ Informe a URL de uma página e o Trackup captura o HTML e os arquivos do mesmo d
 - **Revise e ajuste**
 		Abra **Editar arquivos** no menu da página, localize o `index.html`, troque os links dos botões pelo link da sua [oferta](https://docs.trackup.me/ofertas), salve e clique em **Publicar**. Detalhes em [Versões e arquivos](https://docs.trackup.me/versoes-e-arquivos).
 
+## Status da clonagem
+
+	**URL de origem**Você informa o endereço
+
+	**Aguardando clone**Na fila
+
+	**Clonando…**HTML e arquivos do mesmo domínio
+
+		**Página HTML**Pronta para editar e publicar
+
+		**Falha no clone**Use o Upload HTML
+
 ## Limitações
 
 - Só arquivos do mesmo domínio são copiados. Imagens e scripts de outros domínios continuam vindo da origem.
@@ -1525,10 +1559,18 @@ URL: https://docs.trackup.me/redirect
 
 Uma página Redirect registra o acesso, aplica o filtro, dispara os eventos e manda o visitante para outra URL. Use quando a página precisa continuar em outro servidor, ou para criar uma [oferta](https://docs.trackup.me/ofertas) que leva ao checkout.
 
+	1**Clique**No anúncio ou no botão
+
+	2**Trackup**Registra, filtra e dispara eventos
+
+	3**Redirecionamento**302 com os parâmetros do visitante
+
+	4**Destino**Sua página ou o checkout
+
 ## Criar
 
 - **Abra a aba Redirect**
-		Em **Páginas › Adicionar página** , mantenha a aba **Redirect**. Para um checkout, use **Ofertas › Adicionar oferta**, que já é um redirecionamento.
+		Em **Páginas › Adicionar página**, mantenha a aba **Redirect**. Para um checkout, use **Ofertas › Adicionar oferta**, que já é um redirecionamento.
 
 - **Preencha os campos**
 
@@ -1536,7 +1578,9 @@ Uma página Redirect registra o acesso, aplica o filtro, dispara os eventos e ma
 
 				Nome | Identificação no painel. |
 
-				URL de redirecionamento | Para onde o visitante vai. O redirecionamento é temporário (302). |
+				URL de redirecionamento | Para onde o visitante vai, com `https://`. |
+
+				Status Code | `302` (padrão), `301`, `307` ou `308`. Veja Qual status usar. |
 
 				Caminho | Endereço no seu domínio, como `/promo`. |
 
@@ -1554,7 +1598,15 @@ Os parâmetros da URL do visitante, como `utm_source` e `fbclid`, são repassado
 
 ## Qual status usar
 
-Use `302`, o padrão. Navegadores guardam em cache redirecionamentos `301` e `308`, então uma troca de destino pode demorar a valer para quem já acessou.
+	Status | Tipo | Quando usar |
+
+		`302` Padrão | Temporário | Quase sempre. Você pode trocar o destino quando quiser. |
+
+		`307` | Temporário | Igual ao 302, mas mantém o método da requisição (útil para formulários com POST). |
+
+		`301` e `308` | Permanente | Só para mudanças definitivas de endereço. |
+
+Navegadores guardam em cache os redirecionamentos `301` e `308`. Se você trocar o destino depois, quem já acessou pode continuar indo para o endereço antigo.
 
 ---
 
@@ -1567,6 +1619,12 @@ URL: https://docs.trackup.me/versoes-e-arquivos
 **Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "A página /promo perdeu conversão depois da edição de ontem. Mostre as versões e restaure a última que estava publicada antes dela." A IA confirma com você antes de restaurar e antes de publicar de novo.
 
 Páginas criadas por [Upload HTML](https://docs.trackup.me/upload-html) ou [Clonar URL](https://docs.trackup.me/clonar-url) têm um editor de arquivos e um histórico de versões. Cada alteração gera uma versão nova, e você pode restaurar qualquer uma.
+
+	**Editar arquivo**Cada alteração gera uma versão
+
+	**Rascunho**O link segue com a versão publicada
+
+	**Publicar**A versão atual vai ao ar
 
 ## Editor de arquivos
 
@@ -1617,13 +1675,13 @@ URL: https://docs.trackup.me/ofertas
 
 > A oferta é a página de checkout do seu produto. É por ela que a venda volta atribuída ao anúncio.
 
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a oferta Excel Basics Course em /checkout-excel, redirecionando para https://pay.example.com/excel-basics, ligada à plataforma de venda Hotmart, e publique." A IA confere se a plataforma existe antes de criar.
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a oferta Excel Basics Course em /checkout-excel, redirecionando para https://pay.example.com/excel-basics, ligada à minha plataforma de venda, e publique." A IA confere se a plataforma existe antes de criar.
 
 Uma oferta é uma página com finalidade Checkout, ligada a uma [plataforma de venda](https://docs.trackup.me/plataformas-de-venda). Na maioria dos casos ela redireciona para o checkout da plataforma, levando junto o ID do clique e as UTMs. Quando a venda acontece, a plataforma devolve esse ID no webhook e o Trackup liga a venda à campanha.
 
 	**Botão de compra**na landing page
 
-	**Oferta**lp.seudominio.com/checkout
+	**Oferta**lp.yourdomain.com/checkout
 
 	**Checkout**com ID do clique e UTMs
 
@@ -1635,7 +1693,7 @@ Uma oferta é uma página com finalidade Checkout, ligada a uma [plataforma de v
 		A oferta precisa de uma [plataforma de venda](https://docs.trackup.me/plataformas-de-venda) integrada. Se ainda não tem, crie em **Integração › Plataformas de vendas** ou pelo atalho **Criar plataforma de vendas** dentro do formulário.
 
 - **Adicione a oferta**
-		No menu lateral, clique em **Ofertas** e em **Adicionar oferta**. A oferta abre em uma página inteira, sem abas. Preencha:
+		No menu lateral, clique em **Ofertas** e em **Adicionar oferta**. A oferta abre em uma página inteira, com um formulário de redirecionamento. Preencha:
 
 			Campo | Descrição |
 
@@ -1643,7 +1701,9 @@ Uma oferta é uma página com finalidade Checkout, ligada a uma [plataforma de v
 
 				Plataforma de vendas | A plataforma que processa o pagamento. |
 
-				URL de redirecionamento | O link do checkout na plataforma. O redirecionamento é temporário (302). |
+				URL de redirecionamento | O link do checkout na plataforma. |
+
+				Status Code | Mantenha `302`, o padrão. Veja [Qual status usar](https://docs.trackup.me/redirect#qual-status-usar). |
 
 				Caminho | Opcional, como `/checkout`. |
 
@@ -1665,9 +1725,9 @@ Crie uma oferta para cada checkout. Um produto pode ter, por exemplo, `Product A
 
 Lista de ofertas
 
-## Oferta com página própria
+## Pré-checkout
 
-Além de Redirect, uma oferta pode ser criada com Builder, Upload HTML ou Clonar URL, por exemplo para um pré-checkout. Nesse caso, o botão dessa página deve levar ao checkout da plataforma.
+No painel, toda oferta é um redirecionamento para o checkout. Se você quer uma página intermediária antes do pagamento (um pré-checkout, uma página de escolha de plano), crie essa página em [Páginas](https://docs.trackup.me/paginas) e aponte o botão dela para o link da oferta. O ID do clique e as UTMs seguem junto até o checkout.
 
 ## Testar ofertas
 
@@ -1793,8 +1853,6 @@ URL: https://docs.trackup.me/acionadores
 
 Um acionador observa os eventos do projeto. Quando um evento atende a todas as condições, ele executa as ações: enviar o evento para um ou mais [pixels](https://docs.trackup.me/pixels) ou chamar um webhook.
 
-Fluxo: o evento chega, o Trackup avalia as condições de cada acionador ativo, executa as ações dos que correspondem e registra cada envio nos [logs](https://docs.trackup.me/logs-de-acionadores).
-
 	**Evento**Chega ao projeto
 
 	**Acionador**Confere as condições
@@ -1807,17 +1865,17 @@ Fluxo: o evento chega, o Trackup avalia as condições de cada acionador ativo, 
 
 ## Acionadores criados automaticamente
 
-Ao adicionar um pixel da Meta, TikTok ou Kwai, o Trackup cria acionadores padrão para ele:
+Ao adicionar um pixel da Meta, TikTok ou Kwai, o Trackup cria quatro acionadores para ele, com o nome do pixel seguido da etapa (por exemplo Meta · Online Store - Pageview). Todos enviam pelo servidor.
 
-	Acionador | Condição |
+	Acionador | Condição | Meta | TikTok | Kwai |
 
-		Pageview | Tipo de evento igual a `page_view` |
+		Pageview | Tipo de evento igual a `page_view` | `PageView` | `ViewContent` | `EVENT_CONTENT_VIEW` |
 
-		Start checkout | Tipo de evento igual a `start_checkout` |
+		Add to cart | Tipo de evento igual a `add_to_cart` | `AddToCart` | `AddToCart` | `EVENT_ADD_TO_CART` |
 
-		Conversão | Tipo de evento igual a `conversion` |
+		Start checkout | Tipo de evento igual a `start_checkout` | `InitiateCheckout` | `InitiateCheckout` | `EVENT_INITIATED_CHECKOUT` |
 
-		Add to cart | Tipo de evento igual a `add_to_cart` |
+		Conversão | Tipo de evento igual a `conversion` | `Purchase` | `CompletePayment` | `EVENT_PURCHASE` |
 
 Você pode editar ou desativar qualquer um deles. No Google Ads, crie os acionadores você mesmo, porque cada etapa precisa da conversion label da ação de conversão.
 
@@ -2119,6 +2177,12 @@ Os filtros de uma mesma regra se combinam com **E**: a regra só corresponde se 
 
 ## Filtro anti-plágio
 
+	**Acesso à página**Com ou sem o parâmetro
+
+		**Com o parâmetro**Veio do anúncio: vê a oferta
+
+		**Sem o parâmetro**Copiou o link ou é robô: safe page ou bloqueio
+
 Ao ligar o filtro, o Trackup gera um parâmetro aleatório. A regra corresponde a todo acesso que chega **sem** esse parâmetro. Com a ação **Bloquear** ou **Exibir página**, só quem clicou no seu anúncio vê a página de verdade. Quem copia o endereço da barra e abre sem o parâmetro, ou um robô de clonagem, vê outra coisa.
 
 - **Ligue o filtro e salve a regra**
@@ -2178,7 +2242,7 @@ Dois grupos de condições unidos por Ou
 
 		País | `ip.geoip.country` | `BR` |
 
-		Host | `http.host` | `oferta.seudominio.com` |
+		Host | `http.host` | `oferta.yourdomain.com` |
 
 		Caminho da URI | `http.request.uri.path` | `/vsl` |
 
@@ -2334,6 +2398,16 @@ Todo visitante nasce só com um **ID**, gerado no primeiro acesso. A partir daí
 
 		5. Pós-venda | Reembolsos e chargebacks entram nas abas do perfil. |
 
+	1**Primeiro acesso**Só o ID, a origem e o dispositivo
+
+	2**Novos acessos**Eventos na linha do tempo
+
+	3**Identificação**Nome, e-mail e telefone pelo script
+
+	4**Compra**Dados do comprador pelo webhook
+
+	5**Pós-venda**Reembolsos e chargebacks
+
 Visitante recém-criado
 
 Lead completo
@@ -2480,6 +2554,12 @@ Quando a plataforma de venda avisa um reembolso ou chargeback pelo webhook, o Tr
 
 Cada linha mostra a **Conversão** de origem e os mesmos dados de atribuição dela, incluindo campanha, conjunto e anúncio. Assim você descobre quais anúncios trazem compradores que pedem reembolso.
 
+	**Venda**Conversão atribuída ao anúncio
+
+	**Webhook**Reembolso ou chargeback da plataforma
+
+	**Status atualizado**Reembolsado ou Chargeback, com a mesma atribuição
+
 Nem todas as plataformas de venda enviam esses eventos. Algumas enviam só pagamentos aprovados. Veja o guia de cada [plataforma](https://docs.trackup.me/integracoes).
 
 Reembolso expandido, com a venda de origem, a atribuição e o marketing
@@ -2499,6 +2579,14 @@ URL: https://docs.trackup.me/logs-de-acionadores
 Em **Logs › Acionadores** fica o histórico de tudo o que os [acionadores](https://docs.trackup.me/acionadores) executaram: disparos de pixel e chamadas de webhook.
 
 Histórico de disparos dos acionadores
+
+	**Acionador**Condições atendidas
+
+		**Pixel**Evento para a plataforma
+
+		**Webhook**Chamada para a sua URL
+
+	**Log**Status, Request e Response
 
 ## Filtrar
 
@@ -2615,6 +2703,14 @@ URL: https://docs.trackup.me/chaves-de-api
 
 Uma chave de API dá acesso à [API do Trackup](https://docs.trackup.me/api) e ao [servidor MCP](https://docs.trackup.me/conectar-mcp) em nome do time. Cada chave tem suas permissões, seus projetos e, se quiser, uma data de validade.
 
+	**Quem cria**Permissões dessa pessoa no time
+
+	**Chave de API**Permissões, projetos e validade escolhidos
+
+		**API REST**Header X-Api-Key
+
+		**MCP**Assistentes de IA
+
 ## Criar uma chave
 
 - **Abra Chaves de API**
@@ -2651,7 +2747,7 @@ Uma chave nunca pode mais do que quem a criou. Se o criador perder uma permissã
 
 ## Usar a chave
 
-Envie a chave no header `X-Api-Key`. A URL base aparece na própria tela, em **URL da API**. Chave ausente, inválida, revogada ou expirada retorna `403` na API REST e `401` no MCP.
+Envie a chave no header `X-Api-Key`. A URL base aparece na própria tela, em **URL da API**. Na API REST, chave ausente ou inválida retorna `401`, e chave revogada ou expirada, `403`. No MCP, todos esses casos retornam `401`, para o assistente pedir uma nova autorização.
 
 Exemplo
 
@@ -2701,6 +2797,16 @@ A tela reúne três blocos:
 - **Aguarde a confirmação**
 		No cartão, o acesso é liberado em segundos. No PIX, assim que o pagamento é confirmado.
 
+	**Ver planos**Limites de cada plano
+
+	**Assinar plano**Cartão ou PIX
+
+	**Assinatura ativa**Renova a cada ciclo
+
+		**Fazer upgrade**Vale na hora
+
+		**Mudar para este plano**Downgrade na renovação
+
 ## Trocar de plano
 
 	Tipo | Quando vale | Cobrança |
@@ -2738,6 +2844,14 @@ O programa de afiliados fica no menu do usuário, em **Afiliados**. Você ganha 
 Painel de afiliados
 
 ## Como funciona
+
+	1**Link de indicação**Você divulga
+
+	2**Time indicado**Assina e paga a fatura
+
+	3**Em carência**30 dias
+
+	4**Disponível**Saque por PIX após aprovação
 
 - **Compartilhe o link**
 		Clique no seu nome, no canto inferior esquerdo, e abra **Afiliados**. Clique em copiar ao lado de **Seu link de indicação** e divulgue.
@@ -2854,6 +2968,14 @@ Content-Type: application/json
   "payment_method": "credit_card"
 }
 ```
+
+	1**Oferta**Envia request_id na URL do checkout
+
+	2**Seu checkout**Guarda o request_id no pedido
+
+	3**POST no webhook**event, transaction_id, value e request_id
+
+	4**Conversão**Atribuída e enviada aos acionadores
 
 ## Configurar
 
@@ -2983,7 +3105,7 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 - **Adicione a plataforma** Vá em **Integração › Plataformas de vendas**, clique em **Adicionar plataforma** e escolha **ActionPay**.
 
-- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `subid1` e as UTMs vão junto. Só mude se a ActionPay pedir outro nome de parâmetro.
+- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `subid1` e as UTMs vão junto. Só altere se a ActionPay usar outro nome de parâmetro.
 
 - **Copie a URL do webhook** Salve. Na lista de plataformas, copie a **URL** da ActionPay.
 URL do webhook na lista de plataformas
@@ -2993,7 +3115,7 @@ URL do webhook na lista de plataformas
 Cole a URL de postback no painel da ActionPay em **Nova postagem**. No link da oferta, adicione `subid1={request.id}` para o clique ser atribuído.
 
 - No painel da ActionPay, abra a área de **webhooks** ou **postback**.
-- Crie uma integração nova e cole a URL do Trackup.
+- Crie uma integração e cole a URL do Trackup.
 - Ative os eventos de compra aprovada, reembolso e chargeback.
 - Selecione os produtos que devem enviar vendas, se a plataforma pedir, e salve.
 
@@ -3003,7 +3125,7 @@ Configuração do webhook na ActionPay
 
 ## 3. Teste
 
-Acesse sua landing page por um link do Trackup, clique no botão de compra e faça uma compra de teste. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
+Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
 
 Se a venda aparecer como **Click ID ausente**, o botão da página não está apontando para o link da [oferta](https://docs.trackup.me/ofertas) no Trackup, ou o checkout não está devolvendo o parâmetro do clique.
 
@@ -3036,7 +3158,7 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 - **Adicione a plataforma** Vá em **Integração › Plataformas de vendas**, clique em **Adicionar plataforma** e escolha **AmploPay**.
 
-- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `utm_id` e as UTMs vão junto. Só mude se a AmploPay pedir outro nome de parâmetro.
+- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `utm_id` e as UTMs vão junto. Só altere se a AmploPay usar outro nome de parâmetro.
 
 - **Copie a URL do webhook** Salve. Na lista de plataformas, copie a **URL** da AmploPay.
 URL do webhook na lista de plataformas
@@ -3044,7 +3166,7 @@ URL do webhook na lista de plataformas
 ## 2. Cadastre o webhook na AmploPay
 
 - No painel da AmploPay, abra a área de **webhooks** ou **postback**.
-- Crie uma integração nova e cole a URL do Trackup.
+- Crie uma integração e cole a URL do Trackup.
 - Ative os eventos de compra aprovada, reembolso e chargeback.
 - Selecione os produtos que devem enviar vendas, se a plataforma pedir, e salve.
 
@@ -3054,7 +3176,7 @@ Configuração do webhook na AmploPay
 
 ## 3. Teste
 
-Acesse sua landing page por um link do Trackup, clique no botão de compra e faça uma compra de teste. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
+Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
 
 Se a venda aparecer como **Click ID ausente**, o botão da página não está apontando para o link da [oferta](https://docs.trackup.me/ofertas) no Trackup, ou o checkout não está devolvendo o parâmetro do clique.
 
@@ -3087,7 +3209,7 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 - **Adicione a plataforma** Vá em **Integração › Plataformas de vendas**, clique em **Adicionar plataforma** e escolha **Appmax**.
 
-- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `src` e as UTMs vão junto. Só mude se a Appmax pedir outro nome de parâmetro.
+- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `src` e as UTMs vão junto. Só altere se a Appmax usar outro nome de parâmetro.
 
 - **Copie a URL do webhook** Salve. Na lista de plataformas, copie a **URL** da Appmax.
 URL do webhook na lista de plataformas
@@ -3095,7 +3217,7 @@ URL do webhook na lista de plataformas
 ## 2. Cadastre o webhook na Appmax
 
 - No painel da Appmax, abra a área de **webhooks** ou **postback**.
-- Crie uma integração nova e cole a URL do Trackup.
+- Crie uma integração e cole a URL do Trackup.
 - Ative os eventos de compra aprovada, reembolso e chargeback.
 - Selecione os produtos que devem enviar vendas, se a plataforma pedir, e salve.
 
@@ -3105,7 +3227,7 @@ Configuração do webhook na Appmax
 
 ## 3. Teste
 
-Acesse sua landing page por um link do Trackup, clique no botão de compra e faça uma compra de teste. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
+Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
 
 Se a venda aparecer como **Click ID ausente**, o botão da página não está apontando para o link da [oferta](https://docs.trackup.me/ofertas) no Trackup, ou o checkout não está devolvendo o parâmetro do clique.
 
@@ -3138,32 +3260,30 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 - **Adicione a plataforma** Vá em **Integração › Plataformas de vendas**, clique em **Adicionar plataforma** e escolha **Átomo Pay**.
 
-- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `src` e as UTMs vão junto. Só mude se a Átomo Pay pedir outro nome de parâmetro.
+- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `src` e as UTMs vão junto. Só altere se a Átomo Pay usar outro nome de parâmetro.
 
 - **Copie a URL do webhook** Salve. Na lista de plataformas, copie a **URL** da Átomo Pay.
 URL do webhook na lista de plataformas
 
 ## 2. Cadastre o webhook na Átomo Pay
 
-- Integrações/Webhooks
+- No painel da Átomo Pay, abra **Integrações › Webhooks** e clique em **Adicionar**.
 
-- Adicionar
+- Cole a URL do Trackup.
 
-- Cole a URL do Trackup
+- Selecione os produtos que devem enviar vendas.
 
-- Selecione os Produtos
+- Marque todos os métodos de pagamento.
 
-- Marque todos métodos de Pagamento
+- Marque os status **Pago**, **Reembolsado** e **Chargeback**.
 
-- Marque os Status de Pagamento (Pago, Reembolsado, Chargeback)
-
-- Salve
+- Salve.
 
 Configuração no painel da Átomo Pay
 
 ## 3. Teste
 
-Acesse sua landing page por um link do Trackup, clique no botão de compra e faça uma compra de teste. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
+Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
 
 Se a venda aparecer como **Click ID ausente**, o botão da página não está apontando para o link da [oferta](https://docs.trackup.me/ofertas) no Trackup, ou o checkout não está devolvendo o parâmetro do clique.
 
@@ -3196,26 +3316,24 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 - **Adicione a plataforma** Vá em **Integração › Plataformas de vendas**, clique em **Adicionar plataforma** e escolha **Braip**.
 
-- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `src` e as UTMs vão junto. Só mude se a Braip pedir outro nome de parâmetro.
+- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `src` e as UTMs vão junto. Só altere se a Braip usar outro nome de parâmetro.
 
 - **Copie a URL do webhook** Salve. Na lista de plataformas, copie a **URL** da Braip.
 URL do webhook na lista de plataformas
 
 ## 2. Cadastre o webhook na Braip
 
-- Ferramentas / Postback
+- No painel da Braip, abra **Ferramentas › Postback** e clique em **Nova configuração**.
 
-- Nova configuração
+- Dê um nome à integração, como Trackup.
 
-- Adicionar um nome para a integração
+- Cole a URL do Trackup.
 
-- Cole a URL do Trackup
+- Selecione os produtos.
 
-- Selecione os Produtos
+- Marque os eventos de pagamento **Pago**, **Reembolsado** e **Chargeback**.
 
-- Marque os Eventos de Pagamento (Pago, Reembolsado, Chargeback)
-
-- Salve
+- Salve.
 
 Configuração no painel da Braip
 
@@ -3223,7 +3341,7 @@ Configuração no painel da Braip
 
 ## 3. Teste
 
-Acesse sua landing page por um link do Trackup, clique no botão de compra e faça uma compra de teste. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
+Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
 
 Se a venda aparecer como **Click ID ausente**, o botão da página não está apontando para o link da [oferta](https://docs.trackup.me/ofertas) no Trackup, ou o checkout não está devolvendo o parâmetro do clique.
 
@@ -3256,7 +3374,7 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 - **Adicione a plataforma** Vá em **Integração › Plataformas de vendas**, clique em **Adicionar plataforma** e escolha **BuyGoods**.
 
-- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `subid` e as UTMs vão junto. Só mude se a BuyGoods pedir outro nome de parâmetro.
+- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `subid` e as UTMs vão junto. Só altere se a BuyGoods usar outro nome de parâmetro.
 
 - **Copie a URL do webhook** Salve. Na lista de plataformas, copie a **URL** da BuyGoods.
 URL do webhook na lista de plataformas
@@ -3264,7 +3382,7 @@ URL do webhook na lista de plataformas
 ## 2. Cadastre o webhook na BuyGoods
 
 - No painel da BuyGoods, abra a área de **webhooks** ou **postback**.
-- Crie uma integração nova e cole a URL do Trackup.
+- Crie uma integração e cole a URL do Trackup.
 - Ative os eventos de compra aprovada, reembolso e chargeback.
 - Selecione os produtos que devem enviar vendas, se a plataforma pedir, e salve.
 
@@ -3274,7 +3392,7 @@ Configuração do webhook na BuyGoods
 
 ## 3. Teste
 
-Acesse sua landing page por um link do Trackup, clique no botão de compra e faça uma compra de teste. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
+Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
 
 Se a venda aparecer como **Click ID ausente**, o botão da página não está apontando para o link da [oferta](https://docs.trackup.me/ofertas) no Trackup, ou o checkout não está devolvendo o parâmetro do clique.
 
@@ -3307,28 +3425,24 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 - **Adicione a plataforma** Vá em **Integração › Plataformas de vendas**, clique em **Adicionar plataforma** e escolha **CartPanda**.
 
-- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `sck` e as UTMs vão junto. Só mude se a CartPanda pedir outro nome de parâmetro.
+- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `sck` e as UTMs vão junto. Só altere se a CartPanda usar outro nome de parâmetro.
 
 - **Copie a URL do webhook** Salve. Na lista de plataformas, copie a **URL** da CartPanda.
 URL do webhook na lista de plataformas
 
 ## 2. Cadastre o webhook na CartPanda
 
-- Admin / Notificações
+- No admin da CartPanda, abra **Notificações › Webhooks** e clique em **Configurar Webhooks**.
 
-- Webhooks / Configurar Webhooks
+- Clique em **Criar Webhook** e dê um nome à integração.
 
-- Criar Webhook
+- Selecione os eventos **Pedido Pago**, **Pedido Reembolsado** e **Pedido Chargeback**.
 
-- Insira um nome para a integração
+- Cole a URL do Trackup.
 
-- Selecione os Eventos (Pedido Pago, Pedido Reembolsado, Pedido Chargeback)
+- Selecione os produtos.
 
-- Cole a URL do Trackup
-
-- Selecione os produtos desejados
-
-- Salvar Webhook
+- Clique em **Salvar Webhook**.
 
 Configuração no painel da CartPanda
 
@@ -3340,7 +3454,7 @@ Configuração no painel da CartPanda
 
 ## 3. Teste
 
-Acesse sua landing page por um link do Trackup, clique no botão de compra e faça uma compra de teste. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
+Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
 
 Se a venda aparecer como **Click ID ausente**, o botão da página não está apontando para o link da [oferta](https://docs.trackup.me/ofertas) no Trackup, ou o checkout não está devolvendo o parâmetro do clique.
 
@@ -3373,32 +3487,30 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 - **Adicione a plataforma** Vá em **Integração › Plataformas de vendas**, clique em **Adicionar plataforma** e escolha **DigiPag**.
 
-- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `src` e as UTMs vão junto. Só mude se a DigiPag pedir outro nome de parâmetro.
+- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `src` e as UTMs vão junto. Só altere se a DigiPag usar outro nome de parâmetro.
 
 - **Copie a URL do webhook** Salve. Na lista de plataformas, copie a **URL** da DigiPag.
 URL do webhook na lista de plataformas
 
 ## 2. Cadastre o webhook na DigiPag
 
-- Integrações/Webhooks
+- No painel da DigiPag, abra **Integrações › Webhooks** e clique em **Adicionar**.
 
-- Adicionar
+- Cole a URL do Trackup.
 
-- Cole a URL do Trackup
+- Selecione os produtos que devem enviar vendas.
 
-- Selecione os Produtos
+- Marque todos os métodos de pagamento.
 
-- Marque todos métodos de Pagamento
+- Marque os status **Pago**, **Reembolsado** e **Chargeback**.
 
-- Marque os Status de Pagamento (Pago, Reembolsado, Chargeback)
-
-- Salve
+- Salve.
 
 Configuração no painel da DigiPag
 
 ## 3. Teste
 
-Acesse sua landing page por um link do Trackup, clique no botão de compra e faça uma compra de teste. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
+Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
 
 Se a venda aparecer como **Click ID ausente**, o botão da página não está apontando para o link da [oferta](https://docs.trackup.me/ofertas) no Trackup, ou o checkout não está devolvendo o parâmetro do clique.
 
@@ -3431,7 +3543,7 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 - **Adicione a plataforma** Vá em **Integração › Plataformas de vendas**, clique em **Adicionar plataforma** e escolha **DigiStore24**.
 
-- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `cid` e as UTMs vão junto. Só mude se a Digistore24 pedir outro nome de parâmetro.
+- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `cid` e as UTMs vão junto. Só altere se a Digistore24 usar outro nome de parâmetro.
 
 - **Copie a URL do webhook** Salve. Na lista de plataformas, copie a **URL** da Digistore24.
 URL do webhook na lista de plataformas
@@ -3439,7 +3551,7 @@ URL do webhook na lista de plataformas
 ## 2. Cadastre o webhook na Digistore24
 
 - No painel da Digistore24, abra a área de **webhooks** ou **postback**.
-- Crie uma integração nova e cole a URL do Trackup.
+- Crie uma integração e cole a URL do Trackup.
 - Ative os eventos de compra aprovada, reembolso e chargeback.
 - Selecione os produtos que devem enviar vendas, se a plataforma pedir, e salve.
 
@@ -3449,7 +3561,7 @@ Configuração do webhook na Digistore24
 
 ## 3. Teste
 
-Acesse sua landing page por um link do Trackup, clique no botão de compra e faça uma compra de teste. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
+Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
 
 Se a venda aparecer como **Click ID ausente**, o botão da página não está apontando para o link da [oferta](https://docs.trackup.me/ofertas) no Trackup, ou o checkout não está devolvendo o parâmetro do clique.
 
@@ -3482,24 +3594,22 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 - **Adicione a plataforma** Vá em **Integração › Plataformas de vendas**, clique em **Adicionar plataforma** e escolha **Eduzz**.
 
-- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `tracker_trk` e as UTMs vão junto. Só mude se a Eduzz pedir outro nome de parâmetro.
+- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `tracker_trk` e as UTMs vão junto. Só altere se a Eduzz usar outro nome de parâmetro.
 
 - **Copie a URL do webhook** Salve. Na lista de plataformas, copie a **URL** da Eduzz.
 URL do webhook na lista de plataformas
 
 ## 2. Cadastre o webhook na Eduzz
 
-- Developer Hub / Integrações
+- No **Developer Hub** da Eduzz, abra **Integrações**.
 
-- Configurações / Nova Configuração
+- Em **Configurações**, clique em **Nova Configuração** e dê um nome à integração.
 
-- Insira um nome para a integração
+- Cole a URL do Trackup.
 
-- Cole a URL do Trackup
+- Marque os eventos `myeduzz.invoice_paid`, `myeduzz.invoice_refunded` e `myeduzz.invoice_chargeback`.
 
-- Marque as Vendas (myeduzz.invoice_chargeback, myeduzz.invoice_paid, myeduzz.invoice_refunded)
-
-- Criar Configuração
+- Clique em **Criar Configuração**.
 
 Configuração no painel da Eduzz
 
@@ -3509,7 +3619,7 @@ Configuração no painel da Eduzz
 
 ## 3. Teste
 
-Acesse sua landing page por um link do Trackup, clique no botão de compra e faça uma compra de teste. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
+Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
 
 Se a venda aparecer como **Click ID ausente**, o botão da página não está apontando para o link da [oferta](https://docs.trackup.me/ofertas) no Trackup, ou o checkout não está devolvendo o parâmetro do clique.
 
@@ -3542,32 +3652,30 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 - **Adicione a plataforma** Vá em **Integração › Plataformas de vendas**, clique em **Adicionar plataforma** e escolha **GoatPay**.
 
-- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `src` e as UTMs vão junto. Só mude se a GoatPay pedir outro nome de parâmetro.
+- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `src` e as UTMs vão junto. Só altere se a GoatPay usar outro nome de parâmetro.
 
 - **Copie a URL do webhook** Salve. Na lista de plataformas, copie a **URL** da GoatPay.
 URL do webhook na lista de plataformas
 
 ## 2. Cadastre o webhook na GoatPay
 
-- Integrações/Webhooks
+- No painel da GoatPay, abra **Integrações › Webhooks** e clique em **Adicionar**.
 
-- Adicionar
+- Cole a URL do Trackup.
 
-- Cole a URL do Trackup
+- Selecione os produtos que devem enviar vendas.
 
-- Selecione os Produtos
+- Marque todos os métodos de pagamento.
 
-- Marque todos métodos de Pagamento
+- Marque os status **Pago**, **Reembolsado** e **Chargeback**.
 
-- Marque os Status de Pagamento (Pago, Reembolsado, Chargeback)
-
-- Salve
+- Salve.
 
 Configuração no painel da GoatPay
 
 ## 3. Teste
 
-Acesse sua landing page por um link do Trackup, clique no botão de compra e faça uma compra de teste. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
+Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
 
 Se a venda aparecer como **Click ID ausente**, o botão da página não está apontando para o link da [oferta](https://docs.trackup.me/ofertas) no Trackup, ou o checkout não está devolvendo o parâmetro do clique.
 
@@ -3598,9 +3706,9 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 ## 1. Crie a plataforma no Trackup
 
-- **Adicione a plataforma** Vá em **Integração › Plataformas de vendas**, clique em **Adicionar plataforma** e escolha **Hotmart 1.0 ou Hotmart 2.0**.
+- **Adicione a plataforma** Vá em **Integração › Plataformas de vendas**, clique em **Adicionar plataforma** e escolha **Hotmart 2.0** (ou **Hotmart 1.0**, em integrações antigas).
 
-- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `xcod (1.0) ou sck (2.0)` e as UTMs vão junto. Só mude se a Hotmart pedir outro nome de parâmetro.
+- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `sck` (Hotmart 2.0) ou `xcod` (Hotmart 1.0) e as UTMs vão junto. Só altere se a Hotmart usar outro nome de parâmetro.
 
 - **Copie a URL do webhook** Salve. Na lista de plataformas, copie a **URL** da Hotmart.
 URL do webhook na lista de plataformas
@@ -3609,23 +3717,19 @@ URL do webhook na lista de plataformas
 
 Há dois tipos no Trackup. Use **Hotmart 2.0** em integrações novas: ele envia o clique no parâmetro `sck`. O tipo **Hotmart 1.0** usa `xcod` e continua disponível para integrações antigas.
 
-- Ferramentas / Ver todas
+- Na Hotmart, abra **Ferramentas**, clique em **Ver todas** e escolha **Webhook (API e notificações)**.
 
-- Selecione Webhook (API e notificações)
+- Clique em **Cadastrar Webhook** e dê um nome à configuração, como Trackup.
 
-- Cadastrar Webhook
+- Selecione os produtos que devem enviar vendas.
 
-- Insira um nome para sua organização
+- Cole a URL do Trackup.
 
-- Selecione os produtos que deseja disparar
+- Selecione a versão **2.0.0**.
 
-- Cole a URL do Trackup
+- Marque os eventos **Compra aprovada**, **Compra reembolsada** e **Chargeback**.
 
-- Selecione a versão 2.0.0
-
-- Marque os Eventos (Compra aprovada, Compra reembolsada, Chargeback)
-
-- Salve
+- Salve.
 
 Configuração no painel da Hotmart
 
@@ -3633,7 +3737,7 @@ Configuração no painel da Hotmart
 
 ## 3. Teste
 
-Acesse sua landing page por um link do Trackup, clique no botão de compra e faça uma compra de teste. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
+Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
 
 Se a venda aparecer como **Click ID ausente**, o botão da página não está apontando para o link da [oferta](https://docs.trackup.me/ofertas) no Trackup, ou o checkout não está devolvendo o parâmetro do clique.
 
@@ -3666,30 +3770,28 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 - **Adicione a plataforma** Vá em **Integração › Plataformas de vendas**, clique em **Adicionar plataforma** e escolha **InovaPag**.
 
-- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `src` e as UTMs vão junto. Só mude se a InovaPag pedir outro nome de parâmetro.
+- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `src` e as UTMs vão junto. Só altere se a InovaPag usar outro nome de parâmetro.
 
 - **Copie a URL do webhook** Salve. Na lista de plataformas, copie a **URL** da InovaPag.
 URL do webhook na lista de plataformas
 
 ## 2. Cadastre o webhook na InovaPag
 
-- Integrações/Webhooks
+- No painel da InovaPag, abra **Integrações › Webhooks** e clique em **Adicionar**.
 
-- Adicionar
+- Cole a URL do Trackup.
 
-- Cole a URL do Trackup
+- Selecione os produtos que devem enviar vendas.
 
-- Selecione os Produtos
+- Marque todos os métodos de pagamento.
 
-- Marque todos métodos de Pagamento
+- Marque os status **Pago**, **Reembolsado** e **Chargeback**.
 
-- Marque os Status de Pagamento (Pago, Reembolsado, Chargeback)
-
-- Salve
+- Salve.
 
 ## 3. Teste
 
-Acesse sua landing page por um link do Trackup, clique no botão de compra e faça uma compra de teste. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
+Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
 
 Se a venda aparecer como **Click ID ausente**, o botão da página não está apontando para o link da [oferta](https://docs.trackup.me/ofertas) no Trackup, ou o checkout não está devolvendo o parâmetro do clique.
 
@@ -3722,26 +3824,24 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 - **Adicione a plataforma** Vá em **Integração › Plataformas de vendas**, clique em **Adicionar plataforma** e escolha **Kirvano**.
 
-- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `src` e as UTMs vão junto. Só mude se a Kirvano pedir outro nome de parâmetro.
+- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `src` e as UTMs vão junto. Só altere se a Kirvano usar outro nome de parâmetro.
 
 - **Copie a URL do webhook** Salve. Na lista de plataformas, copie a **URL** da Kirvano.
 URL do webhook na lista de plataformas
 
 ## 2. Cadastre o webhook na Kirvano
 
-- Integrações / Webhooks
+- Na Kirvano, abra **Integrações › Webhooks** e clique em **Adicionar Integração**.
 
-- Adicionar Integração
+- Dê um nome à integração.
 
-- Adicionar um nome para a integração
+- Cole a URL do Trackup.
 
-- Cole a URL do Trackup
+- Selecione os produtos.
 
-- Selecione os Produtos
+- Marque os eventos **Compra aprovada**, **Reembolsado** e **Chargeback**.
 
-- Marque os Eventos (Compra aprovada, Reembolsado, Chargeback)
-
-- Criar
+- Clique em **Criar**.
 
 Configuração no painel da Kirvano
 
@@ -3751,7 +3851,7 @@ Configuração no painel da Kirvano
 
 ## 3. Teste
 
-Acesse sua landing page por um link do Trackup, clique no botão de compra e faça uma compra de teste. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
+Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
 
 Se a venda aparecer como **Click ID ausente**, o botão da página não está apontando para o link da [oferta](https://docs.trackup.me/ofertas) no Trackup, ou o checkout não está devolvendo o parâmetro do clique.
 
@@ -3784,26 +3884,24 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 - **Adicione a plataforma** Vá em **Integração › Plataformas de vendas**, clique em **Adicionar plataforma** e escolha **Kiwify**.
 
-- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `sck` e as UTMs vão junto. Só mude se a Kiwify pedir outro nome de parâmetro.
+- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `sck` e as UTMs vão junto. Só altere se a Kiwify usar outro nome de parâmetro.
 
 - **Copie a URL do webhook** Salve. Na lista de plataformas, copie a **URL** da Kiwify.
 URL do webhook na lista de plataformas
 
 ## 2. Cadastre o webhook na Kiwify
 
-- Aps/Webhooks
+- Na Kiwify, abra **Apps › Webhooks** e clique em **Criar Webhook**.
 
-- Criar Webhook
+- Dê um nome ao webhook.
 
-- Insira um nome para o webhook
+- Cole a URL do Trackup.
 
-- Cole a URL do Trackup
+- Selecione os produtos.
 
-- Selecione os Produtos
+- Marque os eventos **Compra aprovada**, **Reembolso** e **Chargeback**.
 
-- Marque os Eventos (Compra aprovada, Reembolso, Chargeback
-
-- Criar
+- Clique em **Criar**.
 
 Configuração no painel da Kiwify
 
@@ -3811,7 +3909,7 @@ Configuração no painel da Kiwify
 
 ## 3. Teste
 
-Acesse sua landing page por um link do Trackup, clique no botão de compra e faça uma compra de teste. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
+Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
 
 Se a venda aparecer como **Click ID ausente**, o botão da página não está apontando para o link da [oferta](https://docs.trackup.me/ofertas) no Trackup, ou o checkout não está devolvendo o parâmetro do clique.
 
@@ -3844,7 +3942,7 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 - **Adicione a plataforma** Vá em **Integração › Plataformas de vendas**, clique em **Adicionar plataforma** e escolha **LastLink**.
 
-- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `sck` e as UTMs vão junto. Só mude se a LastLink pedir outro nome de parâmetro.
+- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `sck` e as UTMs vão junto. Só altere se a LastLink usar outro nome de parâmetro.
 
 - **Copie a URL do webhook** Salve. Na lista de plataformas, copie a **URL** da LastLink.
 URL do webhook na lista de plataformas
@@ -3854,7 +3952,7 @@ URL do webhook na lista de plataformas
 Não ative **Fatura criada** nem **Assinatura pendente de renovação**: esses eventos não são vendas.
 
 - No painel da LastLink, abra a área de **webhooks** ou **postback**.
-- Crie uma integração nova e cole a URL do Trackup.
+- Crie uma integração e cole a URL do Trackup.
 - Ative os eventos de Compra completa, Pagamento de renovação, Pagamento reembolsado e Pagamento estornado.
 - Selecione os produtos que devem enviar vendas, se a plataforma pedir, e salve.
 
@@ -3864,7 +3962,7 @@ Configuração do webhook na LastLink
 
 ## 3. Teste
 
-Acesse sua landing page por um link do Trackup, clique no botão de compra e faça uma compra de teste. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
+Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
 
 Se a venda aparecer como **Click ID ausente**, o botão da página não está apontando para o link da [oferta](https://docs.trackup.me/ofertas) no Trackup, ou o checkout não está devolvendo o parâmetro do clique.
 
@@ -3897,26 +3995,24 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 - **Adicione a plataforma** Vá em **Integração › Plataformas de vendas**, clique em **Adicionar plataforma** e escolha **Luna Checkout**.
 
-- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `src` e as UTMs vão junto. Só mude se a Luna Checkout pedir outro nome de parâmetro.
+- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `src` e as UTMs vão junto. Só altere se a Luna Checkout usar outro nome de parâmetro.
 
 - **Copie a URL do webhook** Salve. Na lista de plataformas, copie a **URL** da Luna Checkout.
 URL do webhook na lista de plataformas
 
 ## 2. Cadastre o webhook na Luna Checkout
 
-- Desenvolvedores/Webhooks
+- No Luna Checkout, abra **Desenvolvedores › Webhooks** e clique em **Nova integração**.
 
-- Nova integração
+- Dê um nome à integração.
 
-- Adicionar um nome para a integração
+- Cole a URL do Trackup.
 
-- Cole a URL do Trackup
+- Marque os eventos **Venda Aprovada**, **Venda Estornada** e **Venda Chargeback**.
 
-- Marque os Eventos (Venda Aprovada, Venda Chargeback, Venda Estornada)
+- Se quiser, restrinja a integração a alguns produtos.
 
-- Restrinja produtos caso necessário
-
-- Salve
+- Salve.
 
 Configuração no painel da Luna Checkout
 
@@ -3926,7 +4022,7 @@ Configuração no painel da Luna Checkout
 
 ## 3. Teste
 
-Acesse sua landing page por um link do Trackup, clique no botão de compra e faça uma compra de teste. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
+Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
 
 Se a venda aparecer como **Click ID ausente**, o botão da página não está apontando para o link da [oferta](https://docs.trackup.me/ofertas) no Trackup, ou o checkout não está devolvendo o parâmetro do clique.
 
@@ -3959,32 +4055,28 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 - **Adicione a plataforma** Vá em **Integração › Plataformas de vendas**, clique em **Adicionar plataforma** e escolha **Monetizze**.
 
-- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `src` e as UTMs vão junto. Só mude se a Monetizze pedir outro nome de parâmetro.
+- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `src` e as UTMs vão junto. Só altere se a Monetizze usar outro nome de parâmetro.
 
 - **Copie a URL do webhook** Salve. Na lista de plataformas, copie a **URL** da Monetizze.
 URL do webhook na lista de plataformas
 
 ## 2. Cadastre o webhook na Monetizze
 
-- Ferramentas / Postback - Webhook
+- Na Monetizze, abra **Ferramentas › Postback - Webhook**.
 
-- Selecione os Produtos
+- Selecione os produtos e as vendas que devem ser enviadas.
 
-- Selecione as vendas que deseja trackear
+- Em **Tipo**, escolha **Webhook (server to server)** e o formato **JSON**.
 
-- Tipo : Webhook (server to server)
+- Cole a URL do Trackup.
 
-- Formato JSON
+- Marque as vendas **Completa**, **Cancelada** e **Devolvida** (reembolso).
 
-- Cole a URL do Trackup
-
-- Marque as Vendas (Cancelada, Completa, Desevolvida(Reembolso)
-
-- Salvar
+- Salve.
 
 ## 3. Teste
 
-Acesse sua landing page por um link do Trackup, clique no botão de compra e faça uma compra de teste. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
+Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
 
 Se a venda aparecer como **Click ID ausente**, o botão da página não está apontando para o link da [oferta](https://docs.trackup.me/ofertas) no Trackup, ou o checkout não está devolvendo o parâmetro do clique.
 
@@ -4017,7 +4109,7 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 - **Adicione a plataforma** Vá em **Integração › Plataformas de vendas**, clique em **Adicionar plataforma** e escolha **Mundpay**.
 
-- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `sck` e as UTMs vão junto. Só mude se a Mundpay pedir outro nome de parâmetro.
+- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `sck` e as UTMs vão junto. Só altere se a Mundpay usar outro nome de parâmetro.
 
 - **Copie a URL do webhook** Salve. Na lista de plataformas, copie a **URL** da Mundpay.
 URL do webhook na lista de plataformas
@@ -4027,7 +4119,7 @@ URL do webhook na lista de plataformas
 Em **Integrações › Webhooks**, cadastre a URL como **Postback URL**. No link do checkout, use `sck={request.id}`.
 
 - No painel da Mundpay, abra a área de **webhooks** ou **postback**.
-- Crie uma integração nova e cole a URL do Trackup.
+- Crie uma integração e cole a URL do Trackup.
 - Ative os eventos de `order.paid`, `order.awaiting_payment`, `order.refunded` e `order.chargeback`.
 - Selecione os produtos que devem enviar vendas, se a plataforma pedir, e salve.
 
@@ -4037,7 +4129,7 @@ Configuração do webhook na Mundpay
 
 ## 3. Teste
 
-Acesse sua landing page por um link do Trackup, clique no botão de compra e faça uma compra de teste. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
+Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
 
 Se a venda aparecer como **Click ID ausente**, o botão da página não está apontando para o link da [oferta](https://docs.trackup.me/ofertas) no Trackup, ou o checkout não está devolvendo o parâmetro do clique.
 
@@ -4074,7 +4166,7 @@ A Nuvemshop conecta por autorização (OAuth): o Trackup instala sozinho os webh
 
 ## 2. Teste
 
-Acesse sua landing page por um link do Trackup, clique no botão de compra e faça uma compra de teste. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
+Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
 
 Se a venda aparecer como **Click ID ausente**, o botão da página não está apontando para o link da [oferta](https://docs.trackup.me/ofertas) no Trackup, ou o checkout não está devolvendo o parâmetro do clique.
 
@@ -4107,7 +4199,7 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 - **Adicione a plataforma** Vá em **Integração › Plataformas de vendas**, clique em **Adicionar plataforma** e escolha **Pague.io**.
 
-- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `click_id` e as UTMs vão junto. Só mude se a Pague.io pedir outro nome de parâmetro.
+- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `click_id` e as UTMs vão junto. Só altere se a Pague.io usar outro nome de parâmetro.
 
 - **Copie a URL do webhook** Salve. Na lista de plataformas, copie a **URL** da Pague.io.
 URL do webhook na lista de plataformas
@@ -4115,7 +4207,7 @@ URL do webhook na lista de plataformas
 ## 2. Cadastre o webhook na Pague.io
 
 - No painel da Pague.io, abra a área de **webhooks** ou **postback**.
-- Crie uma integração nova e cole a URL do Trackup.
+- Crie uma integração e cole a URL do Trackup.
 - Ative os eventos de compra aprovada, reembolso e chargeback.
 - Selecione os produtos que devem enviar vendas, se a plataforma pedir, e salve.
 
@@ -4125,7 +4217,7 @@ Configuração do webhook na Pague.io
 
 ## 3. Teste
 
-Acesse sua landing page por um link do Trackup, clique no botão de compra e faça uma compra de teste. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
+Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
 
 Se a venda aparecer como **Click ID ausente**, o botão da página não está apontando para o link da [oferta](https://docs.trackup.me/ofertas) no Trackup, ou o checkout não está devolvendo o parâmetro do clique.
 
@@ -4158,24 +4250,20 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 - **Adicione a plataforma** Vá em **Integração › Plataformas de vendas**, clique em **Adicionar plataforma** e escolha **Paradise**.
 
-- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `src` e as UTMs vão junto. Só mude se a Paradise pedir outro nome de parâmetro.
+- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `src` e as UTMs vão junto. Só altere se a Paradise usar outro nome de parâmetro.
 
 - **Copie a URL do webhook** Salve. Na lista de plataformas, copie a **URL** da Paradise.
 URL do webhook na lista de plataformas
 
 ## 2. Cadastre o webhook na Paradise
 
-- Integrações
+- Na Paradise, abra **Integrações › Webhooks (Postbacks)** e clique em **Adicionar/Gerenciar Webhooks**.
 
-- Webhooks (Postbacks)
+- Cole a URL do Trackup.
 
-- Adicionar/Gerenciar Webhooks
+- Marque **Venda Aprovada** e **Venda Reembolsada**.
 
-- Cole a URL do Trackup
-
-- Marque (Venda Aprovada e Venda Reembolsada)
-
-- Salvar Alterações
+- Clique em **Salvar Alterações**.
 
 Configuração no painel da Paradise
 
@@ -4183,7 +4271,7 @@ Configuração no painel da Paradise
 
 ## 3. Teste
 
-Acesse sua landing page por um link do Trackup, clique no botão de compra e faça uma compra de teste. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
+Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
 
 Se a venda aparecer como **Click ID ausente**, o botão da página não está apontando para o link da [oferta](https://docs.trackup.me/ofertas) no Trackup, ou o checkout não está devolvendo o parâmetro do clique.
 
@@ -4216,28 +4304,24 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 - **Adicione a plataforma** Vá em **Integração › Plataformas de vendas**, clique em **Adicionar plataforma** e escolha **Payt**.
 
-- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `src` e as UTMs vão junto. Só mude se a Payt pedir outro nome de parâmetro.
+- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `src` e as UTMs vão junto. Só altere se a Payt usar outro nome de parâmetro.
 
 - **Copie a URL do webhook** Salve. Na lista de plataformas, copie a **URL** da Payt.
 URL do webhook na lista de plataformas
 
 ## 2. Cadastre o webhook na Payt
 
-- Ferramentas / Postback
+- Na Payt, abra **Ferramentas › Postback** e clique em **Cadastrar**.
 
-- Cadastrar
+- Dê um nome à integração.
 
-- Adicionar um nome para a integração
+- Cole a URL do Trackup.
 
-- Cole a URL do Trackup
+- Selecione os produtos.
 
-- Selecione os Produtos
+- Marque os eventos **Finalizada/Aprovada**, **Cancelada - Reembolso** e **Cancelada - Chargeback**. Se vende com pagamento após o recebimento, marque também **Pedido Confirmado**.
 
-- Marque os Eventos (Finalizada/Aprovada, Cancelada - Chargeback, Cancelada - Reembolso)
-
-- Eventos Pague após receber (Pedido Confirmado)
-
-- Salve
+- Salve.
 
 Configuração no painel da Payt
 
@@ -4245,7 +4329,7 @@ Configuração no painel da Payt
 
 ## 3. Teste
 
-Acesse sua landing page por um link do Trackup, clique no botão de compra e faça uma compra de teste. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
+Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
 
 Se a venda aparecer como **Click ID ausente**, o botão da página não está apontando para o link da [oferta](https://docs.trackup.me/ofertas) no Trackup, ou o checkout não está devolvendo o parâmetro do clique.
 
@@ -4278,26 +4362,24 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 - **Adicione a plataforma** Vá em **Integração › Plataformas de vendas**, clique em **Adicionar plataforma** e escolha **PerfectPay**.
 
-- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `click_id` e as UTMs vão junto. Só mude se a PerfectPay pedir outro nome de parâmetro.
+- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `click_id` e as UTMs vão junto. Só altere se a PerfectPay usar outro nome de parâmetro.
 
 - **Copie a URL do webhook** Salve. Na lista de plataformas, copie a **URL** da PerfectPay.
 URL do webhook na lista de plataformas
 
 ## 2. Cadastre o webhook na PerfectPay
 
-- Ferramentas/Webhooks - Vendas
+- Na PerfectPay, abra **Ferramentas › Webhooks - Vendas** e clique em **Adicionar**.
 
-- Adicionar
+- Selecione os produtos.
 
-- Selecione os Produtos
+- Cole a URL do Trackup.
 
-- Cole a URL do Trackup
+- Escolha as variáveis que quiser enviar.
 
-- Selecione as váriaveis de acordo com sua preferência
+- Marque os eventos **Aprovado**, **Devolvido** e **Charge back**.
 
-- Marque os Eventos (Aprovado, Devolvido, Charge back
-
-- Salve
+- Salve.
 
 Configuração no painel da PerfectPay
 
@@ -4305,7 +4387,7 @@ Configuração no painel da PerfectPay
 
 ## 3. Teste
 
-Acesse sua landing page por um link do Trackup, clique no botão de compra e faça uma compra de teste. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
+Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
 
 Se a venda aparecer como **Click ID ausente**, o botão da página não está apontando para o link da [oferta](https://docs.trackup.me/ofertas) no Trackup, ou o checkout não está devolvendo o parâmetro do clique.
 
@@ -4338,32 +4420,30 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 - **Adicione a plataforma** Vá em **Integração › Plataformas de vendas**, clique em **Adicionar plataforma** e escolha **ProofPay**.
 
-- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `src` e as UTMs vão junto. Só mude se a ProofPay pedir outro nome de parâmetro.
+- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `src` e as UTMs vão junto. Só altere se a ProofPay usar outro nome de parâmetro.
 
 - **Copie a URL do webhook** Salve. Na lista de plataformas, copie a **URL** da ProofPay.
 URL do webhook na lista de plataformas
 
 ## 2. Cadastre o webhook na ProofPay
 
-- Integrações/Webhooks
+- No painel da ProofPay, abra **Integrações › Webhooks** e clique em **Adicionar**.
 
-- Adicionar
+- Cole a URL do Trackup.
 
-- Cole a URL do Trackup
+- Selecione os produtos que devem enviar vendas.
 
-- Selecione os Produtos
+- Marque todos os métodos de pagamento.
 
-- Marque todos métodos de Pagamento
+- Marque os status **Pago**, **Reembolsado** e **Chargeback**.
 
-- Marque os Status de Pagamento (Pago, Reembolsado, Chargeback)
-
-- Salve
+- Salve.
 
 Configuração no painel da ProofPay
 
 ## 3. Teste
 
-Acesse sua landing page por um link do Trackup, clique no botão de compra e faça uma compra de teste. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
+Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
 
 Se a venda aparecer como **Click ID ausente**, o botão da página não está apontando para o link da [oferta](https://docs.trackup.me/ofertas) no Trackup, ou o checkout não está devolvendo o parâmetro do clique.
 
@@ -4396,7 +4476,7 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 - **Adicione a plataforma** Vá em **Integração › Plataformas de vendas**, clique em **Adicionar plataforma** e escolha **Shopify**.
 
-- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `sid` e as UTMs vão junto. Só mude se a Shopify pedir outro nome de parâmetro.
+- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `sid` e as UTMs vão junto. Só altere se a Shopify usar outro nome de parâmetro.
 
 - **Copie a URL do webhook** Salve. Na lista de plataformas, copie a **URL** da Shopify.
 URL do webhook na lista de plataformas
@@ -4404,7 +4484,7 @@ URL do webhook na lista de plataformas
 ## 2. Cadastre o webhook na Shopify
 
 - No painel da Shopify, abra a área de **webhooks** ou **postback**.
-- Crie uma integração nova e cole a URL do Trackup.
+- Crie uma integração e cole a URL do Trackup.
 - Ative os eventos de compra aprovada, reembolso e chargeback.
 - Selecione os produtos que devem enviar vendas, se a plataforma pedir, e salve.
 
@@ -4414,7 +4494,7 @@ Configuração do webhook na Shopify
 
 ## 3. Teste
 
-Acesse sua landing page por um link do Trackup, clique no botão de compra e faça uma compra de teste. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
+Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
 
 Se a venda aparecer como **Click ID ausente**, o botão da página não está apontando para o link da [oferta](https://docs.trackup.me/ofertas) no Trackup, ou o checkout não está devolvendo o parâmetro do clique.
 
@@ -4447,7 +4527,7 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 - **Adicione a plataforma** Vá em **Integração › Plataformas de vendas**, clique em **Adicionar plataforma** e escolha **Stripe**.
 
-- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `client_reference_id` e as UTMs vão junto. Só mude se a Stripe pedir outro nome de parâmetro.
+- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `client_reference_id` e as UTMs vão junto. Só altere se a Stripe usar outro nome de parâmetro.
 
 - **Copie a URL do webhook** Salve. Na lista de plataformas, copie a **URL** da Stripe.
 URL do webhook na lista de plataformas
@@ -4457,7 +4537,7 @@ URL do webhook na lista de plataformas
 O Trackup envia o ID do clique em `client_reference_id`, o campo que o Stripe Checkout e os Payment Links devolvem no webhook. Hoje a integração registra vendas aprovadas; reembolsos e disputas do Stripe ainda não são lidos.
 
 - No painel da Stripe, abra a área de **webhooks** ou **postback**.
-- Crie uma integração nova e cole a URL do Trackup.
+- Crie uma integração e cole a URL do Trackup.
 - Ative os eventos de `checkout.session.completed` e `payment_intent.succeeded`.
 - Selecione os produtos que devem enviar vendas, se a plataforma pedir, e salve.
 
@@ -4467,7 +4547,7 @@ Configuração do webhook na Stripe
 
 ## 3. Teste
 
-Acesse sua landing page por um link do Trackup, clique no botão de compra e faça uma compra de teste. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
+Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
 
 Se a venda aparecer como **Click ID ausente**, o botão da página não está apontando para o link da [oferta](https://docs.trackup.me/ofertas) no Trackup, ou o checkout não está devolvendo o parâmetro do clique.
 
@@ -4500,7 +4580,7 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 - **Adicione a plataforma** Vá em **Integração › Plataformas de vendas**, clique em **Adicionar plataforma** e escolha **Ticto 2.0**.
 
-- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `sck` e as UTMs vão junto. Só mude se a Ticto pedir outro nome de parâmetro.
+- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `sck` e as UTMs vão junto. Só altere se a Ticto usar outro nome de parâmetro.
 
 - **Copie a URL do webhook** Salve. Na lista de plataformas, copie a **URL** da Ticto.
 URL do webhook na lista de plataformas
@@ -4508,7 +4588,7 @@ URL do webhook na lista de plataformas
 ## 2. Cadastre o webhook na Ticto
 
 - No painel da Ticto, abra a área de **webhooks** ou **postback**.
-- Crie uma integração nova e cole a URL do Trackup.
+- Crie uma integração e cole a URL do Trackup.
 - Ative os eventos de compra aprovada, reembolso e chargeback.
 - Selecione os produtos que devem enviar vendas, se a plataforma pedir, e salve.
 
@@ -4518,7 +4598,7 @@ Configuração do webhook na Ticto
 
 ## 3. Teste
 
-Acesse sua landing page por um link do Trackup, clique no botão de compra e faça uma compra de teste. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
+Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
 
 Se a venda aparecer como **Click ID ausente**, o botão da página não está apontando para o link da [oferta](https://docs.trackup.me/ofertas) no Trackup, ou o checkout não está devolvendo o parâmetro do clique.
 
@@ -4551,32 +4631,30 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 - **Adicione a plataforma** Vá em **Integração › Plataformas de vendas**, clique em **Adicionar plataforma** e escolha **TriboPay**.
 
-- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `src` e as UTMs vão junto. Só mude se a TriboPay pedir outro nome de parâmetro.
+- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `src` e as UTMs vão junto. Só altere se a TriboPay usar outro nome de parâmetro.
 
 - **Copie a URL do webhook** Salve. Na lista de plataformas, copie a **URL** da TriboPay.
 URL do webhook na lista de plataformas
 
 ## 2. Cadastre o webhook na TriboPay
 
-- Integrações/Webhooks
+- No painel da TriboPay, abra **Integrações › Webhooks** e clique em **Adicionar**.
 
-- Adicionar
+- Cole a URL do Trackup.
 
-- Cole a URL do Trackup
+- Selecione os produtos que devem enviar vendas.
 
-- Selecione os Produtos
+- Marque todos os métodos de pagamento.
 
-- Marque todos métodos de Pagamento
+- Marque os status **Pago**, **Reembolsado** e **Chargeback**.
 
-- Marque os Status de Pagamento (Pago, Reembolsado, Chargeback)
-
-- Salve
+- Salve.
 
 Configuração no painel da TriboPay
 
 ## 3. Teste
 
-Acesse sua landing page por um link do Trackup, clique no botão de compra e faça uma compra de teste. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
+Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
 
 Se a venda aparecer como **Click ID ausente**, o botão da página não está apontando para o link da [oferta](https://docs.trackup.me/ofertas) no Trackup, ou o checkout não está devolvendo o parâmetro do clique.
 
@@ -4609,7 +4687,7 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 - **Adicione a plataforma** Vá em **Integração › Plataformas de vendas**, clique em **Adicionar plataforma** e escolha **Upag**.
 
-- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `clickId` e as UTMs vão junto. Só mude se a Upag pedir outro nome de parâmetro.
+- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `clickId` e as UTMs vão junto. Só altere se a Upag usar outro nome de parâmetro.
 
 - **Copie a URL do webhook** Salve. Na lista de plataformas, copie a **URL** da Upag.
 URL do webhook na lista de plataformas
@@ -4618,19 +4696,15 @@ URL do webhook na lista de plataformas
 
 Selecione **apenas** `invoice.paid`. Eventos como `payment.approved` não trazem os itens da fatura, e a conversão pode ficar com valor zero.
 
-- Desenvolvedor / Webhooks
+- Na Upag, abra **Desenvolvedor › Webhooks** e clique em **Criar Webhook**.
 
-- Criar Webhook
+- Dê um nome à integração, como Trackup.
 
-- Insira um nome para a integração
+- Cole a URL do Trackup.
 
-- Cole a URL do Trackup
+- Selecione **apenas** o evento `invoice.paid`.
 
-- Selecione apenas o evento invoice.paid
-
-- Criar Webhook
-
-- Concluído
+- Clique em **Criar Webhook**.
 
 Configuração no painel da Upag
 
@@ -4642,7 +4716,7 @@ Eventos a ativar: `invoice.paid`.
 
 ## 3. Teste
 
-Acesse sua landing page por um link do Trackup, clique no botão de compra e faça uma compra de teste. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
+Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
 
 Se a venda aparecer como **Click ID ausente**, o botão da página não está apontando para o link da [oferta](https://docs.trackup.me/ofertas) no Trackup, ou o checkout não está devolvendo o parâmetro do clique.
 
@@ -4675,26 +4749,24 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 - **Adicione a plataforma** Vá em **Integração › Plataformas de vendas**, clique em **Adicionar plataforma** e escolha **Vega Checkout**.
 
-- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `src` e as UTMs vão junto. Só mude se a Vega Checkout pedir outro nome de parâmetro.
+- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `src` e as UTMs vão junto. Só altere se a Vega Checkout usar outro nome de parâmetro.
 
 - **Copie a URL do webhook** Salve. Na lista de plataformas, copie a **URL** da Vega Checkout.
 URL do webhook na lista de plataformas
 
 ## 2. Cadastre o webhook na Vega Checkout
 
-- Desenvolvedores/Webhooks
+- No Vega Checkout, abra **Desenvolvedores › Webhooks** e clique em **Nova integração**.
 
-- Nova integração
+- Dê um nome à integração.
 
-- Adicionar um nome para a integração
+- Cole a URL do Trackup.
 
-- Cole a URL do Trackup
+- Marque os eventos **Venda Aprovada**, **Venda Estornada** e **Venda Chargeback**.
 
-- Marque os Eventos (Venda Aprovada, Venda Chargeback, Venda Estornada)
+- Se quiser, restrinja a integração a alguns produtos.
 
-- Restrinja produtos caso necessário
-
-- Salve
+- Salve.
 
 Configuração no painel da Vega Checkout
 
@@ -4706,7 +4778,7 @@ Configuração no painel da Vega Checkout
 
 ## 3. Teste
 
-Acesse sua landing page por um link do Trackup, clique no botão de compra e faça uma compra de teste. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
+Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
 
 Se a venda aparecer como **Click ID ausente**, o botão da página não está apontando para o link da [oferta](https://docs.trackup.me/ofertas) no Trackup, ou o checkout não está devolvendo o parâmetro do clique.
 
@@ -4739,26 +4811,22 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 - **Adicione a plataforma** Vá em **Integração › Plataformas de vendas**, clique em **Adicionar plataforma** e escolha **Yampi**.
 
-- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `metadata[sck]` e as UTMs vão junto. Só mude se a Yampi pedir outro nome de parâmetro.
+- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `metadata[sck]` e as UTMs vão junto. Só altere se a Yampi usar outro nome de parâmetro.
 
 - **Copie a URL do webhook** Salve. Na lista de plataformas, copie a **URL** da Yampi.
 URL do webhook na lista de plataformas
 
 ## 2. Cadastre o webhook na Yampi
 
-- Desenvolvedor / Webhooks
+- Na Yampi, abra **Desenvolvedor › Webhooks** e clique em **Criar Webhook**.
 
-- Criar Webhook
+- Dê um nome à integração.
 
-- Insira um nome para a integração
+- Cole a URL do Trackup.
 
-- Cole a URL do Trackup
+- Selecione todos os eventos.
 
-- Selecione Todos Eventos
-
-- Criar Webhook
-
-- Concluído
+- Clique em **Criar Webhook**.
 
 Configuração no painel da Yampi
 
@@ -4768,7 +4836,7 @@ Configuração no painel da Yampi
 
 ## 3. Teste
 
-Acesse sua landing page por um link do Trackup, clique no botão de compra e faça uma compra de teste. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
+Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
 
 Se a venda aparecer como **Click ID ausente**, o botão da página não está apontando para o link da [oferta](https://docs.trackup.me/ofertas) no Trackup, ou o checkout não está devolvendo o parâmetro do clique.
 
@@ -4801,7 +4869,7 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 - **Adicione a plataforma** Vá em **Integração › Plataformas de vendas**, clique em **Adicionar plataforma** e escolha **Zedy**.
 
-- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `src` e as UTMs vão junto. Só mude se a Zedy pedir outro nome de parâmetro.
+- **Confira os parâmetros** O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em `src` e as UTMs vão junto. Só altere se a Zedy usar outro nome de parâmetro.
 
 - **Copie a URL do webhook** Salve. Na lista de plataformas, copie a **URL** da Zedy.
 URL do webhook na lista de plataformas
@@ -4809,7 +4877,7 @@ URL do webhook na lista de plataformas
 ## 2. Cadastre o webhook na Zedy
 
 - No painel da Zedy, abra a área de **webhooks** ou **postback**.
-- Crie uma integração nova e cole a URL do Trackup.
+- Crie uma integração e cole a URL do Trackup.
 - Ative os eventos de compra aprovada, reembolso e chargeback.
 - Selecione os produtos que devem enviar vendas, se a plataforma pedir, e salve.
 
@@ -4819,7 +4887,7 @@ Configuração do webhook na Zedy
 
 ## 3. Teste
 
-Acesse sua landing page por um link do Trackup, clique no botão de compra e faça uma compra de teste. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
+Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em **Logs › Conversões** com a campanha preenchida.
 
 Se a venda aparecer como **Click ID ausente**, o botão da página não está apontando para o link da [oferta](https://docs.trackup.me/ofertas) no Trackup, ou o checkout não está devolvendo o parâmetro do clique.
 
@@ -4834,6 +4902,14 @@ URL: https://docs.trackup.me/conectar-mcp
 > Conecte Claude, ChatGPT, Cursor e outros assistentes ao Trackup e opere seus projetos conversando.
 
 O MCP (Model Context Protocol) é o padrão que deixa um assistente de IA usar ferramentas externas. Com ele, você configura o Trackup conversando. Com o servidor MCP do Trackup, o assistente lista projetos, cria páginas e links, lê métricas e ajusta campanhas, sempre dentro das permissões que você der.
+
+	**Assistente de IA**Claude, ChatGPT, Cursor, VS Code
+
+	**Servidor MCP do time**api.trackup.me/SEU_TEAM_ID/mcp
+
+	**Chave de API**Criada por OAuth ou por você
+
+	**Seus projetos**Só o que a chave permite
 
 ## URL do servidor
 
@@ -5024,7 +5100,7 @@ Cobrança, membros, gestão de chaves, exclusão de projeto e conexões OAuth n�
 		Anote os endpoints e as permissões da tabela acima. Um agente que registra vendas precisa só de `conversion.create`. Um agente de relatórios só lê.
 
 - **Crie uma chave só para ele**
-		Abra o menu do usuário, clique em **Configurações › Chaves de API** e em **Nova chave**. Dê um nome como Agente de relatórios, escolha só os projetos necessários e marque só as permissões anotadas. Veja o passo a passo em [Chaves de API](https://docs.trackup.me/chaves-de-api).
+		Abra o menu do usuário, clique em **Configurações › Meu Time › Chaves de API** e em **Nova chave**. Dê um nome como Agente de relatórios, escolha só os projetos necessários e marque só as permissões anotadas. Veja o passo a passo em [Chaves de API](https://docs.trackup.me/chaves-de-api).
 
 - **Guarde a chave fora do prompt**
 		Salve em uma variável de ambiente ou no cofre de segredos da plataforma do agente. A chave fica no código que faz a requisição, nunca no prompt, na memória do modelo ou em logs.
@@ -5237,7 +5313,7 @@ https://api.trackup.me/v1
 ## Primeira requisição
 
 - **Crie uma chave**
-		Em **Configurações › Chaves de API**, crie uma chave com a permissão `project.list`. Veja [Chaves de API](https://docs.trackup.me/chaves-de-api).
+		Em **Configurações › Meu Time › Chaves de API**, crie uma chave com a permissão `project.list`. Veja [Chaves de API](https://docs.trackup.me/chaves-de-api).
 
 - **Liste os projetos**
 
@@ -5312,7 +5388,7 @@ Uma chave acessa todos os projetos do time ou só os escolhidos na criação. Pe
 
 ## Validade e revogação
 
-Depois da data de validade, ou depois de revogada, a chave responde `403`.
+Depois da data de validade, ou depois de revogada, a chave responde `403`. Chave ausente ou inválida responde `401`.
 
 Use a chave só no servidor. Nunca coloque a chave em código que roda no navegador, em aplicativos ou em repositórios.
 
@@ -13791,7 +13867,7 @@ Tempo estimado: 30 minutos.
 		Pixel da Meta com código de teste
 
 - **Confira os acionadores**
-		Abra **Acionadores**. O Trackup criou três para o pixel: **Pageview**, **Start checkout** e **Conversão**. Não precisa mexer.
+		Abra **Acionadores**. O Trackup criou quatro para o pixel: **Pageview**, **Add to cart**, **Start checkout** e **Conversão**, que enviam `PageView`, `AddToCart`, `InitiateCheckout` e `Purchase` pelo servidor. Não precisa mexer.
 
 ## Parte 2: Fonte de tráfego Meta
 
@@ -13822,7 +13898,7 @@ utm_source=meta&utm_medium={{adset.name}}|{{adset.id}}&utm_campaign={{campaign.n
 		O passo a passo completo está em [Upag](https://docs.trackup.me/upag).
 
 - **Crie a oferta**
-		Em **Ofertas**, clique em **Adicionar oferta** e, na aba **Redirect**, preencha:
+		Em **Ofertas**, clique em **Adicionar oferta** e preencha:
 
 			Campo | Valor |
 
@@ -13832,19 +13908,21 @@ utm_source=meta&utm_medium={{adset.name}}|{{adset.id}}&utm_campaign={{campaign.n
 
 				URL de redirecionamento | O link de pagamento da Upag, como `https://pay.upag.com.br/ABC123` |
 
+				Status Code | `302` (padrão) |
+
 				Caminho | `/checkout` |
 
-		Salve e copie o **Link** da oferta, como `https://lp.seudominio.com/checkout`.
+		Salve e copie o **Link** da oferta, como `https://lp.yourdomain.com/checkout`.
 
 ## Parte 4: Landing page
 
 - **Aponte os botões para a oferta**
 		Em todos os botões de compra da landing page, use o link da oferta. No Builder, selecione o botão e, em **Config › Evento de clique**, cole o link em **Destino**. Em um site externo, troque o `href` dos botões.
 
-		Um único botão apontando direto para o link de pagamento da Upag já faz parte das vendas chegarem sem atribuição.
+		Basta um botão apontando direto para o link de pagamento da Upag para parte das vendas chegar sem atribuição.
 
 - **Publique e copie o link**
-		Publique a página e copie o **Link** dela em **Páginas**, como `https://lp.seudominio.com/curso`.
+		Publique a página e copie o **Link** dela em **Páginas**, como `https://lp.yourdomain.com/curso`.
 
 ## Parte 5: Anúncio
 
@@ -13855,7 +13933,7 @@ utm_source=meta&utm_medium={{adset.name}}|{{adset.id}}&utm_campaign={{campaign.n
 
 - **Parâmetros de URL**: o bloco copiado na Parte 2.
 
-		**Print pendente · `img/tut-meta-anuncio.png`**Seção Destino de um anúncio no Gerenciador de Anúncios da Meta com URL do site https://lp.seudominio.com/curso e o campo Parâmetros de URL preenchido com o template do Trackup.
+		**Print pendente · `img/tut-meta-anuncio.png`**Seção Destino de um anúncio no Gerenciador de Anúncios da Meta com URL do site https://lp.yourdomain.com/curso e o campo Parâmetros de URL preenchido com o template do Trackup.
 
 Destino do anúncio na Meta
 
@@ -13868,7 +13946,7 @@ Destino do anúncio na Meta
 		Abra em uma aba anônima a URL da landing com os parâmetros, trocando as macros por valores de teste:
 
 ```
-https://lp.seudominio.com/curso?utm_source=meta&utm_campaign=teste|111&utm_content=teste|333&trk_aid=333
+https://lp.yourdomain.com/curso?utm_source=meta&utm_campaign=teste|111&utm_content=teste|333&trk_aid=333
 ```
 
 - **Confira o PageView**
@@ -13893,7 +13971,7 @@ Em **Gerenciador de anúncios**, clique em **Conectar Facebook Ads**, autorize e
 
 **A venda chega com Configuração incompleta**
 
-	A venda veio sem click ID. Confira se todos os botões apontam para o link da oferta e se o checkout abriu com `sck` na URL.
+	A venda veio sem click ID. Confira se todos os botões apontam para o link da oferta e se o checkout da Upag abriu com `clickId` na URL.
 
 **Os eventos não aparecem na Meta**
 
@@ -13911,13 +13989,21 @@ URL: https://docs.trackup.me/tutorial-dominio-proprio
 
 > Conecte um subdomínio seu ao Trackup pelo provedor de DNS (Cloudflare, Registro.br, GoDaddy, Hostinger, Namecheap e outros) e deixe como domínio primário.
 
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Adicione o domínio lp.seudominio.com ao projeto Online Store e me diga o CNAME para cadastrar. Quando eu avisar, verifique." Só a alteração no DNS é manual.
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Adicione o domínio lp.yourdomain.com ao projeto Online Store e me diga o CNAME para cadastrar. Quando eu avisar, verifique." Só a alteração no DNS é manual.
 
-Neste tutorial você conecta `lp.seudominio.com` ao Trackup. Todas as páginas, ofertas e URLs de webhook passam a usar esse endereço.
+Neste tutorial você conecta `lp.yourdomain.com` ao Trackup. Todas as páginas, ofertas e URLs de webhook passam a usar esse endereço.
+
+	1**Adicionar**lp.yourdomain.com no Trackup
+
+	2**CNAME**No seu provedor de DNS
+
+	3**Verificar**Status Verificado
+
+	4**Primário**Links, webhooks e snippet usam o domínio
 
 ## O que você vai precisar
 
-- Um domínio registrado, como `seudominio.com`.
+- Um domínio registrado, como `yourdomain.com`.
 
 - Acesso ao painel onde o DNS do domínio é gerenciado. Por exemplo, a Cloudflare, o Registro.br, a GoDaddy, a Hostinger, a Namecheap, a HostGator ou a Squarespace (antigo Google Domains).
 
@@ -13933,7 +14019,7 @@ Use um subdomínio dedicado, como `lp`, `go` ou `oferta`. Assim o site principal
 		No menu lateral, vá em **Ajustes › Domínios** e clique em **Adicionar domínio**.
 
 - **Digite o hostname**
-		Digite `lp.seudominio.com`, sem `https://` e sem barra no fim, e salve. O domínio entra com o status **Pendente**.
+		Digite `lp.yourdomain.com`, sem `https://` e sem barra no fim, e salve. O domínio entra com o status **Pendente**.
 
 - **Copie o registro**
 		Abra o domínio na lista. Anote o **Type** (CNAME), o **Name** e o **Value**.
@@ -14008,7 +14094,7 @@ Escolha o provedor onde o DNS do seu domínio está hospedado. Se você não sab
 				Na linha do domínio, clique em **Gerenciar**, depois em **Adicionar registro** (ou **+ Registro CNAME**).
 
 - **Preencha o registro**
-				**Nome**: o subdomínio completo, como `lp.seudominio.com.` (com o ponto no fim, se o cPanel pedir). **Tipo**: `CNAME`. **Registro**: o **Value** do Trackup.
+				**Nome**: o subdomínio completo, como `lp.yourdomain.com.` (com o ponto no fim, se o cPanel pedir). **Tipo**: `CNAME`. **Registro**: o **Value** do Trackup.
 
 - **Salve**
 				Clique em **Adicionar registro**. Se o domínio usa servidores DNS de outro provedor, crie o registro lá.
@@ -14040,7 +14126,7 @@ Escolha o provedor onde o DNS do seu domínio está hospedado. Se você não sab
 		Com o status **Verificado**, abra o menu do domínio e clique em **Definir como primário**.
 
 - **Teste**
-		Abra `https://lp.seudominio.com/` no navegador. O certificado HTTPS é emitido automaticamente.
+		Abra `https://lp.yourdomain.com/` no navegador. O certificado HTTPS é emitido automaticamente.
 
 ## Depois de trocar o domínio primário
 
@@ -14073,6 +14159,16 @@ URL: https://docs.trackup.me/tutorial-landing-builder
 **Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Monte em /vsl-excel uma página de vendas com hero, vídeo, três benefícios, depoimento e botão para o link /checkout-excel, e publique." Depois, ajuste o visual no Builder.
 
 Neste tutorial você monta uma página de vendas com VSL no Builder, liga os botões ao checkout e publica no seu domínio. Nenhum código é necessário, e o rastreamento já vem embutido.
+
+	1**Criar página**Aba Builder
+
+	2**Montar seções**Blocos prontos
+
+	3**Ligar botões**Link da oferta
+
+	4**Revisar no celular**Visualização Mobile
+
+	5**Publicar**No seu domínio
 
 ## O que você vai precisar
 
@@ -14131,7 +14227,7 @@ Uma estrutura que funciona para VSL:
 		Clique no botão de compra da primeira dobra.
 
 - **Configure o clique**
-		Na aba **Config**, em **Evento de clique**, cole o link da oferta (por exemplo `https://lp.seudominio.com/checkout`) em **Destino**.
+		Na aba **Config**, em **Evento de clique**, cole o link da oferta (por exemplo `https://lp.yourdomain.com/checkout`) em **Destino**.
 
 		Botão apontando para a oferta
 
@@ -14171,7 +14267,7 @@ URL: https://docs.trackup.me/tutorial-site-externo
 
 > Instale o script em uma página do WordPress, Elementor ou outra plataforma e mantenha a atribuição até o checkout.
 
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie uma página Redirect em /go que leve para https://meusite.example.com/vsl, e me diga o snippet do script para colar no site." Colar o script no site é com você.
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie uma página Redirect em /go que leve para https://www.yoursite.com/vsl, e me diga o snippet do script para colar no site." Colar o script no site é com você.
 
 Sua página de vendas já está no ar em outro lugar, como WordPress, Elementor, Webflow ou Framer. Neste tutorial você faz o tráfego passar pelo Trackup, instala o script e envia eventos do funil sem mudar de hospedagem.
 
@@ -14205,7 +14301,7 @@ Sua página de vendas já está no ar em outro lugar, como WordPress, Elementor,
 				Cole o snippet antes de `</head>` em todas as páginas.
 
 - **Libere o domínio**
-		Em **Ajustes › Geral › Segurança**, adicione o domínio do site (como `www.seusite.com`) em **Domínios permitidos**. Sem isso, os eventos são recusados.
+		Em **Ajustes › Geral › Segurança**, adicione o domínio do site (como `www.yoursite.com`) em **Domínios permitidos**. Sem isso, os eventos são recusados.
 
 		Domínios permitidos do snippet
 
@@ -14214,16 +14310,16 @@ Sua página de vendas já está no ar em outro lugar, como WordPress, Elementor,
 Crie uma página [Redirect](https://docs.trackup.me/redirect) que leva ao seu site. O anúncio aponta para ela. Assim o Trackup aplica o filtro, registra o clique e repassa as UTMs.
 
 - **Crie a página Redirect**
-		Em **Páginas › Adicionar página**, na aba **Redirect**: nome Site Curso, URL de redirecionamento `https://www.seusite.com/curso`, caminho `/curso`, Status Code 302.
+		Em **Páginas › Adicionar página**, na aba **Redirect**: nome Site Curso, URL de redirecionamento `https://www.yoursite.com/curso`, caminho `/curso`, Status Code 302.
 
 - **Use o link no anúncio**
-		Use o link dessa página (`https://lp.seudominio.com/curso`) com os parâmetros da fonte de tráfego no anúncio.
+		Use o link dessa página (`https://lp.yourdomain.com/curso`) com os parâmetros da fonte de tráfego no anúncio.
 
 Se o anúncio apontar direto para o seu site, o script ainda registra as visitas e as UTMs, mas o [filtro](https://docs.trackup.me/filtro) não atua, porque a requisição não passa pelo domínio do Trackup.
 
 ## 3. Ligue os botões à oferta
 
-Troque o link de todos os botões de compra do site pelo link da oferta no Trackup, como `https://lp.seudominio.com/checkout`. No Elementor, edite cada botão e cole o link em **Link**.
+Troque o link de todos os botões de compra do site pelo link da oferta no Trackup, como `https://lp.yourdomain.com/checkout`. No Elementor, edite cada botão e cole o link em **Link**.
 
 ## 4. Envie eventos do funil (opcional)
 
@@ -14232,7 +14328,7 @@ Marque ações importantes para usar em acionadores e no funil do dashboard. Pel
 ```
 <button type="submit" data-trackup-event="lead_form_submitted">Quero receber</button>
 
-<a href="https://lp.seudominio.com/checkout" data-trackup-event="add_to_cart">Quero me inscrever</a>
+<a href="https://lp.yourdomain.com/checkout" data-trackup-event="add_to_cart">Quero me inscrever</a>
 ```
 
 Ou pelo JavaScript, por exemplo quando o vídeo chega ao pitch:
@@ -14246,7 +14342,7 @@ Para mandar um evento para o pixel, crie um [acionador](https://docs.trackup.me/
 ## 5. Valide
 
 - **Acesse pelo link do anúncio**
-		Abra `https://lp.seudominio.com/curso?utm_source=teste` em uma aba anônima. Você deve cair no seu site com `utm_source=teste` na URL.
+		Abra `https://lp.yourdomain.com/curso?utm_source=teste` em uma aba anônima. Você deve cair no seu site com `utm_source=teste` na URL.
 
 - **Confira as requisições**
 		Em **Logs › Requisições**, aparecem o acesso ao link e o `page_view` enviado pelo script, no mesmo visitante.
@@ -14262,7 +14358,7 @@ Para mandar um evento para o pixel, crie um [acionador](https://docs.trackup.me/
 
 **As UTMs se perdem no site**
 
-	Algum redirecionamento do site (como de `seusite.com` para `www.seusite.com`) está removendo a query string. Use na página Redirect a URL final, já com `www` e barra.
+	Algum redirecionamento do site (como de `yoursite.com` para `www.yoursite.com`) está removendo a query string. Use na página Redirect a URL final, já com `www` e barra.
 
 ---
 
@@ -14272,9 +14368,19 @@ URL: https://docs.trackup.me/tutorial-teste-ab
 
 > Compare duas páginas com o mesmo tráfego, acompanhe a confiança estatística e envie tudo para a vencedora.
 
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie um teste A/B no link /lp com as páginas /lp e /lp-teste, 50% para cada. Daqui a uma semana, mostre o resultado e a confiança, e só promova a vencedora se eu confirmar."
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie um teste A/B no link /lp-teste com as páginas Excel Basics - LP Builder e Email Templates - LP HTML, 50% para cada. Daqui a uma semana, mostre o resultado e a confiança, e só promova a vencedora se eu confirmar."
 
 Neste tutorial você descobre qual de duas landing pages vende mais. O anúncio continua o mesmo: o Trackup divide os visitantes entre as versões e mede as vendas de cada uma.
+
+	**Anúncio**Aponta para o link do teste
+
+	**/lp-teste**50% para cada variante
+
+		**Variante A**LP Builder
+
+		**Variante B**LP HTML
+
+	**Vencedora**Recebe 100% do tráfego
 
 ## O que você vai precisar
 
@@ -14315,7 +14421,7 @@ Neste tutorial você descobre qual de duas landing pages vende mais. O anúncio 
 		Teste com duas variantes em 50/50
 
 - **Salve e copie o link**
-		O link do teste é `https://lp.seudominio.com/lp-teste`.
+		O link do teste é `https://lp.yourdomain.com/lp-teste`.
 
 ## 3. Troque o link no anúncio
 
@@ -14367,6 +14473,18 @@ Neste tutorial você monta, em ordem, quatro regras de filtro para uma página d
 		20 | Fora do Brasil | Exibir página (safe page) |
 
 		30 | Sem parâmetro secreto | Exibir página (safe page) |
+
+	1**Requisição**Chega à página da oferta
+
+	2**Peso 1: seu IP**Permitir, as demais regras não se aplicam
+
+	3**Peso 10: bots**Bloquear
+
+	4**Peso 20: fora do Brasil**Safe page
+
+	5**Peso 30: sem o parâmetro**Safe page
+
+	6**Página da oferta**Para quem passou por todas
 
 ## O que você vai precisar
 
@@ -14503,6 +14621,14 @@ Cards selecionados no catálogo
 		Salve o funil e organize os cards arrastando pela alça. Coloque o Lucro no topo. Salve o layout.
 
 ## 4. Leia todo dia
+
+	1**Lucro**Quanto sobrou e o ROAS
+
+	2**Funil**Onde as pessoas desistem
+
+	3**Vendas por UTM**Quais anúncios vendem
+
+	4**Gerenciador de anúncios**Pausar ou escalar
 
 - **Escolha o período**
 		Use Hoje durante o dia e Ontem pela manhã, para ver o dia fechado.

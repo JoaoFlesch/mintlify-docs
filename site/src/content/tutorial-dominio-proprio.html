@@ -5,12 +5,19 @@ icon: globe
 eyebrow: Tutorial
 description: Conecte um subdomínio seu ao Trackup pelo provedor de DNS (Cloudflare, Registro.br, GoDaddy, Hostinger, Namecheap e outros) e deixe como domínio primário.
 ---
-<callout type="tip"><p><strong>Configure pela sua IA.</strong> Conecte seu assistente pelo <a href="/conectar-mcp">MCP</a> e peça: <em>"Adicione o domínio lp.seudominio.com ao projeto Online Store e me diga o CNAME para cadastrar. Quando eu avisar, verifique."</em> Só a alteração no DNS é manual.</p></callout>
-<p>Neste tutorial você conecta <code>lp.seudominio.com</code> ao Trackup. Todas as páginas, ofertas e URLs de webhook passam a usar esse endereço.</p>
+<callout type="tip"><p><strong>Configure pela sua IA.</strong> Conecte seu assistente pelo <a href="/conectar-mcp">MCP</a> e peça: <em>"Adicione o domínio lp.yourdomain.com ao projeto Online Store e me diga o CNAME para cadastrar. Quando eu avisar, verifique."</em> Só a alteração no DNS é manual.</p></callout>
+<p>Neste tutorial você conecta <code>lp.yourdomain.com</code> ao Trackup. Todas as páginas, ofertas e URLs de webhook passam a usar esse endereço.</p>
+
+<flow>
+	<fstep n="1" icon="globe" title="Adicionar">lp.yourdomain.com no Trackup</fstep>
+	<fstep n="2" icon="settings" title="CNAME">No seu provedor de DNS</fstep>
+	<fstep n="3" icon="check" title="Verificar">Status Verificado</fstep>
+	<fstep n="4" icon="target" title="Primário" tone="ok">Links, webhooks e snippet usam o domínio</fstep>
+</flow>
 
 <h2>O que você vai precisar</h2>
 <ul>
-	<li>Um domínio registrado, como <code>seudominio.com</code>.</li>
+	<li>Um domínio registrado, como <code>yourdomain.com</code>.</li>
 	<li>Acesso ao painel onde o DNS do domínio é gerenciado. Por exemplo, a Cloudflare, o Registro.br, a GoDaddy, a Hostinger, a Namecheap, a HostGator ou a Squarespace (antigo Google Domains).</li>
 </ul>
 <callout type="tip"><p>Não sabe onde está o DNS? Consulte os <em>nameservers</em> do domínio em um site de <em>whois</em>. Se terminam em <code>cloudflare.com</code>, o DNS está na Cloudflare.</p></callout>
@@ -24,11 +31,11 @@ description: Conecte um subdomínio seu ao Trackup pelo provedor de DNS (Cloudfl
 		<p>No menu lateral, vá em <strong>Ajustes › Domínios</strong> e clique em <strong>Adicionar domínio</strong>.</p>
 	</step>
 	<step title="Digite o hostname">
-		<p>Digite <code>lp.seudominio.com</code>, sem <code>https://</code> e sem barra no fim, e salve. O domínio entra com o status <strong>Pendente</strong>.</p>
+		<p>Digite <code>lp.yourdomain.com</code>, sem <code>https://</code> e sem barra no fim, e salve. O domínio entra com o status <strong>Pendente</strong>.</p>
 	</step>
 	<step title="Copie o registro">
 		<p>Abra o domínio na lista. Anote o <strong>Type</strong> (CNAME), o <strong>Name</strong> e o <strong>Value</strong>.</p>
-		<shot src="img/tut-dominio-registro.png" caption="Registro CNAME a criar no DNS" todo="Detalhe do domínio lp.seudominio.com com status Pendente e a tabela Type CNAME, Name lp, Value com o destino do Trackup e botões de copiar."></shot>
+		<shot src="img/tut-dominio-registro.png" caption="Registro CNAME a criar no DNS" todo="Detalhe do domínio lp.yourdomain.com com status Pendente e a tabela Type CNAME, Name lp, Value com o destino do Trackup e botões de copiar."></shot>
 	</step>
 </steps>
 
@@ -118,7 +125,7 @@ description: Conecte um subdomínio seu ao Trackup pelo provedor de DNS (Cloudfl
 				<p>Na linha do domínio, clique em <strong>Gerenciar</strong>, depois em <strong>Adicionar registro</strong> (ou <strong>+ Registro CNAME</strong>).</p>
 			</step>
 			<step title="Preencha o registro">
-				<p><strong>Nome</strong>: o subdomínio completo, como <code>lp.seudominio.com.</code> (com o ponto no fim, se o cPanel pedir). <strong>Tipo</strong>: <code>CNAME</code>. <strong>Registro</strong>: o <strong>Value</strong> do Trackup.</p>
+				<p><strong>Nome</strong>: o subdomínio completo, como <code>lp.yourdomain.com.</code> (com o ponto no fim, se o cPanel pedir). <strong>Tipo</strong>: <code>CNAME</code>. <strong>Registro</strong>: o <strong>Value</strong> do Trackup.</p>
 			</step>
 			<step title="Salve">
 				<p>Clique em <strong>Adicionar registro</strong>. Se o domínio usa servidores DNS de outro provedor, crie o registro lá.</p>
@@ -157,7 +164,7 @@ description: Conecte um subdomínio seu ao Trackup pelo provedor de DNS (Cloudfl
 		<p>Com o status <strong>Verificado</strong>, abra o menu do domínio e clique em <strong>Definir como primário</strong>.</p>
 	</step>
 	<step title="Teste">
-		<p>Abra <code>https://lp.seudominio.com/</code> no navegador. O certificado HTTPS é emitido automaticamente.</p>
+		<p>Abra <code>https://lp.yourdomain.com/</code> no navegador. O certificado HTTPS é emitido automaticamente.</p>
 	</step>
 </steps>
 

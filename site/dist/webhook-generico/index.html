@@ -56,6 +56,13 @@ Content-Type: application/json
   &quot;payment_method&quot;: &quot;credit_card&quot;
 }</code></pre></div>
 
+<div class="flow">
+	<div class="fnode"><i class="fa"></i><span class="fnode-n">1</span><span class="fnode-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span><div class="fnode-body"><b>Oferta</b><span>Envia request_id na URL do checkout</span></div></div>
+	<div class="fnode"><i class="fa"></i><span class="fnode-n">2</span><span class="fnode-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2 2h3l2.7 12.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg></span><div class="fnode-body"><b>Seu checkout</b><span>Guarda o request_id no pedido</span></div></div>
+	<div class="fnode"><i class="fa"></i><span class="fnode-n">3</span><span class="fnode-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8z"/></svg></span><div class="fnode-body"><b>POST no webhook</b><span>event, transaction_id, value e request_id</span></div></div>
+	<div class="fnode tone-ok"><i class="fa"></i><span class="fnode-n">4</span><span class="fnode-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><div class="fnode-body"><b>Conversão</b><span>Atribuída e enviada aos acionadores</span></div></div>
+</div>
+
 <h2 id="configurar">Configurar<a class="anchor" href="#configurar" aria-label="Link para esta seção">#</a></h2>
 <ol class="steps">
 	<li><span class="step-title">Crie a plataforma</span>

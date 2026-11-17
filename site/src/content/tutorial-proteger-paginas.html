@@ -17,6 +17,15 @@ description: Monte uma proteção em camadas com o Filtro: bloqueio de bots, pa�
 	</tbody>
 </table>
 
+<flow type="vertical">
+	<fstep n="1" icon="globe" title="Requisição">Chega à página da oferta</fstep>
+	<fstep n="2" icon="check" title="Peso 1: seu IP" tone="ok">Permitir, as demais regras não se aplicam</fstep>
+	<fstep n="3" icon="bot" title="Peso 10: bots" tone="stop">Bloquear</fstep>
+	<fstep n="4" icon="globe" title="Peso 20: fora do Brasil" tone="stop">Safe page</fstep>
+	<fstep n="5" icon="key" title="Peso 30: sem o parâmetro" tone="stop">Safe page</fstep>
+	<fstep n="6" icon="file" title="Página da oferta" tone="ok">Para quem passou por todas</fstep>
+</flow>
+
 <h2>O que você vai precisar</h2>
 <ul>
 	<li>A página da oferta publicada.</li>

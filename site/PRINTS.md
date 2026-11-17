@@ -1,11 +1,7 @@
 # Prints pendentes
 
-Gerado pelo build. 20 prints faltando.
+Gerado pelo build. 19 prints faltando.
 
-
-## Modo avançado (/filtro-avancado)
-
-- [ ] `img/filtro-avancado.png`: Formulário Criar regra no modo Avançado com dois grupos de condições unidos por OU (o exemplo acima), ação Exibir página e uma safe page selecionada.
 
 ## Gerenciador de anúncios (/gerenciador-de-anuncios)
 

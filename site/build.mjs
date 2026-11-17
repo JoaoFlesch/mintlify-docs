@@ -84,7 +84,7 @@ function expand(html) {
 				return `<figure class="shot shot-todo"><div class="shot-box">${icon('pixel')}<div><strong>Print pendente${src ? ` · <code>${esc(src)}</code>` : ''}</strong><p>${esc(todo || caption || '')}</p></div></div>${caption ? `<figcaption>${esc(caption)}</figcaption>` : ''}</figure>`;
 			}
 			const k = src.replace(/^\//, '');
-			const imgBase = IMG5_FILES.has(k) && IMG5_BASE ? IMG5_BASE : IMG4_FILES.has(k) && IMG4_BASE ? IMG4_BASE : IMG3_FILES.has(k) && IMG3_BASE ? IMG3_BASE : IMG2_FILES.has(k) && IMG2_BASE ? IMG2_BASE : IMG_BASE;
+			const imgBase = IMG6_FILES.has(k) && IMG6_BASE ? IMG6_BASE : IMG5_FILES.has(k) && IMG5_BASE ? IMG5_BASE : IMG4_FILES.has(k) && IMG4_BASE ? IMG4_BASE : IMG3_FILES.has(k) && IMG3_BASE ? IMG3_BASE : IMG2_FILES.has(k) && IMG2_BASE ? IMG2_BASE : IMG_BASE;
 			const imgUrl = /^https?:/.test(imgBase) && !/^https?:/.test(src) ? `${imgBase}/${src.replace(/^\//, '')}` : src;
 			return `<figure class="shot"><img src="${esc(imgUrl)}" alt="${esc(alt || caption || '')}" loading="lazy">${caption ? `<figcaption>${esc(caption)}</figcaption>` : ''}</figure>`;
 		})
@@ -197,6 +197,9 @@ const IMG4_FILES = new Set(existsSync(join(SRC, 'img-extra-4.json')) ? JSON.pars
 const argImg5 = process.argv.find(a => a.startsWith('--img5='));
 const IMG5_BASE = argImg5 ? argImg5.slice(7).replace(/\/$/, '') : '';
 const IMG5_FILES = new Set(existsSync(join(SRC, 'img-extra-5.json')) ? JSON.parse(readFileSync(join(SRC, 'img-extra-5.json'), 'utf8')) : []);
+const argImg6 = process.argv.find(a => a.startsWith('--img6='));
+const IMG6_BASE = argImg6 ? argImg6.slice(7).replace(/\/$/, '') : '';
+const IMG6_FILES = new Set(existsSync(join(SRC, 'img-extra-6.json')) ? JSON.parse(readFileSync(join(SRC, 'img-extra-6.json'), 'utf8')) : []);
 const absAsset = f => (/^https?:/.test(ASSETS) ? ASSETS : SITE.url + ASSETS) + '/' + f;
 
 const layout = read(join(SRC, 'layout.html'));
@@ -357,6 +360,11 @@ if (existsSync(imgSrc)) {
 		mkdirSync(join(DIST, 'imagens-5', 'img'), { recursive: true });
 		for (const f of IMG5_FILES) copyFileSync(join(imgSrc, f.replace(/^img\//, '')), join(DIST, 'imagens-5', f));
 		writeFileSync(join(DIST, 'imagens-5', 'index.html'), `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="robots" content="noindex"><title>Trackup Docs: imagens 5</title></head><body>${[...IMG5_FILES].map(f => `<img src="${f}" alt="" width="1" height="1">`).join('')}</body></html>`);
+	}
+	if (IMG6_FILES.size) {
+		mkdirSync(join(DIST, 'imagens-6', 'img'), { recursive: true });
+		for (const f of IMG6_FILES) copyFileSync(join(imgSrc, f.replace(/^img\//, '')), join(DIST, 'imagens-6', f));
+		writeFileSync(join(DIST, 'imagens-6', 'index.html'), `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="robots" content="noindex"><title>Trackup Docs: imagens 6</title></head><body>${[...IMG6_FILES].map(f => `<img src="${f}" alt="" width="1" height="1">`).join('')}</body></html>`);
 	}
 	const imgFiles = [];
 	const walk = (d, rel) => { for (const f of readdirSync(d)) { const p = join(d, f); if (statSync(p).isDirectory()) walk(p, rel + f + '/'); else imgFiles.push(rel + f); } };

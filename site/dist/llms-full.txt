@@ -2130,9 +2130,9 @@ OU
 (User Agent contém "HeadlessChrome")
 ```
 
-**Print pendente · `img/filtro-avancado.png`**Formulário Criar regra no modo Avançado com dois grupos de condições unidos por OU (o exemplo acima), ação Exibir página e uma safe page selecionada.
+Modo Avançado, nome, peso e ação da regra
 
-Regra com dois grupos no modo avançado
+Dois grupos de condições unidos por Ou
 
 ## Campos
 

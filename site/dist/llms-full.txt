@@ -5654,10 +5654,6 @@ Para conectar um assistente, você precisa da permissão **Criar** em **API Keys
 - **Autorize no Trackup**
 				O Trackup abre no navegador. Confira o time, as permissões e os projetos e clique em **Autorizar**.
 
-				**Print pendente · `img/mcp-autorizar.png`**Tela Autorizar acesso MCP com o título Claude quer acessar o Trackup, seletor de Time (nome borrado), a lista do que será liberado, Personalizar acesso e os botões Negar e Autorizar.
-
-Tela de autorização do MCP
-
 - **Ative o modo desenvolvedor**
 				Nas configurações do ChatGPT, ative o **Modo desenvolvedor**. A disponibilidade depende do seu plano.
 

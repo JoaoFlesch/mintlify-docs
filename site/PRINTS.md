@@ -1,6 +1,6 @@
 # Prints pendentes
 
-Gerado pelo build. 17 prints faltando.
+Gerado pelo build. 16 prints faltando.
 
 
 ## Gerenciador de anúncios (/gerenciador-de-anuncios)
@@ -63,7 +63,3 @@ Gerado pelo build. 17 prints faltando.
 ## Zedy (/zedy)
 
 - [ ] `img/plataformas/zedy-webhook.webp`: Painel da Zedy na tela de criação de webhook/postback, com a URL do Trackup colada e os eventos de compra aprovada, reembolso e chargeback marcados. Dados da conta borrados.
-
-## Conectar ao MCP (/conectar-mcp)
-
-- [ ] `img/mcp-autorizar.png`: Tela Autorizar acesso MCP com o título Claude quer acessar o Trackup, seletor de Time (nome borrado), a lista do que será liberado, Personalizar acesso e os botões Negar e Autorizar.

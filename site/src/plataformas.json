@@ -1,0 +1,134 @@
+[
+ {
+  "slug": "actionpay",
+  "name": "ActionPay"
+ },
+ {
+  "slug": "amplopay",
+  "name": "AmploPay"
+ },
+ {
+  "slug": "appmax",
+  "name": "Appmax"
+ },
+ {
+  "slug": "atomo-pay",
+  "name": "Átomo Pay"
+ },
+ {
+  "slug": "braip",
+  "name": "Braip"
+ },
+ {
+  "slug": "buygoods",
+  "name": "BuyGoods"
+ },
+ {
+  "slug": "cart-panda",
+  "name": "CartPanda"
+ },
+ {
+  "slug": "digipag",
+  "name": "DigiPag"
+ },
+ {
+  "slug": "digistore24",
+  "name": "Digistore24"
+ },
+ {
+  "slug": "eduzz",
+  "name": "Eduzz"
+ },
+ {
+  "slug": "goat-pay",
+  "name": "GoatPay"
+ },
+ {
+  "slug": "hotmart",
+  "name": "Hotmart"
+ },
+ {
+  "slug": "inova-pag",
+  "name": "InovaPag"
+ },
+ {
+  "slug": "kirvano",
+  "name": "Kirvano"
+ },
+ {
+  "slug": "kiwify",
+  "name": "Kiwify"
+ },
+ {
+  "slug": "lastlink",
+  "name": "LastLink"
+ },
+ {
+  "slug": "luna-checkout",
+  "name": "Luna Checkout"
+ },
+ {
+  "slug": "monetizze",
+  "name": "Monetizze"
+ },
+ {
+  "slug": "mundpay",
+  "name": "Mundpay"
+ },
+ {
+  "slug": "nuvemshop",
+  "name": "Nuvemshop"
+ },
+ {
+  "slug": "pagueio",
+  "name": "Pague.io"
+ },
+ {
+  "slug": "paradise",
+  "name": "Paradise"
+ },
+ {
+  "slug": "payt",
+  "name": "Payt"
+ },
+ {
+  "slug": "perfect-pay",
+  "name": "PerfectPay"
+ },
+ {
+  "slug": "proofpay",
+  "name": "ProofPay"
+ },
+ {
+  "slug": "shopify",
+  "name": "Shopify"
+ },
+ {
+  "slug": "stripe",
+  "name": "Stripe"
+ },
+ {
+  "slug": "ticto",
+  "name": "Ticto"
+ },
+ {
+  "slug": "tribopay",
+  "name": "TriboPay"
+ },
+ {
+  "slug": "upag",
+  "name": "Upag"
+ },
+ {
+  "slug": "vega-checkout",
+  "name": "Vega Checkout"
+ },
+ {
+  "slug": "yampi",
+  "name": "Yampi"
+ },
+ {
+  "slug": "zedy",
+  "name": "Zedy"
+ }
+]

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Filtro básico | Trackup Docs</title>
+<meta name="description" content="Monte regras de filtro com os critérios mais comuns, sem escrever expressões.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://docs.trackup.me/filtro-basico">
+<link rel="alternate" hreflang="pt-BR" href="https://docs.trackup.me/filtro-basico">
+<link rel="alternate" type="text/markdown" title="Versão para IA (llms.txt)" href="/llms.txt">
+<meta property="og:site_name" content="Trackup Docs">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Filtro básico">
+<meta property="og:description" content="Monte regras de filtro com os critérios mais comuns, sem escrever expressões.">
+<meta property="og:url" content="https://docs.trackup.me/filtro-basico">
+<meta property="og:image" content="https://assets.trackup.cloud/assets/pages/2e1cbc4b-c7b6-4295-baf2-b2e46f5c8f5b/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Trackup Docs">
+<meta property="article:modified_time" content="2026-11-17T01:49:28+00:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Filtro básico">
+<meta name="twitter:description" content="Monte regras de filtro com os critérios mais comuns, sem escrever expressões.">
+<meta name="twitter:image" content="https://assets.trackup.cloud/assets/pages/2e1cbc4b-c7b6-4295-baf2-b2e46f5c8f5b/og.jpg">
+<meta name="theme-color" content="#4f39f6">
+<link rel="icon" type="image/svg+xml" href="https://assets.trackup.cloud/assets/pages/2e1cbc4b-c7b6-4295-baf2-b2e46f5c8f5b/favicon.svg">
+<script>(function(){try{var t=localStorage.getItem('tu-theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<link rel="stylesheet" href="https://assets.trackup.cloud/assets/pages/2e1cbc4b-c7b6-4295-baf2-b2e46f5c8f5b/style.92bc26ae.css">
+<script src="https://assets.trackup.cloud/assets/pages/2e1cbc4b-c7b6-4295-baf2-b2e46f5c8f5b/shell.js"></script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","headline":"Filtro básico","description":"Monte regras de filtro com os critérios mais comuns, sem escrever expressões.","url":"https://docs.trackup.me/filtro-basico","inLanguage":"pt-BR","dateModified":"2026-11-17T01:49:28+00:00","image":"https://assets.trackup.cloud/assets/pages/2e1cbc4b-c7b6-4295-baf2-b2e46f5c8f5b/og.jpg","isPartOf":{"@type":"WebSite","name":"Trackup Docs","url":"https://docs.trackup.me/"},"publisher":{"@type":"Organization","name":"Trackup","url":"https://trackup.me","logo":"https://assets.trackup.cloud/assets/pages/2e1cbc4b-c7b6-4295-baf2-b2e46f5c8f5b/favicon.svg"},"about":{"@type":"SoftwareApplication","name":"Trackup","applicationCategory":"BusinessApplication","url":"https://trackup.me"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Trackup Docs","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":2,"name":"Guias","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":3,"name":"Filtro básico","item":"https://docs.trackup.me/filtro-basico"}]}]</script>
+</head>
+<body>
+<script>TU.header()</script>
+<div class="layout">
+	<aside class="sidebar" aria-label="Navegação"><script>TU.sidebar()</script></aside>
+	<main>
+		<article class="content">
+			<nav class="eyebrow" aria-label="Você está em"><a href="/">Guias</a><span aria-hidden="true"> › </span><span>Filtros</span></nav>
+			<h1 class="page-title">Filtro básico</h1>
+			<p class="page-desc">Monte regras de filtro com os critérios mais comuns, sem escrever expressões.</p>
+			<script>TU.actions()</script>
+			<div class="callout tip"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.1 14c.2-1 .7-1.7 1.5-2.5A6 6 0 1 0 6 8c0 1.4.4 2.6 1.4 3.5.8.8 1.3 1.5 1.5 2.5"/></svg><div><p><strong>Configure pela sua IA.</strong> Conecte seu assistente pelo <a href="/conectar-mcp">MCP</a> e peça: <em>"Crie uma regra no modo básico que bloqueie bots só no link /oferta. Deixe a ação em registrar (log) por enquanto."</em> Comece sempre por registrar: bloquear afeta visitantes reais na hora.</p></div></div>
+<p>O modo básico cobre os casos mais comuns de proteção. Você liga os filtros que quer, escolhe a ação e, se quiser, limita a regra a alguns links.</p>
+
+<h2 id="filtros-disponiveis">Filtros disponíveis<a class="anchor" href="#filtros-disponiveis" aria-label="Link para esta seção">#</a></h2>
+<table>
+	<thead><tr><th>Filtro</th><th>Corresponde quando</th></tr></thead>
+	<tbody>
+		<tr><td>Bloquear bots</td><td>O acesso é identificado como bot conhecido.</td></tr>
+		<tr><td>Filtro anti-plágio</td><td>A URL <strong>não</strong> tem o parâmetro secreto gerado pelo Trackup, como <code>?k3j9=x82m</code>.</td></tr>
+		<tr><td>Países</td><td>O país do visitante está (<strong>Na lista</strong>) ou não está (<strong>Não na lista</strong>) entre os escolhidos.</td></tr>
+		<tr><td>Idiomas</td><td>O idioma do navegador contém ou não contém os escolhidos.</td></tr>
+		<tr><td>Tipos de dispositivo</td><td>Computador, Celular, Tablet, Console, Smart TV, Wearable, Embarcado ou Desconhecido.</td></tr>
+		<tr><td>Links</td><td>Opcional. Sem seleção, a regra vale para todas as URLs do projeto.</td></tr>
+	</tbody>
+</table>
+<div class="callout note"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><div><p>Os filtros de uma mesma regra se combinam com <strong>E</strong>: a regra só corresponde se todos forem verdadeiros. Para bloquear bots <em>ou</em> outros países, crie duas regras.</p></div></div>
+
+<h2 id="criar-uma-regra">Criar uma regra<a class="anchor" href="#criar-uma-regra" aria-label="Link para esta seção">#</a></h2>
+<ol class="steps">
+	<li><span class="step-title">Abra o formulário</span>
+		<p>Em <strong>Filtro</strong>, clique em <strong>Criar regra</strong> e mantenha o modo <strong>Básico</strong>.</p>
+	</li>
+	<li><span class="step-title">Dê um nome e um peso</span>
+		<p>Use um nome que diga o que a regra faz, como <em>Só Brasil</em>. O <strong>Peso</strong> define a ordem. Deixe em branco para colocar no fim.</p>
+	</li>
+	<li><span class="step-title">Escolha os filtros</span>
+		<p>Ligue os filtros e escolha os valores. Exemplo para aceitar só o Brasil: <strong>Países</strong>, <strong>Não na lista</strong>, Brasil.</p>
+		<figure class="shot"><img src="https://assets.trackup.cloud/assets/pages/9d029c4c-402a-4f7c-aac9-b6a86575c0f1/img/filtro-basico.png" alt="Regra no modo básico" loading="lazy"><figcaption>Regra no modo básico</figcaption></figure></shot>
+	</li>
+	<li><span class="step-title">Escolha a ação</span>
+		<p>Por exemplo <strong>Bloquear</strong>, ou <strong>Exibir página</strong> para mostrar uma safe page. Veja todas as <a href="/filtro#acoes">ações</a>.</p>
+	</li>
+	<li><span class="step-title">Ative e salve</span>
+		<p>Com <strong>Ativo</strong> ligado, a regra passa a valer em poucos segundos.</p>
+	</li>
+</ol>
+
+<h2 id="filtro-anti-plagio">Filtro anti-plágio<a class="anchor" href="#filtro-anti-plagio" aria-label="Link para esta seção">#</a></h2>
+
+<div class="flow">
+	<div class="fnode"><i class="fa"></i><span class="fnode-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span><div class="fnode-body"><b>Acesso à página</b><span>Com ou sem o parâmetro</span></div></div>
+	<div class="fbranch">
+		<div class="fnode tone-ok"><i class="fa"></i><span class="fnode-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><div class="fnode-body"><b>Com o parâmetro</b><span>Veio do anúncio: vê a oferta</span></div></div>
+		<div class="fnode tone-stop"><i class="fa"></i><span class="fnode-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/></svg></span><div class="fnode-body"><b>Sem o parâmetro</b><span>Copiou o link ou é robô: safe page ou bloqueio</span></div></div>
+	</div>
+</div>
+<p>Ao ligar o filtro, o Trackup gera um parâmetro aleatório. A regra corresponde a todo acesso que chega <strong>sem</strong> esse parâmetro. Com a ação <strong>Bloquear</strong> ou <strong>Exibir página</strong>, só quem clicou no seu anúncio vê a página de verdade. Quem copia o endereço da barra e abre sem o parâmetro, ou um robô de clonagem, vê outra coisa.</p>
+<ol class="steps">
+	<li><span class="step-title">Ligue o filtro e salve a regra</span>
+		<p>Anote o parâmetro gerado.</p>
+	</li>
+	<li><span class="step-title">Use o parâmetro no anúncio</span>
+		<p>Ao copiar a URL de rastreamento de uma página, o Trackup mostra os <strong>Parâmetros do filtro</strong> que precisam estar na URL. Coloque-os no link do anúncio.</p>
+	</li>
+	<li><span class="step-title">Teste</span>
+		<p>Abra a URL com e sem o parâmetro, em uma aba anônima.</p>
+	</li>
+</ol>
+<div class="callout danger"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/></svg><div><p>Se o anúncio for publicado sem o parâmetro, todo o tráfego cai na regra. Confira a URL final do anúncio antes de publicar.</p></div></div>
+
+<h2 id="receitas">Receitas<a class="anchor" href="#receitas" aria-label="Link para esta seção">#</a></h2>
+<details class="acc"><summary>Aceitar só tráfego do Brasil</summary><div class="acc-body">
+	<p>Países <strong>Não na lista</strong>: Brasil. Ação: Bloquear.</p>
+</div></details>
+<details class="acc"><summary>Bloquear bots em todo o projeto</summary><div class="acc-body">
+	<p>Bloquear bots ligado, sem links. Ação: Bloquear. É o mesmo que a regra sugerida <em>Bloquear bots (proteção geral)</em>.</p>
+</div></details>
+<details class="acc"><summary>Mostrar uma safe page para computadores</summary><div class="acc-body">
+	<p>Tipos de dispositivo <strong>Na lista</strong>: Computador. Links: a página da oferta. Ação: Exibir página, com a safe page.</p>
+</div></details>
+
+			<script>TU.pager();TU.footer()</script>
+			<noscript><p class="site-footer"><a href="/">Início</a> · <a href="/llms.txt">Índice completo</a> · <a href="/sitemap.xml">Mapa do site</a></p></noscript>
+		</article>
+	</main>
+	<aside class="toc"><div class="toc-title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg> Nesta página</div><ul><li class="lvl-2"><a href="#filtros-disponiveis">Filtros disponíveis</a></li><li class="lvl-2"><a href="#criar-uma-regra">Criar uma regra</a></li><li class="lvl-2"><a href="#filtro-anti-plagio">Filtro anti-plágio</a></li><li class="lvl-2"><a href="#receitas">Receitas</a></li></ul></aside>
+</div>
+<script>TU.end()</script>
+</body>
+</html>

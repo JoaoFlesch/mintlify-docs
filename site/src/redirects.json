@@ -1,0 +1,20 @@
+{
+  "boas-vindas": "/",
+  "nocoes-basicas-1": "/como-funciona",
+  "como-funcionam-os-links": "/como-funciona",
+  "times-projetos": "/times-e-membros",
+  "geral": "/projetos",
+  "entendendo-paginas": "/paginas",
+  "configurandosuas-paginas": "/paginas",
+  "links": "/testes-ab",
+  "entendendo-os-filtros": "/filtro",
+  "modo-simples": "/filtro-basico",
+  "modo-avancado": "/filtro-avancado",
+  "entendendo-o-gerenciador-de-anuncios": "/gerenciador-de-anuncios",
+  "integrando-suas-plataformas-de-venda": "/plataformas-de-venda",
+  "generico": "/webhook-generico",
+  "meta": "/fontes-de-trafego",
+  "google": "/fontes-de-trafego",
+  "tiktok": "/fontes-de-trafego",
+  "kwai": "/fontes-de-trafego"
+}

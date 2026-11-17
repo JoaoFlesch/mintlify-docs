@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proteger páginas de bots e curiosos | Trackup Docs</title>
+<meta name="description" content="Monte uma proteção em camadas com o Filtro: bloqueio de bots, país, parâmetro secreto e safe page.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://docs.trackup.me/tutorial-proteger-paginas">
+<link rel="alternate" hreflang="pt-BR" href="https://docs.trackup.me/tutorial-proteger-paginas">
+<link rel="alternate" type="text/markdown" title="Versão para IA (llms.txt)" href="/llms.txt">
+<meta property="og:site_name" content="Trackup Docs">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Proteger páginas de bots e curiosos">
+<meta property="og:description" content="Monte uma proteção em camadas com o Filtro: bloqueio de bots, país, parâmetro secreto e safe page.">
+<meta property="og:url" content="https://docs.trackup.me/tutorial-proteger-paginas">
+<meta property="og:image" content="https://assets.trackup.cloud/assets/pages/2e1cbc4b-c7b6-4295-baf2-b2e46f5c8f5b/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Trackup Docs">
+<meta property="article:modified_time" content="2026-11-17T01:49:28+00:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Proteger páginas de bots e curiosos">
+<meta name="twitter:description" content="Monte uma proteção em camadas com o Filtro: bloqueio de bots, país, parâmetro secreto e safe page.">
+<meta name="twitter:image" content="https://assets.trackup.cloud/assets/pages/2e1cbc4b-c7b6-4295-baf2-b2e46f5c8f5b/og.jpg">
+<meta name="theme-color" content="#4f39f6">
+<link rel="icon" type="image/svg+xml" href="https://assets.trackup.cloud/assets/pages/2e1cbc4b-c7b6-4295-baf2-b2e46f5c8f5b/favicon.svg">
+<script>(function(){try{var t=localStorage.getItem('tu-theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<link rel="stylesheet" href="https://assets.trackup.cloud/assets/pages/2e1cbc4b-c7b6-4295-baf2-b2e46f5c8f5b/style.92bc26ae.css">
+<script src="https://assets.trackup.cloud/assets/pages/2e1cbc4b-c7b6-4295-baf2-b2e46f5c8f5b/shell.js"></script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","headline":"Proteger páginas de bots e curiosos","description":"Monte uma proteção em camadas com o Filtro: bloqueio de bots, país, parâmetro secreto e safe page.","url":"https://docs.trackup.me/tutorial-proteger-paginas","inLanguage":"pt-BR","dateModified":"2026-11-17T01:49:28+00:00","image":"https://assets.trackup.cloud/assets/pages/2e1cbc4b-c7b6-4295-baf2-b2e46f5c8f5b/og.jpg","isPartOf":{"@type":"WebSite","name":"Trackup Docs","url":"https://docs.trackup.me/"},"publisher":{"@type":"Organization","name":"Trackup","url":"https://trackup.me","logo":"https://assets.trackup.cloud/assets/pages/2e1cbc4b-c7b6-4295-baf2-b2e46f5c8f5b/favicon.svg"},"about":{"@type":"SoftwareApplication","name":"Trackup","applicationCategory":"BusinessApplication","url":"https://trackup.me"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Trackup Docs","item":"https://docs.trackup.me/"},{"@type":"ListItem","position":2,"name":"Tutoriais","item":"https://docs.trackup.me/tutorial-campanha-meta"},{"@type":"ListItem","position":3,"name":"Proteger páginas de bots e curiosos","item":"https://docs.trackup.me/tutorial-proteger-paginas"}]}]</script>
+</head>
+<body>
+<script>TU.header()</script>
+<div class="layout">
+	<aside class="sidebar" aria-label="Navegação"><script>TU.sidebar()</script></aside>
+	<main>
+		<article class="content">
+			<nav class="eyebrow" aria-label="Você está em"><a href="/tutorial-campanha-meta">Tutoriais</a><span aria-hidden="true"> › </span><span>Otimização</span></nav>
+			<h1 class="page-title">Proteger páginas de bots e curiosos</h1>
+			<p class="page-desc">Monte uma proteção em camadas com o Filtro: bloqueio de bots, país, parâmetro secreto e safe page.</p>
+			<script>TU.actions()</script>
+			<div class="callout tip"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.1 14c.2-1 .7-1.7 1.5-2.5A6 6 0 1 0 6 8c0 1.4.4 2.6 1.4 3.5.8.8 1.3 1.5 1.5 2.5"/></svg><div><p><strong>Configure pela sua IA.</strong> Conecte seu assistente pelo <a href="/conectar-mcp">MCP</a> e peça: <em>"Crie quatro regras no filtro, nesta ordem: liberar o meu IP (peso 1), bloquear bots (10), exibir a safe page para fora do Brasil (20) e bloquear quem abrir /oferta sem o parâmetro secreto (30). Gere o parâmetro e me diga onde colocar."</em></p></div></div>
+<p>Neste tutorial você monta, em ordem, quatro regras de filtro para uma página de oferta. Robôs são bloqueados, o tráfego de fora do Brasil vê uma página neutra, e quem tenta abrir a página sem vir do anúncio também.</p>
+<table>
+	<thead><tr><th>Peso</th><th>Regra</th><th>Ação</th></tr></thead>
+	<tbody>
+		<tr><td>1</td><td>Liberar o seu IP</td><td>Permitir</td></tr>
+		<tr><td>10</td><td>Bloquear bots</td><td>Bloquear</td></tr>
+		<tr><td>20</td><td>Fora do Brasil</td><td>Exibir página (safe page)</td></tr>
+		<tr><td>30</td><td>Sem parâmetro secreto</td><td>Exibir página (safe page)</td></tr>
+	</tbody>
+</table>
+
+<div class="flow flow-v">
+	<div class="fnode"><i class="fa"></i><span class="fnode-n">1</span><span class="fnode-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span><div class="fnode-body"><b>Requisição</b><span>Chega à página da oferta</span></div></div>
+	<div class="fnode tone-ok"><i class="fa"></i><span class="fnode-n">2</span><span class="fnode-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><div class="fnode-body"><b>Peso 1: seu IP</b><span>Permitir, as demais regras não se aplicam</span></div></div>
+	<div class="fnode tone-stop"><i class="fa"></i><span class="fnode-n">3</span><span class="fnode-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8V4H8"/><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M2 14h2M20 14h2M15 13v2M9 13v2"/></svg></span><div class="fnode-body"><b>Peso 10: bots</b><span>Bloquear</span></div></div>
+	<div class="fnode tone-stop"><i class="fa"></i><span class="fnode-n">4</span><span class="fnode-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span><div class="fnode-body"><b>Peso 20: fora do Brasil</b><span>Safe page</span></div></div>
+	<div class="fnode tone-stop"><i class="fa"></i><span class="fnode-n">5</span><span class="fnode-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></svg></span><div class="fnode-body"><b>Peso 30: sem o parâmetro</b><span>Safe page</span></div></div>
+	<div class="fnode tone-ok"><i class="fa"></i><span class="fnode-n">6</span><span class="fnode-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h5"/></svg></span><div class="fnode-body"><b>Página da oferta</b><span>Para quem passou por todas</span></div></div>
+</div>
+
+<h2 id="o-que-voce-vai-precisar">O que você vai precisar<a class="anchor" href="#o-que-voce-vai-precisar" aria-label="Link para esta seção">#</a></h2>
+<ul>
+	<li>A página da oferta publicada.</li>
+	<li>Uma <em>safe page</em>: uma página neutra e verdadeira, como um artigo sobre o tema do produto, criada no mesmo projeto.</li>
+	<li>O seu IP público. Busque "qual é meu IP" no navegador.</li>
+</ul>
+
+<h2 id="1-libere-o-seu-acesso">1. Libere o seu acesso<a class="anchor" href="#1-libere-o-seu-acesso" aria-label="Link para esta seção">#</a></h2>
+<p>Assim você consegue revisar a página sem cair nas regras.</p>
+<ol class="steps">
+	<li><span class="step-title">Crie a regra</span>
+		<p>Em <strong>Filtro</strong>, clique em <strong>Criar regra</strong> e escolha o modo <strong>Avançado</strong>. Nome: <em>Meu IP</em>. Peso: <code>1</code>.</p>
+	</li>
+	<li><span class="step-title">Condição e ação</span>
+		<p>Condição: <strong>IP de origem</strong>, <strong>Igual</strong>, o seu IP. Ação: <strong>Permitir</strong>. Salve.</p>
+	</li>
+</ol>
+
+<h2 id="2-bloqueie-bots">2. Bloqueie bots<a class="anchor" href="#2-bloqueie-bots" aria-label="Link para esta seção">#</a></h2>
+<p>No fim da tela <strong>Filtro</strong>, em <strong>Regras sugeridas</strong>, clique em <strong>Usar template</strong> em <em>Bloquear bots (proteção geral)</em>. Defina o peso <code>10</code> e salve.</p>
+
+<h2 id="3-mostre-a-safe-page-fora-do-brasil">3. Mostre a safe page fora do Brasil<a class="anchor" href="#3-mostre-a-safe-page-fora-do-brasil" aria-label="Link para esta seção">#</a></h2>
+<ol class="steps">
+	<li><span class="step-title">Crie a regra no modo básico</span>
+		<p><strong>Criar regra</strong>, modo <strong>Básico</strong>. Nome: <em>Fora do Brasil</em>. Peso: <code>20</code>.</p>
+		<figure class="shot"><img src="https://assets.trackup.cloud/assets/pages/2fa5e2e0-79ff-4724-8845-6e00eaf97416/img/tut-filtro-pais-topo.png" alt="Nome e peso da regra" loading="lazy"><figcaption>Nome e peso da regra</figcaption></figure></shot>
+	</li>
+	<li><span class="step-title">Filtro de país</span>
+		<p>Em <strong>Países</strong>, escolha <strong>Não na lista</strong> e selecione Brasil.</p>
+		<figure class="shot"><img src="https://assets.trackup.cloud/assets/pages/2fa5e2e0-79ff-4724-8845-6e00eaf97416/img/tut-filtro-pais-v2.png" alt="Ação Exibir página e filtro de país" loading="lazy"><figcaption>Ação Exibir página e filtro de país</figcaption></figure></shot>
+	</li>
+	<li><span class="step-title">Limite à oferta</span>
+		<p>Em <strong>Links</strong>, selecione a página da oferta. As outras páginas do projeto não são afetadas.</p>
+		<figure class="shot"><img src="https://assets.trackup.cloud/assets/pages/2fa5e2e0-79ff-4724-8845-6e00eaf97416/img/tut-filtro-pais-2.png" alt="Link da oferta selecionado e botão Salvar" loading="lazy"><figcaption>Link da oferta selecionado e botão Salvar</figcaption></figure></shot>
+	</li>
+	<li><span class="step-title">Ação</span>
+		<p>Escolha <strong>Exibir página</strong> e selecione a safe page.</p>
+	</li>
+</ol>
+
+<h2 id="4-exija-o-parametro-secreto">4. Exija o parâmetro secreto<a class="anchor" href="#4-exija-o-parametro-secreto" aria-label="Link para esta seção">#</a></h2>
+<ol class="steps">
+	<li><span class="step-title">Crie a regra</span>
+		<p><strong>Criar regra</strong>, modo <strong>Básico</strong>. Nome: <em>Anti-plágio</em>. Peso: <code>30</code>.</p>
+	</li>
+	<li><span class="step-title">Ligue o anti-plágio</span>
+		<p>Ligue <strong>Filtro anti-plágio</strong>. O Trackup gera um parâmetro, como <code>k3j9x=82mqa</code>. Em <strong>Links</strong>, selecione a oferta. Ação: <strong>Exibir página</strong>, safe page.</p>
+	</li>
+	<li><span class="step-title">Coloque o parâmetro no anúncio</span>
+		<p>Na lista de páginas, use o botão de copiar link da oferta e abra <strong>Ver URL</strong>. A <strong>URL final</strong> já inclui os <strong>Parâmetros do filtro</strong>. Use essa URL no anúncio, junto com os parâmetros da fonte de tráfego.</p>
+		<figure class="shot"><img src="https://assets.trackup.cloud/assets/pages/5b39b132-365a-4857-a44a-2c5068003a3c/img/tut-filtro-url.png" alt="URL de rastreio com parâmetros do filtro" loading="lazy"><figcaption>URL de rastreio com parâmetros do filtro</figcaption></figure></shot>
+	</li>
+</ol>
+<div class="callout danger"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/></svg><div><p>Anúncio sem o parâmetro manda todo o tráfego para a safe page. Confira a URL antes de publicar.</p></div></div>
+
+<h2 id="5-teste-com-registrar-antes-de-valer">5. Teste com Registrar antes de valer<a class="anchor" href="#5-teste-com-registrar-antes-de-valer" aria-label="Link para esta seção">#</a></h2>
+<p>Se a página já recebe tráfego, crie as regras 3 e 4 primeiro com a ação <strong>Registrar</strong>. Depois de um dia, olhe a coluna <strong>Acessos</strong> e confira em <strong>Logs › Requisições</strong> quem cairia em cada regra. Se estiver certo, troque para <strong>Exibir página</strong>.</p>
+
+<h2 id="6-valide">6. Valide<a class="anchor" href="#6-valide" aria-label="Link para esta seção">#</a></h2>
+<ul>
+	<li>Do seu computador, a oferta abre normalmente (regra 1).</li>
+	<li>Do celular, fora do Wi-Fi e sem o parâmetro, você vê a safe page.</li>
+	<li>Com o parâmetro, a oferta abre.</li>
+	<li>Em <strong>Logs › Requisições</strong>, cada acesso mostra a <strong>Regra do firewall</strong> que decidiu.</li>
+</ul>
+<p>Acompanhe o resultado no topo da tela <strong>Filtro</strong> ou adicione o card <strong>Filtro</strong> a um <a href="/dashboards">dashboard</a>.</p>
+
+			<script>TU.pager();TU.footer()</script>
+			<noscript><p class="site-footer"><a href="/">Início</a> · <a href="/llms.txt">Índice completo</a> · <a href="/sitemap.xml">Mapa do site</a></p></noscript>
+		</article>
+	</main>
+	<aside class="toc"><div class="toc-title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg> Nesta página</div><ul><li class="lvl-2"><a href="#o-que-voce-vai-precisar">O que você vai precisar</a></li><li class="lvl-2"><a href="#1-libere-o-seu-acesso">1. Libere o seu acesso</a></li><li class="lvl-2"><a href="#2-bloqueie-bots">2. Bloqueie bots</a></li><li class="lvl-2"><a href="#3-mostre-a-safe-page-fora-do-brasil">3. Mostre a safe page fora do Brasil</a></li><li class="lvl-2"><a href="#4-exija-o-parametro-secreto">4. Exija o parâmetro secreto</a></li><li class="lvl-2"><a href="#5-teste-com-registrar-antes-de-valer">5. Teste com Registrar antes de valer</a></li><li class="lvl-2"><a href="#6-valide">6. Valide</a></li></ul></aside>
+</div>
+<script>TU.end()</script>
+</body>
+</html>

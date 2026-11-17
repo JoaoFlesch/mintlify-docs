@@ -1,0 +1,53 @@
+---
+title: Redirect
+icon: external
+description: Passe o tráfego pelo Trackup e redirecione para uma página hospedada em outro lugar.
+---
+<callout type="tip"><p><strong>Configure pela sua IA.</strong> Conecte seu assistente pelo <a href="/conectar-mcp">MCP</a> e peça: <em>"Crie uma página Redirect em /go que leve para https://example.com/obrigado com redirecionamento 301."</em></p></callout>
+<p>Uma página Redirect registra o acesso, aplica o filtro, dispara os eventos e manda o visitante para outra URL. Use quando a página precisa continuar em outro servidor, ou para criar uma <a href="/ofertas">oferta</a> que leva ao checkout.</p>
+
+<flow>
+	<fstep n="1" icon="target" title="Clique">No anúncio ou no botão</fstep>
+	<fstep n="2" icon="shield" title="Trackup">Registra, filtra e dispara eventos</fstep>
+	<fstep n="3" icon="external" title="Redirecionamento">302 com os parâmetros do visitante</fstep>
+	<fstep n="4" icon="globe" title="Destino" tone="ok">Sua página ou o checkout</fstep>
+</flow>
+
+<h2>Criar</h2>
+<steps>
+	<step title="Abra a aba Redirect">
+		<p>Em <strong>Páginas › Adicionar página</strong>, mantenha a aba <strong>Redirect</strong>. Para um checkout, use <strong>Ofertas › Adicionar oferta</strong>, que já é um redirecionamento.</p>
+	</step>
+	<step title="Preencha os campos">
+		<table>
+			<thead><tr><th>Campo</th><th>Descrição</th></tr></thead>
+			<tbody>
+				<tr><td>Nome</td><td>Identificação no painel.</td></tr>
+				<tr><td>URL de redirecionamento</td><td>Para onde o visitante vai, com <code>https://</code>.</td></tr>
+				<tr><td>Status Code</td><td><code>302</code> (padrão), <code>301</code>, <code>307</code> ou <code>308</code>. Veja <a href="#qual-status-usar">Qual status usar</a>.</td></tr>
+				<tr><td>Caminho</td><td>Endereço no seu domínio, como <code>/promo</code>.</td></tr>
+			</tbody>
+		</table>
+		<shot src="img/redirect-criar.png" caption="Criação de uma página Redirect" todo="Aba Redirect da tela Adicionar página com Nome, URL de redirecionamento apontando para a página criada no Builder e Caminho /promo."></shot>
+	</step>
+	<step title="Salve e teste">
+		<p>Salve, copie o link da página na lista e abra no navegador. Você deve cair na URL de destino.</p>
+	</step>
+	<step title="Instale o script no destino">
+		<p>Se o destino é uma landing page hospedada fora do Trackup, instale o <a href="/script">script de rastreamento</a> nela. Se o destino é uma página do <a href="/builder">Builder</a> ou HTML do próprio Trackup, não precisa de script.</p>
+	</step>
+</steps>
+
+<h2>Parâmetros</h2>
+<p>Os parâmetros da URL do visitante, como <code>utm_source</code> e <code>fbclid</code>, são repassados ao destino. Se o mesmo parâmetro já existir fixo na URL de redirecionamento, vale o valor do visitante.</p>
+
+<h2>Qual status usar</h2>
+<table>
+	<thead><tr><th>Status</th><th>Tipo</th><th>Quando usar</th></tr></thead>
+	<tbody>
+		<tr><td><code>302</code> <span class="badge">Padrão</span></td><td>Temporário</td><td>Quase sempre. Você pode trocar o destino quando quiser.</td></tr>
+		<tr><td><code>307</code></td><td>Temporário</td><td>Igual ao 302, mas mantém o método da requisição (útil para formulários com POST).</td></tr>
+		<tr><td><code>301</code> e <code>308</code></td><td>Permanente</td><td>Só para mudanças definitivas de endereço.</td></tr>
+	</tbody>
+</table>
+<callout type="warning"><p>Navegadores guardam em cache os redirecionamentos <code>301</code> e <code>308</code>. Se você trocar o destino depois, quem já acessou pode continuar indo para o endereço antigo.</p></callout>

@@ -1,0 +1,64 @@
+---
+title: Integrações
+icon: plug
+eyebrow: Plataformas de venda
+description: Passo a passo para conectar cada plataforma de venda ao Trackup.
+toc: false
+---
+<callout type="tip"><p><strong>Configure pela sua IA.</strong> Conecte seu assistente pelo <a href="/conectar-mcp">MCP</a> e peça: <em>"Conecte a Hotmart ao projeto Online Store e me dê a URL do webhook."</em> O cadastro da URL dentro da plataforma de venda é feito por você.</p></callout>
+<p>O Trackup recebe vendas de 33 plataformas por webhook. Escolha a sua abaixo. Se ela não estiver na lista, use o <a href="/webhook-generico">webhook genérico</a>.</p>
+<callout type="tip"><p>Primeira vez integrando? Leia antes <a href="/plataformas-de-venda">como a atribuição de vendas funciona</a>.</p></callout>
+<div class="plat-search"><input type="search" id="plat-q" placeholder="Buscar plataforma pelo nome" aria-label="Buscar plataforma pelo nome" autocomplete="off"></div>
+<cards cols="3">
+	<card title="ActionPay" href="/actionpay" logo="img/logos/actionpay.svg">ActionPay</card>
+	<card title="AmploPay" href="/amplopay" logo="img/logos/amplopay.svg">AmploPay</card>
+	<card title="Appmax" href="/appmax" logo="img/logos/appmax.png">Appmax</card>
+	<card title="Átomo Pay" href="/atomo-pay" logo="img/logos/atomo-pay.svg">Átomo Pay</card>
+	<card title="Braip" href="/braip" logo="img/logos/braip.png">Braip</card>
+	<card title="BuyGoods" href="/buygoods" logo="img/logos/buygoods.png">BuyGoods</card>
+	<card title="CartPanda" href="/cart-panda" logo="img/logos/cart-panda.png">CartPanda</card>
+	<card title="DigiPag" href="/digipag" logo="img/logos/digipag.svg">DigiPag</card>
+	<card title="Digistore24" href="/digistore24" logo="img/logos/digistore24.svg">DigiStore24</card>
+	<card title="Eduzz" href="/eduzz" logo="img/logos/eduzz.png">Eduzz</card>
+	<card title="GoatPay" href="/goat-pay" logo="img/logos/goat-pay.png">GoatPay</card>
+	<card title="Hotmart" href="/hotmart" logo="img/logos/hotmart.png">Hotmart 1.0 ou Hotmart 2.0</card>
+	<card title="InovaPag" href="/inova-pag" logo="img/logos/inova-pag.png">InovaPag</card>
+	<card title="Kirvano" href="/kirvano" logo="img/logos/kirvano.png">Kirvano</card>
+	<card title="Kiwify" href="/kiwify" logo="img/logos/kiwify.svg">Kiwify</card>
+	<card title="LastLink" href="/lastlink" logo="img/logos/lastlink.png">LastLink</card>
+	<card title="Luna Checkout" href="/luna-checkout" logo="img/logos/luna-checkout.png">Luna Checkout</card>
+	<card title="Monetizze" href="/monetizze" logo="img/logos/monetizze.svg">Monetizze</card>
+	<card title="Mundpay" href="/mundpay" logo="img/logos/mundpay.png">Mundpay</card>
+	<card title="Nuvemshop" href="/nuvemshop" logo="img/logos/nuvemshop.png">Nuvemshop</card>
+	<card title="Pague.io" href="/pagueio" logo="img/logos/pagueio.svg">Pague.io</card>
+	<card title="Paradise" href="/paradise" logo="img/logos/paradise.png">Paradise</card>
+	<card title="Payt" href="/payt" logo="img/logos/payt.png">Payt</card>
+	<card title="PerfectPay" href="/perfect-pay" logo="img/logos/perfect-pay.png">PerfectPay</card>
+	<card title="ProofPay" href="/proofpay" logo="img/logos/proofpay.png">ProofPay</card>
+	<card title="Shopify" href="/shopify" logo="img/logos/shopify.png">Shopify</card>
+	<card title="Stripe" href="/stripe" logo="img/logos/stripe.png">Stripe</card>
+	<card title="Ticto" href="/ticto" logo="img/logos/ticto.png">Ticto 2.0</card>
+	<card title="TriboPay" href="/tribopay" logo="img/logos/tribopay.png">TriboPay</card>
+	<card title="Upag" href="/upag" logo="img/logos/upag.svg">Upag</card>
+	<card title="Vega Checkout" href="/vega-checkout" logo="img/logos/vega-checkout.png">Vega Checkout</card>
+	<card title="Yampi" href="/yampi" logo="img/logos/yampi.png">Yampi</card>
+	<card title="Zedy" href="/zedy" logo="img/logos/zedy.png">Zedy</card>
+	<card title="Webhook genérico" href="/webhook-generico">Qualquer checkout ou sistema próprio</card>
+</cards>
+<div class="plat-empty" id="plat-empty" hidden><strong>Não encontramos essa plataforma</strong><p>A integração pode ser solicitada pelo chat do suporte. Vamos realizá-la rapidamente. Enquanto isso, você já pode receber as vendas pelo <a href="/webhook-generico">webhook genérico</a>.</p></div>
+<script>
+(function () {
+	var q = document.getElementById('plat-q'), empty = document.getElementById('plat-empty');
+	if (!q) return;
+	var cards = [].slice.call(document.querySelectorAll('.cards .card'));
+	var norm = function (s) { return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]/g, ''); };
+	q.addEventListener('input', function () {
+		var v = norm(q.value), n = 0;
+		cards.forEach(function (c) {
+			var t = c.querySelector('.card-title'), ok = !v || norm(t ? t.textContent : '').indexOf(v) !== -1;
+			c.style.display = ok ? '' : 'none'; if (ok) n++;
+		});
+		empty.hidden = n > 0;
+	});
+})();
+</script>

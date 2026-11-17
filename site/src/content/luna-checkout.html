@@ -1,0 +1,29 @@
+---
+title: Luna Checkout
+icon: cart
+eyebrow: Plataformas de venda
+logo: img/logos/luna-checkout.png
+description: Receba vendas, reembolsos e chargebacks da Luna Checkout no Trackup, atribuídos ao anúncio de origem.
+---
+<callout type="tip"><p><strong>Configure pela sua IA.</strong> Conecte seu assistente pelo <a href="/conectar-mcp">MCP</a> e peça: <em>"Crie a plataforma de venda Luna Checkout no projeto Online Store e me dê a URL do webhook."</em> O cadastro da URL dentro da Luna Checkout continua com você.</p></callout>
+<p>A integração tem duas partes: o Trackup envia o ID do clique para o checkout da Luna Checkout, e a Luna Checkout devolve esse ID no webhook de cada venda.</p>
+<flow><fstep n="1" icon="cart" title="Checkout">O Trackup envia o ID do clique para a Luna Checkout</fstep><fstep n="2" icon="plug" title="Webhook">A Luna Checkout devolve o ID a cada venda</fstep><fstep n="3" icon="dollar" title="Conversão" tone="ok">Ligada ao clique e à campanha</fstep></flow>
+<h2>Antes de começar</h2><ul><li>Um projeto com <a href="/dominios">domínio primário</a> configurado. A URL do webhook usa esse domínio.</li><li>Acesso de administrador à sua conta na Luna Checkout.</li></ul>
+<h2>1. Crie a plataforma no Trackup</h2><steps>
+<step title="Adicione a plataforma"><p>Vá em <strong>Integração › Plataformas de vendas</strong>, clique em <strong>Adicionar plataforma</strong> e escolha <strong>Luna Checkout</strong>.</p></step>
+<step title="Confira os parâmetros"><p>O Trackup preenche os parâmetros do checkout sozinho: o ID do clique vai em <code>src</code> e as UTMs vão junto. Só altere se a Luna Checkout usar outro nome de parâmetro.</p></step>
+<step title="Copie a URL do webhook"><p>Salve. Na lista de plataformas, copie a <strong>URL</strong> da Luna Checkout.</p><shot src="img/plataforma-url-copiar.png" caption="URL do webhook na lista de plataformas" todo="Integração › Plataformas de vendas com a plataforma Luna Checkout cadastrada e o botão Copiar URL em destaque. Parte do código da URL borrada."></shot></step>
+</steps>
+<h2>2. Cadastre o webhook na Luna Checkout</h2>
+<ol>
+<li>No Luna Checkout, abra <strong>Desenvolvedores › Webhooks</strong> e clique em <strong>Nova integração</strong>.</li>
+<li>Dê um nome à integração.</li>
+<li>Cole a URL do Trackup.</li>
+<li>Marque os eventos <strong>Venda Aprovada</strong>, <strong>Venda Estornada</strong> e <strong>Venda Chargeback</strong>.</li>
+<li>Se quiser, restrinja a integração a alguns produtos.</li>
+<li>Salve.</li>
+</ol>
+<h2>3. Teste</h2>
+<p>Abra sua landing page pelo link do Trackup, com os parâmetros da fonte de tráfego, clique no botão de compra e faça uma compra de teste de valor baixo. A venda deve aparecer em <strong>Logs › Conversões</strong> com a campanha preenchida.</p>
+<callout type="warning"><p>Se a venda aparecer como <strong>Click ID ausente</strong>, o botão da página não está apontando para o link da <a href="/ofertas">oferta</a> no Trackup, ou o checkout não está devolvendo o parâmetro do clique.</p></callout>
+<p>Não achou sua plataforma? Use o <a href="/webhook-generico">webhook genérico</a>.</p>

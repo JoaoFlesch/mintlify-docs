@@ -88,7 +88,8 @@ function expand(html) {
 			const imgUrl = /^https?:/.test(imgBase) && !/^https?:/.test(src) ? `${imgBase}/${src.replace(/^\//, '')}` : src;
 			return `<figure class="shot"><img src="${esc(imgUrl)}" alt="${esc(alt || caption || '')}" loading="lazy">${caption ? `<figcaption>${esc(caption)}</figcaption>` : ''}</figure>`;
 		})
-		.replace(/<icon name="([a-z-]+)"\s*\/?>/g, (_, n) => icon(n));
+		.replace(/<icon name="([a-z-]+)"\s*\/?>/g, (_, n) => icon(n))
+		.replace(/\{\{icon:([a-z-]+)\}\}/g, (_, n) => icon(n));
 	// Títulos com âncora
 	const toc = [];
 	const used = new Set();

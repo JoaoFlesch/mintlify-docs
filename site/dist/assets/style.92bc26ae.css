@@ -205,6 +205,14 @@ a.card:hover { border-color: color-mix(in srgb, var(--brand) 45%, var(--border))
 .chip img { width: 22px; height: 22px; object-fit: contain; border-radius: 5px; background: #fff; flex: none; }
 @media (max-width: 720px) { .plat-logo { width: 34px; height: 34px; margin-right: 10px; } }
 
+.plat-search { margin: 0 0 18px; }
+.plat-search input { width: 100%; box-sizing: border-box; padding: 11px 14px; border: 1px solid var(--border); border-radius: 10px; background: var(--bg-elevated); color: var(--text); font: inherit; font-size: 15px; }
+.plat-search input:focus { outline: none; border-color: var(--brand); box-shadow: 0 0 0 3px var(--brand-soft); }
+.plat-empty { margin: 0 0 24px; padding: 28px 22px; text-align: center; border: 1px dashed var(--border-strong, var(--border)); border-radius: 12px; background: var(--bg-subtle); }
+.plat-empty[hidden] { display: none; }
+.plat-empty strong { display: block; font-size: 16px; margin-bottom: 6px; }
+.plat-empty p { margin: 0; color: var(--text-muted); font-size: 14.5px; line-height: 1.6; }
+
 /* Abas de conteúdo */
 .ctabs { margin: 0 0 22px; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
 .ctabs-list { display: flex; gap: 2px; padding: 0 8px; border-bottom: 1px solid var(--border); background: var(--bg-subtle); overflow-x: auto; }

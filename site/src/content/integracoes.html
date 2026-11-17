@@ -8,6 +8,7 @@ toc: false
 <callout type="tip"><p><strong>Configure pela sua IA.</strong> Conecte seu assistente pelo <a href="/conectar-mcp">MCP</a> e peça: <em>"Conecte a Hotmart ao projeto Online Store e me dê a URL do webhook."</em> O cadastro da URL dentro da plataforma de venda é feito por você.</p></callout>
 <p>O Trackup recebe vendas de 33 plataformas por webhook. Escolha a sua abaixo. Se ela não estiver na lista, use o <a href="/webhook-generico">webhook genérico</a>.</p>
 <callout type="tip"><p>Primeira vez integrando? Leia antes <a href="/plataformas-de-venda">como a atribuição de vendas funciona</a>.</p></callout>
+<div class="plat-search"><input type="search" id="plat-q" placeholder="Buscar plataforma pelo nome" aria-label="Buscar plataforma pelo nome" autocomplete="off"></div>
 <cards cols="3">
 	<card title="ActionPay" href="/actionpay" logo="img/logos/actionpay.svg">ActionPay</card>
 	<card title="AmploPay" href="/amplopay" logo="img/logos/amplopay.svg">AmploPay</card>
@@ -44,3 +45,20 @@ toc: false
 	<card title="Zedy" href="/zedy" logo="img/logos/zedy.png">Zedy</card>
 	<card title="Webhook genérico" href="/webhook-generico">Qualquer checkout ou sistema próprio</card>
 </cards>
+<div class="plat-empty" id="plat-empty" hidden><strong>Não encontramos essa plataforma</strong><p>A integração pode ser solicitada pelo chat do suporte. Vamos realizá-la rapidamente. Enquanto isso, você já pode receber as vendas pelo <a href="/webhook-generico">webhook genérico</a>.</p></div>
+<script>
+(function () {
+	var q = document.getElementById('plat-q'), empty = document.getElementById('plat-empty');
+	if (!q) return;
+	var cards = [].slice.call(document.querySelectorAll('.cards .card'));
+	var norm = function (s) { return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]/g, ''); };
+	q.addEventListener('input', function () {
+		var v = norm(q.value), n = 0;
+		cards.forEach(function (c) {
+			var t = c.querySelector('.card-title'), ok = !v || norm(t ? t.textContent : '').indexOf(v) !== -1;
+			c.style.display = ok ? '' : 'none'; if (ok) n++;
+		});
+		empty.hidden = n > 0;
+	});
+})();
+</script>

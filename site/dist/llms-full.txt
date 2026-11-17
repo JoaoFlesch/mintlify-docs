@@ -3602,6 +3602,23 @@ Primeira vez integrando? Leia antes [como a atribuição de vendas funciona](htt
 	[ZedyZedy](https://docs.trackup.me/zedy)
 	[Webhook genéricoQualquer checkout ou sistema próprio](https://docs.trackup.me/webhook-generico)
 
+**Não encontramos essa plataforma**A integração pode ser solicitada pelo chat do suporte. Vamos realizá-la rapidamente. Enquanto isso, você já pode receber as vendas pelo [webhook genérico](https://docs.trackup.me/webhook-generico).
+
+(function () {
+	var q = document.getElementById('plat-q'), empty = document.getElementById('plat-empty');
+	if (!q) return;
+	var cards = [].slice.call(document.querySelectorAll('.cards .card'));
+	var norm = function (s) { return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]/g, ''); };
+	q.addEventListener('input', function () {
+		var v = norm(q.value), n = 0;
+		cards.forEach(function (c) {
+			var t = c.querySelector('.card-title'), ok = !v || norm(t ? t.textContent : '').indexOf(v) !== -1;
+			c.style.display = ok ? '' : 'none'; if (ok) n++;
+		});
+		empty.hidden = n > 0;
+	});
+})();
+
 ---
 
 # Webhook genérico

@@ -2534,15 +2534,15 @@ URL: https://docs.trackup.me/produtos
 
 A tela **Produtos** lista os produtos vendidos nas suas plataformas de venda. Você não precisa cadastrá-los: cada produto aparece quando a primeira venda dele chega pelo webhook.
 
-**Print pendente · `img/produtos.png`**Tela Produtos com o filtro Plataforma de venda e dois produtos de exemplo, um deles expandido mostrando duas ofertas e a coluna Primeira venda.
+Produtos registrados a partir das vendas, com um produto expandido
 
-Produtos registrados a partir das vendas
+- **Plataforma de venda:** filtra a lista por plataforma. Por padrão aparecem todas.
 
-- Filtre por **Plataforma de venda**.
+- **Produto:** cada linha mostra o nome e o ID do produto na plataforma, com o número de **Ofertas da plataforma**. Clique na seta para expandir e ver as ofertas (planos ou preços diferentes do mesmo produto). Cada oferta aparece pelo nome e pelo ID de preço que a plataforma enviou.
 
-- Expanda um produto para ver as ofertas cadastradas na plataforma (por exemplo, planos ou preços diferentes do mesmo produto).
+- **Primeira venda:** mostra quando o produto apareceu pela primeira vez.
 
-- A coluna **Primeira venda** mostra quando o produto apareceu.
+Se o mesmo produto aparecer em duas linhas, a plataforma enviou o produto com IDs diferentes em vendas diferentes. O Trackup mostra cada ID separadamente.
 
 A tela Produtos lista o que a plataforma de venda vendeu. Para criar o link de checkout que você usa nas páginas, veja [Ofertas](https://docs.trackup.me/ofertas).
 

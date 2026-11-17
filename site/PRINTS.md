@@ -1,16 +1,12 @@
 # Prints pendentes
 
-Gerado pelo build. 16 prints faltando.
+Gerado pelo build. 15 prints faltando.
 
 
 ## Gerenciador de anúncios (/gerenciador-de-anuncios)
 
 - [ ] `img/ads-contas.png`: Modal Selecionar contas de anúncios com 3 contas fictícias, duas marcadas, e o botão Conectar 2 conta(s). Nomes de conta borrados.
 - [ ] `img/ads-tabela.png`: Aba Campanhas com o resumo no topo (Investimento, Impressões, Cliques, Visitantes únicos, Vendas, Receita), 4 campanhas fictícias com Status, Investimento, Vendas, Receita, ROAS e CPA, e o indicador Última sincronização. Nomes de campanha borrados.
-
-## Produtos (/produtos)
-
-- [ ] `img/produtos.png`: Tela Produtos com o filtro Plataforma de venda e dois produtos de exemplo, um deles expandido mostrando duas ofertas e a coluna Primeira venda.
 
 ## ActionPay (/actionpay)
 

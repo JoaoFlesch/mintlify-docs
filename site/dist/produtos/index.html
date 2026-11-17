@@ -43,12 +43,13 @@
 			<script>TU.actions()</script>
 			<div class="callout tip"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.1 14c.2-1 .7-1.7 1.5-2.5A6 6 0 1 0 6 8c0 1.4.4 2.6 1.4 3.5.8.8 1.3 1.5 1.5 2.5"/></svg><div><p><strong>Configure pela sua IA.</strong> Conecte seu assistente pelo <a href="/conectar-mcp">MCP</a> e peça: <em>"Liste os produtos vendidos no projeto Online Store e a data da primeira venda de cada um."</em></p></div></div>
 <p>A tela <strong>Produtos</strong> lista os produtos vendidos nas suas plataformas de venda. Você não precisa cadastrá-los: cada produto aparece quando a primeira venda dele chega pelo webhook.</p>
-<figure class="shot shot-todo"><div class="shot-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><div><strong>Print pendente · <code>img/produtos.png</code></strong><p>Tela Produtos com o filtro Plataforma de venda e dois produtos de exemplo, um deles expandido mostrando duas ofertas e a coluna Primeira venda.</p></div></div><figcaption>Produtos registrados a partir das vendas</figcaption></figure></shot>
-<ul>
-	<li>Filtre por <strong>Plataforma de venda</strong>.</li>
-	<li>Expanda um produto para ver as ofertas cadastradas na plataforma (por exemplo, planos ou preços diferentes do mesmo produto).</li>
-	<li>A coluna <strong>Primeira venda</strong> mostra quando o produto apareceu.</li>
-</ul>
+<figure class="shot"><img src="https://assets.trackup.cloud/assets/pages/PLACEHOLDER9/img/produtos.webp" alt="Produtos registrados a partir das vendas, com um produto expandido" loading="lazy"><figcaption>Produtos registrados a partir das vendas, com um produto expandido</figcaption></figure></shot>
+<ol>
+	<li><strong>Plataforma de venda:</strong> filtra a lista por plataforma. Por padrão aparecem todas.</li>
+	<li><strong>Produto:</strong> cada linha mostra o nome e o ID do produto na plataforma, com o número de <strong>Ofertas da plataforma</strong>. Clique na seta para expandir e ver as ofertas (planos ou preços diferentes do mesmo produto). Cada oferta aparece pelo nome e pelo ID de preço que a plataforma enviou.</li>
+	<li><strong>Primeira venda:</strong> mostra quando o produto apareceu pela primeira vez.</li>
+</ol>
+<p>Se o mesmo produto aparecer em duas linhas, a plataforma enviou o produto com IDs diferentes em vendas diferentes. O Trackup mostra cada ID separadamente.</p>
 <div class="callout note"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><div><p>A tela Produtos lista o que a plataforma de venda vendeu. Para criar o link de checkout que você usa nas páginas, veja <a href="/ofertas">Ofertas</a>.</p></div></div>
 
 			<script>TU.pager();TU.footer()</script>

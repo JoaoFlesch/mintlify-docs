@@ -210,9 +210,12 @@ const IMG8_FILES = new Set(existsSync(join(SRC, 'img-extra-8.json')) ? JSON.pars
 // URL final de uma imagem de src/img (escolhe a hospedeira certa)
 const imgUrlOf = src => {
 	const k = src.replace(/^\//, '');
-	const imgBase = IMG8_FILES.has(k) && IMG8_BASE ? IMG8_BASE : IMG7_FILES.has(k) && IMG7_BASE ? IMG7_BASE : IMG6_FILES.has(k) && IMG6_BASE ? IMG6_BASE : IMG5_FILES.has(k) && IMG5_BASE ? IMG5_BASE : IMG4_FILES.has(k) && IMG4_BASE ? IMG4_BASE : IMG3_FILES.has(k) && IMG3_BASE ? IMG3_BASE : IMG2_FILES.has(k) && IMG2_BASE ? IMG2_BASE : IMG_BASE;
+	const imgBase = IMG9_FILES.has(k) && IMG9_BASE ? IMG9_BASE : IMG8_FILES.has(k) && IMG8_BASE ? IMG8_BASE : IMG7_FILES.has(k) && IMG7_BASE ? IMG7_BASE : IMG6_FILES.has(k) && IMG6_BASE ? IMG6_BASE : IMG5_FILES.has(k) && IMG5_BASE ? IMG5_BASE : IMG4_FILES.has(k) && IMG4_BASE ? IMG4_BASE : IMG3_FILES.has(k) && IMG3_BASE ? IMG3_BASE : IMG2_FILES.has(k) && IMG2_BASE ? IMG2_BASE : IMG_BASE;
 	return /^https?:/.test(imgBase) && !/^https?:/.test(src) ? `${imgBase}/${k}` : src;
 };
+const argImg9 = process.argv.find(a => a.startsWith('--img9='));
+const IMG9_BASE = argImg9 ? argImg9.slice(7).replace(/\/$/, '') : '';
+const IMG9_FILES = new Set(existsSync(join(SRC, 'img-extra-9.json')) ? JSON.parse(readFileSync(join(SRC, 'img-extra-9.json'), 'utf8')) : []);
 const absAsset = f => (/^https?:/.test(ASSETS) ? ASSETS : SITE.url + ASSETS) + '/' + f;
 
 const layout = read(join(SRC, 'layout.html'));
@@ -392,6 +395,11 @@ if (existsSync(imgSrc)) {
 		mkdirSync(join(DIST, 'imagens-8', 'img'), { recursive: true });
 		for (const f of IMG8_FILES) { mkdirSync(dirname(join(DIST, 'imagens-8', f)), { recursive: true }); copyFileSync(join(imgSrc, f.replace(/^img\//, '')), join(DIST, 'imagens-8', f)); }
 		writeFileSync(join(DIST, 'imagens-8', 'index.html'), `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="robots" content="noindex"><title>Trackup Docs: imagens 8</title></head><body>${[...IMG8_FILES].map(f => `<img src="${f}" alt="" width="1" height="1">`).join('')}</body></html>`);
+	}
+	if (IMG9_FILES.size) {
+		mkdirSync(join(DIST, 'imagens-9', 'img'), { recursive: true });
+		for (const f of IMG9_FILES) copyFileSync(join(imgSrc, f.replace(/^img\//, '')), join(DIST, 'imagens-9', f));
+		writeFileSync(join(DIST, 'imagens-9', 'index.html'), `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="robots" content="noindex"><title>Trackup Docs: imagens 9</title></head><body>${[...IMG9_FILES].map(f => `<img src="${f}" alt="" width="1" height="1">`).join('')}</body></html>`);
 	}
 	const imgFiles = [];
 	const walk = (d, rel) => { for (const f of readdirSync(d)) { const p = join(d, f); if (statSync(p).isDirectory()) walk(p, rel + f + '/'); else imgFiles.push(rel + f); } };

@@ -167,8 +167,10 @@ function tabsBar(currentTab) {
 // Arquivos compartilhados: todas as páginas apontam para ASSETS/style.css e ASSETS/shell.js.
 // Uma mudança no layout, no menu ou no rodapé é só reenviar esses arquivos.
 // Defina a base com --assets=https://... (padrão /assets, na raiz do domínio da documentação).
+// Base absoluta dos arquivos compartilhados no projeto "Documentação v2". /assets relativo dá 404 no Trackup (só o index.html de cada página é servido), o que quebrava a busca.
+const DEFAULT_ASSETS = 'https://assets.trackup.cloud/assets/pages/2e1cbc4b-c7b6-4295-baf2-b2e46f5c8f5b';
 const argAssets = process.argv.find(a => a.startsWith('--assets='));
-const ASSETS = (argAssets ? argAssets.slice(9) : process.env.TU_ASSETS || '/assets').replace(/\/$/, '');
+const ASSETS = (argAssets ? argAssets.slice(9) : process.env.TU_ASSETS || DEFAULT_ASSETS).replace(/\/$/, '');
 const argImg = process.argv.find(a => a.startsWith('--img='));
 const IMG_BASE = (argImg ? argImg.slice(6) : ASSETS).replace(/\/$/, '');
 const argImg2 = process.argv.find(a => a.startsWith('--img2='));
@@ -206,7 +208,7 @@ for (const [i, entry] of order.entries()) {
 	page.html = html; page.toc = toc;
 	searchIndex.push({
 		t: page.meta.title, u: urlOf(entry.slug), p: `${entry.tab.name} › ${entry.group.name}`,
-		h: toc.map(h => h.text), x: strip(html).slice(0, 1600),
+		h: toc.map(h => h.text), x: strip(html).slice(0, 700),
 	});
 	rendered.push({ entry, page, i });
 }

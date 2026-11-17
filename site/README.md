@@ -55,7 +55,7 @@ Cada página tem só o próprio conteúdo e os metadados de SEO. Tudo que se rep
 
 Mudou o menu, o cabeçalho, o rodapé ou o estilo? Reenvie só esses arquivos. As páginas não mudam.
 
-A base dos arquivos compartilhados é `/assets` (raiz do domínio). Para outro endereço, use `node site/build.mjs --assets=https://...`. Mudar a base exige reenviar todas as páginas uma vez.
+A base dos arquivos compartilhados é, por padrão, a URL absoluta de `assets.trackup.cloud` da página-hospedeira (`DEFAULT_ASSETS` em `build.mjs`); `/assets` relativo não é servido pelo Trackup e quebra a busca. Para outro endereço, use `node site/build.mjs --assets=https://...`. Mudar a base exige reenviar todas as páginas uma vez.
 
 ## SEO e GEO
 

@@ -45,6 +45,12 @@
 <p>A plataforma de venda é onde o cliente paga: um gateway de pagamento, uma plataforma de infoprodutos ou uma loja virtual. Integrada ao Trackup, ela envia um webhook a cada venda, reembolso ou chargeback, e o Trackup registra a conversão com a campanha que gerou o clique.</p>
 
 <h2 id="como-a-atribuicao-funciona">Como a atribuição funciona<a class="anchor" href="#como-a-atribuicao-funciona" aria-label="Link para esta seção">#</a></h2>
+<div class="flow">
+	<div class="fnode"><i class="fa"></i><span class="fnode-n">1</span><span class="fnode-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span><div class="fnode-body"><b>Oferta</b><span>Botão de compra leva ao link da oferta</span></div></div>
+	<div class="fnode"><i class="fa"></i><span class="fnode-n">2</span><span class="fnode-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2 2h3l2.7 12.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg></span><div class="fnode-body"><b>Checkout</b><span>Recebe o ID do clique e as UTMs</span></div></div>
+	<div class="fnode"><i class="fa"></i><span class="fnode-n">3</span><span class="fnode-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8z"/></svg></span><div class="fnode-body"><b>Webhook</b><span>A plataforma devolve o ID na venda</span></div></div>
+	<div class="fnode tone-ok"><i class="fa"></i><span class="fnode-n">4</span><span class="fnode-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><div class="fnode-body"><b>Conversão</b><span>Ligada ao clique e à campanha</span></div></div>
+</div>
 <ol>
 	<li>O visitante clica no botão de compra, que aponta para o link da <a href="/ofertas">oferta</a>.</li>
 	<li>O Trackup redireciona para o checkout adicionando o ID do clique e as UTMs na URL, no parâmetro que a plataforma aceita (em muitas é <code>sck</code> ou <code>src</code>; os parâmetros já vêm preenchidos para cada plataforma).</li>

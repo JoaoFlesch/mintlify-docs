@@ -71,6 +71,10 @@ def page(slug, name, kind, key, events, note):
 		out.append('<p>A Nuvemshop conecta por autorização (OAuth): o Trackup instala sozinho os webhooks de pedidos e o script de rastreamento na loja.</p>')
 	else:
 		out.append(f'<p>A integração tem duas partes: o Trackup envia o ID do clique para o checkout da {name}, e a {name} devolve esse ID no webhook de cada venda.</p>')
+	if slug == 'nuvemshop':
+		out.append('<flow><fstep n="1" icon="cart" title="Pedido na loja">O cliente compra na Nuvemshop</fstep><fstep n="2" icon="plug" title="Webhook">Instalado pelo Trackup</fstep><fstep n="3" icon="dollar" title="Conversão" tone="ok">Ligada ao clique e à campanha</fstep></flow>')
+	else:
+		out.append(f'<flow><fstep n="1" icon="cart" title="Checkout">O Trackup envia o ID do clique para a {name}</fstep><fstep n="2" icon="plug" title="Webhook">A {name} devolve o ID a cada venda</fstep><fstep n="3" icon="dollar" title="Conversão" tone="ok">Ligada ao clique e à campanha</fstep></flow>')
 	out.append('<h2>Antes de começar</h2><ul><li>Um projeto com <a href="/dominios">domínio primário</a> configurado. A URL do webhook usa esse domínio.</li>'
 		f'<li>Acesso de administrador à sua conta na {name}.</li></ul>')
 	out.append('<h2>1. Crie a plataforma no Trackup</h2><steps>')

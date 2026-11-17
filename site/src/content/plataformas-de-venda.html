@@ -7,6 +7,12 @@ description: Receba vendas, reembolsos e chargebacks por webhook e ligue cada ve
 <p>A plataforma de venda é onde o cliente paga: um gateway de pagamento, uma plataforma de infoprodutos ou uma loja virtual. Integrada ao Trackup, ela envia um webhook a cada venda, reembolso ou chargeback, e o Trackup registra a conversão com a campanha que gerou o clique.</p>
 
 <h2>Como a atribuição funciona</h2>
+<flow>
+	<fstep n="1" icon="bag" title="Oferta">Botão de compra leva ao link da oferta</fstep>
+	<fstep n="2" icon="cart" title="Checkout">Recebe o ID do clique e as UTMs</fstep>
+	<fstep n="3" icon="plug" title="Webhook">A plataforma devolve o ID na venda</fstep>
+	<fstep n="4" icon="dollar" title="Conversão" tone="ok">Ligada ao clique e à campanha</fstep>
+</flow>
 <ol>
 	<li>O visitante clica no botão de compra, que aponta para o link da <a href="/ofertas">oferta</a>.</li>
 	<li>O Trackup redireciona para o checkout adicionando o ID do clique e as UTMs na URL, no parâmetro que a plataforma aceita (em muitas é <code>sck</code> ou <code>src</code>; os parâmetros já vêm preenchidos para cada plataforma).</li>

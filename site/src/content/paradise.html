@@ -5,6 +5,7 @@ eyebrow: Plataformas de venda
 description: Receba vendas, reembolsos e chargebacks da Paradise no Trackup, atribuídos ao anúncio de origem.
 ---
 <p>A integração tem duas partes: o Trackup envia o ID do clique para o checkout da Paradise, e a Paradise devolve esse ID no webhook de cada venda.</p>
+<flow><fstep n="1" icon="cart" title="Checkout">O Trackup envia o ID do clique para a Paradise</fstep><fstep n="2" icon="plug" title="Webhook">A Paradise devolve o ID a cada venda</fstep><fstep n="3" icon="dollar" title="Conversão" tone="ok">Ligada ao clique e à campanha</fstep></flow>
 <h2>Antes de começar</h2><ul><li>Um projeto com <a href="/dominios">domínio primário</a> configurado. A URL do webhook usa esse domínio.</li><li>Acesso de administrador à sua conta na Paradise.</li></ul>
 <h2>1. Crie a plataforma no Trackup</h2><steps>
 <step title="Adicione a plataforma"><p>Vá em <strong>Integração › Plataformas de vendas</strong>, clique em <strong>Adicionar plataforma</strong> e escolha <strong>Paradise</strong>.</p></step>

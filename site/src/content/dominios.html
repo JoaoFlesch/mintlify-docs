@@ -29,15 +29,118 @@ description: Sirva páginas e links no seu próprio domínio ou subdomínio.
 	</step>
 	<step title="Crie o registro no seu DNS">
 		<p>No painel do provedor de DNS, crie um registro <code>CNAME</code> com os mesmos valores.</p>
+		<p>Escolha o provedor onde o DNS do seu domínio está hospedado. Se você não sabe qual é, consulte os <em>nameservers</em> do domínio em um site de <em>whois</em>: o DNS fica no provedor dono desses servidores, que nem sempre é onde você comprou o domínio. Em todos, use o <strong>Name</strong> e o <strong>Value</strong> exatamente como o Trackup mostra.</p>
 		<tabs>
 			<tab title="Cloudflare">
-				<p>Em <strong>DNS › Records › Add record</strong>, escolha <code>CNAME</code>, preencha <strong>Name</strong> e <strong>Target</strong> e deixe <strong>Proxy status</strong> em <em>DNS only</em> (nuvem cinza).</p>
+				<steps>
+					<step title="Abra o DNS">
+						<p>Entre na Cloudflare, selecione o domínio e vá em <strong>DNS › Records</strong>. Clique em <strong>Add record</strong>.</p>
+					</step>
+					<step title="Preencha o registro">
+						<p><strong>Type</strong>: <code>CNAME</code>. <strong>Name</strong>: o subdomínio, por exemplo <code>lp</code>. <strong>Target</strong>: o <strong>Value</strong> exibido no Trackup.</p>
+					</step>
+					<step title="Desligue o proxy">
+						<p>Clique na nuvem laranja até ficar cinza (<strong>DNS only</strong>) e clique em <strong>Save</strong>. Com a nuvem laranja, a verificação falha.</p>
+					</step>
+				</steps>
+				<p>Mais detalhes na <a href="https://developers.cloudflare.com/dns/manage-dns-records/how-to/create-dns-records/" target="_blank" rel="noopener">Ajuda da Cloudflare</a>.</p>
 			</tab>
 			<tab title="Registro.br">
-				<p>Em <strong>Editar zona</strong>, clique em <strong>Nova entrada</strong>, escolha o tipo <code>CNAME</code>, preencha o nome do subdomínio e o valor, e salve a zona.</p>
+				<steps>
+					<step title="Abra o domínio">
+						<p>Entre em <a href="https://registro.br" target="_blank" rel="noopener">registro.br</a>, abra <strong>Meus domínios</strong> e clique no domínio.</p>
+					</step>
+					<step title="Entre na zona DNS">
+						<p>Vá na seção <strong>DNS</strong> e clique em <strong>Editar zona</strong>. Se o domínio usa outros servidores DNS (por exemplo, a Cloudflare), a opção não aparece: crie o registro lá, ou volte para os servidores do Registro.br em <strong>Alterar servidores DNS</strong>.</p>
+					</step>
+					<step title="Crie a entrada">
+						<p>Clique em <strong>Nova entrada</strong>. Em <strong>Tipo</strong>, escolha <code>CNAME</code>. Em <strong>Nome</strong>, informe só o subdomínio (<code>lp</code>). Em <strong>Dados</strong>, cole o <strong>Value</strong> do Trackup.</p>
+					</step>
+					<step title="Salve a zona">
+						<p>Clique em <strong>Salvar</strong> e depois em <strong>Publicar alterações</strong>, se o painel pedir. Se ele exigir um ponto no fim do valor, adicione (<code>valor.exemplo.com.</code>).</p>
+					</step>
+				</steps>
+			</tab>
+			<tab title="GoDaddy">
+				<steps>
+					<step title="Abra o DNS">
+						<p>Entre na GoDaddy, abra <strong>Meus produtos</strong>, localize o domínio e clique em <strong>DNS</strong> (ou <strong>Gerenciar DNS</strong>).</p>
+					</step>
+					<step title="Adicione o registro">
+						<p>Clique em <strong>Adicionar novo registro</strong>. Em <strong>Tipo</strong>, escolha <code>CNAME</code>. Em <strong>Nome</strong>, informe o subdomínio (<code>lp</code>). Em <strong>Valor</strong>, cole o <strong>Value</strong> do Trackup. Deixe o <strong>TTL</strong> padrão.</p>
+					</step>
+					<step title="Salve">
+						<p>Clique em <strong>Salvar</strong>. Se já existir um registro <code>A</code> ou <code>CNAME</code> com o mesmo nome, exclua-o antes.</p>
+					</step>
+				</steps>
+				<p>Mais detalhes na <a href="https://www.godaddy.com/help/add-a-cname-record-19236" target="_blank" rel="noopener">Ajuda da GoDaddy</a>.</p>
+			</tab>
+			<tab title="Hostinger">
+				<steps>
+					<step title="Abra o DNS">
+						<p>Entre no hPanel, vá em <strong>Domínios</strong>, clique em <strong>Gerenciar</strong> ao lado do domínio e abra <strong>DNS / Servidores de nomes</strong>.</p>
+					</step>
+					<step title="Preencha o registro">
+						<p>Na área <strong>Gerenciar registros DNS</strong>, escolha o tipo <code>CNAME</code>. Em <strong>Nome</strong>, informe o subdomínio (<code>lp</code>). Em <strong>Aponta para</strong>, cole o <strong>Value</strong> do Trackup. Mantenha o TTL padrão.</p>
+					</step>
+					<step title="Salve">
+						<p>Clique em <strong>Adicionar registro</strong>. Se o domínio usa servidores de nomes de outro provedor, o painel da Hostinger não vale: crie o registro no provedor que aparece em <strong>Servidores de nomes</strong>.</p>
+					</step>
+				</steps>
+			</tab>
+			<tab title="Namecheap">
+				<steps>
+					<step title="Abra o domínio">
+						<p>Entre na Namecheap, vá em <strong>Domain List</strong> e clique em <strong>Manage</strong> ao lado do domínio.</p>
+					</step>
+					<step title="Abra o DNS avançado">
+						<p>Abra a aba <strong>Advanced DNS</strong>. Em <strong>Nameservers</strong> (aba <strong>Domain</strong>), confirme que está em <em>Namecheap BasicDNS</em> ou <em>Namecheap Web Hosting DNS</em>; caso contrário, crie o registro no provedor que aparece ali.</p>
+					</step>
+					<step title="Adicione o registro">
+						<p>Em <strong>Host Records</strong>, clique em <strong>Add New Record</strong>. <strong>Type</strong>: <code>CNAME Record</code>. <strong>Host</strong>: o subdomínio (<code>lp</code>). <strong>Value</strong>: o <strong>Value</strong> do Trackup. <strong>TTL</strong>: <em>Automatic</em>.</p>
+					</step>
+					<step title="Salve">
+						<p>Clique no ícone de confirmação (✓) ao lado do registro.</p>
+					</step>
+				</steps>
+				<p>Mais detalhes na <a href="https://www.namecheap.com/support/knowledgebase/article.aspx/9646/2237/how-to-create-a-cname-record-for-your-domain/" target="_blank" rel="noopener">Ajuda da Namecheap</a>.</p>
+			</tab>
+			<tab title="HostGator">
+				<steps>
+					<step title="Abra a zona DNS">
+						<p>Entre no <strong>Portal do Cliente</strong>, abra a hospedagem e clique em <strong>cPanel</strong>. Na seção <strong>Domínios</strong>, abra o <strong>Editor de Zona</strong> (<em>Zone Editor</em>).</p>
+					</step>
+					<step title="Escolha o domínio">
+						<p>Na linha do domínio, clique em <strong>Gerenciar</strong>, depois em <strong>Adicionar registro</strong> (ou <strong>+ Registro CNAME</strong>).</p>
+					</step>
+					<step title="Preencha o registro">
+						<p><strong>Nome</strong>: o subdomínio completo, como <code>lp.seudominio.com.</code> (com o ponto no fim, se o cPanel pedir). <strong>Tipo</strong>: <code>CNAME</code>. <strong>Registro</strong>: o <strong>Value</strong> do Trackup.</p>
+					</step>
+					<step title="Salve">
+						<p>Clique em <strong>Adicionar registro</strong>. Se o domínio usa servidores DNS de outro provedor, crie o registro lá.</p>
+					</step>
+				</steps>
+				<p>Mais detalhes na <a href="https://www.hostgator.com/help/article/how-to-change-dns-zones-mx-cname-and-a-records" target="_blank" rel="noopener">Ajuda da HostGator</a>.</p>
+			</tab>
+			<tab title="Google / Squarespace">
+				<steps>
+					<step title="Abra o domínio">
+						<p>O Google Domains foi transferido para a Squarespace. Entre em <strong>account.squarespace.com</strong>, vá em <strong>Domains</strong> e clique no domínio.</p>
+					</step>
+					<step title="Abra as configurações de DNS">
+						<p>Clique em <strong>DNS</strong> (ou <strong>DNS Settings</strong>) e role até <strong>Custom records</strong>.</p>
+					</step>
+					<step title="Adicione o registro">
+						<p>Clique em <strong>Add record</strong>. <strong>Host</strong>: o subdomínio (<code>lp</code>). <strong>Type</strong>: <code>CNAME</code>. <strong>Data</strong>: o <strong>Value</strong> do Trackup.</p>
+					</step>
+					<step title="Salve">
+						<p>Clique em <strong>Save</strong>.</p>
+					</step>
+				</steps>
+				<p>Mais detalhes na <a href="https://support.squarespace.com/hc/en-us/articles/360002101888-Adding-custom-DNS-records-to-your-Squarespace-managed-domain" target="_blank" rel="noopener">Ajuda da Squarespace</a>.</p>
 			</tab>
 			<tab title="Outros">
-				<p>Procure a área de DNS ou zona DNS, crie uma entrada do tipo <code>CNAME</code> com o nome e o valor exibidos no Trackup e remova registros <code>A</code> ou <code>CNAME</code> antigos para o mesmo nome.</p>
+				<p>Procure a área de <strong>DNS</strong> ou <strong>zona DNS</strong> do provedor, crie uma entrada do tipo <code>CNAME</code> com o nome do subdomínio (<code>lp</code>) apontando para o <strong>Value</strong> exibido no Trackup e remova registros <code>A</code> ou <code>CNAME</code> antigos para o mesmo nome. Se o painel pedir TTL, deixe o padrão.</p>
 			</tab>
 		</tabs>
 	</step>

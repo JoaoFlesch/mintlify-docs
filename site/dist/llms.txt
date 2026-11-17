@@ -66,22 +66,6 @@ Documentação completa em um só arquivo: https://docs.trackup.me/llms-full.txt
 - [Assinatura](https://docs.trackup.me/assinatura): Escolha, troque ou cancele o plano do time e gerencie faturas e cartões.
 - [Afiliados](https://docs.trackup.me/afiliados): Indique o Trackup e receba comissão recorrente sobre as assinaturas dos times que você trouxer.
 
-## Tutoriais › Do zero à venda
-
-- [Campanha na Meta](https://docs.trackup.me/tutorial-campanha-meta): Do zero até a primeira venda atribuída a um anúncio, com pixel via API de Conversões, Upag e Gerenciador de anúncios.
-- [Domínio próprio](https://docs.trackup.me/tutorial-dominio-proprio): Conecte um subdomínio seu ao Trackup pelo provedor de DNS (Cloudflare, Registro.br, GoDaddy, Hostinger, Namecheap e outros) e deixe como domínio primário.
-
-## Tutoriais › Páginas
-
-- [Landing page no Builder](https://docs.trackup.me/tutorial-landing-builder): Crie e publique uma página de vendas no editor visual, com botões ligados à oferta e pronta para mobile.
-- [Site externo](https://docs.trackup.me/tutorial-site-externo): Instale o script em uma página do WordPress, Elementor ou outra plataforma e mantenha a atribuição até o checkout.
-
-## Tutoriais › Otimização
-
-- [Teste A/B de página](https://docs.trackup.me/tutorial-teste-ab): Compare duas páginas com o mesmo tráfego, acompanhe a confiança estatística e envie tudo para a vencedora.
-- [Proteger páginas](https://docs.trackup.me/tutorial-proteger-paginas): Monte uma proteção em camadas com o Filtro: bloqueio de bots, país, parâmetro secreto e safe page.
-- [Dashboard de lucro](https://docs.trackup.me/tutorial-dashboard-lucro): Monte um painel diário com lucro, ROAS, funil e as campanhas que mais vendem.
-
 ## Integrações › Visão geral
 
 - [Integrações](https://docs.trackup.me/integracoes): Passo a passo para conectar cada plataforma de venda ao Trackup.
@@ -160,3 +144,19 @@ Documentação completa em um só arquivo: https://docs.trackup.me/llms-full.txt
 - [URLs](https://docs.trackup.me/api/urls): 4 endpoints da API REST v1.
 - [Gerenciador de anúncios](https://docs.trackup.me/api/gerenciador-de-anuncios): 15 endpoints da API REST v1.
 - [Ingestão](https://docs.trackup.me/api/ingestao): 5 endpoints da API REST v1.
+
+## Tutoriais › Do zero à venda
+
+- [Campanha na Meta](https://docs.trackup.me/tutorial-campanha-meta): Do zero até a primeira venda atribuída a um anúncio, com pixel via API de Conversões, Upag e Gerenciador de anúncios.
+- [Domínio próprio](https://docs.trackup.me/tutorial-dominio-proprio): Conecte um subdomínio seu ao Trackup pelo provedor de DNS (Cloudflare, Registro.br, GoDaddy, Hostinger, Namecheap e outros) e deixe como domínio primário.
+
+## Tutoriais › Páginas
+
+- [Landing page no Builder](https://docs.trackup.me/tutorial-landing-builder): Crie e publique uma página de vendas no editor visual, com botões ligados à oferta e pronta para mobile.
+- [Site externo](https://docs.trackup.me/tutorial-site-externo): Instale o script em uma página do WordPress, Elementor ou outra plataforma e mantenha a atribuição até o checkout.
+
+## Tutoriais › Otimização
+
+- [Teste A/B de página](https://docs.trackup.me/tutorial-teste-ab): Compare duas páginas com o mesmo tráfego, acompanhe a confiança estatística e envie tudo para a vencedora.
+- [Proteger páginas](https://docs.trackup.me/tutorial-proteger-paginas): Monte uma proteção em camadas com o Filtro: bloqueio de bots, país, parâmetro secreto e safe page.
+- [Dashboard de lucro](https://docs.trackup.me/tutorial-dashboard-lucro): Monte um painel diário com lucro, ROAS, funil e as campanhas que mais vendem.

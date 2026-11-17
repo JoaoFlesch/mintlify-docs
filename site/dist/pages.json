@@ -210,48 +210,6 @@
     "file": "afiliados/index.html"
   },
   {
-    "slug": "tutorial-campanha-meta",
-    "path": "/tutorial-campanha-meta",
-    "title": "Campanha na Meta",
-    "file": "tutorial-campanha-meta/index.html"
-  },
-  {
-    "slug": "tutorial-dominio-proprio",
-    "path": "/tutorial-dominio-proprio",
-    "title": "Domínio próprio",
-    "file": "tutorial-dominio-proprio/index.html"
-  },
-  {
-    "slug": "tutorial-landing-builder",
-    "path": "/tutorial-landing-builder",
-    "title": "Landing page no Builder",
-    "file": "tutorial-landing-builder/index.html"
-  },
-  {
-    "slug": "tutorial-site-externo",
-    "path": "/tutorial-site-externo",
-    "title": "Site externo",
-    "file": "tutorial-site-externo/index.html"
-  },
-  {
-    "slug": "tutorial-teste-ab",
-    "path": "/tutorial-teste-ab",
-    "title": "Teste A/B de página",
-    "file": "tutorial-teste-ab/index.html"
-  },
-  {
-    "slug": "tutorial-proteger-paginas",
-    "path": "/tutorial-proteger-paginas",
-    "title": "Proteger páginas",
-    "file": "tutorial-proteger-paginas/index.html"
-  },
-  {
-    "slug": "tutorial-dashboard-lucro",
-    "path": "/tutorial-dashboard-lucro",
-    "title": "Dashboard de lucro",
-    "file": "tutorial-dashboard-lucro/index.html"
-  },
-  {
     "slug": "integracoes",
     "path": "/integracoes",
     "title": "Integrações",
@@ -634,5 +592,47 @@
     "path": "/api/ingestao",
     "title": "Ingestão",
     "file": "api/ingestao/index.html"
+  },
+  {
+    "slug": "tutorial-campanha-meta",
+    "path": "/tutorial-campanha-meta",
+    "title": "Campanha na Meta",
+    "file": "tutorial-campanha-meta/index.html"
+  },
+  {
+    "slug": "tutorial-dominio-proprio",
+    "path": "/tutorial-dominio-proprio",
+    "title": "Domínio próprio",
+    "file": "tutorial-dominio-proprio/index.html"
+  },
+  {
+    "slug": "tutorial-landing-builder",
+    "path": "/tutorial-landing-builder",
+    "title": "Landing page no Builder",
+    "file": "tutorial-landing-builder/index.html"
+  },
+  {
+    "slug": "tutorial-site-externo",
+    "path": "/tutorial-site-externo",
+    "title": "Site externo",
+    "file": "tutorial-site-externo/index.html"
+  },
+  {
+    "slug": "tutorial-teste-ab",
+    "path": "/tutorial-teste-ab",
+    "title": "Teste A/B de página",
+    "file": "tutorial-teste-ab/index.html"
+  },
+  {
+    "slug": "tutorial-proteger-paginas",
+    "path": "/tutorial-proteger-paginas",
+    "title": "Proteger páginas",
+    "file": "tutorial-proteger-paginas/index.html"
+  },
+  {
+    "slug": "tutorial-dashboard-lucro",
+    "path": "/tutorial-dashboard-lucro",
+    "title": "Dashboard de lucro",
+    "file": "tutorial-dashboard-lucro/index.html"
   }
 ]

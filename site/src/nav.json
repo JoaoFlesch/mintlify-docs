@@ -103,34 +103,6 @@
 			]
 		},
 		{
-			"name": "Tutoriais",
-			"icon": "hat",
-			"groups": [
-				{
-					"name": "Do zero à venda",
-					"pages": [
-						"tutorial-campanha-meta",
-						"tutorial-dominio-proprio"
-					]
-				},
-				{
-					"name": "Páginas",
-					"pages": [
-						"tutorial-landing-builder",
-						"tutorial-site-externo"
-					]
-				},
-				{
-					"name": "Otimização",
-					"pages": [
-						"tutorial-teste-ab",
-						"tutorial-proteger-paginas",
-						"tutorial-dashboard-lucro"
-					]
-				}
-			]
-		},
-		{
 			"name": "Integrações",
 			"icon": "plug",
 			"groups": [
@@ -206,6 +178,34 @@
 						"api",
 						"api-autenticacao",
 						"api-erros"
+					]
+				}
+			]
+		},
+		{
+			"name": "Tutoriais",
+			"icon": "hat",
+			"groups": [
+				{
+					"name": "Do zero à venda",
+					"pages": [
+						"tutorial-campanha-meta",
+						"tutorial-dominio-proprio"
+					]
+				},
+				{
+					"name": "Páginas",
+					"pages": [
+						"tutorial-landing-builder",
+						"tutorial-site-externo"
+					]
+				},
+				{
+					"name": "Otimização",
+					"pages": [
+						"tutorial-teste-ab",
+						"tutorial-proteger-paginas",
+						"tutorial-dashboard-lucro"
 					]
 				}
 			]

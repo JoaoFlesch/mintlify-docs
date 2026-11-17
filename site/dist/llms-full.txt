@@ -2763,798 +2763,6 @@ Se a sua conta for desativada, as comissões e os saques ficam pausados.
 
 ---
 
-# Rastrear uma campanha da Meta com Upag
-
-URL: https://docs.trackup.me/tutorial-campanha-meta
-
-> Do zero até a primeira venda atribuída a um anúncio, com pixel via API de Conversões, Upag e Gerenciador de anúncios.
-
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Configure o projeto Online Store para anunciar na Meta: crie a fonte de tráfego Meta, um pixel com acionadores de pageview, carrinho, início de checkout e conversão, e a plataforma Upag. No fim, me dê a URL do webhook." A conexão da conta de anúncios (OAuth) e o cadastro do webhook na Upag ficam com você.
-
-Neste tutorial você configura um funil completo para anunciar na Meta e vender na Upag. No fim, cada venda aparece no Trackup com a campanha, o conjunto e o anúncio de origem, e o Purchase chega ao pixel pela API de Conversões.
-
-	**Anúncio**Meta Ads
-
-	**Landing page**no seu domínio
-
-	**Oferta**link do checkout
-
-	**Upag**webhook da venda
-
-## O que você vai precisar
-
-- Um projeto no Trackup com domínio próprio verificado. Se ainda não tem, siga [Configurar um domínio próprio](https://docs.trackup.me/tutorial-dominio-proprio).
-
-- Acesso de administrador ao Business Manager da Meta e ao pixel.
-
-- Acesso de administrador à Upag, com o produto criado e o link de checkout (link de pagamento).
-
-- Uma landing page. Pode ser montada no [Builder](https://docs.trackup.me/tutorial-landing-builder) ou estar em um [site externo](https://docs.trackup.me/tutorial-site-externo).
-
-Tempo estimado: 30 minutos.
-
-## Parte 1: Pixel da Meta
-
-- **Pegue o ID do pixel**
-		No **Gerenciador de Eventos** da Meta, selecione o pixel. O ID aparece embaixo do nome, um número com 15 ou 16 dígitos.
-
-- **Gere o token da API de Conversões**
-		Ainda no pixel, abra **Configurações**, role até **API de Conversões** e clique em **Gerar token de acesso**. Copie o token. Ele aparece uma vez só.
-
-		O token dá acesso para enviar eventos ao pixel. Guarde em local seguro e não compartilhe em prints.
-
-- **Pegue um código de teste**
-		Na aba **Eventos de teste**, copie o código exibido (algo como `TEST12345`). Você usa só durante a validação.
-
-- **Cadastre o pixel no Trackup**
-		Em **Integração › Pixels**, clique em **Adicionar pixel**. Preencha:
-
-			Campo | Valor |
-
-				Nome | Pixel principal |
-
-				Tipo | Meta |
-
-				Pixel ID | O ID do passo 1 |
-
-				Access Token | O token do passo 2 |
-
-				Test Event Code | O código do passo 3 |
-
-		Pixel da Meta com código de teste
-
-- **Confira os acionadores**
-		Abra **Acionadores**. O Trackup criou três para o pixel: **Pageview**, **Start checkout** e **Conversão**. Não precisa mexer.
-
-## Parte 2: Fonte de tráfego Meta
-
-- **Crie a fonte**
-		Em **Integração › Fontes de tráfego**, clique em **Adicionar fonte**, dê o nome Meta Ads e escolha **Meta**.
-
-- **Copie os parâmetros**
-		Salve e copie o bloco **Parâmetros de URL**. Ele leva o nome e o ID da campanha, do conjunto e do anúncio:
-
-```
-utm_source=meta&utm_medium={{adset.name}}|{{adset.id}}&utm_campaign={{campaign.name}}|{{campaign.id}}&utm_content={{ad.name}}|{{ad.id}}&utm_term={{placement}}&trk_cmpid={{campaign.id}}&trk_asid={{adset.id}}&trk_aid={{ad.id}}
-```
-
-		Os IDs são o que permite ao [Gerenciador de anúncios](https://docs.trackup.me/gerenciador-de-anuncios) ligar cada venda ao anúncio.
-
-## Parte 3: Upag
-
-- **Crie a plataforma**
-		Em **Integração › Plataformas de vendas**, clique em **Adicionar plataforma**, escolha **Upag** e salve. Copie a **URL** da plataforma na lista.
-
-- **Cadastre o webhook na Upag**
-		Na Upag, abra **Desenvolvedor › Webhooks** e clique em **Criar Webhook**. Dê um nome, cole a URL do Trackup e selecione **apenas** o evento `invoice.paid`. Clique em **Criar Webhook** para concluir.
-
-		Webhooks no painel da Upag
-
-		Webhook com a URL do Trackup e o evento invoice.paid
-
-		O passo a passo completo está em [Upag](https://docs.trackup.me/upag).
-
-- **Crie a oferta**
-		Em **Ofertas**, clique em **Adicionar oferta** e, na aba **Redirect**, preencha:
-
-			Campo | Valor |
-
-				Nome | Checkout Curso |
-
-				Plataforma de vendas | Upag |
-
-				URL de redirecionamento | O link de pagamento da Upag, como `https://pay.upag.com.br/ABC123` |
-
-				Caminho | `/checkout` |
-
-		Salve e copie o **Link** da oferta, como `https://lp.seudominio.com/checkout`.
-
-## Parte 4: Landing page
-
-- **Aponte os botões para a oferta**
-		Em todos os botões de compra da landing page, use o link da oferta. No Builder, selecione o botão e, em **Config › Evento de clique**, cole o link em **Destino**. Em um site externo, troque o `href` dos botões.
-
-		Um único botão apontando direto para o link de pagamento da Upag já faz parte das vendas chegarem sem atribuição.
-
-- **Publique e copie o link**
-		Publique a página e copie o **Link** dela em **Páginas**, como `https://lp.seudominio.com/curso`.
-
-## Parte 5: Anúncio
-
-- **Configure o destino**
-		No Gerenciador de Anúncios da Meta, no nível do anúncio, em **Destino**:
-
-- **URL do site**: o link da landing page.
-
-- **Parâmetros de URL**: o bloco copiado na Parte 2.
-
-		**Print pendente · `img/tut-meta-anuncio.png`**Seção Destino de um anúncio no Gerenciador de Anúncios da Meta com URL do site https://lp.seudominio.com/curso e o campo Parâmetros de URL preenchido com o template do Trackup.
-
-Destino do anúncio na Meta
-
-- **Escolha o pixel**
-		Em **Rastreamento**, selecione o mesmo pixel cadastrado no Trackup. Se o pixel também estiver instalado no navegador pela Meta, deixe o evento `Purchase` só pelo Trackup para não duplicar.
-
-## Parte 6: Validar
-
-- **Simule um clique**
-		Abra em uma aba anônima a URL da landing com os parâmetros, trocando as macros por valores de teste:
-
-```
-https://lp.seudominio.com/curso?utm_source=meta&utm_campaign=teste|111&utm_content=teste|333&trk_aid=333
-```
-
-- **Confira o PageView**
-		Em **Logs › Requisições**, sua visita aparece com as UTMs. No Gerenciador de Eventos, na aba **Eventos de teste**, o `PageView` chega com a origem Servidor.
-
-- **Clique em comprar**
-		Clique no botão de compra. Você deve cair no checkout da Upag com o parâmetro `clickId` na URL. O `InitiateCheckout` aparece nos eventos de teste.
-
-- **Faça uma compra de teste**
-		Conclua uma compra de valor baixo (pode reembolsar depois). Em **Logs › Conversões**, a venda aparece com a campanha teste, e o `Purchase` aparece em **Logs › Acionadores** com sucesso.
-
-		Venda de teste atribuída
-
-- **Tire o modo de teste**
-		Edite o pixel em **Integração › Pixels** e apague o **Test Event Code**. Com ele preenchido, os eventos não contam para as campanhas.
-
-## Parte 7: ROAS por anúncio
-
-Em **Gerenciador de anúncios**, clique em **Conectar Facebook Ads**, autorize e escolha a conta de anúncio. Depois da sincronização, cada campanha, conjunto e anúncio mostra investimento, vendas, receita, ROAS e CPA reais. Veja [Gerenciador de anúncios](https://docs.trackup.me/gerenciador-de-anuncios).
-
-## Se algo não funcionar
-
-**A venda chega com Configuração incompleta**
-
-	A venda veio sem click ID. Confira se todos os botões apontam para o link da oferta e se o checkout abriu com `sck` na URL.
-
-**Os eventos não aparecem na Meta**
-
-	Abra **Logs › Acionadores**. Erro de autenticação indica token errado ou de outro Business Manager. Sem nenhum log, confira se os acionadores estão ativos.
-
-**O Gerenciador de anúncios mostra vendas zeradas**
-
-	Os parâmetros não estão no anúncio, ou o anúncio foi criado antes de colocá-los. Confira o campo **Parâmetros de URL** em cada anúncio.
-
----
-
-# Configurar um domínio próprio
-
-URL: https://docs.trackup.me/tutorial-dominio-proprio
-
-> Conecte um subdomínio seu ao Trackup pelo provedor de DNS (Cloudflare, Registro.br, GoDaddy, Hostinger, Namecheap e outros) e deixe como domínio primário.
-
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Adicione o domínio lp.seudominio.com ao projeto Online Store e me diga o CNAME para cadastrar. Quando eu avisar, verifique." Só a alteração no DNS é manual.
-
-Neste tutorial você conecta `lp.seudominio.com` ao Trackup. Todas as páginas, ofertas e URLs de webhook passam a usar esse endereço.
-
-## O que você vai precisar
-
-- Um domínio registrado, como `seudominio.com`.
-
-- Acesso ao painel onde o DNS do domínio é gerenciado. Por exemplo, a Cloudflare, o Registro.br, a GoDaddy, a Hostinger, a Namecheap, a HostGator ou a Squarespace (antigo Google Domains).
-
-Não sabe onde está o DNS? Consulte os nameservers do domínio em um site de whois. Se terminam em `cloudflare.com`, o DNS está na Cloudflare.
-
-## 1. Escolha o subdomínio
-
-Use um subdomínio dedicado, como `lp`, `go` ou `oferta`. Assim o site principal continua onde está, e a reputação das páginas de anúncio fica separada.
-
-## 2. Adicione no Trackup
-
-- **Abra Domínios**
-		No menu lateral, vá em **Ajustes › Domínios** e clique em **Adicionar domínio**.
-
-- **Digite o hostname**
-		Digite `lp.seudominio.com`, sem `https://` e sem barra no fim, e salve. O domínio entra com o status **Pendente**.
-
-- **Copie o registro**
-		Abra o domínio na lista. Anote o **Type** (CNAME), o **Name** e o **Value**.
-
-		Registro CNAME a criar no DNS
-
-## 3. Crie o registro no DNS
-
-Escolha o provedor onde o DNS do seu domínio está hospedado. Se você não sabe qual é, consulte os nameservers do domínio em um site de whois: o DNS fica no provedor dono desses servidores, que nem sempre é onde você comprou o domínio. Em todos, use o **Name** e o **Value** exatamente como o Trackup mostra.
-
-- **Abra o DNS**
-				Entre na Cloudflare, selecione o domínio e vá em **DNS › Records**. Clique em **Add record**.
-
-- **Preencha o registro**
-				**Type**: `CNAME`. **Name**: o subdomínio, por exemplo `lp`. **Target**: o **Value** exibido no Trackup.
-
-- **Desligue o proxy**
-				Clique na nuvem laranja até ficar cinza (**DNS only**) e clique em **Save**. Com a nuvem laranja, a verificação falha.
-
-		Mais detalhes na [Ajuda da Cloudflare](https://developers.cloudflare.com/dns/manage-dns-records/how-to/create-dns-records/).
-
-- **Abra o domínio**
-				Entre em [registro.br](https://registro.br), abra **Meus domínios** e clique no domínio.
-
-- **Entre na zona DNS**
-				Vá na seção **DNS** e clique em **Editar zona**. Se o domínio usa outros servidores DNS (por exemplo, a Cloudflare), a opção não aparece: crie o registro lá, ou volte para os servidores do Registro.br em **Alterar servidores DNS**.
-
-- **Crie a entrada**
-				Clique em **Nova entrada**. Em **Tipo**, escolha `CNAME`. Em **Nome**, informe só o subdomínio (`lp`). Em **Dados**, cole o **Value** do Trackup.
-
-- **Salve a zona**
-				Clique em **Salvar** e depois em **Publicar alterações**, se o painel pedir. Se ele exigir um ponto no fim do valor, adicione (`valor.exemplo.com.`).
-
-- **Abra o DNS**
-				Entre na GoDaddy, abra **Meus produtos**, localize o domínio e clique em **DNS** (ou **Gerenciar DNS**).
-
-- **Adicione o registro**
-				Clique em **Adicionar novo registro**. Em **Tipo**, escolha `CNAME`. Em **Nome**, informe o subdomínio (`lp`). Em **Valor**, cole o **Value** do Trackup. Deixe o **TTL** padrão.
-
-- **Salve**
-				Clique em **Salvar**. Se já existir um registro `A` ou `CNAME` com o mesmo nome, exclua-o antes.
-
-		Mais detalhes na [Ajuda da GoDaddy](https://www.godaddy.com/help/add-a-cname-record-19236).
-
-- **Abra o DNS**
-				Entre no hPanel, vá em **Domínios**, clique em **Gerenciar** ao lado do domínio e abra **DNS / Servidores de nomes**.
-
-- **Preencha o registro**
-				Na área **Gerenciar registros DNS**, escolha o tipo `CNAME`. Em **Nome**, informe o subdomínio (`lp`). Em **Aponta para**, cole o **Value** do Trackup. Mantenha o TTL padrão.
-
-- **Salve**
-				Clique em **Adicionar registro**. Se o domínio usa servidores de nomes de outro provedor, o painel da Hostinger não vale: crie o registro no provedor que aparece em **Servidores de nomes**.
-
-- **Abra o domínio**
-				Entre na Namecheap, vá em **Domain List** e clique em **Manage** ao lado do domínio.
-
-- **Abra o DNS avançado**
-				Abra a aba **Advanced DNS**. Em **Nameservers** (aba **Domain**), confirme que está em Namecheap BasicDNS ou Namecheap Web Hosting DNS; caso contrário, crie o registro no provedor que aparece ali.
-
-- **Adicione o registro**
-				Em **Host Records**, clique em **Add New Record**. **Type**: `CNAME Record`. **Host**: o subdomínio (`lp`). **Value**: o **Value** do Trackup. **TTL**: Automatic.
-
-- **Salve**
-				Clique no ícone de confirmação (✓) ao lado do registro.
-
-		Mais detalhes na [Ajuda da Namecheap](https://www.namecheap.com/support/knowledgebase/article.aspx/9646/2237/how-to-create-a-cname-record-for-your-domain/).
-
-- **Abra a zona DNS**
-				Entre no **Portal do Cliente**, abra a hospedagem e clique em **cPanel**. Na seção **Domínios**, abra o **Editor de Zona** (Zone Editor).
-
-- **Escolha o domínio**
-				Na linha do domínio, clique em **Gerenciar**, depois em **Adicionar registro** (ou **+ Registro CNAME**).
-
-- **Preencha o registro**
-				**Nome**: o subdomínio completo, como `lp.seudominio.com.` (com o ponto no fim, se o cPanel pedir). **Tipo**: `CNAME`. **Registro**: o **Value** do Trackup.
-
-- **Salve**
-				Clique em **Adicionar registro**. Se o domínio usa servidores DNS de outro provedor, crie o registro lá.
-
-		Mais detalhes na [Ajuda da HostGator](https://www.hostgator.com/help/article/how-to-change-dns-zones-mx-cname-and-a-records).
-
-- **Abra o domínio**
-				O Google Domains foi transferido para a Squarespace. Entre em **account.squarespace.com**, vá em **Domains** e clique no domínio.
-
-- **Abra as configurações de DNS**
-				Clique em **DNS** (ou **DNS Settings**) e role até **Custom records**.
-
-- **Adicione o registro**
-				Clique em **Add record**. **Host**: o subdomínio (`lp`). **Type**: `CNAME`. **Data**: o **Value** do Trackup.
-
-- **Salve**
-				Clique em **Save**.
-
-		Mais detalhes na [Ajuda da Squarespace](https://support.squarespace.com/hc/en-us/articles/360002101888-Adding-custom-DNS-records-to-your-Squarespace-managed-domain).
-
-		Procure a área de **DNS** ou **zona DNS** do provedor, crie uma entrada do tipo `CNAME` com o nome do subdomínio (`lp`) apontando para o **Value** exibido no Trackup e remova registros `A` ou `CNAME` antigos para o mesmo nome. Se o painel pedir TTL, deixe o padrão.
-
-## 4. Verifique e defina como primário
-
-- **Verifique**
-		Volte ao Trackup e clique em **Verificar**. Costuma levar poucos minutos. Se ainda estiver **Pendente**, espere e tente de novo. A propagação pode levar algumas horas.
-
-- **Defina como primário**
-		Com o status **Verificado**, abra o menu do domínio e clique em **Definir como primário**.
-
-- **Teste**
-		Abra `https://lp.seudominio.com/` no navegador. O certificado HTTPS é emitido automaticamente.
-
-## Depois de trocar o domínio primário
-
-- Novos links de páginas e ofertas, as URLs de webhook e o snippet passam a usar o novo domínio.
-
-- Links divulgados no domínio anterior continuam funcionando enquanto ele estiver no projeto. Mesmo assim, atualize anúncios, botões e webhooks para manter tudo em um domínio só.
-
-## Problemas comuns
-
-**Verificação falha na Cloudflare**
-
-	O proxy está ligado. Deixe o registro como **DNS only**.
-
-**Já existe um registro com esse nome**
-
-	Remova ou renomeie o registro antigo. Um nome só pode ter um CNAME.
-
-**Quero usar o domínio raiz**
-
-	Funciona só em provedores com CNAME flattening, como a Cloudflare. Veja [Domínios](https://docs.trackup.me/dominios).
-
----
-
-# Montar uma landing page no Builder
-
-URL: https://docs.trackup.me/tutorial-landing-builder
-
-> Crie e publique uma página de vendas no editor visual, com botões ligados à oferta e pronta para mobile.
-
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Monte em /vsl-excel uma página de vendas com hero, vídeo, três benefícios, depoimento e botão para o link /checkout-excel, e publique." Depois, ajuste o visual no Builder.
-
-Neste tutorial você monta uma página de vendas com VSL no Builder, liga os botões ao checkout e publica no seu domínio. Nenhum código é necessário, e o rastreamento já vem embutido.
-
-## O que você vai precisar
-
-- Uma [oferta](https://docs.trackup.me/ofertas) criada, com o link do checkout. Se ainda não tem, siga a Parte 3 de [Rastrear uma campanha da Meta](https://docs.trackup.me/tutorial-campanha-meta).
-
-- Textos, imagens comprimidas (WebP ou JPG até 300 KB) e o link do vídeo da VSL.
-
-## 1. Crie a página
-
-- **Adicione a página**
-		Em **Páginas**, clique em **Adicionar página** e escolha a aba **Builder**. Nome: VSL Curso. Caminho: `/curso`. Salve.
-
-- **Abra o editor**
-		Na lista, abra o menu da página e clique em **Editar no builder**.
-
-- **Escolha um ponto de partida**
-		Escolha um template de VSL para ganhar tempo, ou comece com o canvas vazio.
-
-		Escolha de template no Builder
-
-## 2. Monte as seções
-
-Uma estrutura que funciona para VSL:
-
-	Ordem | Bloco | O que colocar |
-
-		1 | Primeira dobra e VSL | Título com a promessa, o vídeo e um botão logo abaixo. |
-
-		2 | Benefícios | 3 a 6 resultados que o cliente terá. |
-
-		3 | Prova social | Depoimentos com foto e nome. |
-
-		4 | Oferta e preço | O que está incluso, preço e garantia. |
-
-		5 | Perguntas frequentes | As objeções mais comuns. |
-
-		6 | Rodapé | Links de termos e privacidade. |
-
-- **Insira os blocos**
-		No painel lateral, abra a aba **Blocos** e arraste cada seção para o canvas, na ordem acima.
-
-		Aba Blocos com a categoria Prova social e o canvas ao lado
-
-- **Edite os textos**
-		Clique duas vezes em um texto para editar. Use a aba **Camadas** para achar elementos difíceis de clicar.
-
-- **Troque imagens e vídeo**
-		Selecione a imagem e, em **Config**, abra a **Biblioteca de imagens** para enviar a sua. No vídeo, cole a URL em **Config**.
-
-- **Ajuste o visual**
-		Na aba **Estilo**, ajuste cores, fontes e espaçamentos. Para voltar ao padrão do tema, use o botão ao lado do campo.
-
-## 3. Ligue os botões à oferta
-
-- **Selecione o botão**
-		Clique no botão de compra da primeira dobra.
-
-- **Configure o clique**
-		Na aba **Config**, em **Evento de clique**, cole o link da oferta (por exemplo `https://lp.seudominio.com/checkout`) em **Destino**.
-
-		Botão apontando para a oferta
-
-- **Repita em todos os botões**
-		Faça o mesmo em cada botão de compra da página. Use **Camadas** para conferir que nenhum ficou de fora.
-
-Nunca use o link direto do checkout da plataforma. As vendas chegam sem o click ID e não são atribuídas ao anúncio.
-
-## 4. Revise no celular
-
-Na barra superior, alterne para **Mobile**. Confira tamanhos de fonte, imagens cortadas e se o botão aparece sem precisar rolar muito. Ajuste em **Estilo** com a visualização Mobile ativa.
-
-Revisão na visualização Mobile
-
-## 5. Publique
-
-- **Salve e publique**
-		Clique em **Salvar** e depois em **Publicar**.
-
-- **Teste a página no ar**
-		Volte para **Páginas**, copie o **Link** e abra no celular. Clique no botão e confira se abre o checkout.
-
-- **Confira o rastreamento**
-		Em **Logs › Requisições**, sua visita e o clique no checkout aparecem em poucos segundos.
-
-## Próximos passos
-
-- Use o link da página no anúncio, com os parâmetros da [fonte de tráfego](https://docs.trackup.me/fontes-de-trafego).
-
-- Duplique a página, mude o título e compare as duas com um [teste A/B](https://docs.trackup.me/tutorial-teste-ab).
-
----
-
-# Rastrear um site hospedado fora do Trackup
-
-URL: https://docs.trackup.me/tutorial-site-externo
-
-> Instale o script em uma página do WordPress, Elementor ou outra plataforma e mantenha a atribuição até o checkout.
-
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie uma página Redirect em /go que leve para https://meusite.example.com/vsl, e me diga o snippet do script para colar no site." Colar o script no site é com você.
-
-Sua página de vendas já está no ar em outro lugar, como WordPress, Elementor, Webflow ou Framer. Neste tutorial você faz o tráfego passar pelo Trackup, instala o script e envia eventos do funil sem mudar de hospedagem.
-
-	**Anúncio**link Redirect do Trackup
-
-	**Seu site**com o script
-
-	**Oferta**link do checkout
-
-	**Venda**webhook
-
-## O que você vai precisar
-
-- Acesso para editar o `<head>` do site (tema, plugin de scripts ou configurações da plataforma).
-
-- Uma [oferta](https://docs.trackup.me/ofertas) criada no Trackup.
-
-## 1. Instale o script
-
-- **Copie o snippet**
-		No Trackup, vá em **Ajustes › Geral**, seção **Segurança**, e copie o **Snippet de rastreamento**.
-
-- **Cole no head do site**
-
-				Instale um plugin de inserção de código no cabeçalho (como WPCode) e cole o snippet na área **Header**. Ou cole em `header.php`, antes de `</head>`.
-
-				Em **Elementor › Custom Code**, adicione um código com localização **<head>**, cole o snippet e publique para todo o site.
-
-				Em **Site settings › Custom code › Head code**, cole o snippet e publique.
-
-				Cole o snippet antes de `</head>` em todas as páginas.
-
-- **Libere o domínio**
-		Em **Ajustes › Geral › Segurança**, adicione o domínio do site (como `www.seusite.com`) em **Domínios permitidos**. Sem isso, os eventos são recusados.
-
-		Domínios permitidos do snippet
-
-## 2. Faça o tráfego passar pelo Trackup
-
-Crie uma página [Redirect](https://docs.trackup.me/redirect) que leva ao seu site. O anúncio aponta para ela. Assim o Trackup aplica o filtro, registra o clique e repassa as UTMs.
-
-- **Crie a página Redirect**
-		Em **Páginas › Adicionar página**, na aba **Redirect**: nome Site Curso, URL de redirecionamento `https://www.seusite.com/curso`, caminho `/curso`, Status Code 302.
-
-- **Use o link no anúncio**
-		Use o link dessa página (`https://lp.seudominio.com/curso`) com os parâmetros da fonte de tráfego no anúncio.
-
-Se o anúncio apontar direto para o seu site, o script ainda registra as visitas e as UTMs, mas o [filtro](https://docs.trackup.me/filtro) não atua, porque a requisição não passa pelo domínio do Trackup.
-
-## 3. Ligue os botões à oferta
-
-Troque o link de todos os botões de compra do site pelo link da oferta no Trackup, como `https://lp.seudominio.com/checkout`. No Elementor, edite cada botão e cole o link em **Link**.
-
-## 4. Envie eventos do funil (opcional)
-
-Marque ações importantes para usar em acionadores e no funil do dashboard. Pelo HTML, sem JavaScript:
-
-```
-<button type="submit" data-trackup-event="lead_form_submitted">Quero receber</button>
-
-<a href="https://lp.seudominio.com/checkout" data-trackup-event="add_to_cart">Quero me inscrever</a>
-```
-
-Ou pelo JavaScript, por exemplo quando o vídeo chega ao pitch:
-
-```
-trackup('track', 'vsl_pitch');
-```
-
-Para mandar um evento para o pixel, crie um [acionador](https://docs.trackup.me/acionadores) com a condição **Tipo customizado** igual ao nome do evento.
-
-## 5. Valide
-
-- **Acesse pelo link do anúncio**
-		Abra `https://lp.seudominio.com/curso?utm_source=teste` em uma aba anônima. Você deve cair no seu site com `utm_source=teste` na URL.
-
-- **Confira as requisições**
-		Em **Logs › Requisições**, aparecem o acesso ao link e o `page_view` enviado pelo script, no mesmo visitante.
-
-- **Clique em comprar**
-		O checkout deve abrir com o parâmetro de clique da plataforma (como `sck` ou `src`) na URL.
-
-## Problemas comuns
-
-**Nenhum evento do script aparece**
-
-	O domínio do site não está em **Domínios permitidos**, o snippet não está no `<head>`, ou um plugin de cache serve uma versão antiga. Limpe o cache e confira o código-fonte da página.
-
-**As UTMs se perdem no site**
-
-	Algum redirecionamento do site (como de `seusite.com` para `www.seusite.com`) está removendo a query string. Use na página Redirect a URL final, já com `www` e barra.
-
----
-
-# Testar duas versões de uma página
-
-URL: https://docs.trackup.me/tutorial-teste-ab
-
-> Compare duas páginas com o mesmo tráfego, acompanhe a confiança estatística e envie tudo para a vencedora.
-
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie um teste A/B no link /lp com as páginas /lp e /lp-teste, 50% para cada. Daqui a uma semana, mostre o resultado e a confiança, e só promova a vencedora se eu confirmar."
-
-Neste tutorial você descobre qual de duas landing pages vende mais. O anúncio continua o mesmo: o Trackup divide os visitantes entre as versões e mede as vendas de cada uma.
-
-## O que você vai precisar
-
-- Uma página publicada que já recebe tráfego, como Excel Basics - LP Builder.
-
-- Vendas atribuídas funcionando. Sem isso o teste mede só acessos. Veja [Rastrear uma campanha da Meta](https://docs.trackup.me/tutorial-campanha-meta).
-
-## 1. Prepare as duas páginas
-
-- **Crie a segunda página**
-		Em **Páginas**, crie a página que vai concorrer com a primeira. Você pode duplicar a original no menu da página, em **Duplicar**, ou criar outra página. Neste exemplo, a primeira é Excel Basics - LP Builder e a segunda é Email Templates - LP HTML.
-
-- **Mude uma coisa só**
-		Se a segunda página for uma cópia, mude só o que quer testar, por exemplo o título da primeira dobra. Mudar várias coisas ao mesmo tempo impede saber o que fez diferença.
-
-- **Publique**
-		Publique as duas páginas. Confira que os botões continuam apontando para a mesma oferta.
-
-## 2. Crie o teste
-
-- **Abra Testes A/B**
-		No menu lateral, clique em **Testes A/B** e em **Criar teste A/B**.
-
-- **Preencha**
-
-			Campo | Valor |
-
-				Nome | LP test: Builder vs HTML |
-
-				Slug | `/lp-teste` |
-
-				Tipo de teste | Página |
-
-				Variante 1 | Excel Basics - LP Builder, 50% |
-
-				Variante 2 | Email Templates - LP HTML, 50% |
-
-		Teste com duas variantes em 50/50
-
-- **Salve e copie o link**
-		O link do teste é `https://lp.seudominio.com/lp-teste`.
-
-## 3. Troque o link no anúncio
-
-Nos anúncios, troque a **URL do site** pelo link do teste. Mantenha os mesmos **Parâmetros de URL**.
-
-Na Meta, editar a URL de um anúncio ativo manda ele de volta para revisão. Se preferir, duplique o anúncio com a nova URL.
-
-## 4. Acompanhe
-
-- **Abra o relatório**
-		Em **Testes A/B**, abra o menu do teste e clique em **Relatórios**.
-
-- **Leia a frase de resumo**
-		No topo, o Trackup diz como está o teste. Enquanto uma variante estiver só Liderando, não decida. Espere aparecer Vencedora.
-
-		Relatório com variante vencedora, gráfico de conversão acumulada e botão para enviar 100% do tráfego
-
-- **Compare receita por visitante**
-		Além da taxa de conversão, olhe a **receita por visitante**. Uma variante pode vender menos vezes e ainda faturar mais, por causa de upsell ou de outro preço.
-
-Deixe o teste rodar ao menos uma semana, para cobrir dias fortes e fracos, mesmo que um vencedor apareça antes.
-
-## 5. Encerre
-
-Com a vencedora definida, clique em **Enviar 100% para** ela. O anúncio continua no mesmo link e todos os visitantes passam a ver a vencedora. Para o próximo teste, duplique a vencedora e repita.
-
-## E para testar preço ou checkout?
-
-Crie duas [ofertas](https://docs.trackup.me/ofertas) (por exemplo, R$ 197 e R$ 247) e um teste do tipo **Checkout** com as duas. Use o link desse teste nos botões da página, no lugar do link da oferta.
-
----
-
-# Proteger páginas de bots e curiosos
-
-URL: https://docs.trackup.me/tutorial-proteger-paginas
-
-> Monte uma proteção em camadas com o Filtro: bloqueio de bots, país, parâmetro secreto e safe page.
-
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie quatro regras no filtro, nesta ordem: liberar o meu IP (peso 1), bloquear bots (10), exibir a safe page para fora do Brasil (20) e bloquear quem abrir /oferta sem o parâmetro secreto (30). Gere o parâmetro e me diga onde colocar."
-
-Neste tutorial você monta, em ordem, quatro regras de filtro para uma página de oferta. Robôs são bloqueados, o tráfego de fora do Brasil vê uma página neutra, e quem tenta abrir a página sem vir do anúncio também.
-
-	Peso | Regra | Ação |
-
-		1 | Liberar o seu IP | Permitir |
-
-		10 | Bloquear bots | Bloquear |
-
-		20 | Fora do Brasil | Exibir página (safe page) |
-
-		30 | Sem parâmetro secreto | Exibir página (safe page) |
-
-## O que você vai precisar
-
-- A página da oferta publicada.
-
-- Uma safe page: uma página neutra e verdadeira, como um artigo sobre o tema do produto, criada no mesmo projeto.
-
-- O seu IP público. Busque "qual é meu IP" no navegador.
-
-## 1. Libere o seu acesso
-
-Assim você consegue revisar a página sem cair nas regras.
-
-- **Crie a regra**
-		Em **Filtro**, clique em **Criar regra** e escolha o modo **Avançado**. Nome: Meu IP. Peso: `1`.
-
-- **Condição e ação**
-		Condição: **IP de origem**, **Igual**, o seu IP. Ação: **Permitir**. Salve.
-
-## 2. Bloqueie bots
-
-No fim da tela **Filtro**, em **Regras sugeridas**, clique em **Usar template** em Bloquear bots (proteção geral). Defina o peso `10` e salve.
-
-## 3. Mostre a safe page fora do Brasil
-
-- **Crie a regra no modo básico**
-		**Criar regra**, modo **Básico**. Nome: Fora do Brasil. Peso: `20`.
-
-		Nome e peso da regra
-
-- **Filtro de país**
-		Em **Países**, escolha **Não na lista** e selecione Brasil.
-
-		Ação Exibir página e filtro de país
-
-- **Limite à oferta**
-		Em **Links**, selecione a página da oferta. As outras páginas do projeto não são afetadas.
-
-		Link da oferta selecionado e botão Salvar
-
-- **Ação**
-		Escolha **Exibir página** e selecione a safe page.
-
-## 4. Exija o parâmetro secreto
-
-- **Crie a regra**
-		**Criar regra**, modo **Básico**. Nome: Anti-plágio. Peso: `30`.
-
-- **Ligue o anti-plágio**
-		Ligue **Filtro anti-plágio**. O Trackup gera um parâmetro, como `k3j9x=82mqa`. Em **Links**, selecione a oferta. Ação: **Exibir página**, safe page.
-
-- **Coloque o parâmetro no anúncio**
-		Na lista de páginas, use o botão de copiar link da oferta e abra **Ver URL**. A **URL final** já inclui os **Parâmetros do filtro**. Use essa URL no anúncio, junto com os parâmetros da fonte de tráfego.
-
-		URL de rastreio com parâmetros do filtro
-
-Anúncio sem o parâmetro manda todo o tráfego para a safe page. Confira a URL antes de publicar.
-
-## 5. Teste com Registrar antes de valer
-
-Se a página já recebe tráfego, crie as regras 3 e 4 primeiro com a ação **Registrar**. Depois de um dia, olhe a coluna **Acessos** e confira em **Logs › Requisições** quem cairia em cada regra. Se estiver certo, troque para **Exibir página**.
-
-## 6. Valide
-
-- Do seu computador, a oferta abre normalmente (regra 1).
-
-- Do celular, fora do Wi-Fi e sem o parâmetro, você vê a safe page.
-
-- Com o parâmetro, a oferta abre.
-
-- Em **Logs › Requisições**, cada acesso mostra a **Regra do firewall** que decidiu.
-
-Acompanhe o resultado no topo da tela **Filtro** ou adicione o card **Filtro** a um [dashboard](https://docs.trackup.me/dashboards).
-
----
-
-# Montar um dashboard de lucro
-
-URL: https://docs.trackup.me/tutorial-dashboard-lucro
-
-> Monte um painel diário com lucro, ROAS, funil e as campanhas que mais vendem.
-
-**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie o dashboard Lucro diário com os cards de lucro, vendas ao longo do tempo, funil, status de pagamentos e vendas por fonte de tráfego."
-
-Neste tutorial você monta um dashboard para abrir todo dia e responder três perguntas: quanto lucrei, onde o funil está vazando e de onde vieram as vendas.
-
-## O que você vai precisar
-
-- Vendas chegando pelas [plataformas de venda](https://docs.trackup.me/plataformas-de-venda).
-
-- A conta de anúncios conectada no [Gerenciador de anúncios](https://docs.trackup.me/gerenciador-de-anuncios). Sem ela, o card de lucro mostra despesas zeradas.
-
-## 1. Crie o dashboard
-
-- **Novo dashboard**
-		Em **Dashboard**, clique em **Novo dashboard** e dê o nome Lucro diário.
-
-- **Limpe o layout inicial**
-		Clique em **Editar layout** e remova os cards que não vai usar.
-
-## 2. Adicione os cards
-
-Clique em **Adicionar card** e marque, na ordem:
-
-	Card | Pergunta que responde |
-
-		Lucro | Quanto entrou, quanto saiu em anúncio, lucro e ROAS. |
-
-		Vendas | Como as vendas se distribuem no período. |
-
-		Funil | Em que etapa as pessoas desistem. |
-
-		Venda por fonte de tráfego | Qual canal traz mais receita. |
-
-		Vendas por UTM | Quais campanhas e anúncios vendem (aba Campanha ou Conteúdo). |
-
-		Status de pagamentos | Quanto está pendente, pago, reembolsado ou em chargeback. |
-
-		Acessos e vendas por horário | Em que horas o público compra. |
-
-Cards selecionados no catálogo
-
-## 3. Ajuste o funil
-
-- **Abra o funil**
-		No card **Funil**, clique em **Personalizar funil**.
-
-- **Escolha as etapas**
-		Para uma VSL: impressões, ad click, page view, initiate checkout e purchase. Se a página envia um evento como `vsl_pitch` pelo [script](https://docs.trackup.me/script), clique em **Adicionar evento customizado** e coloque entre page view e initiate checkout.
-
-		Personalização do funil
-
-- **Salve**
-		Salve o funil e organize os cards arrastando pela alça. Coloque o Lucro no topo. Salve o layout.
-
-## 4. Leia todo dia
-
-- **Escolha o período**
-		Use Hoje durante o dia e Ontem pela manhã, para ver o dia fechado.
-
-- **Comece pelo lucro**
-		ROAS abaixo de 1 significa que o anúncio custou mais do que vendeu. Lembre que reembolsos e taxas da plataforma não entram nas despesas.
-
-- **Ache o vazamento**
-		No funil, compare as etapas. Muito ad click e pouco page view indica página lenta ou bloqueio. Muito page view e pouco initiate checkout indica problema de oferta ou de página. Muito initiate checkout e pouco purchase aponta para o checkout.
-
-- **Desça até o anúncio**
-		Em **Vendas por UTM**, veja as campanhas e os anúncios que vendem. Para agir (pausar ou escalar), abra o [Gerenciador de anúncios](https://docs.trackup.me/gerenciador-de-anuncios).
-
-Dashboard Lucro diário pronto
-
-Crie um segundo dashboard, Qualidade do tráfego, com Acessos reais, Acessos de bots, Filtro e Acessos por dispositivo, para acompanhar a proteção das páginas.
-
----
-
 # Integrações
 
 URL: https://docs.trackup.me/integracoes
@@ -14502,3 +13710,795 @@ Invalid input. Each field path maps to its first validation message; _form ident
 
 500object
 An unexpected error occurred.
+
+---
+
+# Rastrear uma campanha da Meta com Upag
+
+URL: https://docs.trackup.me/tutorial-campanha-meta
+
+> Do zero até a primeira venda atribuída a um anúncio, com pixel via API de Conversões, Upag e Gerenciador de anúncios.
+
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Configure o projeto Online Store para anunciar na Meta: crie a fonte de tráfego Meta, um pixel com acionadores de pageview, carrinho, início de checkout e conversão, e a plataforma Upag. No fim, me dê a URL do webhook." A conexão da conta de anúncios (OAuth) e o cadastro do webhook na Upag ficam com você.
+
+Neste tutorial você configura um funil completo para anunciar na Meta e vender na Upag. No fim, cada venda aparece no Trackup com a campanha, o conjunto e o anúncio de origem, e o Purchase chega ao pixel pela API de Conversões.
+
+	**Anúncio**Meta Ads
+
+	**Landing page**no seu domínio
+
+	**Oferta**link do checkout
+
+	**Upag**webhook da venda
+
+## O que você vai precisar
+
+- Um projeto no Trackup com domínio próprio verificado. Se ainda não tem, siga [Configurar um domínio próprio](https://docs.trackup.me/tutorial-dominio-proprio).
+
+- Acesso de administrador ao Business Manager da Meta e ao pixel.
+
+- Acesso de administrador à Upag, com o produto criado e o link de checkout (link de pagamento).
+
+- Uma landing page. Pode ser montada no [Builder](https://docs.trackup.me/tutorial-landing-builder) ou estar em um [site externo](https://docs.trackup.me/tutorial-site-externo).
+
+Tempo estimado: 30 minutos.
+
+## Parte 1: Pixel da Meta
+
+- **Pegue o ID do pixel**
+		No **Gerenciador de Eventos** da Meta, selecione o pixel. O ID aparece embaixo do nome, um número com 15 ou 16 dígitos.
+
+- **Gere o token da API de Conversões**
+		Ainda no pixel, abra **Configurações**, role até **API de Conversões** e clique em **Gerar token de acesso**. Copie o token. Ele aparece uma vez só.
+
+		O token dá acesso para enviar eventos ao pixel. Guarde em local seguro e não compartilhe em prints.
+
+- **Pegue um código de teste**
+		Na aba **Eventos de teste**, copie o código exibido (algo como `TEST12345`). Você usa só durante a validação.
+
+- **Cadastre o pixel no Trackup**
+		Em **Integração › Pixels**, clique em **Adicionar pixel**. Preencha:
+
+			Campo | Valor |
+
+				Nome | Pixel principal |
+
+				Tipo | Meta |
+
+				Pixel ID | O ID do passo 1 |
+
+				Access Token | O token do passo 2 |
+
+				Test Event Code | O código do passo 3 |
+
+		Pixel da Meta com código de teste
+
+- **Confira os acionadores**
+		Abra **Acionadores**. O Trackup criou três para o pixel: **Pageview**, **Start checkout** e **Conversão**. Não precisa mexer.
+
+## Parte 2: Fonte de tráfego Meta
+
+- **Crie a fonte**
+		Em **Integração › Fontes de tráfego**, clique em **Adicionar fonte**, dê o nome Meta Ads e escolha **Meta**.
+
+- **Copie os parâmetros**
+		Salve e copie o bloco **Parâmetros de URL**. Ele leva o nome e o ID da campanha, do conjunto e do anúncio:
+
+```
+utm_source=meta&utm_medium={{adset.name}}|{{adset.id}}&utm_campaign={{campaign.name}}|{{campaign.id}}&utm_content={{ad.name}}|{{ad.id}}&utm_term={{placement}}&trk_cmpid={{campaign.id}}&trk_asid={{adset.id}}&trk_aid={{ad.id}}
+```
+
+		Os IDs são o que permite ao [Gerenciador de anúncios](https://docs.trackup.me/gerenciador-de-anuncios) ligar cada venda ao anúncio.
+
+## Parte 3: Upag
+
+- **Crie a plataforma**
+		Em **Integração › Plataformas de vendas**, clique em **Adicionar plataforma**, escolha **Upag** e salve. Copie a **URL** da plataforma na lista.
+
+- **Cadastre o webhook na Upag**
+		Na Upag, abra **Desenvolvedor › Webhooks** e clique em **Criar Webhook**. Dê um nome, cole a URL do Trackup e selecione **apenas** o evento `invoice.paid`. Clique em **Criar Webhook** para concluir.
+
+		Webhooks no painel da Upag
+
+		Webhook com a URL do Trackup e o evento invoice.paid
+
+		O passo a passo completo está em [Upag](https://docs.trackup.me/upag).
+
+- **Crie a oferta**
+		Em **Ofertas**, clique em **Adicionar oferta** e, na aba **Redirect**, preencha:
+
+			Campo | Valor |
+
+				Nome | Checkout Curso |
+
+				Plataforma de vendas | Upag |
+
+				URL de redirecionamento | O link de pagamento da Upag, como `https://pay.upag.com.br/ABC123` |
+
+				Caminho | `/checkout` |
+
+		Salve e copie o **Link** da oferta, como `https://lp.seudominio.com/checkout`.
+
+## Parte 4: Landing page
+
+- **Aponte os botões para a oferta**
+		Em todos os botões de compra da landing page, use o link da oferta. No Builder, selecione o botão e, em **Config › Evento de clique**, cole o link em **Destino**. Em um site externo, troque o `href` dos botões.
+
+		Um único botão apontando direto para o link de pagamento da Upag já faz parte das vendas chegarem sem atribuição.
+
+- **Publique e copie o link**
+		Publique a página e copie o **Link** dela em **Páginas**, como `https://lp.seudominio.com/curso`.
+
+## Parte 5: Anúncio
+
+- **Configure o destino**
+		No Gerenciador de Anúncios da Meta, no nível do anúncio, em **Destino**:
+
+- **URL do site**: o link da landing page.
+
+- **Parâmetros de URL**: o bloco copiado na Parte 2.
+
+		**Print pendente · `img/tut-meta-anuncio.png`**Seção Destino de um anúncio no Gerenciador de Anúncios da Meta com URL do site https://lp.seudominio.com/curso e o campo Parâmetros de URL preenchido com o template do Trackup.
+
+Destino do anúncio na Meta
+
+- **Escolha o pixel**
+		Em **Rastreamento**, selecione o mesmo pixel cadastrado no Trackup. Se o pixel também estiver instalado no navegador pela Meta, deixe o evento `Purchase` só pelo Trackup para não duplicar.
+
+## Parte 6: Validar
+
+- **Simule um clique**
+		Abra em uma aba anônima a URL da landing com os parâmetros, trocando as macros por valores de teste:
+
+```
+https://lp.seudominio.com/curso?utm_source=meta&utm_campaign=teste|111&utm_content=teste|333&trk_aid=333
+```
+
+- **Confira o PageView**
+		Em **Logs › Requisições**, sua visita aparece com as UTMs. No Gerenciador de Eventos, na aba **Eventos de teste**, o `PageView` chega com a origem Servidor.
+
+- **Clique em comprar**
+		Clique no botão de compra. Você deve cair no checkout da Upag com o parâmetro `clickId` na URL. O `InitiateCheckout` aparece nos eventos de teste.
+
+- **Faça uma compra de teste**
+		Conclua uma compra de valor baixo (pode reembolsar depois). Em **Logs › Conversões**, a venda aparece com a campanha teste, e o `Purchase` aparece em **Logs › Acionadores** com sucesso.
+
+		Venda de teste atribuída
+
+- **Tire o modo de teste**
+		Edite o pixel em **Integração › Pixels** e apague o **Test Event Code**. Com ele preenchido, os eventos não contam para as campanhas.
+
+## Parte 7: ROAS por anúncio
+
+Em **Gerenciador de anúncios**, clique em **Conectar Facebook Ads**, autorize e escolha a conta de anúncio. Depois da sincronização, cada campanha, conjunto e anúncio mostra investimento, vendas, receita, ROAS e CPA reais. Veja [Gerenciador de anúncios](https://docs.trackup.me/gerenciador-de-anuncios).
+
+## Se algo não funcionar
+
+**A venda chega com Configuração incompleta**
+
+	A venda veio sem click ID. Confira se todos os botões apontam para o link da oferta e se o checkout abriu com `sck` na URL.
+
+**Os eventos não aparecem na Meta**
+
+	Abra **Logs › Acionadores**. Erro de autenticação indica token errado ou de outro Business Manager. Sem nenhum log, confira se os acionadores estão ativos.
+
+**O Gerenciador de anúncios mostra vendas zeradas**
+
+	Os parâmetros não estão no anúncio, ou o anúncio foi criado antes de colocá-los. Confira o campo **Parâmetros de URL** em cada anúncio.
+
+---
+
+# Configurar um domínio próprio
+
+URL: https://docs.trackup.me/tutorial-dominio-proprio
+
+> Conecte um subdomínio seu ao Trackup pelo provedor de DNS (Cloudflare, Registro.br, GoDaddy, Hostinger, Namecheap e outros) e deixe como domínio primário.
+
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Adicione o domínio lp.seudominio.com ao projeto Online Store e me diga o CNAME para cadastrar. Quando eu avisar, verifique." Só a alteração no DNS é manual.
+
+Neste tutorial você conecta `lp.seudominio.com` ao Trackup. Todas as páginas, ofertas e URLs de webhook passam a usar esse endereço.
+
+## O que você vai precisar
+
+- Um domínio registrado, como `seudominio.com`.
+
+- Acesso ao painel onde o DNS do domínio é gerenciado. Por exemplo, a Cloudflare, o Registro.br, a GoDaddy, a Hostinger, a Namecheap, a HostGator ou a Squarespace (antigo Google Domains).
+
+Não sabe onde está o DNS? Consulte os nameservers do domínio em um site de whois. Se terminam em `cloudflare.com`, o DNS está na Cloudflare.
+
+## 1. Escolha o subdomínio
+
+Use um subdomínio dedicado, como `lp`, `go` ou `oferta`. Assim o site principal continua onde está, e a reputação das páginas de anúncio fica separada.
+
+## 2. Adicione no Trackup
+
+- **Abra Domínios**
+		No menu lateral, vá em **Ajustes › Domínios** e clique em **Adicionar domínio**.
+
+- **Digite o hostname**
+		Digite `lp.seudominio.com`, sem `https://` e sem barra no fim, e salve. O domínio entra com o status **Pendente**.
+
+- **Copie o registro**
+		Abra o domínio na lista. Anote o **Type** (CNAME), o **Name** e o **Value**.
+
+		Registro CNAME a criar no DNS
+
+## 3. Crie o registro no DNS
+
+Escolha o provedor onde o DNS do seu domínio está hospedado. Se você não sabe qual é, consulte os nameservers do domínio em um site de whois: o DNS fica no provedor dono desses servidores, que nem sempre é onde você comprou o domínio. Em todos, use o **Name** e o **Value** exatamente como o Trackup mostra.
+
+- **Abra o DNS**
+				Entre na Cloudflare, selecione o domínio e vá em **DNS › Records**. Clique em **Add record**.
+
+- **Preencha o registro**
+				**Type**: `CNAME`. **Name**: o subdomínio, por exemplo `lp`. **Target**: o **Value** exibido no Trackup.
+
+- **Desligue o proxy**
+				Clique na nuvem laranja até ficar cinza (**DNS only**) e clique em **Save**. Com a nuvem laranja, a verificação falha.
+
+		Mais detalhes na [Ajuda da Cloudflare](https://developers.cloudflare.com/dns/manage-dns-records/how-to/create-dns-records/).
+
+- **Abra o domínio**
+				Entre em [registro.br](https://registro.br), abra **Meus domínios** e clique no domínio.
+
+- **Entre na zona DNS**
+				Vá na seção **DNS** e clique em **Editar zona**. Se o domínio usa outros servidores DNS (por exemplo, a Cloudflare), a opção não aparece: crie o registro lá, ou volte para os servidores do Registro.br em **Alterar servidores DNS**.
+
+- **Crie a entrada**
+				Clique em **Nova entrada**. Em **Tipo**, escolha `CNAME`. Em **Nome**, informe só o subdomínio (`lp`). Em **Dados**, cole o **Value** do Trackup.
+
+- **Salve a zona**
+				Clique em **Salvar** e depois em **Publicar alterações**, se o painel pedir. Se ele exigir um ponto no fim do valor, adicione (`valor.exemplo.com.`).
+
+- **Abra o DNS**
+				Entre na GoDaddy, abra **Meus produtos**, localize o domínio e clique em **DNS** (ou **Gerenciar DNS**).
+
+- **Adicione o registro**
+				Clique em **Adicionar novo registro**. Em **Tipo**, escolha `CNAME`. Em **Nome**, informe o subdomínio (`lp`). Em **Valor**, cole o **Value** do Trackup. Deixe o **TTL** padrão.
+
+- **Salve**
+				Clique em **Salvar**. Se já existir um registro `A` ou `CNAME` com o mesmo nome, exclua-o antes.
+
+		Mais detalhes na [Ajuda da GoDaddy](https://www.godaddy.com/help/add-a-cname-record-19236).
+
+- **Abra o DNS**
+				Entre no hPanel, vá em **Domínios**, clique em **Gerenciar** ao lado do domínio e abra **DNS / Servidores de nomes**.
+
+- **Preencha o registro**
+				Na área **Gerenciar registros DNS**, escolha o tipo `CNAME`. Em **Nome**, informe o subdomínio (`lp`). Em **Aponta para**, cole o **Value** do Trackup. Mantenha o TTL padrão.
+
+- **Salve**
+				Clique em **Adicionar registro**. Se o domínio usa servidores de nomes de outro provedor, o painel da Hostinger não vale: crie o registro no provedor que aparece em **Servidores de nomes**.
+
+- **Abra o domínio**
+				Entre na Namecheap, vá em **Domain List** e clique em **Manage** ao lado do domínio.
+
+- **Abra o DNS avançado**
+				Abra a aba **Advanced DNS**. Em **Nameservers** (aba **Domain**), confirme que está em Namecheap BasicDNS ou Namecheap Web Hosting DNS; caso contrário, crie o registro no provedor que aparece ali.
+
+- **Adicione o registro**
+				Em **Host Records**, clique em **Add New Record**. **Type**: `CNAME Record`. **Host**: o subdomínio (`lp`). **Value**: o **Value** do Trackup. **TTL**: Automatic.
+
+- **Salve**
+				Clique no ícone de confirmação (✓) ao lado do registro.
+
+		Mais detalhes na [Ajuda da Namecheap](https://www.namecheap.com/support/knowledgebase/article.aspx/9646/2237/how-to-create-a-cname-record-for-your-domain/).
+
+- **Abra a zona DNS**
+				Entre no **Portal do Cliente**, abra a hospedagem e clique em **cPanel**. Na seção **Domínios**, abra o **Editor de Zona** (Zone Editor).
+
+- **Escolha o domínio**
+				Na linha do domínio, clique em **Gerenciar**, depois em **Adicionar registro** (ou **+ Registro CNAME**).
+
+- **Preencha o registro**
+				**Nome**: o subdomínio completo, como `lp.seudominio.com.` (com o ponto no fim, se o cPanel pedir). **Tipo**: `CNAME`. **Registro**: o **Value** do Trackup.
+
+- **Salve**
+				Clique em **Adicionar registro**. Se o domínio usa servidores DNS de outro provedor, crie o registro lá.
+
+		Mais detalhes na [Ajuda da HostGator](https://www.hostgator.com/help/article/how-to-change-dns-zones-mx-cname-and-a-records).
+
+- **Abra o domínio**
+				O Google Domains foi transferido para a Squarespace. Entre em **account.squarespace.com**, vá em **Domains** e clique no domínio.
+
+- **Abra as configurações de DNS**
+				Clique em **DNS** (ou **DNS Settings**) e role até **Custom records**.
+
+- **Adicione o registro**
+				Clique em **Add record**. **Host**: o subdomínio (`lp`). **Type**: `CNAME`. **Data**: o **Value** do Trackup.
+
+- **Salve**
+				Clique em **Save**.
+
+		Mais detalhes na [Ajuda da Squarespace](https://support.squarespace.com/hc/en-us/articles/360002101888-Adding-custom-DNS-records-to-your-Squarespace-managed-domain).
+
+		Procure a área de **DNS** ou **zona DNS** do provedor, crie uma entrada do tipo `CNAME` com o nome do subdomínio (`lp`) apontando para o **Value** exibido no Trackup e remova registros `A` ou `CNAME` antigos para o mesmo nome. Se o painel pedir TTL, deixe o padrão.
+
+## 4. Verifique e defina como primário
+
+- **Verifique**
+		Volte ao Trackup e clique em **Verificar**. Costuma levar poucos minutos. Se ainda estiver **Pendente**, espere e tente de novo. A propagação pode levar algumas horas.
+
+- **Defina como primário**
+		Com o status **Verificado**, abra o menu do domínio e clique em **Definir como primário**.
+
+- **Teste**
+		Abra `https://lp.seudominio.com/` no navegador. O certificado HTTPS é emitido automaticamente.
+
+## Depois de trocar o domínio primário
+
+- Novos links de páginas e ofertas, as URLs de webhook e o snippet passam a usar o novo domínio.
+
+- Links divulgados no domínio anterior continuam funcionando enquanto ele estiver no projeto. Mesmo assim, atualize anúncios, botões e webhooks para manter tudo em um domínio só.
+
+## Problemas comuns
+
+**Verificação falha na Cloudflare**
+
+	O proxy está ligado. Deixe o registro como **DNS only**.
+
+**Já existe um registro com esse nome**
+
+	Remova ou renomeie o registro antigo. Um nome só pode ter um CNAME.
+
+**Quero usar o domínio raiz**
+
+	Funciona só em provedores com CNAME flattening, como a Cloudflare. Veja [Domínios](https://docs.trackup.me/dominios).
+
+---
+
+# Montar uma landing page no Builder
+
+URL: https://docs.trackup.me/tutorial-landing-builder
+
+> Crie e publique uma página de vendas no editor visual, com botões ligados à oferta e pronta para mobile.
+
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Monte em /vsl-excel uma página de vendas com hero, vídeo, três benefícios, depoimento e botão para o link /checkout-excel, e publique." Depois, ajuste o visual no Builder.
+
+Neste tutorial você monta uma página de vendas com VSL no Builder, liga os botões ao checkout e publica no seu domínio. Nenhum código é necessário, e o rastreamento já vem embutido.
+
+## O que você vai precisar
+
+- Uma [oferta](https://docs.trackup.me/ofertas) criada, com o link do checkout. Se ainda não tem, siga a Parte 3 de [Rastrear uma campanha da Meta](https://docs.trackup.me/tutorial-campanha-meta).
+
+- Textos, imagens comprimidas (WebP ou JPG até 300 KB) e o link do vídeo da VSL.
+
+## 1. Crie a página
+
+- **Adicione a página**
+		Em **Páginas**, clique em **Adicionar página** e escolha a aba **Builder**. Nome: VSL Curso. Caminho: `/curso`. Salve.
+
+- **Abra o editor**
+		Na lista, abra o menu da página e clique em **Editar no builder**.
+
+- **Escolha um ponto de partida**
+		Escolha um template de VSL para ganhar tempo, ou comece com o canvas vazio.
+
+		Escolha de template no Builder
+
+## 2. Monte as seções
+
+Uma estrutura que funciona para VSL:
+
+	Ordem | Bloco | O que colocar |
+
+		1 | Primeira dobra e VSL | Título com a promessa, o vídeo e um botão logo abaixo. |
+
+		2 | Benefícios | 3 a 6 resultados que o cliente terá. |
+
+		3 | Prova social | Depoimentos com foto e nome. |
+
+		4 | Oferta e preço | O que está incluso, preço e garantia. |
+
+		5 | Perguntas frequentes | As objeções mais comuns. |
+
+		6 | Rodapé | Links de termos e privacidade. |
+
+- **Insira os blocos**
+		No painel lateral, abra a aba **Blocos** e arraste cada seção para o canvas, na ordem acima.
+
+		Aba Blocos com a categoria Prova social e o canvas ao lado
+
+- **Edite os textos**
+		Clique duas vezes em um texto para editar. Use a aba **Camadas** para achar elementos difíceis de clicar.
+
+- **Troque imagens e vídeo**
+		Selecione a imagem e, em **Config**, abra a **Biblioteca de imagens** para enviar a sua. No vídeo, cole a URL em **Config**.
+
+- **Ajuste o visual**
+		Na aba **Estilo**, ajuste cores, fontes e espaçamentos. Para voltar ao padrão do tema, use o botão ao lado do campo.
+
+## 3. Ligue os botões à oferta
+
+- **Selecione o botão**
+		Clique no botão de compra da primeira dobra.
+
+- **Configure o clique**
+		Na aba **Config**, em **Evento de clique**, cole o link da oferta (por exemplo `https://lp.seudominio.com/checkout`) em **Destino**.
+
+		Botão apontando para a oferta
+
+- **Repita em todos os botões**
+		Faça o mesmo em cada botão de compra da página. Use **Camadas** para conferir que nenhum ficou de fora.
+
+Nunca use o link direto do checkout da plataforma. As vendas chegam sem o click ID e não são atribuídas ao anúncio.
+
+## 4. Revise no celular
+
+Na barra superior, alterne para **Mobile**. Confira tamanhos de fonte, imagens cortadas e se o botão aparece sem precisar rolar muito. Ajuste em **Estilo** com a visualização Mobile ativa.
+
+Revisão na visualização Mobile
+
+## 5. Publique
+
+- **Salve e publique**
+		Clique em **Salvar** e depois em **Publicar**.
+
+- **Teste a página no ar**
+		Volte para **Páginas**, copie o **Link** e abra no celular. Clique no botão e confira se abre o checkout.
+
+- **Confira o rastreamento**
+		Em **Logs › Requisições**, sua visita e o clique no checkout aparecem em poucos segundos.
+
+## Próximos passos
+
+- Use o link da página no anúncio, com os parâmetros da [fonte de tráfego](https://docs.trackup.me/fontes-de-trafego).
+
+- Duplique a página, mude o título e compare as duas com um [teste A/B](https://docs.trackup.me/tutorial-teste-ab).
+
+---
+
+# Rastrear um site hospedado fora do Trackup
+
+URL: https://docs.trackup.me/tutorial-site-externo
+
+> Instale o script em uma página do WordPress, Elementor ou outra plataforma e mantenha a atribuição até o checkout.
+
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie uma página Redirect em /go que leve para https://meusite.example.com/vsl, e me diga o snippet do script para colar no site." Colar o script no site é com você.
+
+Sua página de vendas já está no ar em outro lugar, como WordPress, Elementor, Webflow ou Framer. Neste tutorial você faz o tráfego passar pelo Trackup, instala o script e envia eventos do funil sem mudar de hospedagem.
+
+	**Anúncio**link Redirect do Trackup
+
+	**Seu site**com o script
+
+	**Oferta**link do checkout
+
+	**Venda**webhook
+
+## O que você vai precisar
+
+- Acesso para editar o `<head>` do site (tema, plugin de scripts ou configurações da plataforma).
+
+- Uma [oferta](https://docs.trackup.me/ofertas) criada no Trackup.
+
+## 1. Instale o script
+
+- **Copie o snippet**
+		No Trackup, vá em **Ajustes › Geral**, seção **Segurança**, e copie o **Snippet de rastreamento**.
+
+- **Cole no head do site**
+
+				Instale um plugin de inserção de código no cabeçalho (como WPCode) e cole o snippet na área **Header**. Ou cole em `header.php`, antes de `</head>`.
+
+				Em **Elementor › Custom Code**, adicione um código com localização **<head>**, cole o snippet e publique para todo o site.
+
+				Em **Site settings › Custom code › Head code**, cole o snippet e publique.
+
+				Cole o snippet antes de `</head>` em todas as páginas.
+
+- **Libere o domínio**
+		Em **Ajustes › Geral › Segurança**, adicione o domínio do site (como `www.seusite.com`) em **Domínios permitidos**. Sem isso, os eventos são recusados.
+
+		Domínios permitidos do snippet
+
+## 2. Faça o tráfego passar pelo Trackup
+
+Crie uma página [Redirect](https://docs.trackup.me/redirect) que leva ao seu site. O anúncio aponta para ela. Assim o Trackup aplica o filtro, registra o clique e repassa as UTMs.
+
+- **Crie a página Redirect**
+		Em **Páginas › Adicionar página**, na aba **Redirect**: nome Site Curso, URL de redirecionamento `https://www.seusite.com/curso`, caminho `/curso`, Status Code 302.
+
+- **Use o link no anúncio**
+		Use o link dessa página (`https://lp.seudominio.com/curso`) com os parâmetros da fonte de tráfego no anúncio.
+
+Se o anúncio apontar direto para o seu site, o script ainda registra as visitas e as UTMs, mas o [filtro](https://docs.trackup.me/filtro) não atua, porque a requisição não passa pelo domínio do Trackup.
+
+## 3. Ligue os botões à oferta
+
+Troque o link de todos os botões de compra do site pelo link da oferta no Trackup, como `https://lp.seudominio.com/checkout`. No Elementor, edite cada botão e cole o link em **Link**.
+
+## 4. Envie eventos do funil (opcional)
+
+Marque ações importantes para usar em acionadores e no funil do dashboard. Pelo HTML, sem JavaScript:
+
+```
+<button type="submit" data-trackup-event="lead_form_submitted">Quero receber</button>
+
+<a href="https://lp.seudominio.com/checkout" data-trackup-event="add_to_cart">Quero me inscrever</a>
+```
+
+Ou pelo JavaScript, por exemplo quando o vídeo chega ao pitch:
+
+```
+trackup('track', 'vsl_pitch');
+```
+
+Para mandar um evento para o pixel, crie um [acionador](https://docs.trackup.me/acionadores) com a condição **Tipo customizado** igual ao nome do evento.
+
+## 5. Valide
+
+- **Acesse pelo link do anúncio**
+		Abra `https://lp.seudominio.com/curso?utm_source=teste` em uma aba anônima. Você deve cair no seu site com `utm_source=teste` na URL.
+
+- **Confira as requisições**
+		Em **Logs › Requisições**, aparecem o acesso ao link e o `page_view` enviado pelo script, no mesmo visitante.
+
+- **Clique em comprar**
+		O checkout deve abrir com o parâmetro de clique da plataforma (como `sck` ou `src`) na URL.
+
+## Problemas comuns
+
+**Nenhum evento do script aparece**
+
+	O domínio do site não está em **Domínios permitidos**, o snippet não está no `<head>`, ou um plugin de cache serve uma versão antiga. Limpe o cache e confira o código-fonte da página.
+
+**As UTMs se perdem no site**
+
+	Algum redirecionamento do site (como de `seusite.com` para `www.seusite.com`) está removendo a query string. Use na página Redirect a URL final, já com `www` e barra.
+
+---
+
+# Testar duas versões de uma página
+
+URL: https://docs.trackup.me/tutorial-teste-ab
+
+> Compare duas páginas com o mesmo tráfego, acompanhe a confiança estatística e envie tudo para a vencedora.
+
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie um teste A/B no link /lp com as páginas /lp e /lp-teste, 50% para cada. Daqui a uma semana, mostre o resultado e a confiança, e só promova a vencedora se eu confirmar."
+
+Neste tutorial você descobre qual de duas landing pages vende mais. O anúncio continua o mesmo: o Trackup divide os visitantes entre as versões e mede as vendas de cada uma.
+
+## O que você vai precisar
+
+- Uma página publicada que já recebe tráfego, como Excel Basics - LP Builder.
+
+- Vendas atribuídas funcionando. Sem isso o teste mede só acessos. Veja [Rastrear uma campanha da Meta](https://docs.trackup.me/tutorial-campanha-meta).
+
+## 1. Prepare as duas páginas
+
+- **Crie a segunda página**
+		Em **Páginas**, crie a página que vai concorrer com a primeira. Você pode duplicar a original no menu da página, em **Duplicar**, ou criar outra página. Neste exemplo, a primeira é Excel Basics - LP Builder e a segunda é Email Templates - LP HTML.
+
+- **Mude uma coisa só**
+		Se a segunda página for uma cópia, mude só o que quer testar, por exemplo o título da primeira dobra. Mudar várias coisas ao mesmo tempo impede saber o que fez diferença.
+
+- **Publique**
+		Publique as duas páginas. Confira que os botões continuam apontando para a mesma oferta.
+
+## 2. Crie o teste
+
+- **Abra Testes A/B**
+		No menu lateral, clique em **Testes A/B** e em **Criar teste A/B**.
+
+- **Preencha**
+
+			Campo | Valor |
+
+				Nome | LP test: Builder vs HTML |
+
+				Slug | `/lp-teste` |
+
+				Tipo de teste | Página |
+
+				Variante 1 | Excel Basics - LP Builder, 50% |
+
+				Variante 2 | Email Templates - LP HTML, 50% |
+
+		Teste com duas variantes em 50/50
+
+- **Salve e copie o link**
+		O link do teste é `https://lp.seudominio.com/lp-teste`.
+
+## 3. Troque o link no anúncio
+
+Nos anúncios, troque a **URL do site** pelo link do teste. Mantenha os mesmos **Parâmetros de URL**.
+
+Na Meta, editar a URL de um anúncio ativo manda ele de volta para revisão. Se preferir, duplique o anúncio com a nova URL.
+
+## 4. Acompanhe
+
+- **Abra o relatório**
+		Em **Testes A/B**, abra o menu do teste e clique em **Relatórios**.
+
+- **Leia a frase de resumo**
+		No topo, o Trackup diz como está o teste. Enquanto uma variante estiver só Liderando, não decida. Espere aparecer Vencedora.
+
+		Relatório com variante vencedora, gráfico de conversão acumulada e botão para enviar 100% do tráfego
+
+- **Compare receita por visitante**
+		Além da taxa de conversão, olhe a **receita por visitante**. Uma variante pode vender menos vezes e ainda faturar mais, por causa de upsell ou de outro preço.
+
+Deixe o teste rodar ao menos uma semana, para cobrir dias fortes e fracos, mesmo que um vencedor apareça antes.
+
+## 5. Encerre
+
+Com a vencedora definida, clique em **Enviar 100% para** ela. O anúncio continua no mesmo link e todos os visitantes passam a ver a vencedora. Para o próximo teste, duplique a vencedora e repita.
+
+## E para testar preço ou checkout?
+
+Crie duas [ofertas](https://docs.trackup.me/ofertas) (por exemplo, R$ 197 e R$ 247) e um teste do tipo **Checkout** com as duas. Use o link desse teste nos botões da página, no lugar do link da oferta.
+
+---
+
+# Proteger páginas de bots e curiosos
+
+URL: https://docs.trackup.me/tutorial-proteger-paginas
+
+> Monte uma proteção em camadas com o Filtro: bloqueio de bots, país, parâmetro secreto e safe page.
+
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie quatro regras no filtro, nesta ordem: liberar o meu IP (peso 1), bloquear bots (10), exibir a safe page para fora do Brasil (20) e bloquear quem abrir /oferta sem o parâmetro secreto (30). Gere o parâmetro e me diga onde colocar."
+
+Neste tutorial você monta, em ordem, quatro regras de filtro para uma página de oferta. Robôs são bloqueados, o tráfego de fora do Brasil vê uma página neutra, e quem tenta abrir a página sem vir do anúncio também.
+
+	Peso | Regra | Ação |
+
+		1 | Liberar o seu IP | Permitir |
+
+		10 | Bloquear bots | Bloquear |
+
+		20 | Fora do Brasil | Exibir página (safe page) |
+
+		30 | Sem parâmetro secreto | Exibir página (safe page) |
+
+## O que você vai precisar
+
+- A página da oferta publicada.
+
+- Uma safe page: uma página neutra e verdadeira, como um artigo sobre o tema do produto, criada no mesmo projeto.
+
+- O seu IP público. Busque "qual é meu IP" no navegador.
+
+## 1. Libere o seu acesso
+
+Assim você consegue revisar a página sem cair nas regras.
+
+- **Crie a regra**
+		Em **Filtro**, clique em **Criar regra** e escolha o modo **Avançado**. Nome: Meu IP. Peso: `1`.
+
+- **Condição e ação**
+		Condição: **IP de origem**, **Igual**, o seu IP. Ação: **Permitir**. Salve.
+
+## 2. Bloqueie bots
+
+No fim da tela **Filtro**, em **Regras sugeridas**, clique em **Usar template** em Bloquear bots (proteção geral). Defina o peso `10` e salve.
+
+## 3. Mostre a safe page fora do Brasil
+
+- **Crie a regra no modo básico**
+		**Criar regra**, modo **Básico**. Nome: Fora do Brasil. Peso: `20`.
+
+		Nome e peso da regra
+
+- **Filtro de país**
+		Em **Países**, escolha **Não na lista** e selecione Brasil.
+
+		Ação Exibir página e filtro de país
+
+- **Limite à oferta**
+		Em **Links**, selecione a página da oferta. As outras páginas do projeto não são afetadas.
+
+		Link da oferta selecionado e botão Salvar
+
+- **Ação**
+		Escolha **Exibir página** e selecione a safe page.
+
+## 4. Exija o parâmetro secreto
+
+- **Crie a regra**
+		**Criar regra**, modo **Básico**. Nome: Anti-plágio. Peso: `30`.
+
+- **Ligue o anti-plágio**
+		Ligue **Filtro anti-plágio**. O Trackup gera um parâmetro, como `k3j9x=82mqa`. Em **Links**, selecione a oferta. Ação: **Exibir página**, safe page.
+
+- **Coloque o parâmetro no anúncio**
+		Na lista de páginas, use o botão de copiar link da oferta e abra **Ver URL**. A **URL final** já inclui os **Parâmetros do filtro**. Use essa URL no anúncio, junto com os parâmetros da fonte de tráfego.
+
+		URL de rastreio com parâmetros do filtro
+
+Anúncio sem o parâmetro manda todo o tráfego para a safe page. Confira a URL antes de publicar.
+
+## 5. Teste com Registrar antes de valer
+
+Se a página já recebe tráfego, crie as regras 3 e 4 primeiro com a ação **Registrar**. Depois de um dia, olhe a coluna **Acessos** e confira em **Logs › Requisições** quem cairia em cada regra. Se estiver certo, troque para **Exibir página**.
+
+## 6. Valide
+
+- Do seu computador, a oferta abre normalmente (regra 1).
+
+- Do celular, fora do Wi-Fi e sem o parâmetro, você vê a safe page.
+
+- Com o parâmetro, a oferta abre.
+
+- Em **Logs › Requisições**, cada acesso mostra a **Regra do firewall** que decidiu.
+
+Acompanhe o resultado no topo da tela **Filtro** ou adicione o card **Filtro** a um [dashboard](https://docs.trackup.me/dashboards).
+
+---
+
+# Montar um dashboard de lucro
+
+URL: https://docs.trackup.me/tutorial-dashboard-lucro
+
+> Monte um painel diário com lucro, ROAS, funil e as campanhas que mais vendem.
+
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie o dashboard Lucro diário com os cards de lucro, vendas ao longo do tempo, funil, status de pagamentos e vendas por fonte de tráfego."
+
+Neste tutorial você monta um dashboard para abrir todo dia e responder três perguntas: quanto lucrei, onde o funil está vazando e de onde vieram as vendas.
+
+## O que você vai precisar
+
+- Vendas chegando pelas [plataformas de venda](https://docs.trackup.me/plataformas-de-venda).
+
+- A conta de anúncios conectada no [Gerenciador de anúncios](https://docs.trackup.me/gerenciador-de-anuncios). Sem ela, o card de lucro mostra despesas zeradas.
+
+## 1. Crie o dashboard
+
+- **Novo dashboard**
+		Em **Dashboard**, clique em **Novo dashboard** e dê o nome Lucro diário.
+
+- **Limpe o layout inicial**
+		Clique em **Editar layout** e remova os cards que não vai usar.
+
+## 2. Adicione os cards
+
+Clique em **Adicionar card** e marque, na ordem:
+
+	Card | Pergunta que responde |
+
+		Lucro | Quanto entrou, quanto saiu em anúncio, lucro e ROAS. |
+
+		Vendas | Como as vendas se distribuem no período. |
+
+		Funil | Em que etapa as pessoas desistem. |
+
+		Venda por fonte de tráfego | Qual canal traz mais receita. |
+
+		Vendas por UTM | Quais campanhas e anúncios vendem (aba Campanha ou Conteúdo). |
+
+		Status de pagamentos | Quanto está pendente, pago, reembolsado ou em chargeback. |
+
+		Acessos e vendas por horário | Em que horas o público compra. |
+
+Cards selecionados no catálogo
+
+## 3. Ajuste o funil
+
+- **Abra o funil**
+		No card **Funil**, clique em **Personalizar funil**.
+
+- **Escolha as etapas**
+		Para uma VSL: impressões, ad click, page view, initiate checkout e purchase. Se a página envia um evento como `vsl_pitch` pelo [script](https://docs.trackup.me/script), clique em **Adicionar evento customizado** e coloque entre page view e initiate checkout.
+
+		Personalização do funil
+
+- **Salve**
+		Salve o funil e organize os cards arrastando pela alça. Coloque o Lucro no topo. Salve o layout.
+
+## 4. Leia todo dia
+
+- **Escolha o período**
+		Use Hoje durante o dia e Ontem pela manhã, para ver o dia fechado.
+
+- **Comece pelo lucro**
+		ROAS abaixo de 1 significa que o anúncio custou mais do que vendeu. Lembre que reembolsos e taxas da plataforma não entram nas despesas.
+
+- **Ache o vazamento**
+		No funil, compare as etapas. Muito ad click e pouco page view indica página lenta ou bloqueio. Muito page view e pouco initiate checkout indica problema de oferta ou de página. Muito initiate checkout e pouco purchase aponta para o checkout.
+
+- **Desça até o anúncio**
+		Em **Vendas por UTM**, veja as campanhas e os anúncios que vendem. Para agir (pausar ou escalar), abra o [Gerenciador de anúncios](https://docs.trackup.me/gerenciador-de-anuncios).
+
+Dashboard Lucro diário pronto
+
+Crie um segundo dashboard, Qualidade do tráfego, com Acessos reais, Acessos de bots, Filtro e Acessos por dispositivo, para acompanhar a proteção das páginas.

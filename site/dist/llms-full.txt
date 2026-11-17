@@ -278,6 +278,8 @@ Requisição de teste registrada em Logs › Requisições
 	[Teste variaçõesDescubra qual página ou checkout converte mais.](https://docs.trackup.me/testes-ab)
 	[Entenda o rastreamentoVeja o caminho completo do clique até a venda.](https://docs.trackup.me/como-funciona)
 
+**Configure pela sua IA.** Depois de criar o time e conectar o domínio, você pode fazer o restante pela sua IA. Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Configure o projeto Online Store com pixel Meta, fonte de tráfego Meta e plataforma Hotmart, e liste o que ainda falta." Cobrança, membros, chaves de API e conexões OAuth continuam no painel.
+
 ---
 
 # Como o Trackup rastreia
@@ -453,6 +455,8 @@ Para dar acesso a um cliente só ao projeto dele, crie uma [chave de API](https:
 URL: https://docs.trackup.me/projetos
 
 > Um projeto reúne domínios, páginas, pixels, regras e relatórios de uma operação.
+
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie o projeto Online Store com a moeda padrão BRL." Depois, peça o restante da configuração na ordem do [Quick Start](https://docs.trackup.me/quick-start). Excluir projeto só pelo painel.
 
 Crie um projeto para cada produto, oferta ou cliente. Os dados de um projeto não se misturam com os de outro: cada um tem seus domínios, suas páginas, seus pixels e seus dashboards.
 
@@ -1098,6 +1102,8 @@ URL: https://docs.trackup.me/paginas
 
 > Crie, hospede e publique landing pages e checkouts no seu domínio, já com rastreamento.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Liste as páginas do projeto Online Store e me diga quais ainda estão em rascunho." Para criar, peça por tipo: um Redirect, um Upload HTML, um Clonar URL ou uma página do Builder.
+
 Uma página é qualquer endereço do seu domínio no Trackup: landing page, pré-venda, VSL ou redirecionamento para um checkout. Toda página tem link próprio e já é rastreada, sem instalar nada. Antes de criar a primeira, [conecte um domínio](https://docs.trackup.me/dominios).
 
 ## Finalidade
@@ -1195,6 +1201,8 @@ Deletar uma página quebra todos os anúncios e testes A/B que apontam para ela.
 URL: https://docs.trackup.me/ofertas
 
 > A oferta é a página de checkout do seu produto. É por ela que a venda volta atribuída ao anúncio.
+
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a oferta Excel Basics Course em /checkout-excel, redirecionando para https://pay.example.com/excel-basics, ligada à plataforma de venda Hotmart, e publique." A IA confere se a plataforma existe antes de criar.
 
 Uma oferta é uma página com finalidade Checkout, ligada a uma [plataforma de venda](https://docs.trackup.me/plataformas-de-venda). Na maioria dos casos ela redireciona para o checkout da plataforma, levando junto o ID do clique e as UTMs. Quando a venda acontece, a plataforma devolve esse ID no webhook e o Trackup liga a venda à campanha.
 
@@ -1349,6 +1357,8 @@ URL: https://docs.trackup.me/upload-html
 
 > Hospede no Trackup uma página que você já tem em HTML.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Envie o arquivo promo.zip como uma página em /promo no projeto Online Store e publique." O limite de 5 MB continua valendo.
+
 Envie um arquivo `.html` ou um `.zip` com a página e os arquivos dela. O Trackup hospeda tudo no seu domínio e a página já sai rastreada.
 
 ## Preparar o arquivo
@@ -1475,6 +1485,8 @@ URL: https://docs.trackup.me/redirect
 
 > Passe o tráfego pelo Trackup e redirecione para uma página hospedada em outro lugar.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie uma página Redirect em /go que leve para https://example.com/obrigado com redirecionamento 301."
+
 Uma página Redirect registra o acesso, aplica o filtro, dispara os eventos e manda o visitante para outra URL. Use quando a página precisa continuar em outro servidor, ou para criar uma [oferta](https://docs.trackup.me/ofertas) que leva ao checkout.
 
 ## Criar
@@ -1515,6 +1527,8 @@ Use `302`, o padrão. Navegadores guardam em cache redirecionamentos `301` e `30
 URL: https://docs.trackup.me/versoes-e-arquivos
 
 > Edite os arquivos de páginas HTML, publique e volte para uma versão anterior quando precisar.
+
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "A página /promo perdeu conversão depois da edição de ontem. Mostre as versões e restaure a última que estava publicada antes dela." A IA confirma com você antes de restaurar e antes de publicar de novo.
 
 Páginas criadas por [Upload HTML](https://docs.trackup.me/upload-html) ou [Clonar URL](https://docs.trackup.me/clonar-url) têm um editor de arquivos e um histórico de versões. Cada alteração gera uma versão nova, e você pode restaurar qualquer uma.
 
@@ -1960,6 +1974,8 @@ URL: https://docs.trackup.me/filtro-basico
 
 > Monte regras de filtro com os critérios mais comuns, sem escrever expressões.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie uma regra no modo básico que bloqueie bots só no link /oferta. Deixe a ação em registrar (log) por enquanto." Comece sempre por registrar: bloquear afeta visitantes reais na hora.
+
 O modo básico cobre os casos mais comuns de proteção. Você liga os filtros que quer, escolhe a ação e, se quiser, limita a regra a alguns links.
 
 ## Filtros disponíveis
@@ -2035,6 +2051,8 @@ Se o anúncio for publicado sem o parâmetro, todo o tráfego cai na regra. Conf
 URL: https://docs.trackup.me/filtro-avancado
 
 > Escreva regras com qualquer campo da requisição, operadores, grupos E/OU e expressões regulares.
+
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie uma regra avançada: se o país for US ou CA e o dispositivo for computador, ou se o User Agent contiver HeadlessChrome, exiba a safe page. Peso 20."
 
 O modo avançado monta a regra como uma expressão. Uma regra tem um ou mais **grupos**. As condições dentro de um grupo se combinam com **E**, e os grupos entre si com **OU**.
 
@@ -2260,6 +2278,8 @@ URL: https://docs.trackup.me/requisicoes
 
 > Veja cada acesso às suas páginas em tempo real, com a decisão do filtro, a origem e os eventos disparados.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Mostre as requisições bloqueadas hoje no caminho /oferta e, para as três mais recentes, o log com a regra que decidiu."
+
 Em **Logs › Requisições** você vê cada requisição que passou pelo Trackup. Use para conferir se o tráfego está chegando, entender por que um visitante foi bloqueado ou se um evento foi enviado ao pixel.
 
 Lista de requisições com filtros
@@ -2305,6 +2325,8 @@ Para depurar uma campanha, abra a URL do anúncio em uma aba anônima e procure 
 URL: https://docs.trackup.me/visitantes
 
 > Acompanhe a jornada de cada visitante, do primeiro clique às compras, reembolsos e chargebacks.
+
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Mostre a jornada do visitante com o e-mail maria@example.com, do primeiro clique até a compra."
 
 O Trackup agrupa as requisições e conversões de uma mesma pessoa em um visitante. Em **Logs › Visitantes**, você pode buscar por e-mail ou telefone e ver tudo o que aquela pessoa fez.
 
@@ -2360,6 +2382,8 @@ URL: https://docs.trackup.me/conversoes
 
 > Todas as vendas recebidas das plataformas de venda, com a atribuição de campanha, conjunto e anúncio.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Liste as conversões de ontem sem Click ID e me diga de qual plataforma de venda vieram."
+
 Em **Logs › Conversões**, a aba **Conversões** lista cada venda recebida pelo webhook das [plataformas de venda](https://docs.trackup.me/plataformas-de-venda).
 
 Lista de conversões
@@ -2414,6 +2438,8 @@ URL: https://docs.trackup.me/reembolsos-e-chargebacks
 
 > Acompanhe as vendas desfeitas e de onde elas vieram.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Quais anúncios geraram mais reembolsos e chargebacks nos últimos 30 dias?"
+
 Quando a plataforma de venda avisa um reembolso ou chargeback pelo webhook, o Trackup registra o evento e liga ele à conversão original. Veja em **Logs › Conversões**, nas abas **Reembolsos** e **Chargebacks**.
 
 Cada linha mostra a **Conversão** de origem e os mesmos dados de atribuição dela, incluindo campanha, conjunto e anúncio. Assim você descobre quais anúncios trazem compradores que pedem reembolso.
@@ -2433,6 +2459,8 @@ A conversão original muda para o status **Reembolsado** ou **Chargeback**, e o 
 URL: https://docs.trackup.me/logs-de-acionadores
 
 > Confira cada evento enviado aos pixels e cada chamada de webhook, com a resposta da plataforma.
+
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Mostre os disparos com erro das últimas 24 horas, de qual acionador vieram e a resposta da plataforma."
 
 Em **Logs › Acionadores** fica o histórico de tudo o que os [acionadores](https://docs.trackup.me/acionadores) executaram: disparos de pixel e chamadas de webhook.
 
@@ -2467,6 +2495,8 @@ Abra um disparo para ver o acionador, o pixel, a URL chamada, o corpo enviado (*
 URL: https://docs.trackup.me/produtos
 
 > Veja os produtos e ofertas que você vende, registrados automaticamente a partir das vendas.
+
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Liste os produtos vendidos no projeto Online Store e a data da primeira venda de cada um."
 
 A tela **Produtos** lista os produtos vendidos nas suas plataformas de venda. Você não precisa cadastrá-los: cada produto aparece quando a primeira venda dele chega pelo webhook.
 
@@ -2705,6 +2735,8 @@ URL: https://docs.trackup.me/tutorial-campanha-meta
 
 > Do zero até a primeira venda atribuída a um anúncio, com pixel via API de Conversões, Hotmart e Gerenciador de anúncios.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Configure o projeto Online Store para anunciar na Meta: crie a fonte de tráfego Meta, um pixel com acionadores de pageview, carrinho, início de checkout e conversão, e a plataforma Hotmart. No fim, me dê a URL do webhook." A conexão da conta de anúncios (OAuth) e o cadastro do webhook na Hotmart ficam com você.
+
 Neste tutorial você configura um funil completo para anunciar na Meta e vender na Hotmart. No fim, cada venda aparece no Trackup com a campanha, o conjunto e o anúncio de origem, e o Purchase chega ao pixel pela API de Conversões.
 
 	**Anúncio**Meta Ads
@@ -2876,6 +2908,8 @@ URL: https://docs.trackup.me/tutorial-dominio-proprio
 
 > Conecte um subdomínio seu ao Trackup pelo provedor de DNS (Cloudflare, Registro.br, GoDaddy, Hostinger, Namecheap e outros) e deixe como domínio primário.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Adicione o domínio lp.seudominio.com ao projeto Online Store e me diga o CNAME para cadastrar. Quando eu avisar, verifique." Só a alteração no DNS é manual.
+
 Neste tutorial você conecta `lp.seudominio.com` ao Trackup. Todas as páginas, ofertas e URLs de webhook passam a usar esse endereço.
 
 ## O que você vai precisar
@@ -3033,6 +3067,8 @@ URL: https://docs.trackup.me/tutorial-landing-builder
 
 > Crie e publique uma página de vendas no editor visual, com botões ligados à oferta e pronta para mobile.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Monte em /vsl-excel uma página de vendas com hero, vídeo, três benefícios, depoimento e botão para o link /checkout-excel, e publique." Depois, ajuste o visual no Builder.
+
 Neste tutorial você monta uma página de vendas com VSL no Builder, liga os botões ao checkout e publica no seu domínio. Nenhum código é necessário, e o rastreamento já vem embutido.
 
 ## O que você vai precisar
@@ -3131,6 +3167,8 @@ Revisão na visualização Mobile
 URL: https://docs.trackup.me/tutorial-site-externo
 
 > Instale o script em uma página do WordPress, Elementor ou outra plataforma e mantenha a atribuição até o checkout.
+
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie uma página Redirect em /go que leve para https://meusite.example.com/vsl, e me diga o snippet do script para colar no site." Colar o script no site é com você.
 
 Sua página de vendas já está no ar em outro lugar, como WordPress, Elementor, Webflow ou Framer. Neste tutorial você faz o tráfego passar pelo Trackup, instala o script e envia eventos do funil sem mudar de hospedagem.
 
@@ -3231,6 +3269,8 @@ URL: https://docs.trackup.me/tutorial-teste-ab
 
 > Compare duas páginas com o mesmo tráfego, acompanhe a confiança estatística e envie tudo para a vencedora.
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie um teste A/B no link /lp com as páginas /lp e /lp-teste, 50% para cada. Daqui a uma semana, mostre o resultado e a confiança, e só promova a vencedora se eu confirmar."
+
 Neste tutorial você descobre qual de duas landing pages vende mais. O anúncio continua o mesmo: o Trackup divide os visitantes entre as versões e mede as vendas de cada uma.
 
 ## O que você vai precisar
@@ -3310,6 +3350,8 @@ Crie duas [ofertas](https://docs.trackup.me/ofertas) (por exemplo, R$ 197 e R$ 2
 URL: https://docs.trackup.me/tutorial-proteger-paginas
 
 > Monte uma proteção em camadas com o Filtro: bloqueio de bots, país, parâmetro secreto e safe page.
+
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie quatro regras no filtro, nesta ordem: liberar o meu IP (peso 1), bloquear bots (10), exibir a safe page para fora do Brasil (20) e bloquear quem abrir /oferta sem o parâmetro secreto (30). Gere o parâmetro e me diga onde colocar."
 
 Neste tutorial você monta, em ordem, quatro regras de filtro para uma página de oferta. Robôs são bloqueados, o tráfego de fora do Brasil vê uma página neutra, e quem tenta abrir a página sem vir do anúncio também.
 
@@ -3403,6 +3445,8 @@ Acompanhe o resultado no topo da tela **Filtro** ou adicione o card **Filtro** a
 URL: https://docs.trackup.me/tutorial-dashboard-lucro
 
 > Monte um painel diário com lucro, ROAS, funil e as campanhas que mais vendem.
+
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie o dashboard Lucro diário com os cards de lucro, vendas ao longo do tempo, funil, status de pagamentos e vendas por fonte de tráfego."
 
 Neste tutorial você monta um dashboard para abrir todo dia e responder três perguntas: quanto lucrei, onde o funil está vazando e de onde vieram as vendas.
 
@@ -3527,6 +3571,8 @@ Primeira vez integrando? Leia antes [como a atribuição de vendas funciona](htt
 URL: https://docs.trackup.me/webhook-generico
 
 > Envie vendas, reembolsos e chargebacks de qualquer checkout ou sistema próprio para o Trackup.
+
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie uma plataforma de venda Webhook genérico no projeto Online Store e me mostre a URL do webhook." O cadastro do webhook no seu sistema continua manual.
 
 Use o webhook genérico quando sua plataforma não tem integração nativa. Seu sistema faz um `POST` JSON a cada venda, devolvendo o `request_id` que o Trackup enviou ao checkout.
 
@@ -3663,6 +3709,8 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 3**Conversão**Ligada ao clique e à campanha
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda ActionPay no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da ActionPay continua com você.
+
 ## Antes de começar
 
 - Um projeto com [domínio primário](https://docs.trackup.me/dominios) configurado. A URL do webhook usa esse domínio.
@@ -3714,6 +3762,8 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 3**Conversão**Ligada ao clique e à campanha
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda AmploPay no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da AmploPay continua com você.
+
 ## Antes de começar
 
 - Um projeto com [domínio primário](https://docs.trackup.me/dominios) configurado. A URL do webhook usa esse domínio.
@@ -3763,6 +3813,8 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 3**Conversão**Ligada ao clique e à campanha
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Appmax no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Appmax continua com você.
+
 ## Antes de começar
 
 - Um projeto com [domínio primário](https://docs.trackup.me/dominios) configurado. A URL do webhook usa esse domínio.
@@ -3811,6 +3863,8 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A Átomo Pay devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
+
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Átomo Pay no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Átomo Pay continua com você.
 
 ## Antes de começar
 
@@ -3867,6 +3921,8 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A Braip devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
+
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Braip no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Braip continua com você.
 
 ## Antes de começar
 
@@ -3926,6 +3982,8 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 3**Conversão**Ligada ao clique e à campanha
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda BuyGoods no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da BuyGoods continua com você.
+
 ## Antes de começar
 
 - Um projeto com [domínio primário](https://docs.trackup.me/dominios) configurado. A URL do webhook usa esse domínio.
@@ -3974,6 +4032,8 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A CartPanda devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
+
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda CartPanda no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da CartPanda continua com você.
 
 ## Antes de começar
 
@@ -4039,6 +4099,8 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 3**Conversão**Ligada ao clique e à campanha
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda DigiPag no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da DigiPag continua com você.
+
 ## Antes de começar
 
 - Um projeto com [domínio primário](https://docs.trackup.me/dominios) configurado. A URL do webhook usa esse domínio.
@@ -4095,6 +4157,8 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 3**Conversão**Ligada ao clique e à campanha
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Digistore24 no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Digistore24 continua com você.
+
 ## Antes de começar
 
 - Um projeto com [domínio primário](https://docs.trackup.me/dominios) configurado. A URL do webhook usa esse domínio.
@@ -4143,6 +4207,8 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A Eduzz devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
+
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Eduzz no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Eduzz continua com você.
 
 ## Antes de começar
 
@@ -4202,6 +4268,8 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 3**Conversão**Ligada ao clique e à campanha
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda GoatPay no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da GoatPay continua com você.
+
 ## Antes de começar
 
 - Um projeto com [domínio primário](https://docs.trackup.me/dominios) configurado. A URL do webhook usa esse domínio.
@@ -4257,6 +4325,8 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A Hotmart devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
+
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Hotmart no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Hotmart continua com você.
 
 ## Antes de começar
 
@@ -4322,6 +4392,8 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 3**Conversão**Ligada ao clique e à campanha
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda InovaPag no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da InovaPag continua com você.
+
 ## Antes de começar
 
 - Um projeto com [domínio primário](https://docs.trackup.me/dominios) configurado. A URL do webhook usa esse domínio.
@@ -4375,6 +4447,8 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A Kirvano devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
+
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Kirvano no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Kirvano continua com você.
 
 ## Antes de começar
 
@@ -4436,6 +4510,8 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 3**Conversão**Ligada ao clique e à campanha
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Kiwify no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Kiwify continua com você.
+
 ## Antes de começar
 
 - Um projeto com [domínio primário](https://docs.trackup.me/dominios) configurado. A URL do webhook usa esse domínio.
@@ -4494,6 +4570,8 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 3**Conversão**Ligada ao clique e à campanha
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda LastLink no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da LastLink continua com você.
+
 ## Antes de começar
 
 - Um projeto com [domínio primário](https://docs.trackup.me/dominios) configurado. A URL do webhook usa esse domínio.
@@ -4544,6 +4622,8 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A Luna Checkout devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
+
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Luna Checkout no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Luna Checkout continua com você.
 
 ## Antes de começar
 
@@ -4605,6 +4685,8 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 3**Conversão**Ligada ao clique e à campanha
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Monetizze no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Monetizze continua com você.
+
 ## Antes de começar
 
 - Um projeto com [domínio primário](https://docs.trackup.me/dominios) configurado. A URL do webhook usa esse domínio.
@@ -4660,6 +4742,8 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A Mundpay devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
+
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Mundpay no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Mundpay continua com você.
 
 ## Antes de começar
 
@@ -4749,6 +4833,8 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 3**Conversão**Ligada ao clique e à campanha
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Pague.io no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Pague.io continua com você.
+
 ## Antes de começar
 
 - Um projeto com [domínio primário](https://docs.trackup.me/dominios) configurado. A URL do webhook usa esse domínio.
@@ -4797,6 +4883,8 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A Paradise devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
+
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Paradise no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Paradise continua com você.
 
 ## Antes de começar
 
@@ -4853,6 +4941,8 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A Payt devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
+
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Payt no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Payt continua com você.
 
 ## Antes de começar
 
@@ -4914,6 +5004,8 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 3**Conversão**Ligada ao clique e à campanha
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda PerfectPay no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da PerfectPay continua com você.
+
 ## Antes de começar
 
 - Um projeto com [domínio primário](https://docs.trackup.me/dominios) configurado. A URL do webhook usa esse domínio.
@@ -4972,6 +5064,8 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 3**Conversão**Ligada ao clique e à campanha
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda ProofPay no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da ProofPay continua com você.
+
 ## Antes de começar
 
 - Um projeto com [domínio primário](https://docs.trackup.me/dominios) configurado. A URL do webhook usa esse domínio.
@@ -5028,6 +5122,8 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 3**Conversão**Ligada ao clique e à campanha
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Shopify no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Shopify continua com você.
+
 ## Antes de começar
 
 - Um projeto com [domínio primário](https://docs.trackup.me/dominios) configurado. A URL do webhook usa esse domínio.
@@ -5076,6 +5172,8 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A Stripe devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
+
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Stripe no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Stripe continua com você.
 
 ## Antes de começar
 
@@ -5128,6 +5226,8 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 3**Conversão**Ligada ao clique e à campanha
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Ticto no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Ticto continua com você.
+
 ## Antes de começar
 
 - Um projeto com [domínio primário](https://docs.trackup.me/dominios) configurado. A URL do webhook usa esse domínio.
@@ -5176,6 +5276,8 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A TriboPay devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
+
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda TriboPay no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da TriboPay continua com você.
 
 ## Antes de começar
 
@@ -5232,6 +5334,8 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A Upag devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
+
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Upag no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Upag continua com você.
 
 ## Antes de começar
 
@@ -5297,6 +5401,8 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 3**Conversão**Ligada ao clique e à campanha
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Vega Checkout no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Vega Checkout continua com você.
+
 ## Antes de começar
 
 - Um projeto com [domínio primário](https://docs.trackup.me/dominios) configurado. A URL do webhook usa esse domínio.
@@ -5359,6 +5465,8 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 
 3**Conversão**Ligada ao clique e à campanha
 
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Yampi no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Yampi continua com você.
+
 ## Antes de começar
 
 - Um projeto com [domínio primário](https://docs.trackup.me/dominios) configurado. A URL do webhook usa esse domínio.
@@ -5418,6 +5526,8 @@ A integração tem duas partes: o Trackup envia o ID do clique para o checkout d
 2**Webhook**A Zedy devolve o ID a cada venda
 
 3**Conversão**Ligada ao clique e à campanha
+
+**Configure pela sua IA.** Conecte seu assistente pelo [MCP](https://docs.trackup.me/conectar-mcp) e peça: "Crie a plataforma de venda Zedy no projeto Online Store e me dê a URL do webhook." O cadastro da URL dentro da Zedy continua com você.
 
 ## Antes de começar
 

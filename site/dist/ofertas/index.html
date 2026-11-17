@@ -41,7 +41,8 @@
 			<h1 class="page-title">Ofertas</h1>
 			<p class="page-desc">A oferta é a página de checkout do seu produto. É por ela que a venda volta atribuída ao anúncio.</p>
 			<script>TU.actions()</script>
-			<p>Uma oferta é uma página com finalidade <em>Checkout</em>, ligada a uma <a href="/plataformas-de-venda">plataforma de venda</a>. Na maioria dos casos ela redireciona para o checkout da plataforma, levando junto o ID do clique e as UTMs. Quando a venda acontece, a plataforma devolve esse ID no webhook e o Trackup liga a venda à campanha.</p>
+			<div class="callout tip"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.1 14c.2-1 .7-1.7 1.5-2.5A6 6 0 1 0 6 8c0 1.4.4 2.6 1.4 3.5.8.8 1.3 1.5 1.5 2.5"/></svg><div><p><strong>Configure pela sua IA.</strong> Conecte seu assistente pelo <a href="/conectar-mcp">MCP</a> e peça: <em>"Crie a oferta Excel Basics Course em /checkout-excel, redirecionando para https://pay.example.com/excel-basics, ligada à plataforma de venda Hotmart, e publique."</em> A IA confere se a plataforma existe antes de criar.</p></div></div>
+<p>Uma oferta é uma página com finalidade <em>Checkout</em>, ligada a uma <a href="/plataformas-de-venda">plataforma de venda</a>. Na maioria dos casos ela redireciona para o checkout da plataforma, levando junto o ID do clique e as UTMs. Quando a venda acontece, a plataforma devolve esse ID no webhook e o Trackup liga a venda à campanha.</p>
 
 <div class="flow">
 	<div class="fnode"><i class="fa"></i><span class="fnode-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg></span><div class="fnode-body"><b>Botão de compra</b><span>na landing page</span></div></div>
@@ -66,7 +67,7 @@
 				<tr><td>Caminho</td><td>Opcional, como <code>/checkout</code>.</td></tr>
 			</tbody>
 		</table>
-		<figure class="shot"><img src="https://assets.trackup.cloud/assets/pages/9d029c4c-402a-4f7c-aac9-b6a86575c0f1/img/ofertas-criar.png" alt="Criação de uma oferta" loading="lazy"><figcaption>Criação de uma oferta</figcaption></figure></shot>
+		<figure class="shot"><img src="https://assets.trackup.cloud/assets/pages/2e1cbc4b-c7b6-4295-baf2-b2e46f5c8f5b/img/ofertas-criar.png" alt="Criação de uma oferta" loading="lazy"><figcaption>Criação de uma oferta</figcaption></figure></shot>
 	</li>
 	<li><span class="step-title">Copie o link da oferta</span>
 		<p>Na lista de <strong>Ofertas</strong>, clique no botão de copiar da coluna <strong>Link</strong>.</p>
@@ -81,7 +82,7 @@
 
 <h2 id="varios-checkouts-para-o-mesmo-produto">Vários checkouts para o mesmo produto<a class="anchor" href="#varios-checkouts-para-o-mesmo-produto" aria-label="Link para esta seção">#</a></h2>
 <p>Crie uma oferta para cada checkout. Um produto pode ter, por exemplo, <code>Product A - Checkout 1</code> (preço cheio) e <code>Product A - Checkout 2</code> (preço com desconto, outra cor). Cada oferta tem seu link e seu caminho, e todas aparecem na lista de <strong>Ofertas</strong>.</p>
-<figure class="shot"><img src="https://assets.trackup.cloud/assets/pages/9d029c4c-402a-4f7c-aac9-b6a86575c0f1/img/ofertas-lista.png" alt="Lista de ofertas" loading="lazy"><figcaption>Lista de ofertas</figcaption></figure></shot>
+<figure class="shot"><img src="https://assets.trackup.cloud/assets/pages/2e1cbc4b-c7b6-4295-baf2-b2e46f5c8f5b/img/ofertas-lista.png" alt="Lista de ofertas" loading="lazy"><figcaption>Lista de ofertas</figcaption></figure></shot>
 
 <h2 id="oferta-com-pagina-propria">Oferta com página própria<a class="anchor" href="#oferta-com-pagina-propria" aria-label="Link para esta seção">#</a></h2>
 <p>Além de Redirect, uma oferta pode ser criada com Builder, Upload HTML ou Clonar URL, por exemplo para um pré-checkout. Nesse caso, o botão dessa página deve levar ao checkout da plataforma.</p>

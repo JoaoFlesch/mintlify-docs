@@ -6,6 +6,7 @@ description: Receba vendas, reembolsos e chargebacks da Eduzz no Trackup, atribu
 ---
 <p>A integração tem duas partes: o Trackup envia o ID do clique para o checkout da Eduzz, e a Eduzz devolve esse ID no webhook de cada venda.</p>
 <flow><fstep n="1" icon="cart" title="Checkout">O Trackup envia o ID do clique para a Eduzz</fstep><fstep n="2" icon="plug" title="Webhook">A Eduzz devolve o ID a cada venda</fstep><fstep n="3" icon="dollar" title="Conversão" tone="ok">Ligada ao clique e à campanha</fstep></flow>
+<callout type="tip"><p><strong>Configure pela sua IA.</strong> Conecte seu assistente pelo <a href="/conectar-mcp">MCP</a> e peça: <em>"Crie a plataforma de venda Eduzz no projeto Online Store e me dê a URL do webhook."</em> O cadastro da URL dentro da Eduzz continua com você.</p></callout>
 <h2>Antes de começar</h2><ul><li>Um projeto com <a href="/dominios">domínio primário</a> configurado. A URL do webhook usa esse domínio.</li><li>Acesso de administrador à sua conta na Eduzz.</li></ul>
 <h2>1. Crie a plataforma no Trackup</h2><steps>
 <step title="Adicione a plataforma"><p>Vá em <strong>Integração › Plataformas de vendas</strong>, clique em <strong>Adicionar plataforma</strong> e escolha <strong>Eduzz</strong>.</p></step>

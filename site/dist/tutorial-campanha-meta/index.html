@@ -41,7 +41,8 @@
 			<h1 class="page-title">Rastrear uma campanha da Meta com Hotmart</h1>
 			<p class="page-desc">Do zero até a primeira venda atribuída a um anúncio, com pixel via API de Conversões, Hotmart e Gerenciador de anúncios.</p>
 			<script>TU.actions()</script>
-			<p>Neste tutorial você configura um funil completo para anunciar na Meta e vender na Hotmart. No fim, cada venda aparece no Trackup com a campanha, o conjunto e o anúncio de origem, e o Purchase chega ao pixel pela API de Conversões.</p>
+			<div class="callout tip"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.1 14c.2-1 .7-1.7 1.5-2.5A6 6 0 1 0 6 8c0 1.4.4 2.6 1.4 3.5.8.8 1.3 1.5 1.5 2.5"/></svg><div><p><strong>Configure pela sua IA.</strong> Conecte seu assistente pelo <a href="/conectar-mcp">MCP</a> e peça: <em>"Configure o projeto Online Store para anunciar na Meta: crie a fonte de tráfego Meta, um pixel com acionadores de pageview, carrinho, início de checkout e conversão, e a plataforma Hotmart. No fim, me dê a URL do webhook."</em> A conexão da conta de anúncios (OAuth) e o cadastro do webhook na Hotmart ficam com você.</p></div></div>
+<p>Neste tutorial você configura um funil completo para anunciar na Meta e vender na Hotmart. No fim, cada venda aparece no Trackup com a campanha, o conjunto e o anúncio de origem, e o Purchase chega ao pixel pela API de Conversões.</p>
 <div class="flow">
 	<div class="fnode"><i class="fa"></i><span class="fnode-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></span><div class="fnode-body"><b>Anúncio</b><span>Meta Ads</span></div></div>
 	<div class="fnode"><i class="fa"></i><span class="fnode-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h5"/></svg></span><div class="fnode-body"><b>Landing page</b><span>no seu domínio</span></div></div>
@@ -82,7 +83,7 @@
 				<tr><td>Test Event Code</td><td>O código do passo 3</td></tr>
 			</tbody>
 		</table>
-		<figure class="shot"><img src="https://assets.trackup.cloud/assets/pages/9d029c4c-402a-4f7c-aac9-b6a86575c0f1/img/tut-meta-pixel.webp" alt="Pixel da Meta com código de teste" loading="lazy"><figcaption>Pixel da Meta com código de teste</figcaption></figure></shot>
+		<figure class="shot"><img src="https://assets.trackup.cloud/assets/pages/2e1cbc4b-c7b6-4295-baf2-b2e46f5c8f5b/img/tut-meta-pixel.webp" alt="Pixel da Meta com código de teste" loading="lazy"><figcaption>Pixel da Meta com código de teste</figcaption></figure></shot>
 	</li>
 	<li><span class="step-title">Confira os acionadores</span>
 		<p>Abra <strong>Acionadores</strong>. O Trackup criou três para o pixel: <strong>Pageview</strong>, <strong>Start checkout</strong> e <strong>Conversão</strong>. Não precisa mexer.</p>
@@ -165,7 +166,7 @@
 	</li>
 	<li><span class="step-title">Faça uma compra de teste</span>
 		<p>Conclua uma compra (pode reembolsar depois). Em <strong>Logs › Conversões</strong>, a venda aparece com a campanha <em>teste</em>, e o <code>Purchase</code> aparece em <strong>Logs › Acionadores</strong> com sucesso.</p>
-		<figure class="shot"><img src="https://assets.trackup.cloud/assets/pages/9d029c4c-402a-4f7c-aac9-b6a86575c0f1/img/tut-meta-conversao.png" alt="Venda de teste atribuída" loading="lazy"><figcaption>Venda de teste atribuída</figcaption></figure></shot>
+		<figure class="shot"><img src="https://assets.trackup.cloud/assets/pages/2e1cbc4b-c7b6-4295-baf2-b2e46f5c8f5b/img/tut-meta-conversao.png" alt="Venda de teste atribuída" loading="lazy"><figcaption>Venda de teste atribuída</figcaption></figure></shot>
 	</li>
 	<li><span class="step-title">Tire o modo de teste</span>
 		<p>Edite o pixel em <strong>Integração › Pixels</strong> e apague o <strong>Test Event Code</strong>. Com ele preenchido, os eventos não contam para as campanhas.</p>
